@@ -27,7 +27,7 @@ public final class GetVpcEndpointServiceResult {
      */
     private String arn;
     /**
-     * @return Availability Zones in which the service is available.
+     * @return Availability Zones in which the service is available. Not available for endpoint services in other regions.
      * 
      */
     private List<String> availabilityZones;
@@ -62,6 +62,11 @@ public final class GetVpcEndpointServiceResult {
      * 
      */
     private List<String> privateDnsNames;
+    /**
+     * @return Region of the endpoint service.
+     * 
+     */
+    private String region;
     private @Nullable String service;
     /**
      * @return ID of the endpoint service.
@@ -69,6 +74,7 @@ public final class GetVpcEndpointServiceResult {
      */
     private String serviceId;
     private String serviceName;
+    private @Nullable List<String> serviceRegions;
     private String serviceType;
     /**
      * @return The supported IP address types.
@@ -102,7 +108,7 @@ public final class GetVpcEndpointServiceResult {
         return this.arn;
     }
     /**
-     * @return Availability Zones in which the service is available.
+     * @return Availability Zones in which the service is available. Not available for endpoint services in other regions.
      * 
      */
     public List<String> availabilityZones() {
@@ -153,6 +159,13 @@ public final class GetVpcEndpointServiceResult {
     public List<String> privateDnsNames() {
         return this.privateDnsNames;
     }
+    /**
+     * @return Region of the endpoint service.
+     * 
+     */
+    public String region() {
+        return this.region;
+    }
     public Optional<String> service() {
         return Optional.ofNullable(this.service);
     }
@@ -165,6 +178,9 @@ public final class GetVpcEndpointServiceResult {
     }
     public String serviceName() {
         return this.serviceName;
+    }
+    public List<String> serviceRegions() {
+        return this.serviceRegions == null ? List.of() : this.serviceRegions;
     }
     public String serviceType() {
         return this.serviceType;
@@ -210,9 +226,11 @@ public final class GetVpcEndpointServiceResult {
         private String owner;
         private String privateDnsName;
         private List<String> privateDnsNames;
+        private String region;
         private @Nullable String service;
         private String serviceId;
         private String serviceName;
+        private @Nullable List<String> serviceRegions;
         private String serviceType;
         private List<String> supportedIpAddressTypes;
         private Map<String,String> tags;
@@ -230,9 +248,11 @@ public final class GetVpcEndpointServiceResult {
     	      this.owner = defaults.owner;
     	      this.privateDnsName = defaults.privateDnsName;
     	      this.privateDnsNames = defaults.privateDnsNames;
+    	      this.region = defaults.region;
     	      this.service = defaults.service;
     	      this.serviceId = defaults.serviceId;
     	      this.serviceName = defaults.serviceName;
+    	      this.serviceRegions = defaults.serviceRegions;
     	      this.serviceType = defaults.serviceType;
     	      this.supportedIpAddressTypes = defaults.supportedIpAddressTypes;
     	      this.tags = defaults.tags;
@@ -330,6 +350,14 @@ public final class GetVpcEndpointServiceResult {
             return privateDnsNames(List.of(privateDnsNames));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder service(@Nullable String service) {
 
             this.service = service;
@@ -350,6 +378,15 @@ public final class GetVpcEndpointServiceResult {
             }
             this.serviceName = serviceName;
             return this;
+        }
+        @CustomType.Setter
+        public Builder serviceRegions(@Nullable List<String> serviceRegions) {
+
+            this.serviceRegions = serviceRegions;
+            return this;
+        }
+        public Builder serviceRegions(String... serviceRegions) {
+            return serviceRegions(List.of(serviceRegions));
         }
         @CustomType.Setter
         public Builder serviceType(String serviceType) {
@@ -398,9 +435,11 @@ public final class GetVpcEndpointServiceResult {
             _resultValue.owner = owner;
             _resultValue.privateDnsName = privateDnsName;
             _resultValue.privateDnsNames = privateDnsNames;
+            _resultValue.region = region;
             _resultValue.service = service;
             _resultValue.serviceId = serviceId;
             _resultValue.serviceName = serviceName;
+            _resultValue.serviceRegions = serviceRegions;
             _resultValue.serviceType = serviceType;
             _resultValue.supportedIpAddressTypes = supportedIpAddressTypes;
             _resultValue.tags = tags;

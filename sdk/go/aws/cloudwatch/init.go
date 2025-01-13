@@ -51,12 +51,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LogAnomalyDetector{}
 	case "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy":
 		r = &LogDataProtectionPolicy{}
+	case "aws:cloudwatch/logDelivery:LogDelivery":
+		r = &LogDelivery{}
+	case "aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination":
+		r = &LogDeliveryDestination{}
+	case "aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy":
+		r = &LogDeliveryDestinationPolicy{}
+	case "aws:cloudwatch/logDeliverySource:LogDeliverySource":
+		r = &LogDeliverySource{}
 	case "aws:cloudwatch/logDestination:LogDestination":
 		r = &LogDestination{}
 	case "aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy":
 		r = &LogDestinationPolicy{}
 	case "aws:cloudwatch/logGroup:LogGroup":
 		r = &LogGroup{}
+	case "aws:cloudwatch/logIndexPolicy:LogIndexPolicy":
+		r = &LogIndexPolicy{}
 	case "aws:cloudwatch/logMetricFilter:LogMetricFilter":
 		r = &LogMetricFilter{}
 	case "aws:cloudwatch/logResourcePolicy:LogResourcePolicy":
@@ -161,6 +171,26 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"cloudwatch/logDelivery",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/logDeliveryDestination",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/logDeliveryDestinationPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/logDeliverySource",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"cloudwatch/logDestination",
 		&module{version},
 	)
@@ -172,6 +202,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudwatch/logGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/logIndexPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

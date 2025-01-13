@@ -15,6 +15,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'FleetComputeConfigurationArgs',
+    'FleetComputeConfigurationArgsDict',
     'FleetScalingConfigurationArgs',
     'FleetScalingConfigurationArgsDict',
     'FleetScalingConfigurationTargetTrackingScalingConfigArgs',
@@ -78,6 +80,98 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class FleetComputeConfigurationArgsDict(TypedDict):
+        disk: NotRequired[pulumi.Input[int]]
+        """
+        Amount of disk space of the instance type included in the fleet.
+        """
+        machine_type: NotRequired[pulumi.Input[str]]
+        """
+        Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+        """
+        memory: NotRequired[pulumi.Input[int]]
+        """
+        Amount of memory of the instance type included in the fleet.
+        """
+        vcpu: NotRequired[pulumi.Input[int]]
+        """
+        Number of vCPUs of the instance type included in the fleet.
+        """
+elif False:
+    FleetComputeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetComputeConfigurationArgs:
+    def __init__(__self__, *,
+                 disk: Optional[pulumi.Input[int]] = None,
+                 machine_type: Optional[pulumi.Input[str]] = None,
+                 memory: Optional[pulumi.Input[int]] = None,
+                 vcpu: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] disk: Amount of disk space of the instance type included in the fleet.
+        :param pulumi.Input[str] machine_type: Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+        :param pulumi.Input[int] memory: Amount of memory of the instance type included in the fleet.
+        :param pulumi.Input[int] vcpu: Number of vCPUs of the instance type included in the fleet.
+        """
+        if disk is not None:
+            pulumi.set(__self__, "disk", disk)
+        if machine_type is not None:
+            pulumi.set(__self__, "machine_type", machine_type)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if vcpu is not None:
+            pulumi.set(__self__, "vcpu", vcpu)
+
+    @property
+    @pulumi.getter
+    def disk(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of disk space of the instance type included in the fleet.
+        """
+        return pulumi.get(self, "disk")
+
+    @disk.setter
+    def disk(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk", value)
+
+    @property
+    @pulumi.getter(name="machineType")
+    def machine_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+        """
+        return pulumi.get(self, "machine_type")
+
+    @machine_type.setter
+    def machine_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "machine_type", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of memory of the instance type included in the fleet.
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "memory", value)
+
+    @property
+    @pulumi.getter
+    def vcpu(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of vCPUs of the instance type included in the fleet.
+        """
+        return pulumi.get(self, "vcpu")
+
+    @vcpu.setter
+    def vcpu(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vcpu", value)
+
 
 if not MYPY:
     class FleetScalingConfigurationArgsDict(TypedDict):

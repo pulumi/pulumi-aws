@@ -18,14 +18,14 @@ public final class PeeringConnectionOptionsState extends com.pulumi.resources.Re
     public static final PeeringConnectionOptionsState Empty = new PeeringConnectionOptionsState();
 
     /**
-     * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
+     * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
      * 
      */
     @Import(name="accepter")
     private @Nullable Output<PeeringConnectionOptionsAccepterArgs> accepter;
 
     /**
-     * @return An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
+     * @return An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
      * 
      */
     public Optional<Output<PeeringConnectionOptionsAccepterArgs>> accepter() {
@@ -33,14 +33,14 @@ public final class PeeringConnectionOptionsState extends com.pulumi.resources.Re
     }
 
     /**
-     * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
+     * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
      * 
      */
     @Import(name="requester")
     private @Nullable Output<PeeringConnectionOptionsRequesterArgs> requester;
 
     /**
-     * @return A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
+     * @return A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
      * 
      */
     public Optional<Output<PeeringConnectionOptionsRequesterArgs>> requester() {
@@ -89,7 +89,7 @@ public final class PeeringConnectionOptionsState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param accepter An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
+         * @param accepter An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class PeeringConnectionOptionsState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param accepter An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
+         * @param accepter An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class PeeringConnectionOptionsState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param requester A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
+         * @param requester A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class PeeringConnectionOptionsState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param requester A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
+         * @param requester A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
          * 
          * @return builder
          * 

@@ -50,6 +50,11 @@ export type ListenerRule = import("./listenerRule").ListenerRule;
 export const ListenerRule: typeof import("./listenerRule").ListenerRule = null as any;
 utilities.lazyLoad(exports, ["ListenerRule"], () => require("./listenerRule"));
 
+export { ResourceGatewayArgs, ResourceGatewayState } from "./resourceGateway";
+export type ResourceGateway = import("./resourceGateway").ResourceGateway;
+export const ResourceGateway: typeof import("./resourceGateway").ResourceGateway = null as any;
+utilities.lazyLoad(exports, ["ResourceGateway"], () => require("./resourceGateway"));
+
 export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
@@ -98,6 +103,8 @@ const _module = {
                 return new Listener(name, <any>undefined, { urn })
             case "aws:vpclattice/listenerRule:ListenerRule":
                 return new ListenerRule(name, <any>undefined, { urn })
+            case "aws:vpclattice/resourceGateway:ResourceGateway":
+                return new ResourceGateway(name, <any>undefined, { urn })
             case "aws:vpclattice/resourcePolicy:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws:vpclattice/service:Service":
@@ -121,6 +128,7 @@ pulumi.runtime.registerResourceModule("aws", "vpclattice/accessLogSubscription",
 pulumi.runtime.registerResourceModule("aws", "vpclattice/authPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/listener", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/listenerRule", _module)
+pulumi.runtime.registerResourceModule("aws", "vpclattice/resourceGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/service", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetwork", _module)

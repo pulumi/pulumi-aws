@@ -7,7 +7,7 @@ Subject: [PATCH] Workaround SSM Parameter tier bug
 - Disable diff suppression & counteractions
 
 diff --git a/internal/service/ssm/parameter.go b/internal/service/ssm/parameter.go
-index a5fe04fa270..f8d9fca0603 100644
+index a5fe04fa27..f8d9fca060 100644
 --- a/internal/service/ssm/parameter.go
 +++ b/internal/service/ssm/parameter.go
 @@ -93,15 +93,17 @@ func resourceParameter() *schema.Resource {

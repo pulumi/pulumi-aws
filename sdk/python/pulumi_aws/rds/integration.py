@@ -25,6 +25,7 @@ class IntegrationArgs:
                  source_arn: pulumi.Input[str],
                  target_arn: pulumi.Input[str],
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 data_filter: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['IntegrationTimeoutsArgs']] = None):
@@ -35,8 +36,17 @@ class IntegrationArgs:
         :param pulumi.Input[str] target_arn: ARN of the Redshift data warehouse to use as the target for replication.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
-        :param pulumi.Input[str] kms_key_id: KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data.
+               For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+               You can only include this parameter if you specify the `kms_key_id` parameter.
+        :param pulumi.Input[str] data_filter: Data filters for the integration.
+               These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+               The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+               Multiple expressions are separated by a comma.
+               See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+        :param pulumi.Input[str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
+               If you don't specify an encryption key, RDS uses a default AWS owned key.
+               If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "integration_name", integration_name)
@@ -44,6 +54,8 @@ class IntegrationArgs:
         pulumi.set(__self__, "target_arn", target_arn)
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
+        if data_filter is not None:
+            pulumi.set(__self__, "data_filter", data_filter)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if tags is not None:
@@ -93,7 +105,9 @@ class IntegrationArgs:
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+        Set of non-secret key–value pairs that contains additional contextual information about the data.
+        For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+        You can only include this parameter if you specify the `kms_key_id` parameter.
         """
         return pulumi.get(self, "additional_encryption_context")
 
@@ -102,10 +116,28 @@ class IntegrationArgs:
         pulumi.set(self, "additional_encryption_context", value)
 
     @property
+    @pulumi.getter(name="dataFilter")
+    def data_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data filters for the integration.
+        These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+        The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+        Multiple expressions are separated by a comma.
+        See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+        """
+        return pulumi.get(self, "data_filter")
+
+    @data_filter.setter
+    def data_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_filter", value)
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        KMS key identifier for the key to use to encrypt the integration.
+        If you don't specify an encryption key, RDS uses a default AWS owned key.
+        If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -140,6 +172,7 @@ class _IntegrationState:
     def __init__(__self__, *,
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 data_filter: Optional[pulumi.Input[str]] = None,
                  integration_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
@@ -149,10 +182,19 @@ class _IntegrationState:
                  timeouts: Optional[pulumi.Input['IntegrationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Integration resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data.
+               For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+               You can only include this parameter if you specify the `kms_key_id` parameter.
         :param pulumi.Input[str] arn: ARN of the Integration.
+        :param pulumi.Input[str] data_filter: Data filters for the integration.
+               These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+               The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+               Multiple expressions are separated by a comma.
+               See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
         :param pulumi.Input[str] integration_name: Name of the integration.
-        :param pulumi.Input[str] kms_key_id: KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        :param pulumi.Input[str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
+               If you don't specify an encryption key, RDS uses a default AWS owned key.
+               If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         :param pulumi.Input[str] source_arn: ARN of the database to use as the source for replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -164,6 +206,8 @@ class _IntegrationState:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if data_filter is not None:
+            pulumi.set(__self__, "data_filter", data_filter)
         if integration_name is not None:
             pulumi.set(__self__, "integration_name", integration_name)
         if kms_key_id is not None:
@@ -186,7 +230,9 @@ class _IntegrationState:
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+        Set of non-secret key–value pairs that contains additional contextual information about the data.
+        For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+        You can only include this parameter if you specify the `kms_key_id` parameter.
         """
         return pulumi.get(self, "additional_encryption_context")
 
@@ -207,6 +253,22 @@ class _IntegrationState:
         pulumi.set(self, "arn", value)
 
     @property
+    @pulumi.getter(name="dataFilter")
+    def data_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data filters for the integration.
+        These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+        The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+        Multiple expressions are separated by a comma.
+        See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+        """
+        return pulumi.get(self, "data_filter")
+
+    @data_filter.setter
+    def data_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_filter", value)
+
+    @property
     @pulumi.getter(name="integrationName")
     def integration_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -222,7 +284,9 @@ class _IntegrationState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        KMS key identifier for the key to use to encrypt the integration.
+        If you don't specify an encryption key, RDS uses a default AWS owned key.
+        If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -297,6 +361,7 @@ class Integration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 data_filter: Optional[pulumi.Input[str]] = None,
                  integration_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
@@ -384,9 +449,18 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data.
+               For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+               You can only include this parameter if you specify the `kms_key_id` parameter.
+        :param pulumi.Input[str] data_filter: Data filters for the integration.
+               These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+               The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+               Multiple expressions are separated by a comma.
+               See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
         :param pulumi.Input[str] integration_name: Name of the integration.
-        :param pulumi.Input[str] kms_key_id: KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        :param pulumi.Input[str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
+               If you don't specify an encryption key, RDS uses a default AWS owned key.
+               If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         :param pulumi.Input[str] source_arn: ARN of the database to use as the source for replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target_arn: ARN of the Redshift data warehouse to use as the target for replication.
@@ -493,6 +567,7 @@ class Integration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 data_filter: Optional[pulumi.Input[str]] = None,
                  integration_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
@@ -509,6 +584,7 @@ class Integration(pulumi.CustomResource):
             __props__ = IntegrationArgs.__new__(IntegrationArgs)
 
             __props__.__dict__["additional_encryption_context"] = additional_encryption_context
+            __props__.__dict__["data_filter"] = data_filter
             if integration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_name'")
             __props__.__dict__["integration_name"] = integration_name
@@ -535,6 +611,7 @@ class Integration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            data_filter: Optional[pulumi.Input[str]] = None,
             integration_name: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             source_arn: Optional[pulumi.Input[str]] = None,
@@ -549,10 +626,19 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: Set of non-secret key–value pairs that contains additional contextual information about the data.
+               For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+               You can only include this parameter if you specify the `kms_key_id` parameter.
         :param pulumi.Input[str] arn: ARN of the Integration.
+        :param pulumi.Input[str] data_filter: Data filters for the integration.
+               These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+               The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+               Multiple expressions are separated by a comma.
+               See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
         :param pulumi.Input[str] integration_name: Name of the integration.
-        :param pulumi.Input[str] kms_key_id: KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        :param pulumi.Input[str] kms_key_id: KMS key identifier for the key to use to encrypt the integration.
+               If you don't specify an encryption key, RDS uses a default AWS owned key.
+               If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         :param pulumi.Input[str] source_arn: ARN of the database to use as the source for replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -566,6 +652,7 @@ class Integration(pulumi.CustomResource):
 
         __props__.__dict__["additional_encryption_context"] = additional_encryption_context
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["data_filter"] = data_filter
         __props__.__dict__["integration_name"] = integration_name
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["source_arn"] = source_arn
@@ -579,7 +666,9 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="additionalEncryptionContext")
     def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+        Set of non-secret key–value pairs that contains additional contextual information about the data.
+        For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+        You can only include this parameter if you specify the `kms_key_id` parameter.
         """
         return pulumi.get(self, "additional_encryption_context")
 
@@ -590,6 +679,18 @@ class Integration(pulumi.CustomResource):
         ARN of the Integration.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="dataFilter")
+    def data_filter(self) -> pulumi.Output[str]:
+        """
+        Data filters for the integration.
+        These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+        The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+        Multiple expressions are separated by a comma.
+        See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+        """
+        return pulumi.get(self, "data_filter")
 
     @property
     @pulumi.getter(name="integrationName")
@@ -603,7 +704,9 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[str]:
         """
-        KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        KMS key identifier for the key to use to encrypt the integration.
+        If you don't specify an encryption key, RDS uses a default AWS owned key.
+        If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         """
         return pulumi.get(self, "kms_key_id")
 

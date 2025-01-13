@@ -5,7 +5,7 @@ Subject: [PATCH] restore ECRConn
 
 
 diff --git a/internal/conns/awsclient_extra.go b/internal/conns/awsclient_extra.go
-index 96c809fc475..57bf4c7c944 100644
+index 96c809fc47..57bf4c7c94 100644
 --- a/internal/conns/awsclient_extra.go
 +++ b/internal/conns/awsclient_extra.go
 @@ -6,7 +6,10 @@ package conns

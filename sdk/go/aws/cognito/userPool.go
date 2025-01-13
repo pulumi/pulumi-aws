@@ -146,6 +146,8 @@ type UserPool struct {
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration UserPoolEmailConfigurationPtrOutput `pulumi:"emailConfiguration"`
+	// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Detailed below.
+	EmailMfaConfiguration UserPoolEmailMfaConfigurationPtrOutput `pulumi:"emailMfaConfiguration"`
 	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 	EmailVerificationMessage pulumi.StringOutput `pulumi:"emailVerificationMessage"`
 	// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
@@ -168,6 +170,8 @@ type UserPool struct {
 	PasswordPolicy UserPoolPasswordPolicyOutput `pulumi:"passwordPolicy"`
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayOutput `pulumi:"schemas"`
+	// Configuration block for information about the user pool sign in policy. Detailed below.
+	SignInPolicy UserPoolSignInPolicyOutput `pulumi:"signInPolicy"`
 	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage pulumi.StringPtrOutput `pulumi:"smsAuthenticationMessage"`
 	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
@@ -186,12 +190,16 @@ type UserPool struct {
 	UserAttributeUpdateSettings UserPoolUserAttributeUpdateSettingsPtrOutput `pulumi:"userAttributeUpdateSettings"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrOutput `pulumi:"userPoolAddOns"`
+	// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+	UserPoolTier pulumi.StringOutput `pulumi:"userPoolTier"`
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes pulumi.StringArrayOutput `pulumi:"usernameAttributes"`
 	// Configuration block for username configuration. Detailed below.
 	UsernameConfiguration UserPoolUsernameConfigurationPtrOutput `pulumi:"usernameConfiguration"`
 	// Configuration block for verification message templates. Detailed below.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplateOutput `pulumi:"verificationMessageTemplate"`
+	// Configuration block for web authn configuration. Detailed below.
+	WebAuthnConfiguration UserPoolWebAuthnConfigurationPtrOutput `pulumi:"webAuthnConfiguration"`
 }
 
 // NewUserPool registers a new resource with the given unique name, arguments, and options.
@@ -246,6 +254,8 @@ type userPoolState struct {
 	Domain *string `pulumi:"domain"`
 	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration *UserPoolEmailConfiguration `pulumi:"emailConfiguration"`
+	// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Detailed below.
+	EmailMfaConfiguration *UserPoolEmailMfaConfiguration `pulumi:"emailMfaConfiguration"`
 	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 	EmailVerificationMessage *string `pulumi:"emailVerificationMessage"`
 	// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
@@ -268,6 +278,8 @@ type userPoolState struct {
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas []UserPoolSchema `pulumi:"schemas"`
+	// Configuration block for information about the user pool sign in policy. Detailed below.
+	SignInPolicy *UserPoolSignInPolicy `pulumi:"signInPolicy"`
 	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage *string `pulumi:"smsAuthenticationMessage"`
 	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
@@ -286,12 +298,16 @@ type userPoolState struct {
 	UserAttributeUpdateSettings *UserPoolUserAttributeUpdateSettings `pulumi:"userAttributeUpdateSettings"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
+	// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+	UserPoolTier *string `pulumi:"userPoolTier"`
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes []string `pulumi:"usernameAttributes"`
 	// Configuration block for username configuration. Detailed below.
 	UsernameConfiguration *UserPoolUsernameConfiguration `pulumi:"usernameConfiguration"`
 	// Configuration block for verification message templates. Detailed below.
 	VerificationMessageTemplate *UserPoolVerificationMessageTemplate `pulumi:"verificationMessageTemplate"`
+	// Configuration block for web authn configuration. Detailed below.
+	WebAuthnConfiguration *UserPoolWebAuthnConfiguration `pulumi:"webAuthnConfiguration"`
 }
 
 type UserPoolState struct {
@@ -317,6 +333,8 @@ type UserPoolState struct {
 	Domain pulumi.StringPtrInput
 	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration UserPoolEmailConfigurationPtrInput
+	// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Detailed below.
+	EmailMfaConfiguration UserPoolEmailMfaConfigurationPtrInput
 	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 	EmailVerificationMessage pulumi.StringPtrInput
 	// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
@@ -339,6 +357,8 @@ type UserPoolState struct {
 	PasswordPolicy UserPoolPasswordPolicyPtrInput
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayInput
+	// Configuration block for information about the user pool sign in policy. Detailed below.
+	SignInPolicy UserPoolSignInPolicyPtrInput
 	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage pulumi.StringPtrInput
 	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
@@ -357,12 +377,16 @@ type UserPoolState struct {
 	UserAttributeUpdateSettings UserPoolUserAttributeUpdateSettingsPtrInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
+	// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+	UserPoolTier pulumi.StringPtrInput
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes pulumi.StringArrayInput
 	// Configuration block for username configuration. Detailed below.
 	UsernameConfiguration UserPoolUsernameConfigurationPtrInput
 	// Configuration block for verification message templates. Detailed below.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrInput
+	// Configuration block for web authn configuration. Detailed below.
+	WebAuthnConfiguration UserPoolWebAuthnConfigurationPtrInput
 }
 
 func (UserPoolState) ElementType() reflect.Type {
@@ -384,6 +408,8 @@ type userPoolArgs struct {
 	DeviceConfiguration *UserPoolDeviceConfiguration `pulumi:"deviceConfiguration"`
 	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration *UserPoolEmailConfiguration `pulumi:"emailConfiguration"`
+	// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Detailed below.
+	EmailMfaConfiguration *UserPoolEmailMfaConfiguration `pulumi:"emailMfaConfiguration"`
 	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 	EmailVerificationMessage *string `pulumi:"emailVerificationMessage"`
 	// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
@@ -400,6 +426,8 @@ type userPoolArgs struct {
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas []UserPoolSchema `pulumi:"schemas"`
+	// Configuration block for information about the user pool sign in policy. Detailed below.
+	SignInPolicy *UserPoolSignInPolicy `pulumi:"signInPolicy"`
 	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage *string `pulumi:"smsAuthenticationMessage"`
 	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
@@ -414,12 +442,16 @@ type userPoolArgs struct {
 	UserAttributeUpdateSettings *UserPoolUserAttributeUpdateSettings `pulumi:"userAttributeUpdateSettings"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
+	// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+	UserPoolTier *string `pulumi:"userPoolTier"`
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes []string `pulumi:"usernameAttributes"`
 	// Configuration block for username configuration. Detailed below.
 	UsernameConfiguration *UserPoolUsernameConfiguration `pulumi:"usernameConfiguration"`
 	// Configuration block for verification message templates. Detailed below.
 	VerificationMessageTemplate *UserPoolVerificationMessageTemplate `pulumi:"verificationMessageTemplate"`
+	// Configuration block for web authn configuration. Detailed below.
+	WebAuthnConfiguration *UserPoolWebAuthnConfiguration `pulumi:"webAuthnConfiguration"`
 }
 
 // The set of arguments for constructing a UserPool resource.
@@ -438,6 +470,8 @@ type UserPoolArgs struct {
 	DeviceConfiguration UserPoolDeviceConfigurationPtrInput
 	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration UserPoolEmailConfigurationPtrInput
+	// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Detailed below.
+	EmailMfaConfiguration UserPoolEmailMfaConfigurationPtrInput
 	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 	EmailVerificationMessage pulumi.StringPtrInput
 	// String representing the email verification subject. Conflicts with `verificationMessageTemplate` configuration block `emailSubject` argument.
@@ -454,6 +488,8 @@ type UserPoolArgs struct {
 	PasswordPolicy UserPoolPasswordPolicyPtrInput
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayInput
+	// Configuration block for information about the user pool sign in policy. Detailed below.
+	SignInPolicy UserPoolSignInPolicyPtrInput
 	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage pulumi.StringPtrInput
 	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
@@ -468,12 +504,16 @@ type UserPoolArgs struct {
 	UserAttributeUpdateSettings UserPoolUserAttributeUpdateSettingsPtrInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
+	// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+	UserPoolTier pulumi.StringPtrInput
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes pulumi.StringArrayInput
 	// Configuration block for username configuration. Detailed below.
 	UsernameConfiguration UserPoolUsernameConfigurationPtrInput
 	// Configuration block for verification message templates. Detailed below.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrInput
+	// Configuration block for web authn configuration. Detailed below.
+	WebAuthnConfiguration UserPoolWebAuthnConfigurationPtrInput
 }
 
 func (UserPoolArgs) ElementType() reflect.Type {
@@ -618,6 +658,11 @@ func (o UserPoolOutput) EmailConfiguration() UserPoolEmailConfigurationPtrOutput
 	return o.ApplyT(func(v *UserPool) UserPoolEmailConfigurationPtrOutput { return v.EmailConfiguration }).(UserPoolEmailConfigurationPtrOutput)
 }
 
+// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Detailed below.
+func (o UserPoolOutput) EmailMfaConfiguration() UserPoolEmailMfaConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolEmailMfaConfigurationPtrOutput { return v.EmailMfaConfiguration }).(UserPoolEmailMfaConfigurationPtrOutput)
+}
+
 // String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
 func (o UserPoolOutput) EmailVerificationMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.EmailVerificationMessage }).(pulumi.StringOutput)
@@ -670,6 +715,11 @@ func (o UserPoolOutput) Schemas() UserPoolSchemaArrayOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolSchemaArrayOutput { return v.Schemas }).(UserPoolSchemaArrayOutput)
 }
 
+// Configuration block for information about the user pool sign in policy. Detailed below.
+func (o UserPoolOutput) SignInPolicy() UserPoolSignInPolicyOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolSignInPolicyOutput { return v.SignInPolicy }).(UserPoolSignInPolicyOutput)
+}
+
 // String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 func (o UserPoolOutput) SmsAuthenticationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.SmsAuthenticationMessage }).(pulumi.StringPtrOutput)
@@ -714,6 +764,11 @@ func (o UserPoolOutput) UserPoolAddOns() UserPoolUserPoolAddOnsPtrOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolUserPoolAddOnsPtrOutput { return v.UserPoolAddOns }).(UserPoolUserPoolAddOnsPtrOutput)
 }
 
+// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+func (o UserPoolOutput) UserPoolTier() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.UserPoolTier }).(pulumi.StringOutput)
+}
+
 // Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 func (o UserPoolOutput) UsernameAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringArrayOutput { return v.UsernameAttributes }).(pulumi.StringArrayOutput)
@@ -727,6 +782,11 @@ func (o UserPoolOutput) UsernameConfiguration() UserPoolUsernameConfigurationPtr
 // Configuration block for verification message templates. Detailed below.
 func (o UserPoolOutput) VerificationMessageTemplate() UserPoolVerificationMessageTemplateOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolVerificationMessageTemplateOutput { return v.VerificationMessageTemplate }).(UserPoolVerificationMessageTemplateOutput)
+}
+
+// Configuration block for web authn configuration. Detailed below.
+func (o UserPoolOutput) WebAuthnConfiguration() UserPoolWebAuthnConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolWebAuthnConfigurationPtrOutput { return v.WebAuthnConfiguration }).(UserPoolWebAuthnConfigurationPtrOutput)
 }
 
 type UserPoolArrayOutput struct{ *pulumi.OutputState }

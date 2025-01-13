@@ -109,7 +109,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly authenticationMode!: pulumi.Output<outputs.elasticache.UserAuthenticationMode>;
     /**
-     * The current supported value is `REDIS`.
+     * The current supported values are `REDIS`, `VALKEY`.
      */
     public readonly engine!: pulumi.Output<string>;
     /**
@@ -211,7 +211,7 @@ export interface UserState {
      */
     authenticationMode?: pulumi.Input<inputs.elasticache.UserAuthenticationMode>;
     /**
-     * The current supported value is `REDIS`.
+     * The current supported values are `REDIS`, `VALKEY`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -255,7 +255,7 @@ export interface UserArgs {
      */
     authenticationMode?: pulumi.Input<inputs.elasticache.UserAuthenticationMode>;
     /**
-     * The current supported value is `REDIS`.
+     * The current supported values are `REDIS`, `VALKEY`.
      */
     engine: pulumi.Input<string>;
     /**

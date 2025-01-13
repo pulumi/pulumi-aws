@@ -7,15 +7,18 @@ import com.pulumi.aws.cognito.inputs.UserPoolAccountRecoverySettingArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolAdminCreateUserConfigArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolDeviceConfigurationArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolEmailConfigurationArgs;
+import com.pulumi.aws.cognito.inputs.UserPoolEmailMfaConfigurationArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolLambdaConfigArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolPasswordPolicyArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolSchemaArgs;
+import com.pulumi.aws.cognito.inputs.UserPoolSignInPolicyArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolSmsConfigurationArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolSoftwareTokenMfaConfigurationArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolUserAttributeUpdateSettingsArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolUserPoolAddOnsArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolUsernameConfigurationArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolVerificationMessageTemplateArgs;
+import com.pulumi.aws.cognito.inputs.UserPoolWebAuthnConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -136,6 +139,21 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+     * 
+     */
+    @Import(name="emailMfaConfiguration")
+    private @Nullable Output<UserPoolEmailMfaConfigurationArgs> emailMfaConfiguration;
+
+    /**
+     * @return Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+     * 
+     */
+    public Optional<Output<UserPoolEmailMfaConfigurationArgs>> emailMfaConfiguration() {
+        return Optional.ofNullable(this.emailMfaConfiguration);
+    }
+
+    /**
      * String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
      * 
      */
@@ -245,6 +263,21 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block for information about the user pool sign in policy. Detailed below.
+     * 
+     */
+    @Import(name="signInPolicy")
+    private @Nullable Output<UserPoolSignInPolicyArgs> signInPolicy;
+
+    /**
+     * @return Configuration block for information about the user pool sign in policy. Detailed below.
+     * 
+     */
+    public Optional<Output<UserPoolSignInPolicyArgs>> signInPolicy() {
+        return Optional.ofNullable(this.signInPolicy);
+    }
+
+    /**
      * String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
      * 
      */
@@ -350,6 +383,21 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+     * 
+     */
+    @Import(name="userPoolTier")
+    private @Nullable Output<String> userPoolTier;
+
+    /**
+     * @return The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+     * 
+     */
+    public Optional<Output<String>> userPoolTier() {
+        return Optional.ofNullable(this.userPoolTier);
+    }
+
+    /**
      * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
      * 
      */
@@ -394,6 +442,21 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.verificationMessageTemplate);
     }
 
+    /**
+     * Configuration block for web authn configuration. Detailed below.
+     * 
+     */
+    @Import(name="webAuthnConfiguration")
+    private @Nullable Output<UserPoolWebAuthnConfigurationArgs> webAuthnConfiguration;
+
+    /**
+     * @return Configuration block for web authn configuration. Detailed below.
+     * 
+     */
+    public Optional<Output<UserPoolWebAuthnConfigurationArgs>> webAuthnConfiguration() {
+        return Optional.ofNullable(this.webAuthnConfiguration);
+    }
+
     private UserPoolArgs() {}
 
     private UserPoolArgs(UserPoolArgs $) {
@@ -404,6 +467,7 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
         this.deletionProtection = $.deletionProtection;
         this.deviceConfiguration = $.deviceConfiguration;
         this.emailConfiguration = $.emailConfiguration;
+        this.emailMfaConfiguration = $.emailMfaConfiguration;
         this.emailVerificationMessage = $.emailVerificationMessage;
         this.emailVerificationSubject = $.emailVerificationSubject;
         this.lambdaConfig = $.lambdaConfig;
@@ -411,6 +475,7 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.passwordPolicy = $.passwordPolicy;
         this.schemas = $.schemas;
+        this.signInPolicy = $.signInPolicy;
         this.smsAuthenticationMessage = $.smsAuthenticationMessage;
         this.smsConfiguration = $.smsConfiguration;
         this.smsVerificationMessage = $.smsVerificationMessage;
@@ -418,9 +483,11 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.userAttributeUpdateSettings = $.userAttributeUpdateSettings;
         this.userPoolAddOns = $.userPoolAddOns;
+        this.userPoolTier = $.userPoolTier;
         this.usernameAttributes = $.usernameAttributes;
         this.usernameConfiguration = $.usernameConfiguration;
         this.verificationMessageTemplate = $.verificationMessageTemplate;
+        this.webAuthnConfiguration = $.webAuthnConfiguration;
     }
 
     public static Builder builder() {
@@ -609,6 +676,27 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param emailMfaConfiguration Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emailMfaConfiguration(@Nullable Output<UserPoolEmailMfaConfigurationArgs> emailMfaConfiguration) {
+            $.emailMfaConfiguration = emailMfaConfiguration;
+            return this;
+        }
+
+        /**
+         * @param emailMfaConfiguration Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emailMfaConfiguration(UserPoolEmailMfaConfigurationArgs emailMfaConfiguration) {
+            return emailMfaConfiguration(Output.of(emailMfaConfiguration));
+        }
+
+        /**
          * @param emailVerificationMessage String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
          * 
          * @return builder
@@ -770,6 +858,27 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param signInPolicy Configuration block for information about the user pool sign in policy. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder signInPolicy(@Nullable Output<UserPoolSignInPolicyArgs> signInPolicy) {
+            $.signInPolicy = signInPolicy;
+            return this;
+        }
+
+        /**
+         * @param signInPolicy Configuration block for information about the user pool sign in policy. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder signInPolicy(UserPoolSignInPolicyArgs signInPolicy) {
+            return signInPolicy(Output.of(signInPolicy));
+        }
+
+        /**
          * @param smsAuthenticationMessage String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
          * 
          * @return builder
@@ -917,6 +1026,27 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param userPoolTier The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userPoolTier(@Nullable Output<String> userPoolTier) {
+            $.userPoolTier = userPoolTier;
+            return this;
+        }
+
+        /**
+         * @param userPoolTier The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userPoolTier(String userPoolTier) {
+            return userPoolTier(Output.of(userPoolTier));
+        }
+
+        /**
          * @param usernameAttributes Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
          * 
          * @return builder
@@ -987,6 +1117,27 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder verificationMessageTemplate(UserPoolVerificationMessageTemplateArgs verificationMessageTemplate) {
             return verificationMessageTemplate(Output.of(verificationMessageTemplate));
+        }
+
+        /**
+         * @param webAuthnConfiguration Configuration block for web authn configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webAuthnConfiguration(@Nullable Output<UserPoolWebAuthnConfigurationArgs> webAuthnConfiguration) {
+            $.webAuthnConfiguration = webAuthnConfiguration;
+            return this;
+        }
+
+        /**
+         * @param webAuthnConfiguration Configuration block for web authn configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webAuthnConfiguration(UserPoolWebAuthnConfigurationArgs webAuthnConfiguration) {
+            return webAuthnConfiguration(Output.of(webAuthnConfiguration));
         }
 
         public UserPoolArgs build() {

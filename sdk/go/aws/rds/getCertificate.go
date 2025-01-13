@@ -50,6 +50,8 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateArgs struct {
+	// When enabled, returns the default certificate for new RDS instances.
+	DefaultForNewLaunches *bool `pulumi:"defaultForNewLaunches"`
 	// Certificate identifier. For example, `rds-ca-2019`.
 	Id *string `pulumi:"id"`
 	// When enabled, returns the certificate with the latest `ValidTill`.
@@ -66,6 +68,7 @@ type LookupCertificateResult struct {
 	CustomerOverride bool `pulumi:"customerOverride"`
 	// If there is an override for the default certificate identifier, when the override expires.
 	CustomerOverrideValidTill string `pulumi:"customerOverrideValidTill"`
+	DefaultForNewLaunches     *bool  `pulumi:"defaultForNewLaunches"`
 	Id                        string `pulumi:"id"`
 	LatestValidTill           *bool  `pulumi:"latestValidTill"`
 	// Thumbprint of the certificate.
@@ -87,6 +90,8 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateOutputArgs struct {
+	// When enabled, returns the default certificate for new RDS instances.
+	DefaultForNewLaunches pulumi.BoolPtrInput `pulumi:"defaultForNewLaunches"`
 	// Certificate identifier. For example, `rds-ca-2019`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// When enabled, returns the certificate with the latest `ValidTill`.
@@ -130,6 +135,10 @@ func (o LookupCertificateResultOutput) CustomerOverride() pulumi.BoolOutput {
 // If there is an override for the default certificate identifier, when the override expires.
 func (o LookupCertificateResultOutput) CustomerOverrideValidTill() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CustomerOverrideValidTill }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) DefaultForNewLaunches() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupCertificateResult) *bool { return v.DefaultForNewLaunches }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {

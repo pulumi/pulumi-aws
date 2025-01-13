@@ -31,6 +31,11 @@ export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
+export { GetClustersResult } from "./getClusters";
+export const getClusters: typeof import("./getClusters").getClusters = null as any;
+export const getClustersOutput: typeof import("./getClusters").getClustersOutput = null as any;
+utilities.lazyLoad(exports, ["getClusters","getClustersOutput"], () => require("./getClusters"));
+
 export { GetContainerDefinitionArgs, GetContainerDefinitionResult, GetContainerDefinitionOutputArgs } from "./getContainerDefinition";
 export const getContainerDefinition: typeof import("./getContainerDefinition").getContainerDefinition = null as any;
 export const getContainerDefinitionOutput: typeof import("./getContainerDefinition").getContainerDefinitionOutput = null as any;

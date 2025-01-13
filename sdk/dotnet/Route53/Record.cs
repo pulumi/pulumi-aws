@@ -232,12 +232,12 @@ namespace Pulumi.Aws.Route53
     /// Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
     /// 
     /// ```sh
-    /// $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
+    /// $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev_NS
     /// ```
     /// If the record also contains a set identifier, append it:
     /// 
     /// ```sh
-    /// $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
+    /// $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev_NS_dev
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/record:Record")]

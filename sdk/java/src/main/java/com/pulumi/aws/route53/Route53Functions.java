@@ -8,6 +8,8 @@ import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
 import com.pulumi.aws.route53.inputs.GetDelegationSetPlainArgs;
 import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
 import com.pulumi.aws.route53.inputs.GetQueryLogConfigPlainArgs;
+import com.pulumi.aws.route53.inputs.GetRecordsArgs;
+import com.pulumi.aws.route53.inputs.GetRecordsPlainArgs;
 import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
 import com.pulumi.aws.route53.inputs.GetResolverEndpointPlainArgs;
 import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
@@ -31,6 +33,7 @@ import com.pulumi.aws.route53.inputs.GetZonePlainArgs;
 import com.pulumi.aws.route53.outputs.GetDelegationSetResult;
 import com.pulumi.aws.route53.outputs.GetProfilesProfilesResult;
 import com.pulumi.aws.route53.outputs.GetQueryLogConfigResult;
+import com.pulumi.aws.route53.outputs.GetRecordsResult;
 import com.pulumi.aws.route53.outputs.GetResolverEndpointResult;
 import com.pulumi.aws.route53.outputs.GetResolverFirewallConfigResult;
 import com.pulumi.aws.route53.outputs.GetResolverFirewallDomainListResult;
@@ -1148,6 +1151,486 @@ public final class Route53Functions {
      */
     public static CompletableFuture<GetQueryLogConfigResult> getQueryLogConfigPlain(GetQueryLogConfigPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:route53/getQueryLogConfig:getQueryLogConfig", TypeShape.of(GetQueryLogConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the details of resource records in a Route 53 hosted zone.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * Return all records in the zone.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .name("test.com.")
+     *             .privateZone(true)
+     *             .build());
+     * 
+     *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Basic Usage with filter
+     * 
+     * Return the records that starts with `www`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .name("test.com.")
+     *             .privateZone(true)
+     *             .build());
+     * 
+     *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .nameRegex("^www")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRecordsResult> getRecords(GetRecordsArgs args) {
+        return getRecords(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get the details of resource records in a Route 53 hosted zone.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * Return all records in the zone.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .name("test.com.")
+     *             .privateZone(true)
+     *             .build());
+     * 
+     *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Basic Usage with filter
+     * 
+     * Return the records that starts with `www`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .name("test.com.")
+     *             .privateZone(true)
+     *             .build());
+     * 
+     *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .nameRegex("^www")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRecordsResult> getRecordsPlain(GetRecordsPlainArgs args) {
+        return getRecordsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get the details of resource records in a Route 53 hosted zone.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * Return all records in the zone.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .name("test.com.")
+     *             .privateZone(true)
+     *             .build());
+     * 
+     *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Basic Usage with filter
+     * 
+     * Return the records that starts with `www`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .name("test.com.")
+     *             .privateZone(true)
+     *             .build());
+     * 
+     *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .nameRegex("^www")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRecordsResult> getRecords(GetRecordsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:route53/getRecords:getRecords", TypeShape.of(GetRecordsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the details of resource records in a Route 53 hosted zone.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * Return all records in the zone.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .name("test.com.")
+     *             .privateZone(true)
+     *             .build());
+     * 
+     *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Basic Usage with filter
+     * 
+     * Return the records that starts with `www`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .name("test.com.")
+     *             .privateZone(true)
+     *             .build());
+     * 
+     *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .nameRegex("^www")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRecordsResult> getRecords(GetRecordsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:route53/getRecords:getRecords", TypeShape.of(GetRecordsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the details of resource records in a Route 53 hosted zone.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * Return all records in the zone.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .name("test.com.")
+     *             .privateZone(true)
+     *             .build());
+     * 
+     *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Basic Usage with filter
+     * 
+     * Return the records that starts with `www`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
+     *             .name("test.com.")
+     *             .privateZone(true)
+     *             .build());
+     * 
+     *         final var example = Route53Functions.getRecords(GetRecordsArgs.builder()
+     *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
+     *             .nameRegex("^www")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRecordsResult> getRecordsPlain(GetRecordsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:route53/getRecords:getRecords", TypeShape.of(GetRecordsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.

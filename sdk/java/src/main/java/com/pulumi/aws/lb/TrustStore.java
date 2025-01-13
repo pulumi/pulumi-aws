@@ -20,6 +20,59 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Trust Store Load Balancer Listener
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lb.TrustStore;
+ * import com.pulumi.aws.lb.TrustStoreArgs;
+ * import com.pulumi.aws.lb.Listener;
+ * import com.pulumi.aws.lb.ListenerArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerMutualAuthenticationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new TrustStore("test", TrustStoreArgs.builder()
+ *             .name("tf-example-lb-ts")
+ *             .caCertificatesBundleS3Bucket("...")
+ *             .caCertificatesBundleS3Key("...")
+ *             .build());
+ * 
+ *         var example = new Listener("example", ListenerArgs.builder()
+ *             .loadBalancerArn(exampleAwsLb.id())
+ *             .defaultActions(ListenerDefaultActionArgs.builder()
+ *                 .targetGroupArn(exampleAwsLbTargetGroup.id())
+ *                 .type("forward")
+ *                 .build())
+ *             .mutualAuthentication(ListenerMutualAuthenticationArgs.builder()
+ *                 .mode("verify")
+ *                 .trustStoreArn(test.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Target Groups using their ARN. For example:

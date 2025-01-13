@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from .collaboration import *
 from .configured_table import *
+from .membership import *
 from ._inputs import *
 from . import outputs

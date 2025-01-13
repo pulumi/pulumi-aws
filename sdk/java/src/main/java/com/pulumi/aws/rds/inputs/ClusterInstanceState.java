@@ -368,14 +368,14 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies whether Performance Insights is enabled or not.
+     * Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
      * 
      */
     @Import(name="performanceInsightsEnabled")
     private @Nullable Output<Boolean> performanceInsightsEnabled;
 
     /**
-     * @return Specifies whether Performance Insights is enabled or not.
+     * @return Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
      * 
      */
     public Optional<Output<Boolean>> performanceInsightsEnabled() {
@@ -1119,7 +1119,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param performanceInsightsEnabled Specifies whether Performance Insights is enabled or not.
+         * @param performanceInsightsEnabled Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
          * 
          * @return builder
          * 
@@ -1130,7 +1130,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param performanceInsightsEnabled Specifies whether Performance Insights is enabled or not.
+         * @param performanceInsightsEnabled Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
          * 
          * @return builder
          * 

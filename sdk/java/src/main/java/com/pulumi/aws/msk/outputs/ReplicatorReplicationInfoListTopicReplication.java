@@ -36,6 +36,10 @@ public final class ReplicatorReplicationInfoListTopicReplication {
      * 
      */
     private @Nullable ReplicatorReplicationInfoListTopicReplicationStartingPosition startingPosition;
+    /**
+     * @return Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+     * 
+     */
     private @Nullable ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration topicNameConfiguration;
     /**
      * @return List of regular expression patterns indicating the topics that should not be replica.
@@ -77,6 +81,10 @@ public final class ReplicatorReplicationInfoListTopicReplication {
     public Optional<ReplicatorReplicationInfoListTopicReplicationStartingPosition> startingPosition() {
         return Optional.ofNullable(this.startingPosition);
     }
+    /**
+     * @return Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+     * 
+     */
     public Optional<ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration> topicNameConfiguration() {
         return Optional.ofNullable(this.topicNameConfiguration);
     }

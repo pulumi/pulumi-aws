@@ -64,6 +64,21 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+     * 
+     */
+    @Import(name="encryptionKeyArn")
+    private @Nullable Output<String> encryptionKeyArn;
+
+    /**
+     * @return The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+     * 
+     */
+    public Optional<Output<String>> encryptionKeyArn() {
+        return Optional.ofNullable(this.encryptionKeyArn);
+    }
+
+    /**
      * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
      * 
      */
@@ -223,6 +238,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         this.authMode = $.authMode;
         this.defaultS3Location = $.defaultS3Location;
         this.description = $.description;
+        this.encryptionKeyArn = $.encryptionKeyArn;
         this.engineSecurityGroupId = $.engineSecurityGroupId;
         this.idpAuthUrl = $.idpAuthUrl;
         this.idpRelayStateParameterName = $.idpRelayStateParameterName;
@@ -314,6 +330,27 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param encryptionKeyArn The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionKeyArn(@Nullable Output<String> encryptionKeyArn) {
+            $.encryptionKeyArn = encryptionKeyArn;
+            return this;
+        }
+
+        /**
+         * @param encryptionKeyArn The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionKeyArn(String encryptionKeyArn) {
+            return encryptionKeyArn(Output.of(encryptionKeyArn));
         }
 
         /**

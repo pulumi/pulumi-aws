@@ -14,11 +14,13 @@ namespace Pulumi.Aws.Batch.Inputs
     {
         /// <summary>
         /// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
-        /// * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
+        /// <summary>
+        /// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
+        /// </summary>
         [Input("maxTimeSeconds", required: true)]
         public Input<int> MaxTimeSeconds { get; set; } = null!;
 

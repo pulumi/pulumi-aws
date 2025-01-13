@@ -23,6 +23,57 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.resiliencehub.ResiliencyPolicy;
+ * import com.pulumi.aws.resiliencehub.ResiliencyPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResiliencyPolicy("example", ResiliencyPolicyArgs.builder()
+ *             .name("testexample")
+ *             .description("testexample")
+ *             .tier("NonCritical")
+ *             .dataLocationConstraint("AnyLocation")
+ *             .policy(ResiliencyPolicyPolicyArgs.builder()
+ *                 .region(ResiliencyPolicyPolicyRegionArgs.builder()
+ *                     .rpo("24h")
+ *                     .rto("24h")
+ *                     .build())
+ *                 .az(ResiliencyPolicyPolicyAzArgs.builder()
+ *                     .rpo("24h")
+ *                     .rto("24h")
+ *                     .build())
+ *                 .hardware(ResiliencyPolicyPolicyHardwareArgs.builder()
+ *                     .rpo("24h")
+ *                     .rto("24h")
+ *                     .build())
+ *                 .software(ResiliencyPolicyPolicySoftwareArgs.builder()
+ *                     .rpo("24h")
+ *                     .rto("24h")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

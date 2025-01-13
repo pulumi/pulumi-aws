@@ -6,6 +6,8 @@ package com.pulumi.aws.cloudwatch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetEventBusPlainArgs;
+import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
+import com.pulumi.aws.cloudwatch.inputs.GetEventBusesPlainArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionPlainArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
@@ -17,6 +19,7 @@ import com.pulumi.aws.cloudwatch.inputs.GetLogGroupPlainArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsPlainArgs;
 import com.pulumi.aws.cloudwatch.outputs.GetEventBusResult;
+import com.pulumi.aws.cloudwatch.outputs.GetEventBusesResult;
 import com.pulumi.aws.cloudwatch.outputs.GetEventConnectionResult;
 import com.pulumi.aws.cloudwatch.outputs.GetEventSourceResult;
 import com.pulumi.aws.cloudwatch.outputs.GetLogDataProtectionPolicyDocumentResult;
@@ -249,6 +252,314 @@ public final class CloudwatchFunctions {
      */
     public static CompletableFuture<GetEventBusResult> getEventBusPlain(GetEventBusPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudwatch/getEventBus:getEventBus", TypeShape.of(GetEventBusResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS EventBridge Event Buses.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudwatchFunctions.getEventBuses(GetEventBusesArgs.builder()
+     *             .namePrefix("test")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEventBusesResult> getEventBuses() {
+        return getEventBuses(GetEventBusesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS EventBridge Event Buses.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudwatchFunctions.getEventBuses(GetEventBusesArgs.builder()
+     *             .namePrefix("test")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetEventBusesResult> getEventBusesPlain() {
+        return getEventBusesPlain(GetEventBusesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS EventBridge Event Buses.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudwatchFunctions.getEventBuses(GetEventBusesArgs.builder()
+     *             .namePrefix("test")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEventBusesResult> getEventBuses(GetEventBusesArgs args) {
+        return getEventBuses(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS EventBridge Event Buses.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudwatchFunctions.getEventBuses(GetEventBusesArgs.builder()
+     *             .namePrefix("test")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetEventBusesResult> getEventBusesPlain(GetEventBusesPlainArgs args) {
+        return getEventBusesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS EventBridge Event Buses.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudwatchFunctions.getEventBuses(GetEventBusesArgs.builder()
+     *             .namePrefix("test")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEventBusesResult> getEventBuses(GetEventBusesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cloudwatch/getEventBuses:getEventBuses", TypeShape.of(GetEventBusesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS EventBridge Event Buses.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudwatchFunctions.getEventBuses(GetEventBusesArgs.builder()
+     *             .namePrefix("test")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEventBusesResult> getEventBuses(GetEventBusesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:cloudwatch/getEventBuses:getEventBuses", TypeShape.of(GetEventBusesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS EventBridge Event Buses.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudwatchFunctions.getEventBuses(GetEventBusesArgs.builder()
+     *             .namePrefix("test")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetEventBusesResult> getEventBusesPlain(GetEventBusesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:cloudwatch/getEventBuses:getEventBuses", TypeShape.of(GetEventBusesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an EventBridge connection.

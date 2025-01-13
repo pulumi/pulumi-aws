@@ -26,7 +26,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, arn=None, certificate_type=None, customer_override=None, customer_override_valid_till=None, id=None, latest_valid_till=None, thumbprint=None, valid_from=None, valid_till=None):
+    def __init__(__self__, arn=None, certificate_type=None, customer_override=None, customer_override_valid_till=None, default_for_new_launches=None, id=None, latest_valid_till=None, thumbprint=None, valid_from=None, valid_till=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetCertificateResult:
         if customer_override_valid_till and not isinstance(customer_override_valid_till, str):
             raise TypeError("Expected argument 'customer_override_valid_till' to be a str")
         pulumi.set(__self__, "customer_override_valid_till", customer_override_valid_till)
+        if default_for_new_launches and not isinstance(default_for_new_launches, bool):
+            raise TypeError("Expected argument 'default_for_new_launches' to be a bool")
+        pulumi.set(__self__, "default_for_new_launches", default_for_new_launches)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -88,6 +91,11 @@ class GetCertificateResult:
         return pulumi.get(self, "customer_override_valid_till")
 
     @property
+    @pulumi.getter(name="defaultForNewLaunches")
+    def default_for_new_launches(self) -> Optional[bool]:
+        return pulumi.get(self, "default_for_new_launches")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
@@ -132,6 +140,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             certificate_type=self.certificate_type,
             customer_override=self.customer_override,
             customer_override_valid_till=self.customer_override_valid_till,
+            default_for_new_launches=self.default_for_new_launches,
             id=self.id,
             latest_valid_till=self.latest_valid_till,
             thumbprint=self.thumbprint,
@@ -139,7 +148,8 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             valid_till=self.valid_till)
 
 
-def get_certificate(id: Optional[str] = None,
+def get_certificate(default_for_new_launches: Optional[bool] = None,
+                    id: Optional[str] = None,
                     latest_valid_till: Optional[bool] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
@@ -155,10 +165,12 @@ def get_certificate(id: Optional[str] = None,
     ```
 
 
+    :param bool default_for_new_launches: When enabled, returns the default certificate for new RDS instances.
     :param str id: Certificate identifier. For example, `rds-ca-2019`.
     :param bool latest_valid_till: When enabled, returns the certificate with the latest `ValidTill`.
     """
     __args__ = dict()
+    __args__['defaultForNewLaunches'] = default_for_new_launches
     __args__['id'] = id
     __args__['latestValidTill'] = latest_valid_till
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -169,12 +181,14 @@ def get_certificate(id: Optional[str] = None,
         certificate_type=pulumi.get(__ret__, 'certificate_type'),
         customer_override=pulumi.get(__ret__, 'customer_override'),
         customer_override_valid_till=pulumi.get(__ret__, 'customer_override_valid_till'),
+        default_for_new_launches=pulumi.get(__ret__, 'default_for_new_launches'),
         id=pulumi.get(__ret__, 'id'),
         latest_valid_till=pulumi.get(__ret__, 'latest_valid_till'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         valid_from=pulumi.get(__ret__, 'valid_from'),
         valid_till=pulumi.get(__ret__, 'valid_till'))
-def get_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_certificate_output(default_for_new_launches: Optional[pulumi.Input[Optional[bool]]] = None,
+                           id: Optional[pulumi.Input[Optional[str]]] = None,
                            latest_valid_till: Optional[pulumi.Input[Optional[bool]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
@@ -190,10 +204,12 @@ def get_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
+    :param bool default_for_new_launches: When enabled, returns the default certificate for new RDS instances.
     :param str id: Certificate identifier. For example, `rds-ca-2019`.
     :param bool latest_valid_till: When enabled, returns the certificate with the latest `ValidTill`.
     """
     __args__ = dict()
+    __args__['defaultForNewLaunches'] = default_for_new_launches
     __args__['id'] = id
     __args__['latestValidTill'] = latest_valid_till
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -203,6 +219,7 @@ def get_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
         certificate_type=pulumi.get(__response__, 'certificate_type'),
         customer_override=pulumi.get(__response__, 'customer_override'),
         customer_override_valid_till=pulumi.get(__response__, 'customer_override_valid_till'),
+        default_for_new_launches=pulumi.get(__response__, 'default_for_new_launches'),
         id=pulumi.get(__response__, 'id'),
         latest_valid_till=pulumi.get(__response__, 'latest_valid_till'),
         thumbprint=pulumi.get(__response__, 'thumbprint'),

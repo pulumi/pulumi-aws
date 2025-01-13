@@ -186,7 +186,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkType!: pulumi.Output<string>;
     /**
-     * Specifies whether Performance Insights is enabled or not.
+     * Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
      */
     public readonly performanceInsightsEnabled!: pulumi.Output<boolean>;
     /**
@@ -434,7 +434,7 @@ export interface ClusterInstanceState {
      */
     networkType?: pulumi.Input<string>;
     /**
-     * Specifies whether Performance Insights is enabled or not.
+     * Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
      */
     performanceInsightsEnabled?: pulumi.Input<boolean>;
     /**
@@ -559,7 +559,7 @@ export interface ClusterInstanceArgs {
      */
     monitoringRoleArn?: pulumi.Input<string>;
     /**
-     * Specifies whether Performance Insights is enabled or not.
+     * Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
      */
     performanceInsightsEnabled?: pulumi.Input<boolean>;
     /**

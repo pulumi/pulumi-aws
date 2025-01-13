@@ -4258,6 +4258,162 @@ func (o UserPoolEmailConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserPoolEmailMfaConfiguration struct {
+	// The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter, Amazon Cognito sends messages in the default format.
+	Message *string `pulumi:"message"`
+	// The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
+	Subject *string `pulumi:"subject"`
+}
+
+// UserPoolEmailMfaConfigurationInput is an input type that accepts UserPoolEmailMfaConfigurationArgs and UserPoolEmailMfaConfigurationOutput values.
+// You can construct a concrete instance of `UserPoolEmailMfaConfigurationInput` via:
+//
+//	UserPoolEmailMfaConfigurationArgs{...}
+type UserPoolEmailMfaConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolEmailMfaConfigurationOutput() UserPoolEmailMfaConfigurationOutput
+	ToUserPoolEmailMfaConfigurationOutputWithContext(context.Context) UserPoolEmailMfaConfigurationOutput
+}
+
+type UserPoolEmailMfaConfigurationArgs struct {
+	// The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter, Amazon Cognito sends messages in the default format.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+}
+
+func (UserPoolEmailMfaConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolEmailMfaConfiguration)(nil)).Elem()
+}
+
+func (i UserPoolEmailMfaConfigurationArgs) ToUserPoolEmailMfaConfigurationOutput() UserPoolEmailMfaConfigurationOutput {
+	return i.ToUserPoolEmailMfaConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserPoolEmailMfaConfigurationArgs) ToUserPoolEmailMfaConfigurationOutputWithContext(ctx context.Context) UserPoolEmailMfaConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolEmailMfaConfigurationOutput)
+}
+
+func (i UserPoolEmailMfaConfigurationArgs) ToUserPoolEmailMfaConfigurationPtrOutput() UserPoolEmailMfaConfigurationPtrOutput {
+	return i.ToUserPoolEmailMfaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolEmailMfaConfigurationArgs) ToUserPoolEmailMfaConfigurationPtrOutputWithContext(ctx context.Context) UserPoolEmailMfaConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolEmailMfaConfigurationOutput).ToUserPoolEmailMfaConfigurationPtrOutputWithContext(ctx)
+}
+
+// UserPoolEmailMfaConfigurationPtrInput is an input type that accepts UserPoolEmailMfaConfigurationArgs, UserPoolEmailMfaConfigurationPtr and UserPoolEmailMfaConfigurationPtrOutput values.
+// You can construct a concrete instance of `UserPoolEmailMfaConfigurationPtrInput` via:
+//
+//	        UserPoolEmailMfaConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolEmailMfaConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolEmailMfaConfigurationPtrOutput() UserPoolEmailMfaConfigurationPtrOutput
+	ToUserPoolEmailMfaConfigurationPtrOutputWithContext(context.Context) UserPoolEmailMfaConfigurationPtrOutput
+}
+
+type userPoolEmailMfaConfigurationPtrType UserPoolEmailMfaConfigurationArgs
+
+func UserPoolEmailMfaConfigurationPtr(v *UserPoolEmailMfaConfigurationArgs) UserPoolEmailMfaConfigurationPtrInput {
+	return (*userPoolEmailMfaConfigurationPtrType)(v)
+}
+
+func (*userPoolEmailMfaConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolEmailMfaConfiguration)(nil)).Elem()
+}
+
+func (i *userPoolEmailMfaConfigurationPtrType) ToUserPoolEmailMfaConfigurationPtrOutput() UserPoolEmailMfaConfigurationPtrOutput {
+	return i.ToUserPoolEmailMfaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolEmailMfaConfigurationPtrType) ToUserPoolEmailMfaConfigurationPtrOutputWithContext(ctx context.Context) UserPoolEmailMfaConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolEmailMfaConfigurationPtrOutput)
+}
+
+type UserPoolEmailMfaConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolEmailMfaConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolEmailMfaConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolEmailMfaConfigurationOutput) ToUserPoolEmailMfaConfigurationOutput() UserPoolEmailMfaConfigurationOutput {
+	return o
+}
+
+func (o UserPoolEmailMfaConfigurationOutput) ToUserPoolEmailMfaConfigurationOutputWithContext(ctx context.Context) UserPoolEmailMfaConfigurationOutput {
+	return o
+}
+
+func (o UserPoolEmailMfaConfigurationOutput) ToUserPoolEmailMfaConfigurationPtrOutput() UserPoolEmailMfaConfigurationPtrOutput {
+	return o.ToUserPoolEmailMfaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolEmailMfaConfigurationOutput) ToUserPoolEmailMfaConfigurationPtrOutputWithContext(ctx context.Context) UserPoolEmailMfaConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolEmailMfaConfiguration) *UserPoolEmailMfaConfiguration {
+		return &v
+	}).(UserPoolEmailMfaConfigurationPtrOutput)
+}
+
+// The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter, Amazon Cognito sends messages in the default format.
+func (o UserPoolEmailMfaConfigurationOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolEmailMfaConfiguration) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
+func (o UserPoolEmailMfaConfigurationOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolEmailMfaConfiguration) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolEmailMfaConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolEmailMfaConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolEmailMfaConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolEmailMfaConfigurationPtrOutput) ToUserPoolEmailMfaConfigurationPtrOutput() UserPoolEmailMfaConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolEmailMfaConfigurationPtrOutput) ToUserPoolEmailMfaConfigurationPtrOutputWithContext(ctx context.Context) UserPoolEmailMfaConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolEmailMfaConfigurationPtrOutput) Elem() UserPoolEmailMfaConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolEmailMfaConfiguration) UserPoolEmailMfaConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolEmailMfaConfiguration
+		return ret
+	}).(UserPoolEmailMfaConfigurationOutput)
+}
+
+// The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter, Amazon Cognito sends messages in the default format.
+func (o UserPoolEmailMfaConfigurationPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolEmailMfaConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
+func (o UserPoolEmailMfaConfigurationPtrOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolEmailMfaConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subject
+	}).(pulumi.StringPtrOutput)
+}
+
 type UserPoolLambdaConfig struct {
 	// ARN of the lambda creating an authentication challenge.
 	CreateAuthChallenge *string `pulumi:"createAuthChallenge"`
@@ -5826,6 +5982,143 @@ func (o UserPoolSchemaStringAttributeConstraintsPtrOutput) MinLength() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserPoolSignInPolicy struct {
+	// The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
+	AllowedFirstAuthFactors []string `pulumi:"allowedFirstAuthFactors"`
+}
+
+// UserPoolSignInPolicyInput is an input type that accepts UserPoolSignInPolicyArgs and UserPoolSignInPolicyOutput values.
+// You can construct a concrete instance of `UserPoolSignInPolicyInput` via:
+//
+//	UserPoolSignInPolicyArgs{...}
+type UserPoolSignInPolicyInput interface {
+	pulumi.Input
+
+	ToUserPoolSignInPolicyOutput() UserPoolSignInPolicyOutput
+	ToUserPoolSignInPolicyOutputWithContext(context.Context) UserPoolSignInPolicyOutput
+}
+
+type UserPoolSignInPolicyArgs struct {
+	// The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
+	AllowedFirstAuthFactors pulumi.StringArrayInput `pulumi:"allowedFirstAuthFactors"`
+}
+
+func (UserPoolSignInPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolSignInPolicy)(nil)).Elem()
+}
+
+func (i UserPoolSignInPolicyArgs) ToUserPoolSignInPolicyOutput() UserPoolSignInPolicyOutput {
+	return i.ToUserPoolSignInPolicyOutputWithContext(context.Background())
+}
+
+func (i UserPoolSignInPolicyArgs) ToUserPoolSignInPolicyOutputWithContext(ctx context.Context) UserPoolSignInPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSignInPolicyOutput)
+}
+
+func (i UserPoolSignInPolicyArgs) ToUserPoolSignInPolicyPtrOutput() UserPoolSignInPolicyPtrOutput {
+	return i.ToUserPoolSignInPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolSignInPolicyArgs) ToUserPoolSignInPolicyPtrOutputWithContext(ctx context.Context) UserPoolSignInPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSignInPolicyOutput).ToUserPoolSignInPolicyPtrOutputWithContext(ctx)
+}
+
+// UserPoolSignInPolicyPtrInput is an input type that accepts UserPoolSignInPolicyArgs, UserPoolSignInPolicyPtr and UserPoolSignInPolicyPtrOutput values.
+// You can construct a concrete instance of `UserPoolSignInPolicyPtrInput` via:
+//
+//	        UserPoolSignInPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolSignInPolicyPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolSignInPolicyPtrOutput() UserPoolSignInPolicyPtrOutput
+	ToUserPoolSignInPolicyPtrOutputWithContext(context.Context) UserPoolSignInPolicyPtrOutput
+}
+
+type userPoolSignInPolicyPtrType UserPoolSignInPolicyArgs
+
+func UserPoolSignInPolicyPtr(v *UserPoolSignInPolicyArgs) UserPoolSignInPolicyPtrInput {
+	return (*userPoolSignInPolicyPtrType)(v)
+}
+
+func (*userPoolSignInPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolSignInPolicy)(nil)).Elem()
+}
+
+func (i *userPoolSignInPolicyPtrType) ToUserPoolSignInPolicyPtrOutput() UserPoolSignInPolicyPtrOutput {
+	return i.ToUserPoolSignInPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolSignInPolicyPtrType) ToUserPoolSignInPolicyPtrOutputWithContext(ctx context.Context) UserPoolSignInPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSignInPolicyPtrOutput)
+}
+
+type UserPoolSignInPolicyOutput struct{ *pulumi.OutputState }
+
+func (UserPoolSignInPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolSignInPolicy)(nil)).Elem()
+}
+
+func (o UserPoolSignInPolicyOutput) ToUserPoolSignInPolicyOutput() UserPoolSignInPolicyOutput {
+	return o
+}
+
+func (o UserPoolSignInPolicyOutput) ToUserPoolSignInPolicyOutputWithContext(ctx context.Context) UserPoolSignInPolicyOutput {
+	return o
+}
+
+func (o UserPoolSignInPolicyOutput) ToUserPoolSignInPolicyPtrOutput() UserPoolSignInPolicyPtrOutput {
+	return o.ToUserPoolSignInPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolSignInPolicyOutput) ToUserPoolSignInPolicyPtrOutputWithContext(ctx context.Context) UserPoolSignInPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolSignInPolicy) *UserPoolSignInPolicy {
+		return &v
+	}).(UserPoolSignInPolicyPtrOutput)
+}
+
+// The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
+func (o UserPoolSignInPolicyOutput) AllowedFirstAuthFactors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserPoolSignInPolicy) []string { return v.AllowedFirstAuthFactors }).(pulumi.StringArrayOutput)
+}
+
+type UserPoolSignInPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolSignInPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolSignInPolicy)(nil)).Elem()
+}
+
+func (o UserPoolSignInPolicyPtrOutput) ToUserPoolSignInPolicyPtrOutput() UserPoolSignInPolicyPtrOutput {
+	return o
+}
+
+func (o UserPoolSignInPolicyPtrOutput) ToUserPoolSignInPolicyPtrOutputWithContext(ctx context.Context) UserPoolSignInPolicyPtrOutput {
+	return o
+}
+
+func (o UserPoolSignInPolicyPtrOutput) Elem() UserPoolSignInPolicyOutput {
+	return o.ApplyT(func(v *UserPoolSignInPolicy) UserPoolSignInPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolSignInPolicy
+		return ret
+	}).(UserPoolSignInPolicyOutput)
+}
+
+// The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
+func (o UserPoolSignInPolicyPtrOutput) AllowedFirstAuthFactors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolSignInPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedFirstAuthFactors
+	}).(pulumi.StringArrayOutput)
+}
+
 type UserPoolSmsConfiguration struct {
 	// External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
 	ExternalId string `pulumi:"externalId"`
@@ -6780,6 +7073,162 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) SmsMessage() pulumi.String
 			return nil
 		}
 		return v.SmsMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolWebAuthnConfiguration struct {
+	// The authentication domain that passkeys providers use as a relying party.
+	RelyingPartyId *string `pulumi:"relyingPartyId"`
+	// If your user pool should require a passkey. Must be one of `required` or `preferred`.
+	UserVerification *string `pulumi:"userVerification"`
+}
+
+// UserPoolWebAuthnConfigurationInput is an input type that accepts UserPoolWebAuthnConfigurationArgs and UserPoolWebAuthnConfigurationOutput values.
+// You can construct a concrete instance of `UserPoolWebAuthnConfigurationInput` via:
+//
+//	UserPoolWebAuthnConfigurationArgs{...}
+type UserPoolWebAuthnConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolWebAuthnConfigurationOutput() UserPoolWebAuthnConfigurationOutput
+	ToUserPoolWebAuthnConfigurationOutputWithContext(context.Context) UserPoolWebAuthnConfigurationOutput
+}
+
+type UserPoolWebAuthnConfigurationArgs struct {
+	// The authentication domain that passkeys providers use as a relying party.
+	RelyingPartyId pulumi.StringPtrInput `pulumi:"relyingPartyId"`
+	// If your user pool should require a passkey. Must be one of `required` or `preferred`.
+	UserVerification pulumi.StringPtrInput `pulumi:"userVerification"`
+}
+
+func (UserPoolWebAuthnConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolWebAuthnConfiguration)(nil)).Elem()
+}
+
+func (i UserPoolWebAuthnConfigurationArgs) ToUserPoolWebAuthnConfigurationOutput() UserPoolWebAuthnConfigurationOutput {
+	return i.ToUserPoolWebAuthnConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserPoolWebAuthnConfigurationArgs) ToUserPoolWebAuthnConfigurationOutputWithContext(ctx context.Context) UserPoolWebAuthnConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolWebAuthnConfigurationOutput)
+}
+
+func (i UserPoolWebAuthnConfigurationArgs) ToUserPoolWebAuthnConfigurationPtrOutput() UserPoolWebAuthnConfigurationPtrOutput {
+	return i.ToUserPoolWebAuthnConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolWebAuthnConfigurationArgs) ToUserPoolWebAuthnConfigurationPtrOutputWithContext(ctx context.Context) UserPoolWebAuthnConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolWebAuthnConfigurationOutput).ToUserPoolWebAuthnConfigurationPtrOutputWithContext(ctx)
+}
+
+// UserPoolWebAuthnConfigurationPtrInput is an input type that accepts UserPoolWebAuthnConfigurationArgs, UserPoolWebAuthnConfigurationPtr and UserPoolWebAuthnConfigurationPtrOutput values.
+// You can construct a concrete instance of `UserPoolWebAuthnConfigurationPtrInput` via:
+//
+//	        UserPoolWebAuthnConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolWebAuthnConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolWebAuthnConfigurationPtrOutput() UserPoolWebAuthnConfigurationPtrOutput
+	ToUserPoolWebAuthnConfigurationPtrOutputWithContext(context.Context) UserPoolWebAuthnConfigurationPtrOutput
+}
+
+type userPoolWebAuthnConfigurationPtrType UserPoolWebAuthnConfigurationArgs
+
+func UserPoolWebAuthnConfigurationPtr(v *UserPoolWebAuthnConfigurationArgs) UserPoolWebAuthnConfigurationPtrInput {
+	return (*userPoolWebAuthnConfigurationPtrType)(v)
+}
+
+func (*userPoolWebAuthnConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolWebAuthnConfiguration)(nil)).Elem()
+}
+
+func (i *userPoolWebAuthnConfigurationPtrType) ToUserPoolWebAuthnConfigurationPtrOutput() UserPoolWebAuthnConfigurationPtrOutput {
+	return i.ToUserPoolWebAuthnConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolWebAuthnConfigurationPtrType) ToUserPoolWebAuthnConfigurationPtrOutputWithContext(ctx context.Context) UserPoolWebAuthnConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolWebAuthnConfigurationPtrOutput)
+}
+
+type UserPoolWebAuthnConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolWebAuthnConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolWebAuthnConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolWebAuthnConfigurationOutput) ToUserPoolWebAuthnConfigurationOutput() UserPoolWebAuthnConfigurationOutput {
+	return o
+}
+
+func (o UserPoolWebAuthnConfigurationOutput) ToUserPoolWebAuthnConfigurationOutputWithContext(ctx context.Context) UserPoolWebAuthnConfigurationOutput {
+	return o
+}
+
+func (o UserPoolWebAuthnConfigurationOutput) ToUserPoolWebAuthnConfigurationPtrOutput() UserPoolWebAuthnConfigurationPtrOutput {
+	return o.ToUserPoolWebAuthnConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolWebAuthnConfigurationOutput) ToUserPoolWebAuthnConfigurationPtrOutputWithContext(ctx context.Context) UserPoolWebAuthnConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolWebAuthnConfiguration) *UserPoolWebAuthnConfiguration {
+		return &v
+	}).(UserPoolWebAuthnConfigurationPtrOutput)
+}
+
+// The authentication domain that passkeys providers use as a relying party.
+func (o UserPoolWebAuthnConfigurationOutput) RelyingPartyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolWebAuthnConfiguration) *string { return v.RelyingPartyId }).(pulumi.StringPtrOutput)
+}
+
+// If your user pool should require a passkey. Must be one of `required` or `preferred`.
+func (o UserPoolWebAuthnConfigurationOutput) UserVerification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolWebAuthnConfiguration) *string { return v.UserVerification }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolWebAuthnConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolWebAuthnConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolWebAuthnConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolWebAuthnConfigurationPtrOutput) ToUserPoolWebAuthnConfigurationPtrOutput() UserPoolWebAuthnConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolWebAuthnConfigurationPtrOutput) ToUserPoolWebAuthnConfigurationPtrOutputWithContext(ctx context.Context) UserPoolWebAuthnConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolWebAuthnConfigurationPtrOutput) Elem() UserPoolWebAuthnConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolWebAuthnConfiguration) UserPoolWebAuthnConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolWebAuthnConfiguration
+		return ret
+	}).(UserPoolWebAuthnConfigurationOutput)
+}
+
+// The authentication domain that passkeys providers use as a relying party.
+func (o UserPoolWebAuthnConfigurationPtrOutput) RelyingPartyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolWebAuthnConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RelyingPartyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// If your user pool should require a passkey. Must be one of `required` or `preferred`.
+func (o UserPoolWebAuthnConfigurationPtrOutput) UserVerification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolWebAuthnConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserVerification
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8848,6 +9297,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDeviceConfigurationPtrInput)(nil)).Elem(), UserPoolDeviceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEmailConfigurationInput)(nil)).Elem(), UserPoolEmailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEmailConfigurationPtrInput)(nil)).Elem(), UserPoolEmailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEmailMfaConfigurationInput)(nil)).Elem(), UserPoolEmailMfaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEmailMfaConfigurationPtrInput)(nil)).Elem(), UserPoolEmailMfaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolLambdaConfigInput)(nil)).Elem(), UserPoolLambdaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolLambdaConfigPtrInput)(nil)).Elem(), UserPoolLambdaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolLambdaConfigCustomEmailSenderInput)(nil)).Elem(), UserPoolLambdaConfigCustomEmailSenderArgs{})
@@ -8864,6 +9315,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSchemaNumberAttributeConstraintsPtrInput)(nil)).Elem(), UserPoolSchemaNumberAttributeConstraintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSchemaStringAttributeConstraintsInput)(nil)).Elem(), UserPoolSchemaStringAttributeConstraintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSchemaStringAttributeConstraintsPtrInput)(nil)).Elem(), UserPoolSchemaStringAttributeConstraintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSignInPolicyInput)(nil)).Elem(), UserPoolSignInPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSignInPolicyPtrInput)(nil)).Elem(), UserPoolSignInPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSmsConfigurationInput)(nil)).Elem(), UserPoolSmsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSmsConfigurationPtrInput)(nil)).Elem(), UserPoolSmsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSoftwareTokenMfaConfigurationInput)(nil)).Elem(), UserPoolSoftwareTokenMfaConfigurationArgs{})
@@ -8876,6 +9329,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUsernameConfigurationPtrInput)(nil)).Elem(), UserPoolUsernameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolVerificationMessageTemplateInput)(nil)).Elem(), UserPoolVerificationMessageTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolVerificationMessageTemplatePtrInput)(nil)).Elem(), UserPoolVerificationMessageTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolWebAuthnConfigurationInput)(nil)).Elem(), UserPoolWebAuthnConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolWebAuthnConfigurationPtrInput)(nil)).Elem(), UserPoolWebAuthnConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolCognitoIdentityProviderInput)(nil)).Elem(), GetIdentityPoolCognitoIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolCognitoIdentityProviderArrayInput)(nil)).Elem(), GetIdentityPoolCognitoIdentityProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserGroupsGroupInput)(nil)).Elem(), GetUserGroupsGroupArgs{})
@@ -8962,6 +9417,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolDeviceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolEmailConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolEmailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolEmailMfaConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolEmailMfaConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolLambdaConfigOutput{})
 	pulumi.RegisterOutputType(UserPoolLambdaConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolLambdaConfigCustomEmailSenderOutput{})
@@ -8978,6 +9435,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolSchemaNumberAttributeConstraintsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolSchemaStringAttributeConstraintsOutput{})
 	pulumi.RegisterOutputType(UserPoolSchemaStringAttributeConstraintsPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolSignInPolicyOutput{})
+	pulumi.RegisterOutputType(UserPoolSignInPolicyPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolSmsConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolSmsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolSoftwareTokenMfaConfigurationOutput{})
@@ -8990,6 +9449,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolUsernameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolVerificationMessageTemplateOutput{})
 	pulumi.RegisterOutputType(UserPoolVerificationMessageTemplatePtrOutput{})
+	pulumi.RegisterOutputType(UserPoolWebAuthnConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolWebAuthnConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolCognitoIdentityProviderOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolCognitoIdentityProviderArrayOutput{})
 	pulumi.RegisterOutputType(GetUserGroupsGroupOutput{})

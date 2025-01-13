@@ -19,14 +19,14 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final UserGroupArgs Empty = new UserGroupArgs();
 
     /**
-     * The current supported value is `REDIS`.
+     * The current supported value are `REDIS`, `VALKEY`.
      * 
      */
     @Import(name="engine", required=true)
     private Output<String> engine;
 
     /**
-     * @return The current supported value is `REDIS`.
+     * @return The current supported value are `REDIS`, `VALKEY`.
      * 
      */
     public Output<String> engine() {
@@ -110,7 +110,7 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The current supported value is `REDIS`.
+         * @param engine The current supported value are `REDIS`, `VALKEY`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The current supported value is `REDIS`.
+         * @param engine The current supported value are `REDIS`, `VALKEY`.
          * 
          * @return builder
          * 

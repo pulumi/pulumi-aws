@@ -89,6 +89,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<int> BaseCapacity { get; private set; } = null!;
 
         /// <summary>
+        /// The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+        /// </summary>
+        [Output("computeConfiguration")]
+        public Output<Outputs.FleetComputeConfiguration?> ComputeConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         /// </summary>
         [Output("computeType")]
@@ -139,7 +145,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> OverflowBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         /// </summary>
         [Output("scalingConfiguration")]
         public Output<Outputs.FleetScalingConfiguration?> ScalingConfiguration { get; private set; } = null!;
@@ -160,7 +166,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block. See `vpc_config` below.
         /// </summary>
         [Output("vpcConfigs")]
         public Output<ImmutableArray<Outputs.FleetVpcConfig>> VpcConfigs { get; private set; } = null!;
@@ -218,6 +224,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<int> BaseCapacity { get; set; } = null!;
 
         /// <summary>
+        /// The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+        /// </summary>
+        [Input("computeConfiguration")]
+        public Input<Inputs.FleetComputeConfigurationArgs>? ComputeConfiguration { get; set; }
+
+        /// <summary>
         /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         /// </summary>
         [Input("computeType", required: true)]
@@ -256,7 +268,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? OverflowBehavior { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         /// </summary>
         [Input("scalingConfiguration")]
         public Input<Inputs.FleetScalingConfigurationArgs>? ScalingConfiguration { get; set; }
@@ -277,7 +289,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.FleetVpcConfigArgs>? _vpcConfigs;
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block. See `vpc_config` below.
         /// </summary>
         public InputList<Inputs.FleetVpcConfigArgs> VpcConfigs
         {
@@ -304,6 +316,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("baseCapacity")]
         public Input<int>? BaseCapacity { get; set; }
+
+        /// <summary>
+        /// The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+        /// </summary>
+        [Input("computeConfiguration")]
+        public Input<Inputs.FleetComputeConfigurationGetArgs>? ComputeConfiguration { get; set; }
 
         /// <summary>
         /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
@@ -356,7 +374,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? OverflowBehavior { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         /// </summary>
         [Input("scalingConfiguration")]
         public Input<Inputs.FleetScalingConfigurationGetArgs>? ScalingConfiguration { get; set; }
@@ -398,7 +416,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputList<Inputs.FleetVpcConfigGetArgs>? _vpcConfigs;
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block. See `vpc_config` below.
         /// </summary>
         public InputList<Inputs.FleetVpcConfigGetArgs> VpcConfigs
         {

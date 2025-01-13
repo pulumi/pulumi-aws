@@ -303,6 +303,18 @@ namespace Pulumi.Aws.Ec2
         [Input("serviceName")]
         public string? ServiceName { get; set; }
 
+        [Input("serviceRegions")]
+        private List<string>? _serviceRegions;
+
+        /// <summary>
+        /// AWS regions in which to look for services.
+        /// </summary>
+        public List<string> ServiceRegions
+        {
+            get => _serviceRegions ?? (_serviceRegions = new List<string>());
+            set => _serviceRegions = value;
+        }
+
         /// <summary>
         /// Service type, `Gateway` or `Interface`.
         /// </summary>
@@ -355,6 +367,18 @@ namespace Pulumi.Aws.Ec2
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
+        [Input("serviceRegions")]
+        private InputList<string>? _serviceRegions;
+
+        /// <summary>
+        /// AWS regions in which to look for services.
+        /// </summary>
+        public InputList<string> ServiceRegions
+        {
+            get => _serviceRegions ?? (_serviceRegions = new InputList<string>());
+            set => _serviceRegions = value;
+        }
+
         /// <summary>
         /// Service type, `Gateway` or `Interface`.
         /// </summary>
@@ -394,7 +418,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Availability Zones in which the service is available.
+        /// Availability Zones in which the service is available. Not available for endpoint services in other regions.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
@@ -422,12 +446,17 @@ namespace Pulumi.Aws.Ec2
         /// Private DNS names assigned to the VPC endpoint service.
         /// </summary>
         public readonly ImmutableArray<string> PrivateDnsNames;
+        /// <summary>
+        /// Region of the endpoint service.
+        /// </summary>
+        public readonly string Region;
         public readonly string? Service;
         /// <summary>
         /// ID of the endpoint service.
         /// </summary>
         public readonly string ServiceId;
         public readonly string ServiceName;
+        public readonly ImmutableArray<string> ServiceRegions;
         public readonly string ServiceType;
         /// <summary>
         /// The supported IP address types.
@@ -464,11 +493,15 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> privateDnsNames,
 
+            string region,
+
             string? service,
 
             string serviceId,
 
             string serviceName,
+
+            ImmutableArray<string> serviceRegions,
 
             string serviceType,
 
@@ -488,9 +521,11 @@ namespace Pulumi.Aws.Ec2
             Owner = owner;
             PrivateDnsName = privateDnsName;
             PrivateDnsNames = privateDnsNames;
+            Region = region;
             Service = service;
             ServiceId = serviceId;
             ServiceName = serviceName;
+            ServiceRegions = serviceRegions;
             ServiceType = serviceType;
             SupportedIpAddressTypes = supportedIpAddressTypes;
             Tags = tags;

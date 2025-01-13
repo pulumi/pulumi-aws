@@ -86,7 +86,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> AutoEnableOrganizationMembers { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for the collected datasources.
+        /// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
         /// </summary>
         [Output("datasources")]
         public Output<Outputs.OrganizationConfigurationDatasources> Datasources { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? AutoEnableOrganizationMembers { get; set; }
 
         /// <summary>
-        /// Configuration for the collected datasources.
+        /// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
         /// </summary>
         [Input("datasources")]
         public Input<Inputs.OrganizationConfigurationDatasourcesArgs>? Datasources { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? AutoEnableOrganizationMembers { get; set; }
 
         /// <summary>
-        /// Configuration for the collected datasources.
+        /// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
         /// </summary>
         [Input("datasources")]
         public Input<Inputs.OrganizationConfigurationDatasourcesGetArgs>? Datasources { get; set; }

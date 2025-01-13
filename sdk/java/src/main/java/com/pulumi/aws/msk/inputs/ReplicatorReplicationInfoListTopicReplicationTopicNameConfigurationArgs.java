@@ -15,9 +15,17 @@ public final class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigu
 
     public static final ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs Empty = new ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs();
 
+    /**
+     * The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -46,11 +54,23 @@ public final class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigu
             $ = new ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param type The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -1865,6 +1865,181 @@ func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Prefix() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResourceGatewayTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ResourceGatewayTimeoutsInput is an input type that accepts ResourceGatewayTimeoutsArgs and ResourceGatewayTimeoutsOutput values.
+// You can construct a concrete instance of `ResourceGatewayTimeoutsInput` via:
+//
+//	ResourceGatewayTimeoutsArgs{...}
+type ResourceGatewayTimeoutsInput interface {
+	pulumi.Input
+
+	ToResourceGatewayTimeoutsOutput() ResourceGatewayTimeoutsOutput
+	ToResourceGatewayTimeoutsOutputWithContext(context.Context) ResourceGatewayTimeoutsOutput
+}
+
+type ResourceGatewayTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ResourceGatewayTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGatewayTimeouts)(nil)).Elem()
+}
+
+func (i ResourceGatewayTimeoutsArgs) ToResourceGatewayTimeoutsOutput() ResourceGatewayTimeoutsOutput {
+	return i.ToResourceGatewayTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ResourceGatewayTimeoutsArgs) ToResourceGatewayTimeoutsOutputWithContext(ctx context.Context) ResourceGatewayTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGatewayTimeoutsOutput)
+}
+
+func (i ResourceGatewayTimeoutsArgs) ToResourceGatewayTimeoutsPtrOutput() ResourceGatewayTimeoutsPtrOutput {
+	return i.ToResourceGatewayTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceGatewayTimeoutsArgs) ToResourceGatewayTimeoutsPtrOutputWithContext(ctx context.Context) ResourceGatewayTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGatewayTimeoutsOutput).ToResourceGatewayTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ResourceGatewayTimeoutsPtrInput is an input type that accepts ResourceGatewayTimeoutsArgs, ResourceGatewayTimeoutsPtr and ResourceGatewayTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ResourceGatewayTimeoutsPtrInput` via:
+//
+//	        ResourceGatewayTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceGatewayTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToResourceGatewayTimeoutsPtrOutput() ResourceGatewayTimeoutsPtrOutput
+	ToResourceGatewayTimeoutsPtrOutputWithContext(context.Context) ResourceGatewayTimeoutsPtrOutput
+}
+
+type resourceGatewayTimeoutsPtrType ResourceGatewayTimeoutsArgs
+
+func ResourceGatewayTimeoutsPtr(v *ResourceGatewayTimeoutsArgs) ResourceGatewayTimeoutsPtrInput {
+	return (*resourceGatewayTimeoutsPtrType)(v)
+}
+
+func (*resourceGatewayTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGatewayTimeouts)(nil)).Elem()
+}
+
+func (i *resourceGatewayTimeoutsPtrType) ToResourceGatewayTimeoutsPtrOutput() ResourceGatewayTimeoutsPtrOutput {
+	return i.ToResourceGatewayTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceGatewayTimeoutsPtrType) ToResourceGatewayTimeoutsPtrOutputWithContext(ctx context.Context) ResourceGatewayTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGatewayTimeoutsPtrOutput)
+}
+
+type ResourceGatewayTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ResourceGatewayTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGatewayTimeouts)(nil)).Elem()
+}
+
+func (o ResourceGatewayTimeoutsOutput) ToResourceGatewayTimeoutsOutput() ResourceGatewayTimeoutsOutput {
+	return o
+}
+
+func (o ResourceGatewayTimeoutsOutput) ToResourceGatewayTimeoutsOutputWithContext(ctx context.Context) ResourceGatewayTimeoutsOutput {
+	return o
+}
+
+func (o ResourceGatewayTimeoutsOutput) ToResourceGatewayTimeoutsPtrOutput() ResourceGatewayTimeoutsPtrOutput {
+	return o.ToResourceGatewayTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGatewayTimeoutsOutput) ToResourceGatewayTimeoutsPtrOutputWithContext(ctx context.Context) ResourceGatewayTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGatewayTimeouts) *ResourceGatewayTimeouts {
+		return &v
+	}).(ResourceGatewayTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceGatewayTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGatewayTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ResourceGatewayTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGatewayTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceGatewayTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGatewayTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ResourceGatewayTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceGatewayTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGatewayTimeouts)(nil)).Elem()
+}
+
+func (o ResourceGatewayTimeoutsPtrOutput) ToResourceGatewayTimeoutsPtrOutput() ResourceGatewayTimeoutsPtrOutput {
+	return o
+}
+
+func (o ResourceGatewayTimeoutsPtrOutput) ToResourceGatewayTimeoutsPtrOutputWithContext(ctx context.Context) ResourceGatewayTimeoutsPtrOutput {
+	return o
+}
+
+func (o ResourceGatewayTimeoutsPtrOutput) Elem() ResourceGatewayTimeoutsOutput {
+	return o.ApplyT(func(v *ResourceGatewayTimeouts) ResourceGatewayTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGatewayTimeouts
+		return ret
+	}).(ResourceGatewayTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceGatewayTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGatewayTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ResourceGatewayTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGatewayTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceGatewayTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGatewayTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceDnsEntry struct {
 	DomainName   *string `pulumi:"domainName"`
 	HostedZoneId *string `pulumi:"hostedZoneId"`
@@ -3441,6 +3616,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatchPtrInput)(nil)).Elem(), ListenerRuleMatchHttpMatchPathMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatchMatchInput)(nil)).Elem(), ListenerRuleMatchHttpMatchPathMatchMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatchMatchPtrInput)(nil)).Elem(), ListenerRuleMatchHttpMatchPathMatchMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGatewayTimeoutsInput)(nil)).Elem(), ResourceGatewayTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGatewayTimeoutsPtrInput)(nil)).Elem(), ResourceGatewayTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsEntryInput)(nil)).Elem(), ServiceDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsEntryArrayInput)(nil)).Elem(), ServiceDnsEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntryInput)(nil)).Elem(), ServiceNetworkServiceAssociationDnsEntryArgs{})
@@ -3490,6 +3667,8 @@ func init() {
 	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchPathMatchPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchPathMatchMatchOutput{})
 	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput{})
+	pulumi.RegisterOutputType(ResourceGatewayTimeoutsOutput{})
+	pulumi.RegisterOutputType(ResourceGatewayTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDnsEntryOutput{})
 	pulumi.RegisterOutputType(ServiceDnsEntryArrayOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationDnsEntryOutput{})

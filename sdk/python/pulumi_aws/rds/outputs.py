@@ -1262,7 +1262,7 @@ class ProxyAuth(dict):
                  username: Optional[str] = None):
         """
         :param str auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
-        :param str client_password_auth_type: The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+        :param str client_password_auth_type: The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
         :param str description: A user-specified description about the authentication used by a proxy to log in as a specific database user.
         :param str iam_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
         :param str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
@@ -1293,7 +1293,7 @@ class ProxyAuth(dict):
     @pulumi.getter(name="clientPasswordAuthType")
     def client_password_auth_type(self) -> Optional[str]:
         """
-        The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+        The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
         """
         return pulumi.get(self, "client_password_auth_type")
 

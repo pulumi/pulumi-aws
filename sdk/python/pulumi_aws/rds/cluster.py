@@ -128,7 +128,7 @@ class ClusterArgs:
         :param pulumi.Input[str] master_user_secret_kms_key_id: Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
-        :param pulumi.Input[bool] performance_insights_enabled: Enables Performance Insights for the RDS Cluster
+        :param pulumi.Input[bool] performance_insights_enabled: Enables Performance Insights.
         :param pulumi.Input[str] performance_insights_kms_key_id: Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
         :param pulumi.Input[int] performance_insights_retention_period: Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
         :param pulumi.Input[int] port: Port on which the DB accepts connections.
@@ -752,7 +752,7 @@ class ClusterArgs:
     @pulumi.getter(name="performanceInsightsEnabled")
     def performance_insights_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables Performance Insights for the RDS Cluster
+        Enables Performance Insights.
         """
         return pulumi.get(self, "performance_insights_enabled")
 
@@ -1087,7 +1087,7 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]] master_user_secrets: Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
-        :param pulumi.Input[bool] performance_insights_enabled: Enables Performance Insights for the RDS Cluster
+        :param pulumi.Input[bool] performance_insights_enabled: Enables Performance Insights.
         :param pulumi.Input[str] performance_insights_kms_key_id: Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
         :param pulumi.Input[int] performance_insights_retention_period: Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
         :param pulumi.Input[int] port: Port on which the DB accepts connections.
@@ -1820,7 +1820,7 @@ class _ClusterState:
     @pulumi.getter(name="performanceInsightsEnabled")
     def performance_insights_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables Performance Insights for the RDS Cluster
+        Enables Performance Insights.
         """
         return pulumi.get(self, "performance_insights_enabled")
 
@@ -2372,7 +2372,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] master_user_secret_kms_key_id: Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
-        :param pulumi.Input[bool] performance_insights_enabled: Enables Performance Insights for the RDS Cluster
+        :param pulumi.Input[bool] performance_insights_enabled: Enables Performance Insights.
         :param pulumi.Input[str] performance_insights_kms_key_id: Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
         :param pulumi.Input[int] performance_insights_retention_period: Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
         :param pulumi.Input[int] port: Port on which the DB accepts connections.
@@ -2890,7 +2890,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterMasterUserSecretArgs', 'ClusterMasterUserSecretArgsDict']]]] master_user_secrets: Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
-        :param pulumi.Input[bool] performance_insights_enabled: Enables Performance Insights for the RDS Cluster
+        :param pulumi.Input[bool] performance_insights_enabled: Enables Performance Insights.
         :param pulumi.Input[str] performance_insights_kms_key_id: Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
         :param pulumi.Input[int] performance_insights_retention_period: Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
         :param pulumi.Input[int] port: Port on which the DB accepts connections.
@@ -3370,7 +3370,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="performanceInsightsEnabled")
     def performance_insights_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enables Performance Insights for the RDS Cluster
+        Enables Performance Insights.
         """
         return pulumi.get(self, "performance_insights_enabled")
 

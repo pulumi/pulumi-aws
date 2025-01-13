@@ -1387,6 +1387,7 @@ class ReplicatorReplicationInfoListTopicReplication(dict):
         :param bool copy_topic_configurations: Whether to periodically configure remote topics to match their corresponding upstream topics.
         :param bool detect_and_copy_new_topics: Whether to periodically check for new topics and partitions.
         :param 'ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs' starting_position: Configuration for specifying the position in the topics to start replicating from.
+        :param 'ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs' topic_name_configuration: Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
         :param Sequence[str] topics_to_excludes: List of regular expression patterns indicating the topics that should not be replica.
         """
         pulumi.set(__self__, "topics_to_replicates", topics_to_replicates)
@@ -1446,6 +1447,9 @@ class ReplicatorReplicationInfoListTopicReplication(dict):
     @property
     @pulumi.getter(name="topicNameConfiguration")
     def topic_name_configuration(self) -> Optional['outputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration']:
+        """
+        Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+        """
         return pulumi.get(self, "topic_name_configuration")
 
     @property
@@ -1480,12 +1484,18 @@ class ReplicatorReplicationInfoListTopicReplicationStartingPosition(dict):
 class ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None):
+        """
+        :param str type: The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+        """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+        """
         return pulumi.get(self, "type")
 
 

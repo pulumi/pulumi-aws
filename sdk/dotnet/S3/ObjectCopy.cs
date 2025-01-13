@@ -43,6 +43,36 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// 
+    /// ### Ignoring Provider `default_tags`
+    /// 
+    /// S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+    /// If the resource's own `tags` and the provider-level `default_tags` would together lead to more than 10 tags on an S3 object copy, use the `override_provider` configuration block to suppress any provider-level `default_tags`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.S3.ObjectCopy("test", new()
+    ///     {
+    ///         Bucket = "destination_bucket",
+    ///         Key = "destination_key",
+    ///         Source = "source_bucket/source_key",
+    ///         OverrideProvider = new Aws.S3.Inputs.ObjectCopyOverrideProviderArgs
+    ///         {
+    ///             DefaultTags = new Aws.S3.Inputs.ObjectCopyOverrideProviderDefaultTagsArgs
+    ///             {
+    ///                 Tags = null,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:s3/objectCopy:ObjectCopy")]
     public partial class ObjectCopy : global::Pulumi.CustomResource
@@ -265,6 +295,9 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("objectLockRetainUntilDate")]
         public Output<string> ObjectLockRetainUntilDate { get; private set; } = null!;
+
+        [Output("overrideProvider")]
+        public Output<Outputs.ObjectCopyOverrideProvider?> OverrideProvider { get; private set; } = null!;
 
         /// <summary>
         /// If present, indicates that the requester was successfully charged for the request.
@@ -618,6 +651,9 @@ namespace Pulumi.Aws.S3
         [Input("objectLockRetainUntilDate")]
         public Input<string>? ObjectLockRetainUntilDate { get; set; }
 
+        [Input("overrideProvider")]
+        public Input<Inputs.ObjectCopyOverrideProviderArgs>? OverrideProvider { get; set; }
+
         /// <summary>
         /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
         /// </summary>
@@ -964,6 +1000,9 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("objectLockRetainUntilDate")]
         public Input<string>? ObjectLockRetainUntilDate { get; set; }
+
+        [Input("overrideProvider")]
+        public Input<Inputs.ObjectCopyOverrideProviderGetArgs>? OverrideProvider { get; set; }
 
         /// <summary>
         /// If present, indicates that the requester was successfully charged for the request.

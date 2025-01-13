@@ -4330,7 +4330,8 @@ type ReplicatorReplicationInfoListTopicReplication struct {
 	// Whether to periodically check for new topics and partitions.
 	DetectAndCopyNewTopics *bool `pulumi:"detectAndCopyNewTopics"`
 	// Configuration for specifying the position in the topics to start replicating from.
-	StartingPosition       *ReplicatorReplicationInfoListTopicReplicationStartingPosition       `pulumi:"startingPosition"`
+	StartingPosition *ReplicatorReplicationInfoListTopicReplicationStartingPosition `pulumi:"startingPosition"`
+	// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
 	TopicNameConfiguration *ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration `pulumi:"topicNameConfiguration"`
 	// List of regular expression patterns indicating the topics that should not be replica.
 	TopicsToExcludes []string `pulumi:"topicsToExcludes"`
@@ -4357,7 +4358,8 @@ type ReplicatorReplicationInfoListTopicReplicationArgs struct {
 	// Whether to periodically check for new topics and partitions.
 	DetectAndCopyNewTopics pulumi.BoolPtrInput `pulumi:"detectAndCopyNewTopics"`
 	// Configuration for specifying the position in the topics to start replicating from.
-	StartingPosition       ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrInput       `pulumi:"startingPosition"`
+	StartingPosition ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrInput `pulumi:"startingPosition"`
+	// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
 	TopicNameConfiguration ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrInput `pulumi:"topicNameConfiguration"`
 	// List of regular expression patterns indicating the topics that should not be replica.
 	TopicsToExcludes pulumi.StringArrayInput `pulumi:"topicsToExcludes"`
@@ -4438,6 +4440,7 @@ func (o ReplicatorReplicationInfoListTopicReplicationOutput) StartingPosition() 
 	}).(ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput)
 }
 
+// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
 func (o ReplicatorReplicationInfoListTopicReplicationOutput) TopicNameConfiguration() ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplication) *ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration {
 		return v.TopicNameConfiguration
@@ -4612,6 +4615,7 @@ func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput) 
 }
 
 type ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration struct {
+	// The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
 	Type *string `pulumi:"type"`
 }
 
@@ -4627,6 +4631,7 @@ type ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationInput in
 }
 
 type ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs struct {
+	// The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -4707,6 +4712,7 @@ func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutpu
 	}).(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput)
 }
 
+// The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
 func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4735,6 +4741,7 @@ func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOu
 	}).(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput)
 }
 
+// The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
 func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration) *string {
 		if v == nil {

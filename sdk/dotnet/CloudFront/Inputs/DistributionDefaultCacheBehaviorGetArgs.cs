@@ -49,7 +49,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<bool>? Compress { get; set; }
 
         /// <summary>
-        /// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+        /// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         /// </summary>
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
@@ -78,6 +78,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
             set => _functionAssociations = value;
         }
 
+        /// <summary>
+        /// A config block that sets the grpc config.
+        /// </summary>
+        [Input("grpcConfig")]
+        public Input<Inputs.DistributionDefaultCacheBehaviorGrpcConfigGetArgs>? GrpcConfig { get; set; }
+
         [Input("lambdaFunctionAssociations")]
         private InputList<Inputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociationGetArgs>? _lambdaFunctionAssociations;
 
@@ -91,13 +97,13 @@ namespace Pulumi.Aws.CloudFront.Inputs
         }
 
         /// <summary>
-        /// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+        /// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
         /// </summary>
         [Input("maxTtl")]
         public Input<int>? MaxTtl { get; set; }
 
         /// <summary>
-        /// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+        /// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
         /// </summary>
         [Input("minTtl")]
         public Input<int>? MinTtl { get; set; }

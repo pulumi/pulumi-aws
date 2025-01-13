@@ -5,7 +5,7 @@ Subject: [PATCH] Restore AWS Go SDK v1 session
 
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index 0d4c6c6d6c7..1adf9943c40 100644
+index 0d4c6c6d6c..1adf9943c4 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
 @@ -305,6 +305,7 @@ func (c *AWSClient) apiClientConfig(ctx context.Context, servicePackageName stri

@@ -189,6 +189,10 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly nodeGroupNamePrefix!: pulumi.Output<string>;
     /**
+     * The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
+     */
+    public readonly nodeRepairConfig!: pulumi.Output<outputs.eks.NodeGroupNodeRepairConfig>;
+    /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      */
     public readonly nodeRoleArn!: pulumi.Output<string>;
@@ -265,6 +269,7 @@ export class NodeGroup extends pulumi.CustomResource {
             resourceInputs["launchTemplate"] = state ? state.launchTemplate : undefined;
             resourceInputs["nodeGroupName"] = state ? state.nodeGroupName : undefined;
             resourceInputs["nodeGroupNamePrefix"] = state ? state.nodeGroupNamePrefix : undefined;
+            resourceInputs["nodeRepairConfig"] = state ? state.nodeRepairConfig : undefined;
             resourceInputs["nodeRoleArn"] = state ? state.nodeRoleArn : undefined;
             resourceInputs["releaseVersion"] = state ? state.releaseVersion : undefined;
             resourceInputs["remoteAccess"] = state ? state.remoteAccess : undefined;
@@ -301,6 +306,7 @@ export class NodeGroup extends pulumi.CustomResource {
             resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
             resourceInputs["nodeGroupName"] = args ? args.nodeGroupName : undefined;
             resourceInputs["nodeGroupNamePrefix"] = args ? args.nodeGroupNamePrefix : undefined;
+            resourceInputs["nodeRepairConfig"] = args ? args.nodeRepairConfig : undefined;
             resourceInputs["nodeRoleArn"] = args ? args.nodeRoleArn : undefined;
             resourceInputs["releaseVersion"] = args ? args.releaseVersion : undefined;
             resourceInputs["remoteAccess"] = args ? args.remoteAccess : undefined;
@@ -368,6 +374,10 @@ export interface NodeGroupState {
      * Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
      */
     nodeGroupNamePrefix?: pulumi.Input<string>;
+    /**
+     * The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
+     */
+    nodeRepairConfig?: pulumi.Input<inputs.eks.NodeGroupNodeRepairConfig>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      */
@@ -466,6 +476,10 @@ export interface NodeGroupArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
      */
     nodeGroupNamePrefix?: pulumi.Input<string>;
+    /**
+     * The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
+     */
+    nodeRepairConfig?: pulumi.Input<inputs.eks.NodeGroupNodeRepairConfig>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      */

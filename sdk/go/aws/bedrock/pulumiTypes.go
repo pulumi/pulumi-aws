@@ -1475,6 +1475,318 @@ func (o AgentAgentAliasTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AgentAgentCollaboratorAgentDescriptor struct {
+	// ARN of the Alias of an Agent to use as the collaborator.
+	AliasArn string `pulumi:"aliasArn"`
+}
+
+// AgentAgentCollaboratorAgentDescriptorInput is an input type that accepts AgentAgentCollaboratorAgentDescriptorArgs and AgentAgentCollaboratorAgentDescriptorOutput values.
+// You can construct a concrete instance of `AgentAgentCollaboratorAgentDescriptorInput` via:
+//
+//	AgentAgentCollaboratorAgentDescriptorArgs{...}
+type AgentAgentCollaboratorAgentDescriptorInput interface {
+	pulumi.Input
+
+	ToAgentAgentCollaboratorAgentDescriptorOutput() AgentAgentCollaboratorAgentDescriptorOutput
+	ToAgentAgentCollaboratorAgentDescriptorOutputWithContext(context.Context) AgentAgentCollaboratorAgentDescriptorOutput
+}
+
+type AgentAgentCollaboratorAgentDescriptorArgs struct {
+	// ARN of the Alias of an Agent to use as the collaborator.
+	AliasArn pulumi.StringInput `pulumi:"aliasArn"`
+}
+
+func (AgentAgentCollaboratorAgentDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentCollaboratorAgentDescriptor)(nil)).Elem()
+}
+
+func (i AgentAgentCollaboratorAgentDescriptorArgs) ToAgentAgentCollaboratorAgentDescriptorOutput() AgentAgentCollaboratorAgentDescriptorOutput {
+	return i.ToAgentAgentCollaboratorAgentDescriptorOutputWithContext(context.Background())
+}
+
+func (i AgentAgentCollaboratorAgentDescriptorArgs) ToAgentAgentCollaboratorAgentDescriptorOutputWithContext(ctx context.Context) AgentAgentCollaboratorAgentDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentCollaboratorAgentDescriptorOutput)
+}
+
+func (i AgentAgentCollaboratorAgentDescriptorArgs) ToAgentAgentCollaboratorAgentDescriptorPtrOutput() AgentAgentCollaboratorAgentDescriptorPtrOutput {
+	return i.ToAgentAgentCollaboratorAgentDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i AgentAgentCollaboratorAgentDescriptorArgs) ToAgentAgentCollaboratorAgentDescriptorPtrOutputWithContext(ctx context.Context) AgentAgentCollaboratorAgentDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentCollaboratorAgentDescriptorOutput).ToAgentAgentCollaboratorAgentDescriptorPtrOutputWithContext(ctx)
+}
+
+// AgentAgentCollaboratorAgentDescriptorPtrInput is an input type that accepts AgentAgentCollaboratorAgentDescriptorArgs, AgentAgentCollaboratorAgentDescriptorPtr and AgentAgentCollaboratorAgentDescriptorPtrOutput values.
+// You can construct a concrete instance of `AgentAgentCollaboratorAgentDescriptorPtrInput` via:
+//
+//	        AgentAgentCollaboratorAgentDescriptorArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentAgentCollaboratorAgentDescriptorPtrInput interface {
+	pulumi.Input
+
+	ToAgentAgentCollaboratorAgentDescriptorPtrOutput() AgentAgentCollaboratorAgentDescriptorPtrOutput
+	ToAgentAgentCollaboratorAgentDescriptorPtrOutputWithContext(context.Context) AgentAgentCollaboratorAgentDescriptorPtrOutput
+}
+
+type agentAgentCollaboratorAgentDescriptorPtrType AgentAgentCollaboratorAgentDescriptorArgs
+
+func AgentAgentCollaboratorAgentDescriptorPtr(v *AgentAgentCollaboratorAgentDescriptorArgs) AgentAgentCollaboratorAgentDescriptorPtrInput {
+	return (*agentAgentCollaboratorAgentDescriptorPtrType)(v)
+}
+
+func (*agentAgentCollaboratorAgentDescriptorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentCollaboratorAgentDescriptor)(nil)).Elem()
+}
+
+func (i *agentAgentCollaboratorAgentDescriptorPtrType) ToAgentAgentCollaboratorAgentDescriptorPtrOutput() AgentAgentCollaboratorAgentDescriptorPtrOutput {
+	return i.ToAgentAgentCollaboratorAgentDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i *agentAgentCollaboratorAgentDescriptorPtrType) ToAgentAgentCollaboratorAgentDescriptorPtrOutputWithContext(ctx context.Context) AgentAgentCollaboratorAgentDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentCollaboratorAgentDescriptorPtrOutput)
+}
+
+type AgentAgentCollaboratorAgentDescriptorOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentCollaboratorAgentDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentCollaboratorAgentDescriptor)(nil)).Elem()
+}
+
+func (o AgentAgentCollaboratorAgentDescriptorOutput) ToAgentAgentCollaboratorAgentDescriptorOutput() AgentAgentCollaboratorAgentDescriptorOutput {
+	return o
+}
+
+func (o AgentAgentCollaboratorAgentDescriptorOutput) ToAgentAgentCollaboratorAgentDescriptorOutputWithContext(ctx context.Context) AgentAgentCollaboratorAgentDescriptorOutput {
+	return o
+}
+
+func (o AgentAgentCollaboratorAgentDescriptorOutput) ToAgentAgentCollaboratorAgentDescriptorPtrOutput() AgentAgentCollaboratorAgentDescriptorPtrOutput {
+	return o.ToAgentAgentCollaboratorAgentDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (o AgentAgentCollaboratorAgentDescriptorOutput) ToAgentAgentCollaboratorAgentDescriptorPtrOutputWithContext(ctx context.Context) AgentAgentCollaboratorAgentDescriptorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentAgentCollaboratorAgentDescriptor) *AgentAgentCollaboratorAgentDescriptor {
+		return &v
+	}).(AgentAgentCollaboratorAgentDescriptorPtrOutput)
+}
+
+// ARN of the Alias of an Agent to use as the collaborator.
+func (o AgentAgentCollaboratorAgentDescriptorOutput) AliasArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentCollaboratorAgentDescriptor) string { return v.AliasArn }).(pulumi.StringOutput)
+}
+
+type AgentAgentCollaboratorAgentDescriptorPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentCollaboratorAgentDescriptorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentCollaboratorAgentDescriptor)(nil)).Elem()
+}
+
+func (o AgentAgentCollaboratorAgentDescriptorPtrOutput) ToAgentAgentCollaboratorAgentDescriptorPtrOutput() AgentAgentCollaboratorAgentDescriptorPtrOutput {
+	return o
+}
+
+func (o AgentAgentCollaboratorAgentDescriptorPtrOutput) ToAgentAgentCollaboratorAgentDescriptorPtrOutputWithContext(ctx context.Context) AgentAgentCollaboratorAgentDescriptorPtrOutput {
+	return o
+}
+
+func (o AgentAgentCollaboratorAgentDescriptorPtrOutput) Elem() AgentAgentCollaboratorAgentDescriptorOutput {
+	return o.ApplyT(func(v *AgentAgentCollaboratorAgentDescriptor) AgentAgentCollaboratorAgentDescriptor {
+		if v != nil {
+			return *v
+		}
+		var ret AgentAgentCollaboratorAgentDescriptor
+		return ret
+	}).(AgentAgentCollaboratorAgentDescriptorOutput)
+}
+
+// ARN of the Alias of an Agent to use as the collaborator.
+func (o AgentAgentCollaboratorAgentDescriptorPtrOutput) AliasArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentCollaboratorAgentDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AliasArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentAgentCollaboratorTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentAgentCollaboratorTimeoutsInput is an input type that accepts AgentAgentCollaboratorTimeoutsArgs and AgentAgentCollaboratorTimeoutsOutput values.
+// You can construct a concrete instance of `AgentAgentCollaboratorTimeoutsInput` via:
+//
+//	AgentAgentCollaboratorTimeoutsArgs{...}
+type AgentAgentCollaboratorTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentAgentCollaboratorTimeoutsOutput() AgentAgentCollaboratorTimeoutsOutput
+	ToAgentAgentCollaboratorTimeoutsOutputWithContext(context.Context) AgentAgentCollaboratorTimeoutsOutput
+}
+
+type AgentAgentCollaboratorTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentAgentCollaboratorTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentCollaboratorTimeouts)(nil)).Elem()
+}
+
+func (i AgentAgentCollaboratorTimeoutsArgs) ToAgentAgentCollaboratorTimeoutsOutput() AgentAgentCollaboratorTimeoutsOutput {
+	return i.ToAgentAgentCollaboratorTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentAgentCollaboratorTimeoutsArgs) ToAgentAgentCollaboratorTimeoutsOutputWithContext(ctx context.Context) AgentAgentCollaboratorTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentCollaboratorTimeoutsOutput)
+}
+
+func (i AgentAgentCollaboratorTimeoutsArgs) ToAgentAgentCollaboratorTimeoutsPtrOutput() AgentAgentCollaboratorTimeoutsPtrOutput {
+	return i.ToAgentAgentCollaboratorTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentAgentCollaboratorTimeoutsArgs) ToAgentAgentCollaboratorTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentCollaboratorTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentCollaboratorTimeoutsOutput).ToAgentAgentCollaboratorTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentAgentCollaboratorTimeoutsPtrInput is an input type that accepts AgentAgentCollaboratorTimeoutsArgs, AgentAgentCollaboratorTimeoutsPtr and AgentAgentCollaboratorTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentAgentCollaboratorTimeoutsPtrInput` via:
+//
+//	        AgentAgentCollaboratorTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentAgentCollaboratorTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentAgentCollaboratorTimeoutsPtrOutput() AgentAgentCollaboratorTimeoutsPtrOutput
+	ToAgentAgentCollaboratorTimeoutsPtrOutputWithContext(context.Context) AgentAgentCollaboratorTimeoutsPtrOutput
+}
+
+type agentAgentCollaboratorTimeoutsPtrType AgentAgentCollaboratorTimeoutsArgs
+
+func AgentAgentCollaboratorTimeoutsPtr(v *AgentAgentCollaboratorTimeoutsArgs) AgentAgentCollaboratorTimeoutsPtrInput {
+	return (*agentAgentCollaboratorTimeoutsPtrType)(v)
+}
+
+func (*agentAgentCollaboratorTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentCollaboratorTimeouts)(nil)).Elem()
+}
+
+func (i *agentAgentCollaboratorTimeoutsPtrType) ToAgentAgentCollaboratorTimeoutsPtrOutput() AgentAgentCollaboratorTimeoutsPtrOutput {
+	return i.ToAgentAgentCollaboratorTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentAgentCollaboratorTimeoutsPtrType) ToAgentAgentCollaboratorTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentCollaboratorTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentCollaboratorTimeoutsPtrOutput)
+}
+
+type AgentAgentCollaboratorTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentCollaboratorTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentCollaboratorTimeouts)(nil)).Elem()
+}
+
+func (o AgentAgentCollaboratorTimeoutsOutput) ToAgentAgentCollaboratorTimeoutsOutput() AgentAgentCollaboratorTimeoutsOutput {
+	return o
+}
+
+func (o AgentAgentCollaboratorTimeoutsOutput) ToAgentAgentCollaboratorTimeoutsOutputWithContext(ctx context.Context) AgentAgentCollaboratorTimeoutsOutput {
+	return o
+}
+
+func (o AgentAgentCollaboratorTimeoutsOutput) ToAgentAgentCollaboratorTimeoutsPtrOutput() AgentAgentCollaboratorTimeoutsPtrOutput {
+	return o.ToAgentAgentCollaboratorTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentAgentCollaboratorTimeoutsOutput) ToAgentAgentCollaboratorTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentCollaboratorTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentAgentCollaboratorTimeouts) *AgentAgentCollaboratorTimeouts {
+		return &v
+	}).(AgentAgentCollaboratorTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentCollaboratorTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentCollaboratorTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentAgentCollaboratorTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentCollaboratorTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentCollaboratorTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentCollaboratorTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentAgentCollaboratorTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentCollaboratorTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentCollaboratorTimeouts)(nil)).Elem()
+}
+
+func (o AgentAgentCollaboratorTimeoutsPtrOutput) ToAgentAgentCollaboratorTimeoutsPtrOutput() AgentAgentCollaboratorTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentAgentCollaboratorTimeoutsPtrOutput) ToAgentAgentCollaboratorTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentCollaboratorTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentAgentCollaboratorTimeoutsPtrOutput) Elem() AgentAgentCollaboratorTimeoutsOutput {
+	return o.ApplyT(func(v *AgentAgentCollaboratorTimeouts) AgentAgentCollaboratorTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentAgentCollaboratorTimeouts
+		return ret
+	}).(AgentAgentCollaboratorTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentCollaboratorTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentCollaboratorTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentAgentCollaboratorTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentCollaboratorTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentCollaboratorTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentCollaboratorTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type AgentAgentGuardrailConfiguration struct {
 	// Unique identifier of the guardrail.
 	GuardrailIdentifier string `pulumi:"guardrailIdentifier"`
@@ -12209,6 +12521,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasRoutingConfigurationArrayInput)(nil)).Elem(), AgentAgentAliasRoutingConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasTimeoutsInput)(nil)).Elem(), AgentAgentAliasTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasTimeoutsPtrInput)(nil)).Elem(), AgentAgentAliasTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentCollaboratorAgentDescriptorInput)(nil)).Elem(), AgentAgentCollaboratorAgentDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentCollaboratorAgentDescriptorPtrInput)(nil)).Elem(), AgentAgentCollaboratorAgentDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentCollaboratorTimeoutsInput)(nil)).Elem(), AgentAgentCollaboratorTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentCollaboratorTimeoutsPtrInput)(nil)).Elem(), AgentAgentCollaboratorTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentGuardrailConfigurationInput)(nil)).Elem(), AgentAgentGuardrailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentGuardrailConfigurationArrayInput)(nil)).Elem(), AgentAgentGuardrailConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentKnowledgeBaseAssociationTimeoutsInput)(nil)).Elem(), AgentAgentKnowledgeBaseAssociationTimeoutsArgs{})
@@ -12379,6 +12695,10 @@ func init() {
 	pulumi.RegisterOutputType(AgentAgentAliasRoutingConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentAliasTimeoutsOutput{})
 	pulumi.RegisterOutputType(AgentAgentAliasTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentAgentCollaboratorAgentDescriptorOutput{})
+	pulumi.RegisterOutputType(AgentAgentCollaboratorAgentDescriptorPtrOutput{})
+	pulumi.RegisterOutputType(AgentAgentCollaboratorTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentAgentCollaboratorTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AgentAgentGuardrailConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentAgentGuardrailConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentKnowledgeBaseAssociationTimeoutsOutput{})

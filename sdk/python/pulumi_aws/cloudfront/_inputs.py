@@ -49,6 +49,8 @@ __all__ = [
     'DistributionDefaultCacheBehaviorForwardedValuesCookiesArgsDict',
     'DistributionDefaultCacheBehaviorFunctionAssociationArgs',
     'DistributionDefaultCacheBehaviorFunctionAssociationArgsDict',
+    'DistributionDefaultCacheBehaviorGrpcConfigArgs',
+    'DistributionDefaultCacheBehaviorGrpcConfigArgsDict',
     'DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs',
     'DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgsDict',
     'DistributionLoggingConfigArgs',
@@ -61,6 +63,8 @@ __all__ = [
     'DistributionOrderedCacheBehaviorForwardedValuesCookiesArgsDict',
     'DistributionOrderedCacheBehaviorFunctionAssociationArgs',
     'DistributionOrderedCacheBehaviorFunctionAssociationArgsDict',
+    'DistributionOrderedCacheBehaviorGrpcConfigArgs',
+    'DistributionOrderedCacheBehaviorGrpcConfigArgsDict',
     'DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs',
     'DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgsDict',
     'DistributionOriginArgs',
@@ -930,7 +934,7 @@ if not MYPY:
         """
         default_ttl: NotRequired[pulumi.Input[int]]
         """
-        Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+        Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         """
         field_level_encryption_id: NotRequired[pulumi.Input[str]]
         """
@@ -944,17 +948,21 @@ if not MYPY:
         """
         A config block that triggers a cloudfront function with specific actions (maximum 2).
         """
+        grpc_config: NotRequired[pulumi.Input['DistributionDefaultCacheBehaviorGrpcConfigArgsDict']]
+        """
+        A config block that sets the grpc config.
+        """
         lambda_function_associations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgsDict']]]]
         """
         A config block that triggers a lambda function with specific actions (maximum 4).
         """
         max_ttl: NotRequired[pulumi.Input[int]]
         """
-        Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+        Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
         """
         min_ttl: NotRequired[pulumi.Input[int]]
         """
-        Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+        Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
         """
         origin_request_policy_id: NotRequired[pulumi.Input[str]]
         """
@@ -996,6 +1004,7 @@ class DistributionDefaultCacheBehaviorArgs:
                  field_level_encryption_id: Optional[pulumi.Input[str]] = None,
                  forwarded_values: Optional[pulumi.Input['DistributionDefaultCacheBehaviorForwardedValuesArgs']] = None,
                  function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorFunctionAssociationArgs']]]] = None,
+                 grpc_config: Optional[pulumi.Input['DistributionDefaultCacheBehaviorGrpcConfigArgs']] = None,
                  lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs']]]] = None,
                  max_ttl: Optional[pulumi.Input[int]] = None,
                  min_ttl: Optional[pulumi.Input[int]] = None,
@@ -1012,13 +1021,14 @@ class DistributionDefaultCacheBehaviorArgs:
         :param pulumi.Input[str] viewer_protocol_policy: Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
         :param pulumi.Input[str] cache_policy_id: Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
         :param pulumi.Input[bool] compress: Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
-        :param pulumi.Input[int] default_ttl: Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+        :param pulumi.Input[int] default_ttl: Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         :param pulumi.Input[str] field_level_encryption_id: Field level encryption configuration ID.
         :param pulumi.Input['DistributionDefaultCacheBehaviorForwardedValuesArgs'] forwarded_values: The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
         :param pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorFunctionAssociationArgs']]] function_associations: A config block that triggers a cloudfront function with specific actions (maximum 2).
+        :param pulumi.Input['DistributionDefaultCacheBehaviorGrpcConfigArgs'] grpc_config: A config block that sets the grpc config.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs']]] lambda_function_associations: A config block that triggers a lambda function with specific actions (maximum 4).
-        :param pulumi.Input[int] max_ttl: Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
-        :param pulumi.Input[int] min_ttl: Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+        :param pulumi.Input[int] max_ttl: Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
+        :param pulumi.Input[int] min_ttl: Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
         :param pulumi.Input[str] origin_request_policy_id: Unique identifier of the origin request policy that is attached to the behavior.
         :param pulumi.Input[str] realtime_log_config_arn: ARN of the real-time log configuration that is attached to this cache behavior.
         :param pulumi.Input[str] response_headers_policy_id: Identifier for a response headers policy.
@@ -1042,6 +1052,8 @@ class DistributionDefaultCacheBehaviorArgs:
             pulumi.set(__self__, "forwarded_values", forwarded_values)
         if function_associations is not None:
             pulumi.set(__self__, "function_associations", function_associations)
+        if grpc_config is not None:
+            pulumi.set(__self__, "grpc_config", grpc_config)
         if lambda_function_associations is not None:
             pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
@@ -1137,7 +1149,7 @@ class DistributionDefaultCacheBehaviorArgs:
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[pulumi.Input[int]]:
         """
-        Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+        Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         """
         return pulumi.get(self, "default_ttl")
 
@@ -1182,6 +1194,18 @@ class DistributionDefaultCacheBehaviorArgs:
         pulumi.set(self, "function_associations", value)
 
     @property
+    @pulumi.getter(name="grpcConfig")
+    def grpc_config(self) -> Optional[pulumi.Input['DistributionDefaultCacheBehaviorGrpcConfigArgs']]:
+        """
+        A config block that sets the grpc config.
+        """
+        return pulumi.get(self, "grpc_config")
+
+    @grpc_config.setter
+    def grpc_config(self, value: Optional[pulumi.Input['DistributionDefaultCacheBehaviorGrpcConfigArgs']]):
+        pulumi.set(self, "grpc_config", value)
+
+    @property
     @pulumi.getter(name="lambdaFunctionAssociations")
     def lambda_function_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs']]]]:
         """
@@ -1197,7 +1221,7 @@ class DistributionDefaultCacheBehaviorArgs:
     @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+        Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
         """
         return pulumi.get(self, "max_ttl")
 
@@ -1209,7 +1233,7 @@ class DistributionDefaultCacheBehaviorArgs:
     @pulumi.getter(name="minTtl")
     def min_ttl(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+        Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
         """
         return pulumi.get(self, "min_ttl")
 
@@ -1482,6 +1506,38 @@ class DistributionDefaultCacheBehaviorFunctionAssociationArgs:
 
 
 if not MYPY:
+    class DistributionDefaultCacheBehaviorGrpcConfigArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        """
+elif False:
+    DistributionDefaultCacheBehaviorGrpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionDefaultCacheBehaviorGrpcConfigArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
     class DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgsDict(TypedDict):
         event_type: pulumi.Input[str]
         """
@@ -1555,7 +1611,7 @@ if not MYPY:
     class DistributionLoggingConfigArgsDict(TypedDict):
         bucket: pulumi.Input[str]
         """
-        Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+        Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
         """
         include_cookies: NotRequired[pulumi.Input[bool]]
         """
@@ -1575,7 +1631,7 @@ class DistributionLoggingConfigArgs:
                  include_cookies: Optional[pulumi.Input[bool]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] bucket: Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+        :param pulumi.Input[str] bucket: Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
         :param pulumi.Input[bool] include_cookies: Whether to include cookies in access logs (default: `false`).
         :param pulumi.Input[str] prefix: Prefix to the access log filenames for this distribution, for example, `myprefix/`.
         """
@@ -1589,7 +1645,7 @@ class DistributionLoggingConfigArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+        Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
         """
         return pulumi.get(self, "bucket")
 
@@ -1654,7 +1710,7 @@ if not MYPY:
         """
         default_ttl: NotRequired[pulumi.Input[int]]
         """
-        Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+        Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         """
         field_level_encryption_id: NotRequired[pulumi.Input[str]]
         """
@@ -1668,17 +1724,21 @@ if not MYPY:
         """
         A config block that triggers a cloudfront function with specific actions (maximum 2).
         """
+        grpc_config: NotRequired[pulumi.Input['DistributionOrderedCacheBehaviorGrpcConfigArgsDict']]
+        """
+        A config block that sets the grpc config.
+        """
         lambda_function_associations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgsDict']]]]
         """
         A config block that triggers a lambda function with specific actions (maximum 4).
         """
         max_ttl: NotRequired[pulumi.Input[int]]
         """
-        Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+        Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
         """
         min_ttl: NotRequired[pulumi.Input[int]]
         """
-        Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+        Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
         """
         origin_request_policy_id: NotRequired[pulumi.Input[str]]
         """
@@ -1721,6 +1781,7 @@ class DistributionOrderedCacheBehaviorArgs:
                  field_level_encryption_id: Optional[pulumi.Input[str]] = None,
                  forwarded_values: Optional[pulumi.Input['DistributionOrderedCacheBehaviorForwardedValuesArgs']] = None,
                  function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorFunctionAssociationArgs']]]] = None,
+                 grpc_config: Optional[pulumi.Input['DistributionOrderedCacheBehaviorGrpcConfigArgs']] = None,
                  lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs']]]] = None,
                  max_ttl: Optional[pulumi.Input[int]] = None,
                  min_ttl: Optional[pulumi.Input[int]] = None,
@@ -1738,13 +1799,14 @@ class DistributionOrderedCacheBehaviorArgs:
         :param pulumi.Input[str] viewer_protocol_policy: Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
         :param pulumi.Input[str] cache_policy_id: Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
         :param pulumi.Input[bool] compress: Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
-        :param pulumi.Input[int] default_ttl: Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+        :param pulumi.Input[int] default_ttl: Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         :param pulumi.Input[str] field_level_encryption_id: Field level encryption configuration ID.
         :param pulumi.Input['DistributionOrderedCacheBehaviorForwardedValuesArgs'] forwarded_values: The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorFunctionAssociationArgs']]] function_associations: A config block that triggers a cloudfront function with specific actions (maximum 2).
+        :param pulumi.Input['DistributionOrderedCacheBehaviorGrpcConfigArgs'] grpc_config: A config block that sets the grpc config.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs']]] lambda_function_associations: A config block that triggers a lambda function with specific actions (maximum 4).
-        :param pulumi.Input[int] max_ttl: Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
-        :param pulumi.Input[int] min_ttl: Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+        :param pulumi.Input[int] max_ttl: Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
+        :param pulumi.Input[int] min_ttl: Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
         :param pulumi.Input[str] origin_request_policy_id: Unique identifier of the origin request policy that is attached to the behavior.
         :param pulumi.Input[str] realtime_log_config_arn: ARN of the real-time log configuration that is attached to this cache behavior.
         :param pulumi.Input[str] response_headers_policy_id: Identifier for a response headers policy.
@@ -1769,6 +1831,8 @@ class DistributionOrderedCacheBehaviorArgs:
             pulumi.set(__self__, "forwarded_values", forwarded_values)
         if function_associations is not None:
             pulumi.set(__self__, "function_associations", function_associations)
+        if grpc_config is not None:
+            pulumi.set(__self__, "grpc_config", grpc_config)
         if lambda_function_associations is not None:
             pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
@@ -1876,7 +1940,7 @@ class DistributionOrderedCacheBehaviorArgs:
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[pulumi.Input[int]]:
         """
-        Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+        Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         """
         return pulumi.get(self, "default_ttl")
 
@@ -1921,6 +1985,18 @@ class DistributionOrderedCacheBehaviorArgs:
         pulumi.set(self, "function_associations", value)
 
     @property
+    @pulumi.getter(name="grpcConfig")
+    def grpc_config(self) -> Optional[pulumi.Input['DistributionOrderedCacheBehaviorGrpcConfigArgs']]:
+        """
+        A config block that sets the grpc config.
+        """
+        return pulumi.get(self, "grpc_config")
+
+    @grpc_config.setter
+    def grpc_config(self, value: Optional[pulumi.Input['DistributionOrderedCacheBehaviorGrpcConfigArgs']]):
+        pulumi.set(self, "grpc_config", value)
+
+    @property
     @pulumi.getter(name="lambdaFunctionAssociations")
     def lambda_function_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs']]]]:
         """
@@ -1936,7 +2012,7 @@ class DistributionOrderedCacheBehaviorArgs:
     @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+        Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
         """
         return pulumi.get(self, "max_ttl")
 
@@ -1948,7 +2024,7 @@ class DistributionOrderedCacheBehaviorArgs:
     @pulumi.getter(name="minTtl")
     def min_ttl(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+        Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
         """
         return pulumi.get(self, "min_ttl")
 
@@ -2218,6 +2294,38 @@ class DistributionOrderedCacheBehaviorFunctionAssociationArgs:
     @function_arn.setter
     def function_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "function_arn", value)
+
+
+if not MYPY:
+    class DistributionOrderedCacheBehaviorGrpcConfigArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        """
+elif False:
+    DistributionOrderedCacheBehaviorGrpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionOrderedCacheBehaviorGrpcConfigArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:

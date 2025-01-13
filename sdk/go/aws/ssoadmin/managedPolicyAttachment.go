@@ -93,7 +93,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ssoadmin.NewAccountAssignment(ctx, "account_assignment", &ssoadmin.AccountAssignmentArgs{
+//			exampleAccountAssignment, err := ssoadmin.NewAccountAssignment(ctx, "example", &ssoadmin.AccountAssignmentArgs{
 //				InstanceArn:      pulumi.String(example.Arns[0]),
 //				PermissionSetArn: examplePermissionSet.Arn,
 //				PrincipalId:      exampleGroup.GroupId,
@@ -109,7 +109,7 @@ import (
 //				ManagedPolicyArn: pulumi.String("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup"),
 //				PermissionSetArn: examplePermissionSet.Arn,
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSsoadminAccountAssignment,
+//				exampleAccountAssignment,
 //			}))
 //			if err != nil {
 //				return err

@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Configuring Basic Scanning
+//
 // ```go
 // package main
 //
@@ -28,9 +30,36 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.NewAccountSetting(ctx, "foo", &ecr.AccountSettingArgs{
+//			_, err := ecr.NewAccountSetting(ctx, "basic_scan_type_version", &ecr.AccountSettingArgs{
 //				Name:  pulumi.String("BASIC_SCAN_TYPE_VERSION"),
-//				Value: pulumi.String("CLAIR"),
+//				Value: pulumi.String("AWS_NATIVE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Configuring Registry Policy Scope
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecr.NewAccountSetting(ctx, "registry_policy_scope", &ecr.AccountSettingArgs{
+//				Name:  pulumi.String("REGISTRY_POLICY_SCOPE"),
+//				Value: pulumi.String("V2"),
 //			})
 //			if err != nil {
 //				return err
@@ -43,7 +72,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
+// Using `pulumi import`, import EMR Security Configurations using the account setting name. For example:
 //
 // ```sh
 // $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
@@ -51,9 +80,11 @@ import (
 type AccountSetting struct {
 	pulumi.CustomResourceState
 
-	// The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+	// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+	// Setting value that is specified. Valid values are:
+	// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+	// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
@@ -90,16 +121,20 @@ func GetAccountSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountSetting resources.
 type accountSettingState struct {
-	// The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+	// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
 	Name *string `pulumi:"name"`
-	// The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+	// Setting value that is specified. Valid values are:
+	// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+	// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
 	Value *string `pulumi:"value"`
 }
 
 type AccountSettingState struct {
-	// The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+	// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
 	Name pulumi.StringPtrInput
-	// The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+	// Setting value that is specified. Valid values are:
+	// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+	// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
 	Value pulumi.StringPtrInput
 }
 
@@ -108,17 +143,21 @@ func (AccountSettingState) ElementType() reflect.Type {
 }
 
 type accountSettingArgs struct {
-	// The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+	// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
 	Name *string `pulumi:"name"`
-	// The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+	// Setting value that is specified. Valid values are:
+	// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+	// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
 	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a AccountSetting resource.
 type AccountSettingArgs struct {
-	// The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+	// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
 	Name pulumi.StringPtrInput
-	// The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+	// Setting value that is specified. Valid values are:
+	// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+	// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
 	Value pulumi.StringInput
 }
 
@@ -209,12 +248,14 @@ func (o AccountSettingOutput) ToAccountSettingOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
 func (o AccountSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+// Setting value that is specified. Valid values are:
+// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
 func (o AccountSettingOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSetting) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

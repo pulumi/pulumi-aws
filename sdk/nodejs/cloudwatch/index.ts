@@ -67,6 +67,11 @@ export const getEventBus: typeof import("./getEventBus").getEventBus = null as a
 export const getEventBusOutput: typeof import("./getEventBus").getEventBusOutput = null as any;
 utilities.lazyLoad(exports, ["getEventBus","getEventBusOutput"], () => require("./getEventBus"));
 
+export { GetEventBusesArgs, GetEventBusesResult, GetEventBusesOutputArgs } from "./getEventBuses";
+export const getEventBuses: typeof import("./getEventBuses").getEventBuses = null as any;
+export const getEventBusesOutput: typeof import("./getEventBuses").getEventBusesOutput = null as any;
+utilities.lazyLoad(exports, ["getEventBuses","getEventBusesOutput"], () => require("./getEventBuses"));
+
 export { GetEventConnectionArgs, GetEventConnectionResult, GetEventConnectionOutputArgs } from "./getEventConnection";
 export const getEventConnection: typeof import("./getEventConnection").getEventConnection = null as any;
 export const getEventConnectionOutput: typeof import("./getEventConnection").getEventConnectionOutput = null as any;
@@ -112,6 +117,26 @@ export type LogDataProtectionPolicy = import("./logDataProtectionPolicy").LogDat
 export const LogDataProtectionPolicy: typeof import("./logDataProtectionPolicy").LogDataProtectionPolicy = null as any;
 utilities.lazyLoad(exports, ["LogDataProtectionPolicy"], () => require("./logDataProtectionPolicy"));
 
+export { LogDeliveryArgs, LogDeliveryState } from "./logDelivery";
+export type LogDelivery = import("./logDelivery").LogDelivery;
+export const LogDelivery: typeof import("./logDelivery").LogDelivery = null as any;
+utilities.lazyLoad(exports, ["LogDelivery"], () => require("./logDelivery"));
+
+export { LogDeliveryDestinationArgs, LogDeliveryDestinationState } from "./logDeliveryDestination";
+export type LogDeliveryDestination = import("./logDeliveryDestination").LogDeliveryDestination;
+export const LogDeliveryDestination: typeof import("./logDeliveryDestination").LogDeliveryDestination = null as any;
+utilities.lazyLoad(exports, ["LogDeliveryDestination"], () => require("./logDeliveryDestination"));
+
+export { LogDeliveryDestinationPolicyArgs, LogDeliveryDestinationPolicyState } from "./logDeliveryDestinationPolicy";
+export type LogDeliveryDestinationPolicy = import("./logDeliveryDestinationPolicy").LogDeliveryDestinationPolicy;
+export const LogDeliveryDestinationPolicy: typeof import("./logDeliveryDestinationPolicy").LogDeliveryDestinationPolicy = null as any;
+utilities.lazyLoad(exports, ["LogDeliveryDestinationPolicy"], () => require("./logDeliveryDestinationPolicy"));
+
+export { LogDeliverySourceArgs, LogDeliverySourceState } from "./logDeliverySource";
+export type LogDeliverySource = import("./logDeliverySource").LogDeliverySource;
+export const LogDeliverySource: typeof import("./logDeliverySource").LogDeliverySource = null as any;
+utilities.lazyLoad(exports, ["LogDeliverySource"], () => require("./logDeliverySource"));
+
 export { LogDestinationArgs, LogDestinationState } from "./logDestination";
 export type LogDestination = import("./logDestination").LogDestination;
 export const LogDestination: typeof import("./logDestination").LogDestination = null as any;
@@ -128,6 +153,11 @@ export const LogGroup: typeof import("./logGroup").LogGroup = null as any;
 utilities.lazyLoad(exports, ["LogGroup"], () => require("./logGroup"));
 
 export * from "./logGroupMixins";
+export { LogIndexPolicyArgs, LogIndexPolicyState } from "./logIndexPolicy";
+export type LogIndexPolicy = import("./logIndexPolicy").LogIndexPolicy;
+export const LogIndexPolicy: typeof import("./logIndexPolicy").LogIndexPolicy = null as any;
+utilities.lazyLoad(exports, ["LogIndexPolicy"], () => require("./logIndexPolicy"));
+
 export { LogMetricFilterArgs, LogMetricFilterState } from "./logMetricFilter";
 export type LogMetricFilter = import("./logMetricFilter").LogMetricFilter;
 export const LogMetricFilter: typeof import("./logMetricFilter").LogMetricFilter = null as any;
@@ -198,12 +228,22 @@ const _module = {
                 return new LogAnomalyDetector(name, <any>undefined, { urn })
             case "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy":
                 return new LogDataProtectionPolicy(name, <any>undefined, { urn })
+            case "aws:cloudwatch/logDelivery:LogDelivery":
+                return new LogDelivery(name, <any>undefined, { urn })
+            case "aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination":
+                return new LogDeliveryDestination(name, <any>undefined, { urn })
+            case "aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy":
+                return new LogDeliveryDestinationPolicy(name, <any>undefined, { urn })
+            case "aws:cloudwatch/logDeliverySource:LogDeliverySource":
+                return new LogDeliverySource(name, <any>undefined, { urn })
             case "aws:cloudwatch/logDestination:LogDestination":
                 return new LogDestination(name, <any>undefined, { urn })
             case "aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy":
                 return new LogDestinationPolicy(name, <any>undefined, { urn })
             case "aws:cloudwatch/logGroup:LogGroup":
                 return new LogGroup(name, <any>undefined, { urn })
+            case "aws:cloudwatch/logIndexPolicy:LogIndexPolicy":
+                return new LogIndexPolicy(name, <any>undefined, { urn })
             case "aws:cloudwatch/logMetricFilter:LogMetricFilter":
                 return new LogMetricFilter(name, <any>undefined, { urn })
             case "aws:cloudwatch/logResourcePolicy:LogResourcePolicy":
@@ -238,9 +278,14 @@ pulumi.runtime.registerResourceModule("aws", "cloudwatch/internetMonitor", _modu
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logAccountPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logAnomalyDetector", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDataProtectionPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDelivery", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDeliveryDestination", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDeliveryDestinationPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDeliverySource", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDestinationPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/logIndexPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logMetricFilter", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logResourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logStream", _module)

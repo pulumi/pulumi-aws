@@ -40,6 +40,7 @@ __all__ = [
     'FargateProfileSelector',
     'IdentityProviderConfigOidc',
     'NodeGroupLaunchTemplate',
+    'NodeGroupNodeRepairConfig',
     'NodeGroupRemoteAccess',
     'NodeGroupResource',
     'NodeGroupResourceAutoscalingGroup',
@@ -1116,6 +1117,25 @@ class NodeGroupLaunchTemplate(dict):
         Name of the EC2 Launch Template. Conflicts with `id`.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class NodeGroupNodeRepairConfig(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool enabled: Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

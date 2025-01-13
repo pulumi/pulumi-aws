@@ -167,13 +167,25 @@ export interface GetEngineVersionResult {
      */
     readonly supportedTimezones: string[];
     /**
+     * Whether the certificates can be rotated without restarting the Aurora instance.
+     */
+    readonly supportsCertificateRotationWithoutRestart: boolean;
+    /**
      * Whether you can use Aurora global databases with the engine version.
      */
     readonly supportsGlobalDatabases: boolean;
     /**
+     * Whether the engine version supports integrations with other AWS services.
+     */
+    readonly supportsIntegrations: boolean;
+    /**
      * Whether the engine version supports Aurora Limitless Database.
      */
     readonly supportsLimitlessDatabase: boolean;
+    /**
+     * Whether the engine version supports local write forwarding or not.
+     */
+    readonly supportsLocalWriteForwarding: boolean;
     /**
      * Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
      */

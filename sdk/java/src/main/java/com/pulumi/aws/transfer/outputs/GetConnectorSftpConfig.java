@@ -17,7 +17,7 @@ public final class GetConnectorSftpConfig {
      */
     private List<String> trustedHostKeys;
     /**
-     * @return Identifer for the secret in AWS Secrets Manager that contains the SFTP user&#39;s private key, and/or password.
+     * @return Identifier for the secret in AWS Secrets Manager that contains the SFTP user&#39;s private key, and/or password.
      * 
      */
     private String userSecretId;
@@ -31,7 +31,7 @@ public final class GetConnectorSftpConfig {
         return this.trustedHostKeys;
     }
     /**
-     * @return Identifer for the secret in AWS Secrets Manager that contains the SFTP user&#39;s private key, and/or password.
+     * @return Identifier for the secret in AWS Secrets Manager that contains the SFTP user&#39;s private key, and/or password.
      * 
      */
     public String userSecretId() {

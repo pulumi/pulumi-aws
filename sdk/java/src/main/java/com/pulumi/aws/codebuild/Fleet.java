@@ -6,6 +6,7 @@ package com.pulumi.aws.codebuild;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.codebuild.FleetArgs;
 import com.pulumi.aws.codebuild.inputs.FleetState;
+import com.pulumi.aws.codebuild.outputs.FleetComputeConfiguration;
 import com.pulumi.aws.codebuild.outputs.FleetScalingConfiguration;
 import com.pulumi.aws.codebuild.outputs.FleetStatus;
 import com.pulumi.aws.codebuild.outputs.FleetVpcConfig;
@@ -146,6 +147,20 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.baseCapacity;
     }
     /**
+     * The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+     * 
+     */
+    @Export(name="computeConfiguration", refs={FleetComputeConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ FleetComputeConfiguration> computeConfiguration;
+
+    /**
+     * @return The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+     * 
+     */
+    public Output<Optional<FleetComputeConfiguration>> computeConfiguration() {
+        return Codegen.optional(this.computeConfiguration);
+    }
+    /**
      * Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
      * 
      */
@@ -262,14 +277,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.overflowBehavior;
     }
     /**
-     * Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+     * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
      * 
      */
     @Export(name="scalingConfiguration", refs={FleetScalingConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FleetScalingConfiguration> scalingConfiguration;
 
     /**
-     * @return Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+     * @return Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
      * 
      */
     public Output<Optional<FleetScalingConfiguration>> scalingConfiguration() {
@@ -316,14 +331,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Configuration block. Detailed below.
+     * Configuration block. See `vpc_config` below.
      * 
      */
     @Export(name="vpcConfigs", refs={List.class,FleetVpcConfig.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FleetVpcConfig>> vpcConfigs;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Configuration block. See `vpc_config` below.
      * 
      */
     public Output<Optional<List<FleetVpcConfig>>> vpcConfigs() {

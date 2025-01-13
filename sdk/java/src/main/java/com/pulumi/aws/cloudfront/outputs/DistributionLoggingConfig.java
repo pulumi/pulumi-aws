@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionLoggingConfig {
     /**
-     * @return Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+     * @return Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
      * 
      */
     private String bucket;
@@ -31,7 +31,7 @@ public final class DistributionLoggingConfig {
 
     private DistributionLoggingConfig() {}
     /**
-     * @return Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+     * @return Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
      * 
      */
     public String bucket() {

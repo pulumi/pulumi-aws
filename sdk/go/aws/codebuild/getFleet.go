@@ -105,6 +105,8 @@ type LookupFleetResult struct {
 	Arn string `pulumi:"arn"`
 	// Number of machines allocated to the ﬂeet.
 	BaseCapacity int `pulumi:"baseCapacity"`
+	// Compute configuration of the compute fleet.
+	ComputeConfigurations []GetFleetComputeConfiguration `pulumi:"computeConfigurations"`
 	// Compute resources the compute fleet uses.
 	ComputeType string `pulumi:"computeType"`
 	// Creation time of the fleet.
@@ -176,6 +178,11 @@ func (o LookupFleetResultOutput) Arn() pulumi.StringOutput {
 // Number of machines allocated to the ﬂeet.
 func (o LookupFleetResultOutput) BaseCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupFleetResult) int { return v.BaseCapacity }).(pulumi.IntOutput)
+}
+
+// Compute configuration of the compute fleet.
+func (o LookupFleetResultOutput) ComputeConfigurations() GetFleetComputeConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupFleetResult) []GetFleetComputeConfiguration { return v.ComputeConfigurations }).(GetFleetComputeConfigurationArrayOutput)
 }
 
 // Compute resources the compute fleet uses.

@@ -204,7 +204,7 @@ class VpcOrigin(pulumi.CustomResource):
 
           to = aws_cloudfront_vpc_origin.origin
 
-          id = vo_JQEa410sssUFoY6wMkx69j
+          id = "vo_JQEa410sssUFoY6wMkx69j"
 
         }
 
@@ -260,7 +260,7 @@ class VpcOrigin(pulumi.CustomResource):
 
           to = aws_cloudfront_vpc_origin.origin
 
-          id = vo_JQEa410sssUFoY6wMkx69j
+          id = "vo_JQEa410sssUFoY6wMkx69j"
 
         }
 

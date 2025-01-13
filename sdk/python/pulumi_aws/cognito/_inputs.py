@@ -67,6 +67,8 @@ __all__ = [
     'UserPoolDeviceConfigurationArgsDict',
     'UserPoolEmailConfigurationArgs',
     'UserPoolEmailConfigurationArgsDict',
+    'UserPoolEmailMfaConfigurationArgs',
+    'UserPoolEmailMfaConfigurationArgsDict',
     'UserPoolLambdaConfigArgs',
     'UserPoolLambdaConfigArgsDict',
     'UserPoolLambdaConfigCustomEmailSenderArgs',
@@ -83,6 +85,8 @@ __all__ = [
     'UserPoolSchemaNumberAttributeConstraintsArgsDict',
     'UserPoolSchemaStringAttributeConstraintsArgs',
     'UserPoolSchemaStringAttributeConstraintsArgsDict',
+    'UserPoolSignInPolicyArgs',
+    'UserPoolSignInPolicyArgsDict',
     'UserPoolSmsConfigurationArgs',
     'UserPoolSmsConfigurationArgsDict',
     'UserPoolSoftwareTokenMfaConfigurationArgs',
@@ -95,6 +99,8 @@ __all__ = [
     'UserPoolUsernameConfigurationArgsDict',
     'UserPoolVerificationMessageTemplateArgs',
     'UserPoolVerificationMessageTemplateArgsDict',
+    'UserPoolWebAuthnConfigurationArgs',
+    'UserPoolWebAuthnConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -1873,6 +1879,58 @@ class UserPoolEmailConfigurationArgs:
 
 
 if not MYPY:
+    class UserPoolEmailMfaConfigurationArgsDict(TypedDict):
+        message: NotRequired[pulumi.Input[str]]
+        """
+        The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter, Amazon Cognito sends messages in the default format.
+        """
+        subject: NotRequired[pulumi.Input[str]]
+        """
+        The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
+        """
+elif False:
+    UserPoolEmailMfaConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserPoolEmailMfaConfigurationArgs:
+    def __init__(__self__, *,
+                 message: Optional[pulumi.Input[str]] = None,
+                 subject: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] message: The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter, Amazon Cognito sends messages in the default format.
+        :param pulumi.Input[str] subject: The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter, Amazon Cognito sends messages in the default format.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subject", value)
+
+
+if not MYPY:
     class UserPoolLambdaConfigArgsDict(TypedDict):
         create_auth_challenge: NotRequired[pulumi.Input[str]]
         """
@@ -2711,6 +2769,38 @@ class UserPoolSchemaStringAttributeConstraintsArgs:
 
 
 if not MYPY:
+    class UserPoolSignInPolicyArgsDict(TypedDict):
+        allowed_first_auth_factors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
+        """
+elif False:
+    UserPoolSignInPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserPoolSignInPolicyArgs:
+    def __init__(__self__, *,
+                 allowed_first_auth_factors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_first_auth_factors: The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
+        """
+        if allowed_first_auth_factors is not None:
+            pulumi.set(__self__, "allowed_first_auth_factors", allowed_first_auth_factors)
+
+    @property
+    @pulumi.getter(name="allowedFirstAuthFactors")
+    def allowed_first_auth_factors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
+        """
+        return pulumi.get(self, "allowed_first_auth_factors")
+
+    @allowed_first_auth_factors.setter
+    def allowed_first_auth_factors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_first_auth_factors", value)
+
+
+if not MYPY:
     class UserPoolSmsConfigurationArgsDict(TypedDict):
         external_id: pulumi.Input[str]
         """
@@ -3034,5 +3124,57 @@ class UserPoolVerificationMessageTemplateArgs:
     @sms_message.setter
     def sms_message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sms_message", value)
+
+
+if not MYPY:
+    class UserPoolWebAuthnConfigurationArgsDict(TypedDict):
+        relying_party_id: NotRequired[pulumi.Input[str]]
+        """
+        The authentication domain that passkeys providers use as a relying party.
+        """
+        user_verification: NotRequired[pulumi.Input[str]]
+        """
+        If your user pool should require a passkey. Must be one of `required` or `preferred`.
+        """
+elif False:
+    UserPoolWebAuthnConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserPoolWebAuthnConfigurationArgs:
+    def __init__(__self__, *,
+                 relying_party_id: Optional[pulumi.Input[str]] = None,
+                 user_verification: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] relying_party_id: The authentication domain that passkeys providers use as a relying party.
+        :param pulumi.Input[str] user_verification: If your user pool should require a passkey. Must be one of `required` or `preferred`.
+        """
+        if relying_party_id is not None:
+            pulumi.set(__self__, "relying_party_id", relying_party_id)
+        if user_verification is not None:
+            pulumi.set(__self__, "user_verification", user_verification)
+
+    @property
+    @pulumi.getter(name="relyingPartyId")
+    def relying_party_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication domain that passkeys providers use as a relying party.
+        """
+        return pulumi.get(self, "relying_party_id")
+
+    @relying_party_id.setter
+    def relying_party_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relying_party_id", value)
+
+    @property
+    @pulumi.getter(name="userVerification")
+    def user_verification(self) -> Optional[pulumi.Input[str]]:
+        """
+        If your user pool should require a passkey. Must be one of `required` or `preferred`.
+        """
+        return pulumi.get(self, "user_verification")
+
+    @user_verification.setter
+    def user_verification(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_verification", value)
 
 

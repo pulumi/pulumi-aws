@@ -130,6 +130,20 @@ public class Studio extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
+     * The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+     * 
+     */
+    @Export(name="encryptionKeyArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> encryptionKeyArn;
+
+    /**
+     * @return The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+     * 
+     */
+    public Output<Optional<String>> encryptionKeyArn() {
+        return Codegen.optional(this.encryptionKeyArn);
+    }
+    /**
      * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
      * 
      */

@@ -17,14 +17,14 @@ public final class AccountSettingArgs extends com.pulumi.resources.ResourceArgs 
     public static final AccountSettingArgs Empty = new AccountSettingArgs();
 
     /**
-     * The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+     * @return Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -32,14 +32,18 @@ public final class AccountSettingArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+     * Setting value that is specified. Valid values are:
+     * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+     * @return Setting value that is specified. Valid values are:
+     * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      * 
      */
     public Output<String> value() {
@@ -72,7 +76,7 @@ public final class AccountSettingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+         * @param name Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
          * 
          * @return builder
          * 
@@ -83,7 +87,7 @@ public final class AccountSettingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+         * @param name Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
          * 
          * @return builder
          * 
@@ -93,7 +97,9 @@ public final class AccountSettingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param value The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+         * @param value Setting value that is specified. Valid values are:
+         * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+         * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
          * 
          * @return builder
          * 
@@ -104,7 +110,9 @@ public final class AccountSettingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param value The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+         * @param value Setting value that is specified. Valid values are:
+         * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+         * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
          * 
          * @return builder
          * 

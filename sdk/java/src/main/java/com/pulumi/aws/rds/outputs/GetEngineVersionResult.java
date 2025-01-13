@@ -72,15 +72,30 @@ public final class GetEngineVersionResult {
      */
     private List<String> supportedTimezones;
     /**
+     * @return Whether the certificates can be rotated without restarting the Aurora instance.
+     * 
+     */
+    private Boolean supportsCertificateRotationWithoutRestart;
+    /**
      * @return Whether you can use Aurora global databases with the engine version.
      * 
      */
     private Boolean supportsGlobalDatabases;
     /**
+     * @return Whether the engine version supports integrations with other AWS services.
+     * 
+     */
+    private Boolean supportsIntegrations;
+    /**
      * @return Whether the engine version supports Aurora Limitless Database.
      * 
      */
     private Boolean supportsLimitlessDatabase;
+    /**
+     * @return Whether the engine version supports local write forwarding or not.
+     * 
+     */
+    private Boolean supportsLocalWriteForwarding;
     /**
      * @return Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
      * 
@@ -221,6 +236,13 @@ public final class GetEngineVersionResult {
         return this.supportedTimezones;
     }
     /**
+     * @return Whether the certificates can be rotated without restarting the Aurora instance.
+     * 
+     */
+    public Boolean supportsCertificateRotationWithoutRestart() {
+        return this.supportsCertificateRotationWithoutRestart;
+    }
+    /**
      * @return Whether you can use Aurora global databases with the engine version.
      * 
      */
@@ -228,11 +250,25 @@ public final class GetEngineVersionResult {
         return this.supportsGlobalDatabases;
     }
     /**
+     * @return Whether the engine version supports integrations with other AWS services.
+     * 
+     */
+    public Boolean supportsIntegrations() {
+        return this.supportsIntegrations;
+    }
+    /**
      * @return Whether the engine version supports Aurora Limitless Database.
      * 
      */
     public Boolean supportsLimitlessDatabase() {
         return this.supportsLimitlessDatabase;
+    }
+    /**
+     * @return Whether the engine version supports local write forwarding or not.
+     * 
+     */
+    public Boolean supportsLocalWriteForwarding() {
+        return this.supportsLocalWriteForwarding;
     }
     /**
      * @return Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
@@ -323,8 +359,11 @@ public final class GetEngineVersionResult {
         private List<String> supportedFeatureNames;
         private List<String> supportedModes;
         private List<String> supportedTimezones;
+        private Boolean supportsCertificateRotationWithoutRestart;
         private Boolean supportsGlobalDatabases;
+        private Boolean supportsIntegrations;
         private Boolean supportsLimitlessDatabase;
+        private Boolean supportsLocalWriteForwarding;
         private Boolean supportsLogExportsToCloudwatch;
         private Boolean supportsParallelQuery;
         private Boolean supportsReadReplica;
@@ -357,8 +396,11 @@ public final class GetEngineVersionResult {
     	      this.supportedFeatureNames = defaults.supportedFeatureNames;
     	      this.supportedModes = defaults.supportedModes;
     	      this.supportedTimezones = defaults.supportedTimezones;
+    	      this.supportsCertificateRotationWithoutRestart = defaults.supportsCertificateRotationWithoutRestart;
     	      this.supportsGlobalDatabases = defaults.supportsGlobalDatabases;
+    	      this.supportsIntegrations = defaults.supportsIntegrations;
     	      this.supportsLimitlessDatabase = defaults.supportsLimitlessDatabase;
+    	      this.supportsLocalWriteForwarding = defaults.supportsLocalWriteForwarding;
     	      this.supportsLogExportsToCloudwatch = defaults.supportsLogExportsToCloudwatch;
     	      this.supportsParallelQuery = defaults.supportsParallelQuery;
     	      this.supportsReadReplica = defaults.supportsReadReplica;
@@ -540,6 +582,14 @@ public final class GetEngineVersionResult {
             return supportedTimezones(List.of(supportedTimezones));
         }
         @CustomType.Setter
+        public Builder supportsCertificateRotationWithoutRestart(Boolean supportsCertificateRotationWithoutRestart) {
+            if (supportsCertificateRotationWithoutRestart == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsCertificateRotationWithoutRestart");
+            }
+            this.supportsCertificateRotationWithoutRestart = supportsCertificateRotationWithoutRestart;
+            return this;
+        }
+        @CustomType.Setter
         public Builder supportsGlobalDatabases(Boolean supportsGlobalDatabases) {
             if (supportsGlobalDatabases == null) {
               throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsGlobalDatabases");
@@ -548,11 +598,27 @@ public final class GetEngineVersionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder supportsIntegrations(Boolean supportsIntegrations) {
+            if (supportsIntegrations == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsIntegrations");
+            }
+            this.supportsIntegrations = supportsIntegrations;
+            return this;
+        }
+        @CustomType.Setter
         public Builder supportsLimitlessDatabase(Boolean supportsLimitlessDatabase) {
             if (supportsLimitlessDatabase == null) {
               throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsLimitlessDatabase");
             }
             this.supportsLimitlessDatabase = supportsLimitlessDatabase;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder supportsLocalWriteForwarding(Boolean supportsLocalWriteForwarding) {
+            if (supportsLocalWriteForwarding == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsLocalWriteForwarding");
+            }
+            this.supportsLocalWriteForwarding = supportsLocalWriteForwarding;
             return this;
         }
         @CustomType.Setter
@@ -658,8 +724,11 @@ public final class GetEngineVersionResult {
             _resultValue.supportedFeatureNames = supportedFeatureNames;
             _resultValue.supportedModes = supportedModes;
             _resultValue.supportedTimezones = supportedTimezones;
+            _resultValue.supportsCertificateRotationWithoutRestart = supportsCertificateRotationWithoutRestart;
             _resultValue.supportsGlobalDatabases = supportsGlobalDatabases;
+            _resultValue.supportsIntegrations = supportsIntegrations;
             _resultValue.supportsLimitlessDatabase = supportsLimitlessDatabase;
+            _resultValue.supportsLocalWriteForwarding = supportsLocalWriteForwarding;
             _resultValue.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             _resultValue.supportsParallelQuery = supportsParallelQuery;
             _resultValue.supportsReadReplica = supportsReadReplica;

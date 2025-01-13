@@ -50,6 +50,42 @@ import (
 //	}
 //
 // ```
+//
+// ### Ignoring Provider `defaultTags`
+//
+// S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+// If the resource's own `tags` and the provider-level `defaultTags` would together lead to more than 10 tags on an S3 object copy, use the `overrideProvider` configuration block to suppress any provider-level `defaultTags`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewObjectCopy(ctx, "test", &s3.ObjectCopyArgs{
+//				Bucket: pulumi.String("destination_bucket"),
+//				Key:    pulumi.String("destination_key"),
+//				Source: pulumi.String("source_bucket/source_key"),
+//				OverrideProvider: &s3.ObjectCopyOverrideProviderArgs{
+//					DefaultTags: &s3.ObjectCopyOverrideProviderDefaultTagsArgs{
+//						Tags: pulumi.StringMap{},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type ObjectCopy struct {
 	pulumi.CustomResourceState
 
@@ -125,7 +161,8 @@ type ObjectCopy struct {
 	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
 	ObjectLockMode pulumi.StringOutput `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
-	ObjectLockRetainUntilDate pulumi.StringOutput `pulumi:"objectLockRetainUntilDate"`
+	ObjectLockRetainUntilDate pulumi.StringOutput                 `pulumi:"objectLockRetainUntilDate"`
+	OverrideProvider          ObjectCopyOverrideProviderPtrOutput `pulumi:"overrideProvider"`
 	// If present, indicates that the requester was successfully charged for the request.
 	RequestCharged pulumi.BoolOutput `pulumi:"requestCharged"`
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
@@ -290,7 +327,8 @@ type objectCopyState struct {
 	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
 	ObjectLockMode *string `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
-	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
+	ObjectLockRetainUntilDate *string                     `pulumi:"objectLockRetainUntilDate"`
+	OverrideProvider          *ObjectCopyOverrideProvider `pulumi:"overrideProvider"`
 	// If present, indicates that the requester was successfully charged for the request.
 	RequestCharged *bool `pulumi:"requestCharged"`
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
@@ -399,6 +437,7 @@ type ObjectCopyState struct {
 	ObjectLockMode pulumi.StringPtrInput
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
+	OverrideProvider          ObjectCopyOverrideProviderPtrInput
 	// If present, indicates that the requester was successfully charged for the request.
 	RequestCharged pulumi.BoolPtrInput
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
@@ -494,7 +533,8 @@ type objectCopyArgs struct {
 	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
 	ObjectLockMode *string `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
-	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
+	ObjectLockRetainUntilDate *string                     `pulumi:"objectLockRetainUntilDate"`
+	OverrideProvider          *ObjectCopyOverrideProvider `pulumi:"overrideProvider"`
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
 	RequestPayer *string `pulumi:"requestPayer"`
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
@@ -578,6 +618,7 @@ type ObjectCopyArgs struct {
 	ObjectLockMode pulumi.StringPtrInput
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
+	OverrideProvider          ObjectCopyOverrideProviderPtrInput
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
 	RequestPayer pulumi.StringPtrInput
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
@@ -871,6 +912,10 @@ func (o ObjectCopyOutput) ObjectLockMode() pulumi.StringOutput {
 // Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 func (o ObjectCopyOutput) ObjectLockRetainUntilDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ObjectLockRetainUntilDate }).(pulumi.StringOutput)
+}
+
+func (o ObjectCopyOutput) OverrideProvider() ObjectCopyOverrideProviderPtrOutput {
+	return o.ApplyT(func(v *ObjectCopy) ObjectCopyOverrideProviderPtrOutput { return v.OverrideProvider }).(ObjectCopyOverrideProviderPtrOutput)
 }
 
 // If present, indicates that the requester was successfully charged for the request.

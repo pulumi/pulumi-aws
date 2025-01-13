@@ -25,7 +25,7 @@ class UserGroupArgs:
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a UserGroup resource.
-        :param pulumi.Input[str] engine: The current supported value is `REDIS`.
+        :param pulumi.Input[str] engine: The current supported value are `REDIS`, `VALKEY`.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
                
                The following arguments are optional:
@@ -43,7 +43,7 @@ class UserGroupArgs:
     @pulumi.getter
     def engine(self) -> pulumi.Input[str]:
         """
-        The current supported value is `REDIS`.
+        The current supported value are `REDIS`, `VALKEY`.
         """
         return pulumi.get(self, "engine")
 
@@ -102,7 +102,7 @@ class _UserGroupState:
         """
         Input properties used for looking up and filtering UserGroup resources.
         :param pulumi.Input[str] arn: The ARN that identifies the user group.
-        :param pulumi.Input[str] engine: The current supported value is `REDIS`.
+        :param pulumi.Input[str] engine: The current supported value are `REDIS`, `VALKEY`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
@@ -142,7 +142,7 @@ class _UserGroupState:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        The current supported value is `REDIS`.
+        The current supported value are `REDIS`, `VALKEY`.
         """
         return pulumi.get(self, "engine")
 
@@ -243,7 +243,7 @@ class UserGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] engine: The current supported value is `REDIS`.
+        :param pulumi.Input[str] engine: The current supported value are `REDIS`, `VALKEY`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
                
@@ -347,7 +347,7 @@ class UserGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN that identifies the user group.
-        :param pulumi.Input[str] engine: The current supported value is `REDIS`.
+        :param pulumi.Input[str] engine: The current supported value are `REDIS`, `VALKEY`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
@@ -379,7 +379,7 @@ class UserGroup(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
         """
-        The current supported value is `REDIS`.
+        The current supported value are `REDIS`, `VALKEY`.
         """
         return pulumi.get(self, "engine")
 

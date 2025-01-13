@@ -6020,4 +6020,19 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	) (resource.ID, error) {
 		return attr(state, "multiRegionClusterName"), nil
 	}
+
+	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
+		"aws_cloudwatch_log_index_policy":                {"logGroupName"},
+		"aws_cloudwatch_log_delivery_source":             {"name"},
+		"aws_cloudwatch_log_delivery_destination_policy": {"deliveryDestinationName"},
+		"aws_cloudwatch_log_delivery_destination":        {"name"},
+	}
+
+	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
+		prov.Resources[tfResourceID].ComputeID = func(
+			ctx context.Context, state resource.PropertyMap,
+		) (resource.ID, error) {
+			return attr(state, computeIDParts...), nil
+		}
+	}
 }

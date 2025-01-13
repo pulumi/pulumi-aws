@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.inputs;
 
 import com.pulumi.aws.eks.inputs.NodeGroupLaunchTemplateArgs;
+import com.pulumi.aws.eks.inputs.NodeGroupNodeRepairConfigArgs;
 import com.pulumi.aws.eks.inputs.NodeGroupRemoteAccessArgs;
 import com.pulumi.aws.eks.inputs.NodeGroupResourceArgs;
 import com.pulumi.aws.eks.inputs.NodeGroupScalingConfigArgs;
@@ -188,6 +189,21 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> nodeGroupNamePrefix() {
         return Optional.ofNullable(this.nodeGroupNamePrefix);
+    }
+
+    /**
+     * The node auto repair configuration for the node group. See `node_repair_config` below for details.
+     * 
+     */
+    @Import(name="nodeRepairConfig")
+    private @Nullable Output<NodeGroupNodeRepairConfigArgs> nodeRepairConfig;
+
+    /**
+     * @return The node auto repair configuration for the node group. See `node_repair_config` below for details.
+     * 
+     */
+    public Optional<Output<NodeGroupNodeRepairConfigArgs>> nodeRepairConfig() {
+        return Optional.ofNullable(this.nodeRepairConfig);
     }
 
     /**
@@ -396,6 +412,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         this.launchTemplate = $.launchTemplate;
         this.nodeGroupName = $.nodeGroupName;
         this.nodeGroupNamePrefix = $.nodeGroupNamePrefix;
+        this.nodeRepairConfig = $.nodeRepairConfig;
         this.nodeRoleArn = $.nodeRoleArn;
         this.releaseVersion = $.releaseVersion;
         this.remoteAccess = $.remoteAccess;
@@ -667,6 +684,27 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder nodeGroupNamePrefix(String nodeGroupNamePrefix) {
             return nodeGroupNamePrefix(Output.of(nodeGroupNamePrefix));
+        }
+
+        /**
+         * @param nodeRepairConfig The node auto repair configuration for the node group. See `node_repair_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeRepairConfig(@Nullable Output<NodeGroupNodeRepairConfigArgs> nodeRepairConfig) {
+            $.nodeRepairConfig = nodeRepairConfig;
+            return this;
+        }
+
+        /**
+         * @param nodeRepairConfig The node auto repair configuration for the node group. See `node_repair_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeRepairConfig(NodeGroupNodeRepairConfigArgs nodeRepairConfig) {
+            return nodeRepairConfig(Output.of(nodeRepairConfig));
         }
 
         /**

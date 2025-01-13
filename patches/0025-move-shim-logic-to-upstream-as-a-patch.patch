@@ -6,7 +6,7 @@ Subject: [PATCH] move shim logic to upstream as a patch
 
 diff --git a/shim/shim.go b/shim/shim.go
 new file mode 100644
-index 00000000000..2af7c069252
+index 0000000000..2af7c06925
 --- /dev/null
 +++ b/shim/shim.go
 @@ -0,0 +1,36 @@

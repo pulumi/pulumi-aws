@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration {
+    /**
+     * @return The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+     * 
+     */
     private @Nullable String type;
 
     private ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration() {}
+    /**
+     * @return The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

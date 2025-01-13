@@ -72,6 +72,12 @@ namespace Pulumi.Aws.Dms.Inputs
         [Input("partitionIncludeSchemaTable")]
         public Input<bool>? PartitionIncludeSchemaTable { get; set; }
 
+        /// <summary>
+        /// For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+        /// </summary>
+        [Input("saslMechanism")]
+        public Input<string>? SaslMechanism { get; set; }
+
         [Input("saslPassword")]
         private Input<string>? _saslPassword;
 

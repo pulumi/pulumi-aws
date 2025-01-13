@@ -27,6 +27,7 @@ class StudioArgs:
                  vpc_id: pulumi.Input[str],
                  workspace_security_group_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  idp_auth_url: Optional[pulumi.Input[str]] = None,
                  idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,7 @@ class StudioArgs:
                
                The following arguments are optional:
         :param pulumi.Input[str] description: A detailed description of the Amazon EMR Studio.
+        :param pulumi.Input[str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
         :param pulumi.Input[str] idp_auth_url: The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
         :param pulumi.Input[str] idp_relay_state_parameter_name: The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
         :param pulumi.Input[str] name: A descriptive name for the Amazon EMR Studio.
@@ -59,6 +61,8 @@ class StudioArgs:
         pulumi.set(__self__, "workspace_security_group_id", workspace_security_group_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
         if idp_auth_url is not None:
             pulumi.set(__self__, "idp_auth_url", idp_auth_url)
         if idp_relay_state_parameter_name is not None:
@@ -169,6 +173,18 @@ class StudioArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key_arn", value)
+
+    @property
     @pulumi.getter(name="idpAuthUrl")
     def idp_auth_url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -236,6 +252,7 @@ class _StudioState:
                  auth_mode: Optional[pulumi.Input[str]] = None,
                  default_s3_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  engine_security_group_id: Optional[pulumi.Input[str]] = None,
                  idp_auth_url: Optional[pulumi.Input[str]] = None,
                  idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
@@ -254,6 +271,7 @@ class _StudioState:
         :param pulumi.Input[str] auth_mode: Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
         :param pulumi.Input[str] default_s3_location: The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
         :param pulumi.Input[str] description: A detailed description of the Amazon EMR Studio.
+        :param pulumi.Input[str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
         :param pulumi.Input[str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
         :param pulumi.Input[str] idp_auth_url: The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
         :param pulumi.Input[str] idp_relay_state_parameter_name: The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
@@ -276,6 +294,8 @@ class _StudioState:
             pulumi.set(__self__, "default_s3_location", default_s3_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
         if engine_security_group_id is not None:
             pulumi.set(__self__, "engine_security_group_id", engine_security_group_id)
         if idp_auth_url is not None:
@@ -351,6 +371,18 @@ class _StudioState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key_arn", value)
 
     @property
     @pulumi.getter(name="engineSecurityGroupId")
@@ -505,6 +537,7 @@ class Studio(pulumi.CustomResource):
                  auth_mode: Optional[pulumi.Input[str]] = None,
                  default_s3_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  engine_security_group_id: Optional[pulumi.Input[str]] = None,
                  idp_auth_url: Optional[pulumi.Input[str]] = None,
                  idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
@@ -550,6 +583,7 @@ class Studio(pulumi.CustomResource):
         :param pulumi.Input[str] auth_mode: Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
         :param pulumi.Input[str] default_s3_location: The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
         :param pulumi.Input[str] description: A detailed description of the Amazon EMR Studio.
+        :param pulumi.Input[str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
         :param pulumi.Input[str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
         :param pulumi.Input[str] idp_auth_url: The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
         :param pulumi.Input[str] idp_relay_state_parameter_name: The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
@@ -616,6 +650,7 @@ class Studio(pulumi.CustomResource):
                  auth_mode: Optional[pulumi.Input[str]] = None,
                  default_s3_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  engine_security_group_id: Optional[pulumi.Input[str]] = None,
                  idp_auth_url: Optional[pulumi.Input[str]] = None,
                  idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
@@ -642,6 +677,7 @@ class Studio(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_s3_location'")
             __props__.__dict__["default_s3_location"] = default_s3_location
             __props__.__dict__["description"] = description
+            __props__.__dict__["encryption_key_arn"] = encryption_key_arn
             if engine_security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_security_group_id'")
             __props__.__dict__["engine_security_group_id"] = engine_security_group_id
@@ -679,6 +715,7 @@ class Studio(pulumi.CustomResource):
             auth_mode: Optional[pulumi.Input[str]] = None,
             default_s3_location: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            encryption_key_arn: Optional[pulumi.Input[str]] = None,
             engine_security_group_id: Optional[pulumi.Input[str]] = None,
             idp_auth_url: Optional[pulumi.Input[str]] = None,
             idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
@@ -702,6 +739,7 @@ class Studio(pulumi.CustomResource):
         :param pulumi.Input[str] auth_mode: Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
         :param pulumi.Input[str] default_s3_location: The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
         :param pulumi.Input[str] description: A detailed description of the Amazon EMR Studio.
+        :param pulumi.Input[str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
         :param pulumi.Input[str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
         :param pulumi.Input[str] idp_auth_url: The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
         :param pulumi.Input[str] idp_relay_state_parameter_name: The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
@@ -724,6 +762,7 @@ class Studio(pulumi.CustomResource):
         __props__.__dict__["auth_mode"] = auth_mode
         __props__.__dict__["default_s3_location"] = default_s3_location
         __props__.__dict__["description"] = description
+        __props__.__dict__["encryption_key_arn"] = encryption_key_arn
         __props__.__dict__["engine_security_group_id"] = engine_security_group_id
         __props__.__dict__["idp_auth_url"] = idp_auth_url
         __props__.__dict__["idp_relay_state_parameter_name"] = idp_relay_state_parameter_name
@@ -769,6 +808,14 @@ class Studio(pulumi.CustomResource):
         A detailed description of the Amazon EMR Studio.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+        """
+        return pulumi.get(self, "encryption_key_arn")
 
     @property
     @pulumi.getter(name="engineSecurityGroupId")

@@ -4416,9 +4416,9 @@ func (o JobQueueComputeEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) Job
 
 type JobQueueJobStateTimeLimitAction struct {
 	// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
-	// * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
-	Action         string `pulumi:"action"`
-	MaxTimeSeconds int    `pulumi:"maxTimeSeconds"`
+	Action string `pulumi:"action"`
+	// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+	MaxTimeSeconds int `pulumi:"maxTimeSeconds"`
 	// The reason to log for the action being taken.
 	Reason string `pulumi:"reason"`
 	// The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
@@ -4438,9 +4438,9 @@ type JobQueueJobStateTimeLimitActionInput interface {
 
 type JobQueueJobStateTimeLimitActionArgs struct {
 	// The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
-	// * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
-	Action         pulumi.StringInput `pulumi:"action"`
-	MaxTimeSeconds pulumi.IntInput    `pulumi:"maxTimeSeconds"`
+	Action pulumi.StringInput `pulumi:"action"`
+	// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+	MaxTimeSeconds pulumi.IntInput `pulumi:"maxTimeSeconds"`
 	// The reason to log for the action being taken.
 	Reason pulumi.StringInput `pulumi:"reason"`
 	// The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
@@ -4499,11 +4499,11 @@ func (o JobQueueJobStateTimeLimitActionOutput) ToJobQueueJobStateTimeLimitAction
 }
 
 // The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
-// * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
 func (o JobQueueJobStateTimeLimitActionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) string { return v.Action }).(pulumi.StringOutput)
 }
 
+// The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
 func (o JobQueueJobStateTimeLimitActionOutput) MaxTimeSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) int { return v.MaxTimeSeconds }).(pulumi.IntOutput)
 }

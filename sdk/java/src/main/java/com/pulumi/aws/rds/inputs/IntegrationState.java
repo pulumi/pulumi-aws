@@ -18,14 +18,18 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     public static final IntegrationState Empty = new IntegrationState();
 
     /**
-     * Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+     * Set of non-secret key–value pairs that contains additional contextual information about the data.
+     * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+     * You can only include this parameter if you specify the `kms_key_id` parameter.
      * 
      */
     @Import(name="additionalEncryptionContext")
     private @Nullable Output<Map<String,String>> additionalEncryptionContext;
 
     /**
-     * @return Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+     * @return Set of non-secret key–value pairs that contains additional contextual information about the data.
+     * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+     * You can only include this parameter if you specify the `kms_key_id` parameter.
      * 
      */
     public Optional<Output<Map<String,String>>> additionalEncryptionContext() {
@@ -48,6 +52,29 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Data filters for the integration.
+     * These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+     * The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+     * Multiple expressions are separated by a comma.
+     * See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+     * 
+     */
+    @Import(name="dataFilter")
+    private @Nullable Output<String> dataFilter;
+
+    /**
+     * @return Data filters for the integration.
+     * These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+     * The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+     * Multiple expressions are separated by a comma.
+     * See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+     * 
+     */
+    public Optional<Output<String>> dataFilter() {
+        return Optional.ofNullable(this.dataFilter);
+    }
+
+    /**
      * Name of the integration.
      * 
      */
@@ -63,14 +90,18 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * KMS key identifier for the key to use to encrypt the integration. If you don&#39;t specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+     * KMS key identifier for the key to use to encrypt the integration.
+     * If you don&#39;t specify an encryption key, RDS uses a default AWS owned key.
+     * If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return KMS key identifier for the key to use to encrypt the integration. If you don&#39;t specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+     * @return KMS key identifier for the key to use to encrypt the integration.
+     * If you don&#39;t specify an encryption key, RDS uses a default AWS owned key.
+     * If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -161,6 +192,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     private IntegrationState(IntegrationState $) {
         this.additionalEncryptionContext = $.additionalEncryptionContext;
         this.arn = $.arn;
+        this.dataFilter = $.dataFilter;
         this.integrationName = $.integrationName;
         this.kmsKeyId = $.kmsKeyId;
         this.sourceArn = $.sourceArn;
@@ -189,7 +221,9 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param additionalEncryptionContext Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+         * @param additionalEncryptionContext Set of non-secret key–value pairs that contains additional contextual information about the data.
+         * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+         * You can only include this parameter if you specify the `kms_key_id` parameter.
          * 
          * @return builder
          * 
@@ -200,7 +234,9 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param additionalEncryptionContext Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+         * @param additionalEncryptionContext Set of non-secret key–value pairs that contains additional contextual information about the data.
+         * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+         * You can only include this parameter if you specify the `kms_key_id` parameter.
          * 
          * @return builder
          * 
@@ -231,6 +267,35 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param dataFilter Data filters for the integration.
+         * These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+         * The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+         * Multiple expressions are separated by a comma.
+         * See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFilter(@Nullable Output<String> dataFilter) {
+            $.dataFilter = dataFilter;
+            return this;
+        }
+
+        /**
+         * @param dataFilter Data filters for the integration.
+         * These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+         * The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+         * Multiple expressions are separated by a comma.
+         * See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataFilter(String dataFilter) {
+            return dataFilter(Output.of(dataFilter));
+        }
+
+        /**
          * @param integrationName Name of the integration.
          * 
          * @return builder
@@ -252,7 +317,9 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId KMS key identifier for the key to use to encrypt the integration. If you don&#39;t specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+         * @param kmsKeyId KMS key identifier for the key to use to encrypt the integration.
+         * If you don&#39;t specify an encryption key, RDS uses a default AWS owned key.
+         * If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
          * 
          * @return builder
          * 
@@ -263,7 +330,9 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId KMS key identifier for the key to use to encrypt the integration. If you don&#39;t specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+         * @param kmsKeyId KMS key identifier for the key to use to encrypt the integration.
+         * If you don&#39;t specify an encryption key, RDS uses a default AWS owned key.
+         * If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
          * 
          * @return builder
          * 

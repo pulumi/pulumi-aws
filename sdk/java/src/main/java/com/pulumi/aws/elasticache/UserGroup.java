@@ -92,14 +92,14 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The current supported value is `REDIS`.
+     * The current supported value are `REDIS`, `VALKEY`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return The current supported value is `REDIS`.
+     * @return The current supported value are `REDIS`, `VALKEY`.
      * 
      */
     public Output<String> engine() {

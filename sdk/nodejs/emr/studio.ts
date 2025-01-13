@@ -79,6 +79,10 @@ export class Studio extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+     */
+    public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
      */
     public readonly engineSecurityGroupId!: pulumi.Output<string>;
@@ -146,6 +150,7 @@ export class Studio extends pulumi.CustomResource {
             resourceInputs["authMode"] = state ? state.authMode : undefined;
             resourceInputs["defaultS3Location"] = state ? state.defaultS3Location : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptionKeyArn"] = state ? state.encryptionKeyArn : undefined;
             resourceInputs["engineSecurityGroupId"] = state ? state.engineSecurityGroupId : undefined;
             resourceInputs["idpAuthUrl"] = state ? state.idpAuthUrl : undefined;
             resourceInputs["idpRelayStateParameterName"] = state ? state.idpRelayStateParameterName : undefined;
@@ -184,6 +189,7 @@ export class Studio extends pulumi.CustomResource {
             resourceInputs["authMode"] = args ? args.authMode : undefined;
             resourceInputs["defaultS3Location"] = args ? args.defaultS3Location : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
             resourceInputs["engineSecurityGroupId"] = args ? args.engineSecurityGroupId : undefined;
             resourceInputs["idpAuthUrl"] = args ? args.idpAuthUrl : undefined;
             resourceInputs["idpRelayStateParameterName"] = args ? args.idpRelayStateParameterName : undefined;
@@ -223,6 +229,10 @@ export interface StudioState {
      * A detailed description of the Amazon EMR Studio.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+     */
+    encryptionKeyArn?: pulumi.Input<string>;
     /**
      * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
      */
@@ -291,6 +301,10 @@ export interface StudioArgs {
      * A detailed description of the Amazon EMR Studio.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+     */
+    encryptionKeyArn?: pulumi.Input<string>;
     /**
      * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
      */

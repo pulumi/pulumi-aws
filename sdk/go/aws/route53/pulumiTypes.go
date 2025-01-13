@@ -2089,6 +2089,675 @@ func (o GetQueryLogConfigFilterArrayOutput) Index(i pulumi.IntInput) GetQueryLog
 	}).(GetQueryLogConfigFilterOutput)
 }
 
+type GetRecordsResourceRecordSet struct {
+	// Information about the AWS resource traffic is routed to.
+	AliasTarget GetRecordsResourceRecordSetAliasTarget `pulumi:"aliasTarget"`
+	// Information about the CIDR location traffic is routed to.
+	CidrRoutingConfig GetRecordsResourceRecordSetCidrRoutingConfig `pulumi:"cidrRoutingConfig"`
+	// `PRIMARY` or `SECONDARY`.
+	Failover string `pulumi:"failover"`
+	// Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+	Geolocation GetRecordsResourceRecordSetGeolocation `pulumi:"geolocation"`
+	// Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+	GeoproximityLocation GetRecordsResourceRecordSetGeoproximityLocation `pulumi:"geoproximityLocation"`
+	// ID of any applicable health check.
+	HealthCheckId string `pulumi:"healthCheckId"`
+	// Traffic is routed approximately randomly to multiple resources.
+	MultiValueAnswer bool `pulumi:"multiValueAnswer"`
+	// The name of the record.
+	Name string `pulumi:"name"`
+	// The Amazon EC2 Region of the resource that this resource record set refers to.
+	Region string `pulumi:"region"`
+	// The resource records.
+	ResourceRecords []GetRecordsResourceRecordSetResourceRecord `pulumi:"resourceRecords"`
+	// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
+	SetIdentifier string `pulumi:"setIdentifier"`
+	// The ID of any traffic policy instance that Route 53 created this resource record set for.
+	TrafficPolicyInstanceId string `pulumi:"trafficPolicyInstanceId"`
+	// The resource record cache time to live (TTL), in seconds.
+	Ttl int `pulumi:"ttl"`
+	// The DNS record type.
+	Type string `pulumi:"type"`
+	// Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+	Weight int `pulumi:"weight"`
+}
+
+// GetRecordsResourceRecordSetInput is an input type that accepts GetRecordsResourceRecordSetArgs and GetRecordsResourceRecordSetOutput values.
+// You can construct a concrete instance of `GetRecordsResourceRecordSetInput` via:
+//
+//	GetRecordsResourceRecordSetArgs{...}
+type GetRecordsResourceRecordSetInput interface {
+	pulumi.Input
+
+	ToGetRecordsResourceRecordSetOutput() GetRecordsResourceRecordSetOutput
+	ToGetRecordsResourceRecordSetOutputWithContext(context.Context) GetRecordsResourceRecordSetOutput
+}
+
+type GetRecordsResourceRecordSetArgs struct {
+	// Information about the AWS resource traffic is routed to.
+	AliasTarget GetRecordsResourceRecordSetAliasTargetInput `pulumi:"aliasTarget"`
+	// Information about the CIDR location traffic is routed to.
+	CidrRoutingConfig GetRecordsResourceRecordSetCidrRoutingConfigInput `pulumi:"cidrRoutingConfig"`
+	// `PRIMARY` or `SECONDARY`.
+	Failover pulumi.StringInput `pulumi:"failover"`
+	// Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+	Geolocation GetRecordsResourceRecordSetGeolocationInput `pulumi:"geolocation"`
+	// Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+	GeoproximityLocation GetRecordsResourceRecordSetGeoproximityLocationInput `pulumi:"geoproximityLocation"`
+	// ID of any applicable health check.
+	HealthCheckId pulumi.StringInput `pulumi:"healthCheckId"`
+	// Traffic is routed approximately randomly to multiple resources.
+	MultiValueAnswer pulumi.BoolInput `pulumi:"multiValueAnswer"`
+	// The name of the record.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Amazon EC2 Region of the resource that this resource record set refers to.
+	Region pulumi.StringInput `pulumi:"region"`
+	// The resource records.
+	ResourceRecords GetRecordsResourceRecordSetResourceRecordArrayInput `pulumi:"resourceRecords"`
+	// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
+	SetIdentifier pulumi.StringInput `pulumi:"setIdentifier"`
+	// The ID of any traffic policy instance that Route 53 created this resource record set for.
+	TrafficPolicyInstanceId pulumi.StringInput `pulumi:"trafficPolicyInstanceId"`
+	// The resource record cache time to live (TTL), in seconds.
+	Ttl pulumi.IntInput `pulumi:"ttl"`
+	// The DNS record type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (GetRecordsResourceRecordSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSet)(nil)).Elem()
+}
+
+func (i GetRecordsResourceRecordSetArgs) ToGetRecordsResourceRecordSetOutput() GetRecordsResourceRecordSetOutput {
+	return i.ToGetRecordsResourceRecordSetOutputWithContext(context.Background())
+}
+
+func (i GetRecordsResourceRecordSetArgs) ToGetRecordsResourceRecordSetOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordsResourceRecordSetOutput)
+}
+
+// GetRecordsResourceRecordSetArrayInput is an input type that accepts GetRecordsResourceRecordSetArray and GetRecordsResourceRecordSetArrayOutput values.
+// You can construct a concrete instance of `GetRecordsResourceRecordSetArrayInput` via:
+//
+//	GetRecordsResourceRecordSetArray{ GetRecordsResourceRecordSetArgs{...} }
+type GetRecordsResourceRecordSetArrayInput interface {
+	pulumi.Input
+
+	ToGetRecordsResourceRecordSetArrayOutput() GetRecordsResourceRecordSetArrayOutput
+	ToGetRecordsResourceRecordSetArrayOutputWithContext(context.Context) GetRecordsResourceRecordSetArrayOutput
+}
+
+type GetRecordsResourceRecordSetArray []GetRecordsResourceRecordSetInput
+
+func (GetRecordsResourceRecordSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRecordsResourceRecordSet)(nil)).Elem()
+}
+
+func (i GetRecordsResourceRecordSetArray) ToGetRecordsResourceRecordSetArrayOutput() GetRecordsResourceRecordSetArrayOutput {
+	return i.ToGetRecordsResourceRecordSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetRecordsResourceRecordSetArray) ToGetRecordsResourceRecordSetArrayOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordsResourceRecordSetArrayOutput)
+}
+
+type GetRecordsResourceRecordSetOutput struct{ *pulumi.OutputState }
+
+func (GetRecordsResourceRecordSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSet)(nil)).Elem()
+}
+
+func (o GetRecordsResourceRecordSetOutput) ToGetRecordsResourceRecordSetOutput() GetRecordsResourceRecordSetOutput {
+	return o
+}
+
+func (o GetRecordsResourceRecordSetOutput) ToGetRecordsResourceRecordSetOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetOutput {
+	return o
+}
+
+// Information about the AWS resource traffic is routed to.
+func (o GetRecordsResourceRecordSetOutput) AliasTarget() GetRecordsResourceRecordSetAliasTargetOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) GetRecordsResourceRecordSetAliasTarget { return v.AliasTarget }).(GetRecordsResourceRecordSetAliasTargetOutput)
+}
+
+// Information about the CIDR location traffic is routed to.
+func (o GetRecordsResourceRecordSetOutput) CidrRoutingConfig() GetRecordsResourceRecordSetCidrRoutingConfigOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) GetRecordsResourceRecordSetCidrRoutingConfig {
+		return v.CidrRoutingConfig
+	}).(GetRecordsResourceRecordSetCidrRoutingConfigOutput)
+}
+
+// `PRIMARY` or `SECONDARY`.
+func (o GetRecordsResourceRecordSetOutput) Failover() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) string { return v.Failover }).(pulumi.StringOutput)
+}
+
+// Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+func (o GetRecordsResourceRecordSetOutput) Geolocation() GetRecordsResourceRecordSetGeolocationOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) GetRecordsResourceRecordSetGeolocation { return v.Geolocation }).(GetRecordsResourceRecordSetGeolocationOutput)
+}
+
+// Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+func (o GetRecordsResourceRecordSetOutput) GeoproximityLocation() GetRecordsResourceRecordSetGeoproximityLocationOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) GetRecordsResourceRecordSetGeoproximityLocation {
+		return v.GeoproximityLocation
+	}).(GetRecordsResourceRecordSetGeoproximityLocationOutput)
+}
+
+// ID of any applicable health check.
+func (o GetRecordsResourceRecordSetOutput) HealthCheckId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) string { return v.HealthCheckId }).(pulumi.StringOutput)
+}
+
+// Traffic is routed approximately randomly to multiple resources.
+func (o GetRecordsResourceRecordSetOutput) MultiValueAnswer() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) bool { return v.MultiValueAnswer }).(pulumi.BoolOutput)
+}
+
+// The name of the record.
+func (o GetRecordsResourceRecordSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Amazon EC2 Region of the resource that this resource record set refers to.
+func (o GetRecordsResourceRecordSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// The resource records.
+func (o GetRecordsResourceRecordSetOutput) ResourceRecords() GetRecordsResourceRecordSetResourceRecordArrayOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) []GetRecordsResourceRecordSetResourceRecord {
+		return v.ResourceRecords
+	}).(GetRecordsResourceRecordSetResourceRecordArrayOutput)
+}
+
+// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
+func (o GetRecordsResourceRecordSetOutput) SetIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) string { return v.SetIdentifier }).(pulumi.StringOutput)
+}
+
+// The ID of any traffic policy instance that Route 53 created this resource record set for.
+func (o GetRecordsResourceRecordSetOutput) TrafficPolicyInstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) string { return v.TrafficPolicyInstanceId }).(pulumi.StringOutput)
+}
+
+// The resource record cache time to live (TTL), in seconds.
+func (o GetRecordsResourceRecordSetOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) int { return v.Ttl }).(pulumi.IntOutput)
+}
+
+// The DNS record type.
+func (o GetRecordsResourceRecordSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+func (o GetRecordsResourceRecordSetOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSet) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type GetRecordsResourceRecordSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRecordsResourceRecordSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRecordsResourceRecordSet)(nil)).Elem()
+}
+
+func (o GetRecordsResourceRecordSetArrayOutput) ToGetRecordsResourceRecordSetArrayOutput() GetRecordsResourceRecordSetArrayOutput {
+	return o
+}
+
+func (o GetRecordsResourceRecordSetArrayOutput) ToGetRecordsResourceRecordSetArrayOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetArrayOutput {
+	return o
+}
+
+func (o GetRecordsResourceRecordSetArrayOutput) Index(i pulumi.IntInput) GetRecordsResourceRecordSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRecordsResourceRecordSet {
+		return vs[0].([]GetRecordsResourceRecordSet)[vs[1].(int)]
+	}).(GetRecordsResourceRecordSetOutput)
+}
+
+type GetRecordsResourceRecordSetAliasTarget struct {
+	// Target DNS name.
+	DnsName string `pulumi:"dnsName"`
+	// Whether an alias resource record set inherits the health of the referenced AWS resource.
+	EvaluateTargetHealth bool `pulumi:"evaluateTargetHealth"`
+	// Target hosted zone ID.
+	HostedZoneId string `pulumi:"hostedZoneId"`
+}
+
+// GetRecordsResourceRecordSetAliasTargetInput is an input type that accepts GetRecordsResourceRecordSetAliasTargetArgs and GetRecordsResourceRecordSetAliasTargetOutput values.
+// You can construct a concrete instance of `GetRecordsResourceRecordSetAliasTargetInput` via:
+//
+//	GetRecordsResourceRecordSetAliasTargetArgs{...}
+type GetRecordsResourceRecordSetAliasTargetInput interface {
+	pulumi.Input
+
+	ToGetRecordsResourceRecordSetAliasTargetOutput() GetRecordsResourceRecordSetAliasTargetOutput
+	ToGetRecordsResourceRecordSetAliasTargetOutputWithContext(context.Context) GetRecordsResourceRecordSetAliasTargetOutput
+}
+
+type GetRecordsResourceRecordSetAliasTargetArgs struct {
+	// Target DNS name.
+	DnsName pulumi.StringInput `pulumi:"dnsName"`
+	// Whether an alias resource record set inherits the health of the referenced AWS resource.
+	EvaluateTargetHealth pulumi.BoolInput `pulumi:"evaluateTargetHealth"`
+	// Target hosted zone ID.
+	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
+}
+
+func (GetRecordsResourceRecordSetAliasTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSetAliasTarget)(nil)).Elem()
+}
+
+func (i GetRecordsResourceRecordSetAliasTargetArgs) ToGetRecordsResourceRecordSetAliasTargetOutput() GetRecordsResourceRecordSetAliasTargetOutput {
+	return i.ToGetRecordsResourceRecordSetAliasTargetOutputWithContext(context.Background())
+}
+
+func (i GetRecordsResourceRecordSetAliasTargetArgs) ToGetRecordsResourceRecordSetAliasTargetOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetAliasTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordsResourceRecordSetAliasTargetOutput)
+}
+
+type GetRecordsResourceRecordSetAliasTargetOutput struct{ *pulumi.OutputState }
+
+func (GetRecordsResourceRecordSetAliasTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSetAliasTarget)(nil)).Elem()
+}
+
+func (o GetRecordsResourceRecordSetAliasTargetOutput) ToGetRecordsResourceRecordSetAliasTargetOutput() GetRecordsResourceRecordSetAliasTargetOutput {
+	return o
+}
+
+func (o GetRecordsResourceRecordSetAliasTargetOutput) ToGetRecordsResourceRecordSetAliasTargetOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetAliasTargetOutput {
+	return o
+}
+
+// Target DNS name.
+func (o GetRecordsResourceRecordSetAliasTargetOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetAliasTarget) string { return v.DnsName }).(pulumi.StringOutput)
+}
+
+// Whether an alias resource record set inherits the health of the referenced AWS resource.
+func (o GetRecordsResourceRecordSetAliasTargetOutput) EvaluateTargetHealth() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetAliasTarget) bool { return v.EvaluateTargetHealth }).(pulumi.BoolOutput)
+}
+
+// Target hosted zone ID.
+func (o GetRecordsResourceRecordSetAliasTargetOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetAliasTarget) string { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+type GetRecordsResourceRecordSetCidrRoutingConfig struct {
+	// The CIDR collection ID.
+	CollectionId string `pulumi:"collectionId"`
+	// The CIDR collection location name.
+	LocationName string `pulumi:"locationName"`
+}
+
+// GetRecordsResourceRecordSetCidrRoutingConfigInput is an input type that accepts GetRecordsResourceRecordSetCidrRoutingConfigArgs and GetRecordsResourceRecordSetCidrRoutingConfigOutput values.
+// You can construct a concrete instance of `GetRecordsResourceRecordSetCidrRoutingConfigInput` via:
+//
+//	GetRecordsResourceRecordSetCidrRoutingConfigArgs{...}
+type GetRecordsResourceRecordSetCidrRoutingConfigInput interface {
+	pulumi.Input
+
+	ToGetRecordsResourceRecordSetCidrRoutingConfigOutput() GetRecordsResourceRecordSetCidrRoutingConfigOutput
+	ToGetRecordsResourceRecordSetCidrRoutingConfigOutputWithContext(context.Context) GetRecordsResourceRecordSetCidrRoutingConfigOutput
+}
+
+type GetRecordsResourceRecordSetCidrRoutingConfigArgs struct {
+	// The CIDR collection ID.
+	CollectionId pulumi.StringInput `pulumi:"collectionId"`
+	// The CIDR collection location name.
+	LocationName pulumi.StringInput `pulumi:"locationName"`
+}
+
+func (GetRecordsResourceRecordSetCidrRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (i GetRecordsResourceRecordSetCidrRoutingConfigArgs) ToGetRecordsResourceRecordSetCidrRoutingConfigOutput() GetRecordsResourceRecordSetCidrRoutingConfigOutput {
+	return i.ToGetRecordsResourceRecordSetCidrRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i GetRecordsResourceRecordSetCidrRoutingConfigArgs) ToGetRecordsResourceRecordSetCidrRoutingConfigOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetCidrRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordsResourceRecordSetCidrRoutingConfigOutput)
+}
+
+type GetRecordsResourceRecordSetCidrRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (GetRecordsResourceRecordSetCidrRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (o GetRecordsResourceRecordSetCidrRoutingConfigOutput) ToGetRecordsResourceRecordSetCidrRoutingConfigOutput() GetRecordsResourceRecordSetCidrRoutingConfigOutput {
+	return o
+}
+
+func (o GetRecordsResourceRecordSetCidrRoutingConfigOutput) ToGetRecordsResourceRecordSetCidrRoutingConfigOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetCidrRoutingConfigOutput {
+	return o
+}
+
+// The CIDR collection ID.
+func (o GetRecordsResourceRecordSetCidrRoutingConfigOutput) CollectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetCidrRoutingConfig) string { return v.CollectionId }).(pulumi.StringOutput)
+}
+
+// The CIDR collection location name.
+func (o GetRecordsResourceRecordSetCidrRoutingConfigOutput) LocationName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetCidrRoutingConfig) string { return v.LocationName }).(pulumi.StringOutput)
+}
+
+type GetRecordsResourceRecordSetGeolocation struct {
+	// The two-letter code for the continent.
+	ContinentCode string `pulumi:"continentCode"`
+	// The two-letter code for a country.
+	CountryCode string `pulumi:"countryCode"`
+	// The two-letter code for a state of the United States.
+	SubdivisionCode string `pulumi:"subdivisionCode"`
+}
+
+// GetRecordsResourceRecordSetGeolocationInput is an input type that accepts GetRecordsResourceRecordSetGeolocationArgs and GetRecordsResourceRecordSetGeolocationOutput values.
+// You can construct a concrete instance of `GetRecordsResourceRecordSetGeolocationInput` via:
+//
+//	GetRecordsResourceRecordSetGeolocationArgs{...}
+type GetRecordsResourceRecordSetGeolocationInput interface {
+	pulumi.Input
+
+	ToGetRecordsResourceRecordSetGeolocationOutput() GetRecordsResourceRecordSetGeolocationOutput
+	ToGetRecordsResourceRecordSetGeolocationOutputWithContext(context.Context) GetRecordsResourceRecordSetGeolocationOutput
+}
+
+type GetRecordsResourceRecordSetGeolocationArgs struct {
+	// The two-letter code for the continent.
+	ContinentCode pulumi.StringInput `pulumi:"continentCode"`
+	// The two-letter code for a country.
+	CountryCode pulumi.StringInput `pulumi:"countryCode"`
+	// The two-letter code for a state of the United States.
+	SubdivisionCode pulumi.StringInput `pulumi:"subdivisionCode"`
+}
+
+func (GetRecordsResourceRecordSetGeolocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSetGeolocation)(nil)).Elem()
+}
+
+func (i GetRecordsResourceRecordSetGeolocationArgs) ToGetRecordsResourceRecordSetGeolocationOutput() GetRecordsResourceRecordSetGeolocationOutput {
+	return i.ToGetRecordsResourceRecordSetGeolocationOutputWithContext(context.Background())
+}
+
+func (i GetRecordsResourceRecordSetGeolocationArgs) ToGetRecordsResourceRecordSetGeolocationOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetGeolocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordsResourceRecordSetGeolocationOutput)
+}
+
+type GetRecordsResourceRecordSetGeolocationOutput struct{ *pulumi.OutputState }
+
+func (GetRecordsResourceRecordSetGeolocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSetGeolocation)(nil)).Elem()
+}
+
+func (o GetRecordsResourceRecordSetGeolocationOutput) ToGetRecordsResourceRecordSetGeolocationOutput() GetRecordsResourceRecordSetGeolocationOutput {
+	return o
+}
+
+func (o GetRecordsResourceRecordSetGeolocationOutput) ToGetRecordsResourceRecordSetGeolocationOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetGeolocationOutput {
+	return o
+}
+
+// The two-letter code for the continent.
+func (o GetRecordsResourceRecordSetGeolocationOutput) ContinentCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetGeolocation) string { return v.ContinentCode }).(pulumi.StringOutput)
+}
+
+// The two-letter code for a country.
+func (o GetRecordsResourceRecordSetGeolocationOutput) CountryCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetGeolocation) string { return v.CountryCode }).(pulumi.StringOutput)
+}
+
+// The two-letter code for a state of the United States.
+func (o GetRecordsResourceRecordSetGeolocationOutput) SubdivisionCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetGeolocation) string { return v.SubdivisionCode }).(pulumi.StringOutput)
+}
+
+type GetRecordsResourceRecordSetGeoproximityLocation struct {
+	// The AWS Region the resource you are directing DNS traffic to, is in.
+	AwsRegion string `pulumi:"awsRegion"`
+	// The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
+	Bias int `pulumi:"bias"`
+	// Contains the longitude and latitude for a geographic region.
+	Coordinates GetRecordsResourceRecordSetGeoproximityLocationCoordinates `pulumi:"coordinates"`
+	// An AWS Local Zone Group.
+	LocalZoneGroup string `pulumi:"localZoneGroup"`
+}
+
+// GetRecordsResourceRecordSetGeoproximityLocationInput is an input type that accepts GetRecordsResourceRecordSetGeoproximityLocationArgs and GetRecordsResourceRecordSetGeoproximityLocationOutput values.
+// You can construct a concrete instance of `GetRecordsResourceRecordSetGeoproximityLocationInput` via:
+//
+//	GetRecordsResourceRecordSetGeoproximityLocationArgs{...}
+type GetRecordsResourceRecordSetGeoproximityLocationInput interface {
+	pulumi.Input
+
+	ToGetRecordsResourceRecordSetGeoproximityLocationOutput() GetRecordsResourceRecordSetGeoproximityLocationOutput
+	ToGetRecordsResourceRecordSetGeoproximityLocationOutputWithContext(context.Context) GetRecordsResourceRecordSetGeoproximityLocationOutput
+}
+
+type GetRecordsResourceRecordSetGeoproximityLocationArgs struct {
+	// The AWS Region the resource you are directing DNS traffic to, is in.
+	AwsRegion pulumi.StringInput `pulumi:"awsRegion"`
+	// The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
+	Bias pulumi.IntInput `pulumi:"bias"`
+	// Contains the longitude and latitude for a geographic region.
+	Coordinates GetRecordsResourceRecordSetGeoproximityLocationCoordinatesInput `pulumi:"coordinates"`
+	// An AWS Local Zone Group.
+	LocalZoneGroup pulumi.StringInput `pulumi:"localZoneGroup"`
+}
+
+func (GetRecordsResourceRecordSetGeoproximityLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSetGeoproximityLocation)(nil)).Elem()
+}
+
+func (i GetRecordsResourceRecordSetGeoproximityLocationArgs) ToGetRecordsResourceRecordSetGeoproximityLocationOutput() GetRecordsResourceRecordSetGeoproximityLocationOutput {
+	return i.ToGetRecordsResourceRecordSetGeoproximityLocationOutputWithContext(context.Background())
+}
+
+func (i GetRecordsResourceRecordSetGeoproximityLocationArgs) ToGetRecordsResourceRecordSetGeoproximityLocationOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetGeoproximityLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordsResourceRecordSetGeoproximityLocationOutput)
+}
+
+type GetRecordsResourceRecordSetGeoproximityLocationOutput struct{ *pulumi.OutputState }
+
+func (GetRecordsResourceRecordSetGeoproximityLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSetGeoproximityLocation)(nil)).Elem()
+}
+
+func (o GetRecordsResourceRecordSetGeoproximityLocationOutput) ToGetRecordsResourceRecordSetGeoproximityLocationOutput() GetRecordsResourceRecordSetGeoproximityLocationOutput {
+	return o
+}
+
+func (o GetRecordsResourceRecordSetGeoproximityLocationOutput) ToGetRecordsResourceRecordSetGeoproximityLocationOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetGeoproximityLocationOutput {
+	return o
+}
+
+// The AWS Region the resource you are directing DNS traffic to, is in.
+func (o GetRecordsResourceRecordSetGeoproximityLocationOutput) AwsRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetGeoproximityLocation) string { return v.AwsRegion }).(pulumi.StringOutput)
+}
+
+// The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
+func (o GetRecordsResourceRecordSetGeoproximityLocationOutput) Bias() pulumi.IntOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetGeoproximityLocation) int { return v.Bias }).(pulumi.IntOutput)
+}
+
+// Contains the longitude and latitude for a geographic region.
+func (o GetRecordsResourceRecordSetGeoproximityLocationOutput) Coordinates() GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetGeoproximityLocation) GetRecordsResourceRecordSetGeoproximityLocationCoordinates {
+		return v.Coordinates
+	}).(GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput)
+}
+
+// An AWS Local Zone Group.
+func (o GetRecordsResourceRecordSetGeoproximityLocationOutput) LocalZoneGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetGeoproximityLocation) string { return v.LocalZoneGroup }).(pulumi.StringOutput)
+}
+
+type GetRecordsResourceRecordSetGeoproximityLocationCoordinates struct {
+	// Latitude.
+	Latitude string `pulumi:"latitude"`
+	// Longitude.
+	Longitude string `pulumi:"longitude"`
+}
+
+// GetRecordsResourceRecordSetGeoproximityLocationCoordinatesInput is an input type that accepts GetRecordsResourceRecordSetGeoproximityLocationCoordinatesArgs and GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput values.
+// You can construct a concrete instance of `GetRecordsResourceRecordSetGeoproximityLocationCoordinatesInput` via:
+//
+//	GetRecordsResourceRecordSetGeoproximityLocationCoordinatesArgs{...}
+type GetRecordsResourceRecordSetGeoproximityLocationCoordinatesInput interface {
+	pulumi.Input
+
+	ToGetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput() GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput
+	ToGetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutputWithContext(context.Context) GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput
+}
+
+type GetRecordsResourceRecordSetGeoproximityLocationCoordinatesArgs struct {
+	// Latitude.
+	Latitude pulumi.StringInput `pulumi:"latitude"`
+	// Longitude.
+	Longitude pulumi.StringInput `pulumi:"longitude"`
+}
+
+func (GetRecordsResourceRecordSetGeoproximityLocationCoordinatesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSetGeoproximityLocationCoordinates)(nil)).Elem()
+}
+
+func (i GetRecordsResourceRecordSetGeoproximityLocationCoordinatesArgs) ToGetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput() GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput {
+	return i.ToGetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutputWithContext(context.Background())
+}
+
+func (i GetRecordsResourceRecordSetGeoproximityLocationCoordinatesArgs) ToGetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput)
+}
+
+type GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput struct{ *pulumi.OutputState }
+
+func (GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSetGeoproximityLocationCoordinates)(nil)).Elem()
+}
+
+func (o GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput) ToGetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput() GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput {
+	return o
+}
+
+func (o GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput) ToGetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput {
+	return o
+}
+
+// Latitude.
+func (o GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput) Latitude() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetGeoproximityLocationCoordinates) string { return v.Latitude }).(pulumi.StringOutput)
+}
+
+// Longitude.
+func (o GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput) Longitude() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetGeoproximityLocationCoordinates) string { return v.Longitude }).(pulumi.StringOutput)
+}
+
+type GetRecordsResourceRecordSetResourceRecord struct {
+	// The DNS record value.
+	Value string `pulumi:"value"`
+}
+
+// GetRecordsResourceRecordSetResourceRecordInput is an input type that accepts GetRecordsResourceRecordSetResourceRecordArgs and GetRecordsResourceRecordSetResourceRecordOutput values.
+// You can construct a concrete instance of `GetRecordsResourceRecordSetResourceRecordInput` via:
+//
+//	GetRecordsResourceRecordSetResourceRecordArgs{...}
+type GetRecordsResourceRecordSetResourceRecordInput interface {
+	pulumi.Input
+
+	ToGetRecordsResourceRecordSetResourceRecordOutput() GetRecordsResourceRecordSetResourceRecordOutput
+	ToGetRecordsResourceRecordSetResourceRecordOutputWithContext(context.Context) GetRecordsResourceRecordSetResourceRecordOutput
+}
+
+type GetRecordsResourceRecordSetResourceRecordArgs struct {
+	// The DNS record value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetRecordsResourceRecordSetResourceRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSetResourceRecord)(nil)).Elem()
+}
+
+func (i GetRecordsResourceRecordSetResourceRecordArgs) ToGetRecordsResourceRecordSetResourceRecordOutput() GetRecordsResourceRecordSetResourceRecordOutput {
+	return i.ToGetRecordsResourceRecordSetResourceRecordOutputWithContext(context.Background())
+}
+
+func (i GetRecordsResourceRecordSetResourceRecordArgs) ToGetRecordsResourceRecordSetResourceRecordOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetResourceRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordsResourceRecordSetResourceRecordOutput)
+}
+
+// GetRecordsResourceRecordSetResourceRecordArrayInput is an input type that accepts GetRecordsResourceRecordSetResourceRecordArray and GetRecordsResourceRecordSetResourceRecordArrayOutput values.
+// You can construct a concrete instance of `GetRecordsResourceRecordSetResourceRecordArrayInput` via:
+//
+//	GetRecordsResourceRecordSetResourceRecordArray{ GetRecordsResourceRecordSetResourceRecordArgs{...} }
+type GetRecordsResourceRecordSetResourceRecordArrayInput interface {
+	pulumi.Input
+
+	ToGetRecordsResourceRecordSetResourceRecordArrayOutput() GetRecordsResourceRecordSetResourceRecordArrayOutput
+	ToGetRecordsResourceRecordSetResourceRecordArrayOutputWithContext(context.Context) GetRecordsResourceRecordSetResourceRecordArrayOutput
+}
+
+type GetRecordsResourceRecordSetResourceRecordArray []GetRecordsResourceRecordSetResourceRecordInput
+
+func (GetRecordsResourceRecordSetResourceRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRecordsResourceRecordSetResourceRecord)(nil)).Elem()
+}
+
+func (i GetRecordsResourceRecordSetResourceRecordArray) ToGetRecordsResourceRecordSetResourceRecordArrayOutput() GetRecordsResourceRecordSetResourceRecordArrayOutput {
+	return i.ToGetRecordsResourceRecordSetResourceRecordArrayOutputWithContext(context.Background())
+}
+
+func (i GetRecordsResourceRecordSetResourceRecordArray) ToGetRecordsResourceRecordSetResourceRecordArrayOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetResourceRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRecordsResourceRecordSetResourceRecordArrayOutput)
+}
+
+type GetRecordsResourceRecordSetResourceRecordOutput struct{ *pulumi.OutputState }
+
+func (GetRecordsResourceRecordSetResourceRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRecordsResourceRecordSetResourceRecord)(nil)).Elem()
+}
+
+func (o GetRecordsResourceRecordSetResourceRecordOutput) ToGetRecordsResourceRecordSetResourceRecordOutput() GetRecordsResourceRecordSetResourceRecordOutput {
+	return o
+}
+
+func (o GetRecordsResourceRecordSetResourceRecordOutput) ToGetRecordsResourceRecordSetResourceRecordOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetResourceRecordOutput {
+	return o
+}
+
+// The DNS record value.
+func (o GetRecordsResourceRecordSetResourceRecordOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecordsResourceRecordSetResourceRecord) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetRecordsResourceRecordSetResourceRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRecordsResourceRecordSetResourceRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRecordsResourceRecordSetResourceRecord)(nil)).Elem()
+}
+
+func (o GetRecordsResourceRecordSetResourceRecordArrayOutput) ToGetRecordsResourceRecordSetResourceRecordArrayOutput() GetRecordsResourceRecordSetResourceRecordArrayOutput {
+	return o
+}
+
+func (o GetRecordsResourceRecordSetResourceRecordArrayOutput) ToGetRecordsResourceRecordSetResourceRecordArrayOutputWithContext(ctx context.Context) GetRecordsResourceRecordSetResourceRecordArrayOutput {
+	return o
+}
+
+func (o GetRecordsResourceRecordSetResourceRecordArrayOutput) Index(i pulumi.IntInput) GetRecordsResourceRecordSetResourceRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRecordsResourceRecordSetResourceRecord {
+		return vs[0].([]GetRecordsResourceRecordSetResourceRecord)[vs[1].(int)]
+	}).(GetRecordsResourceRecordSetResourceRecordOutput)
+}
+
 type GetResolverEndpointFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -3626,6 +4295,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProfilesProfilesProfileArrayInput)(nil)).Elem(), GetProfilesProfilesProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetQueryLogConfigFilterInput)(nil)).Elem(), GetQueryLogConfigFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetQueryLogConfigFilterArrayInput)(nil)).Elem(), GetQueryLogConfigFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordsResourceRecordSetInput)(nil)).Elem(), GetRecordsResourceRecordSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordsResourceRecordSetArrayInput)(nil)).Elem(), GetRecordsResourceRecordSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordsResourceRecordSetAliasTargetInput)(nil)).Elem(), GetRecordsResourceRecordSetAliasTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordsResourceRecordSetCidrRoutingConfigInput)(nil)).Elem(), GetRecordsResourceRecordSetCidrRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordsResourceRecordSetGeolocationInput)(nil)).Elem(), GetRecordsResourceRecordSetGeolocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordsResourceRecordSetGeoproximityLocationInput)(nil)).Elem(), GetRecordsResourceRecordSetGeoproximityLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordsResourceRecordSetGeoproximityLocationCoordinatesInput)(nil)).Elem(), GetRecordsResourceRecordSetGeoproximityLocationCoordinatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordsResourceRecordSetResourceRecordInput)(nil)).Elem(), GetRecordsResourceRecordSetResourceRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRecordsResourceRecordSetResourceRecordArrayInput)(nil)).Elem(), GetRecordsResourceRecordSetResourceRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverEndpointFilterInput)(nil)).Elem(), GetResolverEndpointFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverEndpointFilterArrayInput)(nil)).Elem(), GetResolverEndpointFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverFirewallRulesFirewallRuleInput)(nil)).Elem(), GetResolverFirewallRulesFirewallRuleArgs{})
@@ -3678,6 +4356,15 @@ func init() {
 	pulumi.RegisterOutputType(GetProfilesProfilesProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetQueryLogConfigFilterOutput{})
 	pulumi.RegisterOutputType(GetQueryLogConfigFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetRecordsResourceRecordSetOutput{})
+	pulumi.RegisterOutputType(GetRecordsResourceRecordSetArrayOutput{})
+	pulumi.RegisterOutputType(GetRecordsResourceRecordSetAliasTargetOutput{})
+	pulumi.RegisterOutputType(GetRecordsResourceRecordSetCidrRoutingConfigOutput{})
+	pulumi.RegisterOutputType(GetRecordsResourceRecordSetGeolocationOutput{})
+	pulumi.RegisterOutputType(GetRecordsResourceRecordSetGeoproximityLocationOutput{})
+	pulumi.RegisterOutputType(GetRecordsResourceRecordSetGeoproximityLocationCoordinatesOutput{})
+	pulumi.RegisterOutputType(GetRecordsResourceRecordSetResourceRecordOutput{})
+	pulumi.RegisterOutputType(GetRecordsResourceRecordSetResourceRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetResolverEndpointFilterOutput{})
 	pulumi.RegisterOutputType(GetResolverEndpointFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetResolverFirewallRulesFirewallRuleOutput{})

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Rds.Inputs
         public Input<string>? AuthScheme { get; set; }
 
         /// <summary>
-        /// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+        /// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
         /// </summary>
         [Input("clientPasswordAuthType")]
         public Input<string>? ClientPasswordAuthType { get; set; }

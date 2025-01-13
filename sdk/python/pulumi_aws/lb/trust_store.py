@@ -291,6 +291,28 @@ class TrustStore(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Trust Store Load Balancer Listener
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lb.TrustStore("test",
+            name="tf-example-lb-ts",
+            ca_certificates_bundle_s3_bucket="...",
+            ca_certificates_bundle_s3_key="...")
+        example = aws.lb.Listener("example",
+            load_balancer_arn=example_aws_lb["id"],
+            default_actions=[{
+                "target_group_arn": example_aws_lb_target_group["id"],
+                "type": "forward",
+            }],
+            mutual_authentication={
+                "mode": "verify",
+                "trust_store_arn": test.arn,
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Target Groups using their ARN. For example:
@@ -318,6 +340,28 @@ class TrustStore(pulumi.CustomResource):
         Provides a ELBv2 Trust Store for use with Application Load Balancer Listener resources.
 
         ## Example Usage
+
+        ### Trust Store Load Balancer Listener
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lb.TrustStore("test",
+            name="tf-example-lb-ts",
+            ca_certificates_bundle_s3_bucket="...",
+            ca_certificates_bundle_s3_key="...")
+        example = aws.lb.Listener("example",
+            load_balancer_arn=example_aws_lb["id"],
+            default_actions=[{
+                "target_group_arn": example_aws_lb_target_group["id"],
+                "type": "forward",
+            }],
+            mutual_authentication={
+                "mode": "verify",
+                "trust_store_arn": test.arn,
+            })
+        ```
 
         ## Import
 

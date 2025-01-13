@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Configuring Basic Scanning
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -41,9 +43,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new AccountSetting("foo", AccountSettingArgs.builder()
+ *         var basicScanTypeVersion = new AccountSetting("basicScanTypeVersion", AccountSettingArgs.builder()
  *             .name("BASIC_SCAN_TYPE_VERSION")
- *             .value("CLAIR")
+ *             .value("AWS_NATIVE")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Configuring Registry Policy Scope
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecr.AccountSetting;
+ * import com.pulumi.aws.ecr.AccountSettingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var registryPolicyScope = new AccountSetting("registryPolicyScope", AccountSettingArgs.builder()
+ *             .name("REGISTRY_POLICY_SCOPE")
+ *             .value("V2")
  *             .build());
  * 
  *     }
@@ -54,7 +92,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
+ * Using `pulumi import`, import EMR Security Configurations using the account setting name. For example:
  * 
  * ```sh
  * $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
@@ -64,28 +102,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ecr/accountSetting:AccountSetting")
 public class AccountSetting extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+     * @return Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+     * Setting value that is specified. Valid values are:
+     * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
-     * @return The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+     * @return Setting value that is specified. Valid values are:
+     * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      * 
      */
     public Output<String> value() {

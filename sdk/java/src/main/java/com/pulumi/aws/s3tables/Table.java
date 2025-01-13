@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Table("example", TableArgs.builder()
  *             .name("example-table")
- *             .namespace(exampleNamespace)
+ *             .namespace(exampleNamespace.namespace())
  *             .tableBucketArn(exampleNamespace.tableBucketArn())
  *             .format("ICEBERG")
  *             .build());

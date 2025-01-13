@@ -70,6 +70,8 @@ type Studio struct {
 	DefaultS3Location pulumi.StringOutput `pulumi:"defaultS3Location"`
 	// A detailed description of the Amazon EMR Studio.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
 	// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
 	EngineSecurityGroupId pulumi.StringOutput `pulumi:"engineSecurityGroupId"`
 	// The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
@@ -157,6 +159,8 @@ type studioState struct {
 	DefaultS3Location *string `pulumi:"defaultS3Location"`
 	// A detailed description of the Amazon EMR Studio.
 	Description *string `pulumi:"description"`
+	// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
 	EngineSecurityGroupId *string `pulumi:"engineSecurityGroupId"`
 	// The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
@@ -194,6 +198,8 @@ type StudioState struct {
 	DefaultS3Location pulumi.StringPtrInput
 	// A detailed description of the Amazon EMR Studio.
 	Description pulumi.StringPtrInput
+	// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+	EncryptionKeyArn pulumi.StringPtrInput
 	// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
 	EngineSecurityGroupId pulumi.StringPtrInput
 	// The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
@@ -233,6 +239,8 @@ type studioArgs struct {
 	DefaultS3Location string `pulumi:"defaultS3Location"`
 	// A detailed description of the Amazon EMR Studio.
 	Description *string `pulumi:"description"`
+	// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
 	EngineSecurityGroupId string `pulumi:"engineSecurityGroupId"`
 	// The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
@@ -265,6 +273,8 @@ type StudioArgs struct {
 	DefaultS3Location pulumi.StringInput
 	// A detailed description of the Amazon EMR Studio.
 	Description pulumi.StringPtrInput
+	// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+	EncryptionKeyArn pulumi.StringPtrInput
 	// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.
 	EngineSecurityGroupId pulumi.StringInput
 	// The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
@@ -394,6 +404,11 @@ func (o StudioOutput) DefaultS3Location() pulumi.StringOutput {
 // A detailed description of the Amazon EMR Studio.
 func (o StudioOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+func (o StudioOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringPtrOutput { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpcId`.

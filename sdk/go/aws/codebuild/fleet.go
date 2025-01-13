@@ -94,6 +94,8 @@ type Fleet struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Number of machines allocated to the ﬂeet.
 	BaseCapacity pulumi.IntOutput `pulumi:"baseCapacity"`
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+	ComputeConfiguration FleetComputeConfigurationPtrOutput `pulumi:"computeConfiguration"`
 	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 	ComputeType pulumi.StringOutput `pulumi:"computeType"`
 	// Creation time of the fleet.
@@ -112,7 +114,7 @@ type Fleet struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior pulumi.StringOutput `pulumi:"overflowBehavior"`
-	// Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration FleetScalingConfigurationPtrOutput `pulumi:"scalingConfiguration"`
 	// Nested attribute containing information about the current status of the fleet.
 	Statuses FleetStatusArrayOutput `pulumi:"statuses"`
@@ -120,7 +122,7 @@ type Fleet struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Configuration block. Detailed below.
+	// Configuration block. See `vpcConfig` below.
 	VpcConfigs FleetVpcConfigArrayOutput `pulumi:"vpcConfigs"`
 }
 
@@ -167,6 +169,8 @@ type fleetState struct {
 	Arn *string `pulumi:"arn"`
 	// Number of machines allocated to the ﬂeet.
 	BaseCapacity *int `pulumi:"baseCapacity"`
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+	ComputeConfiguration *FleetComputeConfiguration `pulumi:"computeConfiguration"`
 	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 	ComputeType *string `pulumi:"computeType"`
 	// Creation time of the fleet.
@@ -185,7 +189,7 @@ type fleetState struct {
 	Name *string `pulumi:"name"`
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior *string `pulumi:"overflowBehavior"`
-	// Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration *FleetScalingConfiguration `pulumi:"scalingConfiguration"`
 	// Nested attribute containing information about the current status of the fleet.
 	Statuses []FleetStatus `pulumi:"statuses"`
@@ -193,7 +197,7 @@ type fleetState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Configuration block. Detailed below.
+	// Configuration block. See `vpcConfig` below.
 	VpcConfigs []FleetVpcConfig `pulumi:"vpcConfigs"`
 }
 
@@ -202,6 +206,8 @@ type FleetState struct {
 	Arn pulumi.StringPtrInput
 	// Number of machines allocated to the ﬂeet.
 	BaseCapacity pulumi.IntPtrInput
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+	ComputeConfiguration FleetComputeConfigurationPtrInput
 	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 	ComputeType pulumi.StringPtrInput
 	// Creation time of the fleet.
@@ -220,7 +226,7 @@ type FleetState struct {
 	Name pulumi.StringPtrInput
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior pulumi.StringPtrInput
-	// Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration FleetScalingConfigurationPtrInput
 	// Nested attribute containing information about the current status of the fleet.
 	Statuses FleetStatusArrayInput
@@ -228,7 +234,7 @@ type FleetState struct {
 	Tags pulumi.StringMapInput
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// Configuration block. Detailed below.
+	// Configuration block. See `vpcConfig` below.
 	VpcConfigs FleetVpcConfigArrayInput
 }
 
@@ -239,6 +245,8 @@ func (FleetState) ElementType() reflect.Type {
 type fleetArgs struct {
 	// Number of machines allocated to the ﬂeet.
 	BaseCapacity int `pulumi:"baseCapacity"`
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+	ComputeConfiguration *FleetComputeConfiguration `pulumi:"computeConfiguration"`
 	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 	ComputeType string `pulumi:"computeType"`
 	// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
@@ -253,11 +261,11 @@ type fleetArgs struct {
 	Name *string `pulumi:"name"`
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior *string `pulumi:"overflowBehavior"`
-	// Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration *FleetScalingConfiguration `pulumi:"scalingConfiguration"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Configuration block. Detailed below.
+	// Configuration block. See `vpcConfig` below.
 	VpcConfigs []FleetVpcConfig `pulumi:"vpcConfigs"`
 }
 
@@ -265,6 +273,8 @@ type fleetArgs struct {
 type FleetArgs struct {
 	// Number of machines allocated to the ﬂeet.
 	BaseCapacity pulumi.IntInput
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+	ComputeConfiguration FleetComputeConfigurationPtrInput
 	// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 	ComputeType pulumi.StringInput
 	// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
@@ -279,11 +289,11 @@ type FleetArgs struct {
 	Name pulumi.StringPtrInput
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior pulumi.StringPtrInput
-	// Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration FleetScalingConfigurationPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Configuration block. Detailed below.
+	// Configuration block. See `vpcConfig` below.
 	VpcConfigs FleetVpcConfigArrayInput
 }
 
@@ -384,6 +394,11 @@ func (o FleetOutput) BaseCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.IntOutput { return v.BaseCapacity }).(pulumi.IntOutput)
 }
 
+// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+func (o FleetOutput) ComputeConfiguration() FleetComputeConfigurationPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetComputeConfigurationPtrOutput { return v.ComputeConfiguration }).(FleetComputeConfigurationPtrOutput)
+}
+
 // Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
 func (o FleetOutput) ComputeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.ComputeType }).(pulumi.StringOutput)
@@ -426,7 +441,7 @@ func (o FleetOutput) OverflowBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.OverflowBehavior }).(pulumi.StringOutput)
 }
 
-// Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 func (o FleetOutput) ScalingConfiguration() FleetScalingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetScalingConfigurationPtrOutput { return v.ScalingConfiguration }).(FleetScalingConfigurationPtrOutput)
 }
@@ -446,7 +461,7 @@ func (o FleetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Configuration block. Detailed below.
+// Configuration block. See `vpcConfig` below.
 func (o FleetOutput) VpcConfigs() FleetVpcConfigArrayOutput {
 	return o.ApplyT(func(v *Fleet) FleetVpcConfigArrayOutput { return v.VpcConfigs }).(FleetVpcConfigArrayOutput)
 }

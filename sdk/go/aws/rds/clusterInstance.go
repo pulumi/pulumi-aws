@@ -138,7 +138,7 @@ type ClusterInstance struct {
 	MonitoringRoleArn pulumi.StringOutput `pulumi:"monitoringRoleArn"`
 	// Network type of the DB instance.
 	NetworkType pulumi.StringOutput `pulumi:"networkType"`
-	// Specifies whether Performance Insights is enabled or not.
+	// Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
 	PerformanceInsightsEnabled pulumi.BoolOutput `pulumi:"performanceInsightsEnabled"`
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId pulumi.StringOutput `pulumi:"performanceInsightsKmsKeyId"`
@@ -252,7 +252,7 @@ type clusterInstanceState struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Network type of the DB instance.
 	NetworkType *string `pulumi:"networkType"`
-	// Specifies whether Performance Insights is enabled or not.
+	// Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
@@ -328,7 +328,7 @@ type ClusterInstanceState struct {
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Network type of the DB instance.
 	NetworkType pulumi.StringPtrInput
-	// Specifies whether Performance Insights is enabled or not.
+	// Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
@@ -396,7 +396,7 @@ type clusterInstanceArgs struct {
 	MonitoringInterval *int `pulumi:"monitoringInterval"`
 	// ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
-	// Specifies whether Performance Insights is enabled or not.
+	// Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
@@ -451,7 +451,7 @@ type ClusterInstanceArgs struct {
 	MonitoringInterval pulumi.IntPtrInput
 	// ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
 	MonitoringRoleArn pulumi.StringPtrInput
-	// Specifies whether Performance Insights is enabled or not.
+	// Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
@@ -672,7 +672,7 @@ func (o ClusterInstanceOutput) NetworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
-// Specifies whether Performance Insights is enabled or not.
+// Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
 func (o ClusterInstanceOutput) PerformanceInsightsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.PerformanceInsightsEnabled }).(pulumi.BoolOutput)
 }

@@ -27,6 +27,27 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
+ * ### Ignoring Provider `defaultTags`
+ *
+ * S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+ * If the resource's own `tags` and the provider-level `defaultTags` would together lead to more than 10 tags on an S3 object copy, use the `overrideProvider` configuration block to suppress any provider-level `defaultTags`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.s3.ObjectCopy("test", {
+ *     bucket: "destination_bucket",
+ *     key: "destination_key",
+ *     source: "source_bucket/source_key",
+ *     overrideProvider: {
+ *         defaultTags: {
+ *             tags: {},
+ *         },
+ *     },
+ * });
+ * ```
  */
 export class ObjectCopy extends pulumi.CustomResource {
     /**
@@ -201,6 +222,7 @@ export class ObjectCopy extends pulumi.CustomResource {
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
     public readonly objectLockRetainUntilDate!: pulumi.Output<string>;
+    public readonly overrideProvider!: pulumi.Output<outputs.s3.ObjectCopyOverrideProvider | undefined>;
     /**
      * If present, indicates that the requester was successfully charged for the request.
      */
@@ -312,6 +334,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["objectLockLegalHoldStatus"] = state ? state.objectLockLegalHoldStatus : undefined;
             resourceInputs["objectLockMode"] = state ? state.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = state ? state.objectLockRetainUntilDate : undefined;
+            resourceInputs["overrideProvider"] = state ? state.overrideProvider : undefined;
             resourceInputs["requestCharged"] = state ? state.requestCharged : undefined;
             resourceInputs["requestPayer"] = state ? state.requestPayer : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
@@ -366,6 +389,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["objectLockLegalHoldStatus"] = args ? args.objectLockLegalHoldStatus : undefined;
             resourceInputs["objectLockMode"] = args ? args.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = args ? args.objectLockRetainUntilDate : undefined;
+            resourceInputs["overrideProvider"] = args ? args.overrideProvider : undefined;
             resourceInputs["requestPayer"] = args ? args.requestPayer : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
@@ -545,6 +569,7 @@ export interface ObjectCopyState {
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
     objectLockRetainUntilDate?: pulumi.Input<string>;
+    overrideProvider?: pulumi.Input<inputs.s3.ObjectCopyOverrideProvider>;
     /**
      * If present, indicates that the requester was successfully charged for the request.
      */
@@ -724,6 +749,7 @@ export interface ObjectCopyArgs {
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
     objectLockRetainUntilDate?: pulumi.Input<string>;
+    overrideProvider?: pulumi.Input<inputs.s3.ObjectCopyOverrideProvider>;
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
      */

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.inputs;
 
 import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorFunctionAssociationArgs;
+import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorGrpcConfigArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -83,14 +84,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+     * Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
     @Import(name="defaultTtl")
     private @Nullable Output<Integer> defaultTtl;
 
     /**
-     * @return Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+     * @return Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
     public Optional<Output<Integer>> defaultTtl() {
@@ -143,6 +144,21 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
+     * A config block that sets the grpc config.
+     * 
+     */
+    @Import(name="grpcConfig")
+    private @Nullable Output<DistributionOrderedCacheBehaviorGrpcConfigArgs> grpcConfig;
+
+    /**
+     * @return A config block that sets the grpc config.
+     * 
+     */
+    public Optional<Output<DistributionOrderedCacheBehaviorGrpcConfigArgs>> grpcConfig() {
+        return Optional.ofNullable(this.grpcConfig);
+    }
+
+    /**
      * A config block that triggers a lambda function with specific actions (maximum 4).
      * 
      */
@@ -158,14 +174,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+     * Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
     @Import(name="maxTtl")
     private @Nullable Output<Integer> maxTtl;
 
     /**
-     * @return Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+     * @return Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
     public Optional<Output<Integer>> maxTtl() {
@@ -173,14 +189,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+     * Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
     @Import(name="minTtl")
     private @Nullable Output<Integer> minTtl;
 
     /**
-     * @return Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+     * @return Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
     public Optional<Output<Integer>> minTtl() {
@@ -333,6 +349,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         this.fieldLevelEncryptionId = $.fieldLevelEncryptionId;
         this.forwardedValues = $.forwardedValues;
         this.functionAssociations = $.functionAssociations;
+        this.grpcConfig = $.grpcConfig;
         this.lambdaFunctionAssociations = $.lambdaFunctionAssociations;
         this.maxTtl = $.maxTtl;
         this.minTtl = $.minTtl;
@@ -470,7 +487,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param defaultTtl Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+         * @param defaultTtl Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
          * 
          * @return builder
          * 
@@ -481,7 +498,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param defaultTtl Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+         * @param defaultTtl Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
          * 
          * @return builder
          * 
@@ -564,6 +581,27 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
+         * @param grpcConfig A config block that sets the grpc config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grpcConfig(@Nullable Output<DistributionOrderedCacheBehaviorGrpcConfigArgs> grpcConfig) {
+            $.grpcConfig = grpcConfig;
+            return this;
+        }
+
+        /**
+         * @param grpcConfig A config block that sets the grpc config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grpcConfig(DistributionOrderedCacheBehaviorGrpcConfigArgs grpcConfig) {
+            return grpcConfig(Output.of(grpcConfig));
+        }
+
+        /**
          * @param lambdaFunctionAssociations A config block that triggers a lambda function with specific actions (maximum 4).
          * 
          * @return builder
@@ -595,7 +633,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param maxTtl Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+         * @param maxTtl Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
          * 
          * @return builder
          * 
@@ -606,7 +644,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param maxTtl Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+         * @param maxTtl Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
          * 
          * @return builder
          * 
@@ -616,7 +654,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param minTtl Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+         * @param minTtl Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
          * 
          * @return builder
          * 
@@ -627,7 +665,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param minTtl Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+         * @param minTtl Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
          * 
          * @return builder
          * 

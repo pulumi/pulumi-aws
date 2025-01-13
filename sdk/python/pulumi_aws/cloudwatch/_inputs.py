@@ -97,6 +97,10 @@ __all__ = [
     'InternetMonitorInternetMeasurementsLogDeliveryArgsDict',
     'InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs',
     'InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgsDict',
+    'LogDeliveryDestinationDeliveryDestinationConfigurationArgs',
+    'LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict',
+    'LogDeliveryS3DeliveryConfigurationArgs',
+    'LogDeliveryS3DeliveryConfigurationArgsDict',
     'LogMetricFilterMetricTransformationArgs',
     'LogMetricFilterMetricTransformationArgsDict',
     'MetricAlarmMetricQueryArgs',
@@ -2693,6 +2697,87 @@ class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs:
     @log_delivery_status.setter
     def log_delivery_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_delivery_status", value)
+
+
+if not MYPY:
+    class LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict(TypedDict):
+        destination_resource_arn: pulumi.Input[str]
+        """
+        The ARN of the AWS destination that this delivery destination represents.
+        """
+elif False:
+    LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogDeliveryDestinationDeliveryDestinationConfigurationArgs:
+    def __init__(__self__, *,
+                 destination_resource_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] destination_resource_arn: The ARN of the AWS destination that this delivery destination represents.
+        """
+        pulumi.set(__self__, "destination_resource_arn", destination_resource_arn)
+
+    @property
+    @pulumi.getter(name="destinationResourceArn")
+    def destination_resource_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the AWS destination that this delivery destination represents.
+        """
+        return pulumi.get(self, "destination_resource_arn")
+
+    @destination_resource_arn.setter
+    def destination_resource_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_resource_arn", value)
+
+
+if not MYPY:
+    class LogDeliveryS3DeliveryConfigurationArgsDict(TypedDict):
+        enable_hive_compatible_path: pulumi.Input[bool]
+        """
+        This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        """
+        suffix_path: pulumi.Input[str]
+        """
+        This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+        """
+elif False:
+    LogDeliveryS3DeliveryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogDeliveryS3DeliveryConfigurationArgs:
+    def __init__(__self__, *,
+                 enable_hive_compatible_path: pulumi.Input[bool],
+                 suffix_path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[bool] enable_hive_compatible_path: This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        :param pulumi.Input[str] suffix_path: This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+        """
+        pulumi.set(__self__, "enable_hive_compatible_path", enable_hive_compatible_path)
+        pulumi.set(__self__, "suffix_path", suffix_path)
+
+    @property
+    @pulumi.getter(name="enableHiveCompatiblePath")
+    def enable_hive_compatible_path(self) -> pulumi.Input[bool]:
+        """
+        This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        """
+        return pulumi.get(self, "enable_hive_compatible_path")
+
+    @enable_hive_compatible_path.setter
+    def enable_hive_compatible_path(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enable_hive_compatible_path", value)
+
+    @property
+    @pulumi.getter(name="suffixPath")
+    def suffix_path(self) -> pulumi.Input[str]:
+        """
+        This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+        """
+        return pulumi.get(self, "suffix_path")
+
+    @suffix_path.setter
+    def suffix_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "suffix_path", value)
 
 
 if not MYPY:

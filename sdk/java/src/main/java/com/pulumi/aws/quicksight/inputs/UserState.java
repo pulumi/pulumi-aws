@@ -16,14 +16,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     public static final UserState Empty = new UserState();
 
     /**
-     * Amazon Resource Name (ARN) of the user
+     * Amazon Resource Name (ARN) for the user.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the user
+     * @return Amazon Resource Name (ARN) for the user.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -31,14 +31,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     * ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
     /**
-     * @return The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     * @return ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
     public Optional<Output<String>> awsAccountId() {
@@ -46,14 +46,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The email address of the user that you want to register.
+     * Email address of the user that you want to register.
      * 
      */
     @Import(name="email")
     private @Nullable Output<String> email;
 
     /**
-     * @return The email address of the user that you want to register.
+     * @return Email address of the user that you want to register.
      * 
      */
     public Optional<Output<String>> email() {
@@ -61,14 +61,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the IAM user or role that you are registering with Amazon QuickSight.
+     * ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
      * 
      */
     @Import(name="iamArn")
     private @Nullable Output<String> iamArn;
 
     /**
-     * @return The ARN of the IAM user or role that you are registering with Amazon QuickSight.
+     * @return ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
      * 
      */
     public Optional<Output<String>> iamArn() {
@@ -76,14 +76,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iam_arn` must also be specified.
+     * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
      * 
      */
     @Import(name="identityType")
     private @Nullable Output<String> identityType;
 
     /**
-     * @return Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iam_arn` must also be specified.
+     * @return Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
      * 
      */
     public Optional<Output<String>> identityType() {
@@ -106,14 +106,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
+     * Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      * 
      */
     @Import(name="sessionName")
     private @Nullable Output<String> sessionName;
 
     /**
-     * @return The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
+     * @return Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      * 
      */
     public Optional<Output<String>> sessionName() {
@@ -121,14 +121,29 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
+     * URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
+     * 
+     */
+    @Import(name="userInvitationUrl")
+    private @Nullable Output<String> userInvitationUrl;
+
+    /**
+     * @return URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
+     * 
+     */
+    public Optional<Output<String>> userInvitationUrl() {
+        return Optional.ofNullable(this.userInvitationUrl);
+    }
+
+    /**
+     * Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
      * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
-     * @return The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
+     * @return Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
      * 
      */
     public Optional<Output<String>> userName() {
@@ -136,14 +151,18 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
+     * Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="userRole")
     private @Nullable Output<String> userRole;
 
     /**
-     * @return The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
+     * @return Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> userRole() {
@@ -160,6 +179,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         this.identityType = $.identityType;
         this.namespace = $.namespace;
         this.sessionName = $.sessionName;
+        this.userInvitationUrl = $.userInvitationUrl;
         this.userName = $.userName;
         this.userRole = $.userRole;
     }
@@ -183,7 +203,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the user
+         * @param arn Amazon Resource Name (ARN) for the user.
          * 
          * @return builder
          * 
@@ -194,7 +214,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the user
+         * @param arn Amazon Resource Name (ARN) for the user.
          * 
          * @return builder
          * 
@@ -204,7 +224,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsAccountId The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+         * @param awsAccountId ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -215,7 +235,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsAccountId The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+         * @param awsAccountId ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -225,7 +245,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param email The email address of the user that you want to register.
+         * @param email Email address of the user that you want to register.
          * 
          * @return builder
          * 
@@ -236,7 +256,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param email The email address of the user that you want to register.
+         * @param email Email address of the user that you want to register.
          * 
          * @return builder
          * 
@@ -246,7 +266,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamArn The ARN of the IAM user or role that you are registering with Amazon QuickSight.
+         * @param iamArn ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
          * 
          * @return builder
          * 
@@ -257,7 +277,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamArn The ARN of the IAM user or role that you are registering with Amazon QuickSight.
+         * @param iamArn ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
          * 
          * @return builder
          * 
@@ -267,7 +287,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityType Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iam_arn` must also be specified.
+         * @param identityType Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
          * 
          * @return builder
          * 
@@ -278,7 +298,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityType Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iam_arn` must also be specified.
+         * @param identityType Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
          * 
          * @return builder
          * 
@@ -309,7 +329,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sessionName The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
+         * @param sessionName Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
          * 
          * @return builder
          * 
@@ -320,7 +340,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sessionName The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
+         * @param sessionName Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
          * 
          * @return builder
          * 
@@ -330,7 +350,28 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
+         * @param userInvitationUrl URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userInvitationUrl(@Nullable Output<String> userInvitationUrl) {
+            $.userInvitationUrl = userInvitationUrl;
+            return this;
+        }
+
+        /**
+         * @param userInvitationUrl URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userInvitationUrl(String userInvitationUrl) {
+            return userInvitationUrl(Output.of(userInvitationUrl));
+        }
+
+        /**
+         * @param userName Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
          * 
          * @return builder
          * 
@@ -341,7 +382,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
+         * @param userName Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
          * 
          * @return builder
          * 
@@ -351,7 +392,9 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userRole The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
+         * @param userRole Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -362,7 +405,9 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userRole The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
+         * @param userRole Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

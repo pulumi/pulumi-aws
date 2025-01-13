@@ -8,6 +8,7 @@ import typing
 from .agent_agent import *
 from .agent_agent_action_group import *
 from .agent_agent_alias import *
+from .agent_agent_collaborator import *
 from .agent_agent_knowledge_base_association import *
 from .agent_data_source import *
 from .agent_knowledge_base import *

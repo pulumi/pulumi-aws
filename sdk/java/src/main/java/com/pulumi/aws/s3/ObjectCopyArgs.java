@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3;
 
 import com.pulumi.aws.s3.inputs.ObjectCopyGrantArgs;
+import com.pulumi.aws.s3.inputs.ObjectCopyOverrideProviderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -447,6 +448,13 @@ public final class ObjectCopyArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.objectLockRetainUntilDate);
     }
 
+    @Import(name="overrideProvider")
+    private @Nullable Output<ObjectCopyOverrideProviderArgs> overrideProvider;
+
+    public Optional<Output<ObjectCopyOverrideProviderArgs>> overrideProvider() {
+        return Optional.ofNullable(this.overrideProvider);
+    }
+
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
      * 
@@ -633,6 +641,7 @@ public final class ObjectCopyArgs extends com.pulumi.resources.ResourceArgs {
         this.objectLockLegalHoldStatus = $.objectLockLegalHoldStatus;
         this.objectLockMode = $.objectLockMode;
         this.objectLockRetainUntilDate = $.objectLockRetainUntilDate;
+        this.overrideProvider = $.overrideProvider;
         this.requestPayer = $.requestPayer;
         this.serverSideEncryption = $.serverSideEncryption;
         this.source = $.source;
@@ -1268,6 +1277,15 @@ public final class ObjectCopyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder objectLockRetainUntilDate(String objectLockRetainUntilDate) {
             return objectLockRetainUntilDate(Output.of(objectLockRetainUntilDate));
+        }
+
+        public Builder overrideProvider(@Nullable Output<ObjectCopyOverrideProviderArgs> overrideProvider) {
+            $.overrideProvider = overrideProvider;
+            return this;
+        }
+
+        public Builder overrideProvider(ObjectCopyOverrideProviderArgs overrideProvider) {
+            return overrideProvider(Output.of(overrideProvider));
         }
 
         /**

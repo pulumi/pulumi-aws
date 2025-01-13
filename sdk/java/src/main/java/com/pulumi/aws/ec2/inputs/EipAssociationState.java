@@ -17,14 +17,16 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
     public static final EipAssociationState Empty = new EipAssociationState();
 
     /**
-     * The allocation ID. This is required for EC2-VPC.
+     * ID of the associated Elastic IP.
+     * This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
      * 
      */
     @Import(name="allocationId")
     private @Nullable Output<String> allocationId;
 
     /**
-     * @return The allocation ID. This is required for EC2-VPC.
+     * @return ID of the associated Elastic IP.
+     * This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
      * 
      */
     public Optional<Output<String>> allocationId() {
@@ -32,16 +34,16 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Whether to allow an Elastic IP to
-     * be re-associated. Defaults to `true` in VPC.
+     * Whether to allow an Elastic IP address to be re-associated.
+     * Defaults to `true`.
      * 
      */
     @Import(name="allowReassociation")
     private @Nullable Output<Boolean> allowReassociation;
 
     /**
-     * @return Whether to allow an Elastic IP to
-     * be re-associated. Defaults to `true` in VPC.
+     * @return Whether to allow an Elastic IP address to be re-associated.
+     * Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> allowReassociation() {
@@ -49,20 +51,18 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID of the instance. This is required for
-     * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-     * network interface ID, but not both. The operation fails if you specify an
-     * instance ID unless exactly one network interface is attached.
+     * ID of the instance.
+     * The instance must have exactly one attached network interface.
+     * You can specify either the instance ID or the network interface ID, but not both.
      * 
      */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
-     * @return The ID of the instance. This is required for
-     * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-     * network interface ID, but not both. The operation fails if you specify an
-     * instance ID unless exactly one network interface is attached.
+     * @return ID of the instance.
+     * The instance must have exactly one attached network interface.
+     * You can specify either the instance ID or the network interface ID, but not both.
      * 
      */
     public Optional<Output<String>> instanceId() {
@@ -70,18 +70,18 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID of the network interface. If the
-     * instance has more than one network interface, you must specify a network
-     * interface ID.
+     * ID of the network interface.
+     * If the instance has more than one network interface, you must specify a network interface ID.
+     * You can specify either the instance ID or the network interface ID, but not both.
      * 
      */
     @Import(name="networkInterfaceId")
     private @Nullable Output<String> networkInterfaceId;
 
     /**
-     * @return The ID of the network interface. If the
-     * instance has more than one network interface, you must specify a network
-     * interface ID.
+     * @return ID of the network interface.
+     * If the instance has more than one network interface, you must specify a network interface ID.
+     * You can specify either the instance ID or the network interface ID, but not both.
      * 
      */
     public Optional<Output<String>> networkInterfaceId() {
@@ -89,20 +89,16 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The primary or secondary private IP address
-     * to associate with the Elastic IP address. If no private IP address is
-     * specified, the Elastic IP address is associated with the primary private IP
-     * address.
+     * Primary or secondary private IP address to associate with the Elastic IP address.
+     * If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      * 
      */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
     /**
-     * @return The primary or secondary private IP address
-     * to associate with the Elastic IP address. If no private IP address is
-     * specified, the Elastic IP address is associated with the primary private IP
-     * address.
+     * @return Primary or secondary private IP address to associate with the Elastic IP address.
+     * If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      * 
      */
     public Optional<Output<String>> privateIpAddress() {
@@ -110,14 +106,14 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Elastic IP address. This is required for EC2-Classic.
+     * ) Address of the associated Elastic IP.
      * 
      */
     @Import(name="publicIp")
     private @Nullable Output<String> publicIp;
 
     /**
-     * @return The Elastic IP address. This is required for EC2-Classic.
+     * @return ) Address of the associated Elastic IP.
      * 
      */
     public Optional<Output<String>> publicIp() {
@@ -154,7 +150,8 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allocationId The allocation ID. This is required for EC2-VPC.
+         * @param allocationId ID of the associated Elastic IP.
+         * This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
          * 
          * @return builder
          * 
@@ -165,7 +162,8 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allocationId The allocation ID. This is required for EC2-VPC.
+         * @param allocationId ID of the associated Elastic IP.
+         * This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
          * 
          * @return builder
          * 
@@ -175,8 +173,8 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowReassociation Whether to allow an Elastic IP to
-         * be re-associated. Defaults to `true` in VPC.
+         * @param allowReassociation Whether to allow an Elastic IP address to be re-associated.
+         * Defaults to `true`.
          * 
          * @return builder
          * 
@@ -187,8 +185,8 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param allowReassociation Whether to allow an Elastic IP to
-         * be re-associated. Defaults to `true` in VPC.
+         * @param allowReassociation Whether to allow an Elastic IP address to be re-associated.
+         * Defaults to `true`.
          * 
          * @return builder
          * 
@@ -198,10 +196,9 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceId The ID of the instance. This is required for
-         * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-         * network interface ID, but not both. The operation fails if you specify an
-         * instance ID unless exactly one network interface is attached.
+         * @param instanceId ID of the instance.
+         * The instance must have exactly one attached network interface.
+         * You can specify either the instance ID or the network interface ID, but not both.
          * 
          * @return builder
          * 
@@ -212,10 +209,9 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceId The ID of the instance. This is required for
-         * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-         * network interface ID, but not both. The operation fails if you specify an
-         * instance ID unless exactly one network interface is attached.
+         * @param instanceId ID of the instance.
+         * The instance must have exactly one attached network interface.
+         * You can specify either the instance ID or the network interface ID, but not both.
          * 
          * @return builder
          * 
@@ -225,9 +221,9 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param networkInterfaceId The ID of the network interface. If the
-         * instance has more than one network interface, you must specify a network
-         * interface ID.
+         * @param networkInterfaceId ID of the network interface.
+         * If the instance has more than one network interface, you must specify a network interface ID.
+         * You can specify either the instance ID or the network interface ID, but not both.
          * 
          * @return builder
          * 
@@ -238,9 +234,9 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param networkInterfaceId The ID of the network interface. If the
-         * instance has more than one network interface, you must specify a network
-         * interface ID.
+         * @param networkInterfaceId ID of the network interface.
+         * If the instance has more than one network interface, you must specify a network interface ID.
+         * You can specify either the instance ID or the network interface ID, but not both.
          * 
          * @return builder
          * 
@@ -250,10 +246,8 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param privateIpAddress The primary or secondary private IP address
-         * to associate with the Elastic IP address. If no private IP address is
-         * specified, the Elastic IP address is associated with the primary private IP
-         * address.
+         * @param privateIpAddress Primary or secondary private IP address to associate with the Elastic IP address.
+         * If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
          * 
          * @return builder
          * 
@@ -264,10 +258,8 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param privateIpAddress The primary or secondary private IP address
-         * to associate with the Elastic IP address. If no private IP address is
-         * specified, the Elastic IP address is associated with the primary private IP
-         * address.
+         * @param privateIpAddress Primary or secondary private IP address to associate with the Elastic IP address.
+         * If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
          * 
          * @return builder
          * 
@@ -277,7 +269,7 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param publicIp The Elastic IP address. This is required for EC2-Classic.
+         * @param publicIp ) Address of the associated Elastic IP.
          * 
          * @return builder
          * 
@@ -288,7 +280,7 @@ public final class EipAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param publicIp The Elastic IP address. This is required for EC2-Classic.
+         * @param publicIp ) Address of the associated Elastic IP.
          * 
          * @return builder
          * 

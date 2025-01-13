@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.codebuild;
 
+import com.pulumi.aws.codebuild.inputs.FleetComputeConfigurationArgs;
 import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationArgs;
 import com.pulumi.aws.codebuild.inputs.FleetVpcConfigArgs;
 import com.pulumi.core.Output;
@@ -34,6 +35,21 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<Integer> baseCapacity() {
         return this.baseCapacity;
+    }
+
+    /**
+     * The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+     * 
+     */
+    @Import(name="computeConfiguration")
+    private @Nullable Output<FleetComputeConfigurationArgs> computeConfiguration;
+
+    /**
+     * @return The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+     * 
+     */
+    public Optional<Output<FleetComputeConfigurationArgs>> computeConfiguration() {
+        return Optional.ofNullable(this.computeConfiguration);
     }
 
     /**
@@ -131,14 +147,14 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+     * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
      * 
      */
     @Import(name="scalingConfiguration")
     private @Nullable Output<FleetScalingConfigurationArgs> scalingConfiguration;
 
     /**
-     * @return Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+     * @return Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
      * 
      */
     public Optional<Output<FleetScalingConfigurationArgs>> scalingConfiguration() {
@@ -161,14 +177,14 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block. Detailed below.
+     * Configuration block. See `vpc_config` below.
      * 
      */
     @Import(name="vpcConfigs")
     private @Nullable Output<List<FleetVpcConfigArgs>> vpcConfigs;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Configuration block. See `vpc_config` below.
      * 
      */
     public Optional<Output<List<FleetVpcConfigArgs>>> vpcConfigs() {
@@ -179,6 +195,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
 
     private FleetArgs(FleetArgs $) {
         this.baseCapacity = $.baseCapacity;
+        this.computeConfiguration = $.computeConfiguration;
         this.computeType = $.computeType;
         this.environmentType = $.environmentType;
         this.fleetServiceRole = $.fleetServiceRole;
@@ -227,6 +244,27 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder baseCapacity(Integer baseCapacity) {
             return baseCapacity(Output.of(baseCapacity));
+        }
+
+        /**
+         * @param computeConfiguration The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeConfiguration(@Nullable Output<FleetComputeConfigurationArgs> computeConfiguration) {
+            $.computeConfiguration = computeConfiguration;
+            return this;
+        }
+
+        /**
+         * @param computeConfiguration The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeConfiguration(FleetComputeConfigurationArgs computeConfiguration) {
+            return computeConfiguration(Output.of(computeConfiguration));
         }
 
         /**
@@ -360,7 +398,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingConfiguration Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+         * @param scalingConfiguration Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
          * 
          * @return builder
          * 
@@ -371,7 +409,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingConfiguration Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+         * @param scalingConfiguration Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
          * 
          * @return builder
          * 
@@ -402,7 +440,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfigs Configuration block. Detailed below.
+         * @param vpcConfigs Configuration block. See `vpc_config` below.
          * 
          * @return builder
          * 
@@ -413,7 +451,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfigs Configuration block. Detailed below.
+         * @param vpcConfigs Configuration block. See `vpc_config` below.
          * 
          * @return builder
          * 
@@ -423,7 +461,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfigs Configuration block. Detailed below.
+         * @param vpcConfigs Configuration block. See `vpc_config` below.
          * 
          * @return builder
          * 

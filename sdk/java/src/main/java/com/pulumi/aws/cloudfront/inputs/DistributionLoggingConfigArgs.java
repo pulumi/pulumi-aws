@@ -18,14 +18,14 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
     public static final DistributionLoggingConfigArgs Empty = new DistributionLoggingConfigArgs();
 
     /**
-     * Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+     * Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+     * @return Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
      * 
      */
     public Output<String> bucket() {
@@ -89,7 +89,7 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param bucket Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+         * @param bucket Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DistributionLoggingConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param bucket Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+         * @param bucket Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
          * 
          * @return builder
          * 

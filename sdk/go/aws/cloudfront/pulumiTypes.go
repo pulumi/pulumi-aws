@@ -2071,7 +2071,7 @@ type DistributionDefaultCacheBehavior struct {
 	CachedMethods []string `pulumi:"cachedMethods"`
 	// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
 	Compress *bool `pulumi:"compress"`
-	// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+	// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
 	DefaultTtl *int `pulumi:"defaultTtl"`
 	// Field level encryption configuration ID.
 	FieldLevelEncryptionId *string `pulumi:"fieldLevelEncryptionId"`
@@ -2079,11 +2079,13 @@ type DistributionDefaultCacheBehavior struct {
 	ForwardedValues *DistributionDefaultCacheBehaviorForwardedValues `pulumi:"forwardedValues"`
 	// A config block that triggers a cloudfront function with specific actions (maximum 2).
 	FunctionAssociations []DistributionDefaultCacheBehaviorFunctionAssociation `pulumi:"functionAssociations"`
+	// A config block that sets the grpc config.
+	GrpcConfig *DistributionDefaultCacheBehaviorGrpcConfig `pulumi:"grpcConfig"`
 	// A config block that triggers a lambda function with specific actions (maximum 4).
 	LambdaFunctionAssociations []DistributionDefaultCacheBehaviorLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
-	// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+	// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
 	MaxTtl *int `pulumi:"maxTtl"`
-	// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+	// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
 	MinTtl *int `pulumi:"minTtl"`
 	// Unique identifier of the origin request policy that is attached to the behavior.
 	OriginRequestPolicyId *string `pulumi:"originRequestPolicyId"`
@@ -2123,7 +2125,7 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	CachedMethods pulumi.StringArrayInput `pulumi:"cachedMethods"`
 	// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
 	Compress pulumi.BoolPtrInput `pulumi:"compress"`
-	// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+	// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
 	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
 	// Field level encryption configuration ID.
 	FieldLevelEncryptionId pulumi.StringPtrInput `pulumi:"fieldLevelEncryptionId"`
@@ -2131,11 +2133,13 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	ForwardedValues DistributionDefaultCacheBehaviorForwardedValuesPtrInput `pulumi:"forwardedValues"`
 	// A config block that triggers a cloudfront function with specific actions (maximum 2).
 	FunctionAssociations DistributionDefaultCacheBehaviorFunctionAssociationArrayInput `pulumi:"functionAssociations"`
+	// A config block that sets the grpc config.
+	GrpcConfig DistributionDefaultCacheBehaviorGrpcConfigPtrInput `pulumi:"grpcConfig"`
 	// A config block that triggers a lambda function with specific actions (maximum 4).
 	LambdaFunctionAssociations DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
-	// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+	// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
 	MaxTtl pulumi.IntPtrInput `pulumi:"maxTtl"`
-	// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+	// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
 	MinTtl pulumi.IntPtrInput `pulumi:"minTtl"`
 	// Unique identifier of the origin request policy that is attached to the behavior.
 	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"originRequestPolicyId"`
@@ -2252,7 +2256,7 @@ func (o DistributionDefaultCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
-// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
 func (o DistributionDefaultCacheBehaviorOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
@@ -2276,6 +2280,13 @@ func (o DistributionDefaultCacheBehaviorOutput) FunctionAssociations() Distribut
 	}).(DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput)
 }
 
+// A config block that sets the grpc config.
+func (o DistributionDefaultCacheBehaviorOutput) GrpcConfig() DistributionDefaultCacheBehaviorGrpcConfigPtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *DistributionDefaultCacheBehaviorGrpcConfig {
+		return v.GrpcConfig
+	}).(DistributionDefaultCacheBehaviorGrpcConfigPtrOutput)
+}
+
 // A config block that triggers a lambda function with specific actions (maximum 4).
 func (o DistributionDefaultCacheBehaviorOutput) LambdaFunctionAssociations() DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
@@ -2283,12 +2294,12 @@ func (o DistributionDefaultCacheBehaviorOutput) LambdaFunctionAssociations() Dis
 	}).(DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput)
 }
 
-// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
 func (o DistributionDefaultCacheBehaviorOutput) MaxTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.MaxTtl }).(pulumi.IntPtrOutput)
 }
 
-// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
 func (o DistributionDefaultCacheBehaviorOutput) MinTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
 }
@@ -2397,7 +2408,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) Compress() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
 func (o DistributionDefaultCacheBehaviorPtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *int {
 		if v == nil {
@@ -2437,6 +2448,16 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) FunctionAssociations() Distri
 	}).(DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput)
 }
 
+// A config block that sets the grpc config.
+func (o DistributionDefaultCacheBehaviorPtrOutput) GrpcConfig() DistributionDefaultCacheBehaviorGrpcConfigPtrOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *DistributionDefaultCacheBehaviorGrpcConfig {
+		if v == nil {
+			return nil
+		}
+		return v.GrpcConfig
+	}).(DistributionDefaultCacheBehaviorGrpcConfigPtrOutput)
+}
+
 // A config block that triggers a lambda function with specific actions (maximum 4).
 func (o DistributionDefaultCacheBehaviorPtrOutput) LambdaFunctionAssociations() DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
@@ -2447,7 +2468,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) LambdaFunctionAssociations() 
 	}).(DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput)
 }
 
-// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
 func (o DistributionDefaultCacheBehaviorPtrOutput) MaxTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *int {
 		if v == nil {
@@ -2457,7 +2478,7 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) MaxTtl() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
 func (o DistributionDefaultCacheBehaviorPtrOutput) MinTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *int {
 		if v == nil {
@@ -3005,6 +3026,143 @@ func (o DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput) Index(i 
 	}).(DistributionDefaultCacheBehaviorFunctionAssociationOutput)
 }
 
+type DistributionDefaultCacheBehaviorGrpcConfig struct {
+	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DistributionDefaultCacheBehaviorGrpcConfigInput is an input type that accepts DistributionDefaultCacheBehaviorGrpcConfigArgs and DistributionDefaultCacheBehaviorGrpcConfigOutput values.
+// You can construct a concrete instance of `DistributionDefaultCacheBehaviorGrpcConfigInput` via:
+//
+//	DistributionDefaultCacheBehaviorGrpcConfigArgs{...}
+type DistributionDefaultCacheBehaviorGrpcConfigInput interface {
+	pulumi.Input
+
+	ToDistributionDefaultCacheBehaviorGrpcConfigOutput() DistributionDefaultCacheBehaviorGrpcConfigOutput
+	ToDistributionDefaultCacheBehaviorGrpcConfigOutputWithContext(context.Context) DistributionDefaultCacheBehaviorGrpcConfigOutput
+}
+
+type DistributionDefaultCacheBehaviorGrpcConfigArgs struct {
+	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DistributionDefaultCacheBehaviorGrpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionDefaultCacheBehaviorGrpcConfig)(nil)).Elem()
+}
+
+func (i DistributionDefaultCacheBehaviorGrpcConfigArgs) ToDistributionDefaultCacheBehaviorGrpcConfigOutput() DistributionDefaultCacheBehaviorGrpcConfigOutput {
+	return i.ToDistributionDefaultCacheBehaviorGrpcConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionDefaultCacheBehaviorGrpcConfigArgs) ToDistributionDefaultCacheBehaviorGrpcConfigOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorGrpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorGrpcConfigOutput)
+}
+
+func (i DistributionDefaultCacheBehaviorGrpcConfigArgs) ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutput() DistributionDefaultCacheBehaviorGrpcConfigPtrOutput {
+	return i.ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionDefaultCacheBehaviorGrpcConfigArgs) ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorGrpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorGrpcConfigOutput).ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionDefaultCacheBehaviorGrpcConfigPtrInput is an input type that accepts DistributionDefaultCacheBehaviorGrpcConfigArgs, DistributionDefaultCacheBehaviorGrpcConfigPtr and DistributionDefaultCacheBehaviorGrpcConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionDefaultCacheBehaviorGrpcConfigPtrInput` via:
+//
+//	        DistributionDefaultCacheBehaviorGrpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionDefaultCacheBehaviorGrpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutput() DistributionDefaultCacheBehaviorGrpcConfigPtrOutput
+	ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutputWithContext(context.Context) DistributionDefaultCacheBehaviorGrpcConfigPtrOutput
+}
+
+type distributionDefaultCacheBehaviorGrpcConfigPtrType DistributionDefaultCacheBehaviorGrpcConfigArgs
+
+func DistributionDefaultCacheBehaviorGrpcConfigPtr(v *DistributionDefaultCacheBehaviorGrpcConfigArgs) DistributionDefaultCacheBehaviorGrpcConfigPtrInput {
+	return (*distributionDefaultCacheBehaviorGrpcConfigPtrType)(v)
+}
+
+func (*distributionDefaultCacheBehaviorGrpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionDefaultCacheBehaviorGrpcConfig)(nil)).Elem()
+}
+
+func (i *distributionDefaultCacheBehaviorGrpcConfigPtrType) ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutput() DistributionDefaultCacheBehaviorGrpcConfigPtrOutput {
+	return i.ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionDefaultCacheBehaviorGrpcConfigPtrType) ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorGrpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorGrpcConfigPtrOutput)
+}
+
+type DistributionDefaultCacheBehaviorGrpcConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionDefaultCacheBehaviorGrpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionDefaultCacheBehaviorGrpcConfig)(nil)).Elem()
+}
+
+func (o DistributionDefaultCacheBehaviorGrpcConfigOutput) ToDistributionDefaultCacheBehaviorGrpcConfigOutput() DistributionDefaultCacheBehaviorGrpcConfigOutput {
+	return o
+}
+
+func (o DistributionDefaultCacheBehaviorGrpcConfigOutput) ToDistributionDefaultCacheBehaviorGrpcConfigOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorGrpcConfigOutput {
+	return o
+}
+
+func (o DistributionDefaultCacheBehaviorGrpcConfigOutput) ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutput() DistributionDefaultCacheBehaviorGrpcConfigPtrOutput {
+	return o.ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionDefaultCacheBehaviorGrpcConfigOutput) ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorGrpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionDefaultCacheBehaviorGrpcConfig) *DistributionDefaultCacheBehaviorGrpcConfig {
+		return &v
+	}).(DistributionDefaultCacheBehaviorGrpcConfigPtrOutput)
+}
+
+// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+func (o DistributionDefaultCacheBehaviorGrpcConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehaviorGrpcConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DistributionDefaultCacheBehaviorGrpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionDefaultCacheBehaviorGrpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionDefaultCacheBehaviorGrpcConfig)(nil)).Elem()
+}
+
+func (o DistributionDefaultCacheBehaviorGrpcConfigPtrOutput) ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutput() DistributionDefaultCacheBehaviorGrpcConfigPtrOutput {
+	return o
+}
+
+func (o DistributionDefaultCacheBehaviorGrpcConfigPtrOutput) ToDistributionDefaultCacheBehaviorGrpcConfigPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorGrpcConfigPtrOutput {
+	return o
+}
+
+func (o DistributionDefaultCacheBehaviorGrpcConfigPtrOutput) Elem() DistributionDefaultCacheBehaviorGrpcConfigOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehaviorGrpcConfig) DistributionDefaultCacheBehaviorGrpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionDefaultCacheBehaviorGrpcConfig
+		return ret
+	}).(DistributionDefaultCacheBehaviorGrpcConfigOutput)
+}
+
+// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+func (o DistributionDefaultCacheBehaviorGrpcConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehaviorGrpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type DistributionDefaultCacheBehaviorLambdaFunctionAssociation struct {
 	// Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
 	EventType string `pulumi:"eventType"`
@@ -3121,7 +3279,7 @@ func (o DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput) In
 }
 
 type DistributionLoggingConfig struct {
-	// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+	// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
 	Bucket string `pulumi:"bucket"`
 	// Whether to include cookies in access logs (default: `false`).
 	IncludeCookies *bool `pulumi:"includeCookies"`
@@ -3141,7 +3299,7 @@ type DistributionLoggingConfigInput interface {
 }
 
 type DistributionLoggingConfigArgs struct {
-	// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+	// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Whether to include cookies in access logs (default: `false`).
 	IncludeCookies pulumi.BoolPtrInput `pulumi:"includeCookies"`
@@ -3226,7 +3384,7 @@ func (o DistributionLoggingConfigOutput) ToDistributionLoggingConfigPtrOutputWit
 	}).(DistributionLoggingConfigPtrOutput)
 }
 
-// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
 func (o DistributionLoggingConfigOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLoggingConfig) string { return v.Bucket }).(pulumi.StringOutput)
 }
@@ -3265,7 +3423,7 @@ func (o DistributionLoggingConfigPtrOutput) Elem() DistributionLoggingConfigOutp
 	}).(DistributionLoggingConfigOutput)
 }
 
-// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+// Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with "FULL_CONTROL" permission for "awslogsdelivery" account (Canonical ID: "c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0") for log transfer to work.
 func (o DistributionLoggingConfigPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLoggingConfig) *string {
 		if v == nil {
@@ -3304,7 +3462,7 @@ type DistributionOrderedCacheBehavior struct {
 	CachedMethods []string `pulumi:"cachedMethods"`
 	// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
 	Compress *bool `pulumi:"compress"`
-	// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+	// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
 	DefaultTtl *int `pulumi:"defaultTtl"`
 	// Field level encryption configuration ID.
 	FieldLevelEncryptionId *string `pulumi:"fieldLevelEncryptionId"`
@@ -3312,11 +3470,13 @@ type DistributionOrderedCacheBehavior struct {
 	ForwardedValues *DistributionOrderedCacheBehaviorForwardedValues `pulumi:"forwardedValues"`
 	// A config block that triggers a cloudfront function with specific actions (maximum 2).
 	FunctionAssociations []DistributionOrderedCacheBehaviorFunctionAssociation `pulumi:"functionAssociations"`
+	// A config block that sets the grpc config.
+	GrpcConfig *DistributionOrderedCacheBehaviorGrpcConfig `pulumi:"grpcConfig"`
 	// A config block that triggers a lambda function with specific actions (maximum 4).
 	LambdaFunctionAssociations []DistributionOrderedCacheBehaviorLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
-	// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+	// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
 	MaxTtl *int `pulumi:"maxTtl"`
-	// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+	// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
 	MinTtl *int `pulumi:"minTtl"`
 	// Unique identifier of the origin request policy that is attached to the behavior.
 	OriginRequestPolicyId *string `pulumi:"originRequestPolicyId"`
@@ -3358,7 +3518,7 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	CachedMethods pulumi.StringArrayInput `pulumi:"cachedMethods"`
 	// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
 	Compress pulumi.BoolPtrInput `pulumi:"compress"`
-	// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+	// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
 	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
 	// Field level encryption configuration ID.
 	FieldLevelEncryptionId pulumi.StringPtrInput `pulumi:"fieldLevelEncryptionId"`
@@ -3366,11 +3526,13 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	ForwardedValues DistributionOrderedCacheBehaviorForwardedValuesPtrInput `pulumi:"forwardedValues"`
 	// A config block that triggers a cloudfront function with specific actions (maximum 2).
 	FunctionAssociations DistributionOrderedCacheBehaviorFunctionAssociationArrayInput `pulumi:"functionAssociations"`
+	// A config block that sets the grpc config.
+	GrpcConfig DistributionOrderedCacheBehaviorGrpcConfigPtrInput `pulumi:"grpcConfig"`
 	// A config block that triggers a lambda function with specific actions (maximum 4).
 	LambdaFunctionAssociations DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
-	// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+	// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
 	MaxTtl pulumi.IntPtrInput `pulumi:"maxTtl"`
-	// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+	// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
 	MinTtl pulumi.IntPtrInput `pulumi:"minTtl"`
 	// Unique identifier of the origin request policy that is attached to the behavior.
 	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"originRequestPolicyId"`
@@ -3463,7 +3625,7 @@ func (o DistributionOrderedCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
-// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
 func (o DistributionOrderedCacheBehaviorOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
@@ -3487,6 +3649,13 @@ func (o DistributionOrderedCacheBehaviorOutput) FunctionAssociations() Distribut
 	}).(DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput)
 }
 
+// A config block that sets the grpc config.
+func (o DistributionOrderedCacheBehaviorOutput) GrpcConfig() DistributionOrderedCacheBehaviorGrpcConfigPtrOutput {
+	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *DistributionOrderedCacheBehaviorGrpcConfig {
+		return v.GrpcConfig
+	}).(DistributionOrderedCacheBehaviorGrpcConfigPtrOutput)
+}
+
 // A config block that triggers a lambda function with specific actions (maximum 4).
 func (o DistributionOrderedCacheBehaviorOutput) LambdaFunctionAssociations() DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) []DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
@@ -3494,12 +3663,12 @@ func (o DistributionOrderedCacheBehaviorOutput) LambdaFunctionAssociations() Dis
 	}).(DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput)
 }
 
-// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
 func (o DistributionOrderedCacheBehaviorOutput) MaxTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *int { return v.MaxTtl }).(pulumi.IntPtrOutput)
 }
 
-// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
 func (o DistributionOrderedCacheBehaviorOutput) MinTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *int { return v.MinTtl }).(pulumi.IntPtrOutput)
 }
@@ -4025,6 +4194,143 @@ func (o DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput) Index(i 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionOrderedCacheBehaviorFunctionAssociation {
 		return vs[0].([]DistributionOrderedCacheBehaviorFunctionAssociation)[vs[1].(int)]
 	}).(DistributionOrderedCacheBehaviorFunctionAssociationOutput)
+}
+
+type DistributionOrderedCacheBehaviorGrpcConfig struct {
+	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DistributionOrderedCacheBehaviorGrpcConfigInput is an input type that accepts DistributionOrderedCacheBehaviorGrpcConfigArgs and DistributionOrderedCacheBehaviorGrpcConfigOutput values.
+// You can construct a concrete instance of `DistributionOrderedCacheBehaviorGrpcConfigInput` via:
+//
+//	DistributionOrderedCacheBehaviorGrpcConfigArgs{...}
+type DistributionOrderedCacheBehaviorGrpcConfigInput interface {
+	pulumi.Input
+
+	ToDistributionOrderedCacheBehaviorGrpcConfigOutput() DistributionOrderedCacheBehaviorGrpcConfigOutput
+	ToDistributionOrderedCacheBehaviorGrpcConfigOutputWithContext(context.Context) DistributionOrderedCacheBehaviorGrpcConfigOutput
+}
+
+type DistributionOrderedCacheBehaviorGrpcConfigArgs struct {
+	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DistributionOrderedCacheBehaviorGrpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOrderedCacheBehaviorGrpcConfig)(nil)).Elem()
+}
+
+func (i DistributionOrderedCacheBehaviorGrpcConfigArgs) ToDistributionOrderedCacheBehaviorGrpcConfigOutput() DistributionOrderedCacheBehaviorGrpcConfigOutput {
+	return i.ToDistributionOrderedCacheBehaviorGrpcConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionOrderedCacheBehaviorGrpcConfigArgs) ToDistributionOrderedCacheBehaviorGrpcConfigOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorGrpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorGrpcConfigOutput)
+}
+
+func (i DistributionOrderedCacheBehaviorGrpcConfigArgs) ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutput() DistributionOrderedCacheBehaviorGrpcConfigPtrOutput {
+	return i.ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionOrderedCacheBehaviorGrpcConfigArgs) ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorGrpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorGrpcConfigOutput).ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionOrderedCacheBehaviorGrpcConfigPtrInput is an input type that accepts DistributionOrderedCacheBehaviorGrpcConfigArgs, DistributionOrderedCacheBehaviorGrpcConfigPtr and DistributionOrderedCacheBehaviorGrpcConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionOrderedCacheBehaviorGrpcConfigPtrInput` via:
+//
+//	        DistributionOrderedCacheBehaviorGrpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionOrderedCacheBehaviorGrpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutput() DistributionOrderedCacheBehaviorGrpcConfigPtrOutput
+	ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutputWithContext(context.Context) DistributionOrderedCacheBehaviorGrpcConfigPtrOutput
+}
+
+type distributionOrderedCacheBehaviorGrpcConfigPtrType DistributionOrderedCacheBehaviorGrpcConfigArgs
+
+func DistributionOrderedCacheBehaviorGrpcConfigPtr(v *DistributionOrderedCacheBehaviorGrpcConfigArgs) DistributionOrderedCacheBehaviorGrpcConfigPtrInput {
+	return (*distributionOrderedCacheBehaviorGrpcConfigPtrType)(v)
+}
+
+func (*distributionOrderedCacheBehaviorGrpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOrderedCacheBehaviorGrpcConfig)(nil)).Elem()
+}
+
+func (i *distributionOrderedCacheBehaviorGrpcConfigPtrType) ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutput() DistributionOrderedCacheBehaviorGrpcConfigPtrOutput {
+	return i.ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionOrderedCacheBehaviorGrpcConfigPtrType) ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorGrpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOrderedCacheBehaviorGrpcConfigPtrOutput)
+}
+
+type DistributionOrderedCacheBehaviorGrpcConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionOrderedCacheBehaviorGrpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOrderedCacheBehaviorGrpcConfig)(nil)).Elem()
+}
+
+func (o DistributionOrderedCacheBehaviorGrpcConfigOutput) ToDistributionOrderedCacheBehaviorGrpcConfigOutput() DistributionOrderedCacheBehaviorGrpcConfigOutput {
+	return o
+}
+
+func (o DistributionOrderedCacheBehaviorGrpcConfigOutput) ToDistributionOrderedCacheBehaviorGrpcConfigOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorGrpcConfigOutput {
+	return o
+}
+
+func (o DistributionOrderedCacheBehaviorGrpcConfigOutput) ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutput() DistributionOrderedCacheBehaviorGrpcConfigPtrOutput {
+	return o.ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionOrderedCacheBehaviorGrpcConfigOutput) ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorGrpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionOrderedCacheBehaviorGrpcConfig) *DistributionOrderedCacheBehaviorGrpcConfig {
+		return &v
+	}).(DistributionOrderedCacheBehaviorGrpcConfigPtrOutput)
+}
+
+// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+func (o DistributionOrderedCacheBehaviorGrpcConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionOrderedCacheBehaviorGrpcConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DistributionOrderedCacheBehaviorGrpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionOrderedCacheBehaviorGrpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOrderedCacheBehaviorGrpcConfig)(nil)).Elem()
+}
+
+func (o DistributionOrderedCacheBehaviorGrpcConfigPtrOutput) ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutput() DistributionOrderedCacheBehaviorGrpcConfigPtrOutput {
+	return o
+}
+
+func (o DistributionOrderedCacheBehaviorGrpcConfigPtrOutput) ToDistributionOrderedCacheBehaviorGrpcConfigPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorGrpcConfigPtrOutput {
+	return o
+}
+
+func (o DistributionOrderedCacheBehaviorGrpcConfigPtrOutput) Elem() DistributionOrderedCacheBehaviorGrpcConfigOutput {
+	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorGrpcConfig) DistributionOrderedCacheBehaviorGrpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionOrderedCacheBehaviorGrpcConfig
+		return ret
+	}).(DistributionOrderedCacheBehaviorGrpcConfigOutput)
+}
+
+// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+func (o DistributionOrderedCacheBehaviorGrpcConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorGrpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type DistributionOrderedCacheBehaviorLambdaFunctionAssociation struct {
@@ -15677,6 +15983,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorForwardedValuesCookiesPtrInput)(nil)).Elem(), DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorFunctionAssociationInput)(nil)).Elem(), DistributionDefaultCacheBehaviorFunctionAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorFunctionAssociationArrayInput)(nil)).Elem(), DistributionDefaultCacheBehaviorFunctionAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorGrpcConfigInput)(nil)).Elem(), DistributionDefaultCacheBehaviorGrpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorGrpcConfigPtrInput)(nil)).Elem(), DistributionDefaultCacheBehaviorGrpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorLambdaFunctionAssociationInput)(nil)).Elem(), DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayInput)(nil)).Elem(), DistributionDefaultCacheBehaviorLambdaFunctionAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionLoggingConfigInput)(nil)).Elem(), DistributionLoggingConfigArgs{})
@@ -15689,6 +15997,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrInput)(nil)).Elem(), DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOrderedCacheBehaviorFunctionAssociationInput)(nil)).Elem(), DistributionOrderedCacheBehaviorFunctionAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOrderedCacheBehaviorFunctionAssociationArrayInput)(nil)).Elem(), DistributionOrderedCacheBehaviorFunctionAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOrderedCacheBehaviorGrpcConfigInput)(nil)).Elem(), DistributionOrderedCacheBehaviorGrpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOrderedCacheBehaviorGrpcConfigPtrInput)(nil)).Elem(), DistributionOrderedCacheBehaviorGrpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOrderedCacheBehaviorLambdaFunctionAssociationInput)(nil)).Elem(), DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayInput)(nil)).Elem(), DistributionOrderedCacheBehaviorLambdaFunctionAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginInput)(nil)).Elem(), DistributionOriginArgs{})
@@ -15899,6 +16209,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorForwardedValuesCookiesPtrOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorFunctionAssociationOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput{})
+	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorGrpcConfigOutput{})
+	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorGrpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionLoggingConfigOutput{})
@@ -15911,6 +16223,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorFunctionAssociationOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput{})
+	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorGrpcConfigOutput{})
+	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorGrpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput{})
 	pulumi.RegisterOutputType(DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionOriginOutput{})

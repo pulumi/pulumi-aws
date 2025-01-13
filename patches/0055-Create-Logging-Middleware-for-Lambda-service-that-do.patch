@@ -13,7 +13,7 @@ calls.
 
 diff --git a/internal/service/lambda/request_response_logger.go b/internal/service/lambda/request_response_logger.go
 new file mode 100644
-index 00000000000..737faef4a73
+index 0000000000..737faef4a7
 --- /dev/null
 +++ b/internal/service/lambda/request_response_logger.go
 @@ -0,0 +1,109 @@
@@ -127,7 +127,7 @@ index 00000000000..737faef4a73
 +	return out, metadata, err
 +}
 diff --git a/internal/service/lambda/service_package_extra.go b/internal/service/lambda/service_package_extra.go
-index 79867519db5..f58db8ce421 100644
+index 79867519db..f58db8ce42 100644
 --- a/internal/service/lambda/service_package_extra.go
 +++ b/internal/service/lambda/service_package_extra.go
 @@ -5,6 +5,7 @@ import (

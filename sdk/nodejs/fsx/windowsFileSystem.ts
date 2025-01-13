@@ -25,9 +25,9 @@ import * as utilities from "../utilities";
  * const example = new aws.fsx.WindowsFileSystem("example", {
  *     activeDirectoryId: exampleAwsDirectoryServiceDirectory.id,
  *     kmsKeyId: exampleAwsKmsKey.arn,
- *     storageCapacity: 300,
+ *     storageCapacity: 32,
  *     subnetIds: [exampleAwsSubnet.id],
- *     throughputCapacity: 1024,
+ *     throughputCapacity: 32,
  * });
  * ```
  *
@@ -41,9 +41,9 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.fsx.WindowsFileSystem("example", {
  *     kmsKeyId: exampleAwsKmsKey.arn,
- *     storageCapacity: 300,
+ *     storageCapacity: 32,
  *     subnetIds: [exampleAwsSubnet.id],
- *     throughputCapacity: 1024,
+ *     throughputCapacity: 32,
  *     selfManagedActiveDirectory: {
  *         dnsIps: [
  *             "10.0.0.111",

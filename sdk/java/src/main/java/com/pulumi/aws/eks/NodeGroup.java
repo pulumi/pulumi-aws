@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.eks.NodeGroupArgs;
 import com.pulumi.aws.eks.inputs.NodeGroupState;
 import com.pulumi.aws.eks.outputs.NodeGroupLaunchTemplate;
+import com.pulumi.aws.eks.outputs.NodeGroupNodeRepairConfig;
 import com.pulumi.aws.eks.outputs.NodeGroupRemoteAccess;
 import com.pulumi.aws.eks.outputs.NodeGroupResource;
 import com.pulumi.aws.eks.outputs.NodeGroupScalingConfig;
@@ -400,6 +401,20 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<String> nodeGroupNamePrefix() {
         return this.nodeGroupNamePrefix;
+    }
+    /**
+     * The node auto repair configuration for the node group. See `node_repair_config` below for details.
+     * 
+     */
+    @Export(name="nodeRepairConfig", refs={NodeGroupNodeRepairConfig.class}, tree="[0]")
+    private Output<NodeGroupNodeRepairConfig> nodeRepairConfig;
+
+    /**
+     * @return The node auto repair configuration for the node group. See `node_repair_config` below for details.
+     * 
+     */
+    public Output<NodeGroupNodeRepairConfig> nodeRepairConfig() {
+        return this.nodeRepairConfig;
     }
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.

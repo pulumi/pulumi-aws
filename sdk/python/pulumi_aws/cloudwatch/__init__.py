@@ -17,6 +17,7 @@ from .event_permission import *
 from .event_rule import *
 from .event_target import *
 from .get_event_bus import *
+from .get_event_buses import *
 from .get_event_connection import *
 from .get_event_source import *
 from .get_log_data_protection_policy_document import *
@@ -26,9 +27,14 @@ from .internet_monitor import *
 from .log_account_policy import *
 from .log_anomaly_detector import *
 from .log_data_protection_policy import *
+from .log_delivery import *
+from .log_delivery_destination import *
+from .log_delivery_destination_policy import *
+from .log_delivery_source import *
 from .log_destination import *
 from .log_destination_policy import *
 from .log_group import *
+from .log_index_policy import *
 from .log_metric_filter import *
 from .log_resource_policy import *
 from .log_stream import *
