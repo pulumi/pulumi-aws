@@ -19,7 +19,7 @@ The AWS provider must be configured with credentials to deploy and update resour
 ```typescript
 const aws = require("@pulumi/aws");
 
-const bucket = new aws.s3.Bucket("mybucket");
+const bucket = new aws.s3.BucketV2("mybucket");
 ```
 
 {{% /choosable %}}
@@ -30,7 +30,7 @@ const bucket = new aws.s3.Bucket("mybucket");
 import pulumi
 import pulumi_aws as aws
 
-bucket = aws.s3.Bucket("bucket")
+bucket = aws.s3.BucketV2("bucket")
 ```
 
 {{% /choosable %}}
@@ -47,7 +47,7 @@ import (
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
-		_, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{})
+		_, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{})
 		if err != nil {
 			return err
 		}
@@ -67,7 +67,7 @@ using Aws = Pulumi.Aws;
 
 await Deployment.RunAsync(() =>
 {
-    var bucket = new Aws.S3.Bucket("bucket");
+    var bucket = new Aws.S3.BucketV2("bucket");
 });
 ```
 
@@ -86,7 +86,7 @@ public class App {
     }
 
     private static void stack(Context ctx) {
-        final var bucket = new Bucket("my-bucket");
+        final var bucket = new BucketV2("my-bucket");
         ctx.export("bucketName", bucket.name());
   }
 }
@@ -99,7 +99,7 @@ public class App {
 ```yaml
 resources:
   mybucket:
-    type: aws:s3:Bucket
+    type: aws:s3:BucketV2
 outputs:
   bucketName: ${mybucket.name}
 ```
