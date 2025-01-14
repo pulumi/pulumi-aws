@@ -23,7 +23,7 @@ export {
     rds,
     route53,
     s3,
-    ssm,
+    ssm
 };
 
 export const Region = {
@@ -39,6 +39,7 @@ export const Region = {
     APSoutheast3: "ap-southeast-3",
     APSoutheast4: "ap-southeast-4",
     APSoutheast5: "ap-southeast-5",
+    APSoutheast7: "ap-southeast-7",
     CACentral: "ca-central-1",
     CAWest1: "ca-west-1",
     EUCentral1: "eu-central-1",
