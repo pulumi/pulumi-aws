@@ -106,7 +106,7 @@ jobs:
 
           Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
 
-    - name: Upload pulumi-tfgen-aws
+    - name: Upload codegen binary for aws
       uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b # v4.5.0
       with:
         name: pulumi-tfgen-aws
