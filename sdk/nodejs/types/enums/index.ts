@@ -23,7 +23,7 @@ export {
     rds,
     route53,
     s3,
-    ssm
+    ssm,
 };
 
 export const Region = {
