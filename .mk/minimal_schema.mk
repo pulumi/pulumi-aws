@@ -1,6 +1,6 @@
 .PHONY: minimal_schema
 minimal_schema:
-	@(cd provider/cmd/pulumi-resource-aws && PULUMI_AWS_MINIMAL_SCHEMA=true VERSION=$(VERSION_GENERIC) go generate)
+	@(cd provider/cmd/pulumi-resource-aws && PULUMI_AWS_MINIMAL_SCHEMA=true GOOS='' GOARCH='' VERSION=$(VERSION_GENERIC) go generate)
 
 # In build_provider.yml workflow, minimal schema needs to be rebuilt right before the provider binary.
 bin/linux-amd64/$(PROVIDER): minimal_schema
