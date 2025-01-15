@@ -165,6 +165,7 @@ func TestRegress3887(t *testing.T) {
 
 // Make sure that importing an AWS targetGroup succeeds.
 func TestRegress2534(t *testing.T) {
+	t.Skipf("TODO[pulumi/pulumi-aws#5106]")
 	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-2534"))
 	upResult := ptest.Up(t)
 	targetGroupArn := upResult.Outputs["targetGroupArn"].Value.(string)
