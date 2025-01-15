@@ -593,9 +593,6 @@ func TestRegress2868(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "regress-2868"),
-
-			// TODO[pulumi/pulumi-aws#3303] does not refresh cleanly
-			SkipRefresh: true,
 		})
 	// Disable envRegion mangling
 	test.Config = nil
