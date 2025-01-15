@@ -5,6 +5,9 @@ parallel: 1
 timeout: 150
 generate-nightly-test-workflow: true
 providerVersion: github.com/hashicorp/terraform-provider-aws/version.ProviderVersion
+
+buildProviderCmd: "(VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh); $(call build_provider_cmd_default,$(1),$(2),$(3))"
+
 toolVersions:
   dotnet: "6.0.x"
   go: "1.23.x"
