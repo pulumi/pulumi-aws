@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Lookup the available instance classes for the custom engine for the region being operated in
- * const custom-oracle = aws.rds.getOrderableDbInstance({
+ * const custom_oracle = aws.rds.getOrderableDbInstance({
  *     engine: "custom-oracle-ee",
  *     engineVersion: "19.c.ee.002",
  *     licenseModel: "bring-your-own-license",
@@ -127,7 +127,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Lookup the available instance classes for the custom engine for the region being operated in
- * const custom-sqlserver = aws.rds.getOrderableDbInstance({
+ * const custom_sqlserver = aws.rds.getOrderableDbInstance({
  *     engine: "custom-sqlserver-se",
  *     engineVersion: "15.00.4249.2.v1",
  *     storageType: "gp3",
@@ -166,7 +166,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
- * const default = aws.rds.getEngineVersion({
+ * const _default = aws.rds.getEngineVersion({
  *     engine: "db2-se",
  * });
  * // Lookup the available instance classes for the engine in the region being operated in

@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     routeTableId: selectedAwsRouteTable.id,
  *     destinationCidrBlock: "10.0.1.0/24",
  * });
- * const interface = route.then(route => aws.ec2.getNetworkInterface({
+ * const _interface = route.then(route => aws.ec2.getNetworkInterface({
  *     id: route.networkInterfaceId,
  * }));
  * ```
@@ -160,7 +160,7 @@ export interface GetRouteResult {
  *     routeTableId: selectedAwsRouteTable.id,
  *     destinationCidrBlock: "10.0.1.0/24",
  * });
- * const interface = route.then(route => aws.ec2.getNetworkInterface({
+ * const _interface = route.then(route => aws.ec2.getNetworkInterface({
  *     id: route.networkInterfaceId,
  * }));
  * ```

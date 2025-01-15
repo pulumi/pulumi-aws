@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const default = aws.ec2.getNatGateway({
+ * const _default = aws.ec2.getNatGateway({
  *     subnetId: _public.id,
  * });
  * ```
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const default = aws.ec2.getNatGateway({
+ * const _default = aws.ec2.getNatGateway({
  *     subnetId: _public.id,
  *     tags: {
  *         Name: "gw NAT",
@@ -138,7 +138,7 @@ export interface GetNatGatewayResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const default = aws.ec2.getNatGateway({
+ * const _default = aws.ec2.getNatGateway({
  *     subnetId: _public.id,
  * });
  * ```
@@ -149,7 +149,7 @@ export interface GetNatGatewayResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const default = aws.ec2.getNatGateway({
+ * const _default = aws.ec2.getNatGateway({
  *     subnetId: _public.id,
  *     tags: {
  *         Name: "gw NAT",
