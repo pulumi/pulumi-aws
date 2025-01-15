@@ -71,8 +71,8 @@ jobs:
           tools: pulumictl, pulumicli, ${{ matrix.language }}
       - name: Prepare local workspace
         run: make prepare_local_workspace
-      - name: Download tfgen
-        uses: ./.github/actions/download-tfgen
+      - name: Download codegen
+        uses: ./.github/actions/download-codegen
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
       - name: Restore makefile progress
