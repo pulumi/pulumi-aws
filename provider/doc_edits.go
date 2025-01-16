@@ -29,6 +29,7 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 		fixUpCloudFrontPublicKey,
 		fixUpEcsServiceNameTrigger,
 		fixUpEcsServiceNameForceNewDeployment,
+		fixUpBucketReplicationConfig,
 		// This fixes up strings such as:
 		//
 		//	name        = "terraform-kinesis-firehose-os",
@@ -68,7 +69,7 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 				" `pulumi up --refresh`."+
 				" See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766)"+
 				" for tracking making this work with regular `pulumi up`"),
-				
+
 		targetedSimpleReplace("iam_policy_attachment.html.markdown", "Terraform", "Pulumi"),
 	)
 }
@@ -134,6 +135,24 @@ var fixUpEcsServiceNameForceNewDeployment = targetedSimpleReplace(
 		"(e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy "+
 		"`ordered_placement_strategy` and `placement_constraints` updates.\n"+
 		"When using the forceNewDeployment property you also need to configure the triggers property.\n")
+var fixUpBucketReplicationConfig = targetedSimpleReplace(
+	"s3_bucket_replication_configuration.html.markdown",
+	"* `rule` - (Required) List of configuration blocks describing the rules managing the replication. "+
+		"[See below](#rule).\n",
+	"* `rule` - (Required) List of configuration blocks describing the rules managing the replication. "+
+		"[See below](#rule).\n"+
+		"~> **NOTE:** Replication to multiple destination buckets requires that `priority` is specified "+
+		"in the `rule` object. If the corresponding rule requires no filter, an empty configuration block "+
+		"`filter {}` must be specified."+
+		"\n\n~> **NOTE:** Amazon S3's latest version of the replication configuration is V2, "+
+		"which includes the `filter` attribute for replication rules.\n\n"+
+		"~> **NOTE:** The `existing_object_replication` parameter is not supported by Amazon S3 at this time "+
+		"and should not be included in your `rule` configurations. "+
+		"Specifying this parameter will result in `MalformedXML` errors.\n"+
+		"To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication]"+
+		"(https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) "+
+		"documentation in the Amazon S3 User Guide.\n",
+)
 
 func reReplace(from string, to string) tfbridge.DocsEdit {
 	fromR, toB := regexp.MustCompile(from), []byte(to)
