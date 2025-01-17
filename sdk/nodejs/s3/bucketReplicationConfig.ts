@@ -214,6 +214,12 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
     public readonly role!: pulumi.Output<string>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
+     * > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
+     *
+     * > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
+     *
+     * > **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
+     * To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
      */
     public readonly rules!: pulumi.Output<outputs.s3.BucketReplicationConfigRule[]>;
     /**
@@ -276,6 +282,12 @@ export interface BucketReplicationConfigState {
     role?: pulumi.Input<string>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
+     * > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
+     *
+     * > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
+     *
+     * > **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
+     * To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfigRule>[]>;
     /**
@@ -299,6 +311,12 @@ export interface BucketReplicationConfigArgs {
     role: pulumi.Input<string>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
+     * > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
+     *
+     * > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
+     *
+     * > **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
+     * To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
      */
     rules: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfigRule>[]>;
     /**
