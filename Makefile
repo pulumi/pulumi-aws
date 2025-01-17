@@ -225,7 +225,7 @@ lint_provider: provider
 lint_provider.fix:
 	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml --fix
 .PHONY: lint_provider lint_provider.fix
-build_provider_cmd = (VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh); $(call build_provider_cmd_default,$(1),$(2),$(3))
+build_provider_cmd = VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh;cd provider && GOOS=$(1) GOARCH=$(2) CGO_ENABLED=0 go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o "$(3)" -ldflags "$(LDFLAGS)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER)
 
 provider: bin/$(PROVIDER)
 
