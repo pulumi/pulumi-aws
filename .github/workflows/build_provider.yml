@@ -45,6 +45,11 @@ jobs:
         with:
           submodules: true
           persist-credentials: false
+      # Without ldid cross-compiling Node binaries on a Linux worker intended to work on darwin-arm64 fails to sign the
+      # binaries properly and they do not work as expected. See https://github.com/pulumi/pulumi-awsx/issues/1490
+      - uses: MOZGIII/install-ldid-action@v1
+        with:
+          tag: v2.1.5-procursus2
       - name: Setup tools
         uses: ./.github/actions/setup-tools
         with:
@@ -75,7 +80,7 @@ jobs:
         run: make provider_dist-${{ matrix.platform.os }}-${{ matrix.platform.arch }}
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b # v4.5.0
+        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
         with:
           name: pulumi-resource-aws-v${{ inputs.version }}-${{ matrix.platform.os }}-${{ matrix.platform.arch }}.tar.gz
           path: bin/pulumi-resource-aws-v${{ inputs.version }}-${{ matrix.platform.os }}-${{ matrix.platform.arch }}.tar.gz
