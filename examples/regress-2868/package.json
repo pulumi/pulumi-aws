@@ -10,7 +10,6 @@
         "@pulumi/aws": "^6.0.0"
     },
     "devDependencies": {
-        "@types/aws-sdk": "^2.7.0",
         "@types/node": "^8.0.0"
     }
 }
