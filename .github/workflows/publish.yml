@@ -215,6 +215,6 @@ jobs:
     with:
       providerVersion: ${{ inputs.version }}
       # Prelease is run often but we only have 5 concurrent macos runners, so we only test after the stable release.
-      enableMacosRunner: ${{ inputs.isPrerelease == false }}
+      enableMacRunner: ${{ inputs.isPrerelease == false }}
       skipGoSdk: ${{ inputs.skipGoSdk }}
       pythonVersion: ${{ needs.publish_sdk.outputs.python_version }}

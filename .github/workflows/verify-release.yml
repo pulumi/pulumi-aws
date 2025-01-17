@@ -26,7 +26,7 @@ on:
         description: "The version of the provider to verify"
         required: true
         type: string
-      enableMacosRunner:
+      enableMacRunner:
         description: "Enable the macos-latest runner in addition to ubuntu-latest and windows-latest. Defaults to 'false'."
         required: false
         type: boolean
@@ -71,7 +71,7 @@ jobs:
         # Expression expands to ["ubuntu-latest","windows-latest"] or ["ubuntu-latest","windows-latest","macos-latest"]
         # GitHub expressions don't have 'if' statements, so we use a ternary operator to conditionally include the MacOS runner suffix.
         # See the docs for a similar example to this: https://docs.github.com/en/actions/learn-github-actions/expressions#fromjson
-        runner: ${{ fromJSON(format('["ubuntu-latest","windows-latest"{0}]', github.event.inputs.enableMacRunner == 'true' && ',"macos-latest"' || '')) }}
+        runner: ${{ fromJSON(format('["ubuntu-latest","windows-latest"{0}]', inputs.enableMacRunner && ',"macos-latest"' || '')) }}
     runs-on: ${{ matrix.runner }}
     steps:
       - name: Checkout Repo
