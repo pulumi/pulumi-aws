@@ -173,6 +173,10 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly tpmSupport!: pulumi.Output<string | undefined>;
     /**
+     * Base64 representation of the non-volatile UEFI variable store.
+     */
+    public readonly uefiData!: pulumi.Output<string | undefined>;
+    /**
      * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
     public /*out*/ readonly usageOperation!: pulumi.Output<string>;
@@ -223,6 +227,7 @@ export class Ami extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["tpmSupport"] = state ? state.tpmSupport : undefined;
+            resourceInputs["uefiData"] = state ? state.uefiData : undefined;
             resourceInputs["usageOperation"] = state ? state.usageOperation : undefined;
             resourceInputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
@@ -243,6 +248,7 @@ export class Ami extends pulumi.CustomResource {
             resourceInputs["sriovNetSupport"] = args ? args.sriovNetSupport : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tpmSupport"] = args ? args.tpmSupport : undefined;
+            resourceInputs["uefiData"] = args ? args.uefiData : undefined;
             resourceInputs["virtualizationType"] = args ? args.virtualizationType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hypervisor"] = undefined /*out*/;
@@ -364,6 +370,10 @@ export interface AmiState {
      */
     tpmSupport?: pulumi.Input<string>;
     /**
+     * Base64 representation of the non-volatile UEFI variable store.
+     */
+    uefiData?: pulumi.Input<string>;
+    /**
      * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
     usageOperation?: pulumi.Input<string>;
@@ -433,6 +443,10 @@ export interface AmiArgs {
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      */
     tpmSupport?: pulumi.Input<string>;
+    /**
+     * Base64 representation of the non-volatile UEFI variable store.
+     */
+    uefiData?: pulumi.Input<string>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type

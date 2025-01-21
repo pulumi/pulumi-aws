@@ -18,7 +18,7 @@ index 976dba4ac1..648f2b5003 100644
  			"use_dedicated_replication_server": schema.BoolAttribute{
  				Required: true,
 diff --git a/internal/service/elasticache/reserved_cache_node.go b/internal/service/elasticache/reserved_cache_node.go
-index c2ed403da0..794d9302ca 100644
+index 9a37595eb5..82fae7f5e1 100644
 --- a/internal/service/elasticache/reserved_cache_node.go
 +++ b/internal/service/elasticache/reserved_cache_node.go
 @@ -113,7 +113,7 @@ func (r *resourceReservedCacheNode) Schema(ctx context.Context, request resource

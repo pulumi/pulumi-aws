@@ -755,6 +755,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String invoicing;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String iot;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2533,6 +2538,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> invoicing() {
+        return Optional.ofNullable(this.invoicing);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> iot() {
         return Optional.ofNullable(this.iot);
     }
@@ -3723,6 +3735,7 @@ public final class Endpoints {
         private @Nullable String inspector2;
         private @Nullable String inspectorv2;
         private @Nullable String internetmonitor;
+        private @Nullable String invoicing;
         private @Nullable String iot;
         private @Nullable String iotanalytics;
         private @Nullable String iotevents;
@@ -4022,6 +4035,7 @@ public final class Endpoints {
     	      this.inspector2 = defaults.inspector2;
     	      this.inspectorv2 = defaults.inspectorv2;
     	      this.internetmonitor = defaults.internetmonitor;
+    	      this.invoicing = defaults.invoicing;
     	      this.iot = defaults.iot;
     	      this.iotanalytics = defaults.iotanalytics;
     	      this.iotevents = defaults.iotevents;
@@ -5058,6 +5072,12 @@ public final class Endpoints {
         public Builder internetmonitor(@Nullable String internetmonitor) {
 
             this.internetmonitor = internetmonitor;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder invoicing(@Nullable String invoicing) {
+
+            this.invoicing = invoicing;
             return this;
         }
         @CustomType.Setter
@@ -6098,6 +6118,7 @@ public final class Endpoints {
             _resultValue.inspector2 = inspector2;
             _resultValue.inspectorv2 = inspectorv2;
             _resultValue.internetmonitor = internetmonitor;
+            _resultValue.invoicing = invoicing;
             _resultValue.iot = iot;
             _resultValue.iotanalytics = iotanalytics;
             _resultValue.iotevents = iotevents;

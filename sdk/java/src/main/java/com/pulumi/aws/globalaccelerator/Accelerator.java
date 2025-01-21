@@ -78,6 +78,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:globalaccelerator/accelerator:Accelerator")
 public class Accelerator extends com.pulumi.resources.CustomResource {
     /**
+     * The Amazon Resource Name (ARN) of the accelerator.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the accelerator.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * The attributes of the accelerator. Fields documented below.
      * 
      */

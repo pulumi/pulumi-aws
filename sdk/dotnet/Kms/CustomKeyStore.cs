@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic Usage
+    /// ### CloudHSM
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -39,6 +39,61 @@ namespace Pulumi.Aws.Kms
     /// });
     /// ```
     /// 
+    /// ### External Key Store (VPC)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kms.CustomKeyStore("example", new()
+    ///     {
+    ///         CustomKeyStoreName = "example-vpc-xks",
+    ///         CustomKeyStoreType = "EXTERNAL_KEY_STORE",
+    ///         XksProxyAuthenticationCredential = new Aws.Kms.Inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs
+    ///         {
+    ///             AccessKeyId = ephemeralAccessKeyId,
+    ///             RawSecretAccessKey = ephemeralSecretAccessKey,
+    ///         },
+    ///         XksProxyConnectivity = "VPC_ENDPOINT_SERVICE",
+    ///         XksProxyUriEndpoint = "https://myproxy-private.xks.example.com",
+    ///         XksProxyUriPath = "/kms/xks/v1",
+    ///         XksProxyVpcEndpointServiceName = "com.amazonaws.vpce.us-east-1.vpce-svc-example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### External Key Store (Public)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kms.CustomKeyStore("example", new()
+    ///     {
+    ///         CustomKeyStoreName = "example-public-xks",
+    ///         CustomKeyStoreType = "EXTERNAL_KEY_STORE",
+    ///         XksProxyAuthenticationCredential = new Aws.Kms.Inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs
+    ///         {
+    ///             AccessKeyId = ephemeralAccessKeyId,
+    ///             RawSecretAccessKey = ephemeralSecretAccessKey,
+    ///         },
+    ///         XksProxyConnectivity = "PUBLIC_ENDPOINT",
+    ///         XksProxyUriEndpoint = "https://myproxy.xks.example.com",
+    ///         XksProxyUriPath = "/kms/xks/v1",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
@@ -50,29 +105,43 @@ namespace Pulumi.Aws.Kms
     [AwsResourceType("aws:kms/customKeyStore:CustomKeyStore")]
     public partial class CustomKeyStore : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Cluster ID of CloudHSM.
-        /// </summary>
         [Output("cloudHsmClusterId")]
-        public Output<string> CloudHsmClusterId { get; private set; } = null!;
+        public Output<string?> CloudHsmClusterId { get; private set; } = null!;
 
         /// <summary>
         /// Unique name for Custom Key Store.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("customKeyStoreName")]
         public Output<string> CustomKeyStoreName { get; private set; } = null!;
 
         /// <summary>
-        /// Password for `kmsuser` on CloudHSM.
+        /// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
         /// </summary>
-        [Output("keyStorePassword")]
-        public Output<string> KeyStorePassword { get; private set; } = null!;
+        [Output("customKeyStoreType")]
+        public Output<string> CustomKeyStoreType { get; private set; } = null!;
 
-        /// <summary>
-        /// Customer certificate used for signing on CloudHSM.
-        /// </summary>
+        [Output("keyStorePassword")]
+        public Output<string?> KeyStorePassword { get; private set; } = null!;
+
         [Output("trustAnchorCertificate")]
-        public Output<string> TrustAnchorCertificate { get; private set; } = null!;
+        public Output<string?> TrustAnchorCertificate { get; private set; } = null!;
+
+        [Output("xksProxyAuthenticationCredential")]
+        public Output<Outputs.CustomKeyStoreXksProxyAuthenticationCredential?> XksProxyAuthenticationCredential { get; private set; } = null!;
+
+        [Output("xksProxyConnectivity")]
+        public Output<string?> XksProxyConnectivity { get; private set; } = null!;
+
+        [Output("xksProxyUriEndpoint")]
+        public Output<string?> XksProxyUriEndpoint { get; private set; } = null!;
+
+        [Output("xksProxyUriPath")]
+        public Output<string?> XksProxyUriPath { get; private set; } = null!;
+
+        [Output("xksProxyVpcEndpointServiceName")]
+        public Output<string?> XksProxyVpcEndpointServiceName { get; private set; } = null!;
 
 
         /// <summary>
@@ -120,29 +189,43 @@ namespace Pulumi.Aws.Kms
 
     public sealed class CustomKeyStoreArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Cluster ID of CloudHSM.
-        /// </summary>
-        [Input("cloudHsmClusterId", required: true)]
-        public Input<string> CloudHsmClusterId { get; set; } = null!;
+        [Input("cloudHsmClusterId")]
+        public Input<string>? CloudHsmClusterId { get; set; }
 
         /// <summary>
         /// Unique name for Custom Key Store.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("customKeyStoreName", required: true)]
         public Input<string> CustomKeyStoreName { get; set; } = null!;
 
         /// <summary>
-        /// Password for `kmsuser` on CloudHSM.
+        /// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
         /// </summary>
-        [Input("keyStorePassword", required: true)]
-        public Input<string> KeyStorePassword { get; set; } = null!;
+        [Input("customKeyStoreType")]
+        public Input<string>? CustomKeyStoreType { get; set; }
 
-        /// <summary>
-        /// Customer certificate used for signing on CloudHSM.
-        /// </summary>
-        [Input("trustAnchorCertificate", required: true)]
-        public Input<string> TrustAnchorCertificate { get; set; } = null!;
+        [Input("keyStorePassword")]
+        public Input<string>? KeyStorePassword { get; set; }
+
+        [Input("trustAnchorCertificate")]
+        public Input<string>? TrustAnchorCertificate { get; set; }
+
+        [Input("xksProxyAuthenticationCredential")]
+        public Input<Inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs>? XksProxyAuthenticationCredential { get; set; }
+
+        [Input("xksProxyConnectivity")]
+        public Input<string>? XksProxyConnectivity { get; set; }
+
+        [Input("xksProxyUriEndpoint")]
+        public Input<string>? XksProxyUriEndpoint { get; set; }
+
+        [Input("xksProxyUriPath")]
+        public Input<string>? XksProxyUriPath { get; set; }
+
+        [Input("xksProxyVpcEndpointServiceName")]
+        public Input<string>? XksProxyVpcEndpointServiceName { get; set; }
 
         public CustomKeyStoreArgs()
         {
@@ -152,29 +235,43 @@ namespace Pulumi.Aws.Kms
 
     public sealed class CustomKeyStoreState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Cluster ID of CloudHSM.
-        /// </summary>
         [Input("cloudHsmClusterId")]
         public Input<string>? CloudHsmClusterId { get; set; }
 
         /// <summary>
         /// Unique name for Custom Key Store.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("customKeyStoreName")]
         public Input<string>? CustomKeyStoreName { get; set; }
 
         /// <summary>
-        /// Password for `kmsuser` on CloudHSM.
+        /// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
         /// </summary>
+        [Input("customKeyStoreType")]
+        public Input<string>? CustomKeyStoreType { get; set; }
+
         [Input("keyStorePassword")]
         public Input<string>? KeyStorePassword { get; set; }
 
-        /// <summary>
-        /// Customer certificate used for signing on CloudHSM.
-        /// </summary>
         [Input("trustAnchorCertificate")]
         public Input<string>? TrustAnchorCertificate { get; set; }
+
+        [Input("xksProxyAuthenticationCredential")]
+        public Input<Inputs.CustomKeyStoreXksProxyAuthenticationCredentialGetArgs>? XksProxyAuthenticationCredential { get; set; }
+
+        [Input("xksProxyConnectivity")]
+        public Input<string>? XksProxyConnectivity { get; set; }
+
+        [Input("xksProxyUriEndpoint")]
+        public Input<string>? XksProxyUriEndpoint { get; set; }
+
+        [Input("xksProxyUriPath")]
+        public Input<string>? XksProxyUriPath { get; set; }
+
+        [Input("xksProxyVpcEndpointServiceName")]
+        public Input<string>? XksProxyVpcEndpointServiceName { get; set; }
 
         public CustomKeyStoreState()
         {

@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			_, err = globalaccelerator.NewListener(ctx, "example", &globalaccelerator.ListenerArgs{
-//				AcceleratorArn: example.ID(),
+//				AcceleratorArn: example.Arn,
 //				ClientAffinity: pulumi.String("SOURCE_IP"),
 //				Protocol:       pulumi.String("TCP"),
 //				PortRanges: globalaccelerator.ListenerPortRangeArray{
@@ -73,6 +73,8 @@ type Listener struct {
 
 	// The Amazon Resource Name (ARN) of your accelerator.
 	AcceleratorArn pulumi.StringOutput `pulumi:"acceleratorArn"`
+	// The Amazon Resource Name (ARN) of the listener.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity pulumi.StringPtrOutput `pulumi:"clientAffinity"`
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
@@ -122,6 +124,8 @@ func GetListener(ctx *pulumi.Context,
 type listenerState struct {
 	// The Amazon Resource Name (ARN) of your accelerator.
 	AcceleratorArn *string `pulumi:"acceleratorArn"`
+	// The Amazon Resource Name (ARN) of the listener.
+	Arn *string `pulumi:"arn"`
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity *string `pulumi:"clientAffinity"`
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
@@ -133,6 +137,8 @@ type listenerState struct {
 type ListenerState struct {
 	// The Amazon Resource Name (ARN) of your accelerator.
 	AcceleratorArn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the listener.
+	Arn pulumi.StringPtrInput
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity pulumi.StringPtrInput
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
@@ -258,6 +264,11 @@ func (o ListenerOutput) ToListenerOutputWithContext(ctx context.Context) Listene
 // The Amazon Resource Name (ARN) of your accelerator.
 func (o ListenerOutput) AcceleratorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.AcceleratorArn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the listener.
+func (o ListenerOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.

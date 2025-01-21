@@ -13,6 +13,162 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type CustomKeyStoreXksProxyAuthenticationCredential struct {
+	// A unique identifier for the raw secret access key.
+	AccessKeyId string `pulumi:"accessKeyId"`
+	// A secret string of 43-64 characters.
+	RawSecretAccessKey string `pulumi:"rawSecretAccessKey"`
+}
+
+// CustomKeyStoreXksProxyAuthenticationCredentialInput is an input type that accepts CustomKeyStoreXksProxyAuthenticationCredentialArgs and CustomKeyStoreXksProxyAuthenticationCredentialOutput values.
+// You can construct a concrete instance of `CustomKeyStoreXksProxyAuthenticationCredentialInput` via:
+//
+//	CustomKeyStoreXksProxyAuthenticationCredentialArgs{...}
+type CustomKeyStoreXksProxyAuthenticationCredentialInput interface {
+	pulumi.Input
+
+	ToCustomKeyStoreXksProxyAuthenticationCredentialOutput() CustomKeyStoreXksProxyAuthenticationCredentialOutput
+	ToCustomKeyStoreXksProxyAuthenticationCredentialOutputWithContext(context.Context) CustomKeyStoreXksProxyAuthenticationCredentialOutput
+}
+
+type CustomKeyStoreXksProxyAuthenticationCredentialArgs struct {
+	// A unique identifier for the raw secret access key.
+	AccessKeyId pulumi.StringInput `pulumi:"accessKeyId"`
+	// A secret string of 43-64 characters.
+	RawSecretAccessKey pulumi.StringInput `pulumi:"rawSecretAccessKey"`
+}
+
+func (CustomKeyStoreXksProxyAuthenticationCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomKeyStoreXksProxyAuthenticationCredential)(nil)).Elem()
+}
+
+func (i CustomKeyStoreXksProxyAuthenticationCredentialArgs) ToCustomKeyStoreXksProxyAuthenticationCredentialOutput() CustomKeyStoreXksProxyAuthenticationCredentialOutput {
+	return i.ToCustomKeyStoreXksProxyAuthenticationCredentialOutputWithContext(context.Background())
+}
+
+func (i CustomKeyStoreXksProxyAuthenticationCredentialArgs) ToCustomKeyStoreXksProxyAuthenticationCredentialOutputWithContext(ctx context.Context) CustomKeyStoreXksProxyAuthenticationCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomKeyStoreXksProxyAuthenticationCredentialOutput)
+}
+
+func (i CustomKeyStoreXksProxyAuthenticationCredentialArgs) ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutput() CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput {
+	return i.ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i CustomKeyStoreXksProxyAuthenticationCredentialArgs) ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutputWithContext(ctx context.Context) CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomKeyStoreXksProxyAuthenticationCredentialOutput).ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutputWithContext(ctx)
+}
+
+// CustomKeyStoreXksProxyAuthenticationCredentialPtrInput is an input type that accepts CustomKeyStoreXksProxyAuthenticationCredentialArgs, CustomKeyStoreXksProxyAuthenticationCredentialPtr and CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput values.
+// You can construct a concrete instance of `CustomKeyStoreXksProxyAuthenticationCredentialPtrInput` via:
+//
+//	        CustomKeyStoreXksProxyAuthenticationCredentialArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomKeyStoreXksProxyAuthenticationCredentialPtrInput interface {
+	pulumi.Input
+
+	ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutput() CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput
+	ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutputWithContext(context.Context) CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput
+}
+
+type customKeyStoreXksProxyAuthenticationCredentialPtrType CustomKeyStoreXksProxyAuthenticationCredentialArgs
+
+func CustomKeyStoreXksProxyAuthenticationCredentialPtr(v *CustomKeyStoreXksProxyAuthenticationCredentialArgs) CustomKeyStoreXksProxyAuthenticationCredentialPtrInput {
+	return (*customKeyStoreXksProxyAuthenticationCredentialPtrType)(v)
+}
+
+func (*customKeyStoreXksProxyAuthenticationCredentialPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomKeyStoreXksProxyAuthenticationCredential)(nil)).Elem()
+}
+
+func (i *customKeyStoreXksProxyAuthenticationCredentialPtrType) ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutput() CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput {
+	return i.ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i *customKeyStoreXksProxyAuthenticationCredentialPtrType) ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutputWithContext(ctx context.Context) CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput)
+}
+
+type CustomKeyStoreXksProxyAuthenticationCredentialOutput struct{ *pulumi.OutputState }
+
+func (CustomKeyStoreXksProxyAuthenticationCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomKeyStoreXksProxyAuthenticationCredential)(nil)).Elem()
+}
+
+func (o CustomKeyStoreXksProxyAuthenticationCredentialOutput) ToCustomKeyStoreXksProxyAuthenticationCredentialOutput() CustomKeyStoreXksProxyAuthenticationCredentialOutput {
+	return o
+}
+
+func (o CustomKeyStoreXksProxyAuthenticationCredentialOutput) ToCustomKeyStoreXksProxyAuthenticationCredentialOutputWithContext(ctx context.Context) CustomKeyStoreXksProxyAuthenticationCredentialOutput {
+	return o
+}
+
+func (o CustomKeyStoreXksProxyAuthenticationCredentialOutput) ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutput() CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput {
+	return o.ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutputWithContext(context.Background())
+}
+
+func (o CustomKeyStoreXksProxyAuthenticationCredentialOutput) ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutputWithContext(ctx context.Context) CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomKeyStoreXksProxyAuthenticationCredential) *CustomKeyStoreXksProxyAuthenticationCredential {
+		return &v
+	}).(CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput)
+}
+
+// A unique identifier for the raw secret access key.
+func (o CustomKeyStoreXksProxyAuthenticationCredentialOutput) AccessKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomKeyStoreXksProxyAuthenticationCredential) string { return v.AccessKeyId }).(pulumi.StringOutput)
+}
+
+// A secret string of 43-64 characters.
+func (o CustomKeyStoreXksProxyAuthenticationCredentialOutput) RawSecretAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomKeyStoreXksProxyAuthenticationCredential) string { return v.RawSecretAccessKey }).(pulumi.StringOutput)
+}
+
+type CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomKeyStoreXksProxyAuthenticationCredential)(nil)).Elem()
+}
+
+func (o CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput) ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutput() CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput {
+	return o
+}
+
+func (o CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput) ToCustomKeyStoreXksProxyAuthenticationCredentialPtrOutputWithContext(ctx context.Context) CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput {
+	return o
+}
+
+func (o CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput) Elem() CustomKeyStoreXksProxyAuthenticationCredentialOutput {
+	return o.ApplyT(func(v *CustomKeyStoreXksProxyAuthenticationCredential) CustomKeyStoreXksProxyAuthenticationCredential {
+		if v != nil {
+			return *v
+		}
+		var ret CustomKeyStoreXksProxyAuthenticationCredential
+		return ret
+	}).(CustomKeyStoreXksProxyAuthenticationCredentialOutput)
+}
+
+// A unique identifier for the raw secret access key.
+func (o CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput) AccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomKeyStoreXksProxyAuthenticationCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A secret string of 43-64 characters.
+func (o CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput) RawSecretAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomKeyStoreXksProxyAuthenticationCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RawSecretAccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
 type GrantConstraint struct {
 	// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
 	EncryptionContextEquals map[string]string `pulumi:"encryptionContextEquals"`
@@ -811,6 +967,8 @@ func (o GetSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetSecretsSecretOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomKeyStoreXksProxyAuthenticationCredentialInput)(nil)).Elem(), CustomKeyStoreXksProxyAuthenticationCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomKeyStoreXksProxyAuthenticationCredentialPtrInput)(nil)).Elem(), CustomKeyStoreXksProxyAuthenticationCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantConstraintInput)(nil)).Elem(), GrantConstraintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantConstraintArrayInput)(nil)).Elem(), GrantConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyMultiRegionConfigurationInput)(nil)).Elem(), GetKeyMultiRegionConfigurationArgs{})
@@ -825,6 +983,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretSecretArrayInput)(nil)).Elem(), GetSecretSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsSecretInput)(nil)).Elem(), GetSecretsSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsSecretArrayInput)(nil)).Elem(), GetSecretsSecretArray{})
+	pulumi.RegisterOutputType(CustomKeyStoreXksProxyAuthenticationCredentialOutput{})
+	pulumi.RegisterOutputType(CustomKeyStoreXksProxyAuthenticationCredentialPtrOutput{})
 	pulumi.RegisterOutputType(GrantConstraintOutput{})
 	pulumi.RegisterOutputType(GrantConstraintArrayOutput{})
 	pulumi.RegisterOutputType(GetKeyMultiRegionConfigurationOutput{})

@@ -2239,6 +2239,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="invoicing")
+    private @Nullable Output<String> invoicing;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> invoicing() {
+        return Optional.ofNullable(this.invoicing);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="iot")
     private @Nullable Output<String> iot;
 
@@ -4606,6 +4621,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.inspector2 = $.inspector2;
         this.inspectorv2 = $.inspectorv2;
         this.internetmonitor = $.internetmonitor;
+        this.invoicing = $.invoicing;
         this.iot = $.iot;
         this.iotanalytics = $.iotanalytics;
         this.iotevents = $.iotevents;
@@ -7880,6 +7896,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder internetmonitor(String internetmonitor) {
             return internetmonitor(Output.of(internetmonitor));
+        }
+
+        /**
+         * @param invoicing Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder invoicing(@Nullable Output<String> invoicing) {
+            $.invoicing = invoicing;
+            return this;
+        }
+
+        /**
+         * @param invoicing Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder invoicing(String invoicing) {
+            return invoicing(Output.of(invoicing));
         }
 
         /**

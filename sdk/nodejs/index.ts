@@ -213,6 +213,7 @@ import * as macie2 from "./macie2";
 import * as mediaconvert from "./mediaconvert";
 import * as medialive from "./medialive";
 import * as mediapackage from "./mediapackage";
+import * as mediapackagev2 from "./mediapackagev2";
 import * as mediastore from "./mediastore";
 import * as memorydb from "./memorydb";
 import * as mq from "./mq";
@@ -433,6 +434,7 @@ export {
     mediaconvert,
     medialive,
     mediapackage,
+    mediapackagev2,
     mediastore,
     memorydb,
     mq,

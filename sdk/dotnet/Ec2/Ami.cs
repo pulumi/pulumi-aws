@@ -213,6 +213,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> TpmSupport { get; private set; } = null!;
 
         /// <summary>
+        /// Base64 representation of the non-volatile UEFI variable store.
+        /// </summary>
+        [Output("uefiData")]
+        public Output<string?> UefiData { get; private set; } = null!;
+
+        /// <summary>
         /// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         /// </summary>
         [Output("usageOperation")]
@@ -375,6 +381,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("tpmSupport")]
         public Input<string>? TpmSupport { get; set; }
+
+        /// <summary>
+        /// Base64 representation of the non-volatile UEFI variable store.
+        /// </summary>
+        [Input("uefiData")]
+        public Input<string>? UefiData { get; set; }
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances
@@ -565,6 +577,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("tpmSupport")]
         public Input<string>? TpmSupport { get; set; }
+
+        /// <summary>
+        /// Base64 representation of the non-volatile UEFI variable store.
+        /// </summary>
+        [Input("uefiData")]
+        public Input<string>? UefiData { get; set; }
 
         /// <summary>
         /// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.

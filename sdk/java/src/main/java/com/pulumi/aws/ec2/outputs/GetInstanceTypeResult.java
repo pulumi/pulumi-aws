@@ -7,6 +7,9 @@ import com.pulumi.aws.ec2.outputs.GetInstanceTypeFpga;
 import com.pulumi.aws.ec2.outputs.GetInstanceTypeGpus;
 import com.pulumi.aws.ec2.outputs.GetInstanceTypeInferenceAccelerator;
 import com.pulumi.aws.ec2.outputs.GetInstanceTypeInstanceDisk;
+import com.pulumi.aws.ec2.outputs.GetInstanceTypeMediaAccelerator;
+import com.pulumi.aws.ec2.outputs.GetInstanceTypeNetworkCard;
+import com.pulumi.aws.ec2.outputs.GetInstanceTypeNeuronDevice;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -24,10 +27,20 @@ public final class GetInstanceTypeResult {
      */
     private Boolean autoRecoverySupported;
     /**
+     * @return A set of strings of valid settings for [configurable bandwidth weighting](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html), if supported.
+     * 
+     */
+    private List<String> bandwidthWeightings;
+    /**
      * @return `true` if it is a bare metal instance type.
      * 
      */
     private Boolean bareMetal;
+    /**
+     * @return A set of strings of supported boot modes.
+     * 
+     */
+    private List<String> bootModes;
     /**
      * @return `true` if the instance type is a burstable performance instance type.
      * 
@@ -48,6 +61,11 @@ public final class GetInstanceTypeResult {
      * 
      */
     private Integer defaultCores;
+    /**
+     * @return The index of the default network card, starting at `0`.
+     * 
+     */
+    private Integer defaultNetworkCardIndex;
     /**
      * @return The  default  number of threads per core for the instance type.
      * 
@@ -104,17 +122,27 @@ public final class GetInstanceTypeResult {
      */
     private Double ebsPerformanceMaximumThroughput;
     /**
-     * @return Whether Elastic Fabric Adapter (EFA) is supported.
+     * @return The maximum number of Elastic Fabric Adapters for the instance type.
+     * 
+     */
+    private Integer efaMaximumInterfaces;
+    /**
+     * @return `true` if Elastic Fabric Adapter (EFA) is supported.
      * 
      */
     private Boolean efaSupported;
     /**
-     * @return Whether Elastic Network Adapter (ENA) is supported.
+     * @return `true` if the instance type supports [ENA Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html).
+     * 
+     */
+    private Boolean enaSrdSupported;
+    /**
+     * @return Indicates whether Elastic Network Adapter (ENA) is `&#34;supported&#34;`, `&#34;required&#34;`, or `&#34;unsupported&#34;`.
      * 
      */
     private String enaSupport;
     /**
-     * @return Indicates whether encryption in-transit between instances is supported.
+     * @return `true` if encryption in-transit between instances is supported.
      * 
      */
     private Boolean encryptionInTransitSupported;
@@ -122,7 +150,7 @@ public final class GetInstanceTypeResult {
      * @return Describes the FPGA accelerator settings for the instance type.
      * * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
      * * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
-     * * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
+     * * `fpgas.#.memory_size` - The size (in MiB) of the memory available to the FPGA accelerator.
      * * `fpgas.#.name` - The name of the FPGA accelerator.
      * 
      */
@@ -136,7 +164,7 @@ public final class GetInstanceTypeResult {
      * @return Describes the GPU accelerators for the instance type.
      * * `gpus.#.count` - The number of GPUs for the instance type.
      * * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
-     * * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
+     * * `gpus.#.memory_size` - The size (in MiB) of the memory available to the GPU accelerator.
      * * `gpus.#.name` - The name of the GPU accelerator.
      * 
      */
@@ -160,6 +188,7 @@ public final class GetInstanceTypeResult {
      * @return Describes the Inference accelerators for the instance type.
      * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
      * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+     * * `inference_accelerators.#.memory_size` - The size (in MiB) of the memory available to the inference accelerator.
      * * `inference_accelerators.#.name` - The name of the Inference accelerator.
      * 
      */
@@ -204,32 +233,86 @@ public final class GetInstanceTypeResult {
      */
     private Integer maximumNetworkInterfaces;
     /**
+     * @return Describes the media accelerator settings for the instance type.
+     * * `media_accelerators.#.count` - The number of media accelerators for the instance type.
+     * * `media_accelerators.#.manufacturer` - The manufacturer of the media accelerator.
+     * * `media_accelerators.#.memory_size` - The size (in MiB) of the memory available to each media accelerator.
+     * * `media_accelerators.#.name` - The name of the media accelerator.
+     * 
+     */
+    private List<GetInstanceTypeMediaAccelerator> mediaAccelerators;
+    /**
      * @return Size of the instance memory, in MiB.
      * 
      */
     private Integer memorySize;
+    /**
+     * @return Describes the network cards for the instance type.
+     * * `network_cards.#.baseline_bandwidth` - The baseline network performance (in Gbps) of the network card.
+     * * `network_cards.#.index` - The index of the network card.
+     * * `network_cards.#.maximum_interfaces` - The maximum number of network interfaces for the /network card.
+     * * `network_cards.#.performance` - Describes the network performance of the network card.
+     * * `network_cards.#.peak_bandwidth` - The peak (burst) network performance (in Gbps) of the network card.
+     * 
+     */
+    private List<GetInstanceTypeNetworkCard> networkCards;
     /**
      * @return Describes the network performance.
      * 
      */
     private String networkPerformance;
     /**
-     * @return A list of architectures supported by the instance type.
+     * @return Describes the Neuron accelerator settings for the instance type.
+     * * `neuron_devices.#.core_count` - The number of cores available to the neuron accelerator.
+     * * `neuron_devices.#.core_version` - A number representing the version of the neuron accelerator.
+     * * `neuron_devices.#.count` - The number of neuron accelerators for the instance type.
+     * * `neuron_devices.#.memory_size` - The size (in MiB) of the memory available to the neuron accelerator.
+     * * `neuron_devices.#.name` - The name of the neuron accelerator.
+     * 
+     */
+    private List<GetInstanceTypeNeuronDevice> neuronDevices;
+    /**
+     * @return Indicates whether Nitro Enclaves is `&#34;supported&#34;` or `&#34;unsupported&#34;`.
+     * 
+     */
+    private String nitroEnclavesSupport;
+    /**
+     * @return Indicates whether NitroTPM is `&#34;supported&#34;` or `&#34;unsupported&#34;`.
+     * 
+     */
+    private String nitroTpmSupport;
+    /**
+     * @return A set of strings indicating the supported NitroTPM versions.
+     * 
+     */
+    private List<String> nitroTpmSupportedVersions;
+    /**
+     * @return `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
+     * 
+     */
+    private String phcSupport;
+    /**
+     * @return A list of strings of architectures supported by the instance type.
      * 
      */
     private List<String> supportedArchitectures;
+    /**
+     * @return A set of strings indicating supported CPU features.
+     * 
+     */
+    private List<String> supportedCpuFeatures;
     /**
      * @return A list of supported placement groups types.
      * 
      */
     private List<String> supportedPlacementStrategies;
     /**
-     * @return Indicates the supported root device types.
+     * @return A list of supported root device types.
      * 
      */
     private List<String> supportedRootDeviceTypes;
     /**
-     * @return Indicates whether the instance type is offered for spot or On-Demand.
+     * @return A list of supported usage classes.  Usage classes are `&#34;spot&#34;`, `&#34;on-demand&#34;`, or `&#34;capacity-block&#34;`.
      * 
      */
     private List<String> supportedUsagesClasses;
@@ -254,10 +337,25 @@ public final class GetInstanceTypeResult {
      */
     private Integer totalGpuMemory;
     /**
+     * @return The total size of the memory for the neuron accelerators for the instance type (in MiB).
+     * 
+     */
+    private Integer totalInferenceMemory;
+    /**
      * @return The total size of the instance disks, in GB.
      * 
      */
     private Integer totalInstanceStorage;
+    /**
+     * @return The total size of the memory for the media accelerators for the instance type (in MiB).
+     * 
+     */
+    private Integer totalMediaMemory;
+    /**
+     * @return The total size of the memory for the neuron accelerators for the instance type (in MiB).
+     * 
+     */
+    private Integer totalNeuronDeviceMemory;
     /**
      * @return List of the valid number of cores that can be configured for the instance type.
      * 
@@ -278,11 +376,25 @@ public final class GetInstanceTypeResult {
         return this.autoRecoverySupported;
     }
     /**
+     * @return A set of strings of valid settings for [configurable bandwidth weighting](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html), if supported.
+     * 
+     */
+    public List<String> bandwidthWeightings() {
+        return this.bandwidthWeightings;
+    }
+    /**
      * @return `true` if it is a bare metal instance type.
      * 
      */
     public Boolean bareMetal() {
         return this.bareMetal;
+    }
+    /**
+     * @return A set of strings of supported boot modes.
+     * 
+     */
+    public List<String> bootModes() {
+        return this.bootModes;
     }
     /**
      * @return `true` if the instance type is a burstable performance instance type.
@@ -311,6 +423,13 @@ public final class GetInstanceTypeResult {
      */
     public Integer defaultCores() {
         return this.defaultCores;
+    }
+    /**
+     * @return The index of the default network card, starting at `0`.
+     * 
+     */
+    public Integer defaultNetworkCardIndex() {
+        return this.defaultNetworkCardIndex;
     }
     /**
      * @return The  default  number of threads per core for the instance type.
@@ -390,21 +509,35 @@ public final class GetInstanceTypeResult {
         return this.ebsPerformanceMaximumThroughput;
     }
     /**
-     * @return Whether Elastic Fabric Adapter (EFA) is supported.
+     * @return The maximum number of Elastic Fabric Adapters for the instance type.
+     * 
+     */
+    public Integer efaMaximumInterfaces() {
+        return this.efaMaximumInterfaces;
+    }
+    /**
+     * @return `true` if Elastic Fabric Adapter (EFA) is supported.
      * 
      */
     public Boolean efaSupported() {
         return this.efaSupported;
     }
     /**
-     * @return Whether Elastic Network Adapter (ENA) is supported.
+     * @return `true` if the instance type supports [ENA Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html).
+     * 
+     */
+    public Boolean enaSrdSupported() {
+        return this.enaSrdSupported;
+    }
+    /**
+     * @return Indicates whether Elastic Network Adapter (ENA) is `&#34;supported&#34;`, `&#34;required&#34;`, or `&#34;unsupported&#34;`.
      * 
      */
     public String enaSupport() {
         return this.enaSupport;
     }
     /**
-     * @return Indicates whether encryption in-transit between instances is supported.
+     * @return `true` if encryption in-transit between instances is supported.
      * 
      */
     public Boolean encryptionInTransitSupported() {
@@ -414,7 +547,7 @@ public final class GetInstanceTypeResult {
      * @return Describes the FPGA accelerator settings for the instance type.
      * * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
      * * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
-     * * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
+     * * `fpgas.#.memory_size` - The size (in MiB) of the memory available to the FPGA accelerator.
      * * `fpgas.#.name` - The name of the FPGA accelerator.
      * 
      */
@@ -432,7 +565,7 @@ public final class GetInstanceTypeResult {
      * @return Describes the GPU accelerators for the instance type.
      * * `gpus.#.count` - The number of GPUs for the instance type.
      * * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
-     * * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
+     * * `gpus.#.memory_size` - The size (in MiB) of the memory available to the GPU accelerator.
      * * `gpus.#.name` - The name of the GPU accelerator.
      * 
      */
@@ -464,6 +597,7 @@ public final class GetInstanceTypeResult {
      * @return Describes the Inference accelerators for the instance type.
      * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
      * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+     * * `inference_accelerators.#.memory_size` - The size (in MiB) of the memory available to the inference accelerator.
      * * `inference_accelerators.#.name` - The name of the Inference accelerator.
      * 
      */
@@ -526,11 +660,34 @@ public final class GetInstanceTypeResult {
         return this.maximumNetworkInterfaces;
     }
     /**
+     * @return Describes the media accelerator settings for the instance type.
+     * * `media_accelerators.#.count` - The number of media accelerators for the instance type.
+     * * `media_accelerators.#.manufacturer` - The manufacturer of the media accelerator.
+     * * `media_accelerators.#.memory_size` - The size (in MiB) of the memory available to each media accelerator.
+     * * `media_accelerators.#.name` - The name of the media accelerator.
+     * 
+     */
+    public List<GetInstanceTypeMediaAccelerator> mediaAccelerators() {
+        return this.mediaAccelerators;
+    }
+    /**
      * @return Size of the instance memory, in MiB.
      * 
      */
     public Integer memorySize() {
         return this.memorySize;
+    }
+    /**
+     * @return Describes the network cards for the instance type.
+     * * `network_cards.#.baseline_bandwidth` - The baseline network performance (in Gbps) of the network card.
+     * * `network_cards.#.index` - The index of the network card.
+     * * `network_cards.#.maximum_interfaces` - The maximum number of network interfaces for the /network card.
+     * * `network_cards.#.performance` - Describes the network performance of the network card.
+     * * `network_cards.#.peak_bandwidth` - The peak (burst) network performance (in Gbps) of the network card.
+     * 
+     */
+    public List<GetInstanceTypeNetworkCard> networkCards() {
+        return this.networkCards;
     }
     /**
      * @return Describes the network performance.
@@ -540,11 +697,58 @@ public final class GetInstanceTypeResult {
         return this.networkPerformance;
     }
     /**
-     * @return A list of architectures supported by the instance type.
+     * @return Describes the Neuron accelerator settings for the instance type.
+     * * `neuron_devices.#.core_count` - The number of cores available to the neuron accelerator.
+     * * `neuron_devices.#.core_version` - A number representing the version of the neuron accelerator.
+     * * `neuron_devices.#.count` - The number of neuron accelerators for the instance type.
+     * * `neuron_devices.#.memory_size` - The size (in MiB) of the memory available to the neuron accelerator.
+     * * `neuron_devices.#.name` - The name of the neuron accelerator.
+     * 
+     */
+    public List<GetInstanceTypeNeuronDevice> neuronDevices() {
+        return this.neuronDevices;
+    }
+    /**
+     * @return Indicates whether Nitro Enclaves is `&#34;supported&#34;` or `&#34;unsupported&#34;`.
+     * 
+     */
+    public String nitroEnclavesSupport() {
+        return this.nitroEnclavesSupport;
+    }
+    /**
+     * @return Indicates whether NitroTPM is `&#34;supported&#34;` or `&#34;unsupported&#34;`.
+     * 
+     */
+    public String nitroTpmSupport() {
+        return this.nitroTpmSupport;
+    }
+    /**
+     * @return A set of strings indicating the supported NitroTPM versions.
+     * 
+     */
+    public List<String> nitroTpmSupportedVersions() {
+        return this.nitroTpmSupportedVersions;
+    }
+    /**
+     * @return `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
+     * 
+     */
+    public String phcSupport() {
+        return this.phcSupport;
+    }
+    /**
+     * @return A list of strings of architectures supported by the instance type.
      * 
      */
     public List<String> supportedArchitectures() {
         return this.supportedArchitectures;
+    }
+    /**
+     * @return A set of strings indicating supported CPU features.
+     * 
+     */
+    public List<String> supportedCpuFeatures() {
+        return this.supportedCpuFeatures;
     }
     /**
      * @return A list of supported placement groups types.
@@ -554,14 +758,14 @@ public final class GetInstanceTypeResult {
         return this.supportedPlacementStrategies;
     }
     /**
-     * @return Indicates the supported root device types.
+     * @return A list of supported root device types.
      * 
      */
     public List<String> supportedRootDeviceTypes() {
         return this.supportedRootDeviceTypes;
     }
     /**
-     * @return Indicates whether the instance type is offered for spot or On-Demand.
+     * @return A list of supported usage classes.  Usage classes are `&#34;spot&#34;`, `&#34;on-demand&#34;`, or `&#34;capacity-block&#34;`.
      * 
      */
     public List<String> supportedUsagesClasses() {
@@ -596,11 +800,32 @@ public final class GetInstanceTypeResult {
         return this.totalGpuMemory;
     }
     /**
+     * @return The total size of the memory for the neuron accelerators for the instance type (in MiB).
+     * 
+     */
+    public Integer totalInferenceMemory() {
+        return this.totalInferenceMemory;
+    }
+    /**
      * @return The total size of the instance disks, in GB.
      * 
      */
     public Integer totalInstanceStorage() {
         return this.totalInstanceStorage;
+    }
+    /**
+     * @return The total size of the memory for the media accelerators for the instance type (in MiB).
+     * 
+     */
+    public Integer totalMediaMemory() {
+        return this.totalMediaMemory;
+    }
+    /**
+     * @return The total size of the memory for the neuron accelerators for the instance type (in MiB).
+     * 
+     */
+    public Integer totalNeuronDeviceMemory() {
+        return this.totalNeuronDeviceMemory;
     }
     /**
      * @return List of the valid number of cores that can be configured for the instance type.
@@ -627,11 +852,14 @@ public final class GetInstanceTypeResult {
     @CustomType.Builder
     public static final class Builder {
         private Boolean autoRecoverySupported;
+        private List<String> bandwidthWeightings;
         private Boolean bareMetal;
+        private List<String> bootModes;
         private Boolean burstablePerformanceSupported;
         private Boolean currentGeneration;
         private Boolean dedicatedHostsSupported;
         private Integer defaultCores;
+        private Integer defaultNetworkCardIndex;
         private Integer defaultThreadsPerCore;
         private Integer defaultVcpus;
         private String ebsEncryptionSupport;
@@ -643,7 +871,9 @@ public final class GetInstanceTypeResult {
         private Integer ebsPerformanceMaximumBandwidth;
         private Integer ebsPerformanceMaximumIops;
         private Double ebsPerformanceMaximumThroughput;
+        private Integer efaMaximumInterfaces;
         private Boolean efaSupported;
+        private Boolean enaSrdSupported;
         private String enaSupport;
         private Boolean encryptionInTransitSupported;
         private List<GetInstanceTypeFpga> fpgas;
@@ -661,9 +891,17 @@ public final class GetInstanceTypeResult {
         private Integer maximumIpv6AddressesPerInterface;
         private Integer maximumNetworkCards;
         private Integer maximumNetworkInterfaces;
+        private List<GetInstanceTypeMediaAccelerator> mediaAccelerators;
         private Integer memorySize;
+        private List<GetInstanceTypeNetworkCard> networkCards;
         private String networkPerformance;
+        private List<GetInstanceTypeNeuronDevice> neuronDevices;
+        private String nitroEnclavesSupport;
+        private String nitroTpmSupport;
+        private List<String> nitroTpmSupportedVersions;
+        private String phcSupport;
         private List<String> supportedArchitectures;
+        private List<String> supportedCpuFeatures;
         private List<String> supportedPlacementStrategies;
         private List<String> supportedRootDeviceTypes;
         private List<String> supportedUsagesClasses;
@@ -671,18 +909,24 @@ public final class GetInstanceTypeResult {
         private Double sustainedClockSpeed;
         private Integer totalFpgaMemory;
         private Integer totalGpuMemory;
+        private Integer totalInferenceMemory;
         private Integer totalInstanceStorage;
+        private Integer totalMediaMemory;
+        private Integer totalNeuronDeviceMemory;
         private List<Integer> validCores;
         private List<Integer> validThreadsPerCores;
         public Builder() {}
         public Builder(GetInstanceTypeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRecoverySupported = defaults.autoRecoverySupported;
+    	      this.bandwidthWeightings = defaults.bandwidthWeightings;
     	      this.bareMetal = defaults.bareMetal;
+    	      this.bootModes = defaults.bootModes;
     	      this.burstablePerformanceSupported = defaults.burstablePerformanceSupported;
     	      this.currentGeneration = defaults.currentGeneration;
     	      this.dedicatedHostsSupported = defaults.dedicatedHostsSupported;
     	      this.defaultCores = defaults.defaultCores;
+    	      this.defaultNetworkCardIndex = defaults.defaultNetworkCardIndex;
     	      this.defaultThreadsPerCore = defaults.defaultThreadsPerCore;
     	      this.defaultVcpus = defaults.defaultVcpus;
     	      this.ebsEncryptionSupport = defaults.ebsEncryptionSupport;
@@ -694,7 +938,9 @@ public final class GetInstanceTypeResult {
     	      this.ebsPerformanceMaximumBandwidth = defaults.ebsPerformanceMaximumBandwidth;
     	      this.ebsPerformanceMaximumIops = defaults.ebsPerformanceMaximumIops;
     	      this.ebsPerformanceMaximumThroughput = defaults.ebsPerformanceMaximumThroughput;
+    	      this.efaMaximumInterfaces = defaults.efaMaximumInterfaces;
     	      this.efaSupported = defaults.efaSupported;
+    	      this.enaSrdSupported = defaults.enaSrdSupported;
     	      this.enaSupport = defaults.enaSupport;
     	      this.encryptionInTransitSupported = defaults.encryptionInTransitSupported;
     	      this.fpgas = defaults.fpgas;
@@ -712,9 +958,17 @@ public final class GetInstanceTypeResult {
     	      this.maximumIpv6AddressesPerInterface = defaults.maximumIpv6AddressesPerInterface;
     	      this.maximumNetworkCards = defaults.maximumNetworkCards;
     	      this.maximumNetworkInterfaces = defaults.maximumNetworkInterfaces;
+    	      this.mediaAccelerators = defaults.mediaAccelerators;
     	      this.memorySize = defaults.memorySize;
+    	      this.networkCards = defaults.networkCards;
     	      this.networkPerformance = defaults.networkPerformance;
+    	      this.neuronDevices = defaults.neuronDevices;
+    	      this.nitroEnclavesSupport = defaults.nitroEnclavesSupport;
+    	      this.nitroTpmSupport = defaults.nitroTpmSupport;
+    	      this.nitroTpmSupportedVersions = defaults.nitroTpmSupportedVersions;
+    	      this.phcSupport = defaults.phcSupport;
     	      this.supportedArchitectures = defaults.supportedArchitectures;
+    	      this.supportedCpuFeatures = defaults.supportedCpuFeatures;
     	      this.supportedPlacementStrategies = defaults.supportedPlacementStrategies;
     	      this.supportedRootDeviceTypes = defaults.supportedRootDeviceTypes;
     	      this.supportedUsagesClasses = defaults.supportedUsagesClasses;
@@ -722,7 +976,10 @@ public final class GetInstanceTypeResult {
     	      this.sustainedClockSpeed = defaults.sustainedClockSpeed;
     	      this.totalFpgaMemory = defaults.totalFpgaMemory;
     	      this.totalGpuMemory = defaults.totalGpuMemory;
+    	      this.totalInferenceMemory = defaults.totalInferenceMemory;
     	      this.totalInstanceStorage = defaults.totalInstanceStorage;
+    	      this.totalMediaMemory = defaults.totalMediaMemory;
+    	      this.totalNeuronDeviceMemory = defaults.totalNeuronDeviceMemory;
     	      this.validCores = defaults.validCores;
     	      this.validThreadsPerCores = defaults.validThreadsPerCores;
         }
@@ -736,12 +993,34 @@ public final class GetInstanceTypeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder bandwidthWeightings(List<String> bandwidthWeightings) {
+            if (bandwidthWeightings == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "bandwidthWeightings");
+            }
+            this.bandwidthWeightings = bandwidthWeightings;
+            return this;
+        }
+        public Builder bandwidthWeightings(String... bandwidthWeightings) {
+            return bandwidthWeightings(List.of(bandwidthWeightings));
+        }
+        @CustomType.Setter
         public Builder bareMetal(Boolean bareMetal) {
             if (bareMetal == null) {
               throw new MissingRequiredPropertyException("GetInstanceTypeResult", "bareMetal");
             }
             this.bareMetal = bareMetal;
             return this;
+        }
+        @CustomType.Setter
+        public Builder bootModes(List<String> bootModes) {
+            if (bootModes == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "bootModes");
+            }
+            this.bootModes = bootModes;
+            return this;
+        }
+        public Builder bootModes(String... bootModes) {
+            return bootModes(List.of(bootModes));
         }
         @CustomType.Setter
         public Builder burstablePerformanceSupported(Boolean burstablePerformanceSupported) {
@@ -773,6 +1052,14 @@ public final class GetInstanceTypeResult {
               throw new MissingRequiredPropertyException("GetInstanceTypeResult", "defaultCores");
             }
             this.defaultCores = defaultCores;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultNetworkCardIndex(Integer defaultNetworkCardIndex) {
+            if (defaultNetworkCardIndex == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "defaultNetworkCardIndex");
+            }
+            this.defaultNetworkCardIndex = defaultNetworkCardIndex;
             return this;
         }
         @CustomType.Setter
@@ -864,11 +1151,27 @@ public final class GetInstanceTypeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder efaMaximumInterfaces(Integer efaMaximumInterfaces) {
+            if (efaMaximumInterfaces == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "efaMaximumInterfaces");
+            }
+            this.efaMaximumInterfaces = efaMaximumInterfaces;
+            return this;
+        }
+        @CustomType.Setter
         public Builder efaSupported(Boolean efaSupported) {
             if (efaSupported == null) {
               throw new MissingRequiredPropertyException("GetInstanceTypeResult", "efaSupported");
             }
             this.efaSupported = efaSupported;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enaSrdSupported(Boolean enaSrdSupported) {
+            if (enaSrdSupported == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "enaSrdSupported");
+            }
+            this.enaSrdSupported = enaSrdSupported;
             return this;
         }
         @CustomType.Setter
@@ -1020,6 +1323,17 @@ public final class GetInstanceTypeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder mediaAccelerators(List<GetInstanceTypeMediaAccelerator> mediaAccelerators) {
+            if (mediaAccelerators == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "mediaAccelerators");
+            }
+            this.mediaAccelerators = mediaAccelerators;
+            return this;
+        }
+        public Builder mediaAccelerators(GetInstanceTypeMediaAccelerator... mediaAccelerators) {
+            return mediaAccelerators(List.of(mediaAccelerators));
+        }
+        @CustomType.Setter
         public Builder memorySize(Integer memorySize) {
             if (memorySize == null) {
               throw new MissingRequiredPropertyException("GetInstanceTypeResult", "memorySize");
@@ -1028,11 +1342,68 @@ public final class GetInstanceTypeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder networkCards(List<GetInstanceTypeNetworkCard> networkCards) {
+            if (networkCards == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "networkCards");
+            }
+            this.networkCards = networkCards;
+            return this;
+        }
+        public Builder networkCards(GetInstanceTypeNetworkCard... networkCards) {
+            return networkCards(List.of(networkCards));
+        }
+        @CustomType.Setter
         public Builder networkPerformance(String networkPerformance) {
             if (networkPerformance == null) {
               throw new MissingRequiredPropertyException("GetInstanceTypeResult", "networkPerformance");
             }
             this.networkPerformance = networkPerformance;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder neuronDevices(List<GetInstanceTypeNeuronDevice> neuronDevices) {
+            if (neuronDevices == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "neuronDevices");
+            }
+            this.neuronDevices = neuronDevices;
+            return this;
+        }
+        public Builder neuronDevices(GetInstanceTypeNeuronDevice... neuronDevices) {
+            return neuronDevices(List.of(neuronDevices));
+        }
+        @CustomType.Setter
+        public Builder nitroEnclavesSupport(String nitroEnclavesSupport) {
+            if (nitroEnclavesSupport == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "nitroEnclavesSupport");
+            }
+            this.nitroEnclavesSupport = nitroEnclavesSupport;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder nitroTpmSupport(String nitroTpmSupport) {
+            if (nitroTpmSupport == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "nitroTpmSupport");
+            }
+            this.nitroTpmSupport = nitroTpmSupport;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder nitroTpmSupportedVersions(List<String> nitroTpmSupportedVersions) {
+            if (nitroTpmSupportedVersions == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "nitroTpmSupportedVersions");
+            }
+            this.nitroTpmSupportedVersions = nitroTpmSupportedVersions;
+            return this;
+        }
+        public Builder nitroTpmSupportedVersions(String... nitroTpmSupportedVersions) {
+            return nitroTpmSupportedVersions(List.of(nitroTpmSupportedVersions));
+        }
+        @CustomType.Setter
+        public Builder phcSupport(String phcSupport) {
+            if (phcSupport == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "phcSupport");
+            }
+            this.phcSupport = phcSupport;
             return this;
         }
         @CustomType.Setter
@@ -1045,6 +1416,17 @@ public final class GetInstanceTypeResult {
         }
         public Builder supportedArchitectures(String... supportedArchitectures) {
             return supportedArchitectures(List.of(supportedArchitectures));
+        }
+        @CustomType.Setter
+        public Builder supportedCpuFeatures(List<String> supportedCpuFeatures) {
+            if (supportedCpuFeatures == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "supportedCpuFeatures");
+            }
+            this.supportedCpuFeatures = supportedCpuFeatures;
+            return this;
+        }
+        public Builder supportedCpuFeatures(String... supportedCpuFeatures) {
+            return supportedCpuFeatures(List.of(supportedCpuFeatures));
         }
         @CustomType.Setter
         public Builder supportedPlacementStrategies(List<String> supportedPlacementStrategies) {
@@ -1115,11 +1497,35 @@ public final class GetInstanceTypeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder totalInferenceMemory(Integer totalInferenceMemory) {
+            if (totalInferenceMemory == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "totalInferenceMemory");
+            }
+            this.totalInferenceMemory = totalInferenceMemory;
+            return this;
+        }
+        @CustomType.Setter
         public Builder totalInstanceStorage(Integer totalInstanceStorage) {
             if (totalInstanceStorage == null) {
               throw new MissingRequiredPropertyException("GetInstanceTypeResult", "totalInstanceStorage");
             }
             this.totalInstanceStorage = totalInstanceStorage;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder totalMediaMemory(Integer totalMediaMemory) {
+            if (totalMediaMemory == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "totalMediaMemory");
+            }
+            this.totalMediaMemory = totalMediaMemory;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder totalNeuronDeviceMemory(Integer totalNeuronDeviceMemory) {
+            if (totalNeuronDeviceMemory == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeResult", "totalNeuronDeviceMemory");
+            }
+            this.totalNeuronDeviceMemory = totalNeuronDeviceMemory;
             return this;
         }
         @CustomType.Setter
@@ -1147,11 +1553,14 @@ public final class GetInstanceTypeResult {
         public GetInstanceTypeResult build() {
             final var _resultValue = new GetInstanceTypeResult();
             _resultValue.autoRecoverySupported = autoRecoverySupported;
+            _resultValue.bandwidthWeightings = bandwidthWeightings;
             _resultValue.bareMetal = bareMetal;
+            _resultValue.bootModes = bootModes;
             _resultValue.burstablePerformanceSupported = burstablePerformanceSupported;
             _resultValue.currentGeneration = currentGeneration;
             _resultValue.dedicatedHostsSupported = dedicatedHostsSupported;
             _resultValue.defaultCores = defaultCores;
+            _resultValue.defaultNetworkCardIndex = defaultNetworkCardIndex;
             _resultValue.defaultThreadsPerCore = defaultThreadsPerCore;
             _resultValue.defaultVcpus = defaultVcpus;
             _resultValue.ebsEncryptionSupport = ebsEncryptionSupport;
@@ -1163,7 +1572,9 @@ public final class GetInstanceTypeResult {
             _resultValue.ebsPerformanceMaximumBandwidth = ebsPerformanceMaximumBandwidth;
             _resultValue.ebsPerformanceMaximumIops = ebsPerformanceMaximumIops;
             _resultValue.ebsPerformanceMaximumThroughput = ebsPerformanceMaximumThroughput;
+            _resultValue.efaMaximumInterfaces = efaMaximumInterfaces;
             _resultValue.efaSupported = efaSupported;
+            _resultValue.enaSrdSupported = enaSrdSupported;
             _resultValue.enaSupport = enaSupport;
             _resultValue.encryptionInTransitSupported = encryptionInTransitSupported;
             _resultValue.fpgas = fpgas;
@@ -1181,9 +1592,17 @@ public final class GetInstanceTypeResult {
             _resultValue.maximumIpv6AddressesPerInterface = maximumIpv6AddressesPerInterface;
             _resultValue.maximumNetworkCards = maximumNetworkCards;
             _resultValue.maximumNetworkInterfaces = maximumNetworkInterfaces;
+            _resultValue.mediaAccelerators = mediaAccelerators;
             _resultValue.memorySize = memorySize;
+            _resultValue.networkCards = networkCards;
             _resultValue.networkPerformance = networkPerformance;
+            _resultValue.neuronDevices = neuronDevices;
+            _resultValue.nitroEnclavesSupport = nitroEnclavesSupport;
+            _resultValue.nitroTpmSupport = nitroTpmSupport;
+            _resultValue.nitroTpmSupportedVersions = nitroTpmSupportedVersions;
+            _resultValue.phcSupport = phcSupport;
             _resultValue.supportedArchitectures = supportedArchitectures;
+            _resultValue.supportedCpuFeatures = supportedCpuFeatures;
             _resultValue.supportedPlacementStrategies = supportedPlacementStrategies;
             _resultValue.supportedRootDeviceTypes = supportedRootDeviceTypes;
             _resultValue.supportedUsagesClasses = supportedUsagesClasses;
@@ -1191,7 +1610,10 @@ public final class GetInstanceTypeResult {
             _resultValue.sustainedClockSpeed = sustainedClockSpeed;
             _resultValue.totalFpgaMemory = totalFpgaMemory;
             _resultValue.totalGpuMemory = totalGpuMemory;
+            _resultValue.totalInferenceMemory = totalInferenceMemory;
             _resultValue.totalInstanceStorage = totalInstanceStorage;
+            _resultValue.totalMediaMemory = totalMediaMemory;
+            _resultValue.totalNeuronDeviceMemory = totalNeuronDeviceMemory;
             _resultValue.validCores = validCores;
             _resultValue.validThreadsPerCores = validThreadsPerCores;
             return _resultValue;

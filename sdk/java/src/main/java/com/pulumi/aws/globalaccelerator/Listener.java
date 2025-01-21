@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
- *             .acceleratorArn(example.id())
+ *             .acceleratorArn(example.arn())
  *             .clientAffinity("SOURCE_IP")
  *             .protocol("TCP")
  *             .portRanges(ListenerPortRangeArgs.builder()
@@ -99,6 +99,20 @@ public class Listener extends com.pulumi.resources.CustomResource {
      */
     public Output<String> acceleratorArn() {
         return this.acceleratorArn;
+    }
+    /**
+     * The Amazon Resource Name (ARN) of the listener.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the listener.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
     }
     /**
      * Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the &#34;five-tuple&#34; properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the &#34;two-tuple&#34; properties of source (client) IP address and destination IP address to select the hash value.

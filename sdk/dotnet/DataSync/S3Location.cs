@@ -14,6 +14,8 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,6 +37,34 @@ namespace Pulumi.Aws.DataSync
     /// });
     /// ```
     /// 
+    /// ### S3 Bucket on AWS Outposts
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var destination = new Aws.DataSync.S3Location("destination", new()
+    ///     {
+    ///         AgentArns = new[]
+    ///         {
+    ///             exampleAwsDatasyncAgent.Arn,
+    ///         },
+    ///         S3BucketArn = exampleAwsS3AccessPoint.Arn,
+    ///         S3StorageClass = "OUTPOSTS",
+    ///         Subdirectory = "/example/prefix",
+    ///         S3Config = new Aws.DataSync.Inputs.S3LocationS3ConfigArgs
+    ///         {
+    ///             BucketAccessRoleArn = example.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_s3` using the DataSync Task Amazon Resource Name (ARN). For example:
@@ -47,7 +77,7 @@ namespace Pulumi.Aws.DataSync
     public partial class S3Location : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         /// </summary>
         [Output("agentArns")]
         public Output<ImmutableArray<string>> AgentArns { get; private set; } = null!;
@@ -59,7 +89,7 @@ namespace Pulumi.Aws.DataSync
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Bucket.
+        /// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         /// </summary>
         [Output("s3BucketArn")]
         public Output<string> S3BucketArn { get; private set; } = null!;
@@ -71,7 +101,7 @@ namespace Pulumi.Aws.DataSync
         public Output<Outputs.S3LocationS3Config> S3Config { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        /// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         /// </summary>
         [Output("s3StorageClass")]
         public Output<string> S3StorageClass { get; private set; } = null!;
@@ -147,7 +177,7 @@ namespace Pulumi.Aws.DataSync
         private InputList<string>? _agentArns;
 
         /// <summary>
-        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         /// </summary>
         public InputList<string> AgentArns
         {
@@ -156,7 +186,7 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Bucket.
+        /// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         /// </summary>
         [Input("s3BucketArn", required: true)]
         public Input<string> S3BucketArn { get; set; } = null!;
@@ -168,7 +198,7 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.S3LocationS3ConfigArgs> S3Config { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        /// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         /// </summary>
         [Input("s3StorageClass")]
         public Input<string>? S3StorageClass { get; set; }
@@ -203,7 +233,7 @@ namespace Pulumi.Aws.DataSync
         private InputList<string>? _agentArns;
 
         /// <summary>
-        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         /// </summary>
         public InputList<string> AgentArns
         {
@@ -218,7 +248,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Bucket.
+        /// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         /// </summary>
         [Input("s3BucketArn")]
         public Input<string>? S3BucketArn { get; set; }
@@ -230,7 +260,7 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.S3LocationS3ConfigGetArgs>? S3Config { get; set; }
 
         /// <summary>
-        /// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        /// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         /// </summary>
         [Input("s3StorageClass")]
         public Input<string>? S3StorageClass { get; set; }

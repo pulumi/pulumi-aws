@@ -36820,7 +36820,9 @@ func (o GetInstanceTypeGpusArrayOutput) Index(i pulumi.IntInput) GetInstanceType
 type GetInstanceTypeInferenceAccelerator struct {
 	Count        int    `pulumi:"count"`
 	Manufacturer string `pulumi:"manufacturer"`
-	Name         string `pulumi:"name"`
+	// Size of the instance memory, in MiB.
+	MemorySize int    `pulumi:"memorySize"`
+	Name       string `pulumi:"name"`
 }
 
 // GetInstanceTypeInferenceAcceleratorInput is an input type that accepts GetInstanceTypeInferenceAcceleratorArgs and GetInstanceTypeInferenceAcceleratorOutput values.
@@ -36837,7 +36839,9 @@ type GetInstanceTypeInferenceAcceleratorInput interface {
 type GetInstanceTypeInferenceAcceleratorArgs struct {
 	Count        pulumi.IntInput    `pulumi:"count"`
 	Manufacturer pulumi.StringInput `pulumi:"manufacturer"`
-	Name         pulumi.StringInput `pulumi:"name"`
+	// Size of the instance memory, in MiB.
+	MemorySize pulumi.IntInput    `pulumi:"memorySize"`
+	Name       pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetInstanceTypeInferenceAcceleratorArgs) ElementType() reflect.Type {
@@ -36897,6 +36901,11 @@ func (o GetInstanceTypeInferenceAcceleratorOutput) Count() pulumi.IntOutput {
 
 func (o GetInstanceTypeInferenceAcceleratorOutput) Manufacturer() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeInferenceAccelerator) string { return v.Manufacturer }).(pulumi.StringOutput)
+}
+
+// Size of the instance memory, in MiB.
+func (o GetInstanceTypeInferenceAcceleratorOutput) MemorySize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeInferenceAccelerator) int { return v.MemorySize }).(pulumi.IntOutput)
 }
 
 func (o GetInstanceTypeInferenceAcceleratorOutput) Name() pulumi.StringOutput {
@@ -37027,6 +37036,360 @@ func (o GetInstanceTypeInstanceDiskArrayOutput) Index(i pulumi.IntInput) GetInst
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeInstanceDisk {
 		return vs[0].([]GetInstanceTypeInstanceDisk)[vs[1].(int)]
 	}).(GetInstanceTypeInstanceDiskOutput)
+}
+
+type GetInstanceTypeMediaAccelerator struct {
+	Count        int    `pulumi:"count"`
+	Manufacturer string `pulumi:"manufacturer"`
+	// Size of the instance memory, in MiB.
+	MemorySize int    `pulumi:"memorySize"`
+	Name       string `pulumi:"name"`
+}
+
+// GetInstanceTypeMediaAcceleratorInput is an input type that accepts GetInstanceTypeMediaAcceleratorArgs and GetInstanceTypeMediaAcceleratorOutput values.
+// You can construct a concrete instance of `GetInstanceTypeMediaAcceleratorInput` via:
+//
+//	GetInstanceTypeMediaAcceleratorArgs{...}
+type GetInstanceTypeMediaAcceleratorInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeMediaAcceleratorOutput() GetInstanceTypeMediaAcceleratorOutput
+	ToGetInstanceTypeMediaAcceleratorOutputWithContext(context.Context) GetInstanceTypeMediaAcceleratorOutput
+}
+
+type GetInstanceTypeMediaAcceleratorArgs struct {
+	Count        pulumi.IntInput    `pulumi:"count"`
+	Manufacturer pulumi.StringInput `pulumi:"manufacturer"`
+	// Size of the instance memory, in MiB.
+	MemorySize pulumi.IntInput    `pulumi:"memorySize"`
+	Name       pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetInstanceTypeMediaAcceleratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeMediaAccelerator)(nil)).Elem()
+}
+
+func (i GetInstanceTypeMediaAcceleratorArgs) ToGetInstanceTypeMediaAcceleratorOutput() GetInstanceTypeMediaAcceleratorOutput {
+	return i.ToGetInstanceTypeMediaAcceleratorOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeMediaAcceleratorArgs) ToGetInstanceTypeMediaAcceleratorOutputWithContext(ctx context.Context) GetInstanceTypeMediaAcceleratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeMediaAcceleratorOutput)
+}
+
+// GetInstanceTypeMediaAcceleratorArrayInput is an input type that accepts GetInstanceTypeMediaAcceleratorArray and GetInstanceTypeMediaAcceleratorArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeMediaAcceleratorArrayInput` via:
+//
+//	GetInstanceTypeMediaAcceleratorArray{ GetInstanceTypeMediaAcceleratorArgs{...} }
+type GetInstanceTypeMediaAcceleratorArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeMediaAcceleratorArrayOutput() GetInstanceTypeMediaAcceleratorArrayOutput
+	ToGetInstanceTypeMediaAcceleratorArrayOutputWithContext(context.Context) GetInstanceTypeMediaAcceleratorArrayOutput
+}
+
+type GetInstanceTypeMediaAcceleratorArray []GetInstanceTypeMediaAcceleratorInput
+
+func (GetInstanceTypeMediaAcceleratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeMediaAccelerator)(nil)).Elem()
+}
+
+func (i GetInstanceTypeMediaAcceleratorArray) ToGetInstanceTypeMediaAcceleratorArrayOutput() GetInstanceTypeMediaAcceleratorArrayOutput {
+	return i.ToGetInstanceTypeMediaAcceleratorArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeMediaAcceleratorArray) ToGetInstanceTypeMediaAcceleratorArrayOutputWithContext(ctx context.Context) GetInstanceTypeMediaAcceleratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeMediaAcceleratorArrayOutput)
+}
+
+type GetInstanceTypeMediaAcceleratorOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeMediaAcceleratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeMediaAccelerator)(nil)).Elem()
+}
+
+func (o GetInstanceTypeMediaAcceleratorOutput) ToGetInstanceTypeMediaAcceleratorOutput() GetInstanceTypeMediaAcceleratorOutput {
+	return o
+}
+
+func (o GetInstanceTypeMediaAcceleratorOutput) ToGetInstanceTypeMediaAcceleratorOutputWithContext(ctx context.Context) GetInstanceTypeMediaAcceleratorOutput {
+	return o
+}
+
+func (o GetInstanceTypeMediaAcceleratorOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeMediaAccelerator) int { return v.Count }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeMediaAcceleratorOutput) Manufacturer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeMediaAccelerator) string { return v.Manufacturer }).(pulumi.StringOutput)
+}
+
+// Size of the instance memory, in MiB.
+func (o GetInstanceTypeMediaAcceleratorOutput) MemorySize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeMediaAccelerator) int { return v.MemorySize }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeMediaAcceleratorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeMediaAccelerator) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetInstanceTypeMediaAcceleratorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeMediaAcceleratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeMediaAccelerator)(nil)).Elem()
+}
+
+func (o GetInstanceTypeMediaAcceleratorArrayOutput) ToGetInstanceTypeMediaAcceleratorArrayOutput() GetInstanceTypeMediaAcceleratorArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeMediaAcceleratorArrayOutput) ToGetInstanceTypeMediaAcceleratorArrayOutputWithContext(ctx context.Context) GetInstanceTypeMediaAcceleratorArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeMediaAcceleratorArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeMediaAcceleratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeMediaAccelerator {
+		return vs[0].([]GetInstanceTypeMediaAccelerator)[vs[1].(int)]
+	}).(GetInstanceTypeMediaAcceleratorOutput)
+}
+
+type GetInstanceTypeNetworkCard struct {
+	BaselineBandwidth float64 `pulumi:"baselineBandwidth"`
+	Index             int     `pulumi:"index"`
+	MaximumInterfaces int     `pulumi:"maximumInterfaces"`
+	PeakBandwidth     float64 `pulumi:"peakBandwidth"`
+	Performance       string  `pulumi:"performance"`
+}
+
+// GetInstanceTypeNetworkCardInput is an input type that accepts GetInstanceTypeNetworkCardArgs and GetInstanceTypeNetworkCardOutput values.
+// You can construct a concrete instance of `GetInstanceTypeNetworkCardInput` via:
+//
+//	GetInstanceTypeNetworkCardArgs{...}
+type GetInstanceTypeNetworkCardInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeNetworkCardOutput() GetInstanceTypeNetworkCardOutput
+	ToGetInstanceTypeNetworkCardOutputWithContext(context.Context) GetInstanceTypeNetworkCardOutput
+}
+
+type GetInstanceTypeNetworkCardArgs struct {
+	BaselineBandwidth pulumi.Float64Input `pulumi:"baselineBandwidth"`
+	Index             pulumi.IntInput     `pulumi:"index"`
+	MaximumInterfaces pulumi.IntInput     `pulumi:"maximumInterfaces"`
+	PeakBandwidth     pulumi.Float64Input `pulumi:"peakBandwidth"`
+	Performance       pulumi.StringInput  `pulumi:"performance"`
+}
+
+func (GetInstanceTypeNetworkCardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeNetworkCard)(nil)).Elem()
+}
+
+func (i GetInstanceTypeNetworkCardArgs) ToGetInstanceTypeNetworkCardOutput() GetInstanceTypeNetworkCardOutput {
+	return i.ToGetInstanceTypeNetworkCardOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeNetworkCardArgs) ToGetInstanceTypeNetworkCardOutputWithContext(ctx context.Context) GetInstanceTypeNetworkCardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeNetworkCardOutput)
+}
+
+// GetInstanceTypeNetworkCardArrayInput is an input type that accepts GetInstanceTypeNetworkCardArray and GetInstanceTypeNetworkCardArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeNetworkCardArrayInput` via:
+//
+//	GetInstanceTypeNetworkCardArray{ GetInstanceTypeNetworkCardArgs{...} }
+type GetInstanceTypeNetworkCardArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeNetworkCardArrayOutput() GetInstanceTypeNetworkCardArrayOutput
+	ToGetInstanceTypeNetworkCardArrayOutputWithContext(context.Context) GetInstanceTypeNetworkCardArrayOutput
+}
+
+type GetInstanceTypeNetworkCardArray []GetInstanceTypeNetworkCardInput
+
+func (GetInstanceTypeNetworkCardArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeNetworkCard)(nil)).Elem()
+}
+
+func (i GetInstanceTypeNetworkCardArray) ToGetInstanceTypeNetworkCardArrayOutput() GetInstanceTypeNetworkCardArrayOutput {
+	return i.ToGetInstanceTypeNetworkCardArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeNetworkCardArray) ToGetInstanceTypeNetworkCardArrayOutputWithContext(ctx context.Context) GetInstanceTypeNetworkCardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeNetworkCardArrayOutput)
+}
+
+type GetInstanceTypeNetworkCardOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeNetworkCardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeNetworkCard)(nil)).Elem()
+}
+
+func (o GetInstanceTypeNetworkCardOutput) ToGetInstanceTypeNetworkCardOutput() GetInstanceTypeNetworkCardOutput {
+	return o
+}
+
+func (o GetInstanceTypeNetworkCardOutput) ToGetInstanceTypeNetworkCardOutputWithContext(ctx context.Context) GetInstanceTypeNetworkCardOutput {
+	return o
+}
+
+func (o GetInstanceTypeNetworkCardOutput) BaselineBandwidth() pulumi.Float64Output {
+	return o.ApplyT(func(v GetInstanceTypeNetworkCard) float64 { return v.BaselineBandwidth }).(pulumi.Float64Output)
+}
+
+func (o GetInstanceTypeNetworkCardOutput) Index() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeNetworkCard) int { return v.Index }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeNetworkCardOutput) MaximumInterfaces() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeNetworkCard) int { return v.MaximumInterfaces }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeNetworkCardOutput) PeakBandwidth() pulumi.Float64Output {
+	return o.ApplyT(func(v GetInstanceTypeNetworkCard) float64 { return v.PeakBandwidth }).(pulumi.Float64Output)
+}
+
+func (o GetInstanceTypeNetworkCardOutput) Performance() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeNetworkCard) string { return v.Performance }).(pulumi.StringOutput)
+}
+
+type GetInstanceTypeNetworkCardArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeNetworkCardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeNetworkCard)(nil)).Elem()
+}
+
+func (o GetInstanceTypeNetworkCardArrayOutput) ToGetInstanceTypeNetworkCardArrayOutput() GetInstanceTypeNetworkCardArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeNetworkCardArrayOutput) ToGetInstanceTypeNetworkCardArrayOutputWithContext(ctx context.Context) GetInstanceTypeNetworkCardArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeNetworkCardArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeNetworkCardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeNetworkCard {
+		return vs[0].([]GetInstanceTypeNetworkCard)[vs[1].(int)]
+	}).(GetInstanceTypeNetworkCardOutput)
+}
+
+type GetInstanceTypeNeuronDevice struct {
+	CoreCount   int `pulumi:"coreCount"`
+	CoreVersion int `pulumi:"coreVersion"`
+	Count       int `pulumi:"count"`
+	// Size of the instance memory, in MiB.
+	MemorySize int    `pulumi:"memorySize"`
+	Name       string `pulumi:"name"`
+}
+
+// GetInstanceTypeNeuronDeviceInput is an input type that accepts GetInstanceTypeNeuronDeviceArgs and GetInstanceTypeNeuronDeviceOutput values.
+// You can construct a concrete instance of `GetInstanceTypeNeuronDeviceInput` via:
+//
+//	GetInstanceTypeNeuronDeviceArgs{...}
+type GetInstanceTypeNeuronDeviceInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeNeuronDeviceOutput() GetInstanceTypeNeuronDeviceOutput
+	ToGetInstanceTypeNeuronDeviceOutputWithContext(context.Context) GetInstanceTypeNeuronDeviceOutput
+}
+
+type GetInstanceTypeNeuronDeviceArgs struct {
+	CoreCount   pulumi.IntInput `pulumi:"coreCount"`
+	CoreVersion pulumi.IntInput `pulumi:"coreVersion"`
+	Count       pulumi.IntInput `pulumi:"count"`
+	// Size of the instance memory, in MiB.
+	MemorySize pulumi.IntInput    `pulumi:"memorySize"`
+	Name       pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetInstanceTypeNeuronDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeNeuronDevice)(nil)).Elem()
+}
+
+func (i GetInstanceTypeNeuronDeviceArgs) ToGetInstanceTypeNeuronDeviceOutput() GetInstanceTypeNeuronDeviceOutput {
+	return i.ToGetInstanceTypeNeuronDeviceOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeNeuronDeviceArgs) ToGetInstanceTypeNeuronDeviceOutputWithContext(ctx context.Context) GetInstanceTypeNeuronDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeNeuronDeviceOutput)
+}
+
+// GetInstanceTypeNeuronDeviceArrayInput is an input type that accepts GetInstanceTypeNeuronDeviceArray and GetInstanceTypeNeuronDeviceArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeNeuronDeviceArrayInput` via:
+//
+//	GetInstanceTypeNeuronDeviceArray{ GetInstanceTypeNeuronDeviceArgs{...} }
+type GetInstanceTypeNeuronDeviceArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeNeuronDeviceArrayOutput() GetInstanceTypeNeuronDeviceArrayOutput
+	ToGetInstanceTypeNeuronDeviceArrayOutputWithContext(context.Context) GetInstanceTypeNeuronDeviceArrayOutput
+}
+
+type GetInstanceTypeNeuronDeviceArray []GetInstanceTypeNeuronDeviceInput
+
+func (GetInstanceTypeNeuronDeviceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeNeuronDevice)(nil)).Elem()
+}
+
+func (i GetInstanceTypeNeuronDeviceArray) ToGetInstanceTypeNeuronDeviceArrayOutput() GetInstanceTypeNeuronDeviceArrayOutput {
+	return i.ToGetInstanceTypeNeuronDeviceArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeNeuronDeviceArray) ToGetInstanceTypeNeuronDeviceArrayOutputWithContext(ctx context.Context) GetInstanceTypeNeuronDeviceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeNeuronDeviceArrayOutput)
+}
+
+type GetInstanceTypeNeuronDeviceOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeNeuronDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeNeuronDevice)(nil)).Elem()
+}
+
+func (o GetInstanceTypeNeuronDeviceOutput) ToGetInstanceTypeNeuronDeviceOutput() GetInstanceTypeNeuronDeviceOutput {
+	return o
+}
+
+func (o GetInstanceTypeNeuronDeviceOutput) ToGetInstanceTypeNeuronDeviceOutputWithContext(ctx context.Context) GetInstanceTypeNeuronDeviceOutput {
+	return o
+}
+
+func (o GetInstanceTypeNeuronDeviceOutput) CoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeNeuronDevice) int { return v.CoreCount }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeNeuronDeviceOutput) CoreVersion() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeNeuronDevice) int { return v.CoreVersion }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeNeuronDeviceOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeNeuronDevice) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// Size of the instance memory, in MiB.
+func (o GetInstanceTypeNeuronDeviceOutput) MemorySize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeNeuronDevice) int { return v.MemorySize }).(pulumi.IntOutput)
+}
+
+func (o GetInstanceTypeNeuronDeviceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeNeuronDevice) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetInstanceTypeNeuronDeviceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeNeuronDeviceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeNeuronDevice)(nil)).Elem()
+}
+
+func (o GetInstanceTypeNeuronDeviceArrayOutput) ToGetInstanceTypeNeuronDeviceArrayOutput() GetInstanceTypeNeuronDeviceArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeNeuronDeviceArrayOutput) ToGetInstanceTypeNeuronDeviceArrayOutputWithContext(ctx context.Context) GetInstanceTypeNeuronDeviceArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeNeuronDeviceArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeNeuronDeviceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeNeuronDevice {
+		return vs[0].([]GetInstanceTypeNeuronDevice)[vs[1].(int)]
+	}).(GetInstanceTypeNeuronDeviceOutput)
 }
 
 type GetInstanceTypeOfferingFilter struct {
@@ -58660,6 +59023,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeInferenceAcceleratorArrayInput)(nil)).Elem(), GetInstanceTypeInferenceAcceleratorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeInstanceDiskInput)(nil)).Elem(), GetInstanceTypeInstanceDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeInstanceDiskArrayInput)(nil)).Elem(), GetInstanceTypeInstanceDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeMediaAcceleratorInput)(nil)).Elem(), GetInstanceTypeMediaAcceleratorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeMediaAcceleratorArrayInput)(nil)).Elem(), GetInstanceTypeMediaAcceleratorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeNetworkCardInput)(nil)).Elem(), GetInstanceTypeNetworkCardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeNetworkCardArrayInput)(nil)).Elem(), GetInstanceTypeNetworkCardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeNeuronDeviceInput)(nil)).Elem(), GetInstanceTypeNeuronDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeNeuronDeviceArrayInput)(nil)).Elem(), GetInstanceTypeNeuronDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeOfferingFilterInput)(nil)).Elem(), GetInstanceTypeOfferingFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeOfferingFilterArrayInput)(nil)).Elem(), GetInstanceTypeOfferingFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeOfferingsFilterInput)(nil)).Elem(), GetInstanceTypeOfferingsFilterArgs{})
@@ -59517,6 +59886,12 @@ func init() {
 	pulumi.RegisterOutputType(GetInstanceTypeInferenceAcceleratorArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeInstanceDiskOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeInstanceDiskArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeMediaAcceleratorOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeMediaAcceleratorArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeNetworkCardOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeNetworkCardArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeNeuronDeviceOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeNeuronDeviceArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingFilterOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingsFilterOutput{})

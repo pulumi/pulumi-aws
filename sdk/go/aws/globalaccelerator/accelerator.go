@@ -59,6 +59,8 @@ import (
 type Accelerator struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the accelerator.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The attributes of the accelerator. Fields documented below.
 	Attributes AcceleratorAttributesPtrOutput `pulumi:"attributes"`
 	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
@@ -117,6 +119,8 @@ func GetAccelerator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Accelerator resources.
 type acceleratorState struct {
+	// The Amazon Resource Name (ARN) of the accelerator.
+	Arn *string `pulumi:"arn"`
 	// The attributes of the accelerator. Fields documented below.
 	Attributes *AcceleratorAttributes `pulumi:"attributes"`
 	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
@@ -146,6 +150,8 @@ type acceleratorState struct {
 }
 
 type AcceleratorState struct {
+	// The Amazon Resource Name (ARN) of the accelerator.
+	Arn pulumi.StringPtrInput
 	// The attributes of the accelerator. Fields documented below.
 	Attributes AcceleratorAttributesPtrInput
 	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
@@ -294,6 +300,11 @@ func (o AcceleratorOutput) ToAcceleratorOutput() AcceleratorOutput {
 
 func (o AcceleratorOutput) ToAcceleratorOutputWithContext(ctx context.Context) AcceleratorOutput {
 	return o
+}
+
+// The Amazon Resource Name (ARN) of the accelerator.
+func (o AcceleratorOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The attributes of the accelerator. Fields documented below.

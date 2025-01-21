@@ -434,6 +434,20 @@ public class Ami extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tpmSupport);
     }
     /**
+     * Base64 representation of the non-volatile UEFI variable store.
+     * 
+     */
+    @Export(name="uefiData", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> uefiData;
+
+    /**
+     * @return Base64 representation of the non-volatile UEFI variable store.
+     * 
+     */
+    public Output<Optional<String>> uefiData() {
+        return Codegen.optional(this.uefiData);
+    }
+    /**
      * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */

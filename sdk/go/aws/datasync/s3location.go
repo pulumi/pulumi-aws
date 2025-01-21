@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -45,6 +47,41 @@ import (
 //
 // ```
 //
+// ### S3 Bucket on AWS Outposts
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewS3Location(ctx, "destination", &datasync.S3LocationArgs{
+//				AgentArns: pulumi.StringArray{
+//					exampleAwsDatasyncAgent.Arn,
+//				},
+//				S3BucketArn:    pulumi.Any(exampleAwsS3AccessPoint.Arn),
+//				S3StorageClass: pulumi.String("OUTPOSTS"),
+//				Subdirectory:   pulumi.String("/example/prefix"),
+//				S3Config: &datasync.S3LocationS3ConfigArgs{
+//					BucketAccessRoleArn: pulumi.Any(example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_s3` using the DataSync Task Amazon Resource Name (ARN). For example:
@@ -55,15 +92,15 @@ import (
 type S3Location struct {
 	pulumi.CustomResourceState
 
-	// A list of DataSync Agent ARNs with which this location will be associated.
+	// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the S3 Bucket.
+	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3ConfigOutput `pulumi:"s3Config"`
-	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
 	S3StorageClass pulumi.StringOutput `pulumi:"s3StorageClass"`
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
@@ -115,15 +152,15 @@ func GetS3Location(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering S3Location resources.
 type s3locationState struct {
-	// A list of DataSync Agent ARNs with which this location will be associated.
+	// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
 	AgentArns []string `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn *string `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the S3 Bucket.
+	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn *string `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
 	S3Config *S3LocationS3Config `pulumi:"s3Config"`
-	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
 	S3StorageClass *string `pulumi:"s3StorageClass"`
 	// Prefix to perform actions as source or destination.
 	Subdirectory *string `pulumi:"subdirectory"`
@@ -137,15 +174,15 @@ type s3locationState struct {
 }
 
 type S3LocationState struct {
-	// A list of DataSync Agent ARNs with which this location will be associated.
+	// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
 	AgentArns pulumi.StringArrayInput
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the S3 Bucket.
+	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn pulumi.StringPtrInput
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3ConfigPtrInput
-	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
 	S3StorageClass pulumi.StringPtrInput
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringPtrInput
@@ -163,13 +200,13 @@ func (S3LocationState) ElementType() reflect.Type {
 }
 
 type s3locationArgs struct {
-	// A list of DataSync Agent ARNs with which this location will be associated.
+	// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
 	AgentArns []string `pulumi:"agentArns"`
-	// Amazon Resource Name (ARN) of the S3 Bucket.
+	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn string `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3Config `pulumi:"s3Config"`
-	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
 	S3StorageClass *string `pulumi:"s3StorageClass"`
 	// Prefix to perform actions as source or destination.
 	Subdirectory string `pulumi:"subdirectory"`
@@ -179,13 +216,13 @@ type s3locationArgs struct {
 
 // The set of arguments for constructing a S3Location resource.
 type S3LocationArgs struct {
-	// A list of DataSync Agent ARNs with which this location will be associated.
+	// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
 	AgentArns pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of the S3 Bucket.
+	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn pulumi.StringInput
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3ConfigInput
-	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+	// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
 	S3StorageClass pulumi.StringPtrInput
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringInput
@@ -280,7 +317,7 @@ func (o S3LocationOutput) ToS3LocationOutputWithContext(ctx context.Context) S3L
 	return o
 }
 
-// A list of DataSync Agent ARNs with which this location will be associated.
+// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
 func (o S3LocationOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
@@ -290,7 +327,7 @@ func (o S3LocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the S3 Bucket.
+// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 func (o S3LocationOutput) S3BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.S3BucketArn }).(pulumi.StringOutput)
 }
@@ -300,7 +337,7 @@ func (o S3LocationOutput) S3Config() S3LocationS3ConfigOutput {
 	return o.ApplyT(func(v *S3Location) S3LocationS3ConfigOutput { return v.S3Config }).(S3LocationS3ConfigOutput)
 }
 
-// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
 func (o S3LocationOutput) S3StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.S3StorageClass }).(pulumi.StringOutput)
 }

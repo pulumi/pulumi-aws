@@ -58,8 +58,12 @@ type GetInstanceTypeArgs struct {
 type GetInstanceTypeResult struct {
 	// `true` if auto recovery is supported.
 	AutoRecoverySupported bool `pulumi:"autoRecoverySupported"`
+	// A set of strings of valid settings for [configurable bandwidth weighting](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html), if supported.
+	BandwidthWeightings []string `pulumi:"bandwidthWeightings"`
 	// `true` if it is a bare metal instance type.
 	BareMetal bool `pulumi:"bareMetal"`
+	// A set of strings of supported boot modes.
+	BootModes []string `pulumi:"bootModes"`
 	// `true` if the instance type is a burstable performance instance type.
 	BurstablePerformanceSupported bool `pulumi:"burstablePerformanceSupported"`
 	// `true`  if the instance type is a current generation.
@@ -68,6 +72,8 @@ type GetInstanceTypeResult struct {
 	DedicatedHostsSupported bool `pulumi:"dedicatedHostsSupported"`
 	// Default number of cores for the instance type.
 	DefaultCores int `pulumi:"defaultCores"`
+	// The index of the default network card, starting at `0`.
+	DefaultNetworkCardIndex int `pulumi:"defaultNetworkCardIndex"`
 	// The  default  number of threads per core for the instance type.
 	DefaultThreadsPerCore int `pulumi:"defaultThreadsPerCore"`
 	// Default number of vCPUs for the instance type.
@@ -90,16 +96,20 @@ type GetInstanceTypeResult struct {
 	EbsPerformanceMaximumIops int `pulumi:"ebsPerformanceMaximumIops"`
 	// The maximum throughput performance for an EBS-optimized instance type, in MBps.
 	EbsPerformanceMaximumThroughput float64 `pulumi:"ebsPerformanceMaximumThroughput"`
-	// Whether Elastic Fabric Adapter (EFA) is supported.
+	// The maximum number of Elastic Fabric Adapters for the instance type.
+	EfaMaximumInterfaces int `pulumi:"efaMaximumInterfaces"`
+	// `true` if Elastic Fabric Adapter (EFA) is supported.
 	EfaSupported bool `pulumi:"efaSupported"`
-	// Whether Elastic Network Adapter (ENA) is supported.
+	// `true` if the instance type supports [ENA Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html).
+	EnaSrdSupported bool `pulumi:"enaSrdSupported"`
+	// Indicates whether Elastic Network Adapter (ENA) is `"supported"`, `"required"`, or `"unsupported"`.
 	EnaSupport string `pulumi:"enaSupport"`
-	// Indicates whether encryption in-transit between instances is supported.
+	// `true` if encryption in-transit between instances is supported.
 	EncryptionInTransitSupported bool `pulumi:"encryptionInTransitSupported"`
 	// Describes the FPGA accelerator settings for the instance type.
 	// * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
 	// * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
-	// * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
+	// * `fpgas.#.memory_size` - The size (in MiB) of the memory available to the FPGA accelerator.
 	// * `fpgas.#.name` - The name of the FPGA accelerator.
 	Fpgas []GetInstanceTypeFpga `pulumi:"fpgas"`
 	// `true` if the instance type is eligible for the free tier.
@@ -107,7 +117,7 @@ type GetInstanceTypeResult struct {
 	// Describes the GPU accelerators for the instance type.
 	// * `gpus.#.count` - The number of GPUs for the instance type.
 	// * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
-	// * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
+	// * `gpus.#.memory_size` - The size (in MiB) of the memory available to the GPU accelerator.
 	// * `gpus.#.name` - The name of the GPU accelerator.
 	Gpuses []GetInstanceTypeGpus `pulumi:"gpuses"`
 	// `true` if On-Demand hibernation is supported.
@@ -119,6 +129,7 @@ type GetInstanceTypeResult struct {
 	// Describes the Inference accelerators for the instance type.
 	// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
 	// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+	// * `inference_accelerators.#.memory_size` - The size (in MiB) of the memory available to the inference accelerator.
 	// * `inference_accelerators.#.name` - The name of the Inference accelerator.
 	InferenceAccelerators []GetInstanceTypeInferenceAccelerator `pulumi:"inferenceAccelerators"`
 	// Describes the disks for the instance type.
@@ -139,17 +150,47 @@ type GetInstanceTypeResult struct {
 	MaximumNetworkCards int `pulumi:"maximumNetworkCards"`
 	// The maximum number of network interfaces for the instance type.
 	MaximumNetworkInterfaces int `pulumi:"maximumNetworkInterfaces"`
+	// Describes the media accelerator settings for the instance type.
+	// * `media_accelerators.#.count` - The number of media accelerators for the instance type.
+	// * `media_accelerators.#.manufacturer` - The manufacturer of the media accelerator.
+	// * `media_accelerators.#.memory_size` - The size (in MiB) of the memory available to each media accelerator.
+	// * `media_accelerators.#.name` - The name of the media accelerator.
+	MediaAccelerators []GetInstanceTypeMediaAccelerator `pulumi:"mediaAccelerators"`
 	// Size of the instance memory, in MiB.
 	MemorySize int `pulumi:"memorySize"`
+	// Describes the network cards for the instance type.
+	// * `network_cards.#.baseline_bandwidth` - The baseline network performance (in Gbps) of the network card.
+	// * `network_cards.#.index` - The index of the network card.
+	// * `network_cards.#.maximum_interfaces` - The maximum number of network interfaces for the /network card.
+	// * `network_cards.#.performance` - Describes the network performance of the network card.
+	// * `network_cards.#.peak_bandwidth` - The peak (burst) network performance (in Gbps) of the network card.
+	NetworkCards []GetInstanceTypeNetworkCard `pulumi:"networkCards"`
 	// Describes the network performance.
 	NetworkPerformance string `pulumi:"networkPerformance"`
-	// A list of architectures supported by the instance type.
+	// Describes the Neuron accelerator settings for the instance type.
+	// * `neuron_devices.#.core_count` - The number of cores available to the neuron accelerator.
+	// * `neuron_devices.#.core_version` - A number representing the version of the neuron accelerator.
+	// * `neuron_devices.#.count` - The number of neuron accelerators for the instance type.
+	// * `neuron_devices.#.memory_size` - The size (in MiB) of the memory available to the neuron accelerator.
+	// * `neuron_devices.#.name` - The name of the neuron accelerator.
+	NeuronDevices []GetInstanceTypeNeuronDevice `pulumi:"neuronDevices"`
+	// Indicates whether Nitro Enclaves is `"supported"` or `"unsupported"`.
+	NitroEnclavesSupport string `pulumi:"nitroEnclavesSupport"`
+	// Indicates whether NitroTPM is `"supported"` or `"unsupported"`.
+	NitroTpmSupport string `pulumi:"nitroTpmSupport"`
+	// A set of strings indicating the supported NitroTPM versions.
+	NitroTpmSupportedVersions []string `pulumi:"nitroTpmSupportedVersions"`
+	// `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
+	PhcSupport string `pulumi:"phcSupport"`
+	// A list of strings of architectures supported by the instance type.
 	SupportedArchitectures []string `pulumi:"supportedArchitectures"`
+	// A set of strings indicating supported CPU features.
+	SupportedCpuFeatures []string `pulumi:"supportedCpuFeatures"`
 	// A list of supported placement groups types.
 	SupportedPlacementStrategies []string `pulumi:"supportedPlacementStrategies"`
-	// Indicates the supported root device types.
+	// A list of supported root device types.
 	SupportedRootDeviceTypes []string `pulumi:"supportedRootDeviceTypes"`
-	// Indicates whether the instance type is offered for spot or On-Demand.
+	// A list of supported usage classes.  Usage classes are `"spot"`, `"on-demand"`, or `"capacity-block"`.
 	SupportedUsagesClasses []string `pulumi:"supportedUsagesClasses"`
 	// The supported virtualization types.
 	SupportedVirtualizationTypes []string `pulumi:"supportedVirtualizationTypes"`
@@ -159,8 +200,14 @@ type GetInstanceTypeResult struct {
 	TotalFpgaMemory int `pulumi:"totalFpgaMemory"`
 	// Total size of the memory for the GPU accelerators for the instance type (in MiB).
 	TotalGpuMemory int `pulumi:"totalGpuMemory"`
+	// The total size of the memory for the neuron accelerators for the instance type (in MiB).
+	TotalInferenceMemory int `pulumi:"totalInferenceMemory"`
 	// The total size of the instance disks, in GB.
 	TotalInstanceStorage int `pulumi:"totalInstanceStorage"`
+	// The total size of the memory for the media accelerators for the instance type (in MiB).
+	TotalMediaMemory int `pulumi:"totalMediaMemory"`
+	// The total size of the memory for the neuron accelerators for the instance type (in MiB).
+	TotalNeuronDeviceMemory int `pulumi:"totalNeuronDeviceMemory"`
 	// List of the valid number of cores that can be configured for the instance type.
 	ValidCores []int `pulumi:"validCores"`
 	// List of the valid number of threads per core that can be configured for the instance type.
@@ -206,9 +253,19 @@ func (o GetInstanceTypeResultOutput) AutoRecoverySupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.AutoRecoverySupported }).(pulumi.BoolOutput)
 }
 
+// A set of strings of valid settings for [configurable bandwidth weighting](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html), if supported.
+func (o GetInstanceTypeResultOutput) BandwidthWeightings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) []string { return v.BandwidthWeightings }).(pulumi.StringArrayOutput)
+}
+
 // `true` if it is a bare metal instance type.
 func (o GetInstanceTypeResultOutput) BareMetal() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.BareMetal }).(pulumi.BoolOutput)
+}
+
+// A set of strings of supported boot modes.
+func (o GetInstanceTypeResultOutput) BootModes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) []string { return v.BootModes }).(pulumi.StringArrayOutput)
 }
 
 // `true` if the instance type is a burstable performance instance type.
@@ -229,6 +286,11 @@ func (o GetInstanceTypeResultOutput) DedicatedHostsSupported() pulumi.BoolOutput
 // Default number of cores for the instance type.
 func (o GetInstanceTypeResultOutput) DefaultCores() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.DefaultCores }).(pulumi.IntOutput)
+}
+
+// The index of the default network card, starting at `0`.
+func (o GetInstanceTypeResultOutput) DefaultNetworkCardIndex() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.DefaultNetworkCardIndex }).(pulumi.IntOutput)
 }
 
 // The  default  number of threads per core for the instance type.
@@ -286,17 +348,27 @@ func (o GetInstanceTypeResultOutput) EbsPerformanceMaximumThroughput() pulumi.Fl
 	return o.ApplyT(func(v GetInstanceTypeResult) float64 { return v.EbsPerformanceMaximumThroughput }).(pulumi.Float64Output)
 }
 
-// Whether Elastic Fabric Adapter (EFA) is supported.
+// The maximum number of Elastic Fabric Adapters for the instance type.
+func (o GetInstanceTypeResultOutput) EfaMaximumInterfaces() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.EfaMaximumInterfaces }).(pulumi.IntOutput)
+}
+
+// `true` if Elastic Fabric Adapter (EFA) is supported.
 func (o GetInstanceTypeResultOutput) EfaSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.EfaSupported }).(pulumi.BoolOutput)
 }
 
-// Whether Elastic Network Adapter (ENA) is supported.
+// `true` if the instance type supports [ENA Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html).
+func (o GetInstanceTypeResultOutput) EnaSrdSupported() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.EnaSrdSupported }).(pulumi.BoolOutput)
+}
+
+// Indicates whether Elastic Network Adapter (ENA) is `"supported"`, `"required"`, or `"unsupported"`.
 func (o GetInstanceTypeResultOutput) EnaSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.EnaSupport }).(pulumi.StringOutput)
 }
 
-// Indicates whether encryption in-transit between instances is supported.
+// `true` if encryption in-transit between instances is supported.
 func (o GetInstanceTypeResultOutput) EncryptionInTransitSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.EncryptionInTransitSupported }).(pulumi.BoolOutput)
 }
@@ -304,7 +376,7 @@ func (o GetInstanceTypeResultOutput) EncryptionInTransitSupported() pulumi.BoolO
 // Describes the FPGA accelerator settings for the instance type.
 // * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
 // * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
-// * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
+// * `fpgas.#.memory_size` - The size (in MiB) of the memory available to the FPGA accelerator.
 // * `fpgas.#.name` - The name of the FPGA accelerator.
 func (o GetInstanceTypeResultOutput) Fpgas() GetInstanceTypeFpgaArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) []GetInstanceTypeFpga { return v.Fpgas }).(GetInstanceTypeFpgaArrayOutput)
@@ -318,7 +390,7 @@ func (o GetInstanceTypeResultOutput) FreeTierEligible() pulumi.BoolOutput {
 // Describes the GPU accelerators for the instance type.
 // * `gpus.#.count` - The number of GPUs for the instance type.
 // * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
-// * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
+// * `gpus.#.memory_size` - The size (in MiB) of the memory available to the GPU accelerator.
 // * `gpus.#.name` - The name of the GPU accelerator.
 func (o GetInstanceTypeResultOutput) Gpuses() GetInstanceTypeGpusArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) []GetInstanceTypeGpus { return v.Gpuses }).(GetInstanceTypeGpusArrayOutput)
@@ -342,6 +414,7 @@ func (o GetInstanceTypeResultOutput) Id() pulumi.StringOutput {
 // Describes the Inference accelerators for the instance type.
 // * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
 // * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+// * `inference_accelerators.#.memory_size` - The size (in MiB) of the memory available to the inference accelerator.
 // * `inference_accelerators.#.name` - The name of the Inference accelerator.
 func (o GetInstanceTypeResultOutput) InferenceAccelerators() GetInstanceTypeInferenceAcceleratorArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) []GetInstanceTypeInferenceAccelerator { return v.InferenceAccelerators }).(GetInstanceTypeInferenceAcceleratorArrayOutput)
@@ -389,9 +462,28 @@ func (o GetInstanceTypeResultOutput) MaximumNetworkInterfaces() pulumi.IntOutput
 	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.MaximumNetworkInterfaces }).(pulumi.IntOutput)
 }
 
+// Describes the media accelerator settings for the instance type.
+// * `media_accelerators.#.count` - The number of media accelerators for the instance type.
+// * `media_accelerators.#.manufacturer` - The manufacturer of the media accelerator.
+// * `media_accelerators.#.memory_size` - The size (in MiB) of the memory available to each media accelerator.
+// * `media_accelerators.#.name` - The name of the media accelerator.
+func (o GetInstanceTypeResultOutput) MediaAccelerators() GetInstanceTypeMediaAcceleratorArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) []GetInstanceTypeMediaAccelerator { return v.MediaAccelerators }).(GetInstanceTypeMediaAcceleratorArrayOutput)
+}
+
 // Size of the instance memory, in MiB.
 func (o GetInstanceTypeResultOutput) MemorySize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.MemorySize }).(pulumi.IntOutput)
+}
+
+// Describes the network cards for the instance type.
+// * `network_cards.#.baseline_bandwidth` - The baseline network performance (in Gbps) of the network card.
+// * `network_cards.#.index` - The index of the network card.
+// * `network_cards.#.maximum_interfaces` - The maximum number of network interfaces for the /network card.
+// * `network_cards.#.performance` - Describes the network performance of the network card.
+// * `network_cards.#.peak_bandwidth` - The peak (burst) network performance (in Gbps) of the network card.
+func (o GetInstanceTypeResultOutput) NetworkCards() GetInstanceTypeNetworkCardArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) []GetInstanceTypeNetworkCard { return v.NetworkCards }).(GetInstanceTypeNetworkCardArrayOutput)
 }
 
 // Describes the network performance.
@@ -399,9 +491,44 @@ func (o GetInstanceTypeResultOutput) NetworkPerformance() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.NetworkPerformance }).(pulumi.StringOutput)
 }
 
-// A list of architectures supported by the instance type.
+// Describes the Neuron accelerator settings for the instance type.
+// * `neuron_devices.#.core_count` - The number of cores available to the neuron accelerator.
+// * `neuron_devices.#.core_version` - A number representing the version of the neuron accelerator.
+// * `neuron_devices.#.count` - The number of neuron accelerators for the instance type.
+// * `neuron_devices.#.memory_size` - The size (in MiB) of the memory available to the neuron accelerator.
+// * `neuron_devices.#.name` - The name of the neuron accelerator.
+func (o GetInstanceTypeResultOutput) NeuronDevices() GetInstanceTypeNeuronDeviceArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) []GetInstanceTypeNeuronDevice { return v.NeuronDevices }).(GetInstanceTypeNeuronDeviceArrayOutput)
+}
+
+// Indicates whether Nitro Enclaves is `"supported"` or `"unsupported"`.
+func (o GetInstanceTypeResultOutput) NitroEnclavesSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.NitroEnclavesSupport }).(pulumi.StringOutput)
+}
+
+// Indicates whether NitroTPM is `"supported"` or `"unsupported"`.
+func (o GetInstanceTypeResultOutput) NitroTpmSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.NitroTpmSupport }).(pulumi.StringOutput)
+}
+
+// A set of strings indicating the supported NitroTPM versions.
+func (o GetInstanceTypeResultOutput) NitroTpmSupportedVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) []string { return v.NitroTpmSupportedVersions }).(pulumi.StringArrayOutput)
+}
+
+// `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
+func (o GetInstanceTypeResultOutput) PhcSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.PhcSupport }).(pulumi.StringOutput)
+}
+
+// A list of strings of architectures supported by the instance type.
 func (o GetInstanceTypeResultOutput) SupportedArchitectures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) []string { return v.SupportedArchitectures }).(pulumi.StringArrayOutput)
+}
+
+// A set of strings indicating supported CPU features.
+func (o GetInstanceTypeResultOutput) SupportedCpuFeatures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) []string { return v.SupportedCpuFeatures }).(pulumi.StringArrayOutput)
 }
 
 // A list of supported placement groups types.
@@ -409,12 +536,12 @@ func (o GetInstanceTypeResultOutput) SupportedPlacementStrategies() pulumi.Strin
 	return o.ApplyT(func(v GetInstanceTypeResult) []string { return v.SupportedPlacementStrategies }).(pulumi.StringArrayOutput)
 }
 
-// Indicates the supported root device types.
+// A list of supported root device types.
 func (o GetInstanceTypeResultOutput) SupportedRootDeviceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) []string { return v.SupportedRootDeviceTypes }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether the instance type is offered for spot or On-Demand.
+// A list of supported usage classes.  Usage classes are `"spot"`, `"on-demand"`, or `"capacity-block"`.
 func (o GetInstanceTypeResultOutput) SupportedUsagesClasses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) []string { return v.SupportedUsagesClasses }).(pulumi.StringArrayOutput)
 }
@@ -439,9 +566,24 @@ func (o GetInstanceTypeResultOutput) TotalGpuMemory() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.TotalGpuMemory }).(pulumi.IntOutput)
 }
 
+// The total size of the memory for the neuron accelerators for the instance type (in MiB).
+func (o GetInstanceTypeResultOutput) TotalInferenceMemory() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.TotalInferenceMemory }).(pulumi.IntOutput)
+}
+
 // The total size of the instance disks, in GB.
 func (o GetInstanceTypeResultOutput) TotalInstanceStorage() pulumi.IntOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.TotalInstanceStorage }).(pulumi.IntOutput)
+}
+
+// The total size of the memory for the media accelerators for the instance type (in MiB).
+func (o GetInstanceTypeResultOutput) TotalMediaMemory() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.TotalMediaMemory }).(pulumi.IntOutput)
+}
+
+// The total size of the memory for the neuron accelerators for the instance type (in MiB).
+func (o GetInstanceTypeResultOutput) TotalNeuronDeviceMemory() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) int { return v.TotalNeuronDeviceMemory }).(pulumi.IntOutput)
 }
 
 // List of the valid number of cores that can be configured for the instance type.

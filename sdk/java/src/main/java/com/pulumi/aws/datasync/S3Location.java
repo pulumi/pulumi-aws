@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -60,6 +62,48 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### S3 Bucket on AWS Outposts
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.datasync.S3Location;
+ * import com.pulumi.aws.datasync.S3LocationArgs;
+ * import com.pulumi.aws.datasync.inputs.S3LocationS3ConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var destination = new S3Location("destination", S3LocationArgs.builder()
+ *             .agentArns(exampleAwsDatasyncAgent.arn())
+ *             .s3BucketArn(exampleAwsS3AccessPoint.arn())
+ *             .s3StorageClass("OUTPOSTS")
+ *             .subdirectory("/example/prefix")
+ *             .s3Config(S3LocationS3ConfigArgs.builder()
+ *                 .bucketAccessRoleArn(example.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_location_s3` using the DataSync Task Amazon Resource Name (ARN). For example:
@@ -72,14 +116,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:datasync/s3Location:S3Location")
 public class S3Location extends com.pulumi.resources.CustomResource {
     /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
+     * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
      * 
      */
     @Export(name="agentArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> agentArns;
 
     /**
-     * @return A list of DataSync Agent ARNs with which this location will be associated.
+     * @return (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
      * 
      */
     public Output<Optional<List<String>>> agentArns() {
@@ -100,14 +144,14 @@ public class S3Location extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Amazon Resource Name (ARN) of the S3 Bucket.
+     * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      * 
      */
     @Export(name="s3BucketArn", refs={String.class}, tree="[0]")
     private Output<String> s3BucketArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 Bucket.
+     * @return Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      * 
      */
     public Output<String> s3BucketArn() {
@@ -128,14 +172,14 @@ public class S3Location extends com.pulumi.resources.CustomResource {
         return this.s3Config;
     }
     /**
-     * The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+     * Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      * 
      */
     @Export(name="s3StorageClass", refs={String.class}, tree="[0]")
     private Output<String> s3StorageClass;
 
     /**
-     * @return The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+     * @return Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      * 
      */
     public Output<String> s3StorageClass() {

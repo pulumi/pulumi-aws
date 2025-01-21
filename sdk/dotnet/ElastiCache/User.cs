@@ -28,7 +28,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         UserId = "testUserId",
     ///         UserName = "testUserName",
     ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-    ///         Engine = "REDIS",
+    ///         Engine = "redis",
     ///         Passwords = new[]
     ///         {
     ///             "password123456789",
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         UserId = "testUserId",
     ///         UserName = "testUserName",
     ///         AccessString = "on ~* +@all",
-    ///         Engine = "REDIS",
+    ///         Engine = "redis",
     ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
     ///         {
     ///             Type = "iam",
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         UserId = "testUserId",
     ///         UserName = "testUserName",
     ///         AccessString = "on ~* +@all",
-    ///         Engine = "REDIS",
+    ///         Engine = "redis",
     ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
     ///         {
     ///             Type = "password",
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<Outputs.UserAuthenticationMode> AuthenticationMode { get; private set; } = null!;
 
         /// <summary>
-        /// The current supported values are `REDIS`, `VALKEY`.
+        /// The current supported values are `redis`, `valkey` (case insensitive).
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<Inputs.UserAuthenticationModeArgs>? AuthenticationMode { get; set; }
 
         /// <summary>
-        /// The current supported values are `REDIS`, `VALKEY`.
+        /// The current supported values are `redis`, `valkey` (case insensitive).
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<Inputs.UserAuthenticationModeGetArgs>? AuthenticationMode { get; set; }
 
         /// <summary>
-        /// The current supported values are `REDIS`, `VALKEY`.
+        /// The current supported values are `redis`, `valkey` (case insensitive).
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }

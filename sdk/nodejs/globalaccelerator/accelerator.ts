@@ -66,6 +66,10 @@ export class Accelerator extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the accelerator.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The attributes of the accelerator. Fields documented below.
      */
     public readonly attributes!: pulumi.Output<outputs.globalaccelerator.AcceleratorAttributes | undefined>;
@@ -127,6 +131,7 @@ export class Accelerator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AcceleratorState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["attributes"] = state ? state.attributes : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
             resourceInputs["dualStackDnsName"] = state ? state.dualStackDnsName : undefined;
@@ -146,6 +151,7 @@ export class Accelerator extends pulumi.CustomResource {
             resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["dualStackDnsName"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
@@ -161,6 +167,10 @@ export class Accelerator extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Accelerator resources.
  */
 export interface AcceleratorState {
+    /**
+     * The Amazon Resource Name (ARN) of the accelerator.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The attributes of the accelerator. Fields documented below.
      */

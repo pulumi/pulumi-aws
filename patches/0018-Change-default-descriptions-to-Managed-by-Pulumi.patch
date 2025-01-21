@@ -5,7 +5,7 @@ Subject: [PATCH] Change default descriptions to "Managed by Pulumi"
 
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
-index 1bc1374a31..9bc6fba23e 100644
+index 6351d6ff42..6c968b3007 100644
 --- a/internal/service/apigateway/api_key.go
 +++ b/internal/service/apigateway/api_key.go
 @@ -55,7 +55,7 @@ func resourceAPIKey() *schema.Resource {

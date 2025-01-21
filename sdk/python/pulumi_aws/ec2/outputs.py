@@ -266,6 +266,9 @@ __all__ = [
     'GetInstanceTypeGpusResult',
     'GetInstanceTypeInferenceAcceleratorResult',
     'GetInstanceTypeInstanceDiskResult',
+    'GetInstanceTypeMediaAcceleratorResult',
+    'GetInstanceTypeNetworkCardResult',
+    'GetInstanceTypeNeuronDeviceResult',
     'GetInstanceTypeOfferingFilterResult',
     'GetInstanceTypeOfferingsFilterResult',
     'GetInstanceTypesFilterResult',
@@ -16589,9 +16592,14 @@ class GetInstanceTypeInferenceAcceleratorResult(dict):
     def __init__(__self__, *,
                  count: int,
                  manufacturer: str,
+                 memory_size: int,
                  name: str):
+        """
+        :param int memory_size: Size of the instance memory, in MiB.
+        """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "manufacturer", manufacturer)
+        pulumi.set(__self__, "memory_size", memory_size)
         pulumi.set(__self__, "name", name)
 
     @property
@@ -16603,6 +16611,14 @@ class GetInstanceTypeInferenceAcceleratorResult(dict):
     @pulumi.getter
     def manufacturer(self) -> str:
         return pulumi.get(self, "manufacturer")
+
+    @property
+    @pulumi.getter(name="memorySize")
+    def memory_size(self) -> int:
+        """
+        Size of the instance memory, in MiB.
+        """
+        return pulumi.get(self, "memory_size")
 
     @property
     @pulumi.getter
@@ -16634,6 +16650,131 @@ class GetInstanceTypeInstanceDiskResult(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetInstanceTypeMediaAcceleratorResult(dict):
+    def __init__(__self__, *,
+                 count: int,
+                 manufacturer: str,
+                 memory_size: int,
+                 name: str):
+        """
+        :param int memory_size: Size of the instance memory, in MiB.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "manufacturer", manufacturer)
+        pulumi.set(__self__, "memory_size", memory_size)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def manufacturer(self) -> str:
+        return pulumi.get(self, "manufacturer")
+
+    @property
+    @pulumi.getter(name="memorySize")
+    def memory_size(self) -> int:
+        """
+        Size of the instance memory, in MiB.
+        """
+        return pulumi.get(self, "memory_size")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetInstanceTypeNetworkCardResult(dict):
+    def __init__(__self__, *,
+                 baseline_bandwidth: float,
+                 index: int,
+                 maximum_interfaces: int,
+                 peak_bandwidth: float,
+                 performance: str):
+        pulumi.set(__self__, "baseline_bandwidth", baseline_bandwidth)
+        pulumi.set(__self__, "index", index)
+        pulumi.set(__self__, "maximum_interfaces", maximum_interfaces)
+        pulumi.set(__self__, "peak_bandwidth", peak_bandwidth)
+        pulumi.set(__self__, "performance", performance)
+
+    @property
+    @pulumi.getter(name="baselineBandwidth")
+    def baseline_bandwidth(self) -> float:
+        return pulumi.get(self, "baseline_bandwidth")
+
+    @property
+    @pulumi.getter
+    def index(self) -> int:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="maximumInterfaces")
+    def maximum_interfaces(self) -> int:
+        return pulumi.get(self, "maximum_interfaces")
+
+    @property
+    @pulumi.getter(name="peakBandwidth")
+    def peak_bandwidth(self) -> float:
+        return pulumi.get(self, "peak_bandwidth")
+
+    @property
+    @pulumi.getter
+    def performance(self) -> str:
+        return pulumi.get(self, "performance")
+
+
+@pulumi.output_type
+class GetInstanceTypeNeuronDeviceResult(dict):
+    def __init__(__self__, *,
+                 core_count: int,
+                 core_version: int,
+                 count: int,
+                 memory_size: int,
+                 name: str):
+        """
+        :param int memory_size: Size of the instance memory, in MiB.
+        """
+        pulumi.set(__self__, "core_count", core_count)
+        pulumi.set(__self__, "core_version", core_version)
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "memory_size", memory_size)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> int:
+        return pulumi.get(self, "core_count")
+
+    @property
+    @pulumi.getter(name="coreVersion")
+    def core_version(self) -> int:
+        return pulumi.get(self, "core_version")
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="memorySize")
+    def memory_size(self) -> int:
+        """
+        Size of the instance memory, in MiB.
+        """
+        return pulumi.get(self, "memory_size")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := globalaccelerator.NewCustomRoutingEndpointGroup(ctx, "example", &globalaccelerator.CustomRoutingEndpointGroupArgs{
-//				ListenerArn: pulumi.Any(exampleAwsGlobalacceleratorCustomRoutingListener.Id),
+//				ListenerArn: pulumi.Any(exampleAwsGlobalacceleratorCustomRoutingListener.Arn),
 //				DestinationConfigurations: globalaccelerator.CustomRoutingEndpointGroupDestinationConfigurationArray{
 //					&globalaccelerator.CustomRoutingEndpointGroupDestinationConfigurationArgs{
 //						FromPort: pulumi.Int(80),

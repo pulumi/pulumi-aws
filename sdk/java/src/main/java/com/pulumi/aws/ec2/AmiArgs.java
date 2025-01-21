@@ -233,6 +233,21 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Base64 representation of the non-volatile UEFI variable store.
+     * 
+     */
+    @Import(name="uefiData")
+    private @Nullable Output<String> uefiData;
+
+    /**
+     * @return Base64 representation of the non-volatile UEFI variable store.
+     * 
+     */
+    public Optional<Output<String>> uefiData() {
+        return Optional.ofNullable(this.uefiData);
+    }
+
+    /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either &#34;paravirtual&#34; (the default) or &#34;hvm&#34;. The choice of virtualization type
      * changes the set of further arguments that are required, as described below.
@@ -270,6 +285,7 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
         this.sriovNetSupport = $.sriovNetSupport;
         this.tags = $.tags;
         this.tpmSupport = $.tpmSupport;
+        this.uefiData = $.uefiData;
         this.virtualizationType = $.virtualizationType;
     }
 
@@ -603,6 +619,27 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tpmSupport(String tpmSupport) {
             return tpmSupport(Output.of(tpmSupport));
+        }
+
+        /**
+         * @param uefiData Base64 representation of the non-volatile UEFI variable store.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uefiData(@Nullable Output<String> uefiData) {
+            $.uefiData = uefiData;
+            return this;
+        }
+
+        /**
+         * @param uefiData Base64 representation of the non-volatile UEFI variable store.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uefiData(String uefiData) {
+            return uefiData(Output.of(uefiData));
         }
 
         /**

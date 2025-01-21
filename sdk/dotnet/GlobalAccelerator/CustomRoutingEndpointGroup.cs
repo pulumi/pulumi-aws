@@ -24,7 +24,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// {
     ///     var example = new Aws.GlobalAccelerator.CustomRoutingEndpointGroup("example", new()
     ///     {
-    ///         ListenerArn = exampleAwsGlobalacceleratorCustomRoutingListener.Id,
+    ///         ListenerArn = exampleAwsGlobalacceleratorCustomRoutingListener.Arn,
     ///         DestinationConfigurations = new[]
     ///         {
     ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingEndpointGroupDestinationConfigurationArgs

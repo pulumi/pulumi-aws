@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleCustomRoutingListener = new aws.globalaccelerator.CustomRoutingListener("example", {
- *     acceleratorArn: example.id,
+ *     acceleratorArn: example.arn,
  *     portRanges: [{
  *         fromPort: 80,
  *         toPort: 80,
@@ -75,6 +75,7 @@ export class CustomRoutingListener extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of a custom routing accelerator.
      */
     public readonly acceleratorArn!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      */
@@ -94,6 +95,7 @@ export class CustomRoutingListener extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CustomRoutingListenerState | undefined;
             resourceInputs["acceleratorArn"] = state ? state.acceleratorArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["portRanges"] = state ? state.portRanges : undefined;
         } else {
             const args = argsOrState as CustomRoutingListenerArgs | undefined;
@@ -105,6 +107,7 @@ export class CustomRoutingListener extends pulumi.CustomResource {
             }
             resourceInputs["acceleratorArn"] = args ? args.acceleratorArn : undefined;
             resourceInputs["portRanges"] = args ? args.portRanges : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomRoutingListener.__pulumiType, name, resourceInputs, opts);
@@ -119,6 +122,7 @@ export interface CustomRoutingListenerState {
      * The Amazon Resource Name (ARN) of a custom routing accelerator.
      */
     acceleratorArn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      */

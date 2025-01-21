@@ -37,7 +37,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     ///     var exampleCustomRoutingListener = new Aws.GlobalAccelerator.CustomRoutingListener("example", new()
     ///     {
-    ///         AcceleratorArn = example.Id,
+    ///         AcceleratorArn = example.Arn,
     ///         PortRanges = new[]
     ///         {
     ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingListenerPortRangeArgs
@@ -67,6 +67,9 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         [Output("acceleratorArn")]
         public Output<string> AcceleratorArn { get; private set; } = null!;
+
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
@@ -151,6 +154,9 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         [Input("acceleratorArn")]
         public Input<string>? AcceleratorArn { get; set; }
+
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         [Input("portRanges")]
         private InputList<Inputs.CustomRoutingListenerPortRangeGetArgs>? _portRanges;

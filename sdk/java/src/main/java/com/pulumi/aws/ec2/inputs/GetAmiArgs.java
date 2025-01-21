@@ -154,6 +154,21 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * (Optional) Base64 representation of the non-volatile UEFI variable store.
+     * 
+     */
+    @Import(name="uefiData")
+    private @Nullable Output<String> uefiData;
+
+    /**
+     * @return (Optional) Base64 representation of the non-volatile UEFI variable store.
+     * 
+     */
+    public Optional<Output<String>> uefiData() {
+        return Optional.ofNullable(this.uefiData);
+    }
+
     private GetAmiArgs() {}
 
     private GetAmiArgs(GetAmiArgs $) {
@@ -164,6 +179,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         this.nameRegex = $.nameRegex;
         this.owners = $.owners;
         this.tags = $.tags;
+        this.uefiData = $.uefiData;
     }
 
     public static Builder builder() {
@@ -392,6 +408,27 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param uefiData (Optional) Base64 representation of the non-volatile UEFI variable store.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uefiData(@Nullable Output<String> uefiData) {
+            $.uefiData = uefiData;
+            return this;
+        }
+
+        /**
+         * @param uefiData (Optional) Base64 representation of the non-volatile UEFI variable store.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uefiData(String uefiData) {
+            return uefiData(Output.of(uefiData));
         }
 
         public GetAmiArgs build() {

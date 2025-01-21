@@ -49,7 +49,7 @@ index 23d078f15a..a92046e029 100644
  		Blocks: map[string]schema.Block{
  			"monitor": schema.SetNestedBlock{
 diff --git a/internal/service/auditmanager/assessment.go b/internal/service/auditmanager/assessment.go
-index 459438b54d..05a49d1f51 100644
+index ff75a96aa5..e1b9071672 100644
 --- a/internal/service/auditmanager/assessment.go
 +++ b/internal/service/auditmanager/assessment.go
 @@ -95,7 +95,7 @@ func (r *resourceAssessment) Schema(ctx context.Context, req resource.SchemaRequ
@@ -62,7 +62,7 @@ index 459438b54d..05a49d1f51 100644
  		Blocks: map[string]schema.Block{
  			"assessment_reports_destination": schema.ListNestedBlock{
 diff --git a/internal/service/auditmanager/control.go b/internal/service/auditmanager/control.go
-index 2204efea5a..7c4d78f993 100644
+index 1e8dee5071..415f7fee72 100644
 --- a/internal/service/auditmanager/control.go
 +++ b/internal/service/auditmanager/control.go
 @@ -67,7 +67,7 @@ func (r *resourceControl) Schema(ctx context.Context, req resource.SchemaRequest
@@ -75,7 +75,7 @@ index 2204efea5a..7c4d78f993 100644
  				Optional: true,
  			},
 diff --git a/internal/service/auditmanager/framework.go b/internal/service/auditmanager/framework.go
-index bd15eca435..1733d9a441 100644
+index cf3de94d80..4d1861ec21 100644
 --- a/internal/service/auditmanager/framework.go
 +++ b/internal/service/auditmanager/framework.go
 @@ -69,7 +69,7 @@ func (r *resourceFramework) Schema(ctx context.Context, req resource.SchemaReque
@@ -140,7 +140,7 @@ index 7f4a4c5f04..972c372323 100644
  				Optional: true,
  				Validators: []validator.Int64{
 diff --git a/internal/service/lexv2models/bot.go b/internal/service/lexv2models/bot.go
-index 75e5b7f1b9..8de291d05f 100644
+index 6df78b45d4..b919a76587 100644
 --- a/internal/service/lexv2models/bot.go
 +++ b/internal/service/lexv2models/bot.go
 @@ -82,7 +82,7 @@ func (r *resourceBot) Schema(ctx context.Context, req resource.SchemaRequest, re
@@ -153,7 +153,7 @@ index 75e5b7f1b9..8de291d05f 100644
  				ElementType: types.StringType,
  				Optional:    true,
 diff --git a/internal/service/opensearchserverless/collection.go b/internal/service/opensearchserverless/collection.go
-index e2dfcda3c8..e524fcad2d 100644
+index 6903b3ade4..b15d94f975 100644
 --- a/internal/service/opensearchserverless/collection.go
 +++ b/internal/service/opensearchserverless/collection.go
 @@ -124,7 +124,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ
@@ -192,7 +192,7 @@ index 8607c6dc0d..eb2e74d1d6 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/resourceexplorer2/index.go b/internal/service/resourceexplorer2/index.go
-index ff89093f18..f8fd12370f 100644
+index e02aa6a5e3..ba5f3d30a5 100644
 --- a/internal/service/resourceexplorer2/index.go
 +++ b/internal/service/resourceexplorer2/index.go
 @@ -58,7 +58,7 @@ func (r *indexResource) Schema(ctx context.Context, request resource.SchemaReque
@@ -205,7 +205,7 @@ index ff89093f18..f8fd12370f 100644
  				CustomType: fwtypes.StringEnumType[awstypes.IndexType](),
  				Required:   true,
 diff --git a/internal/service/resourceexplorer2/view.go b/internal/service/resourceexplorer2/view.go
-index 414ac271d1..9172d35477 100644
+index 3f65cc8e80..6191e940a5 100644
 --- a/internal/service/resourceexplorer2/view.go
 +++ b/internal/service/resourceexplorer2/view.go
 @@ -81,7 +81,7 @@ func (r *viewResource) Schema(ctx context.Context, request resource.SchemaReques
@@ -218,7 +218,7 @@ index 414ac271d1..9172d35477 100644
  		Blocks: map[string]schema.Block{
  			"filters": schema.ListNestedBlock{
 diff --git a/internal/service/workspaces/connection_alias.go b/internal/service/workspaces/connection_alias.go
-index 789e374885..d5a771ce81 100644
+index 4f1ba47012..2e4a1a2450 100644
 --- a/internal/service/workspaces/connection_alias.go
 +++ b/internal/service/workspaces/connection_alias.go
 @@ -75,7 +75,7 @@ func (r *connectionAliasResource) Schema(ctx context.Context, request resource.S

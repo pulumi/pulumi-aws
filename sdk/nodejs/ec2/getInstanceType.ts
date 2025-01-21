@@ -47,9 +47,17 @@ export interface GetInstanceTypeResult {
      */
     readonly autoRecoverySupported: boolean;
     /**
+     * A set of strings of valid settings for [configurable bandwidth weighting](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html), if supported.
+     */
+    readonly bandwidthWeightings: string[];
+    /**
      * `true` if it is a bare metal instance type.
      */
     readonly bareMetal: boolean;
+    /**
+     * A set of strings of supported boot modes.
+     */
+    readonly bootModes: string[];
     /**
      * `true` if the instance type is a burstable performance instance type.
      */
@@ -66,6 +74,10 @@ export interface GetInstanceTypeResult {
      * Default number of cores for the instance type.
      */
     readonly defaultCores: number;
+    /**
+     * The index of the default network card, starting at `0`.
+     */
+    readonly defaultNetworkCardIndex: number;
     /**
      * The  default  number of threads per core for the instance type.
      */
@@ -111,22 +123,30 @@ export interface GetInstanceTypeResult {
      */
     readonly ebsPerformanceMaximumThroughput: number;
     /**
-     * Whether Elastic Fabric Adapter (EFA) is supported.
+     * The maximum number of Elastic Fabric Adapters for the instance type.
+     */
+    readonly efaMaximumInterfaces: number;
+    /**
+     * `true` if Elastic Fabric Adapter (EFA) is supported.
      */
     readonly efaSupported: boolean;
     /**
-     * Whether Elastic Network Adapter (ENA) is supported.
+     * `true` if the instance type supports [ENA Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html).
+     */
+    readonly enaSrdSupported: boolean;
+    /**
+     * Indicates whether Elastic Network Adapter (ENA) is `"supported"`, `"required"`, or `"unsupported"`.
      */
     readonly enaSupport: string;
     /**
-     * Indicates whether encryption in-transit between instances is supported.
+     * `true` if encryption in-transit between instances is supported.
      */
     readonly encryptionInTransitSupported: boolean;
     /**
      * Describes the FPGA accelerator settings for the instance type.
      * * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
      * * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
-     * * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
+     * * `fpgas.#.memory_size` - The size (in MiB) of the memory available to the FPGA accelerator.
      * * `fpgas.#.name` - The name of the FPGA accelerator.
      */
     readonly fpgas: outputs.ec2.GetInstanceTypeFpga[];
@@ -138,7 +158,7 @@ export interface GetInstanceTypeResult {
      * Describes the GPU accelerators for the instance type.
      * * `gpus.#.count` - The number of GPUs for the instance type.
      * * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
-     * * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
+     * * `gpus.#.memory_size` - The size (in MiB) of the memory available to the GPU accelerator.
      * * `gpus.#.name` - The name of the GPU accelerator.
      */
     readonly gpuses: outputs.ec2.GetInstanceTypeGpus[];
@@ -158,6 +178,7 @@ export interface GetInstanceTypeResult {
      * Describes the Inference accelerators for the instance type.
      * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
      * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+     * * `inference_accelerators.#.memory_size` - The size (in MiB) of the memory available to the inference accelerator.
      * * `inference_accelerators.#.name` - The name of the Inference accelerator.
      */
     readonly inferenceAccelerators: outputs.ec2.GetInstanceTypeInferenceAccelerator[];
@@ -194,27 +215,73 @@ export interface GetInstanceTypeResult {
      */
     readonly maximumNetworkInterfaces: number;
     /**
+     * Describes the media accelerator settings for the instance type.
+     * * `media_accelerators.#.count` - The number of media accelerators for the instance type.
+     * * `media_accelerators.#.manufacturer` - The manufacturer of the media accelerator.
+     * * `media_accelerators.#.memory_size` - The size (in MiB) of the memory available to each media accelerator.
+     * * `media_accelerators.#.name` - The name of the media accelerator.
+     */
+    readonly mediaAccelerators: outputs.ec2.GetInstanceTypeMediaAccelerator[];
+    /**
      * Size of the instance memory, in MiB.
      */
     readonly memorySize: number;
+    /**
+     * Describes the network cards for the instance type.
+     * * `network_cards.#.baseline_bandwidth` - The baseline network performance (in Gbps) of the network card.
+     * * `network_cards.#.index` - The index of the network card.
+     * * `network_cards.#.maximum_interfaces` - The maximum number of network interfaces for the /network card.
+     * * `network_cards.#.performance` - Describes the network performance of the network card.
+     * * `network_cards.#.peak_bandwidth` - The peak (burst) network performance (in Gbps) of the network card.
+     */
+    readonly networkCards: outputs.ec2.GetInstanceTypeNetworkCard[];
     /**
      * Describes the network performance.
      */
     readonly networkPerformance: string;
     /**
-     * A list of architectures supported by the instance type.
+     * Describes the Neuron accelerator settings for the instance type.
+     * * `neuron_devices.#.core_count` - The number of cores available to the neuron accelerator.
+     * * `neuron_devices.#.core_version` - A number representing the version of the neuron accelerator.
+     * * `neuron_devices.#.count` - The number of neuron accelerators for the instance type.
+     * * `neuron_devices.#.memory_size` - The size (in MiB) of the memory available to the neuron accelerator.
+     * * `neuron_devices.#.name` - The name of the neuron accelerator.
+     */
+    readonly neuronDevices: outputs.ec2.GetInstanceTypeNeuronDevice[];
+    /**
+     * Indicates whether Nitro Enclaves is `"supported"` or `"unsupported"`.
+     */
+    readonly nitroEnclavesSupport: string;
+    /**
+     * Indicates whether NitroTPM is `"supported"` or `"unsupported"`.
+     */
+    readonly nitroTpmSupport: string;
+    /**
+     * A set of strings indicating the supported NitroTPM versions.
+     */
+    readonly nitroTpmSupportedVersions: string[];
+    /**
+     * `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
+     */
+    readonly phcSupport: string;
+    /**
+     * A list of strings of architectures supported by the instance type.
      */
     readonly supportedArchitectures: string[];
+    /**
+     * A set of strings indicating supported CPU features.
+     */
+    readonly supportedCpuFeatures: string[];
     /**
      * A list of supported placement groups types.
      */
     readonly supportedPlacementStrategies: string[];
     /**
-     * Indicates the supported root device types.
+     * A list of supported root device types.
      */
     readonly supportedRootDeviceTypes: string[];
     /**
-     * Indicates whether the instance type is offered for spot or On-Demand.
+     * A list of supported usage classes.  Usage classes are `"spot"`, `"on-demand"`, or `"capacity-block"`.
      */
     readonly supportedUsagesClasses: string[];
     /**
@@ -234,9 +301,21 @@ export interface GetInstanceTypeResult {
      */
     readonly totalGpuMemory: number;
     /**
+     * The total size of the memory for the neuron accelerators for the instance type (in MiB).
+     */
+    readonly totalInferenceMemory: number;
+    /**
      * The total size of the instance disks, in GB.
      */
     readonly totalInstanceStorage: number;
+    /**
+     * The total size of the memory for the media accelerators for the instance type (in MiB).
+     */
+    readonly totalMediaMemory: number;
+    /**
+     * The total size of the memory for the neuron accelerators for the instance type (in MiB).
+     */
+    readonly totalNeuronDeviceMemory: number;
     /**
      * List of the valid number of cores that can be configured for the instance type.
      */

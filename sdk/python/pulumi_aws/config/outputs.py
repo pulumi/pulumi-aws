@@ -390,6 +390,7 @@ class Endpoints(dict):
                  inspector2: Optional[str] = None,
                  inspectorv2: Optional[str] = None,
                  internetmonitor: Optional[str] = None,
+                 invoicing: Optional[str] = None,
                  iot: Optional[str] = None,
                  iotanalytics: Optional[str] = None,
                  iotevents: Optional[str] = None,
@@ -687,6 +688,7 @@ class Endpoints(dict):
         :param str inspector2: Use this to override the default service endpoint URL
         :param str inspectorv2: Use this to override the default service endpoint URL
         :param str internetmonitor: Use this to override the default service endpoint URL
+        :param str invoicing: Use this to override the default service endpoint URL
         :param str iot: Use this to override the default service endpoint URL
         :param str iotanalytics: Use this to override the default service endpoint URL
         :param str iotevents: Use this to override the default service endpoint URL
@@ -1132,6 +1134,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "inspectorv2", inspectorv2)
         if internetmonitor is not None:
             pulumi.set(__self__, "internetmonitor", internetmonitor)
+        if invoicing is not None:
+            pulumi.set(__self__, "invoicing", invoicing)
         if iot is not None:
             pulumi.set(__self__, "iot", iot)
         if iotanalytics is not None:
@@ -2612,6 +2616,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "internetmonitor")
+
+    @property
+    @pulumi.getter
+    def invoicing(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "invoicing")
 
     @property
     @pulumi.getter

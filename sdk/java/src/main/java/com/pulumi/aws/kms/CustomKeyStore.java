@@ -6,11 +6,13 @@ package com.pulumi.aws.kms;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.kms.CustomKeyStoreArgs;
 import com.pulumi.aws.kms.inputs.CustomKeyStoreState;
+import com.pulumi.aws.kms.outputs.CustomKeyStoreXksProxyAuthenticationCredential;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -18,7 +20,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Basic Usage
+ * ### CloudHSM
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -58,6 +60,95 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### External Key Store (VPC)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.CustomKeyStore;
+ * import com.pulumi.aws.kms.CustomKeyStoreArgs;
+ * import com.pulumi.aws.kms.inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CustomKeyStore("example", CustomKeyStoreArgs.builder()
+ *             .customKeyStoreName("example-vpc-xks")
+ *             .customKeyStoreType("EXTERNAL_KEY_STORE")
+ *             .xksProxyAuthenticationCredential(CustomKeyStoreXksProxyAuthenticationCredentialArgs.builder()
+ *                 .accessKeyId(ephemeralAccessKeyId)
+ *                 .rawSecretAccessKey(ephemeralSecretAccessKey)
+ *                 .build())
+ *             .xksProxyConnectivity("VPC_ENDPOINT_SERVICE")
+ *             .xksProxyUriEndpoint("https://myproxy-private.xks.example.com")
+ *             .xksProxyUriPath("/kms/xks/v1")
+ *             .xksProxyVpcEndpointServiceName("com.amazonaws.vpce.us-east-1.vpce-svc-example")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### External Key Store (Public)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.CustomKeyStore;
+ * import com.pulumi.aws.kms.CustomKeyStoreArgs;
+ * import com.pulumi.aws.kms.inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CustomKeyStore("example", CustomKeyStoreArgs.builder()
+ *             .customKeyStoreName("example-public-xks")
+ *             .customKeyStoreType("EXTERNAL_KEY_STORE")
+ *             .xksProxyAuthenticationCredential(CustomKeyStoreXksProxyAuthenticationCredentialArgs.builder()
+ *                 .accessKeyId(ephemeralAccessKeyId)
+ *                 .rawSecretAccessKey(ephemeralSecretAccessKey)
+ *                 .build())
+ *             .xksProxyConnectivity("PUBLIC_ENDPOINT")
+ *             .xksProxyUriEndpoint("https://myproxy.xks.example.com")
+ *             .xksProxyUriPath("/kms/xks/v1")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
@@ -69,22 +160,16 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:kms/customKeyStore:CustomKeyStore")
 public class CustomKeyStore extends com.pulumi.resources.CustomResource {
-    /**
-     * Cluster ID of CloudHSM.
-     * 
-     */
     @Export(name="cloudHsmClusterId", refs={String.class}, tree="[0]")
-    private Output<String> cloudHsmClusterId;
+    private Output</* @Nullable */ String> cloudHsmClusterId;
 
-    /**
-     * @return Cluster ID of CloudHSM.
-     * 
-     */
-    public Output<String> cloudHsmClusterId() {
-        return this.cloudHsmClusterId;
+    public Output<Optional<String>> cloudHsmClusterId() {
+        return Codegen.optional(this.cloudHsmClusterId);
     }
     /**
      * Unique name for Custom Key Store.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="customKeyStoreName", refs={String.class}, tree="[0]")
@@ -93,37 +178,67 @@ public class CustomKeyStore extends com.pulumi.resources.CustomResource {
     /**
      * @return Unique name for Custom Key Store.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> customKeyStoreName() {
         return this.customKeyStoreName;
     }
     /**
-     * Password for `kmsuser` on CloudHSM.
+     * Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
      * 
      */
-    @Export(name="keyStorePassword", refs={String.class}, tree="[0]")
-    private Output<String> keyStorePassword;
+    @Export(name="customKeyStoreType", refs={String.class}, tree="[0]")
+    private Output<String> customKeyStoreType;
 
     /**
-     * @return Password for `kmsuser` on CloudHSM.
+     * @return Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
      * 
      */
-    public Output<String> keyStorePassword() {
-        return this.keyStorePassword;
+    public Output<String> customKeyStoreType() {
+        return this.customKeyStoreType;
     }
-    /**
-     * Customer certificate used for signing on CloudHSM.
-     * 
-     */
-    @Export(name="trustAnchorCertificate", refs={String.class}, tree="[0]")
-    private Output<String> trustAnchorCertificate;
+    @Export(name="keyStorePassword", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> keyStorePassword;
 
-    /**
-     * @return Customer certificate used for signing on CloudHSM.
-     * 
-     */
-    public Output<String> trustAnchorCertificate() {
-        return this.trustAnchorCertificate;
+    public Output<Optional<String>> keyStorePassword() {
+        return Codegen.optional(this.keyStorePassword);
+    }
+    @Export(name="trustAnchorCertificate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> trustAnchorCertificate;
+
+    public Output<Optional<String>> trustAnchorCertificate() {
+        return Codegen.optional(this.trustAnchorCertificate);
+    }
+    @Export(name="xksProxyAuthenticationCredential", refs={CustomKeyStoreXksProxyAuthenticationCredential.class}, tree="[0]")
+    private Output</* @Nullable */ CustomKeyStoreXksProxyAuthenticationCredential> xksProxyAuthenticationCredential;
+
+    public Output<Optional<CustomKeyStoreXksProxyAuthenticationCredential>> xksProxyAuthenticationCredential() {
+        return Codegen.optional(this.xksProxyAuthenticationCredential);
+    }
+    @Export(name="xksProxyConnectivity", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> xksProxyConnectivity;
+
+    public Output<Optional<String>> xksProxyConnectivity() {
+        return Codegen.optional(this.xksProxyConnectivity);
+    }
+    @Export(name="xksProxyUriEndpoint", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> xksProxyUriEndpoint;
+
+    public Output<Optional<String>> xksProxyUriEndpoint() {
+        return Codegen.optional(this.xksProxyUriEndpoint);
+    }
+    @Export(name="xksProxyUriPath", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> xksProxyUriPath;
+
+    public Output<Optional<String>> xksProxyUriPath() {
+        return Codegen.optional(this.xksProxyUriPath);
+    }
+    @Export(name="xksProxyVpcEndpointServiceName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> xksProxyVpcEndpointServiceName;
+
+    public Output<Optional<String>> xksProxyVpcEndpointServiceName() {
+        return Codegen.optional(this.xksProxyVpcEndpointServiceName);
     }
 
     /**

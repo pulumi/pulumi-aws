@@ -13,6 +13,11 @@ import java.util.Objects;
 public final class GetInstanceTypeInferenceAccelerator {
     private Integer count;
     private String manufacturer;
+    /**
+     * @return Size of the instance memory, in MiB.
+     * 
+     */
+    private Integer memorySize;
     private String name;
 
     private GetInstanceTypeInferenceAccelerator() {}
@@ -21,6 +26,13 @@ public final class GetInstanceTypeInferenceAccelerator {
     }
     public String manufacturer() {
         return this.manufacturer;
+    }
+    /**
+     * @return Size of the instance memory, in MiB.
+     * 
+     */
+    public Integer memorySize() {
+        return this.memorySize;
     }
     public String name() {
         return this.name;
@@ -37,12 +49,14 @@ public final class GetInstanceTypeInferenceAccelerator {
     public static final class Builder {
         private Integer count;
         private String manufacturer;
+        private Integer memorySize;
         private String name;
         public Builder() {}
         public Builder(GetInstanceTypeInferenceAccelerator defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
     	      this.manufacturer = defaults.manufacturer;
+    	      this.memorySize = defaults.memorySize;
     	      this.name = defaults.name;
         }
 
@@ -63,6 +77,14 @@ public final class GetInstanceTypeInferenceAccelerator {
             return this;
         }
         @CustomType.Setter
+        public Builder memorySize(Integer memorySize) {
+            if (memorySize == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeInferenceAccelerator", "memorySize");
+            }
+            this.memorySize = memorySize;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetInstanceTypeInferenceAccelerator", "name");
@@ -74,6 +96,7 @@ public final class GetInstanceTypeInferenceAccelerator {
             final var _resultValue = new GetInstanceTypeInferenceAccelerator();
             _resultValue.count = count;
             _resultValue.manufacturer = manufacturer;
+            _resultValue.memorySize = memorySize;
             _resultValue.name = name;
             return _resultValue;
         }

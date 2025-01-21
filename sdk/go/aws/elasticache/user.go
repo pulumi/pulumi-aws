@@ -33,7 +33,7 @@ import (
 //				UserId:       pulumi.String("testUserId"),
 //				UserName:     pulumi.String("testUserName"),
 //				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-//				Engine:       pulumi.String("REDIS"),
+//				Engine:       pulumi.String("redis"),
 //				Passwords: pulumi.StringArray{
 //					pulumi.String("password123456789"),
 //				},
@@ -63,7 +63,7 @@ import (
 //				UserId:       pulumi.String("testUserId"),
 //				UserName:     pulumi.String("testUserName"),
 //				AccessString: pulumi.String("on ~* +@all"),
-//				Engine:       pulumi.String("REDIS"),
+//				Engine:       pulumi.String("redis"),
 //				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
 //					Type: pulumi.String("iam"),
 //				},
@@ -93,7 +93,7 @@ import (
 //				UserId:       pulumi.String("testUserId"),
 //				UserName:     pulumi.String("testUserName"),
 //				AccessString: pulumi.String("on ~* +@all"),
-//				Engine:       pulumi.String("REDIS"),
+//				Engine:       pulumi.String("redis"),
 //				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
 //					Type: pulumi.String("password"),
 //					Passwords: pulumi.StringArray{
@@ -127,7 +127,7 @@ type User struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationModeOutput `pulumi:"authenticationMode"`
-	// The current supported values are `REDIS`, `VALKEY`.
+	// The current supported values are `redis`, `valkey` (case insensitive).
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Indicates a password is not required for this user.
 	NoPasswordRequired pulumi.BoolPtrOutput `pulumi:"noPasswordRequired"`
@@ -200,7 +200,7 @@ type userState struct {
 	Arn *string `pulumi:"arn"`
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode *UserAuthenticationMode `pulumi:"authenticationMode"`
-	// The current supported values are `REDIS`, `VALKEY`.
+	// The current supported values are `redis`, `valkey` (case insensitive).
 	Engine *string `pulumi:"engine"`
 	// Indicates a password is not required for this user.
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
@@ -225,7 +225,7 @@ type UserState struct {
 	Arn pulumi.StringPtrInput
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationModePtrInput
-	// The current supported values are `REDIS`, `VALKEY`.
+	// The current supported values are `redis`, `valkey` (case insensitive).
 	Engine pulumi.StringPtrInput
 	// Indicates a password is not required for this user.
 	NoPasswordRequired pulumi.BoolPtrInput
@@ -252,7 +252,7 @@ type userArgs struct {
 	AccessString string `pulumi:"accessString"`
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode *UserAuthenticationMode `pulumi:"authenticationMode"`
-	// The current supported values are `REDIS`, `VALKEY`.
+	// The current supported values are `redis`, `valkey` (case insensitive).
 	Engine string `pulumi:"engine"`
 	// Indicates a password is not required for this user.
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
@@ -274,7 +274,7 @@ type UserArgs struct {
 	AccessString pulumi.StringInput
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationModePtrInput
-	// The current supported values are `REDIS`, `VALKEY`.
+	// The current supported values are `redis`, `valkey` (case insensitive).
 	Engine pulumi.StringInput
 	// Indicates a password is not required for this user.
 	NoPasswordRequired pulumi.BoolPtrInput
@@ -392,7 +392,7 @@ func (o UserOutput) AuthenticationMode() UserAuthenticationModeOutput {
 	return o.ApplyT(func(v *User) UserAuthenticationModeOutput { return v.AuthenticationMode }).(UserAuthenticationModeOutput)
 }
 
-// The current supported values are `REDIS`, `VALKEY`.
+// The current supported values are `redis`, `valkey` (case insensitive).
 func (o UserOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }

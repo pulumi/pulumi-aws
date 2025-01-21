@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'CustomKeyStoreXksProxyAuthenticationCredential',
     'GrantConstraint',
     'GetKeyMultiRegionConfigurationResult',
     'GetKeyMultiRegionConfigurationPrimaryKeyResult',
@@ -24,6 +25,54 @@ __all__ = [
     'GetSecretSecretResult',
     'GetSecretsSecretResult',
 ]
+
+@pulumi.output_type
+class CustomKeyStoreXksProxyAuthenticationCredential(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKeyId":
+            suggest = "access_key_id"
+        elif key == "rawSecretAccessKey":
+            suggest = "raw_secret_access_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomKeyStoreXksProxyAuthenticationCredential. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomKeyStoreXksProxyAuthenticationCredential.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomKeyStoreXksProxyAuthenticationCredential.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_key_id: str,
+                 raw_secret_access_key: str):
+        """
+        :param str access_key_id: A unique identifier for the raw secret access key.
+        :param str raw_secret_access_key: A secret string of 43-64 characters.
+        """
+        pulumi.set(__self__, "access_key_id", access_key_id)
+        pulumi.set(__self__, "raw_secret_access_key", raw_secret_access_key)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> str:
+        """
+        A unique identifier for the raw secret access key.
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @property
+    @pulumi.getter(name="rawSecretAccessKey")
+    def raw_secret_access_key(self) -> str:
+        """
+        A secret string of 43-64 characters.
+        """
+        return pulumi.get(self, "raw_secret_access_key")
+
 
 @pulumi.output_type
 class GrantConstraint(dict):

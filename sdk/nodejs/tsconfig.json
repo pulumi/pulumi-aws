@@ -1470,6 +1470,8 @@
         "medialive/multiplexProgram.ts",
         "mediapackage/channel.ts",
         "mediapackage/index.ts",
+        "mediapackagev2/channelGroup.ts",
+        "mediapackagev2/index.ts",
         "mediastore/container.ts",
         "mediastore/containerPolicy.ts",
         "mediastore/index.ts",

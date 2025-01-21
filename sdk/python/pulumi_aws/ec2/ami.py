@@ -37,6 +37,7 @@ class AmiArgs:
                  sriov_net_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tpm_support: Optional[pulumi.Input[str]] = None,
+                 uefi_data: Optional[pulumi.Input[str]] = None,
                  virtualization_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Ami resource.
@@ -54,6 +55,7 @@ class AmiArgs:
         :param pulumi.Input[str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[str] uefi_data: Base64 representation of the non-volatile UEFI variable store.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
@@ -90,6 +92,8 @@ class AmiArgs:
             pulumi.set(__self__, "tags", tags)
         if tpm_support is not None:
             pulumi.set(__self__, "tpm_support", tpm_support)
+        if uefi_data is not None:
+            pulumi.set(__self__, "uefi_data", uefi_data)
         if virtualization_type is not None:
             pulumi.set(__self__, "virtualization_type", virtualization_type)
 
@@ -276,6 +280,18 @@ class AmiArgs:
         pulumi.set(self, "tpm_support", value)
 
     @property
+    @pulumi.getter(name="uefiData")
+    def uefi_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64 representation of the non-volatile UEFI variable store.
+        """
+        return pulumi.get(self, "uefi_data")
+
+    @uefi_data.setter
+    def uefi_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uefi_data", value)
+
+    @property
     @pulumi.getter(name="virtualizationType")
     def virtualization_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -320,6 +336,7 @@ class _AmiState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tpm_support: Optional[pulumi.Input[str]] = None,
+                 uefi_data: Optional[pulumi.Input[str]] = None,
                  usage_operation: Optional[pulumi.Input[str]] = None,
                  virtualization_type: Optional[pulumi.Input[str]] = None):
         """
@@ -348,6 +365,7 @@ class _AmiState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[str] uefi_data: Base64 representation of the non-volatile UEFI variable store.
         :param pulumi.Input[str] usage_operation: Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -410,6 +428,8 @@ class _AmiState:
             pulumi.set(__self__, "tags_all", tags_all)
         if tpm_support is not None:
             pulumi.set(__self__, "tpm_support", tpm_support)
+        if uefi_data is not None:
+            pulumi.set(__self__, "uefi_data", uefi_data)
         if usage_operation is not None:
             pulumi.set(__self__, "usage_operation", usage_operation)
         if virtualization_type is not None:
@@ -728,6 +748,18 @@ class _AmiState:
         pulumi.set(self, "tpm_support", value)
 
     @property
+    @pulumi.getter(name="uefiData")
+    def uefi_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64 representation of the non-volatile UEFI variable store.
+        """
+        return pulumi.get(self, "uefi_data")
+
+    @uefi_data.setter
+    def uefi_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uefi_data", value)
+
+    @property
     @pulumi.getter(name="usageOperation")
     def usage_operation(self) -> Optional[pulumi.Input[str]]:
         """
@@ -775,6 +807,7 @@ class Ami(pulumi.CustomResource):
                  sriov_net_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tpm_support: Optional[pulumi.Input[str]] = None,
+                 uefi_data: Optional[pulumi.Input[str]] = None,
                  virtualization_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -832,6 +865,7 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[str] uefi_data: Base64 representation of the non-volatile UEFI variable store.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
@@ -912,6 +946,7 @@ class Ami(pulumi.CustomResource):
                  sriov_net_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tpm_support: Optional[pulumi.Input[str]] = None,
+                 uefi_data: Optional[pulumi.Input[str]] = None,
                  virtualization_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -938,6 +973,7 @@ class Ami(pulumi.CustomResource):
             __props__.__dict__["sriov_net_support"] = sriov_net_support
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tpm_support"] = tpm_support
+            __props__.__dict__["uefi_data"] = uefi_data
             __props__.__dict__["virtualization_type"] = virtualization_type
             __props__.__dict__["arn"] = None
             __props__.__dict__["hypervisor"] = None
@@ -988,6 +1024,7 @@ class Ami(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tpm_support: Optional[pulumi.Input[str]] = None,
+            uefi_data: Optional[pulumi.Input[str]] = None,
             usage_operation: Optional[pulumi.Input[str]] = None,
             virtualization_type: Optional[pulumi.Input[str]] = None) -> 'Ami':
         """
@@ -1021,6 +1058,7 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[str] uefi_data: Base64 representation of the non-volatile UEFI variable store.
         :param pulumi.Input[str] usage_operation: Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -1057,6 +1095,7 @@ class Ami(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["tpm_support"] = tpm_support
+        __props__.__dict__["uefi_data"] = uefi_data
         __props__.__dict__["usage_operation"] = usage_operation
         __props__.__dict__["virtualization_type"] = virtualization_type
         return Ami(resource_name, opts=opts, __props__=__props__)
@@ -1264,6 +1303,14 @@ class Ami(pulumi.CustomResource):
         If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         """
         return pulumi.get(self, "tpm_support")
+
+    @property
+    @pulumi.getter(name="uefiData")
+    def uefi_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        Base64 representation of the non-volatile UEFI variable store.
+        """
+        return pulumi.get(self, "uefi_data")
 
     @property
     @pulumi.getter(name="usageOperation")

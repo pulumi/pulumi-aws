@@ -992,6 +992,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        invoicing: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         iot: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1738,6 +1742,7 @@ class ProviderEndpointArgs:
                  inspector2: Optional[pulumi.Input[str]] = None,
                  inspectorv2: Optional[pulumi.Input[str]] = None,
                  internetmonitor: Optional[pulumi.Input[str]] = None,
+                 invoicing: Optional[pulumi.Input[str]] = None,
                  iot: Optional[pulumi.Input[str]] = None,
                  iotanalytics: Optional[pulumi.Input[str]] = None,
                  iotevents: Optional[pulumi.Input[str]] = None,
@@ -2035,6 +2040,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] inspector2: Use this to override the default service endpoint URL
         :param pulumi.Input[str] inspectorv2: Use this to override the default service endpoint URL
         :param pulumi.Input[str] internetmonitor: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] invoicing: Use this to override the default service endpoint URL
         :param pulumi.Input[str] iot: Use this to override the default service endpoint URL
         :param pulumi.Input[str] iotanalytics: Use this to override the default service endpoint URL
         :param pulumi.Input[str] iotevents: Use this to override the default service endpoint URL
@@ -2480,6 +2486,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "inspectorv2", inspectorv2)
         if internetmonitor is not None:
             pulumi.set(__self__, "internetmonitor", internetmonitor)
+        if invoicing is not None:
+            pulumi.set(__self__, "invoicing", invoicing)
         if iot is not None:
             pulumi.set(__self__, "iot", iot)
         if iotanalytics is not None:
@@ -4552,6 +4560,18 @@ class ProviderEndpointArgs:
     @internetmonitor.setter
     def internetmonitor(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "internetmonitor", value)
+
+    @property
+    @pulumi.getter
+    def invoicing(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "invoicing")
+
+    @invoicing.setter
+    def invoicing(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "invoicing", value)
 
     @property
     @pulumi.getter

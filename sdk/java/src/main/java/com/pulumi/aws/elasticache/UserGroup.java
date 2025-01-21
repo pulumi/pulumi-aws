@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *             .userId("testUserId")
  *             .userName("default")
  *             .accessString("on ~app::* -}{@literal @}{@code all +}{@literal @}{@code read +}{@literal @}{@code hash +}{@literal @}{@code bitmap +}{@literal @}{@code geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
- *             .engine("REDIS")
+ *             .engine("redis")
  *             .passwords("password123456789")
  *             .build());
  * 
  *         var testUserGroup = new UserGroup("testUserGroup", UserGroupArgs.builder()
- *             .engine("REDIS")
+ *             .engine("redis")
  *             .userGroupId("userGroupId")
  *             .userIds(test.userId())
  *             .build());
@@ -92,14 +92,14 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The current supported value are `REDIS`, `VALKEY`.
+     * The current supported value are `redis`, `valkey` (case insensitive).
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return The current supported value are `REDIS`, `VALKEY`.
+     * @return The current supported value are `redis`, `valkey` (case insensitive).
      * 
      */
     public Output<String> engine() {

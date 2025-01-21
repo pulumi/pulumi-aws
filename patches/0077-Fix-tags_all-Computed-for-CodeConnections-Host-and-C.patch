@@ -5,10 +5,10 @@ Subject: [PATCH] Fix tags_all Computed for CodeConnections Host and Connection
 
 
 diff --git a/internal/service/codeconnections/connection.go b/internal/service/codeconnections/connection.go
-index 1beba6fd2c..0b8e5597e5 100644
+index d232de6a8d..68228b216d 100644
 --- a/internal/service/codeconnections/connection.go
 +++ b/internal/service/codeconnections/connection.go
-@@ -108,7 +108,7 @@ func (r *connectionResource) Schema(ctx context.Context, req resource.SchemaRequ
+@@ -107,7 +107,7 @@ func (r *connectionResource) Schema(ctx context.Context, req resource.SchemaRequ
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -18,10 +18,10 @@ index 1beba6fd2c..0b8e5597e5 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/codeconnections/host.go b/internal/service/codeconnections/host.go
-index 2f086c0465..d4adfd7f28 100644
+index 4a86607bdc..15581c4985 100644
 --- a/internal/service/codeconnections/host.go
 +++ b/internal/service/codeconnections/host.go
-@@ -87,7 +87,7 @@ func (r *hostResource) Schema(ctx context.Context, req resource.SchemaRequest, r
+@@ -86,7 +86,7 @@ func (r *hostResource) Schema(ctx context.Context, req resource.SchemaRequest, r
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

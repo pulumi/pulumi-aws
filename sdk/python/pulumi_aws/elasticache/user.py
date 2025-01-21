@@ -32,7 +32,7 @@ class UserArgs:
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        :param pulumi.Input[str] engine: The current supported values are `REDIS`, `VALKEY`.
+        :param pulumi.Input[str] engine: The current supported values are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[str] user_id: The ID of the user.
         :param pulumi.Input[str] user_name: The username of the user.
                
@@ -71,7 +71,7 @@ class UserArgs:
     @pulumi.getter
     def engine(self) -> pulumi.Input[str]:
         """
-        The current supported values are `REDIS`, `VALKEY`.
+        The current supported values are `redis`, `valkey` (case insensitive).
         """
         return pulumi.get(self, "engine")
 
@@ -172,7 +172,7 @@ class _UserState:
         :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
         :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
-        :param pulumi.Input[str] engine: The current supported values are `REDIS`, `VALKEY`.
+        :param pulumi.Input[str] engine: The current supported values are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
@@ -245,7 +245,7 @@ class _UserState:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        The current supported values are `REDIS`, `VALKEY`.
+        The current supported values are `redis`, `valkey` (case insensitive).
         """
         return pulumi.get(self, "engine")
 
@@ -354,7 +354,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName",
             access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
+            engine="redis",
             passwords=["password123456789"])
         ```
 
@@ -366,7 +366,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName",
             access_string="on ~* +@all",
-            engine="REDIS",
+            engine="redis",
             authentication_mode={
                 "type": "iam",
             })
@@ -380,7 +380,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName",
             access_string="on ~* +@all",
-            engine="REDIS",
+            engine="redis",
             authentication_mode={
                 "type": "password",
                 "passwords": [
@@ -402,7 +402,7 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
-        :param pulumi.Input[str] engine: The current supported values are `REDIS`, `VALKEY`.
+        :param pulumi.Input[str] engine: The current supported values are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
@@ -431,7 +431,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName",
             access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
+            engine="redis",
             passwords=["password123456789"])
         ```
 
@@ -443,7 +443,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName",
             access_string="on ~* +@all",
-            engine="REDIS",
+            engine="redis",
             authentication_mode={
                 "type": "iam",
             })
@@ -457,7 +457,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName",
             access_string="on ~* +@all",
-            engine="REDIS",
+            engine="redis",
             authentication_mode={
                 "type": "password",
                 "passwords": [
@@ -557,7 +557,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
         :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
-        :param pulumi.Input[str] engine: The current supported values are `REDIS`, `VALKEY`.
+        :param pulumi.Input[str] engine: The current supported values are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
@@ -610,7 +610,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
         """
-        The current supported values are `REDIS`, `VALKEY`.
+        The current supported values are `redis`, `valkey` (case insensitive).
         """
         return pulumi.get(self, "engine")
 

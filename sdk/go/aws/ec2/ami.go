@@ -122,6 +122,8 @@ type Ami struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport pulumi.StringPtrOutput `pulumi:"tpmSupport"`
+	// Base64 representation of the non-volatile UEFI variable store.
+	UefiData pulumi.StringPtrOutput `pulumi:"uefiData"`
 	// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
 	UsageOperation pulumi.StringOutput `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
@@ -213,6 +215,8 @@ type amiState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport *string `pulumi:"tpmSupport"`
+	// Base64 representation of the non-volatile UEFI variable store.
+	UefiData *string `pulumi:"uefiData"`
 	// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
 	UsageOperation *string `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
@@ -275,6 +279,8 @@ type AmiState struct {
 	TagsAll pulumi.StringMapInput
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport pulumi.StringPtrInput
+	// Base64 representation of the non-volatile UEFI variable store.
+	UefiData pulumi.StringPtrInput
 	// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
 	UsageOperation pulumi.StringPtrInput
 	// Keyword to choose what virtualization mode created instances
@@ -318,6 +324,8 @@ type amiArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport *string `pulumi:"tpmSupport"`
+	// Base64 representation of the non-volatile UEFI variable store.
+	UefiData *string `pulumi:"uefiData"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.
@@ -356,6 +364,8 @@ type AmiArgs struct {
 	Tags pulumi.StringMapInput
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport pulumi.StringPtrInput
+	// Base64 representation of the non-volatile UEFI variable store.
+	UefiData pulumi.StringPtrInput
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.
@@ -581,6 +591,11 @@ func (o AmiOutput) TagsAll() pulumi.StringMapOutput {
 // If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 func (o AmiOutput) TpmSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.TpmSupport }).(pulumi.StringPtrOutput)
+}
+
+// Base64 representation of the non-volatile UEFI variable store.
+func (o AmiOutput) UefiData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.UefiData }).(pulumi.StringPtrOutput)
 }
 
 // Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.

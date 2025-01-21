@@ -181,6 +181,7 @@ const (
 	mediaconvertMod             = "MediaConvert"             // Media Convert
 	medialiveMod                = "MediaLive"                // Media Live
 	mediapackageMod             = "MediaPackage"             // Elemental MediaPackage
+	mediapackagev2Mod           = "MediaPackageV2"           // Elemental MediaPackage Version 2
 	mediastoreMod               = "MediaStore"               // Elemental MediaStore
 	memoryDbMod                 = "MemoryDb"                 // Memory DB
 	mqMod                       = "Mq"                       // MQ
@@ -406,6 +407,7 @@ var moduleMap = map[string]string{
 	"macie2":                          macie2Mod,
 	"media_convert":                   mediaconvertMod,
 	"media_package":                   mediapackageMod,
+	"media_packagev2":                 mediapackagev2Mod,
 	"media_store":                     mediastoreMod,
 	"medialive":                       medialiveMod,
 	"memorydb":                        memoryDbMod,
@@ -6026,6 +6028,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_cloudwatch_log_delivery_source":             {"name"},
 		"aws_cloudwatch_log_delivery_destination_policy": {"deliveryDestinationName"},
 		"aws_cloudwatch_log_delivery_destination":        {"name"},
+		"aws_media_packagev2_channel_group":              {"name"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {

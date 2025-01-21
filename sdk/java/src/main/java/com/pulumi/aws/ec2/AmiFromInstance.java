@@ -427,6 +427,20 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
     public Output<String> tpmSupport() {
         return this.tpmSupport;
     }
+    /**
+     * Base64 representation of the non-volatile UEFI variable store.
+     * 
+     */
+    @Export(name="uefiData", refs={String.class}, tree="[0]")
+    private Output<String> uefiData;
+
+    /**
+     * @return Base64 representation of the non-volatile UEFI variable store.
+     * 
+     */
+    public Output<String> uefiData() {
+        return this.uefiData;
+    }
     @Export(name="usageOperation", refs={String.class}, tree="[0]")
     private Output<String> usageOperation;
 

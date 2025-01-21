@@ -587,6 +587,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Internetmonitor *string `pulumi:"internetmonitor"`
 	// Use this to override the default service endpoint URL
+	Invoicing *string `pulumi:"invoicing"`
+	// Use this to override the default service endpoint URL
 	Iot *string `pulumi:"iot"`
 	// Use this to override the default service endpoint URL
 	Iotanalytics *string `pulumi:"iotanalytics"`
@@ -1192,6 +1194,8 @@ type EndpointsArgs struct {
 	Inspectorv2 pulumi.StringPtrInput `pulumi:"inspectorv2"`
 	// Use this to override the default service endpoint URL
 	Internetmonitor pulumi.StringPtrInput `pulumi:"internetmonitor"`
+	// Use this to override the default service endpoint URL
+	Invoicing pulumi.StringPtrInput `pulumi:"invoicing"`
 	// Use this to override the default service endpoint URL
 	Iot pulumi.StringPtrInput `pulumi:"iot"`
 	// Use this to override the default service endpoint URL
@@ -2279,6 +2283,11 @@ func (o EndpointsOutput) Inspectorv2() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Internetmonitor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Internetmonitor }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Invoicing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Invoicing }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

@@ -32,6 +32,13 @@ public final class CustomRoutingListenerState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.acceleratorArn);
     }
 
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      * 
@@ -51,6 +58,7 @@ public final class CustomRoutingListenerState extends com.pulumi.resources.Resou
 
     private CustomRoutingListenerState(CustomRoutingListenerState $) {
         this.acceleratorArn = $.acceleratorArn;
+        this.arn = $.arn;
         this.portRanges = $.portRanges;
     }
 
@@ -91,6 +99,15 @@ public final class CustomRoutingListenerState extends com.pulumi.resources.Resou
          */
         public Builder acceleratorArn(String acceleratorArn) {
             return acceleratorArn(Output.of(acceleratorArn));
+        }
+
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**
