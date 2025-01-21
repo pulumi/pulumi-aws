@@ -6026,6 +6026,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_cloudwatch_log_delivery_source":             {"name"},
 		"aws_cloudwatch_log_delivery_destination_policy": {"deliveryDestinationName"},
 		"aws_cloudwatch_log_delivery_destination":        {"name"},
+		"aws_media_packagev2_channel_group":              {"name"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
