@@ -5,7 +5,7 @@ Subject: [PATCH] Patch imagebuilder and resiliencehub tagging
 
 
 diff --git a/internal/service/imagebuilder/lifecycle_policy.go b/internal/service/imagebuilder/lifecycle_policy.go
-index de77993cb4..aba05a03c0 100644
+index 16a7ab6edc..62062edd9a 100644
 --- a/internal/service/imagebuilder/lifecycle_policy.go
 +++ b/internal/service/imagebuilder/lifecycle_policy.go
 @@ -89,7 +89,7 @@ func (r *lifecyclePolicyResource) Schema(ctx context.Context, request resource.S

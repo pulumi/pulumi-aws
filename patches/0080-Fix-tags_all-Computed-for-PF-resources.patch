@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/apigateway/domain_name_access_association.go b/internal/service/apigateway/domain_name_access_association.go
-index 0e3c8f3db6..de0e5e7d4a 100644
+index 48be618218..3eb7901e74 100644
 --- a/internal/service/apigateway/domain_name_access_association.go
 +++ b/internal/service/apigateway/domain_name_access_association.go
 @@ -75,7 +75,7 @@ func (r *domainNameAccessAssociationResource) Schema(ctx context.Context, reques
@@ -44,7 +44,7 @@ index 42b0fc1d42..e3b5b68ca0 100644
  				Optional: true,
  				Computed: true,
 diff --git a/internal/service/networkmanager/dx_gateway_attachment.go b/internal/service/networkmanager/dx_gateway_attachment.go
-index 508ce646c3..23637d8c5e 100644
+index b22748f2d9..d6ab20cd05 100644
 --- a/internal/service/networkmanager/dx_gateway_attachment.go
 +++ b/internal/service/networkmanager/dx_gateway_attachment.go
 @@ -111,7 +111,7 @@ func (r *directConnectGatewayAttachmentResource) Schema(ctx context.Context, req

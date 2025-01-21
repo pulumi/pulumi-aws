@@ -9,7 +9,7 @@ in state.
 Fix for https://github.com/pulumi/pulumi-aws/issues/2307.
 
 diff --git a/internal/service/sqs/queue_redrive_policy.go b/internal/service/sqs/queue_redrive_policy.go
-index 3d871cf4d7..30ced084d0 100644
+index 6fa2453433..906f4e3f52 100644
 --- a/internal/service/sqs/queue_redrive_policy.go
 +++ b/internal/service/sqs/queue_redrive_policy.go
 @@ -32,9 +32,10 @@ func resourceQueueRedrivePolicy() *schema.Resource {
