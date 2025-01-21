@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomRoutingListener = new CustomRoutingListener("exampleCustomRoutingListener", CustomRoutingListenerArgs.builder()
- *             .acceleratorArn(example.id())
+ *             .acceleratorArn(example.arn())
  *             .portRanges(CustomRoutingListenerPortRangeArgs.builder()
  *                 .fromPort(80)
  *                 .toPort(80)
@@ -96,6 +96,12 @@ public class CustomRoutingListener extends com.pulumi.resources.CustomResource {
      */
     public Output<String> acceleratorArn() {
         return this.acceleratorArn;
+    }
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    public Output<String> arn() {
+        return this.arn;
     }
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.

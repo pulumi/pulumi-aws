@@ -91,18 +91,22 @@ class ListenerArgs:
 class _ListenerState:
     def __init__(__self__, *,
                  accelerator_arn: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
                  client_affinity: Optional[pulumi.Input[str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Listener resources.
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of your accelerator.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[str] client_affinity: Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         :param pulumi.Input[str] protocol: The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         """
         if accelerator_arn is not None:
             pulumi.set(__self__, "accelerator_arn", accelerator_arn)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if client_affinity is not None:
             pulumi.set(__self__, "client_affinity", client_affinity)
         if port_ranges is not None:
@@ -121,6 +125,18 @@ class _ListenerState:
     @accelerator_arn.setter
     def accelerator_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "accelerator_arn", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the listener.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="clientAffinity")
@@ -188,7 +204,7 @@ class Listener(pulumi.CustomResource):
                 "flow_logs_s3_prefix": "flow-logs/",
             })
         example_listener = aws.globalaccelerator.Listener("example",
-            accelerator_arn=example.id,
+            accelerator_arn=example.arn,
             client_affinity="SOURCE_IP",
             protocol="TCP",
             port_ranges=[{
@@ -237,7 +253,7 @@ class Listener(pulumi.CustomResource):
                 "flow_logs_s3_prefix": "flow-logs/",
             })
         example_listener = aws.globalaccelerator.Listener("example",
-            accelerator_arn=example.id,
+            accelerator_arn=example.arn,
             client_affinity="SOURCE_IP",
             protocol="TCP",
             port_ranges=[{
@@ -292,6 +308,7 @@ class Listener(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["arn"] = None
         super(Listener, __self__).__init__(
             'aws:globalaccelerator/listener:Listener',
             resource_name,
@@ -303,6 +320,7 @@ class Listener(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             accelerator_arn: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             client_affinity: Optional[pulumi.Input[str]] = None,
             port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]]] = None,
             protocol: Optional[pulumi.Input[str]] = None) -> 'Listener':
@@ -314,6 +332,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of your accelerator.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[str] client_affinity: Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         :param pulumi.Input[str] protocol: The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
@@ -323,6 +342,7 @@ class Listener(pulumi.CustomResource):
         __props__ = _ListenerState.__new__(_ListenerState)
 
         __props__.__dict__["accelerator_arn"] = accelerator_arn
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["client_affinity"] = client_affinity
         __props__.__dict__["port_ranges"] = port_ranges
         __props__.__dict__["protocol"] = protocol
@@ -335,6 +355,14 @@ class Listener(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of your accelerator.
         """
         return pulumi.get(self, "accelerator_arn")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the listener.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="clientAffinity")

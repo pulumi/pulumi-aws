@@ -21,6 +21,21 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     public static final CustomRoutingAcceleratorState Empty = new CustomRoutingAcceleratorState();
 
     /**
+     * The Amazon Resource Name (ARN) of the custom accelerator.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the custom accelerator.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * The attributes of the accelerator. Fields documented below.
      * 
      */
@@ -185,6 +200,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     private CustomRoutingAcceleratorState() {}
 
     private CustomRoutingAcceleratorState(CustomRoutingAcceleratorState $) {
+        this.arn = $.arn;
         this.attributes = $.attributes;
         this.dnsName = $.dnsName;
         this.enabled = $.enabled;
@@ -213,6 +229,27 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
 
         public Builder(CustomRoutingAcceleratorState defaults) {
             $ = new CustomRoutingAcceleratorState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The Amazon Resource Name (ARN) of the custom accelerator.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The Amazon Resource Name (ARN) of the custom accelerator.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  *     userId: "testUserId",
  *     userName: "default",
  *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
- *     engine: "REDIS",
+ *     engine: "redis",
  *     passwords: ["password123456789"],
  * });
  * const testUserGroup = new aws.elasticache.UserGroup("test", {
- *     engine: "REDIS",
+ *     engine: "redis",
  *     userGroupId: "userGroupId",
  *     userIds: [test.userId],
  * });
@@ -68,7 +68,7 @@ export class UserGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The current supported value are `REDIS`, `VALKEY`.
+     * The current supported value are `redis`, `valkey` (case insensitive).
      */
     public readonly engine!: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export interface UserGroupState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The current supported value are `REDIS`, `VALKEY`.
+     * The current supported value are `redis`, `valkey` (case insensitive).
      */
     engine?: pulumi.Input<string>;
     /**
@@ -170,7 +170,7 @@ export interface UserGroupState {
  */
 export interface UserGroupArgs {
     /**
-     * The current supported value are `REDIS`, `VALKEY`.
+     * The current supported value are `redis`, `valkey` (case insensitive).
      */
     engine: pulumi.Input<string>;
     /**

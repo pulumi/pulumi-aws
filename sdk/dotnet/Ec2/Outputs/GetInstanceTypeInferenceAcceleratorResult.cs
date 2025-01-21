@@ -15,6 +15,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     {
         public readonly int Count;
         public readonly string Manufacturer;
+        /// <summary>
+        /// Size of the instance memory, in MiB.
+        /// </summary>
+        public readonly int MemorySize;
         public readonly string Name;
 
         [OutputConstructor]
@@ -23,10 +27,13 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string manufacturer,
 
+            int memorySize,
+
             string name)
         {
             Count = count;
             Manufacturer = manufacturer;
+            MemorySize = memorySize;
             Name = name;
         }
     }

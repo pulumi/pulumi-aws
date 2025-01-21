@@ -8010,6 +8010,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "mediapackage/v2ChannelGroup",
+  "fqn": "pulumi_aws.mediapackage",
+  "classes": {
+   "aws:mediapackage/v2ChannelGroup:V2ChannelGroup": "V2ChannelGroup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "mediastore/container",
   "fqn": "pulumi_aws.mediastore",
   "classes": {

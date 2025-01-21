@@ -15,6 +15,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'CustomKeyStoreXksProxyAuthenticationCredentialArgs',
+    'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict',
     'GrantConstraintArgs',
     'GrantConstraintArgsDict',
     'GetSecretSecretArgs',
@@ -24,6 +26,56 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class CustomKeyStoreXksProxyAuthenticationCredentialArgsDict(TypedDict):
+        access_key_id: pulumi.Input[str]
+        """
+        A unique identifier for the raw secret access key.
+        """
+        raw_secret_access_key: pulumi.Input[str]
+        """
+        A secret string of 43-64 characters.
+        """
+elif False:
+    CustomKeyStoreXksProxyAuthenticationCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomKeyStoreXksProxyAuthenticationCredentialArgs:
+    def __init__(__self__, *,
+                 access_key_id: pulumi.Input[str],
+                 raw_secret_access_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] access_key_id: A unique identifier for the raw secret access key.
+        :param pulumi.Input[str] raw_secret_access_key: A secret string of 43-64 characters.
+        """
+        pulumi.set(__self__, "access_key_id", access_key_id)
+        pulumi.set(__self__, "raw_secret_access_key", raw_secret_access_key)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> pulumi.Input[str]:
+        """
+        A unique identifier for the raw secret access key.
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @access_key_id.setter
+    def access_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_key_id", value)
+
+    @property
+    @pulumi.getter(name="rawSecretAccessKey")
+    def raw_secret_access_key(self) -> pulumi.Input[str]:
+        """
+        A secret string of 43-64 characters.
+        """
+        return pulumi.get(self, "raw_secret_access_key")
+
+    @raw_secret_access_key.setter
+    def raw_secret_access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "raw_secret_access_key", value)
+
 
 if not MYPY:
     class GrantConstraintArgsDict(TypedDict):

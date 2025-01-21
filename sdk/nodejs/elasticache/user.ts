@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     userId: "testUserId",
  *     userName: "testUserName",
  *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
- *     engine: "REDIS",
+ *     engine: "redis",
  *     passwords: ["password123456789"],
  * });
  * ```
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     userId: "testUserId",
  *     userName: "testUserName",
  *     accessString: "on ~* +@all",
- *     engine: "REDIS",
+ *     engine: "redis",
  *     authenticationMode: {
  *         type: "iam",
  *     },
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *     userId: "testUserId",
  *     userName: "testUserName",
  *     accessString: "on ~* +@all",
- *     engine: "REDIS",
+ *     engine: "redis",
  *     authenticationMode: {
  *         type: "password",
  *         passwords: [
@@ -109,7 +109,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly authenticationMode!: pulumi.Output<outputs.elasticache.UserAuthenticationMode>;
     /**
-     * The current supported values are `REDIS`, `VALKEY`.
+     * The current supported values are `redis`, `valkey` (case insensitive).
      */
     public readonly engine!: pulumi.Output<string>;
     /**
@@ -211,7 +211,7 @@ export interface UserState {
      */
     authenticationMode?: pulumi.Input<inputs.elasticache.UserAuthenticationMode>;
     /**
-     * The current supported values are `REDIS`, `VALKEY`.
+     * The current supported values are `redis`, `valkey` (case insensitive).
      */
     engine?: pulumi.Input<string>;
     /**
@@ -255,7 +255,7 @@ export interface UserArgs {
      */
     authenticationMode?: pulumi.Input<inputs.elasticache.UserAuthenticationMode>;
     /**
-     * The current supported values are `REDIS`, `VALKEY`.
+     * The current supported values are `redis`, `valkey` (case insensitive).
      */
     engine: pulumi.Input<string>;
     /**

@@ -29,11 +29,11 @@ class S3LocationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a S3Location resource.
-        :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.
+        :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         :param pulumi.Input['S3LocationS3ConfigArgs'] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[str] subdirectory: Prefix to perform actions as source or destination.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+        :param pulumi.Input[str] s3_storage_class: Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
@@ -50,7 +50,7 @@ class S3LocationArgs:
     @pulumi.getter(name="s3BucketArn")
     def s3_bucket_arn(self) -> pulumi.Input[str]:
         """
-        Amazon Resource Name (ARN) of the S3 Bucket.
+        Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         """
         return pulumi.get(self, "s3_bucket_arn")
 
@@ -86,7 +86,7 @@ class S3LocationArgs:
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of DataSync Agent ARNs with which this location will be associated.
+        (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         """
         return pulumi.get(self, "agent_arns")
 
@@ -98,7 +98,7 @@ class S3LocationArgs:
     @pulumi.getter(name="s3StorageClass")
     def s3_storage_class(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         """
         return pulumi.get(self, "s3_storage_class")
 
@@ -133,11 +133,11 @@ class _S3LocationState:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering S3Location resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
-        :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.
+        :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         :param pulumi.Input['S3LocationS3ConfigArgs'] s3_config: Configuration block containing information for connecting to S3.
-        :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        :param pulumi.Input[str] s3_storage_class: Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -168,7 +168,7 @@ class _S3LocationState:
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of DataSync Agent ARNs with which this location will be associated.
+        (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         """
         return pulumi.get(self, "agent_arns")
 
@@ -192,7 +192,7 @@ class _S3LocationState:
     @pulumi.getter(name="s3BucketArn")
     def s3_bucket_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the S3 Bucket.
+        Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         """
         return pulumi.get(self, "s3_bucket_arn")
 
@@ -216,7 +216,7 @@ class _S3LocationState:
     @pulumi.getter(name="s3StorageClass")
     def s3_storage_class(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         """
         return pulumi.get(self, "s3_storage_class")
 
@@ -288,6 +288,8 @@ class S3Location(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,6 +299,22 @@ class S3Location(pulumi.CustomResource):
             subdirectory="/example/prefix",
             s3_config={
                 "bucket_access_role_arn": example_aws_iam_role["arn"],
+            })
+        ```
+
+        ### S3 Bucket on AWS Outposts
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        destination = aws.datasync.S3Location("destination",
+            agent_arns=[example_aws_datasync_agent["arn"]],
+            s3_bucket_arn=example_aws_s3_access_point["arn"],
+            s3_storage_class="OUTPOSTS",
+            subdirectory="/example/prefix",
+            s3_config={
+                "bucket_access_role_arn": example["arn"],
             })
         ```
 
@@ -310,10 +328,10 @@ class S3Location(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+        :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         :param pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']] s3_config: Configuration block containing information for connecting to S3.
-        :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        :param pulumi.Input[str] s3_storage_class: Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -328,6 +346,8 @@ class S3Location(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -337,6 +357,22 @@ class S3Location(pulumi.CustomResource):
             subdirectory="/example/prefix",
             s3_config={
                 "bucket_access_role_arn": example_aws_iam_role["arn"],
+            })
+        ```
+
+        ### S3 Bucket on AWS Outposts
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        destination = aws.datasync.S3Location("destination",
+            agent_arns=[example_aws_datasync_agent["arn"]],
+            s3_bucket_arn=example_aws_s3_access_point["arn"],
+            s3_storage_class="OUTPOSTS",
+            subdirectory="/example/prefix",
+            s3_config={
+                "bucket_access_role_arn": example["arn"],
             })
         ```
 
@@ -419,11 +455,11 @@ class S3Location(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
-        :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.
+        :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         :param pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']] s3_config: Configuration block containing information for connecting to S3.
-        :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        :param pulumi.Input[str] s3_storage_class: Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -447,7 +483,7 @@ class S3Location(pulumi.CustomResource):
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of DataSync Agent ARNs with which this location will be associated.
+        (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         """
         return pulumi.get(self, "agent_arns")
 
@@ -463,7 +499,7 @@ class S3Location(pulumi.CustomResource):
     @pulumi.getter(name="s3BucketArn")
     def s3_bucket_arn(self) -> pulumi.Output[str]:
         """
-        Amazon Resource Name (ARN) of the S3 Bucket.
+        Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         """
         return pulumi.get(self, "s3_bucket_arn")
 
@@ -479,7 +515,7 @@ class S3Location(pulumi.CustomResource):
     @pulumi.getter(name="s3StorageClass")
     def s3_storage_class(self) -> pulumi.Output[str]:
         """
-        The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         """
         return pulumi.get(self, "s3_storage_class")
 

@@ -27,13 +27,19 @@ class GetInstanceTypeResult:
     """
     A collection of values returned by getInstanceType.
     """
-    def __init__(__self__, auto_recovery_supported=None, bare_metal=None, burstable_performance_supported=None, current_generation=None, dedicated_hosts_supported=None, default_cores=None, default_threads_per_core=None, default_vcpus=None, ebs_encryption_support=None, ebs_nvme_support=None, ebs_optimized_support=None, ebs_performance_baseline_bandwidth=None, ebs_performance_baseline_iops=None, ebs_performance_baseline_throughput=None, ebs_performance_maximum_bandwidth=None, ebs_performance_maximum_iops=None, ebs_performance_maximum_throughput=None, efa_supported=None, ena_support=None, encryption_in_transit_supported=None, fpgas=None, free_tier_eligible=None, gpuses=None, hibernation_supported=None, hypervisor=None, id=None, inference_accelerators=None, instance_disks=None, instance_storage_supported=None, instance_type=None, ipv6_supported=None, maximum_ipv4_addresses_per_interface=None, maximum_ipv6_addresses_per_interface=None, maximum_network_cards=None, maximum_network_interfaces=None, memory_size=None, network_performance=None, supported_architectures=None, supported_placement_strategies=None, supported_root_device_types=None, supported_usages_classes=None, supported_virtualization_types=None, sustained_clock_speed=None, total_fpga_memory=None, total_gpu_memory=None, total_instance_storage=None, valid_cores=None, valid_threads_per_cores=None):
+    def __init__(__self__, auto_recovery_supported=None, bandwidth_weightings=None, bare_metal=None, boot_modes=None, burstable_performance_supported=None, current_generation=None, dedicated_hosts_supported=None, default_cores=None, default_network_card_index=None, default_threads_per_core=None, default_vcpus=None, ebs_encryption_support=None, ebs_nvme_support=None, ebs_optimized_support=None, ebs_performance_baseline_bandwidth=None, ebs_performance_baseline_iops=None, ebs_performance_baseline_throughput=None, ebs_performance_maximum_bandwidth=None, ebs_performance_maximum_iops=None, ebs_performance_maximum_throughput=None, efa_maximum_interfaces=None, efa_supported=None, ena_srd_supported=None, ena_support=None, encryption_in_transit_supported=None, fpgas=None, free_tier_eligible=None, gpuses=None, hibernation_supported=None, hypervisor=None, id=None, inference_accelerators=None, instance_disks=None, instance_storage_supported=None, instance_type=None, ipv6_supported=None, maximum_ipv4_addresses_per_interface=None, maximum_ipv6_addresses_per_interface=None, maximum_network_cards=None, maximum_network_interfaces=None, media_accelerators=None, memory_size=None, network_cards=None, network_performance=None, neuron_devices=None, nitro_enclaves_support=None, nitro_tpm_support=None, nitro_tpm_supported_versions=None, phc_support=None, supported_architectures=None, supported_cpu_features=None, supported_placement_strategies=None, supported_root_device_types=None, supported_usages_classes=None, supported_virtualization_types=None, sustained_clock_speed=None, total_fpga_memory=None, total_gpu_memory=None, total_inference_memory=None, total_instance_storage=None, total_media_memory=None, total_neuron_device_memory=None, valid_cores=None, valid_threads_per_cores=None):
         if auto_recovery_supported and not isinstance(auto_recovery_supported, bool):
             raise TypeError("Expected argument 'auto_recovery_supported' to be a bool")
         pulumi.set(__self__, "auto_recovery_supported", auto_recovery_supported)
+        if bandwidth_weightings and not isinstance(bandwidth_weightings, list):
+            raise TypeError("Expected argument 'bandwidth_weightings' to be a list")
+        pulumi.set(__self__, "bandwidth_weightings", bandwidth_weightings)
         if bare_metal and not isinstance(bare_metal, bool):
             raise TypeError("Expected argument 'bare_metal' to be a bool")
         pulumi.set(__self__, "bare_metal", bare_metal)
+        if boot_modes and not isinstance(boot_modes, list):
+            raise TypeError("Expected argument 'boot_modes' to be a list")
+        pulumi.set(__self__, "boot_modes", boot_modes)
         if burstable_performance_supported and not isinstance(burstable_performance_supported, bool):
             raise TypeError("Expected argument 'burstable_performance_supported' to be a bool")
         pulumi.set(__self__, "burstable_performance_supported", burstable_performance_supported)
@@ -46,6 +52,9 @@ class GetInstanceTypeResult:
         if default_cores and not isinstance(default_cores, int):
             raise TypeError("Expected argument 'default_cores' to be a int")
         pulumi.set(__self__, "default_cores", default_cores)
+        if default_network_card_index and not isinstance(default_network_card_index, int):
+            raise TypeError("Expected argument 'default_network_card_index' to be a int")
+        pulumi.set(__self__, "default_network_card_index", default_network_card_index)
         if default_threads_per_core and not isinstance(default_threads_per_core, int):
             raise TypeError("Expected argument 'default_threads_per_core' to be a int")
         pulumi.set(__self__, "default_threads_per_core", default_threads_per_core)
@@ -79,9 +88,15 @@ class GetInstanceTypeResult:
         if ebs_performance_maximum_throughput and not isinstance(ebs_performance_maximum_throughput, float):
             raise TypeError("Expected argument 'ebs_performance_maximum_throughput' to be a float")
         pulumi.set(__self__, "ebs_performance_maximum_throughput", ebs_performance_maximum_throughput)
+        if efa_maximum_interfaces and not isinstance(efa_maximum_interfaces, int):
+            raise TypeError("Expected argument 'efa_maximum_interfaces' to be a int")
+        pulumi.set(__self__, "efa_maximum_interfaces", efa_maximum_interfaces)
         if efa_supported and not isinstance(efa_supported, bool):
             raise TypeError("Expected argument 'efa_supported' to be a bool")
         pulumi.set(__self__, "efa_supported", efa_supported)
+        if ena_srd_supported and not isinstance(ena_srd_supported, bool):
+            raise TypeError("Expected argument 'ena_srd_supported' to be a bool")
+        pulumi.set(__self__, "ena_srd_supported", ena_srd_supported)
         if ena_support and not isinstance(ena_support, str):
             raise TypeError("Expected argument 'ena_support' to be a str")
         pulumi.set(__self__, "ena_support", ena_support)
@@ -133,15 +148,39 @@ class GetInstanceTypeResult:
         if maximum_network_interfaces and not isinstance(maximum_network_interfaces, int):
             raise TypeError("Expected argument 'maximum_network_interfaces' to be a int")
         pulumi.set(__self__, "maximum_network_interfaces", maximum_network_interfaces)
+        if media_accelerators and not isinstance(media_accelerators, list):
+            raise TypeError("Expected argument 'media_accelerators' to be a list")
+        pulumi.set(__self__, "media_accelerators", media_accelerators)
         if memory_size and not isinstance(memory_size, int):
             raise TypeError("Expected argument 'memory_size' to be a int")
         pulumi.set(__self__, "memory_size", memory_size)
+        if network_cards and not isinstance(network_cards, list):
+            raise TypeError("Expected argument 'network_cards' to be a list")
+        pulumi.set(__self__, "network_cards", network_cards)
         if network_performance and not isinstance(network_performance, str):
             raise TypeError("Expected argument 'network_performance' to be a str")
         pulumi.set(__self__, "network_performance", network_performance)
+        if neuron_devices and not isinstance(neuron_devices, list):
+            raise TypeError("Expected argument 'neuron_devices' to be a list")
+        pulumi.set(__self__, "neuron_devices", neuron_devices)
+        if nitro_enclaves_support and not isinstance(nitro_enclaves_support, str):
+            raise TypeError("Expected argument 'nitro_enclaves_support' to be a str")
+        pulumi.set(__self__, "nitro_enclaves_support", nitro_enclaves_support)
+        if nitro_tpm_support and not isinstance(nitro_tpm_support, str):
+            raise TypeError("Expected argument 'nitro_tpm_support' to be a str")
+        pulumi.set(__self__, "nitro_tpm_support", nitro_tpm_support)
+        if nitro_tpm_supported_versions and not isinstance(nitro_tpm_supported_versions, list):
+            raise TypeError("Expected argument 'nitro_tpm_supported_versions' to be a list")
+        pulumi.set(__self__, "nitro_tpm_supported_versions", nitro_tpm_supported_versions)
+        if phc_support and not isinstance(phc_support, str):
+            raise TypeError("Expected argument 'phc_support' to be a str")
+        pulumi.set(__self__, "phc_support", phc_support)
         if supported_architectures and not isinstance(supported_architectures, list):
             raise TypeError("Expected argument 'supported_architectures' to be a list")
         pulumi.set(__self__, "supported_architectures", supported_architectures)
+        if supported_cpu_features and not isinstance(supported_cpu_features, list):
+            raise TypeError("Expected argument 'supported_cpu_features' to be a list")
+        pulumi.set(__self__, "supported_cpu_features", supported_cpu_features)
         if supported_placement_strategies and not isinstance(supported_placement_strategies, list):
             raise TypeError("Expected argument 'supported_placement_strategies' to be a list")
         pulumi.set(__self__, "supported_placement_strategies", supported_placement_strategies)
@@ -163,9 +202,18 @@ class GetInstanceTypeResult:
         if total_gpu_memory and not isinstance(total_gpu_memory, int):
             raise TypeError("Expected argument 'total_gpu_memory' to be a int")
         pulumi.set(__self__, "total_gpu_memory", total_gpu_memory)
+        if total_inference_memory and not isinstance(total_inference_memory, int):
+            raise TypeError("Expected argument 'total_inference_memory' to be a int")
+        pulumi.set(__self__, "total_inference_memory", total_inference_memory)
         if total_instance_storage and not isinstance(total_instance_storage, int):
             raise TypeError("Expected argument 'total_instance_storage' to be a int")
         pulumi.set(__self__, "total_instance_storage", total_instance_storage)
+        if total_media_memory and not isinstance(total_media_memory, int):
+            raise TypeError("Expected argument 'total_media_memory' to be a int")
+        pulumi.set(__self__, "total_media_memory", total_media_memory)
+        if total_neuron_device_memory and not isinstance(total_neuron_device_memory, int):
+            raise TypeError("Expected argument 'total_neuron_device_memory' to be a int")
+        pulumi.set(__self__, "total_neuron_device_memory", total_neuron_device_memory)
         if valid_cores and not isinstance(valid_cores, list):
             raise TypeError("Expected argument 'valid_cores' to be a list")
         pulumi.set(__self__, "valid_cores", valid_cores)
@@ -182,12 +230,28 @@ class GetInstanceTypeResult:
         return pulumi.get(self, "auto_recovery_supported")
 
     @property
+    @pulumi.getter(name="bandwidthWeightings")
+    def bandwidth_weightings(self) -> Sequence[str]:
+        """
+        A set of strings of valid settings for [configurable bandwidth weighting](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html), if supported.
+        """
+        return pulumi.get(self, "bandwidth_weightings")
+
+    @property
     @pulumi.getter(name="bareMetal")
     def bare_metal(self) -> bool:
         """
         `true` if it is a bare metal instance type.
         """
         return pulumi.get(self, "bare_metal")
+
+    @property
+    @pulumi.getter(name="bootModes")
+    def boot_modes(self) -> Sequence[str]:
+        """
+        A set of strings of supported boot modes.
+        """
+        return pulumi.get(self, "boot_modes")
 
     @property
     @pulumi.getter(name="burstablePerformanceSupported")
@@ -220,6 +284,14 @@ class GetInstanceTypeResult:
         Default number of cores for the instance type.
         """
         return pulumi.get(self, "default_cores")
+
+    @property
+    @pulumi.getter(name="defaultNetworkCardIndex")
+    def default_network_card_index(self) -> int:
+        """
+        The index of the default network card, starting at `0`.
+        """
+        return pulumi.get(self, "default_network_card_index")
 
     @property
     @pulumi.getter(name="defaultThreadsPerCore")
@@ -310,18 +382,34 @@ class GetInstanceTypeResult:
         return pulumi.get(self, "ebs_performance_maximum_throughput")
 
     @property
+    @pulumi.getter(name="efaMaximumInterfaces")
+    def efa_maximum_interfaces(self) -> int:
+        """
+        The maximum number of Elastic Fabric Adapters for the instance type.
+        """
+        return pulumi.get(self, "efa_maximum_interfaces")
+
+    @property
     @pulumi.getter(name="efaSupported")
     def efa_supported(self) -> bool:
         """
-        Whether Elastic Fabric Adapter (EFA) is supported.
+        `true` if Elastic Fabric Adapter (EFA) is supported.
         """
         return pulumi.get(self, "efa_supported")
+
+    @property
+    @pulumi.getter(name="enaSrdSupported")
+    def ena_srd_supported(self) -> bool:
+        """
+        `true` if the instance type supports [ENA Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html).
+        """
+        return pulumi.get(self, "ena_srd_supported")
 
     @property
     @pulumi.getter(name="enaSupport")
     def ena_support(self) -> str:
         """
-        Whether Elastic Network Adapter (ENA) is supported.
+        Indicates whether Elastic Network Adapter (ENA) is `"supported"`, `"required"`, or `"unsupported"`.
         """
         return pulumi.get(self, "ena_support")
 
@@ -329,7 +417,7 @@ class GetInstanceTypeResult:
     @pulumi.getter(name="encryptionInTransitSupported")
     def encryption_in_transit_supported(self) -> bool:
         """
-        Indicates whether encryption in-transit between instances is supported.
+        `true` if encryption in-transit between instances is supported.
         """
         return pulumi.get(self, "encryption_in_transit_supported")
 
@@ -340,7 +428,7 @@ class GetInstanceTypeResult:
         Describes the FPGA accelerator settings for the instance type.
         * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
         * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
-        * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
+        * `fpgas.#.memory_size` - The size (in MiB) of the memory available to the FPGA accelerator.
         * `fpgas.#.name` - The name of the FPGA accelerator.
         """
         return pulumi.get(self, "fpgas")
@@ -360,7 +448,7 @@ class GetInstanceTypeResult:
         Describes the GPU accelerators for the instance type.
         * `gpus.#.count` - The number of GPUs for the instance type.
         * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
-        * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
+        * `gpus.#.memory_size` - The size (in MiB) of the memory available to the GPU accelerator.
         * `gpus.#.name` - The name of the GPU accelerator.
         """
         return pulumi.get(self, "gpuses")
@@ -396,6 +484,7 @@ class GetInstanceTypeResult:
         Describes the Inference accelerators for the instance type.
         * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
         * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+        * `inference_accelerators.#.memory_size` - The size (in MiB) of the memory available to the inference accelerator.
         * `inference_accelerators.#.name` - The name of the Inference accelerator.
         """
         return pulumi.get(self, "inference_accelerators")
@@ -465,12 +554,37 @@ class GetInstanceTypeResult:
         return pulumi.get(self, "maximum_network_interfaces")
 
     @property
+    @pulumi.getter(name="mediaAccelerators")
+    def media_accelerators(self) -> Sequence['outputs.GetInstanceTypeMediaAcceleratorResult']:
+        """
+        Describes the media accelerator settings for the instance type.
+        * `media_accelerators.#.count` - The number of media accelerators for the instance type.
+        * `media_accelerators.#.manufacturer` - The manufacturer of the media accelerator.
+        * `media_accelerators.#.memory_size` - The size (in MiB) of the memory available to each media accelerator.
+        * `media_accelerators.#.name` - The name of the media accelerator.
+        """
+        return pulumi.get(self, "media_accelerators")
+
+    @property
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> int:
         """
         Size of the instance memory, in MiB.
         """
         return pulumi.get(self, "memory_size")
+
+    @property
+    @pulumi.getter(name="networkCards")
+    def network_cards(self) -> Sequence['outputs.GetInstanceTypeNetworkCardResult']:
+        """
+        Describes the network cards for the instance type.
+        * `network_cards.#.baseline_bandwidth` - The baseline network performance (in Gbps) of the network card.
+        * `network_cards.#.index` - The index of the network card.
+        * `network_cards.#.maximum_interfaces` - The maximum number of network interfaces for the /network card.
+        * `network_cards.#.performance` - Describes the network performance of the network card.
+        * `network_cards.#.peak_bandwidth` - The peak (burst) network performance (in Gbps) of the network card.
+        """
+        return pulumi.get(self, "network_cards")
 
     @property
     @pulumi.getter(name="networkPerformance")
@@ -481,12 +595,65 @@ class GetInstanceTypeResult:
         return pulumi.get(self, "network_performance")
 
     @property
+    @pulumi.getter(name="neuronDevices")
+    def neuron_devices(self) -> Sequence['outputs.GetInstanceTypeNeuronDeviceResult']:
+        """
+        Describes the Neuron accelerator settings for the instance type.
+        * `neuron_devices.#.core_count` - The number of cores available to the neuron accelerator.
+        * `neuron_devices.#.core_version` - A number representing the version of the neuron accelerator.
+        * `neuron_devices.#.count` - The number of neuron accelerators for the instance type.
+        * `neuron_devices.#.memory_size` - The size (in MiB) of the memory available to the neuron accelerator.
+        * `neuron_devices.#.name` - The name of the neuron accelerator.
+        """
+        return pulumi.get(self, "neuron_devices")
+
+    @property
+    @pulumi.getter(name="nitroEnclavesSupport")
+    def nitro_enclaves_support(self) -> str:
+        """
+        Indicates whether Nitro Enclaves is `"supported"` or `"unsupported"`.
+        """
+        return pulumi.get(self, "nitro_enclaves_support")
+
+    @property
+    @pulumi.getter(name="nitroTpmSupport")
+    def nitro_tpm_support(self) -> str:
+        """
+        Indicates whether NitroTPM is `"supported"` or `"unsupported"`.
+        """
+        return pulumi.get(self, "nitro_tpm_support")
+
+    @property
+    @pulumi.getter(name="nitroTpmSupportedVersions")
+    def nitro_tpm_supported_versions(self) -> Sequence[str]:
+        """
+        A set of strings indicating the supported NitroTPM versions.
+        """
+        return pulumi.get(self, "nitro_tpm_supported_versions")
+
+    @property
+    @pulumi.getter(name="phcSupport")
+    def phc_support(self) -> str:
+        """
+        `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
+        """
+        return pulumi.get(self, "phc_support")
+
+    @property
     @pulumi.getter(name="supportedArchitectures")
     def supported_architectures(self) -> Sequence[str]:
         """
-        A list of architectures supported by the instance type.
+        A list of strings of architectures supported by the instance type.
         """
         return pulumi.get(self, "supported_architectures")
+
+    @property
+    @pulumi.getter(name="supportedCpuFeatures")
+    def supported_cpu_features(self) -> Sequence[str]:
+        """
+        A set of strings indicating supported CPU features.
+        """
+        return pulumi.get(self, "supported_cpu_features")
 
     @property
     @pulumi.getter(name="supportedPlacementStrategies")
@@ -500,7 +667,7 @@ class GetInstanceTypeResult:
     @pulumi.getter(name="supportedRootDeviceTypes")
     def supported_root_device_types(self) -> Sequence[str]:
         """
-        Indicates the supported root device types.
+        A list of supported root device types.
         """
         return pulumi.get(self, "supported_root_device_types")
 
@@ -508,7 +675,7 @@ class GetInstanceTypeResult:
     @pulumi.getter(name="supportedUsagesClasses")
     def supported_usages_classes(self) -> Sequence[str]:
         """
-        Indicates whether the instance type is offered for spot or On-Demand.
+        A list of supported usage classes.  Usage classes are `"spot"`, `"on-demand"`, or `"capacity-block"`.
         """
         return pulumi.get(self, "supported_usages_classes")
 
@@ -545,12 +712,36 @@ class GetInstanceTypeResult:
         return pulumi.get(self, "total_gpu_memory")
 
     @property
+    @pulumi.getter(name="totalInferenceMemory")
+    def total_inference_memory(self) -> int:
+        """
+        The total size of the memory for the neuron accelerators for the instance type (in MiB).
+        """
+        return pulumi.get(self, "total_inference_memory")
+
+    @property
     @pulumi.getter(name="totalInstanceStorage")
     def total_instance_storage(self) -> int:
         """
         The total size of the instance disks, in GB.
         """
         return pulumi.get(self, "total_instance_storage")
+
+    @property
+    @pulumi.getter(name="totalMediaMemory")
+    def total_media_memory(self) -> int:
+        """
+        The total size of the memory for the media accelerators for the instance type (in MiB).
+        """
+        return pulumi.get(self, "total_media_memory")
+
+    @property
+    @pulumi.getter(name="totalNeuronDeviceMemory")
+    def total_neuron_device_memory(self) -> int:
+        """
+        The total size of the memory for the neuron accelerators for the instance type (in MiB).
+        """
+        return pulumi.get(self, "total_neuron_device_memory")
 
     @property
     @pulumi.getter(name="validCores")
@@ -576,11 +767,14 @@ class AwaitableGetInstanceTypeResult(GetInstanceTypeResult):
             yield self
         return GetInstanceTypeResult(
             auto_recovery_supported=self.auto_recovery_supported,
+            bandwidth_weightings=self.bandwidth_weightings,
             bare_metal=self.bare_metal,
+            boot_modes=self.boot_modes,
             burstable_performance_supported=self.burstable_performance_supported,
             current_generation=self.current_generation,
             dedicated_hosts_supported=self.dedicated_hosts_supported,
             default_cores=self.default_cores,
+            default_network_card_index=self.default_network_card_index,
             default_threads_per_core=self.default_threads_per_core,
             default_vcpus=self.default_vcpus,
             ebs_encryption_support=self.ebs_encryption_support,
@@ -592,7 +786,9 @@ class AwaitableGetInstanceTypeResult(GetInstanceTypeResult):
             ebs_performance_maximum_bandwidth=self.ebs_performance_maximum_bandwidth,
             ebs_performance_maximum_iops=self.ebs_performance_maximum_iops,
             ebs_performance_maximum_throughput=self.ebs_performance_maximum_throughput,
+            efa_maximum_interfaces=self.efa_maximum_interfaces,
             efa_supported=self.efa_supported,
+            ena_srd_supported=self.ena_srd_supported,
             ena_support=self.ena_support,
             encryption_in_transit_supported=self.encryption_in_transit_supported,
             fpgas=self.fpgas,
@@ -610,9 +806,17 @@ class AwaitableGetInstanceTypeResult(GetInstanceTypeResult):
             maximum_ipv6_addresses_per_interface=self.maximum_ipv6_addresses_per_interface,
             maximum_network_cards=self.maximum_network_cards,
             maximum_network_interfaces=self.maximum_network_interfaces,
+            media_accelerators=self.media_accelerators,
             memory_size=self.memory_size,
+            network_cards=self.network_cards,
             network_performance=self.network_performance,
+            neuron_devices=self.neuron_devices,
+            nitro_enclaves_support=self.nitro_enclaves_support,
+            nitro_tpm_support=self.nitro_tpm_support,
+            nitro_tpm_supported_versions=self.nitro_tpm_supported_versions,
+            phc_support=self.phc_support,
             supported_architectures=self.supported_architectures,
+            supported_cpu_features=self.supported_cpu_features,
             supported_placement_strategies=self.supported_placement_strategies,
             supported_root_device_types=self.supported_root_device_types,
             supported_usages_classes=self.supported_usages_classes,
@@ -620,7 +824,10 @@ class AwaitableGetInstanceTypeResult(GetInstanceTypeResult):
             sustained_clock_speed=self.sustained_clock_speed,
             total_fpga_memory=self.total_fpga_memory,
             total_gpu_memory=self.total_gpu_memory,
+            total_inference_memory=self.total_inference_memory,
             total_instance_storage=self.total_instance_storage,
+            total_media_memory=self.total_media_memory,
+            total_neuron_device_memory=self.total_neuron_device_memory,
             valid_cores=self.valid_cores,
             valid_threads_per_cores=self.valid_threads_per_cores)
 
@@ -649,11 +856,14 @@ def get_instance_type(instance_type: Optional[str] = None,
 
     return AwaitableGetInstanceTypeResult(
         auto_recovery_supported=pulumi.get(__ret__, 'auto_recovery_supported'),
+        bandwidth_weightings=pulumi.get(__ret__, 'bandwidth_weightings'),
         bare_metal=pulumi.get(__ret__, 'bare_metal'),
+        boot_modes=pulumi.get(__ret__, 'boot_modes'),
         burstable_performance_supported=pulumi.get(__ret__, 'burstable_performance_supported'),
         current_generation=pulumi.get(__ret__, 'current_generation'),
         dedicated_hosts_supported=pulumi.get(__ret__, 'dedicated_hosts_supported'),
         default_cores=pulumi.get(__ret__, 'default_cores'),
+        default_network_card_index=pulumi.get(__ret__, 'default_network_card_index'),
         default_threads_per_core=pulumi.get(__ret__, 'default_threads_per_core'),
         default_vcpus=pulumi.get(__ret__, 'default_vcpus'),
         ebs_encryption_support=pulumi.get(__ret__, 'ebs_encryption_support'),
@@ -665,7 +875,9 @@ def get_instance_type(instance_type: Optional[str] = None,
         ebs_performance_maximum_bandwidth=pulumi.get(__ret__, 'ebs_performance_maximum_bandwidth'),
         ebs_performance_maximum_iops=pulumi.get(__ret__, 'ebs_performance_maximum_iops'),
         ebs_performance_maximum_throughput=pulumi.get(__ret__, 'ebs_performance_maximum_throughput'),
+        efa_maximum_interfaces=pulumi.get(__ret__, 'efa_maximum_interfaces'),
         efa_supported=pulumi.get(__ret__, 'efa_supported'),
+        ena_srd_supported=pulumi.get(__ret__, 'ena_srd_supported'),
         ena_support=pulumi.get(__ret__, 'ena_support'),
         encryption_in_transit_supported=pulumi.get(__ret__, 'encryption_in_transit_supported'),
         fpgas=pulumi.get(__ret__, 'fpgas'),
@@ -683,9 +895,17 @@ def get_instance_type(instance_type: Optional[str] = None,
         maximum_ipv6_addresses_per_interface=pulumi.get(__ret__, 'maximum_ipv6_addresses_per_interface'),
         maximum_network_cards=pulumi.get(__ret__, 'maximum_network_cards'),
         maximum_network_interfaces=pulumi.get(__ret__, 'maximum_network_interfaces'),
+        media_accelerators=pulumi.get(__ret__, 'media_accelerators'),
         memory_size=pulumi.get(__ret__, 'memory_size'),
+        network_cards=pulumi.get(__ret__, 'network_cards'),
         network_performance=pulumi.get(__ret__, 'network_performance'),
+        neuron_devices=pulumi.get(__ret__, 'neuron_devices'),
+        nitro_enclaves_support=pulumi.get(__ret__, 'nitro_enclaves_support'),
+        nitro_tpm_support=pulumi.get(__ret__, 'nitro_tpm_support'),
+        nitro_tpm_supported_versions=pulumi.get(__ret__, 'nitro_tpm_supported_versions'),
+        phc_support=pulumi.get(__ret__, 'phc_support'),
         supported_architectures=pulumi.get(__ret__, 'supported_architectures'),
+        supported_cpu_features=pulumi.get(__ret__, 'supported_cpu_features'),
         supported_placement_strategies=pulumi.get(__ret__, 'supported_placement_strategies'),
         supported_root_device_types=pulumi.get(__ret__, 'supported_root_device_types'),
         supported_usages_classes=pulumi.get(__ret__, 'supported_usages_classes'),
@@ -693,7 +913,10 @@ def get_instance_type(instance_type: Optional[str] = None,
         sustained_clock_speed=pulumi.get(__ret__, 'sustained_clock_speed'),
         total_fpga_memory=pulumi.get(__ret__, 'total_fpga_memory'),
         total_gpu_memory=pulumi.get(__ret__, 'total_gpu_memory'),
+        total_inference_memory=pulumi.get(__ret__, 'total_inference_memory'),
         total_instance_storage=pulumi.get(__ret__, 'total_instance_storage'),
+        total_media_memory=pulumi.get(__ret__, 'total_media_memory'),
+        total_neuron_device_memory=pulumi.get(__ret__, 'total_neuron_device_memory'),
         valid_cores=pulumi.get(__ret__, 'valid_cores'),
         valid_threads_per_cores=pulumi.get(__ret__, 'valid_threads_per_cores'))
 def get_instance_type_output(instance_type: Optional[pulumi.Input[str]] = None,
@@ -719,11 +942,14 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstanceType:getInstanceType', __args__, opts=opts, typ=GetInstanceTypeResult)
     return __ret__.apply(lambda __response__: GetInstanceTypeResult(
         auto_recovery_supported=pulumi.get(__response__, 'auto_recovery_supported'),
+        bandwidth_weightings=pulumi.get(__response__, 'bandwidth_weightings'),
         bare_metal=pulumi.get(__response__, 'bare_metal'),
+        boot_modes=pulumi.get(__response__, 'boot_modes'),
         burstable_performance_supported=pulumi.get(__response__, 'burstable_performance_supported'),
         current_generation=pulumi.get(__response__, 'current_generation'),
         dedicated_hosts_supported=pulumi.get(__response__, 'dedicated_hosts_supported'),
         default_cores=pulumi.get(__response__, 'default_cores'),
+        default_network_card_index=pulumi.get(__response__, 'default_network_card_index'),
         default_threads_per_core=pulumi.get(__response__, 'default_threads_per_core'),
         default_vcpus=pulumi.get(__response__, 'default_vcpus'),
         ebs_encryption_support=pulumi.get(__response__, 'ebs_encryption_support'),
@@ -735,7 +961,9 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[str]] = None,
         ebs_performance_maximum_bandwidth=pulumi.get(__response__, 'ebs_performance_maximum_bandwidth'),
         ebs_performance_maximum_iops=pulumi.get(__response__, 'ebs_performance_maximum_iops'),
         ebs_performance_maximum_throughput=pulumi.get(__response__, 'ebs_performance_maximum_throughput'),
+        efa_maximum_interfaces=pulumi.get(__response__, 'efa_maximum_interfaces'),
         efa_supported=pulumi.get(__response__, 'efa_supported'),
+        ena_srd_supported=pulumi.get(__response__, 'ena_srd_supported'),
         ena_support=pulumi.get(__response__, 'ena_support'),
         encryption_in_transit_supported=pulumi.get(__response__, 'encryption_in_transit_supported'),
         fpgas=pulumi.get(__response__, 'fpgas'),
@@ -753,9 +981,17 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[str]] = None,
         maximum_ipv6_addresses_per_interface=pulumi.get(__response__, 'maximum_ipv6_addresses_per_interface'),
         maximum_network_cards=pulumi.get(__response__, 'maximum_network_cards'),
         maximum_network_interfaces=pulumi.get(__response__, 'maximum_network_interfaces'),
+        media_accelerators=pulumi.get(__response__, 'media_accelerators'),
         memory_size=pulumi.get(__response__, 'memory_size'),
+        network_cards=pulumi.get(__response__, 'network_cards'),
         network_performance=pulumi.get(__response__, 'network_performance'),
+        neuron_devices=pulumi.get(__response__, 'neuron_devices'),
+        nitro_enclaves_support=pulumi.get(__response__, 'nitro_enclaves_support'),
+        nitro_tpm_support=pulumi.get(__response__, 'nitro_tpm_support'),
+        nitro_tpm_supported_versions=pulumi.get(__response__, 'nitro_tpm_supported_versions'),
+        phc_support=pulumi.get(__response__, 'phc_support'),
         supported_architectures=pulumi.get(__response__, 'supported_architectures'),
+        supported_cpu_features=pulumi.get(__response__, 'supported_cpu_features'),
         supported_placement_strategies=pulumi.get(__response__, 'supported_placement_strategies'),
         supported_root_device_types=pulumi.get(__response__, 'supported_root_device_types'),
         supported_usages_classes=pulumi.get(__response__, 'supported_usages_classes'),
@@ -763,6 +999,9 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[str]] = None,
         sustained_clock_speed=pulumi.get(__response__, 'sustained_clock_speed'),
         total_fpga_memory=pulumi.get(__response__, 'total_fpga_memory'),
         total_gpu_memory=pulumi.get(__response__, 'total_gpu_memory'),
+        total_inference_memory=pulumi.get(__response__, 'total_inference_memory'),
         total_instance_storage=pulumi.get(__response__, 'total_instance_storage'),
+        total_media_memory=pulumi.get(__response__, 'total_media_memory'),
+        total_neuron_device_memory=pulumi.get(__response__, 'total_neuron_device_memory'),
         valid_cores=pulumi.get(__response__, 'valid_cores'),
         valid_threads_per_cores=pulumi.get(__response__, 'valid_threads_per_cores')))

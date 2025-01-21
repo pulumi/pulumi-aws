@@ -28,7 +28,7 @@ class GetAmiResult:
     """
     A collection of values returned by getAmi.
     """
-    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, imds_support=None, include_deprecated=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, usage_operation=None, virtualization_type=None):
+    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, imds_support=None, include_deprecated=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, uefi_data=None, usage_operation=None, virtualization_type=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -140,6 +140,9 @@ class GetAmiResult:
         if tpm_support and not isinstance(tpm_support, str):
             raise TypeError("Expected argument 'tpm_support' to be a str")
         pulumi.set(__self__, "tpm_support", tpm_support)
+        if uefi_data and not isinstance(uefi_data, str):
+            raise TypeError("Expected argument 'uefi_data' to be a str")
+        pulumi.set(__self__, "uefi_data", uefi_data)
         if usage_operation and not isinstance(usage_operation, str):
             raise TypeError("Expected argument 'usage_operation' to be a str")
         pulumi.set(__self__, "usage_operation", usage_operation)
@@ -436,6 +439,14 @@ class GetAmiResult:
         return pulumi.get(self, "tpm_support")
 
     @property
+    @pulumi.getter(name="uefiData")
+    def uefi_data(self) -> Optional[str]:
+        """
+        (Optional) Base64 representation of the non-volatile UEFI variable store.
+        """
+        return pulumi.get(self, "uefi_data")
+
+    @property
     @pulumi.getter(name="usageOperation")
     def usage_operation(self) -> str:
         """
@@ -496,6 +507,7 @@ class AwaitableGetAmiResult(GetAmiResult):
             state_reason=self.state_reason,
             tags=self.tags,
             tpm_support=self.tpm_support,
+            uefi_data=self.uefi_data,
             usage_operation=self.usage_operation,
             virtualization_type=self.virtualization_type)
 
@@ -507,6 +519,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
             name_regex: Optional[str] = None,
             owners: Optional[Sequence[str]] = None,
             tags: Optional[Mapping[str, str]] = None,
+            uefi_data: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiResult:
     """
     Use this data source to get the ID of a registered AMI for use in other
@@ -561,6 +574,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
     :param Mapping[str, str] tags: Any tags assigned to the image.
            * `tags.#.key` - Key name of the tag.
            * `tags.#.value` - Value of the tag.
+    :param str uefi_data: (Optional) Base64 representation of the non-volatile UEFI variable store.
     """
     __args__ = dict()
     __args__['executableUsers'] = executable_users
@@ -570,6 +584,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
     __args__['nameRegex'] = name_regex
     __args__['owners'] = owners
     __args__['tags'] = tags
+    __args__['uefiData'] = uefi_data
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getAmi:getAmi', __args__, opts=opts, typ=GetAmiResult).value
 
@@ -611,6 +626,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
         state_reason=pulumi.get(__ret__, 'state_reason'),
         tags=pulumi.get(__ret__, 'tags'),
         tpm_support=pulumi.get(__ret__, 'tpm_support'),
+        uefi_data=pulumi.get(__ret__, 'uefi_data'),
         usage_operation=pulumi.get(__ret__, 'usage_operation'),
         virtualization_type=pulumi.get(__ret__, 'virtualization_type'))
 def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -620,6 +636,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
                    name_regex: Optional[pulumi.Input[Optional[str]]] = None,
                    owners: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                   uefi_data: Optional[pulumi.Input[Optional[str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAmiResult]:
     """
     Use this data source to get the ID of a registered AMI for use in other
@@ -674,6 +691,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
     :param Mapping[str, str] tags: Any tags assigned to the image.
            * `tags.#.key` - Key name of the tag.
            * `tags.#.value` - Value of the tag.
+    :param str uefi_data: (Optional) Base64 representation of the non-volatile UEFI variable store.
     """
     __args__ = dict()
     __args__['executableUsers'] = executable_users
@@ -683,6 +701,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
     __args__['nameRegex'] = name_regex
     __args__['owners'] = owners
     __args__['tags'] = tags
+    __args__['uefiData'] = uefi_data
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getAmi:getAmi', __args__, opts=opts, typ=GetAmiResult)
     return __ret__.apply(lambda __response__: GetAmiResult(
@@ -723,5 +742,6 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
         state_reason=pulumi.get(__response__, 'state_reason'),
         tags=pulumi.get(__response__, 'tags'),
         tpm_support=pulumi.get(__response__, 'tpm_support'),
+        uefi_data=pulumi.get(__response__, 'uefi_data'),
         usage_operation=pulumi.get(__response__, 'usage_operation'),
         virtualization_type=pulumi.get(__response__, 'virtualization_type')))

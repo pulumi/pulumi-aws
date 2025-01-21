@@ -220,6 +220,12 @@ namespace Pulumi.Aws.Ec2
         [Output("tpmSupport")]
         public Output<string> TpmSupport { get; private set; } = null!;
 
+        /// <summary>
+        /// Base64 representation of the non-volatile UEFI variable store.
+        /// </summary>
+        [Output("uefiData")]
+        public Output<string> UefiData { get; private set; } = null!;
+
         [Output("usageOperation")]
         public Output<string> UsageOperation { get; private set; } = null!;
 
@@ -568,6 +574,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("tpmSupport")]
         public Input<string>? TpmSupport { get; set; }
+
+        /// <summary>
+        /// Base64 representation of the non-volatile UEFI variable store.
+        /// </summary>
+        [Input("uefiData")]
+        public Input<string>? UefiData { get; set; }
 
         [Input("usageOperation")]
         public Input<string>? UsageOperation { get; set; }

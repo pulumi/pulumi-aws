@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .userId("testUserId")
  *             .userName("testUserName")
  *             .accessString("on ~app::* -}{@literal @}{@code all +}{@literal @}{@code read +}{@literal @}{@code hash +}{@literal @}{@code bitmap +}{@literal @}{@code geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
- *             .engine("REDIS")
+ *             .engine("redis")
  *             .passwords("password123456789")
  *             .build());
  * 
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .userId("testUserId")
  *             .userName("testUserName")
  *             .accessString("on ~* +}{@literal @}{@code all")
- *             .engine("REDIS")
+ *             .engine("redis")
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
  *                 .type("iam")
  *                 .build())
@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  *             .userId("testUserId")
  *             .userName("testUserName")
  *             .accessString("on ~* +}{@literal @}{@code all")
- *             .engine("REDIS")
+ *             .engine("redis")
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
  *                 .type("password")
  *                 .passwords(                
@@ -198,14 +198,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.authenticationMode;
     }
     /**
-     * The current supported values are `REDIS`, `VALKEY`.
+     * The current supported values are `redis`, `valkey` (case insensitive).
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return The current supported values are `REDIS`, `VALKEY`.
+     * @return The current supported values are `redis`, `valkey` (case insensitive).
      * 
      */
     public Output<String> engine() {

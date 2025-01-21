@@ -3,34 +3,31 @@
 
 package com.pulumi.aws.kms;
 
+import com.pulumi.aws.kms.inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CustomKeyStoreArgs Empty = new CustomKeyStoreArgs();
 
-    /**
-     * Cluster ID of CloudHSM.
-     * 
-     */
-    @Import(name="cloudHsmClusterId", required=true)
-    private Output<String> cloudHsmClusterId;
+    @Import(name="cloudHsmClusterId")
+    private @Nullable Output<String> cloudHsmClusterId;
 
-    /**
-     * @return Cluster ID of CloudHSM.
-     * 
-     */
-    public Output<String> cloudHsmClusterId() {
-        return this.cloudHsmClusterId;
+    public Optional<Output<String>> cloudHsmClusterId() {
+        return Optional.ofNullable(this.cloudHsmClusterId);
     }
 
     /**
      * Unique name for Custom Key Store.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="customKeyStoreName", required=true)
@@ -39,39 +36,75 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return Unique name for Custom Key Store.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> customKeyStoreName() {
         return this.customKeyStoreName;
     }
 
     /**
-     * Password for `kmsuser` on CloudHSM.
+     * Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
      * 
      */
-    @Import(name="keyStorePassword", required=true)
-    private Output<String> keyStorePassword;
+    @Import(name="customKeyStoreType")
+    private @Nullable Output<String> customKeyStoreType;
 
     /**
-     * @return Password for `kmsuser` on CloudHSM.
+     * @return Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
      * 
      */
-    public Output<String> keyStorePassword() {
-        return this.keyStorePassword;
+    public Optional<Output<String>> customKeyStoreType() {
+        return Optional.ofNullable(this.customKeyStoreType);
     }
 
-    /**
-     * Customer certificate used for signing on CloudHSM.
-     * 
-     */
-    @Import(name="trustAnchorCertificate", required=true)
-    private Output<String> trustAnchorCertificate;
+    @Import(name="keyStorePassword")
+    private @Nullable Output<String> keyStorePassword;
 
-    /**
-     * @return Customer certificate used for signing on CloudHSM.
-     * 
-     */
-    public Output<String> trustAnchorCertificate() {
-        return this.trustAnchorCertificate;
+    public Optional<Output<String>> keyStorePassword() {
+        return Optional.ofNullable(this.keyStorePassword);
+    }
+
+    @Import(name="trustAnchorCertificate")
+    private @Nullable Output<String> trustAnchorCertificate;
+
+    public Optional<Output<String>> trustAnchorCertificate() {
+        return Optional.ofNullable(this.trustAnchorCertificate);
+    }
+
+    @Import(name="xksProxyAuthenticationCredential")
+    private @Nullable Output<CustomKeyStoreXksProxyAuthenticationCredentialArgs> xksProxyAuthenticationCredential;
+
+    public Optional<Output<CustomKeyStoreXksProxyAuthenticationCredentialArgs>> xksProxyAuthenticationCredential() {
+        return Optional.ofNullable(this.xksProxyAuthenticationCredential);
+    }
+
+    @Import(name="xksProxyConnectivity")
+    private @Nullable Output<String> xksProxyConnectivity;
+
+    public Optional<Output<String>> xksProxyConnectivity() {
+        return Optional.ofNullable(this.xksProxyConnectivity);
+    }
+
+    @Import(name="xksProxyUriEndpoint")
+    private @Nullable Output<String> xksProxyUriEndpoint;
+
+    public Optional<Output<String>> xksProxyUriEndpoint() {
+        return Optional.ofNullable(this.xksProxyUriEndpoint);
+    }
+
+    @Import(name="xksProxyUriPath")
+    private @Nullable Output<String> xksProxyUriPath;
+
+    public Optional<Output<String>> xksProxyUriPath() {
+        return Optional.ofNullable(this.xksProxyUriPath);
+    }
+
+    @Import(name="xksProxyVpcEndpointServiceName")
+    private @Nullable Output<String> xksProxyVpcEndpointServiceName;
+
+    public Optional<Output<String>> xksProxyVpcEndpointServiceName() {
+        return Optional.ofNullable(this.xksProxyVpcEndpointServiceName);
     }
 
     private CustomKeyStoreArgs() {}
@@ -79,8 +112,14 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
     private CustomKeyStoreArgs(CustomKeyStoreArgs $) {
         this.cloudHsmClusterId = $.cloudHsmClusterId;
         this.customKeyStoreName = $.customKeyStoreName;
+        this.customKeyStoreType = $.customKeyStoreType;
         this.keyStorePassword = $.keyStorePassword;
         this.trustAnchorCertificate = $.trustAnchorCertificate;
+        this.xksProxyAuthenticationCredential = $.xksProxyAuthenticationCredential;
+        this.xksProxyConnectivity = $.xksProxyConnectivity;
+        this.xksProxyUriEndpoint = $.xksProxyUriEndpoint;
+        this.xksProxyUriPath = $.xksProxyUriPath;
+        this.xksProxyVpcEndpointServiceName = $.xksProxyVpcEndpointServiceName;
     }
 
     public static Builder builder() {
@@ -101,29 +140,19 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
             $ = new CustomKeyStoreArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudHsmClusterId Cluster ID of CloudHSM.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cloudHsmClusterId(Output<String> cloudHsmClusterId) {
+        public Builder cloudHsmClusterId(@Nullable Output<String> cloudHsmClusterId) {
             $.cloudHsmClusterId = cloudHsmClusterId;
             return this;
         }
 
-        /**
-         * @param cloudHsmClusterId Cluster ID of CloudHSM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudHsmClusterId(String cloudHsmClusterId) {
             return cloudHsmClusterId(Output.of(cloudHsmClusterId));
         }
 
         /**
          * @param customKeyStoreName Unique name for Custom Key Store.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -136,6 +165,8 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param customKeyStoreName Unique name for Custom Key Store.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -144,59 +175,92 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param keyStorePassword Password for `kmsuser` on CloudHSM.
+         * @param customKeyStoreType Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
          * 
          * @return builder
          * 
          */
-        public Builder keyStorePassword(Output<String> keyStorePassword) {
+        public Builder customKeyStoreType(@Nullable Output<String> customKeyStoreType) {
+            $.customKeyStoreType = customKeyStoreType;
+            return this;
+        }
+
+        /**
+         * @param customKeyStoreType Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customKeyStoreType(String customKeyStoreType) {
+            return customKeyStoreType(Output.of(customKeyStoreType));
+        }
+
+        public Builder keyStorePassword(@Nullable Output<String> keyStorePassword) {
             $.keyStorePassword = keyStorePassword;
             return this;
         }
 
-        /**
-         * @param keyStorePassword Password for `kmsuser` on CloudHSM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyStorePassword(String keyStorePassword) {
             return keyStorePassword(Output.of(keyStorePassword));
         }
 
-        /**
-         * @param trustAnchorCertificate Customer certificate used for signing on CloudHSM.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder trustAnchorCertificate(Output<String> trustAnchorCertificate) {
+        public Builder trustAnchorCertificate(@Nullable Output<String> trustAnchorCertificate) {
             $.trustAnchorCertificate = trustAnchorCertificate;
             return this;
         }
 
-        /**
-         * @param trustAnchorCertificate Customer certificate used for signing on CloudHSM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustAnchorCertificate(String trustAnchorCertificate) {
             return trustAnchorCertificate(Output.of(trustAnchorCertificate));
         }
 
+        public Builder xksProxyAuthenticationCredential(@Nullable Output<CustomKeyStoreXksProxyAuthenticationCredentialArgs> xksProxyAuthenticationCredential) {
+            $.xksProxyAuthenticationCredential = xksProxyAuthenticationCredential;
+            return this;
+        }
+
+        public Builder xksProxyAuthenticationCredential(CustomKeyStoreXksProxyAuthenticationCredentialArgs xksProxyAuthenticationCredential) {
+            return xksProxyAuthenticationCredential(Output.of(xksProxyAuthenticationCredential));
+        }
+
+        public Builder xksProxyConnectivity(@Nullable Output<String> xksProxyConnectivity) {
+            $.xksProxyConnectivity = xksProxyConnectivity;
+            return this;
+        }
+
+        public Builder xksProxyConnectivity(String xksProxyConnectivity) {
+            return xksProxyConnectivity(Output.of(xksProxyConnectivity));
+        }
+
+        public Builder xksProxyUriEndpoint(@Nullable Output<String> xksProxyUriEndpoint) {
+            $.xksProxyUriEndpoint = xksProxyUriEndpoint;
+            return this;
+        }
+
+        public Builder xksProxyUriEndpoint(String xksProxyUriEndpoint) {
+            return xksProxyUriEndpoint(Output.of(xksProxyUriEndpoint));
+        }
+
+        public Builder xksProxyUriPath(@Nullable Output<String> xksProxyUriPath) {
+            $.xksProxyUriPath = xksProxyUriPath;
+            return this;
+        }
+
+        public Builder xksProxyUriPath(String xksProxyUriPath) {
+            return xksProxyUriPath(Output.of(xksProxyUriPath));
+        }
+
+        public Builder xksProxyVpcEndpointServiceName(@Nullable Output<String> xksProxyVpcEndpointServiceName) {
+            $.xksProxyVpcEndpointServiceName = xksProxyVpcEndpointServiceName;
+            return this;
+        }
+
+        public Builder xksProxyVpcEndpointServiceName(String xksProxyVpcEndpointServiceName) {
+            return xksProxyVpcEndpointServiceName(Output.of(xksProxyVpcEndpointServiceName));
+        }
+
         public CustomKeyStoreArgs build() {
-            if ($.cloudHsmClusterId == null) {
-                throw new MissingRequiredPropertyException("CustomKeyStoreArgs", "cloudHsmClusterId");
-            }
             if ($.customKeyStoreName == null) {
                 throw new MissingRequiredPropertyException("CustomKeyStoreArgs", "customKeyStoreName");
-            }
-            if ($.keyStorePassword == null) {
-                throw new MissingRequiredPropertyException("CustomKeyStoreArgs", "keyStorePassword");
-            }
-            if ($.trustAnchorCertificate == null) {
-                throw new MissingRequiredPropertyException("CustomKeyStoreArgs", "trustAnchorCertificate");
             }
             return $;
         }

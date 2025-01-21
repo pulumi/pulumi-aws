@@ -37,7 +37,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     ///     var exampleListener = new Aws.GlobalAccelerator.Listener("example", new()
     ///     {
-    ///         AcceleratorArn = example.Id,
+    ///         AcceleratorArn = example.Arn,
     ///         ClientAffinity = "SOURCE_IP",
     ///         Protocol = "TCP",
     ///         PortRanges = new[]
@@ -69,6 +69,12 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         [Output("acceleratorArn")]
         public Output<string> AcceleratorArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the listener.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
@@ -177,6 +183,12 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         [Input("acceleratorArn")]
         public Input<string>? AcceleratorArn { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the listener.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.

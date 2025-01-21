@@ -33,14 +33,14 @@ public final class UserGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current supported value are `REDIS`, `VALKEY`.
+     * The current supported value are `redis`, `valkey` (case insensitive).
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return The current supported value are `REDIS`, `VALKEY`.
+     * @return The current supported value are `redis`, `valkey` (case insensitive).
      * 
      */
     public Optional<Output<String>> engine() {
@@ -170,7 +170,7 @@ public final class UserGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The current supported value are `REDIS`, `VALKEY`.
+         * @param engine The current supported value are `redis`, `valkey` (case insensitive).
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class UserGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The current supported value are `REDIS`, `VALKEY`.
+         * @param engine The current supported value are `redis`, `valkey` (case insensitive).
          * 
          * @return builder
          * 

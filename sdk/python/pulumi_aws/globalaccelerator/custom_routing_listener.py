@@ -60,6 +60,7 @@ class CustomRoutingListenerArgs:
 class _CustomRoutingListenerState:
     def __init__(__self__, *,
                  accelerator_arn: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]]] = None):
         """
         Input properties used for looking up and filtering CustomRoutingListener resources.
@@ -68,6 +69,8 @@ class _CustomRoutingListenerState:
         """
         if accelerator_arn is not None:
             pulumi.set(__self__, "accelerator_arn", accelerator_arn)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if port_ranges is not None:
             pulumi.set(__self__, "port_ranges", port_ranges)
 
@@ -82,6 +85,15 @@ class _CustomRoutingListenerState:
     @accelerator_arn.setter
     def accelerator_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "accelerator_arn", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="portRanges")
@@ -123,7 +135,7 @@ class CustomRoutingListener(pulumi.CustomResource):
                 "flow_logs_s3_prefix": "flow-logs/",
             })
         example_custom_routing_listener = aws.globalaccelerator.CustomRoutingListener("example",
-            accelerator_arn=example.id,
+            accelerator_arn=example.arn,
             port_ranges=[{
                 "from_port": 80,
                 "to_port": 80,
@@ -168,7 +180,7 @@ class CustomRoutingListener(pulumi.CustomResource):
                 "flow_logs_s3_prefix": "flow-logs/",
             })
         example_custom_routing_listener = aws.globalaccelerator.CustomRoutingListener("example",
-            accelerator_arn=example.id,
+            accelerator_arn=example.arn,
             port_ranges=[{
                 "from_port": 80,
                 "to_port": 80,
@@ -215,6 +227,7 @@ class CustomRoutingListener(pulumi.CustomResource):
             if port_ranges is None and not opts.urn:
                 raise TypeError("Missing required property 'port_ranges'")
             __props__.__dict__["port_ranges"] = port_ranges
+            __props__.__dict__["arn"] = None
         super(CustomRoutingListener, __self__).__init__(
             'aws:globalaccelerator/customRoutingListener:CustomRoutingListener',
             resource_name,
@@ -226,6 +239,7 @@ class CustomRoutingListener(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             accelerator_arn: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict']]]]] = None) -> 'CustomRoutingListener':
         """
         Get an existing CustomRoutingListener resource's state with the given name, id, and optional extra
@@ -242,6 +256,7 @@ class CustomRoutingListener(pulumi.CustomResource):
         __props__ = _CustomRoutingListenerState.__new__(_CustomRoutingListenerState)
 
         __props__.__dict__["accelerator_arn"] = accelerator_arn
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["port_ranges"] = port_ranges
         return CustomRoutingListener(resource_name, opts=opts, __props__=__props__)
 
@@ -252,6 +267,11 @@ class CustomRoutingListener(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of a custom routing accelerator.
         """
         return pulumi.get(self, "accelerator_arn")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="portRanges")

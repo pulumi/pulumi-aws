@@ -66,14 +66,14 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The CloudWatchRegion that the CloudWatch alarm was created in.
+     * The region that the CloudWatch alarm was created in.
      * 
      */
     @Import(name="cloudwatchAlarmRegion")
     private @Nullable Output<String> cloudwatchAlarmRegion;
 
     /**
-     * @return The CloudWatchRegion that the CloudWatch alarm was created in.
+     * @return The region that the CloudWatch alarm was created in.
      * 
      */
     public Optional<Output<String>> cloudwatchAlarmRegion() {
@@ -82,7 +82,7 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-     * * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+     * * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
      * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
      * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
      * 
@@ -94,7 +94,7 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-     * * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+     * * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
      * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
      * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
      * 
@@ -333,6 +333,21 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
+     * 
+     */
+    @Import(name="triggers")
+    private @Nullable Output<Map<String,String>> triggers;
+
+    /**
+     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> triggers() {
+        return Optional.ofNullable(this.triggers);
+    }
+
+    /**
      * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
      * 
      */
@@ -370,6 +385,7 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
         this.routingControlArn = $.routingControlArn;
         this.searchString = $.searchString;
         this.tags = $.tags;
+        this.triggers = $.triggers;
         this.type = $.type;
     }
 
@@ -465,7 +481,7 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudwatchAlarmRegion The CloudWatchRegion that the CloudWatch alarm was created in.
+         * @param cloudwatchAlarmRegion The region that the CloudWatch alarm was created in.
          * 
          * @return builder
          * 
@@ -476,7 +492,7 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudwatchAlarmRegion The CloudWatchRegion that the CloudWatch alarm was created in.
+         * @param cloudwatchAlarmRegion The region that the CloudWatch alarm was created in.
          * 
          * @return builder
          * 
@@ -487,7 +503,7 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param disabled A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-         * * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+         * * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
          * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
          * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
          * 
@@ -503,7 +519,7 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param disabled A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-         * * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+         * * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
          * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
          * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
          * 
@@ -841,6 +857,27 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(@Nullable Output<Map<String,String>> triggers) {
+            $.triggers = triggers;
+            return this;
+        }
+
+        /**
+         * @param triggers Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggers(Map<String,String> triggers) {
+            return triggers(Output.of(triggers));
         }
 
         /**

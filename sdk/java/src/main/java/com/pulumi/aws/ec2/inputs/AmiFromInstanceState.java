@@ -405,6 +405,21 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.tpmSupport);
     }
 
+    /**
+     * Base64 representation of the non-volatile UEFI variable store.
+     * 
+     */
+    @Import(name="uefiData")
+    private @Nullable Output<String> uefiData;
+
+    /**
+     * @return Base64 representation of the non-volatile UEFI variable store.
+     * 
+     */
+    public Optional<Output<String>> uefiData() {
+        return Optional.ofNullable(this.uefiData);
+    }
+
     @Import(name="usageOperation")
     private @Nullable Output<String> usageOperation;
 
@@ -463,6 +478,7 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.tpmSupport = $.tpmSupport;
+        this.uefiData = $.uefiData;
         this.usageOperation = $.usageOperation;
         this.virtualizationType = $.virtualizationType;
     }
@@ -1028,6 +1044,27 @@ public final class AmiFromInstanceState extends com.pulumi.resources.ResourceArg
          */
         public Builder tpmSupport(String tpmSupport) {
             return tpmSupport(Output.of(tpmSupport));
+        }
+
+        /**
+         * @param uefiData Base64 representation of the non-volatile UEFI variable store.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uefiData(@Nullable Output<String> uefiData) {
+            $.uefiData = uefiData;
+            return this;
+        }
+
+        /**
+         * @param uefiData Base64 representation of the non-volatile UEFI variable store.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder uefiData(String uefiData) {
+            return uefiData(Output.of(uefiData));
         }
 
         public Builder usageOperation(@Nullable Output<String> usageOperation) {

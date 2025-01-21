@@ -54,6 +54,12 @@ namespace Pulumi.Aws.GlobalAccelerator
     public partial class CustomRoutingAccelerator : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the custom accelerator.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The attributes of the accelerator. Fields documented below.
         /// </summary>
         [Output("attributes")]
@@ -217,6 +223,12 @@ namespace Pulumi.Aws.GlobalAccelerator
 
     public sealed class CustomRoutingAcceleratorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the custom accelerator.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The attributes of the accelerator. Fields documented below.
         /// </summary>

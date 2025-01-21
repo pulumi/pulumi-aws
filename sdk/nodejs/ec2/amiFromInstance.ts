@@ -164,6 +164,10 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      */
     public /*out*/ readonly tpmSupport!: pulumi.Output<string>;
+    /**
+     * Base64 representation of the non-volatile UEFI variable store.
+     */
+    public /*out*/ readonly uefiData!: pulumi.Output<string>;
     public /*out*/ readonly usageOperation!: pulumi.Output<string>;
     /**
      * Keyword to choose what virtualization mode created instances
@@ -214,6 +218,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["tpmSupport"] = state ? state.tpmSupport : undefined;
+            resourceInputs["uefiData"] = state ? state.uefiData : undefined;
             resourceInputs["usageOperation"] = state ? state.usageOperation : undefined;
             resourceInputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
@@ -250,6 +255,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             resourceInputs["sriovNetSupport"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["tpmSupport"] = undefined /*out*/;
+            resourceInputs["uefiData"] = undefined /*out*/;
             resourceInputs["usageOperation"] = undefined /*out*/;
             resourceInputs["virtualizationType"] = undefined /*out*/;
         }
@@ -360,6 +366,10 @@ export interface AmiFromInstanceState {
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      */
     tpmSupport?: pulumi.Input<string>;
+    /**
+     * Base64 representation of the non-volatile UEFI variable store.
+     */
+    uefiData?: pulumi.Input<string>;
     usageOperation?: pulumi.Input<string>;
     /**
      * Keyword to choose what virtualization mode created instances

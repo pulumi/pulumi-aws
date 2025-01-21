@@ -7,6 +7,7 @@ import com.pulumi.aws.alb.inputs.ListenerDefaultActionArgs;
 import com.pulumi.aws.alb.inputs.ListenerMutualAuthenticationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -145,6 +146,291 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    @Import(name="routingHttpRequestXAmznMtlsClientcertHeaderName")
+    private @Nullable Output<String> routingHttpRequestXAmznMtlsClientcertHeaderName;
+
+    /**
+     * @return Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    public Optional<Output<String>> routingHttpRequestXAmznMtlsClientcertHeaderName() {
+        return Optional.ofNullable(this.routingHttpRequestXAmznMtlsClientcertHeaderName);
+    }
+
+    /**
+     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    @Import(name="routingHttpRequestXAmznMtlsClientcertIssuerHeaderName")
+    private @Nullable Output<String> routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+
+    /**
+     * @return Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    public Optional<Output<String>> routingHttpRequestXAmznMtlsClientcertIssuerHeaderName() {
+        return Optional.ofNullable(this.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName);
+    }
+
+    /**
+     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    @Import(name="routingHttpRequestXAmznMtlsClientcertLeafHeaderName")
+    private @Nullable Output<String> routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+
+    /**
+     * @return Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    public Optional<Output<String>> routingHttpRequestXAmznMtlsClientcertLeafHeaderName() {
+        return Optional.ofNullable(this.routingHttpRequestXAmznMtlsClientcertLeafHeaderName);
+    }
+
+    /**
+     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    @Import(name="routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName")
+    private @Nullable Output<String> routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+
+    /**
+     * @return Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    public Optional<Output<String>> routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName() {
+        return Optional.ofNullable(this.routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName);
+    }
+
+    /**
+     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    @Import(name="routingHttpRequestXAmznMtlsClientcertSubjectHeaderName")
+    private @Nullable Output<String> routingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+
+    /**
+     * @return Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    public Optional<Output<String>> routingHttpRequestXAmznMtlsClientcertSubjectHeaderName() {
+        return Optional.ofNullable(this.routingHttpRequestXAmznMtlsClientcertSubjectHeaderName);
+    }
+
+    /**
+     * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    @Import(name="routingHttpRequestXAmznMtlsClientcertValidityHeaderName")
+    private @Nullable Output<String> routingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+
+    /**
+     * @return Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    public Optional<Output<String>> routingHttpRequestXAmznMtlsClientcertValidityHeaderName() {
+        return Optional.ofNullable(this.routingHttpRequestXAmznMtlsClientcertValidityHeaderName);
+    }
+
+    /**
+     * Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    @Import(name="routingHttpRequestXAmznTlsCipherSuiteHeaderName")
+    private @Nullable Output<String> routingHttpRequestXAmznTlsCipherSuiteHeaderName;
+
+    /**
+     * @return Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    public Optional<Output<String>> routingHttpRequestXAmznTlsCipherSuiteHeaderName() {
+        return Optional.ofNullable(this.routingHttpRequestXAmznTlsCipherSuiteHeaderName);
+    }
+
+    /**
+     * Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    @Import(name="routingHttpRequestXAmznTlsVersionHeaderName")
+    private @Nullable Output<String> routingHttpRequestXAmznTlsVersionHeaderName;
+
+    /**
+     * @return Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+     * 
+     */
+    public Optional<Output<String>> routingHttpRequestXAmznTlsVersionHeaderName() {
+        return Optional.ofNullable(this.routingHttpRequestXAmznTlsVersionHeaderName);
+    }
+
+    /**
+     * Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
+     * 
+     */
+    @Import(name="routingHttpResponseAccessControlAllowCredentialsHeaderValue")
+    private @Nullable Output<String> routingHttpResponseAccessControlAllowCredentialsHeaderValue;
+
+    /**
+     * @return Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
+     * 
+     */
+    public Optional<Output<String>> routingHttpResponseAccessControlAllowCredentialsHeaderValue() {
+        return Optional.ofNullable(this.routingHttpResponseAccessControlAllowCredentialsHeaderValue);
+    }
+
+    /**
+     * Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
+     * 
+     */
+    @Import(name="routingHttpResponseAccessControlAllowHeadersHeaderValue")
+    private @Nullable Output<String> routingHttpResponseAccessControlAllowHeadersHeaderValue;
+
+    /**
+     * @return Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
+     * 
+     */
+    public Optional<Output<String>> routingHttpResponseAccessControlAllowHeadersHeaderValue() {
+        return Optional.ofNullable(this.routingHttpResponseAccessControlAllowHeadersHeaderValue);
+    }
+
+    /**
+     * Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
+     * 
+     */
+    @Import(name="routingHttpResponseAccessControlAllowMethodsHeaderValue")
+    private @Nullable Output<String> routingHttpResponseAccessControlAllowMethodsHeaderValue;
+
+    /**
+     * @return Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
+     * 
+     */
+    public Optional<Output<String>> routingHttpResponseAccessControlAllowMethodsHeaderValue() {
+        return Optional.ofNullable(this.routingHttpResponseAccessControlAllowMethodsHeaderValue);
+    }
+
+    /**
+     * Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
+     * 
+     */
+    @Import(name="routingHttpResponseAccessControlAllowOriginHeaderValue")
+    private @Nullable Output<String> routingHttpResponseAccessControlAllowOriginHeaderValue;
+
+    /**
+     * @return Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
+     * 
+     */
+    public Optional<Output<String>> routingHttpResponseAccessControlAllowOriginHeaderValue() {
+        return Optional.ofNullable(this.routingHttpResponseAccessControlAllowOriginHeaderValue);
+    }
+
+    /**
+     * Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
+     * 
+     */
+    @Import(name="routingHttpResponseAccessControlExposeHeadersHeaderValue")
+    private @Nullable Output<String> routingHttpResponseAccessControlExposeHeadersHeaderValue;
+
+    /**
+     * @return Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
+     * 
+     */
+    public Optional<Output<String>> routingHttpResponseAccessControlExposeHeadersHeaderValue() {
+        return Optional.ofNullable(this.routingHttpResponseAccessControlExposeHeadersHeaderValue);
+    }
+
+    /**
+     * Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
+     * 
+     */
+    @Import(name="routingHttpResponseAccessControlMaxAgeHeaderValue")
+    private @Nullable Output<String> routingHttpResponseAccessControlMaxAgeHeaderValue;
+
+    /**
+     * @return Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
+     * 
+     */
+    public Optional<Output<String>> routingHttpResponseAccessControlMaxAgeHeaderValue() {
+        return Optional.ofNullable(this.routingHttpResponseAccessControlMaxAgeHeaderValue);
+    }
+
+    /**
+     * Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
+     * 
+     */
+    @Import(name="routingHttpResponseContentSecurityPolicyHeaderValue")
+    private @Nullable Output<String> routingHttpResponseContentSecurityPolicyHeaderValue;
+
+    /**
+     * @return Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
+     * 
+     */
+    public Optional<Output<String>> routingHttpResponseContentSecurityPolicyHeaderValue() {
+        return Optional.ofNullable(this.routingHttpResponseContentSecurityPolicyHeaderValue);
+    }
+
+    /**
+     * Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
+     * 
+     */
+    @Import(name="routingHttpResponseServerEnabled")
+    private @Nullable Output<Boolean> routingHttpResponseServerEnabled;
+
+    /**
+     * @return Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> routingHttpResponseServerEnabled() {
+        return Optional.ofNullable(this.routingHttpResponseServerEnabled);
+    }
+
+    /**
+     * Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
+     * 
+     */
+    @Import(name="routingHttpResponseStrictTransportSecurityHeaderValue")
+    private @Nullable Output<String> routingHttpResponseStrictTransportSecurityHeaderValue;
+
+    /**
+     * @return Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
+     * 
+     */
+    public Optional<Output<String>> routingHttpResponseStrictTransportSecurityHeaderValue() {
+        return Optional.ofNullable(this.routingHttpResponseStrictTransportSecurityHeaderValue);
+    }
+
+    /**
+     * Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
+     * 
+     */
+    @Import(name="routingHttpResponseXContentTypeOptionsHeaderValue")
+    private @Nullable Output<String> routingHttpResponseXContentTypeOptionsHeaderValue;
+
+    /**
+     * @return Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
+     * 
+     */
+    public Optional<Output<String>> routingHttpResponseXContentTypeOptionsHeaderValue() {
+        return Optional.ofNullable(this.routingHttpResponseXContentTypeOptionsHeaderValue);
+    }
+
+    /**
+     * Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
+     * 
+     */
+    @Import(name="routingHttpResponseXFrameOptionsHeaderValue")
+    private @Nullable Output<String> routingHttpResponseXFrameOptionsHeaderValue;
+
+    /**
+     * @return Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
+     * 
+     */
+    public Optional<Output<String>> routingHttpResponseXFrameOptionsHeaderValue() {
+        return Optional.ofNullable(this.routingHttpResponseXFrameOptionsHeaderValue);
+    }
+
+    /**
      * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
      * 
      */
@@ -227,6 +513,25 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         this.mutualAuthentication = $.mutualAuthentication;
         this.port = $.port;
         this.protocol = $.protocol;
+        this.routingHttpRequestXAmznMtlsClientcertHeaderName = $.routingHttpRequestXAmznMtlsClientcertHeaderName;
+        this.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName = $.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+        this.routingHttpRequestXAmznMtlsClientcertLeafHeaderName = $.routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+        this.routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName = $.routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+        this.routingHttpRequestXAmznMtlsClientcertSubjectHeaderName = $.routingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+        this.routingHttpRequestXAmznMtlsClientcertValidityHeaderName = $.routingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+        this.routingHttpRequestXAmznTlsCipherSuiteHeaderName = $.routingHttpRequestXAmznTlsCipherSuiteHeaderName;
+        this.routingHttpRequestXAmznTlsVersionHeaderName = $.routingHttpRequestXAmznTlsVersionHeaderName;
+        this.routingHttpResponseAccessControlAllowCredentialsHeaderValue = $.routingHttpResponseAccessControlAllowCredentialsHeaderValue;
+        this.routingHttpResponseAccessControlAllowHeadersHeaderValue = $.routingHttpResponseAccessControlAllowHeadersHeaderValue;
+        this.routingHttpResponseAccessControlAllowMethodsHeaderValue = $.routingHttpResponseAccessControlAllowMethodsHeaderValue;
+        this.routingHttpResponseAccessControlAllowOriginHeaderValue = $.routingHttpResponseAccessControlAllowOriginHeaderValue;
+        this.routingHttpResponseAccessControlExposeHeadersHeaderValue = $.routingHttpResponseAccessControlExposeHeadersHeaderValue;
+        this.routingHttpResponseAccessControlMaxAgeHeaderValue = $.routingHttpResponseAccessControlMaxAgeHeaderValue;
+        this.routingHttpResponseContentSecurityPolicyHeaderValue = $.routingHttpResponseContentSecurityPolicyHeaderValue;
+        this.routingHttpResponseServerEnabled = $.routingHttpResponseServerEnabled;
+        this.routingHttpResponseStrictTransportSecurityHeaderValue = $.routingHttpResponseStrictTransportSecurityHeaderValue;
+        this.routingHttpResponseXContentTypeOptionsHeaderValue = $.routingHttpResponseXContentTypeOptionsHeaderValue;
+        this.routingHttpResponseXFrameOptionsHeaderValue = $.routingHttpResponseXFrameOptionsHeaderValue;
         this.sslPolicy = $.sslPolicy;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -431,6 +736,405 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
+        }
+
+        /**
+         * @param routingHttpRequestXAmznMtlsClientcertHeaderName Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznMtlsClientcertHeaderName(@Nullable Output<String> routingHttpRequestXAmznMtlsClientcertHeaderName) {
+            $.routingHttpRequestXAmznMtlsClientcertHeaderName = routingHttpRequestXAmznMtlsClientcertHeaderName;
+            return this;
+        }
+
+        /**
+         * @param routingHttpRequestXAmznMtlsClientcertHeaderName Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznMtlsClientcertHeaderName(String routingHttpRequestXAmznMtlsClientcertHeaderName) {
+            return routingHttpRequestXAmznMtlsClientcertHeaderName(Output.of(routingHttpRequestXAmznMtlsClientcertHeaderName));
+        }
+
+        /**
+         * @param routingHttpRequestXAmznMtlsClientcertIssuerHeaderName Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznMtlsClientcertIssuerHeaderName(@Nullable Output<String> routingHttpRequestXAmznMtlsClientcertIssuerHeaderName) {
+            $.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName = routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+            return this;
+        }
+
+        /**
+         * @param routingHttpRequestXAmznMtlsClientcertIssuerHeaderName Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznMtlsClientcertIssuerHeaderName(String routingHttpRequestXAmznMtlsClientcertIssuerHeaderName) {
+            return routingHttpRequestXAmznMtlsClientcertIssuerHeaderName(Output.of(routingHttpRequestXAmznMtlsClientcertIssuerHeaderName));
+        }
+
+        /**
+         * @param routingHttpRequestXAmznMtlsClientcertLeafHeaderName Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznMtlsClientcertLeafHeaderName(@Nullable Output<String> routingHttpRequestXAmznMtlsClientcertLeafHeaderName) {
+            $.routingHttpRequestXAmznMtlsClientcertLeafHeaderName = routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+            return this;
+        }
+
+        /**
+         * @param routingHttpRequestXAmznMtlsClientcertLeafHeaderName Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznMtlsClientcertLeafHeaderName(String routingHttpRequestXAmznMtlsClientcertLeafHeaderName) {
+            return routingHttpRequestXAmznMtlsClientcertLeafHeaderName(Output.of(routingHttpRequestXAmznMtlsClientcertLeafHeaderName));
+        }
+
+        /**
+         * @param routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName(@Nullable Output<String> routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName) {
+            $.routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName = routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+            return this;
+        }
+
+        /**
+         * @param routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName(String routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName) {
+            return routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName(Output.of(routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName));
+        }
+
+        /**
+         * @param routingHttpRequestXAmznMtlsClientcertSubjectHeaderName Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznMtlsClientcertSubjectHeaderName(@Nullable Output<String> routingHttpRequestXAmznMtlsClientcertSubjectHeaderName) {
+            $.routingHttpRequestXAmznMtlsClientcertSubjectHeaderName = routingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+            return this;
+        }
+
+        /**
+         * @param routingHttpRequestXAmznMtlsClientcertSubjectHeaderName Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznMtlsClientcertSubjectHeaderName(String routingHttpRequestXAmznMtlsClientcertSubjectHeaderName) {
+            return routingHttpRequestXAmznMtlsClientcertSubjectHeaderName(Output.of(routingHttpRequestXAmznMtlsClientcertSubjectHeaderName));
+        }
+
+        /**
+         * @param routingHttpRequestXAmznMtlsClientcertValidityHeaderName Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznMtlsClientcertValidityHeaderName(@Nullable Output<String> routingHttpRequestXAmznMtlsClientcertValidityHeaderName) {
+            $.routingHttpRequestXAmznMtlsClientcertValidityHeaderName = routingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+            return this;
+        }
+
+        /**
+         * @param routingHttpRequestXAmznMtlsClientcertValidityHeaderName Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznMtlsClientcertValidityHeaderName(String routingHttpRequestXAmznMtlsClientcertValidityHeaderName) {
+            return routingHttpRequestXAmznMtlsClientcertValidityHeaderName(Output.of(routingHttpRequestXAmznMtlsClientcertValidityHeaderName));
+        }
+
+        /**
+         * @param routingHttpRequestXAmznTlsCipherSuiteHeaderName Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznTlsCipherSuiteHeaderName(@Nullable Output<String> routingHttpRequestXAmznTlsCipherSuiteHeaderName) {
+            $.routingHttpRequestXAmznTlsCipherSuiteHeaderName = routingHttpRequestXAmznTlsCipherSuiteHeaderName;
+            return this;
+        }
+
+        /**
+         * @param routingHttpRequestXAmznTlsCipherSuiteHeaderName Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznTlsCipherSuiteHeaderName(String routingHttpRequestXAmznTlsCipherSuiteHeaderName) {
+            return routingHttpRequestXAmznTlsCipherSuiteHeaderName(Output.of(routingHttpRequestXAmznTlsCipherSuiteHeaderName));
+        }
+
+        /**
+         * @param routingHttpRequestXAmznTlsVersionHeaderName Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznTlsVersionHeaderName(@Nullable Output<String> routingHttpRequestXAmznTlsVersionHeaderName) {
+            $.routingHttpRequestXAmznTlsVersionHeaderName = routingHttpRequestXAmznTlsVersionHeaderName;
+            return this;
+        }
+
+        /**
+         * @param routingHttpRequestXAmznTlsVersionHeaderName Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpRequestXAmznTlsVersionHeaderName(String routingHttpRequestXAmznTlsVersionHeaderName) {
+            return routingHttpRequestXAmznTlsVersionHeaderName(Output.of(routingHttpRequestXAmznTlsVersionHeaderName));
+        }
+
+        /**
+         * @param routingHttpResponseAccessControlAllowCredentialsHeaderValue Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseAccessControlAllowCredentialsHeaderValue(@Nullable Output<String> routingHttpResponseAccessControlAllowCredentialsHeaderValue) {
+            $.routingHttpResponseAccessControlAllowCredentialsHeaderValue = routingHttpResponseAccessControlAllowCredentialsHeaderValue;
+            return this;
+        }
+
+        /**
+         * @param routingHttpResponseAccessControlAllowCredentialsHeaderValue Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseAccessControlAllowCredentialsHeaderValue(String routingHttpResponseAccessControlAllowCredentialsHeaderValue) {
+            return routingHttpResponseAccessControlAllowCredentialsHeaderValue(Output.of(routingHttpResponseAccessControlAllowCredentialsHeaderValue));
+        }
+
+        /**
+         * @param routingHttpResponseAccessControlAllowHeadersHeaderValue Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseAccessControlAllowHeadersHeaderValue(@Nullable Output<String> routingHttpResponseAccessControlAllowHeadersHeaderValue) {
+            $.routingHttpResponseAccessControlAllowHeadersHeaderValue = routingHttpResponseAccessControlAllowHeadersHeaderValue;
+            return this;
+        }
+
+        /**
+         * @param routingHttpResponseAccessControlAllowHeadersHeaderValue Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseAccessControlAllowHeadersHeaderValue(String routingHttpResponseAccessControlAllowHeadersHeaderValue) {
+            return routingHttpResponseAccessControlAllowHeadersHeaderValue(Output.of(routingHttpResponseAccessControlAllowHeadersHeaderValue));
+        }
+
+        /**
+         * @param routingHttpResponseAccessControlAllowMethodsHeaderValue Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseAccessControlAllowMethodsHeaderValue(@Nullable Output<String> routingHttpResponseAccessControlAllowMethodsHeaderValue) {
+            $.routingHttpResponseAccessControlAllowMethodsHeaderValue = routingHttpResponseAccessControlAllowMethodsHeaderValue;
+            return this;
+        }
+
+        /**
+         * @param routingHttpResponseAccessControlAllowMethodsHeaderValue Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseAccessControlAllowMethodsHeaderValue(String routingHttpResponseAccessControlAllowMethodsHeaderValue) {
+            return routingHttpResponseAccessControlAllowMethodsHeaderValue(Output.of(routingHttpResponseAccessControlAllowMethodsHeaderValue));
+        }
+
+        /**
+         * @param routingHttpResponseAccessControlAllowOriginHeaderValue Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseAccessControlAllowOriginHeaderValue(@Nullable Output<String> routingHttpResponseAccessControlAllowOriginHeaderValue) {
+            $.routingHttpResponseAccessControlAllowOriginHeaderValue = routingHttpResponseAccessControlAllowOriginHeaderValue;
+            return this;
+        }
+
+        /**
+         * @param routingHttpResponseAccessControlAllowOriginHeaderValue Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseAccessControlAllowOriginHeaderValue(String routingHttpResponseAccessControlAllowOriginHeaderValue) {
+            return routingHttpResponseAccessControlAllowOriginHeaderValue(Output.of(routingHttpResponseAccessControlAllowOriginHeaderValue));
+        }
+
+        /**
+         * @param routingHttpResponseAccessControlExposeHeadersHeaderValue Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseAccessControlExposeHeadersHeaderValue(@Nullable Output<String> routingHttpResponseAccessControlExposeHeadersHeaderValue) {
+            $.routingHttpResponseAccessControlExposeHeadersHeaderValue = routingHttpResponseAccessControlExposeHeadersHeaderValue;
+            return this;
+        }
+
+        /**
+         * @param routingHttpResponseAccessControlExposeHeadersHeaderValue Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseAccessControlExposeHeadersHeaderValue(String routingHttpResponseAccessControlExposeHeadersHeaderValue) {
+            return routingHttpResponseAccessControlExposeHeadersHeaderValue(Output.of(routingHttpResponseAccessControlExposeHeadersHeaderValue));
+        }
+
+        /**
+         * @param routingHttpResponseAccessControlMaxAgeHeaderValue Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseAccessControlMaxAgeHeaderValue(@Nullable Output<String> routingHttpResponseAccessControlMaxAgeHeaderValue) {
+            $.routingHttpResponseAccessControlMaxAgeHeaderValue = routingHttpResponseAccessControlMaxAgeHeaderValue;
+            return this;
+        }
+
+        /**
+         * @param routingHttpResponseAccessControlMaxAgeHeaderValue Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseAccessControlMaxAgeHeaderValue(String routingHttpResponseAccessControlMaxAgeHeaderValue) {
+            return routingHttpResponseAccessControlMaxAgeHeaderValue(Output.of(routingHttpResponseAccessControlMaxAgeHeaderValue));
+        }
+
+        /**
+         * @param routingHttpResponseContentSecurityPolicyHeaderValue Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseContentSecurityPolicyHeaderValue(@Nullable Output<String> routingHttpResponseContentSecurityPolicyHeaderValue) {
+            $.routingHttpResponseContentSecurityPolicyHeaderValue = routingHttpResponseContentSecurityPolicyHeaderValue;
+            return this;
+        }
+
+        /**
+         * @param routingHttpResponseContentSecurityPolicyHeaderValue Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseContentSecurityPolicyHeaderValue(String routingHttpResponseContentSecurityPolicyHeaderValue) {
+            return routingHttpResponseContentSecurityPolicyHeaderValue(Output.of(routingHttpResponseContentSecurityPolicyHeaderValue));
+        }
+
+        /**
+         * @param routingHttpResponseServerEnabled Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseServerEnabled(@Nullable Output<Boolean> routingHttpResponseServerEnabled) {
+            $.routingHttpResponseServerEnabled = routingHttpResponseServerEnabled;
+            return this;
+        }
+
+        /**
+         * @param routingHttpResponseServerEnabled Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseServerEnabled(Boolean routingHttpResponseServerEnabled) {
+            return routingHttpResponseServerEnabled(Output.of(routingHttpResponseServerEnabled));
+        }
+
+        /**
+         * @param routingHttpResponseStrictTransportSecurityHeaderValue Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseStrictTransportSecurityHeaderValue(@Nullable Output<String> routingHttpResponseStrictTransportSecurityHeaderValue) {
+            $.routingHttpResponseStrictTransportSecurityHeaderValue = routingHttpResponseStrictTransportSecurityHeaderValue;
+            return this;
+        }
+
+        /**
+         * @param routingHttpResponseStrictTransportSecurityHeaderValue Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseStrictTransportSecurityHeaderValue(String routingHttpResponseStrictTransportSecurityHeaderValue) {
+            return routingHttpResponseStrictTransportSecurityHeaderValue(Output.of(routingHttpResponseStrictTransportSecurityHeaderValue));
+        }
+
+        /**
+         * @param routingHttpResponseXContentTypeOptionsHeaderValue Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseXContentTypeOptionsHeaderValue(@Nullable Output<String> routingHttpResponseXContentTypeOptionsHeaderValue) {
+            $.routingHttpResponseXContentTypeOptionsHeaderValue = routingHttpResponseXContentTypeOptionsHeaderValue;
+            return this;
+        }
+
+        /**
+         * @param routingHttpResponseXContentTypeOptionsHeaderValue Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseXContentTypeOptionsHeaderValue(String routingHttpResponseXContentTypeOptionsHeaderValue) {
+            return routingHttpResponseXContentTypeOptionsHeaderValue(Output.of(routingHttpResponseXContentTypeOptionsHeaderValue));
+        }
+
+        /**
+         * @param routingHttpResponseXFrameOptionsHeaderValue Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseXFrameOptionsHeaderValue(@Nullable Output<String> routingHttpResponseXFrameOptionsHeaderValue) {
+            $.routingHttpResponseXFrameOptionsHeaderValue = routingHttpResponseXFrameOptionsHeaderValue;
+            return this;
+        }
+
+        /**
+         * @param routingHttpResponseXFrameOptionsHeaderValue Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingHttpResponseXFrameOptionsHeaderValue(String routingHttpResponseXFrameOptionsHeaderValue) {
+            return routingHttpResponseXFrameOptionsHeaderValue(Output.of(routingHttpResponseXFrameOptionsHeaderValue));
         }
 
         /**

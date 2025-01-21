@@ -50,6 +50,7 @@ export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<
         "nameRegex": args.nameRegex,
         "owners": args.owners,
         "tags": args.tags,
+        "uefiData": args.uefiData,
     }, opts);
 }
 
@@ -100,6 +101,10 @@ export interface GetAmiArgs {
      * * `tags.#.value` - Value of the tag.
      */
     tags?: {[key: string]: string};
+    /**
+     * (Optional) Base64 representation of the non-volatile UEFI variable store.
+     */
+    uefiData?: string;
 }
 
 /**
@@ -247,6 +252,10 @@ export interface GetAmiResult {
      */
     readonly tpmSupport: string;
     /**
+     * (Optional) Base64 representation of the non-volatile UEFI variable store.
+     */
+    readonly uefiData?: string;
+    /**
      * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
     readonly usageOperation: string;
@@ -299,6 +308,7 @@ export function getAmiOutput(args?: GetAmiOutputArgs, opts?: pulumi.InvokeOutput
         "nameRegex": args.nameRegex,
         "owners": args.owners,
         "tags": args.tags,
+        "uefiData": args.uefiData,
     }, opts);
 }
 
@@ -349,4 +359,8 @@ export interface GetAmiOutputArgs {
      * * `tags.#.value` - Value of the tag.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * (Optional) Base64 representation of the non-volatile UEFI variable store.
+     */
+    uefiData?: pulumi.Input<string>;
 }

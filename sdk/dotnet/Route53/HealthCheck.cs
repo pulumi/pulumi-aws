@@ -126,6 +126,47 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// 
+    /// ### CloudWatch Alarm Check With Triggers
+    /// 
+    /// The `triggers` argument allows the Route53 health check to be synchronized when a change to the upstream CloudWatch alarm is made.
+    /// In the configuration below, the health check will be synchronized any time the `threshold` of the alarm is changed.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudWatch.MetricAlarm("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ComparisonOperator = "GreaterThanOrEqualToThreshold",
+    ///         EvaluationPeriods = 2,
+    ///         MetricName = "CPUUtilization",
+    ///         Namespace = "AWS/EC2",
+    ///         Period = 120,
+    ///         Statistic = "Average",
+    ///         Threshold = 80,
+    ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
+    ///     });
+    /// 
+    ///     var exampleHealthCheck = new Aws.Route53.HealthCheck("example", new()
+    ///     {
+    ///         Type = "CLOUDWATCH_METRIC",
+    ///         CloudwatchAlarmName = example.Name,
+    ///         CloudwatchAlarmRegion = "us-west-2",
+    ///         InsufficientDataHealthStatus = "Healthy",
+    ///         Triggers = 
+    ///         {
+    ///             { "threshold", example.Threshold },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
@@ -162,14 +203,14 @@ namespace Pulumi.Aws.Route53
         public Output<string?> CloudwatchAlarmName { get; private set; } = null!;
 
         /// <summary>
-        /// The CloudWatchRegion that the CloudWatch alarm was created in.
+        /// The region that the CloudWatch alarm was created in.
         /// </summary>
         [Output("cloudwatchAlarmRegion")]
         public Output<string?> CloudwatchAlarmRegion { get; private set; } = null!;
 
         /// <summary>
         /// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-        /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+        /// * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
         /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
         /// 
@@ -276,6 +317,12 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
+        /// </summary>
+        [Output("triggers")]
+        public Output<ImmutableDictionary<string, string>> Triggers { get; private set; } = null!;
+
+        /// <summary>
         /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         /// </summary>
         [Output("type")]
@@ -352,14 +399,14 @@ namespace Pulumi.Aws.Route53
         public Input<string>? CloudwatchAlarmName { get; set; }
 
         /// <summary>
-        /// The CloudWatchRegion that the CloudWatch alarm was created in.
+        /// The region that the CloudWatch alarm was created in.
         /// </summary>
         [Input("cloudwatchAlarmRegion")]
         public Input<string>? CloudwatchAlarmRegion { get; set; }
 
         /// <summary>
         /// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-        /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+        /// * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
         /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
         /// 
@@ -471,6 +518,18 @@ namespace Pulumi.Aws.Route53
             set => _tags = value;
         }
 
+        [Input("triggers")]
+        private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
+        /// </summary>
+        public InputMap<string> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputMap<string>());
+            set => _triggers = value;
+        }
+
         /// <summary>
         /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         /// </summary>
@@ -516,14 +575,14 @@ namespace Pulumi.Aws.Route53
         public Input<string>? CloudwatchAlarmName { get; set; }
 
         /// <summary>
-        /// The CloudWatchRegion that the CloudWatch alarm was created in.
+        /// The region that the CloudWatch alarm was created in.
         /// </summary>
         [Input("cloudwatchAlarmRegion")]
         public Input<string>? CloudwatchAlarmRegion { get; set; }
 
         /// <summary>
         /// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-        /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+        /// * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
         /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
         /// 
@@ -646,6 +705,18 @@ namespace Pulumi.Aws.Route53
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
+        }
+
+        [Input("triggers")]
+        private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
+        /// </summary>
+        public InputMap<string> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputMap<string>());
+            set => _triggers = value;
         }
 
         /// <summary>

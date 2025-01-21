@@ -24,7 +24,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// {
     ///     var example = new Aws.GlobalAccelerator.EndpointGroup("example", new()
     ///     {
-    ///         ListenerArn = exampleAwsGlobalacceleratorListener.Id,
+    ///         ListenerArn = exampleAwsGlobalacceleratorListener.Arn,
     ///         EndpointConfigurations = new[]
     ///         {
     ///             new Aws.GlobalAccelerator.Inputs.EndpointGroupEndpointConfigurationArgs

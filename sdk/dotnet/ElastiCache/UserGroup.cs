@@ -27,7 +27,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         UserId = "testUserId",
     ///         UserName = "default",
     ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-    ///         Engine = "REDIS",
+    ///         Engine = "redis",
     ///         Passwords = new[]
     ///         {
     ///             "password123456789",
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     ///     var testUserGroup = new Aws.ElastiCache.UserGroup("test", new()
     ///     {
-    ///         Engine = "REDIS",
+    ///         Engine = "redis",
     ///         UserGroupId = "userGroupId",
     ///         UserIds = new[]
     ///         {
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The current supported value are `REDIS`, `VALKEY`.
+        /// The current supported value are `redis`, `valkey` (case insensitive).
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class UserGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The current supported value are `REDIS`, `VALKEY`.
+        /// The current supported value are `redis`, `valkey` (case insensitive).
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The current supported value are `REDIS`, `VALKEY`.
+        /// The current supported value are `redis`, `valkey` (case insensitive).
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }

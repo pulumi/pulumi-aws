@@ -279,6 +279,12 @@ namespace Pulumi.Aws.Ec2
             set => _tags = value;
         }
 
+        /// <summary>
+        /// (Optional) Base64 representation of the non-volatile UEFI variable store.
+        /// </summary>
+        [Input("uefiData")]
+        public string? UefiData { get; set; }
+
         public GetAmiArgs()
         {
         }
@@ -367,6 +373,12 @@ namespace Pulumi.Aws.Ec2
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// (Optional) Base64 representation of the non-volatile UEFI variable store.
+        /// </summary>
+        [Input("uefiData")]
+        public Input<string>? UefiData { get; set; }
 
         public GetAmiInvokeArgs()
         {
@@ -519,6 +531,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string TpmSupport;
         /// <summary>
+        /// (Optional) Base64 representation of the non-volatile UEFI variable store.
+        /// </summary>
+        public readonly string? UefiData;
+        /// <summary>
         /// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         /// </summary>
         public readonly string UsageOperation;
@@ -604,6 +620,8 @@ namespace Pulumi.Aws.Ec2
 
             string tpmSupport,
 
+            string? uefiData,
+
             string usageOperation,
 
             string virtualizationType)
@@ -645,6 +663,7 @@ namespace Pulumi.Aws.Ec2
             StateReason = stateReason;
             Tags = tags;
             TpmSupport = tpmSupport;
+            UefiData = uefiData;
             UsageOperation = usageOperation;
             VirtualizationType = virtualizationType;
         }

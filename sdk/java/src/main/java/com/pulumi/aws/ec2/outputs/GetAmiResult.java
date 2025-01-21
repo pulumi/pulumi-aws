@@ -190,6 +190,11 @@ public final class GetAmiResult {
      */
     private String tpmSupport;
     /**
+     * @return (Optional) Base64 representation of the non-volatile UEFI variable store.
+     * 
+     */
+    private @Nullable String uefiData;
+    /**
      * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
@@ -448,6 +453,13 @@ public final class GetAmiResult {
         return this.tpmSupport;
     }
     /**
+     * @return (Optional) Base64 representation of the non-volatile UEFI variable store.
+     * 
+     */
+    public Optional<String> uefiData() {
+        return Optional.ofNullable(this.uefiData);
+    }
+    /**
      * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      * 
      */
@@ -509,6 +521,7 @@ public final class GetAmiResult {
         private Map<String,String> stateReason;
         private Map<String,String> tags;
         private String tpmSupport;
+        private @Nullable String uefiData;
         private String usageOperation;
         private String virtualizationType;
         public Builder() {}
@@ -551,6 +564,7 @@ public final class GetAmiResult {
     	      this.stateReason = defaults.stateReason;
     	      this.tags = defaults.tags;
     	      this.tpmSupport = defaults.tpmSupport;
+    	      this.uefiData = defaults.uefiData;
     	      this.usageOperation = defaults.usageOperation;
     	      this.virtualizationType = defaults.virtualizationType;
         }
@@ -855,6 +869,12 @@ public final class GetAmiResult {
             return this;
         }
         @CustomType.Setter
+        public Builder uefiData(@Nullable String uefiData) {
+
+            this.uefiData = uefiData;
+            return this;
+        }
+        @CustomType.Setter
         public Builder usageOperation(String usageOperation) {
             if (usageOperation == null) {
               throw new MissingRequiredPropertyException("GetAmiResult", "usageOperation");
@@ -909,6 +929,7 @@ public final class GetAmiResult {
             _resultValue.stateReason = stateReason;
             _resultValue.tags = tags;
             _resultValue.tpmSupport = tpmSupport;
+            _resultValue.uefiData = uefiData;
             _resultValue.usageOperation = usageOperation;
             _resultValue.virtualizationType = virtualizationType;
             return _resultValue;

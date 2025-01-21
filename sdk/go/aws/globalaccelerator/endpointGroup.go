@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := globalaccelerator.NewEndpointGroup(ctx, "example", &globalaccelerator.EndpointGroupArgs{
-//				ListenerArn: pulumi.Any(exampleAwsGlobalacceleratorListener.Id),
+//				ListenerArn: pulumi.Any(exampleAwsGlobalacceleratorListener.Arn),
 //				EndpointConfigurations: globalaccelerator.EndpointGroupEndpointConfigurationArray{
 //					&globalaccelerator.EndpointGroupEndpointConfigurationArgs{
 //						EndpointId: pulumi.Any(exampleAwsLb.Arn),

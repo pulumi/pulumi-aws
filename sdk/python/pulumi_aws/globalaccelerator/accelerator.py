@@ -125,6 +125,7 @@ class AcceleratorArgs:
 @pulumi.input_type
 class _AcceleratorState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  attributes: Optional[pulumi.Input['AcceleratorAttributesArgs']] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  dual_stack_dns_name: Optional[pulumi.Input[str]] = None,
@@ -138,6 +139,7 @@ class _AcceleratorState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Accelerator resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the accelerator.
         :param pulumi.Input['AcceleratorAttributesArgs'] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         :param pulumi.Input[str] dual_stack_dns_name: The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
@@ -152,6 +154,8 @@ class _AcceleratorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
         if dns_name is not None:
@@ -177,6 +181,18 @@ class _AcceleratorState:
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the accelerator.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -435,6 +451,7 @@ class Accelerator(pulumi.CustomResource):
             __props__.__dict__["ip_addresses"] = ip_addresses
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["dual_stack_dns_name"] = None
             __props__.__dict__["hosted_zone_id"] = None
@@ -450,6 +467,7 @@ class Accelerator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             attributes: Optional[pulumi.Input[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict']]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             dual_stack_dns_name: Optional[pulumi.Input[str]] = None,
@@ -468,6 +486,7 @@ class Accelerator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the accelerator.
         :param pulumi.Input[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict']] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         :param pulumi.Input[str] dual_stack_dns_name: The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
@@ -486,6 +505,7 @@ class Accelerator(pulumi.CustomResource):
 
         __props__ = _AcceleratorState.__new__(_AcceleratorState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["attributes"] = attributes
         __props__.__dict__["dns_name"] = dns_name
         __props__.__dict__["dual_stack_dns_name"] = dual_stack_dns_name
@@ -498,6 +518,14 @@ class Accelerator(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Accelerator(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the accelerator.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

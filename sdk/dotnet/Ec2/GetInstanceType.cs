@@ -122,9 +122,17 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool AutoRecoverySupported;
         /// <summary>
+        /// A set of strings of valid settings for [configurable bandwidth weighting](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html), if supported.
+        /// </summary>
+        public readonly ImmutableArray<string> BandwidthWeightings;
+        /// <summary>
         /// `true` if it is a bare metal instance type.
         /// </summary>
         public readonly bool BareMetal;
+        /// <summary>
+        /// A set of strings of supported boot modes.
+        /// </summary>
+        public readonly ImmutableArray<string> BootModes;
         /// <summary>
         /// `true` if the instance type is a burstable performance instance type.
         /// </summary>
@@ -141,6 +149,10 @@ namespace Pulumi.Aws.Ec2
         /// Default number of cores for the instance type.
         /// </summary>
         public readonly int DefaultCores;
+        /// <summary>
+        /// The index of the default network card, starting at `0`.
+        /// </summary>
+        public readonly int DefaultNetworkCardIndex;
         /// <summary>
         /// The  default  number of threads per core for the instance type.
         /// </summary>
@@ -186,22 +198,30 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly double EbsPerformanceMaximumThroughput;
         /// <summary>
-        /// Whether Elastic Fabric Adapter (EFA) is supported.
+        /// The maximum number of Elastic Fabric Adapters for the instance type.
+        /// </summary>
+        public readonly int EfaMaximumInterfaces;
+        /// <summary>
+        /// `true` if Elastic Fabric Adapter (EFA) is supported.
         /// </summary>
         public readonly bool EfaSupported;
         /// <summary>
-        /// Whether Elastic Network Adapter (ENA) is supported.
+        /// `true` if the instance type supports [ENA Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-express.html).
+        /// </summary>
+        public readonly bool EnaSrdSupported;
+        /// <summary>
+        /// Indicates whether Elastic Network Adapter (ENA) is `"supported"`, `"required"`, or `"unsupported"`.
         /// </summary>
         public readonly string EnaSupport;
         /// <summary>
-        /// Indicates whether encryption in-transit between instances is supported.
+        /// `true` if encryption in-transit between instances is supported.
         /// </summary>
         public readonly bool EncryptionInTransitSupported;
         /// <summary>
         /// Describes the FPGA accelerator settings for the instance type.
         /// * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
         /// * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
-        /// * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
+        /// * `fpgas.#.memory_size` - The size (in MiB) of the memory available to the FPGA accelerator.
         /// * `fpgas.#.name` - The name of the FPGA accelerator.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeFpgaResult> Fpgas;
@@ -213,7 +233,7 @@ namespace Pulumi.Aws.Ec2
         /// Describes the GPU accelerators for the instance type.
         /// * `gpus.#.count` - The number of GPUs for the instance type.
         /// * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
-        /// * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
+        /// * `gpus.#.memory_size` - The size (in MiB) of the memory available to the GPU accelerator.
         /// * `gpus.#.name` - The name of the GPU accelerator.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeGpusResult> Gpuses;
@@ -233,6 +253,7 @@ namespace Pulumi.Aws.Ec2
         /// Describes the Inference accelerators for the instance type.
         /// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
         /// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+        /// * `inference_accelerators.#.memory_size` - The size (in MiB) of the memory available to the inference accelerator.
         /// * `inference_accelerators.#.name` - The name of the Inference accelerator.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeInferenceAcceleratorResult> InferenceAccelerators;
@@ -269,27 +290,73 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int MaximumNetworkInterfaces;
         /// <summary>
+        /// Describes the media accelerator settings for the instance type.
+        /// * `media_accelerators.#.count` - The number of media accelerators for the instance type.
+        /// * `media_accelerators.#.manufacturer` - The manufacturer of the media accelerator.
+        /// * `media_accelerators.#.memory_size` - The size (in MiB) of the memory available to each media accelerator.
+        /// * `media_accelerators.#.name` - The name of the media accelerator.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetInstanceTypeMediaAcceleratorResult> MediaAccelerators;
+        /// <summary>
         /// Size of the instance memory, in MiB.
         /// </summary>
         public readonly int MemorySize;
+        /// <summary>
+        /// Describes the network cards for the instance type.
+        /// * `network_cards.#.baseline_bandwidth` - The baseline network performance (in Gbps) of the network card.
+        /// * `network_cards.#.index` - The index of the network card.
+        /// * `network_cards.#.maximum_interfaces` - The maximum number of network interfaces for the /network card.
+        /// * `network_cards.#.performance` - Describes the network performance of the network card.
+        /// * `network_cards.#.peak_bandwidth` - The peak (burst) network performance (in Gbps) of the network card.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetInstanceTypeNetworkCardResult> NetworkCards;
         /// <summary>
         /// Describes the network performance.
         /// </summary>
         public readonly string NetworkPerformance;
         /// <summary>
-        /// A list of architectures supported by the instance type.
+        /// Describes the Neuron accelerator settings for the instance type.
+        /// * `neuron_devices.#.core_count` - The number of cores available to the neuron accelerator.
+        /// * `neuron_devices.#.core_version` - A number representing the version of the neuron accelerator.
+        /// * `neuron_devices.#.count` - The number of neuron accelerators for the instance type.
+        /// * `neuron_devices.#.memory_size` - The size (in MiB) of the memory available to the neuron accelerator.
+        /// * `neuron_devices.#.name` - The name of the neuron accelerator.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetInstanceTypeNeuronDeviceResult> NeuronDevices;
+        /// <summary>
+        /// Indicates whether Nitro Enclaves is `"supported"` or `"unsupported"`.
+        /// </summary>
+        public readonly string NitroEnclavesSupport;
+        /// <summary>
+        /// Indicates whether NitroTPM is `"supported"` or `"unsupported"`.
+        /// </summary>
+        public readonly string NitroTpmSupport;
+        /// <summary>
+        /// A set of strings indicating the supported NitroTPM versions.
+        /// </summary>
+        public readonly ImmutableArray<string> NitroTpmSupportedVersions;
+        /// <summary>
+        /// `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
+        /// </summary>
+        public readonly string PhcSupport;
+        /// <summary>
+        /// A list of strings of architectures supported by the instance type.
         /// </summary>
         public readonly ImmutableArray<string> SupportedArchitectures;
+        /// <summary>
+        /// A set of strings indicating supported CPU features.
+        /// </summary>
+        public readonly ImmutableArray<string> SupportedCpuFeatures;
         /// <summary>
         /// A list of supported placement groups types.
         /// </summary>
         public readonly ImmutableArray<string> SupportedPlacementStrategies;
         /// <summary>
-        /// Indicates the supported root device types.
+        /// A list of supported root device types.
         /// </summary>
         public readonly ImmutableArray<string> SupportedRootDeviceTypes;
         /// <summary>
-        /// Indicates whether the instance type is offered for spot or On-Demand.
+        /// A list of supported usage classes.  Usage classes are `"spot"`, `"on-demand"`, or `"capacity-block"`.
         /// </summary>
         public readonly ImmutableArray<string> SupportedUsagesClasses;
         /// <summary>
@@ -309,9 +376,21 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int TotalGpuMemory;
         /// <summary>
+        /// The total size of the memory for the neuron accelerators for the instance type (in MiB).
+        /// </summary>
+        public readonly int TotalInferenceMemory;
+        /// <summary>
         /// The total size of the instance disks, in GB.
         /// </summary>
         public readonly int TotalInstanceStorage;
+        /// <summary>
+        /// The total size of the memory for the media accelerators for the instance type (in MiB).
+        /// </summary>
+        public readonly int TotalMediaMemory;
+        /// <summary>
+        /// The total size of the memory for the neuron accelerators for the instance type (in MiB).
+        /// </summary>
+        public readonly int TotalNeuronDeviceMemory;
         /// <summary>
         /// List of the valid number of cores that can be configured for the instance type.
         /// </summary>
@@ -325,7 +404,11 @@ namespace Pulumi.Aws.Ec2
         private GetInstanceTypeResult(
             bool autoRecoverySupported,
 
+            ImmutableArray<string> bandwidthWeightings,
+
             bool bareMetal,
+
+            ImmutableArray<string> bootModes,
 
             bool burstablePerformanceSupported,
 
@@ -334,6 +417,8 @@ namespace Pulumi.Aws.Ec2
             bool dedicatedHostsSupported,
 
             int defaultCores,
+
+            int defaultNetworkCardIndex,
 
             int defaultThreadsPerCore,
 
@@ -357,7 +442,11 @@ namespace Pulumi.Aws.Ec2
 
             double ebsPerformanceMaximumThroughput,
 
+            int efaMaximumInterfaces,
+
             bool efaSupported,
+
+            bool enaSrdSupported,
 
             string enaSupport,
 
@@ -393,11 +482,27 @@ namespace Pulumi.Aws.Ec2
 
             int maximumNetworkInterfaces,
 
+            ImmutableArray<Outputs.GetInstanceTypeMediaAcceleratorResult> mediaAccelerators,
+
             int memorySize,
+
+            ImmutableArray<Outputs.GetInstanceTypeNetworkCardResult> networkCards,
 
             string networkPerformance,
 
+            ImmutableArray<Outputs.GetInstanceTypeNeuronDeviceResult> neuronDevices,
+
+            string nitroEnclavesSupport,
+
+            string nitroTpmSupport,
+
+            ImmutableArray<string> nitroTpmSupportedVersions,
+
+            string phcSupport,
+
             ImmutableArray<string> supportedArchitectures,
+
+            ImmutableArray<string> supportedCpuFeatures,
 
             ImmutableArray<string> supportedPlacementStrategies,
 
@@ -413,18 +518,27 @@ namespace Pulumi.Aws.Ec2
 
             int totalGpuMemory,
 
+            int totalInferenceMemory,
+
             int totalInstanceStorage,
+
+            int totalMediaMemory,
+
+            int totalNeuronDeviceMemory,
 
             ImmutableArray<int> validCores,
 
             ImmutableArray<int> validThreadsPerCores)
         {
             AutoRecoverySupported = autoRecoverySupported;
+            BandwidthWeightings = bandwidthWeightings;
             BareMetal = bareMetal;
+            BootModes = bootModes;
             BurstablePerformanceSupported = burstablePerformanceSupported;
             CurrentGeneration = currentGeneration;
             DedicatedHostsSupported = dedicatedHostsSupported;
             DefaultCores = defaultCores;
+            DefaultNetworkCardIndex = defaultNetworkCardIndex;
             DefaultThreadsPerCore = defaultThreadsPerCore;
             DefaultVcpus = defaultVcpus;
             EbsEncryptionSupport = ebsEncryptionSupport;
@@ -436,7 +550,9 @@ namespace Pulumi.Aws.Ec2
             EbsPerformanceMaximumBandwidth = ebsPerformanceMaximumBandwidth;
             EbsPerformanceMaximumIops = ebsPerformanceMaximumIops;
             EbsPerformanceMaximumThroughput = ebsPerformanceMaximumThroughput;
+            EfaMaximumInterfaces = efaMaximumInterfaces;
             EfaSupported = efaSupported;
+            EnaSrdSupported = enaSrdSupported;
             EnaSupport = enaSupport;
             EncryptionInTransitSupported = encryptionInTransitSupported;
             Fpgas = fpgas;
@@ -454,9 +570,17 @@ namespace Pulumi.Aws.Ec2
             MaximumIpv6AddressesPerInterface = maximumIpv6AddressesPerInterface;
             MaximumNetworkCards = maximumNetworkCards;
             MaximumNetworkInterfaces = maximumNetworkInterfaces;
+            MediaAccelerators = mediaAccelerators;
             MemorySize = memorySize;
+            NetworkCards = networkCards;
             NetworkPerformance = networkPerformance;
+            NeuronDevices = neuronDevices;
+            NitroEnclavesSupport = nitroEnclavesSupport;
+            NitroTpmSupport = nitroTpmSupport;
+            NitroTpmSupportedVersions = nitroTpmSupportedVersions;
+            PhcSupport = phcSupport;
             SupportedArchitectures = supportedArchitectures;
+            SupportedCpuFeatures = supportedCpuFeatures;
             SupportedPlacementStrategies = supportedPlacementStrategies;
             SupportedRootDeviceTypes = supportedRootDeviceTypes;
             SupportedUsagesClasses = supportedUsagesClasses;
@@ -464,7 +588,10 @@ namespace Pulumi.Aws.Ec2
             SustainedClockSpeed = sustainedClockSpeed;
             TotalFpgaMemory = totalFpgaMemory;
             TotalGpuMemory = totalGpuMemory;
+            TotalInferenceMemory = totalInferenceMemory;
             TotalInstanceStorage = totalInstanceStorage;
+            TotalMediaMemory = totalMediaMemory;
+            TotalNeuronDeviceMemory = totalNeuronDeviceMemory;
             ValidCores = validCores;
             ValidThreadsPerCores = validThreadsPerCores;
         }

@@ -20,14 +20,14 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
     public static final S3LocationArgs Empty = new S3LocationArgs();
 
     /**
-     * A list of DataSync Agent ARNs with which this location will be associated.
+     * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
      * 
      */
     @Import(name="agentArns")
     private @Nullable Output<List<String>> agentArns;
 
     /**
-     * @return A list of DataSync Agent ARNs with which this location will be associated.
+     * @return (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
      * 
      */
     public Optional<Output<List<String>>> agentArns() {
@@ -35,14 +35,14 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the S3 Bucket.
+     * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      * 
      */
     @Import(name="s3BucketArn", required=true)
     private Output<String> s3BucketArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 Bucket.
+     * @return Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      * 
      */
     public Output<String> s3BucketArn() {
@@ -65,14 +65,14 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+     * Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      * 
      */
     @Import(name="s3StorageClass")
     private @Nullable Output<String> s3StorageClass;
 
     /**
-     * @return The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+     * @return Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      * 
      */
     public Optional<Output<String>> s3StorageClass() {
@@ -139,7 +139,7 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentArns A list of DataSync Agent ARNs with which this location will be associated.
+         * @param agentArns (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentArns A list of DataSync Agent ARNs with which this location will be associated.
+         * @param agentArns (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentArns A list of DataSync Agent ARNs with which this location will be associated.
+         * @param agentArns (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3BucketArn Amazon Resource Name (ARN) of the S3 Bucket.
+         * @param s3BucketArn Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3BucketArn Amazon Resource Name (ARN) of the S3 Bucket.
+         * @param s3BucketArn Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3StorageClass The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+         * @param s3StorageClass Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3StorageClass The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+         * @param s3StorageClass Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
          * 
          * @return builder
          * 

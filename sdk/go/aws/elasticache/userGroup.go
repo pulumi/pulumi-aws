@@ -32,7 +32,7 @@ import (
 //				UserId:       pulumi.String("testUserId"),
 //				UserName:     pulumi.String("default"),
 //				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-//				Engine:       pulumi.String("REDIS"),
+//				Engine:       pulumi.String("redis"),
 //				Passwords: pulumi.StringArray{
 //					pulumi.String("password123456789"),
 //				},
@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = elasticache.NewUserGroup(ctx, "test", &elasticache.UserGroupArgs{
-//				Engine:      pulumi.String("REDIS"),
+//				Engine:      pulumi.String("redis"),
 //				UserGroupId: pulumi.String("userGroupId"),
 //				UserIds: pulumi.StringArray{
 //					test.UserId,
@@ -68,7 +68,7 @@ type UserGroup struct {
 
 	// The ARN that identifies the user group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The current supported value are `REDIS`, `VALKEY`.
+	// The current supported value are `redis`, `valkey` (case insensitive).
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -122,7 +122,7 @@ func GetUserGroup(ctx *pulumi.Context,
 type userGroupState struct {
 	// The ARN that identifies the user group.
 	Arn *string `pulumi:"arn"`
-	// The current supported value are `REDIS`, `VALKEY`.
+	// The current supported value are `redis`, `valkey` (case insensitive).
 	Engine *string `pulumi:"engine"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -141,7 +141,7 @@ type userGroupState struct {
 type UserGroupState struct {
 	// The ARN that identifies the user group.
 	Arn pulumi.StringPtrInput
-	// The current supported value are `REDIS`, `VALKEY`.
+	// The current supported value are `redis`, `valkey` (case insensitive).
 	Engine pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -162,7 +162,7 @@ func (UserGroupState) ElementType() reflect.Type {
 }
 
 type userGroupArgs struct {
-	// The current supported value are `REDIS`, `VALKEY`.
+	// The current supported value are `redis`, `valkey` (case insensitive).
 	Engine string `pulumi:"engine"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -176,7 +176,7 @@ type userGroupArgs struct {
 
 // The set of arguments for constructing a UserGroup resource.
 type UserGroupArgs struct {
-	// The current supported value are `REDIS`, `VALKEY`.
+	// The current supported value are `redis`, `valkey` (case insensitive).
 	Engine pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -280,7 +280,7 @@ func (o UserGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The current supported value are `REDIS`, `VALKEY`.
+// The current supported value are `redis`, `valkey` (case insensitive).
 func (o UserGroupOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }

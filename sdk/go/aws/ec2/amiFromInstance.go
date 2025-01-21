@@ -116,7 +116,9 @@ type AmiFromInstance struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-	TpmSupport     pulumi.StringOutput `pulumi:"tpmSupport"`
+	TpmSupport pulumi.StringOutput `pulumi:"tpmSupport"`
+	// Base64 representation of the non-volatile UEFI variable store.
+	UefiData       pulumi.StringOutput `pulumi:"uefiData"`
 	UsageOperation pulumi.StringOutput `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -214,7 +216,9 @@ type amiFromInstanceState struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-	TpmSupport     *string `pulumi:"tpmSupport"`
+	TpmSupport *string `pulumi:"tpmSupport"`
+	// Base64 representation of the non-volatile UEFI variable store.
+	UefiData       *string `pulumi:"uefiData"`
 	UsageOperation *string `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -280,7 +284,9 @@ type AmiFromInstanceState struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-	TpmSupport     pulumi.StringPtrInput
+	TpmSupport pulumi.StringPtrInput
+	// Base64 representation of the non-volatile UEFI variable store.
+	UefiData       pulumi.StringPtrInput
 	UsageOperation pulumi.StringPtrInput
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -573,6 +579,11 @@ func (o AmiFromInstanceOutput) TagsAll() pulumi.StringMapOutput {
 // If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 func (o AmiFromInstanceOutput) TpmSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.TpmSupport }).(pulumi.StringOutput)
+}
+
+// Base64 representation of the non-volatile UEFI variable store.
+func (o AmiFromInstanceOutput) UefiData() pulumi.StringOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.UefiData }).(pulumi.StringOutput)
 }
 
 func (o AmiFromInstanceOutput) UsageOperation() pulumi.StringOutput {

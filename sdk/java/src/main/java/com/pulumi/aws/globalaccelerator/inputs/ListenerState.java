@@ -33,6 +33,21 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the listener.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the listener.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the &#34;five-tuple&#34; properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the &#34;two-tuple&#34; properties of source (client) IP address and destination IP address to select the hash value.
      * 
      */
@@ -81,6 +96,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
 
     private ListenerState(ListenerState $) {
         this.acceleratorArn = $.acceleratorArn;
+        this.arn = $.arn;
         this.clientAffinity = $.clientAffinity;
         this.portRanges = $.portRanges;
         this.protocol = $.protocol;
@@ -123,6 +139,27 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder acceleratorArn(String acceleratorArn) {
             return acceleratorArn(Output.of(acceleratorArn));
+        }
+
+        /**
+         * @param arn The Amazon Resource Name (ARN) of the listener.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The Amazon Resource Name (ARN) of the listener.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

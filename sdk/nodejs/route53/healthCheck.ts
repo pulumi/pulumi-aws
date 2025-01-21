@@ -86,6 +86,37 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### CloudWatch Alarm Check With Triggers
+ *
+ * The `triggers` argument allows the Route53 health check to be synchronized when a change to the upstream CloudWatch alarm is made.
+ * In the configuration below, the health check will be synchronized any time the `threshold` of the alarm is changed.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudwatch.MetricAlarm("example", {
+ *     name: "example",
+ *     comparisonOperator: "GreaterThanOrEqualToThreshold",
+ *     evaluationPeriods: 2,
+ *     metricName: "CPUUtilization",
+ *     namespace: "AWS/EC2",
+ *     period: 120,
+ *     statistic: "Average",
+ *     threshold: 80,
+ *     alarmDescription: "This metric monitors ec2 cpu utilization",
+ * });
+ * const exampleHealthCheck = new aws.route53.HealthCheck("example", {
+ *     type: "CLOUDWATCH_METRIC",
+ *     cloudwatchAlarmName: example.name,
+ *     cloudwatchAlarmRegion: "us-west-2",
+ *     insufficientDataHealthStatus: "Healthy",
+ *     triggers: {
+ *         threshold: example.threshold,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
@@ -139,12 +170,12 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     public readonly cloudwatchAlarmName!: pulumi.Output<string | undefined>;
     /**
-     * The CloudWatchRegion that the CloudWatch alarm was created in.
+     * The region that the CloudWatch alarm was created in.
      */
     public readonly cloudwatchAlarmRegion!: pulumi.Output<string | undefined>;
     /**
      * A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-     * * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+     * * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
      * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
      * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
      *
@@ -219,6 +250,10 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
+     */
+    public readonly triggers!: pulumi.Output<{[key: string]: string}>;
+    /**
      * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
      */
     public readonly type!: pulumi.Output<string>;
@@ -258,6 +293,7 @@ export class HealthCheck extends pulumi.CustomResource {
             resourceInputs["searchString"] = state ? state.searchString : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as HealthCheckArgs | undefined;
@@ -284,6 +320,7 @@ export class HealthCheck extends pulumi.CustomResource {
             resourceInputs["routingControlArn"] = args ? args.routingControlArn : undefined;
             resourceInputs["searchString"] = args ? args.searchString : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -314,12 +351,12 @@ export interface HealthCheckState {
      */
     cloudwatchAlarmName?: pulumi.Input<string>;
     /**
-     * The CloudWatchRegion that the CloudWatch alarm was created in.
+     * The region that the CloudWatch alarm was created in.
      */
     cloudwatchAlarmRegion?: pulumi.Input<string>;
     /**
      * A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-     * * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+     * * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
      * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
      * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
      *
@@ -394,6 +431,10 @@ export interface HealthCheckState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
+     */
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
      */
     type?: pulumi.Input<string>;
@@ -416,12 +457,12 @@ export interface HealthCheckArgs {
      */
     cloudwatchAlarmName?: pulumi.Input<string>;
     /**
-     * The CloudWatchRegion that the CloudWatch alarm was created in.
+     * The region that the CloudWatch alarm was created in.
      */
     cloudwatchAlarmRegion?: pulumi.Input<string>;
     /**
      * A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
-     * * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+     * * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
      * * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
      * * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
      *
@@ -489,6 +530,10 @@ export interface HealthCheckArgs {
      * A map of tags to assign to the health check. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
+     */
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
      */

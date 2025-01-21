@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleListener = new aws.globalaccelerator.Listener("example", {
- *     acceleratorArn: example.id,
+ *     acceleratorArn: example.arn,
  *     clientAffinity: "SOURCE_IP",
  *     protocol: "TCP",
  *     portRanges: [{
@@ -78,6 +78,10 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly acceleratorArn!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) of the listener.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
      */
     public readonly clientAffinity!: pulumi.Output<string | undefined>;
@@ -104,6 +108,7 @@ export class Listener extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ListenerState | undefined;
             resourceInputs["acceleratorArn"] = state ? state.acceleratorArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["clientAffinity"] = state ? state.clientAffinity : undefined;
             resourceInputs["portRanges"] = state ? state.portRanges : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
@@ -122,6 +127,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["clientAffinity"] = args ? args.clientAffinity : undefined;
             resourceInputs["portRanges"] = args ? args.portRanges : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Listener.__pulumiType, name, resourceInputs, opts);
@@ -136,6 +142,10 @@ export interface ListenerState {
      * The Amazon Resource Name (ARN) of your accelerator.
      */
     acceleratorArn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the listener.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
      */
