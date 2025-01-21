@@ -292,6 +292,8 @@ if typing.TYPE_CHECKING:
     medialive = __medialive
     import pulumi_aws.mediapackage as __mediapackage
     mediapackage = __mediapackage
+    import pulumi_aws.mediapackagev2 as __mediapackagev2
+    mediapackagev2 = __mediapackagev2
     import pulumi_aws.mediastore as __mediastore
     mediastore = __mediastore
     import pulumi_aws.memorydb as __memorydb
@@ -593,6 +595,7 @@ else:
     mediaconvert = _utilities.lazy_import('pulumi_aws.mediaconvert')
     medialive = _utilities.lazy_import('pulumi_aws.medialive')
     mediapackage = _utilities.lazy_import('pulumi_aws.mediapackage')
+    mediapackagev2 = _utilities.lazy_import('pulumi_aws.mediapackagev2')
     mediastore = _utilities.lazy_import('pulumi_aws.mediastore')
     memorydb = _utilities.lazy_import('pulumi_aws.memorydb')
     mq = _utilities.lazy_import('pulumi_aws.mq')
@@ -8010,10 +8013,10 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "mediapackage/v2ChannelGroup",
-  "fqn": "pulumi_aws.mediapackage",
+  "mod": "mediapackagev2/channelGroup",
+  "fqn": "pulumi_aws.mediapackagev2",
   "classes": {
-   "aws:mediapackage/v2ChannelGroup:V2ChannelGroup": "V2ChannelGroup"
+   "aws:mediapackagev2/channelGroup:ChannelGroup": "ChannelGroup"
   }
  },
  {

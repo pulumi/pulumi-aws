@@ -23,8 +23,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:mediapackage/channel:Channel":
 		r = &Channel{}
-	case "aws:mediapackage/v2ChannelGroup:V2ChannelGroup":
-		r = &V2ChannelGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -41,11 +39,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"mediapackage/channel",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"mediapackage/v2ChannelGroup",
 		&module{version},
 	)
 }

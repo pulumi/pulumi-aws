@@ -10,11 +10,6 @@ export type Channel = import("./channel").Channel;
 export const Channel: typeof import("./channel").Channel = null as any;
 utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
 
-export { V2ChannelGroupArgs, V2ChannelGroupState } from "./v2channelGroup";
-export type V2ChannelGroup = import("./v2channelGroup").V2ChannelGroup;
-export const V2ChannelGroup: typeof import("./v2channelGroup").V2ChannelGroup = null as any;
-utilities.lazyLoad(exports, ["V2ChannelGroup"], () => require("./v2channelGroup"));
-
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,12 +17,9 @@ const _module = {
         switch (type) {
             case "aws:mediapackage/channel:Channel":
                 return new Channel(name, <any>undefined, { urn })
-            case "aws:mediapackage/v2ChannelGroup:V2ChannelGroup":
-                return new V2ChannelGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "mediapackage/channel", _module)
-pulumi.runtime.registerResourceModule("aws", "mediapackage/v2ChannelGroup", _module)
