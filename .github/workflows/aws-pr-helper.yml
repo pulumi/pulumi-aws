@@ -1,0 +1,116 @@
+# aws-pr-helper: take care of generated file maintenance chores
+
+name: aws-pr-helper
+
+on:
+  pull_request:
+    paths-ignore:
+    - CHANGELOG.md
+
+# This should cancel any previous runs of the same workflow on the same branch which are still running.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      # Run as first step so we don't delete things that have just been installed
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+        with:
+          tool-cache: false
+          swap-storage: false
+          dotnet: false
+      - name: Checkout Repo
+        # Only run this if current activity is 'opened' or 'reopened'; updating base PR in place should not trigger.
+        if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'reopened')
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Checkout Generated PR
+        # Only run this if current activity is 'synchronize', that is the base PR is changing or being appended to.
+        if: github.event_name == 'pull_request' && github.event.action == 'synchronize'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}-gen
+          submodules: true
+      - name: Cache examples generation
+        uses: actions/cache@v4
+        with:
+          path: |
+            .pulumi/examples-cache
+          key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
+      - name: Setup tools
+        uses: ./.github/actions/setup-tools
+        with:
+          tools: pulumictl, pulumicli, ${{ matrix.language }}
+      - name: make upstream
+        run: |-
+          make upstream
+      - name: Create ${{ github.ref }}-gen branch
+        # Only run this if current activity is 'opened' or 'reopened'; updating base PR in place should not trigger.
+        if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'reopened')
+        run: |-
+          git checkout -b ${{ github.ref }}-gen
+      - name: Reset ${{ github.ref }}-gen branch
+        # Only run this if current activity is 'synchronize', that is the base PR is changing or being appended to.
+        if: github.event_name == 'pull_request' && github.event.action == 'synchronize'
+        run: |-
+          git reset --hard ${{ github.ref }}
+      - name: Install plugins
+        run: |-
+          make install_plugins
+      - name: make tfgen
+        run: |-
+          make tfgen
+      - name: Commit schema changes
+        run: |-
+          git add .
+          git commit -m "Re-generate schema"
+      - name: make build_nodejs
+        run: |-
+          make build_nodejs
+      - name: Commit Node SDK changes
+        run: |-
+          git add .
+          git commit -m "Re-generate Node SDK"
+      - name: make build_python
+        run: |-
+          make build_python
+      - name: Commit Python SDK changes
+        run: |-
+          git add .
+          git commit -m "Re-generate Python SDK"
+      - name: make build_dotnet
+        run: |-
+          make build_dotnet
+      - name: Commit .NET SDK changes
+        run: |-
+          git add .
+          git commit -m "Re-generate .NET SDK"
+      - name: make build_go
+        run: |-
+          make build_go
+      - name: Commit Go SDK changes
+        run: |-
+          git add .
+          git commit -m "Re-generate Go SDK"
+      - name: make build_java
+        run: |-
+          make build_java
+      - name: Commit Java SDK changes
+        run: |-
+          git add .
+          git commit -m "Re-generate Java SDK"
+      - name: Push the changes upstream
+        run: |-
+          git push origin ${{ github.ref }}-gen --force-with-lease
+      - name: Create a PR with generated files
+        # Only run this if current activity is 'opened' or 'reopened'; updating base PR in place should not trigger.
+        if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'reopened')
+        run: |-
+          title="Automated file generation for ${{ github.ref }}"
+          body="Automatically re-generate files for changes in ${{ github.ref }}."
+          gh pr create -t "$title" -b "${body}" -B ${{ github.ref }} -H ${{ github.ref }}-gen
