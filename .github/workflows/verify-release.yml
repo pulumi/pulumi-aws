@@ -74,6 +74,8 @@ jobs:
         runner: ${{ fromJSON(format('["ubuntu-latest","windows-latest"{0}]', inputs.enableMacRunner && ',"macos-latest"' || '')) }}
     runs-on: ${{ matrix.runner }}
     steps:
+      - name: Configure Git to checkout files with long names
+        run: git config --global core.longpaths true
       - name: Checkout Repo
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
