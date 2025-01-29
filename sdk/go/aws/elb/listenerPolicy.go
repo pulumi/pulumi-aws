@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
+//			wu_tang, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
 //				Name: pulumi.String("wu-tang"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-east-1a"),
@@ -51,7 +51,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl", &elb.LoadBalancerPolicyArgs{
+//			wu_tang_ssl, err := elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl", &elb.LoadBalancerPolicyArgs{
 //				LoadBalancerName: wu_tang.Name,
 //				PolicyName:       pulumi.String("wu-tang-ssl"),
 //				PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
@@ -101,7 +101,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
+//			wu_tang, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
 //				Name: pulumi.String("wu-tang"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-east-1a"),
@@ -122,7 +122,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl-tls-1-1", &elb.LoadBalancerPolicyArgs{
+//			wu_tang_ssl_tls_1_1, err := elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl-tls-1-1", &elb.LoadBalancerPolicyArgs{
 //				LoadBalancerName: wu_tang.Name,
 //				PolicyName:       pulumi.String("wu-tang-ssl"),
 //				PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),

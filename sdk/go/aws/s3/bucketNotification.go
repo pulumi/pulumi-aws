@@ -228,7 +228,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewFunction(ctx, "func", &lambda.FunctionArgs{
+//			_func, err := lambda.NewFunction(ctx, "func", &lambda.FunctionArgs{
 //				Code:    pulumi.NewFileArchive("your-function.zip"),
 //				Name:    pulumi.String("example_lambda_name"),
 //				Role:    iamForLambda.Arn,

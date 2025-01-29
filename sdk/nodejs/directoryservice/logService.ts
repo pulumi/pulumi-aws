@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     name: `/aws/directoryservice/${exampleAwsDirectoryServiceDirectory.id}`,
  *     retentionInDays: 14,
  * });
- * const ad-log-policy = aws.iam.getPolicyDocumentOutput({
+ * const ad_log_policy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: [
  *             "logs:CreateLogStream",

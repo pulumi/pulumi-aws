@@ -277,7 +277,7 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  * });
- * const firehose-elasticsearch = aws.iam.getPolicyDocumentOutput({
+ * const firehose_elasticsearch = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",

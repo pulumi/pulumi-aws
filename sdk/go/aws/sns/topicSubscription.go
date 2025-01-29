@@ -238,7 +238,7 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = sns.NewTopic(ctx, "sns-topic", &sns.TopicArgs{
+// sns_topic, err := sns.NewTopic(ctx, "sns-topic", &sns.TopicArgs{
 // Name: pulumi.Any(sns.Name),
 // DisplayName: pulumi.Any(sns.Display_name),
 // Policy: pulumi.String(sns_topic_policy.Json),
@@ -246,7 +246,7 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = sqs.NewQueue(ctx, "sqs-queue", &sqs.QueueArgs{
+// sqs_queue, err := sqs.NewQueue(ctx, "sqs-queue", &sqs.QueueArgs{
 // Name: pulumi.Any(sqs.Name),
 // Policy: pulumi.String(sqs_queue_policy.Json),
 // })

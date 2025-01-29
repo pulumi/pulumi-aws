@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *         isActive: true,
  *     },
  * }});
- * const default = defaultContainerService.privateRegistryAccess.apply(privateRegistryAccess => aws.iam.getPolicyDocumentOutput({
+ * const _default = defaultContainerService.privateRegistryAccess.apply(privateRegistryAccess => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
