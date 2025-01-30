@@ -111,7 +111,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "default", &sns.TopicArgs{
+//			_default, err := sns.NewTopic(ctx, "default", &sns.TopicArgs{
 //				Name: pulumi.String("call-lambda-maybe"),
 //			})
 //			if err != nil {
@@ -141,7 +141,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewFunction(ctx, "func", &lambda.FunctionArgs{
+//			_func, err := lambda.NewFunction(ctx, "func", &lambda.FunctionArgs{
 //				Code:    pulumi.NewFileArchive("lambdatest.zip"),
 //				Name:    pulumi.String("lambda_called_from_sns"),
 //				Role:    defaultRole.Arn,
@@ -235,7 +235,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogGroup(ctx, "default", &cloudwatch.LogGroupArgs{
+//			_default, err := cloudwatch.NewLogGroup(ctx, "default", &cloudwatch.LogGroupArgs{
 //				Name: pulumi.String("/default"),
 //			})
 //			if err != nil {
