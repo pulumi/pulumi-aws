@@ -132,7 +132,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const important-bucket = aws.s3.getBucket({
+ * const important_bucket = aws.s3.getBucket({
  *     bucket: "important-bucket",
  * });
  * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
@@ -151,10 +151,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const not-important-bucket-1 = aws.s3.getBucket({
+ * const not_important_bucket_1 = aws.s3.getBucket({
  *     bucket: "not-important-bucket-1",
  * });
- * const not-important-bucket-2 = aws.s3.getBucket({
+ * const not_important_bucket_2 = aws.s3.getBucket({
  *     bucket: "not-important-bucket-2",
  * });
  * const example = new aws.cloudtrail.Trail("example", {advancedEventSelectors: [
@@ -194,13 +194,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const important-bucket-1 = aws.s3.getBucket({
+ * const important_bucket_1 = aws.s3.getBucket({
  *     bucket: "important-bucket-1",
  * });
- * const important-bucket-2 = aws.s3.getBucket({
+ * const important_bucket_2 = aws.s3.getBucket({
  *     bucket: "important-bucket-2",
  * });
- * const important-bucket-3 = aws.s3.getBucket({
+ * const important_bucket_3 = aws.s3.getBucket({
  *     bucket: "important-bucket-3",
  * });
  * const example = new aws.cloudtrail.Trail("example", {advancedEventSelectors: [
