@@ -18,12 +18,12 @@ index a72d635b53..bce2d9829f 100644
  				CustomType: timetypes.RFC3339Type{},
  				Computed:   true,
 diff --git a/internal/service/logs/delivery.go b/internal/service/logs/delivery.go
-index 579c64372b..3d6f7fabee 100644
+index 8ab31eaf9e..1c1c288699 100644
 --- a/internal/service/logs/delivery.go
 +++ b/internal/service/logs/delivery.go
-@@ -91,7 +91,7 @@ func (r *deliveryResource) Schema(ctx context.Context, request resource.SchemaRe
+@@ -95,7 +95,7 @@ func (r *deliveryResource) Schema(ctx context.Context, request resource.SchemaRe
  			},
- 			"s3_delivery_configuration": framework.ResourceOptionalComputedListOfObjectAttribute[s3DeliveryConfigurationModel](ctx),
+ 			"s3_delivery_configuration": framework.ResourceOptionalComputedListOfObjectsAttribute[s3DeliveryConfigurationModel](ctx, 1, listplanmodifier.UseStateForUnknown()),
  			names.AttrTags:              tftags.TagsAttribute(),
 -			names.AttrTagsAll:           tftags.TagsAttributeComputedOnly(),
 +			names.AttrTagsAll: tftags.TagsAttribute(),
@@ -57,10 +57,10 @@ index a051dfcd0f..97d47e535d 100644
  	}
  }
 diff --git a/internal/service/vpclattice/resource_gateway.go b/internal/service/vpclattice/resource_gateway.go
-index be786deea2..6606a8a474 100644
+index 1fe2a69c2a..263af9aa7a 100644
 --- a/internal/service/vpclattice/resource_gateway.go
 +++ b/internal/service/vpclattice/resource_gateway.go
-@@ -97,7 +97,7 @@ func (r *resourceGatewayResource) Schema(ctx context.Context, request resource.S
+@@ -102,7 +102,7 @@ func (r *resourceGatewayResource) Schema(ctx context.Context, request resource.S
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
