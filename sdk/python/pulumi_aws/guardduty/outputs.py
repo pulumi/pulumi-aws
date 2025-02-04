@@ -30,6 +30,7 @@ __all__ = [
     'MalwareProtectionPlanActionTagging',
     'MalwareProtectionPlanProtectedResource',
     'MalwareProtectionPlanProtectedResourceS3Bucket',
+    'MemberDetectorFeatureAdditionalConfiguration',
     'OrganizationConfigurationDatasources',
     'OrganizationConfigurationDatasourcesKubernetes',
     'OrganizationConfigurationDatasourcesKubernetesAuditLogs',
@@ -556,6 +557,35 @@ class MalwareProtectionPlanProtectedResourceS3Bucket(dict):
         The list of object prefixes that specify the S3 objects that will be scanned.
         """
         return pulumi.get(self, "object_prefixes")
+
+
+@pulumi.output_type
+class MemberDetectorFeatureAdditionalConfiguration(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 status: str):
+        """
+        :param str name: The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        :param str status: The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

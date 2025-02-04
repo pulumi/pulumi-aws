@@ -18,6 +18,11 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * 
      */
     private @Nullable Boolean isSandboxEnvironment;
+    /**
+     * @return Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+     * 
+     */
+    private @Nullable Boolean usePrivatelinkForMetadataAndAuthorization;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce() {}
     public Optional<String> instanceUrl() {
@@ -29,6 +34,13 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     public Optional<Boolean> isSandboxEnvironment() {
         return Optional.ofNullable(this.isSandboxEnvironment);
+    }
+    /**
+     * @return Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+     * 
+     */
+    public Optional<Boolean> usePrivatelinkForMetadataAndAuthorization() {
+        return Optional.ofNullable(this.usePrivatelinkForMetadataAndAuthorization);
     }
 
     public static Builder builder() {
@@ -42,11 +54,13 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static final class Builder {
         private @Nullable String instanceUrl;
         private @Nullable Boolean isSandboxEnvironment;
+        private @Nullable Boolean usePrivatelinkForMetadataAndAuthorization;
         public Builder() {}
         public Builder(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instanceUrl = defaults.instanceUrl;
     	      this.isSandboxEnvironment = defaults.isSandboxEnvironment;
+    	      this.usePrivatelinkForMetadataAndAuthorization = defaults.usePrivatelinkForMetadataAndAuthorization;
         }
 
         @CustomType.Setter
@@ -61,10 +75,17 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             this.isSandboxEnvironment = isSandboxEnvironment;
             return this;
         }
+        @CustomType.Setter
+        public Builder usePrivatelinkForMetadataAndAuthorization(@Nullable Boolean usePrivatelinkForMetadataAndAuthorization) {
+
+            this.usePrivatelinkForMetadataAndAuthorization = usePrivatelinkForMetadataAndAuthorization;
+            return this;
+        }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce build() {
             final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce();
             _resultValue.instanceUrl = instanceUrl;
             _resultValue.isSandboxEnvironment = isSandboxEnvironment;
+            _resultValue.usePrivatelinkForMetadataAndAuthorization = usePrivatelinkForMetadataAndAuthorization;
             return _resultValue;
         }
     }

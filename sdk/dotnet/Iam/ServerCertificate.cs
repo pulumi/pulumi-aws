@@ -124,8 +124,7 @@ namespace Pulumi.Aws.Iam
         public Output<string> Expiration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Server Certificate. Do not include the
-        /// path in this value. If omitted, the provider will assign a random, unique name.
+        /// The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -238,8 +237,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? CertificateChain { get; set; }
 
         /// <summary>
-        /// The name of the Server Certificate. Do not include the
-        /// path in this value. If omitted, the provider will assign a random, unique name.
+        /// The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -326,8 +324,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Expiration { get; set; }
 
         /// <summary>
-        /// The name of the Server Certificate. Do not include the
-        /// path in this value. If omitted, the provider will assign a random, unique name.
+        /// The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

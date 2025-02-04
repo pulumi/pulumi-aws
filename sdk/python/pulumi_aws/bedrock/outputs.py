@@ -35,7 +35,31 @@ __all__ = [
     'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration',
     'AgentAgentTimeouts',
     'AgentDataSourceDataSourceConfiguration',
+    'AgentDataSourceDataSourceConfigurationConfluenceConfiguration',
+    'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration',
+    'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration',
+    'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter',
+    'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter',
+    'AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration',
     'AgentDataSourceDataSourceConfigurationS3Configuration',
+    'AgentDataSourceDataSourceConfigurationSalesforceConfiguration',
+    'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration',
+    'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration',
+    'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter',
+    'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter',
+    'AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration',
+    'AgentDataSourceDataSourceConfigurationSharePointConfiguration',
+    'AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration',
+    'AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration',
+    'AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter',
+    'AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter',
+    'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration',
+    'AgentDataSourceDataSourceConfigurationWebConfiguration',
+    'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration',
+    'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits',
+    'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration',
+    'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration',
+    'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl',
     'AgentDataSourceServerSideEncryptionConfiguration',
     'AgentDataSourceTimeouts',
     'AgentDataSourceVectorIngestionConfiguration',
@@ -55,6 +79,11 @@ __all__ = [
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt',
     'AgentKnowledgeBaseKnowledgeBaseConfiguration',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location',
     'AgentKnowledgeBaseStorageConfiguration',
     'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration',
     'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping',
@@ -981,8 +1010,16 @@ class AgentDataSourceDataSourceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "s3Configuration":
+        if key == "confluenceConfiguration":
+            suggest = "confluence_configuration"
+        elif key == "s3Configuration":
             suggest = "s3_configuration"
+        elif key == "salesforceConfiguration":
+            suggest = "salesforce_configuration"
+        elif key == "sharePointConfiguration":
+            suggest = "share_point_configuration"
+        elif key == "webConfiguration":
+            suggest = "web_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -997,14 +1034,29 @@ class AgentDataSourceDataSourceConfiguration(dict):
 
     def __init__(__self__, *,
                  type: str,
-                 s3_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationS3Configuration'] = None):
+                 confluence_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration'] = None,
+                 s3_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationS3Configuration'] = None,
+                 salesforce_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration'] = None,
+                 share_point_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration'] = None,
+                 web_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfiguration'] = None):
         """
         :param str type: Type of storage for the data source. Valid values: `S3`.
+        :param 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs' confluence_configuration: Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
         :param 'AgentDataSourceDataSourceConfigurationS3ConfigurationArgs' s3_configuration: Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs' salesforce_configuration: Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs' share_point_configuration: Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
         """
         pulumi.set(__self__, "type", type)
+        if confluence_configuration is not None:
+            pulumi.set(__self__, "confluence_configuration", confluence_configuration)
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if salesforce_configuration is not None:
+            pulumi.set(__self__, "salesforce_configuration", salesforce_configuration)
+        if share_point_configuration is not None:
+            pulumi.set(__self__, "share_point_configuration", share_point_configuration)
+        if web_configuration is not None:
+            pulumi.set(__self__, "web_configuration", web_configuration)
 
     @property
     @pulumi.getter
@@ -1015,12 +1067,324 @@ class AgentDataSourceDataSourceConfiguration(dict):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="confluenceConfiguration")
+    def confluence_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration']:
+        """
+        Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+        """
+        return pulumi.get(self, "confluence_configuration")
+
+    @property
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationS3Configuration']:
         """
         Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
         """
         return pulumi.get(self, "s3_configuration")
+
+    @property
+    @pulumi.getter(name="salesforceConfiguration")
+    def salesforce_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration']:
+        """
+        Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
+        """
+        return pulumi.get(self, "salesforce_configuration")
+
+    @property
+    @pulumi.getter(name="sharePointConfiguration")
+    def share_point_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration']:
+        """
+        Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
+        """
+        return pulumi.get(self, "share_point_configuration")
+
+    @property
+    @pulumi.getter(name="webConfiguration")
+    def web_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfiguration']:
+        return pulumi.get(self, "web_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationConfluenceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlerConfiguration":
+            suggest = "crawler_configuration"
+        elif key == "sourceConfiguration":
+            suggest = "source_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationConfluenceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationConfluenceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationConfluenceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crawler_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration'] = None,
+                 source_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration'] = None):
+        if crawler_configuration is not None:
+            pulumi.set(__self__, "crawler_configuration", crawler_configuration)
+        if source_configuration is not None:
+            pulumi.set(__self__, "source_configuration", source_configuration)
+
+    @property
+    @pulumi.getter(name="crawlerConfiguration")
+    def crawler_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration']:
+        return pulumi.get(self, "crawler_configuration")
+
+    @property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration']:
+        return pulumi.get(self, "source_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterConfiguration":
+            suggest = "filter_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration'] = None):
+        """
+        :param 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs' filter_configuration: The Salesforce standard object configuration. See `filter_configuration` block for details.
+        """
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+
+    @property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration']:
+        """
+        The Salesforce standard object configuration. See `filter_configuration` block for details.
+        """
+        return pulumi.get(self, "filter_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patternObjectFilters":
+            suggest = "pattern_object_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 pattern_object_filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']] = None):
+        """
+        :param str type: The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+        :param Sequence['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs'] pattern_object_filters: The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        """
+        pulumi.set(__self__, "type", type)
+        if pattern_object_filters is not None:
+            pulumi.set(__self__, "pattern_object_filters", pattern_object_filters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="patternObjectFilters")
+    def pattern_object_filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']]:
+        """
+        The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        """
+        return pulumi.get(self, "pattern_object_filters")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter(dict):
+    def __init__(__self__, *,
+                 filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']] = None):
+        """
+        :param Sequence['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs'] filters: The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+               
+               Each filter object should contain the following configuration:
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']]:
+        """
+        The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+
+        Each filter object should contain the following configuration:
+        """
+        return pulumi.get(self, "filters")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+        elif key == "exclusionFilters":
+            suggest = "exclusion_filters"
+        elif key == "inclusionFilters":
+            suggest = "inclusion_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type: str,
+                 exclusion_filters: Optional[Sequence[str]] = None,
+                 inclusion_filters: Optional[Sequence[str]] = None):
+        """
+        :param str object_type: The supported object type or content type of the data source.
+        :param Sequence[str] exclusion_filters: A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        :param Sequence[str] inclusion_filters: A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        """
+        pulumi.set(__self__, "object_type", object_type)
+        if exclusion_filters is not None:
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
+        if inclusion_filters is not None:
+            pulumi.set(__self__, "inclusion_filters", inclusion_filters)
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        The supported object type or content type of the data source.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter(name="exclusionFilters")
+    def exclusion_filters(self) -> Optional[Sequence[str]]:
+        """
+        A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        """
+        return pulumi.get(self, "exclusion_filters")
+
+    @property
+    @pulumi.getter(name="inclusionFilters")
+    def inclusion_filters(self) -> Optional[Sequence[str]]:
+        """
+        A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        """
+        return pulumi.get(self, "inclusion_filters")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "credentialsSecretArn":
+            suggest = "credentials_secret_arn"
+        elif key == "hostType":
+            suggest = "host_type"
+        elif key == "hostUrl":
+            suggest = "host_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: str,
+                 credentials_secret_arn: str,
+                 host_type: str,
+                 host_url: str):
+        """
+        :param str auth_type: The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+        :param str credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        :param str host_type: The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+        :param str host_url: The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+        pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
+        pulumi.set(__self__, "host_type", host_type)
+        pulumi.set(__self__, "host_url", host_url)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="credentialsSecretArn")
+    def credentials_secret_arn(self) -> str:
+        """
+        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        """
+        return pulumi.get(self, "credentials_secret_arn")
+
+    @property
+    @pulumi.getter(name="hostType")
+    def host_type(self) -> str:
+        """
+        The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+        """
+        return pulumi.get(self, "host_type")
+
+    @property
+    @pulumi.getter(name="hostUrl")
+    def host_url(self) -> str:
+        """
+        The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
+        """
+        return pulumi.get(self, "host_url")
 
 
 @pulumi.output_type
@@ -1084,6 +1448,815 @@ class AgentDataSourceDataSourceConfigurationS3Configuration(dict):
         List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
         """
         return pulumi.get(self, "inclusion_prefixes")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationSalesforceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlerConfiguration":
+            suggest = "crawler_configuration"
+        elif key == "sourceConfiguration":
+            suggest = "source_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationSalesforceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationSalesforceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationSalesforceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crawler_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration'] = None,
+                 source_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration'] = None):
+        if crawler_configuration is not None:
+            pulumi.set(__self__, "crawler_configuration", crawler_configuration)
+        if source_configuration is not None:
+            pulumi.set(__self__, "source_configuration", source_configuration)
+
+    @property
+    @pulumi.getter(name="crawlerConfiguration")
+    def crawler_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration']:
+        return pulumi.get(self, "crawler_configuration")
+
+    @property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration']:
+        return pulumi.get(self, "source_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterConfiguration":
+            suggest = "filter_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration'] = None):
+        """
+        :param 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs' filter_configuration: The Salesforce standard object configuration. See `filter_configuration` block for details.
+        """
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+
+    @property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration']:
+        """
+        The Salesforce standard object configuration. See `filter_configuration` block for details.
+        """
+        return pulumi.get(self, "filter_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patternObjectFilters":
+            suggest = "pattern_object_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 pattern_object_filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']] = None):
+        """
+        :param str type: The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+        :param Sequence['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs'] pattern_object_filters: The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        """
+        pulumi.set(__self__, "type", type)
+        if pattern_object_filters is not None:
+            pulumi.set(__self__, "pattern_object_filters", pattern_object_filters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="patternObjectFilters")
+    def pattern_object_filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']]:
+        """
+        The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        """
+        return pulumi.get(self, "pattern_object_filters")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter(dict):
+    def __init__(__self__, *,
+                 filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']] = None):
+        """
+        :param Sequence['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs'] filters: The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+               
+               Each filter object should contain the following configuration:
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']]:
+        """
+        The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+
+        Each filter object should contain the following configuration:
+        """
+        return pulumi.get(self, "filters")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+        elif key == "exclusionFilters":
+            suggest = "exclusion_filters"
+        elif key == "inclusionFilters":
+            suggest = "inclusion_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type: str,
+                 exclusion_filters: Optional[Sequence[str]] = None,
+                 inclusion_filters: Optional[Sequence[str]] = None):
+        """
+        :param str object_type: The supported object type or content type of the data source.
+        :param Sequence[str] exclusion_filters: A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        :param Sequence[str] inclusion_filters: A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        """
+        pulumi.set(__self__, "object_type", object_type)
+        if exclusion_filters is not None:
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
+        if inclusion_filters is not None:
+            pulumi.set(__self__, "inclusion_filters", inclusion_filters)
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        The supported object type or content type of the data source.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter(name="exclusionFilters")
+    def exclusion_filters(self) -> Optional[Sequence[str]]:
+        """
+        A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        """
+        return pulumi.get(self, "exclusion_filters")
+
+    @property
+    @pulumi.getter(name="inclusionFilters")
+    def inclusion_filters(self) -> Optional[Sequence[str]]:
+        """
+        A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        """
+        return pulumi.get(self, "inclusion_filters")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "credentialsSecretArn":
+            suggest = "credentials_secret_arn"
+        elif key == "hostUrl":
+            suggest = "host_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: str,
+                 credentials_secret_arn: str,
+                 host_url: str):
+        """
+        :param str auth_type: The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+        :param str credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        :param str host_url: The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+        pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
+        pulumi.set(__self__, "host_url", host_url)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="credentialsSecretArn")
+    def credentials_secret_arn(self) -> str:
+        """
+        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        """
+        return pulumi.get(self, "credentials_secret_arn")
+
+    @property
+    @pulumi.getter(name="hostUrl")
+    def host_url(self) -> str:
+        """
+        The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
+        """
+        return pulumi.get(self, "host_url")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationSharePointConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlerConfiguration":
+            suggest = "crawler_configuration"
+        elif key == "sourceConfiguration":
+            suggest = "source_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationSharePointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationSharePointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationSharePointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crawler_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration'] = None,
+                 source_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration'] = None):
+        if crawler_configuration is not None:
+            pulumi.set(__self__, "crawler_configuration", crawler_configuration)
+        if source_configuration is not None:
+            pulumi.set(__self__, "source_configuration", source_configuration)
+
+    @property
+    @pulumi.getter(name="crawlerConfiguration")
+    def crawler_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration']:
+        return pulumi.get(self, "crawler_configuration")
+
+    @property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration']:
+        return pulumi.get(self, "source_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterConfiguration":
+            suggest = "filter_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration'] = None):
+        """
+        :param 'AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs' filter_configuration: The Salesforce standard object configuration. See `filter_configuration` block for details.
+        """
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+
+    @property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration']:
+        """
+        The Salesforce standard object configuration. See `filter_configuration` block for details.
+        """
+        return pulumi.get(self, "filter_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patternObjectFilters":
+            suggest = "pattern_object_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 pattern_object_filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']] = None):
+        """
+        :param str type: The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+        :param Sequence['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs'] pattern_object_filters: The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        """
+        pulumi.set(__self__, "type", type)
+        if pattern_object_filters is not None:
+            pulumi.set(__self__, "pattern_object_filters", pattern_object_filters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="patternObjectFilters")
+    def pattern_object_filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter']]:
+        """
+        The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
+        """
+        return pulumi.get(self, "pattern_object_filters")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter(dict):
+    def __init__(__self__, *,
+                 filters: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']] = None):
+        """
+        :param Sequence['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs'] filters: The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+               
+               Each filter object should contain the following configuration:
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter']]:
+        """
+        The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+
+        Each filter object should contain the following configuration:
+        """
+        return pulumi.get(self, "filters")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+        elif key == "exclusionFilters":
+            suggest = "exclusion_filters"
+        elif key == "inclusionFilters":
+            suggest = "inclusion_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type: str,
+                 exclusion_filters: Optional[Sequence[str]] = None,
+                 inclusion_filters: Optional[Sequence[str]] = None):
+        """
+        :param str object_type: The supported object type or content type of the data source.
+        :param Sequence[str] exclusion_filters: A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        :param Sequence[str] inclusion_filters: A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        """
+        pulumi.set(__self__, "object_type", object_type)
+        if exclusion_filters is not None:
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
+        if inclusion_filters is not None:
+            pulumi.set(__self__, "inclusion_filters", inclusion_filters)
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        The supported object type or content type of the data source.
+        """
+        return pulumi.get(self, "object_type")
+
+    @property
+    @pulumi.getter(name="exclusionFilters")
+    def exclusion_filters(self) -> Optional[Sequence[str]]:
+        """
+        A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        """
+        return pulumi.get(self, "exclusion_filters")
+
+    @property
+    @pulumi.getter(name="inclusionFilters")
+    def inclusion_filters(self) -> Optional[Sequence[str]]:
+        """
+        A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        """
+        return pulumi.get(self, "inclusion_filters")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "credentialsSecretArn":
+            suggest = "credentials_secret_arn"
+        elif key == "hostType":
+            suggest = "host_type"
+        elif key == "siteUrls":
+            suggest = "site_urls"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: str,
+                 credentials_secret_arn: str,
+                 domain: str,
+                 host_type: str,
+                 site_urls: Sequence[str],
+                 tenant_id: Optional[str] = None):
+        """
+        :param str auth_type: The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+        :param str credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        :param str domain: The domain of your SharePoint instance or site URL/URLs.
+        :param str host_type: The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+        :param Sequence[str] site_urls: A list of one or more SharePoint site URLs.
+        :param str tenant_id: The identifier of your Microsoft 365 tenant.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+        pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "host_type", host_type)
+        pulumi.set(__self__, "site_urls", site_urls)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="credentialsSecretArn")
+    def credentials_secret_arn(self) -> str:
+        """
+        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        """
+        return pulumi.get(self, "credentials_secret_arn")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        """
+        The domain of your SharePoint instance or site URL/URLs.
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="hostType")
+    def host_type(self) -> str:
+        """
+        The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+        """
+        return pulumi.get(self, "host_type")
+
+    @property
+    @pulumi.getter(name="siteUrls")
+    def site_urls(self) -> Sequence[str]:
+        """
+        A list of one or more SharePoint site URLs.
+        """
+        return pulumi.get(self, "site_urls")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The identifier of your Microsoft 365 tenant.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationWebConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlerConfiguration":
+            suggest = "crawler_configuration"
+        elif key == "sourceConfiguration":
+            suggest = "source_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationWebConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationWebConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationWebConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crawler_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration'] = None,
+                 source_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration'] = None):
+        if crawler_configuration is not None:
+            pulumi.set(__self__, "crawler_configuration", crawler_configuration)
+        if source_configuration is not None:
+            pulumi.set(__self__, "source_configuration", source_configuration)
+
+    @property
+    @pulumi.getter(name="crawlerConfiguration")
+    def crawler_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration']:
+        return pulumi.get(self, "crawler_configuration")
+
+    @property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration']:
+        return pulumi.get(self, "source_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crawlerLimits":
+            suggest = "crawler_limits"
+        elif key == "exclusionFilters":
+            suggest = "exclusion_filters"
+        elif key == "inclusionFilters":
+            suggest = "inclusion_filters"
+        elif key == "userAgent":
+            suggest = "user_agent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crawler_limits: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits'] = None,
+                 exclusion_filters: Optional[Sequence[str]] = None,
+                 inclusion_filters: Optional[Sequence[str]] = None,
+                 scope: Optional[str] = None,
+                 user_agent: Optional[str] = None):
+        """
+        :param Sequence[str] exclusion_filters: A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        :param Sequence[str] inclusion_filters: A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        """
+        if crawler_limits is not None:
+            pulumi.set(__self__, "crawler_limits", crawler_limits)
+        if exclusion_filters is not None:
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
+        if inclusion_filters is not None:
+            pulumi.set(__self__, "inclusion_filters", inclusion_filters)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if user_agent is not None:
+            pulumi.set(__self__, "user_agent", user_agent)
+
+    @property
+    @pulumi.getter(name="crawlerLimits")
+    def crawler_limits(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits']:
+        return pulumi.get(self, "crawler_limits")
+
+    @property
+    @pulumi.getter(name="exclusionFilters")
+    def exclusion_filters(self) -> Optional[Sequence[str]]:
+        """
+        A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        """
+        return pulumi.get(self, "exclusion_filters")
+
+    @property
+    @pulumi.getter(name="inclusionFilters")
+    def inclusion_filters(self) -> Optional[Sequence[str]]:
+        """
+        A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        """
+        return pulumi.get(self, "inclusion_filters")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="userAgent")
+    def user_agent(self) -> Optional[str]:
+        return pulumi.get(self, "user_agent")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPages":
+            suggest = "max_pages"
+        elif key == "rateLimit":
+            suggest = "rate_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_pages: Optional[float] = None,
+                 rate_limit: Optional[float] = None):
+        if max_pages is not None:
+            pulumi.set(__self__, "max_pages", max_pages)
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
+
+    @property
+    @pulumi.getter(name="maxPages")
+    def max_pages(self) -> Optional[float]:
+        return pulumi.get(self, "max_pages")
+
+    @property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> Optional[float]:
+        return pulumi.get(self, "rate_limit")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "urlConfiguration":
+            suggest = "url_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration'] = None):
+        if url_configuration is not None:
+            pulumi.set(__self__, "url_configuration", url_configuration)
+
+    @property
+    @pulumi.getter(name="urlConfiguration")
+    def url_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration']:
+        return pulumi.get(self, "url_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seedUrls":
+            suggest = "seed_urls"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 seed_urls: Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl']] = None):
+        if seed_urls is not None:
+            pulumi.set(__self__, "seed_urls", seed_urls)
+
+    @property
+    @pulumi.getter(name="seedUrls")
+    def seed_urls(self) -> Optional[Sequence['outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl']]:
+        return pulumi.get(self, "seed_urls")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl(dict):
+    def __init__(__self__, *,
+                 url: Optional[str] = None):
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type
@@ -1895,6 +3068,10 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
         suggest = None
         if key == "embeddingModelArn":
             suggest = "embedding_model_arn"
+        elif key == "embeddingModelConfiguration":
+            suggest = "embedding_model_configuration"
+        elif key == "supplementalDataStorageConfiguration":
+            suggest = "supplemental_data_storage_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1908,11 +3085,19 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 embedding_model_arn: str):
+                 embedding_model_arn: str,
+                 embedding_model_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration'] = None,
+                 supplemental_data_storage_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration'] = None):
         """
         :param str embedding_model_arn: ARN of the model used to create vector embeddings for the knowledge base.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs' embedding_model_configuration: The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs' supplemental_data_storage_configuration: supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
         """
         pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
+        if embedding_model_configuration is not None:
+            pulumi.set(__self__, "embedding_model_configuration", embedding_model_configuration)
+        if supplemental_data_storage_configuration is not None:
+            pulumi.set(__self__, "supplemental_data_storage_configuration", supplemental_data_storage_configuration)
 
     @property
     @pulumi.getter(name="embeddingModelArn")
@@ -1921,6 +3106,207 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
         ARN of the model used to create vector embeddings for the knowledge base.
         """
         return pulumi.get(self, "embedding_model_arn")
+
+    @property
+    @pulumi.getter(name="embeddingModelConfiguration")
+    def embedding_model_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration']:
+        """
+        The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
+        """
+        return pulumi.get(self, "embedding_model_configuration")
+
+    @property
+    @pulumi.getter(name="supplementalDataStorageConfiguration")
+    def supplemental_data_storage_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration']:
+        """
+        supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
+        """
+        return pulumi.get(self, "supplemental_data_storage_configuration")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockEmbeddingModelConfiguration":
+            suggest = "bedrock_embedding_model_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bedrock_embedding_model_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration'] = None):
+        """
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs' bedrock_embedding_model_configuration: The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
+        """
+        if bedrock_embedding_model_configuration is not None:
+            pulumi.set(__self__, "bedrock_embedding_model_configuration", bedrock_embedding_model_configuration)
+
+    @property
+    @pulumi.getter(name="bedrockEmbeddingModelConfiguration")
+    def bedrock_embedding_model_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration']:
+        """
+        The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
+        """
+        return pulumi.get(self, "bedrock_embedding_model_configuration")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "embeddingDataType":
+            suggest = "embedding_data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: Optional[int] = None,
+                 embedding_data_type: Optional[str] = None):
+        """
+        :param int dimensions: Dimension details for the vector configuration used on the Bedrock embeddings model.
+        :param str embedding_data_type: Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if embedding_data_type is not None:
+            pulumi.set(__self__, "embedding_data_type", embedding_data_type)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[int]:
+        """
+        Dimension details for the vector configuration used on the Bedrock embeddings model.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="embeddingDataType")
+    def embedding_data_type(self) -> Optional[str]:
+        """
+        Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+        """
+        return pulumi.get(self, "embedding_data_type")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageLocations":
+            suggest = "storage_locations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_locations: Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation']] = None):
+        """
+        :param Sequence['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs'] storage_locations: A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
+        """
+        if storage_locations is not None:
+            pulumi.set(__self__, "storage_locations", storage_locations)
+
+    @property
+    @pulumi.getter(name="storageLocations")
+    def storage_locations(self) -> Optional[Sequence['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation']]:
+        """
+        A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
+        """
+        return pulumi.get(self, "storage_locations")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Location":
+            suggest = "s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 s3_location: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location'] = None):
+        """
+        :param str type: Storage service used for this location. `S3` is the only valid value.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs' s3_location: Contains information about the Amazon S3 location for the extracted images.  See `s3_location` block for details.
+        """
+        pulumi.set(__self__, "type", type)
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Storage service used for this location. `S3` is the only valid value.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location']:
+        """
+        Contains information about the Amazon S3 location for the extracted images.  See `s3_location` block for details.
+        """
+        return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location(dict):
+    def __init__(__self__, *,
+                 uri: str):
+        """
+        :param str uri: URI of the location.
+        """
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        URI of the location.
+        """
+        return pulumi.get(self, "uri")
 
 
 @pulumi.output_type

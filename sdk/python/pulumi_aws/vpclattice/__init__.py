@@ -14,10 +14,12 @@ from .get_service import *
 from .get_service_network import *
 from .listener import *
 from .listener_rule import *
+from .resource_configuration import *
 from .resource_gateway import *
 from .resource_policy import *
 from .service import *
 from .service_network import *
+from .service_network_resource_association import *
 from .service_network_service_association import *
 from .service_network_vpc_association import *
 from .target_group import *

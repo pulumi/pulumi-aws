@@ -65,7 +65,7 @@ type LogDelivery struct {
 	// The name of the delivery source to use for this delivery.
 	DeliverySourceName pulumi.StringOutput `pulumi:"deliverySourceName"`
 	// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-	FieldDelimiter pulumi.StringPtrOutput `pulumi:"fieldDelimiter"`
+	FieldDelimiter pulumi.StringOutput `pulumi:"fieldDelimiter"`
 	// The list of record fields to be delivered to the destination, in order.
 	RecordFields pulumi.StringArrayOutput `pulumi:"recordFields"`
 	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
@@ -293,8 +293,8 @@ func (o LogDeliveryOutput) DeliverySourceName() pulumi.StringOutput {
 }
 
 // The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-func (o LogDeliveryOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogDelivery) pulumi.StringPtrOutput { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+func (o LogDeliveryOutput) FieldDelimiter() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogDelivery) pulumi.StringOutput { return v.FieldDelimiter }).(pulumi.StringOutput)
 }
 
 // The list of record fields to be delivered to the destination, in order.

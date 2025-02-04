@@ -3,10 +3,18 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.GetTaskDefinitionEphemeralStorage;
+import com.pulumi.aws.ecs.outputs.GetTaskDefinitionInferenceAccelerator;
+import com.pulumi.aws.ecs.outputs.GetTaskDefinitionPlacementConstraint;
+import com.pulumi.aws.ecs.outputs.GetTaskDefinitionProxyConfiguration;
+import com.pulumi.aws.ecs.outputs.GetTaskDefinitionRuntimePlatform;
+import com.pulumi.aws.ecs.outputs.GetTaskDefinitionVolume;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -22,12 +30,33 @@ public final class GetTaskDefinitionResult {
      */
     private String arnWithoutRevision;
     /**
-     * @return ARN of the task execution role that the Amazon ECS container agent and the Docker.
+     * @return A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * 
+     */
+    private String containerDefinitions;
+    /**
+     * @return Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * 
+     */
+    private String cpu;
+    /**
+     * @return Enables fault injection and allows for fault injection requests to be accepted from the task&#39;s containers. Default is `false`.
+     * 
+     */
+    private Boolean enableFaultInjection;
+    /**
+     * @return The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * 
+     */
+    private List<GetTaskDefinitionEphemeralStorage> ephemeralStorages;
+    /**
+     * @return ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      * 
      */
     private String executionRoleArn;
     /**
-     * @return Family of this task definition.
+     * @return A unique name for your task definition.
+     * The following arguments are optional:
      * 
      */
     private String family;
@@ -37,26 +66,71 @@ public final class GetTaskDefinitionResult {
      */
     private String id;
     /**
-     * @return Docker networking mode to use for the containers in this task.
+     * @return Configuration block(s) with Inference Accelerators settings. Detailed below.
+     * 
+     */
+    private List<GetTaskDefinitionInferenceAccelerator> inferenceAccelerators;
+    /**
+     * @return IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     * 
+     */
+    private String ipcMode;
+    /**
+     * @return Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * 
+     */
+    private String memory;
+    /**
+     * @return Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
      * 
      */
     private String networkMode;
     /**
-     * @return Revision of this task definition.
+     * @return Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     * 
+     */
+    private String pidMode;
+    /**
+     * @return Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+     * 
+     */
+    private List<GetTaskDefinitionPlacementConstraint> placementConstraints;
+    /**
+     * @return Configuration block for the App Mesh proxy. Detailed below.
+     * 
+     */
+    private List<GetTaskDefinitionProxyConfiguration> proxyConfigurations;
+    /**
+     * @return Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+     * 
+     */
+    private List<String> requiresCompatibilities;
+    /**
+     * @return Revision of the task in a particular family.
      * 
      */
     private Integer revision;
     /**
-     * @return Status of this task definition.
+     * @return Configuration block for runtime_platform that containers in your task may use.
+     * 
+     */
+    private List<GetTaskDefinitionRuntimePlatform> runtimePlatforms;
+    /**
+     * @return Status of the task definition.
      * 
      */
     private String status;
     private String taskDefinition;
     /**
-     * @return ARN of the IAM role that containers in this task can assume.
+     * @return ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      * 
      */
     private String taskRoleArn;
+    /**
+     * @return Configuration block for volumes that containers in your task may use. Detailed below.
+     * 
+     */
+    private List<GetTaskDefinitionVolume> volumes;
 
     private GetTaskDefinitionResult() {}
     /**
@@ -74,14 +148,43 @@ public final class GetTaskDefinitionResult {
         return this.arnWithoutRevision;
     }
     /**
-     * @return ARN of the task execution role that the Amazon ECS container agent and the Docker.
+     * @return A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * 
+     */
+    public String containerDefinitions() {
+        return this.containerDefinitions;
+    }
+    /**
+     * @return Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * 
+     */
+    public String cpu() {
+        return this.cpu;
+    }
+    /**
+     * @return Enables fault injection and allows for fault injection requests to be accepted from the task&#39;s containers. Default is `false`.
+     * 
+     */
+    public Boolean enableFaultInjection() {
+        return this.enableFaultInjection;
+    }
+    /**
+     * @return The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * 
+     */
+    public List<GetTaskDefinitionEphemeralStorage> ephemeralStorages() {
+        return this.ephemeralStorages;
+    }
+    /**
+     * @return ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      * 
      */
     public String executionRoleArn() {
         return this.executionRoleArn;
     }
     /**
-     * @return Family of this task definition.
+     * @return A unique name for your task definition.
+     * The following arguments are optional:
      * 
      */
     public String family() {
@@ -95,21 +198,77 @@ public final class GetTaskDefinitionResult {
         return this.id;
     }
     /**
-     * @return Docker networking mode to use for the containers in this task.
+     * @return Configuration block(s) with Inference Accelerators settings. Detailed below.
+     * 
+     */
+    public List<GetTaskDefinitionInferenceAccelerator> inferenceAccelerators() {
+        return this.inferenceAccelerators;
+    }
+    /**
+     * @return IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     * 
+     */
+    public String ipcMode() {
+        return this.ipcMode;
+    }
+    /**
+     * @return Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+     * 
+     */
+    public String memory() {
+        return this.memory;
+    }
+    /**
+     * @return Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
      * 
      */
     public String networkMode() {
         return this.networkMode;
     }
     /**
-     * @return Revision of this task definition.
+     * @return Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     * 
+     */
+    public String pidMode() {
+        return this.pidMode;
+    }
+    /**
+     * @return Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+     * 
+     */
+    public List<GetTaskDefinitionPlacementConstraint> placementConstraints() {
+        return this.placementConstraints;
+    }
+    /**
+     * @return Configuration block for the App Mesh proxy. Detailed below.
+     * 
+     */
+    public List<GetTaskDefinitionProxyConfiguration> proxyConfigurations() {
+        return this.proxyConfigurations;
+    }
+    /**
+     * @return Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+     * 
+     */
+    public List<String> requiresCompatibilities() {
+        return this.requiresCompatibilities;
+    }
+    /**
+     * @return Revision of the task in a particular family.
      * 
      */
     public Integer revision() {
         return this.revision;
     }
     /**
-     * @return Status of this task definition.
+     * @return Configuration block for runtime_platform that containers in your task may use.
+     * 
+     */
+    public List<GetTaskDefinitionRuntimePlatform> runtimePlatforms() {
+        return this.runtimePlatforms;
+    }
+    /**
+     * @return Status of the task definition.
      * 
      */
     public String status() {
@@ -119,11 +278,18 @@ public final class GetTaskDefinitionResult {
         return this.taskDefinition;
     }
     /**
-     * @return ARN of the IAM role that containers in this task can assume.
+     * @return ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      * 
      */
     public String taskRoleArn() {
         return this.taskRoleArn;
+    }
+    /**
+     * @return Configuration block for volumes that containers in your task may use. Detailed below.
+     * 
+     */
+    public List<GetTaskDefinitionVolume> volumes() {
+        return this.volumes;
     }
 
     public static Builder builder() {
@@ -137,27 +303,53 @@ public final class GetTaskDefinitionResult {
     public static final class Builder {
         private String arn;
         private String arnWithoutRevision;
+        private String containerDefinitions;
+        private String cpu;
+        private Boolean enableFaultInjection;
+        private List<GetTaskDefinitionEphemeralStorage> ephemeralStorages;
         private String executionRoleArn;
         private String family;
         private String id;
+        private List<GetTaskDefinitionInferenceAccelerator> inferenceAccelerators;
+        private String ipcMode;
+        private String memory;
         private String networkMode;
+        private String pidMode;
+        private List<GetTaskDefinitionPlacementConstraint> placementConstraints;
+        private List<GetTaskDefinitionProxyConfiguration> proxyConfigurations;
+        private List<String> requiresCompatibilities;
         private Integer revision;
+        private List<GetTaskDefinitionRuntimePlatform> runtimePlatforms;
         private String status;
         private String taskDefinition;
         private String taskRoleArn;
+        private List<GetTaskDefinitionVolume> volumes;
         public Builder() {}
         public Builder(GetTaskDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.arnWithoutRevision = defaults.arnWithoutRevision;
+    	      this.containerDefinitions = defaults.containerDefinitions;
+    	      this.cpu = defaults.cpu;
+    	      this.enableFaultInjection = defaults.enableFaultInjection;
+    	      this.ephemeralStorages = defaults.ephemeralStorages;
     	      this.executionRoleArn = defaults.executionRoleArn;
     	      this.family = defaults.family;
     	      this.id = defaults.id;
+    	      this.inferenceAccelerators = defaults.inferenceAccelerators;
+    	      this.ipcMode = defaults.ipcMode;
+    	      this.memory = defaults.memory;
     	      this.networkMode = defaults.networkMode;
+    	      this.pidMode = defaults.pidMode;
+    	      this.placementConstraints = defaults.placementConstraints;
+    	      this.proxyConfigurations = defaults.proxyConfigurations;
+    	      this.requiresCompatibilities = defaults.requiresCompatibilities;
     	      this.revision = defaults.revision;
+    	      this.runtimePlatforms = defaults.runtimePlatforms;
     	      this.status = defaults.status;
     	      this.taskDefinition = defaults.taskDefinition;
     	      this.taskRoleArn = defaults.taskRoleArn;
+    	      this.volumes = defaults.volumes;
         }
 
         @CustomType.Setter
@@ -175,6 +367,41 @@ public final class GetTaskDefinitionResult {
             }
             this.arnWithoutRevision = arnWithoutRevision;
             return this;
+        }
+        @CustomType.Setter
+        public Builder containerDefinitions(String containerDefinitions) {
+            if (containerDefinitions == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "containerDefinitions");
+            }
+            this.containerDefinitions = containerDefinitions;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cpu(String cpu) {
+            if (cpu == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "cpu");
+            }
+            this.cpu = cpu;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableFaultInjection(Boolean enableFaultInjection) {
+            if (enableFaultInjection == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "enableFaultInjection");
+            }
+            this.enableFaultInjection = enableFaultInjection;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ephemeralStorages(List<GetTaskDefinitionEphemeralStorage> ephemeralStorages) {
+            if (ephemeralStorages == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "ephemeralStorages");
+            }
+            this.ephemeralStorages = ephemeralStorages;
+            return this;
+        }
+        public Builder ephemeralStorages(GetTaskDefinitionEphemeralStorage... ephemeralStorages) {
+            return ephemeralStorages(List.of(ephemeralStorages));
         }
         @CustomType.Setter
         public Builder executionRoleArn(String executionRoleArn) {
@@ -201,6 +428,33 @@ public final class GetTaskDefinitionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder inferenceAccelerators(List<GetTaskDefinitionInferenceAccelerator> inferenceAccelerators) {
+            if (inferenceAccelerators == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "inferenceAccelerators");
+            }
+            this.inferenceAccelerators = inferenceAccelerators;
+            return this;
+        }
+        public Builder inferenceAccelerators(GetTaskDefinitionInferenceAccelerator... inferenceAccelerators) {
+            return inferenceAccelerators(List.of(inferenceAccelerators));
+        }
+        @CustomType.Setter
+        public Builder ipcMode(String ipcMode) {
+            if (ipcMode == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "ipcMode");
+            }
+            this.ipcMode = ipcMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder memory(String memory) {
+            if (memory == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "memory");
+            }
+            this.memory = memory;
+            return this;
+        }
+        @CustomType.Setter
         public Builder networkMode(String networkMode) {
             if (networkMode == null) {
               throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "networkMode");
@@ -209,12 +463,64 @@ public final class GetTaskDefinitionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder pidMode(String pidMode) {
+            if (pidMode == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "pidMode");
+            }
+            this.pidMode = pidMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder placementConstraints(List<GetTaskDefinitionPlacementConstraint> placementConstraints) {
+            if (placementConstraints == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "placementConstraints");
+            }
+            this.placementConstraints = placementConstraints;
+            return this;
+        }
+        public Builder placementConstraints(GetTaskDefinitionPlacementConstraint... placementConstraints) {
+            return placementConstraints(List.of(placementConstraints));
+        }
+        @CustomType.Setter
+        public Builder proxyConfigurations(List<GetTaskDefinitionProxyConfiguration> proxyConfigurations) {
+            if (proxyConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "proxyConfigurations");
+            }
+            this.proxyConfigurations = proxyConfigurations;
+            return this;
+        }
+        public Builder proxyConfigurations(GetTaskDefinitionProxyConfiguration... proxyConfigurations) {
+            return proxyConfigurations(List.of(proxyConfigurations));
+        }
+        @CustomType.Setter
+        public Builder requiresCompatibilities(List<String> requiresCompatibilities) {
+            if (requiresCompatibilities == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "requiresCompatibilities");
+            }
+            this.requiresCompatibilities = requiresCompatibilities;
+            return this;
+        }
+        public Builder requiresCompatibilities(String... requiresCompatibilities) {
+            return requiresCompatibilities(List.of(requiresCompatibilities));
+        }
+        @CustomType.Setter
         public Builder revision(Integer revision) {
             if (revision == null) {
               throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "revision");
             }
             this.revision = revision;
             return this;
+        }
+        @CustomType.Setter
+        public Builder runtimePlatforms(List<GetTaskDefinitionRuntimePlatform> runtimePlatforms) {
+            if (runtimePlatforms == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "runtimePlatforms");
+            }
+            this.runtimePlatforms = runtimePlatforms;
+            return this;
+        }
+        public Builder runtimePlatforms(GetTaskDefinitionRuntimePlatform... runtimePlatforms) {
+            return runtimePlatforms(List.of(runtimePlatforms));
         }
         @CustomType.Setter
         public Builder status(String status) {
@@ -240,18 +546,42 @@ public final class GetTaskDefinitionResult {
             this.taskRoleArn = taskRoleArn;
             return this;
         }
+        @CustomType.Setter
+        public Builder volumes(List<GetTaskDefinitionVolume> volumes) {
+            if (volumes == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "volumes");
+            }
+            this.volumes = volumes;
+            return this;
+        }
+        public Builder volumes(GetTaskDefinitionVolume... volumes) {
+            return volumes(List.of(volumes));
+        }
         public GetTaskDefinitionResult build() {
             final var _resultValue = new GetTaskDefinitionResult();
             _resultValue.arn = arn;
             _resultValue.arnWithoutRevision = arnWithoutRevision;
+            _resultValue.containerDefinitions = containerDefinitions;
+            _resultValue.cpu = cpu;
+            _resultValue.enableFaultInjection = enableFaultInjection;
+            _resultValue.ephemeralStorages = ephemeralStorages;
             _resultValue.executionRoleArn = executionRoleArn;
             _resultValue.family = family;
             _resultValue.id = id;
+            _resultValue.inferenceAccelerators = inferenceAccelerators;
+            _resultValue.ipcMode = ipcMode;
+            _resultValue.memory = memory;
             _resultValue.networkMode = networkMode;
+            _resultValue.pidMode = pidMode;
+            _resultValue.placementConstraints = placementConstraints;
+            _resultValue.proxyConfigurations = proxyConfigurations;
+            _resultValue.requiresCompatibilities = requiresCompatibilities;
             _resultValue.revision = revision;
+            _resultValue.runtimePlatforms = runtimePlatforms;
             _resultValue.status = status;
             _resultValue.taskDefinition = taskDefinition;
             _resultValue.taskRoleArn = taskRoleArn;
+            _resultValue.volumes = volumes;
             return _resultValue;
         }
     }

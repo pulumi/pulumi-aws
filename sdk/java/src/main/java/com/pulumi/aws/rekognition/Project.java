@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -81,35 +82,35 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`
+     * Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
      * 
      */
     @Export(name="autoUpdate", refs={String.class}, tree="[0]")
     private Output<String> autoUpdate;
 
     /**
-     * @return Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`
+     * @return Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
      * 
      */
     public Output<String> autoUpdate() {
         return this.autoUpdate;
     }
     /**
-     * Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`
+     * Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
      * 
      */
     @Export(name="feature", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> feature;
 
     /**
-     * @return Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`
+     * @return Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
      * 
      */
     public Output<Optional<String>> feature() {
         return Codegen.optional(this.feature);
     }
     /**
-     * Desired name of the project
+     * Desired name of the project.
      * 
      * The following arguments are optional:
      * 
@@ -118,13 +119,45 @@ public class Project extends com.pulumi.resources.CustomResource {
     private Output<String> name;
 
     /**
-     * @return Desired name of the project
+     * @return Desired name of the project.
      * 
      * The following arguments are optional:
      * 
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
     @Export(name="timeouts", refs={ProjectTimeouts.class}, tree="[0]")
     private Output</* @Nullable */ ProjectTimeouts> timeouts;

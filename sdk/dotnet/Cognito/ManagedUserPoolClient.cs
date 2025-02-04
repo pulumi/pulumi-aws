@@ -20,6 +20,8 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// 
+    /// ### Using Name Pattern
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,92 +30,10 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("example", new()
+    ///     var example = new Aws.Cognito.ManagedUserPoolClient("example", new()
     ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var exampleIdentityPool = new Aws.Cognito.IdentityPool("example", new()
-    ///     {
-    ///         IdentityPoolName = "example",
-    ///     });
-    /// 
-    ///     var current = Aws.GetPartition.Invoke();
-    /// 
-    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             $"es.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         Name = "example-role",
-    ///         Path = "/service-role/",
-    ///         AssumeRolePolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
-    ///     {
-    ///         Role = exampleRole.Name,
-    ///         PolicyArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::aws:policy/AmazonESCognitoAccess",
-    ///     });
-    /// 
-    ///     var exampleDomain = new Aws.OpenSearch.Domain("example", new()
-    ///     {
-    ///         DomainName = "example",
-    ///         CognitoOptions = new Aws.OpenSearch.Inputs.DomainCognitoOptionsArgs
-    ///         {
-    ///             Enabled = true,
-    ///             UserPoolId = exampleUserPool.Id,
-    ///             IdentityPoolId = exampleIdentityPool.Id,
-    ///             RoleArn = exampleRole.Arn,
-    ///         },
-    ///         EbsOptions = new Aws.OpenSearch.Inputs.DomainEbsOptionsArgs
-    ///         {
-    ///             EbsEnabled = true,
-    ///             VolumeSize = 10,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsCognitoUserPoolDomain,
-    ///             exampleRolePolicyAttachment,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleManagedUserPoolClient = new Aws.Cognito.ManagedUserPoolClient("example", new()
-    ///     {
-    ///         NamePrefix = "AmazonOpenSearchService-example",
-    ///         UserPoolId = exampleUserPool.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleDomain,
-    ///         },
+    ///         NamePattern = "^AmazonOpenSearchService-example-(\\w+)$",
+    ///         UserPoolId = exampleAwsCognitoUserPool.Id,
     ///     });
     /// 
     /// });
@@ -221,13 +141,13 @@ namespace Pulumi.Aws.Cognito
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+        /// Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
         /// </summary>
         [Output("namePattern")]
         public Output<string?> NamePattern { get; private set; } = null!;
 
         /// <summary>
-        /// String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+        /// String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -435,13 +355,13 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+        /// Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
         /// </summary>
         [Input("namePattern")]
         public Input<string>? NamePattern { get; set; }
 
         /// <summary>
-        /// String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+        /// String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -647,13 +567,13 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+        /// Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
         /// </summary>
         [Input("namePattern")]
         public Input<string>? NamePattern { get; set; }
 
         /// <summary>
-        /// String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+        /// String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
         /// 
         /// The following arguments are optional:
         /// </summary>

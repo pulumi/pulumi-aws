@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +23,51 @@ import * as utilities from "../utilities";
  *     roleArn: exampleAwsIamRole.arn,
  *     knowledgeBaseConfiguration: {
  *         vectorKnowledgeBaseConfiguration: {
- *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v1",
+ *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
+ *         },
+ *         type: "VECTOR",
+ *     },
+ *     storageConfiguration: {
+ *         type: "OPENSEARCH_SERVERLESS",
+ *         opensearchServerlessConfiguration: {
+ *             collectionArn: "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+ *             vectorIndexName: "bedrock-knowledge-base-default-index",
+ *             fieldMapping: {
+ *                 vectorField: "bedrock-knowledge-base-default-vector",
+ *                 textField: "AMAZON_BEDROCK_TEXT_CHUNK",
+ *                 metadataField: "AMAZON_BEDROCK_METADATA",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### With Supplemental Data Storage Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentKnowledgeBase("example", {
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     knowledgeBaseConfiguration: {
+ *         vectorKnowledgeBaseConfiguration: {
+ *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
+ *             embeddingModelConfiguration: {
+ *                 bedrockEmbeddingModelConfiguration: {
+ *                     dimensions: 1024,
+ *                     embeddingDataType: "FLOAT32",
+ *                 },
+ *             },
+ *             supplementalDataStorageConfiguration: {
+ *                 storageLocations: [{
+ *                     type: "S3",
+ *                     s3Location: {
+ *                         uri: "s3://my-bucket/chunk-processor/",
+ *                     },
+ *                 }],
+ *             },
  *         },
  *         type: "VECTOR",
  *     },

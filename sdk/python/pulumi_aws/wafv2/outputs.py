@@ -14083,7 +14083,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition(dict
     def __init__(__self__, *,
                  action: str):
         """
-        :param str action: Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
+        :param str action: Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
         """
         pulumi.set(__self__, "action", action)
 
@@ -14091,7 +14091,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition(dict
     @pulumi.getter
     def action(self) -> str:
         """
-        Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
+        Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
         """
         return pulumi.get(self, "action")
 
@@ -16821,11 +16821,17 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields(dict):
     def __init__(__self__, *,
                  identifiers: Sequence[str]):
+        """
+        :param Sequence[str] identifiers: The names of the address fields.
+        """
         pulumi.set(__self__, "identifiers", identifiers)
 
     @property
     @pulumi.getter
     def identifiers(self) -> Sequence[str]:
+        """
+        The names of the address fields.
+        """
         return pulumi.get(self, "identifiers")
 
 
@@ -16869,11 +16875,17 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields(dict):
     def __init__(__self__, *,
                  identifiers: Sequence[str]):
+        """
+        :param Sequence[str] identifiers: The names of the phone number fields.
+        """
         pulumi.set(__self__, "identifiers", identifiers)
 
     @property
     @pulumi.getter
     def identifiers(self) -> Sequence[str]:
+        """
+        The names of the phone number fields.
+        """
         return pulumi.get(self, "identifiers")
 
 

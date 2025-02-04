@@ -18,6 +18,21 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
     public static final PeeringAttachmentState Empty = new PeeringAttachmentState();
 
     /**
+     * ARN of the attachment.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return ARN of the attachment.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
      * 
      */
@@ -140,6 +155,7 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
     private PeeringAttachmentState() {}
 
     private PeeringAttachmentState(PeeringAttachmentState $) {
+        this.arn = $.arn;
         this.options = $.options;
         this.peerAccountId = $.peerAccountId;
         this.peerRegion = $.peerRegion;
@@ -166,6 +182,27 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
 
         public Builder(PeeringAttachmentState defaults) {
             $ = new PeeringAttachmentState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn ARN of the attachment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn ARN of the attachment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

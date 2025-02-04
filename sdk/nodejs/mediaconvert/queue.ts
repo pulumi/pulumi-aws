@@ -60,6 +60,10 @@ export class Queue extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+     */
+    public readonly concurrentJobs!: pulumi.Output<number>;
+    /**
      * A description of the queue
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -104,6 +108,7 @@ export class Queue extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as QueueState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["concurrentJobs"] = state ? state.concurrentJobs : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["pricingPlan"] = state ? state.pricingPlan : undefined;
@@ -113,6 +118,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
+            resourceInputs["concurrentJobs"] = args ? args.concurrentJobs : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
@@ -135,6 +141,10 @@ export interface QueueState {
      * The Arn of the queue
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+     */
+    concurrentJobs?: pulumi.Input<number>;
     /**
      * A description of the queue
      */
@@ -171,6 +181,10 @@ export interface QueueState {
  * The set of arguments for constructing a Queue resource.
  */
 export interface QueueArgs {
+    /**
+     * The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+     */
+    concurrentJobs?: pulumi.Input<number>;
     /**
      * A description of the queue
      */

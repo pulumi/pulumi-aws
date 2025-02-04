@@ -101,6 +101,7 @@ export class MultiplexProgram extends pulumi.CustomResource {
      * Unique program name.
      */
     public readonly programName!: pulumi.Output<string>;
+    public readonly timeouts!: pulumi.Output<outputs.medialive.MultiplexProgramTimeouts | undefined>;
 
     /**
      * Create a MultiplexProgram resource with the given unique name, arguments, and options.
@@ -118,6 +119,7 @@ export class MultiplexProgram extends pulumi.CustomResource {
             resourceInputs["multiplexId"] = state ? state.multiplexId : undefined;
             resourceInputs["multiplexProgramSettings"] = state ? state.multiplexProgramSettings : undefined;
             resourceInputs["programName"] = state ? state.programName : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as MultiplexProgramArgs | undefined;
             if ((!args || args.multiplexId === undefined) && !opts.urn) {
@@ -129,6 +131,7 @@ export class MultiplexProgram extends pulumi.CustomResource {
             resourceInputs["multiplexId"] = args ? args.multiplexId : undefined;
             resourceInputs["multiplexProgramSettings"] = args ? args.multiplexProgramSettings : undefined;
             resourceInputs["programName"] = args ? args.programName : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MultiplexProgram.__pulumiType, name, resourceInputs, opts);
@@ -153,6 +156,7 @@ export interface MultiplexProgramState {
      * Unique program name.
      */
     programName?: pulumi.Input<string>;
+    timeouts?: pulumi.Input<inputs.medialive.MultiplexProgramTimeouts>;
 }
 
 /**
@@ -173,4 +177,5 @@ export interface MultiplexProgramArgs {
      * Unique program name.
      */
     programName: pulumi.Input<string>;
+    timeouts?: pulumi.Input<inputs.medialive.MultiplexProgramTimeouts>;
 }

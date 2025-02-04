@@ -129,6 +129,7 @@ import javax.annotation.Nullable;
  *                                         .build())
  *                                     .build())
  *                                 .stat("Sum")
+ *                                 .period(10)
  *                                 .build())
  *                             .returnData(false)
  *                             .build(),
@@ -145,6 +146,7 @@ import javax.annotation.Nullable;
  *                                         .build())
  *                                     .build())
  *                                 .stat("Average")
+ *                                 .period(10)
  *                                 .build())
  *                             .returnData(false)
  *                             .build(),

@@ -565,6 +565,8 @@ type Trail struct {
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix pulumi.StringPtrOutput `pulumi:"s3KeyPrefix"`
+	// ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
 	// Name of the Amazon SNS topic defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrOutput `pulumi:"snsTopicName"`
 	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -642,6 +644,8 @@ type trailState struct {
 	S3BucketName *string `pulumi:"s3BucketName"`
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
+	// ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+	SnsTopicArn *string `pulumi:"snsTopicArn"`
 	// Name of the Amazon SNS topic defined for notification of log file delivery.
 	SnsTopicName *string `pulumi:"snsTopicName"`
 	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -687,6 +691,8 @@ type TrailState struct {
 	S3BucketName pulumi.StringPtrInput
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix pulumi.StringPtrInput
+	// ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+	SnsTopicArn pulumi.StringPtrInput
 	// Name of the Amazon SNS topic defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrInput
 	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -943,6 +949,11 @@ func (o TrailOutput) S3BucketName() pulumi.StringOutput {
 // S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 func (o TrailOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringPtrOutput { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+func (o TrailOutput) SnsTopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
 
 // Name of the Amazon SNS topic defined for notification of log file delivery.

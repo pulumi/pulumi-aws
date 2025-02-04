@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MalwareProtectionPlan{}
 	case "aws:guardduty/member:Member":
 		r = &Member{}
+	case "aws:guardduty/memberDetectorFeature:MemberDetectorFeature":
+		r = &MemberDetectorFeature{}
 	case "aws:guardduty/organizationAdminAccount:OrganizationAdminAccount":
 		r = &OrganizationAdminAccount{}
 	case "aws:guardduty/organizationConfiguration:OrganizationConfiguration":
@@ -91,6 +93,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"guardduty/member",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"guardduty/memberDetectorFeature",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -94,13 +94,13 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class GetServerlessCollectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the collection. Either `id` or `name` must be provided.
+        /// ID of the collection.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Name of the collection. Either `name` or `id` must be provided.
+        /// Name of the collection.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -114,13 +114,13 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class GetServerlessCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the collection. Either `id` or `name` must be provided.
+        /// ID of the collection.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the collection. Either `name` or `id` must be provided.
+        /// Name of the collection.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

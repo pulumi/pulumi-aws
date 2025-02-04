@@ -61,6 +61,10 @@ export interface GetDirectConnectGatewayAttachmentArgs {
  * A collection of values returned by getDirectConnectGatewayAttachment.
  */
 export interface GetDirectConnectGatewayAttachmentResult {
+    /**
+     * ARN of the attachment.
+     */
+    readonly arn: string;
     readonly dxGatewayId?: string;
     readonly filters?: outputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilter[];
     /**
@@ -68,7 +72,7 @@ export interface GetDirectConnectGatewayAttachmentResult {
      */
     readonly id: string;
     /**
-     * Key-value tags for the EC2 Transit Gateway Attachment
+     * Key-value tags for the EC2 Transit Gateway Attachment.
      */
     readonly tags: {[key: string]: string};
     readonly transitGatewayId?: string;

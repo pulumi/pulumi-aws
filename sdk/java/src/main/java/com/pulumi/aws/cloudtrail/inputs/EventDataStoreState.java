@@ -141,6 +141,21 @@ public final class EventDataStoreState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+     * 
+     */
+    @Import(name="suspend")
+    private @Nullable Output<String> suspend;
+
+    /**
+     * @return Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+     * 
+     */
+    public Optional<Output<String>> suspend() {
+        return Optional.ofNullable(this.suspend);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -204,6 +219,7 @@ public final class EventDataStoreState extends com.pulumi.resources.ResourceArgs
         this.name = $.name;
         this.organizationEnabled = $.organizationEnabled;
         this.retentionPeriod = $.retentionPeriod;
+        this.suspend = $.suspend;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.terminationProtectionEnabled = $.terminationProtectionEnabled;
@@ -403,6 +419,27 @@ public final class EventDataStoreState extends com.pulumi.resources.ResourceArgs
          */
         public Builder retentionPeriod(Integer retentionPeriod) {
             return retentionPeriod(Output.of(retentionPeriod));
+        }
+
+        /**
+         * @param suspend Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder suspend(@Nullable Output<String> suspend) {
+            $.suspend = suspend;
+            return this;
+        }
+
+        /**
+         * @param suspend Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder suspend(String suspend) {
+            return suspend(Output.of(suspend));
         }
 
         /**

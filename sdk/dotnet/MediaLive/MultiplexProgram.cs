@@ -100,6 +100,9 @@ namespace Pulumi.Aws.MediaLive
         [Output("programName")]
         public Output<string> ProgramName { get; private set; } = null!;
 
+        [Output("timeouts")]
+        public Output<Outputs.MultiplexProgramTimeouts?> Timeouts { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a MultiplexProgram resource with the given unique name, arguments, and options.
@@ -166,6 +169,9 @@ namespace Pulumi.Aws.MediaLive
         [Input("programName", required: true)]
         public Input<string> ProgramName { get; set; } = null!;
 
+        [Input("timeouts")]
+        public Input<Inputs.MultiplexProgramTimeoutsArgs>? Timeouts { get; set; }
+
         public MultiplexProgramArgs()
         {
         }
@@ -193,6 +199,9 @@ namespace Pulumi.Aws.MediaLive
         /// </summary>
         [Input("programName")]
         public Input<string>? ProgramName { get; set; }
+
+        [Input("timeouts")]
+        public Input<Inputs.MultiplexProgramTimeoutsGetArgs>? Timeouts { get; set; }
 
         public MultiplexProgramState()
         {

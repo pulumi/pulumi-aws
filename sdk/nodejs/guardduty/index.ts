@@ -50,6 +50,11 @@ export type Member = import("./member").Member;
 export const Member: typeof import("./member").Member = null as any;
 utilities.lazyLoad(exports, ["Member"], () => require("./member"));
 
+export { MemberDetectorFeatureArgs, MemberDetectorFeatureState } from "./memberDetectorFeature";
+export type MemberDetectorFeature = import("./memberDetectorFeature").MemberDetectorFeature;
+export const MemberDetectorFeature: typeof import("./memberDetectorFeature").MemberDetectorFeature = null as any;
+utilities.lazyLoad(exports, ["MemberDetectorFeature"], () => require("./memberDetectorFeature"));
+
 export { OrganizationAdminAccountArgs, OrganizationAdminAccountState } from "./organizationAdminAccount";
 export type OrganizationAdminAccount = import("./organizationAdminAccount").OrganizationAdminAccount;
 export const OrganizationAdminAccount: typeof import("./organizationAdminAccount").OrganizationAdminAccount = null as any;
@@ -94,6 +99,8 @@ const _module = {
                 return new MalwareProtectionPlan(name, <any>undefined, { urn })
             case "aws:guardduty/member:Member":
                 return new Member(name, <any>undefined, { urn })
+            case "aws:guardduty/memberDetectorFeature:MemberDetectorFeature":
+                return new MemberDetectorFeature(name, <any>undefined, { urn })
             case "aws:guardduty/organizationAdminAccount:OrganizationAdminAccount":
                 return new OrganizationAdminAccount(name, <any>undefined, { urn })
             case "aws:guardduty/organizationConfiguration:OrganizationConfiguration":
@@ -116,6 +123,7 @@ pulumi.runtime.registerResourceModule("aws", "guardduty/iPSet", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/inviteAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/malwareProtectionPlan", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/member", _module)
+pulumi.runtime.registerResourceModule("aws", "guardduty/memberDetectorFeature", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/organizationAdminAccount", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/organizationConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/organizationConfigurationFeature", _module)

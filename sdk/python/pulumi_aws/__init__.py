@@ -434,6 +434,8 @@ if typing.TYPE_CHECKING:
     synthetics = __synthetics
     import pulumi_aws.timestreaminfluxdb as __timestreaminfluxdb
     timestreaminfluxdb = __timestreaminfluxdb
+    import pulumi_aws.timestreamquery as __timestreamquery
+    timestreamquery = __timestreamquery
     import pulumi_aws.timestreamwrite as __timestreamwrite
     timestreamwrite = __timestreamwrite
     import pulumi_aws.transcribe as __transcribe
@@ -666,6 +668,7 @@ else:
     swf = _utilities.lazy_import('pulumi_aws.swf')
     synthetics = _utilities.lazy_import('pulumi_aws.synthetics')
     timestreaminfluxdb = _utilities.lazy_import('pulumi_aws.timestreaminfluxdb')
+    timestreamquery = _utilities.lazy_import('pulumi_aws.timestreamquery')
     timestreamwrite = _utilities.lazy_import('pulumi_aws.timestreamwrite')
     transcribe = _utilities.lazy_import('pulumi_aws.transcribe')
     transfer = _utilities.lazy_import('pulumi_aws.transfer')
@@ -6445,6 +6448,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "guardduty/memberDetectorFeature",
+  "fqn": "pulumi_aws.guardduty",
+  "classes": {
+   "aws:guardduty/memberDetectorFeature:MemberDetectorFeature": "MemberDetectorFeature"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "guardduty/organizationAdminAccount",
   "fqn": "pulumi_aws.guardduty",
   "classes": {
@@ -9965,6 +9976,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "route53domains/domain",
+  "fqn": "pulumi_aws.route53domains",
+  "classes": {
+   "aws:route53domains/domain:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "route53domains/registeredDomain",
   "fqn": "pulumi_aws.route53domains",
   "classes": {
@@ -11869,6 +11888,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "timestreamquery/scheduledQuery",
+  "fqn": "pulumi_aws.timestreamquery",
+  "classes": {
+   "aws:timestreamquery/scheduledQuery:ScheduledQuery": "ScheduledQuery"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "timestreamwrite/database",
   "fqn": "pulumi_aws.timestreamwrite",
   "classes": {
@@ -12157,6 +12184,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "vpclattice/resourceConfiguration",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/resourceConfiguration:ResourceConfiguration": "ResourceConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "vpclattice/resourceGateway",
   "fqn": "pulumi_aws.vpclattice",
   "classes": {
@@ -12185,6 +12220,14 @@ _utilities.register(
   "fqn": "pulumi_aws.vpclattice",
   "classes": {
    "aws:vpclattice/serviceNetwork:ServiceNetwork": "ServiceNetwork"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/serviceNetworkResourceAssociation",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation": "ServiceNetworkResourceAssociation"
   }
  },
  {

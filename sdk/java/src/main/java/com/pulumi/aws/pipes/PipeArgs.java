@@ -82,6 +82,21 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+     * 
+     */
+    @Import(name="kmsKeyIdentifier")
+    private @Nullable Output<String> kmsKeyIdentifier;
+
+    /**
+     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyIdentifier() {
+        return Optional.ofNullable(this.kmsKeyIdentifier);
+    }
+
+    /**
      * Logging configuration settings for the pipe. Detailed below.
      * 
      */
@@ -227,6 +242,7 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         this.desiredState = $.desiredState;
         this.enrichment = $.enrichment;
         this.enrichmentParameters = $.enrichmentParameters;
+        this.kmsKeyIdentifier = $.kmsKeyIdentifier;
         this.logConfiguration = $.logConfiguration;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
@@ -338,6 +354,27 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enrichmentParameters(PipeEnrichmentParametersArgs enrichmentParameters) {
             return enrichmentParameters(Output.of(enrichmentParameters));
+        }
+
+        /**
+         * @param kmsKeyIdentifier Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(@Nullable Output<String> kmsKeyIdentifier) {
+            $.kmsKeyIdentifier = kmsKeyIdentifier;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyIdentifier Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
+            return kmsKeyIdentifier(Output.of(kmsKeyIdentifier));
         }
 
         /**

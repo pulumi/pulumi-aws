@@ -48,6 +48,12 @@ namespace Pulumi.Aws.MediaConvert
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        /// </summary>
+        [Output("concurrentJobs")]
+        public Output<int> ConcurrentJobs { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the queue
         /// </summary>
         [Output("description")]
@@ -136,6 +142,12 @@ namespace Pulumi.Aws.MediaConvert
     public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        /// </summary>
+        [Input("concurrentJobs")]
+        public Input<int>? ConcurrentJobs { get; set; }
+
+        /// <summary>
         /// A description of the queue
         /// </summary>
         [Input("description")]
@@ -190,6 +202,12 @@ namespace Pulumi.Aws.MediaConvert
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        /// </summary>
+        [Input("concurrentJobs")]
+        public Input<int>? ConcurrentJobs { get; set; }
 
         /// <summary>
         /// A description of the queue

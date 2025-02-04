@@ -735,6 +735,20 @@ public class Trail extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.s3KeyPrefix);
     }
     /**
+     * ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+     * 
+     */
+    @Export(name="snsTopicArn", refs={String.class}, tree="[0]")
+    private Output<String> snsTopicArn;
+
+    /**
+     * @return ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+     * 
+     */
+    public Output<String> snsTopicArn() {
+        return this.snsTopicArn;
+    }
+    /**
      * Name of the Amazon SNS topic defined for notification of log file delivery.
      * 
      */

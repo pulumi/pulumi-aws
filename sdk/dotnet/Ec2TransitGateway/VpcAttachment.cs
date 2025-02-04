@@ -53,6 +53,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string?> ApplianceModeSupport { get; private set; } = null!;
 
         /// <summary>
+        /// ARN of the attachment.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         /// </summary>
         [Output("dnsSupport")]
@@ -249,6 +255,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("applianceModeSupport")]
         public Input<string>? ApplianceModeSupport { get; set; }
+
+        /// <summary>
+        /// ARN of the attachment.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.

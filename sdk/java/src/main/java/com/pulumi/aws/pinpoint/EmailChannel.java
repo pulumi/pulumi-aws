@@ -198,6 +198,20 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
         return this.messagesPerSecond;
     }
     /**
+     * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+     * 
+     */
+    @Export(name="orchestrationSendingRoleArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> orchestrationSendingRoleArn;
+
+    /**
+     * @return The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+     * 
+     */
+    public Output<Optional<String>> orchestrationSendingRoleArn() {
+        return Codegen.optional(this.orchestrationSendingRoleArn);
+    }
+    /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
      */

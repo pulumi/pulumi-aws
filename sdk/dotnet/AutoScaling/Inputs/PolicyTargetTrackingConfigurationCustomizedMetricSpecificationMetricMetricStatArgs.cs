@@ -19,6 +19,12 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs> Metric { get; set; } = null!;
 
         /// <summary>
+        /// The period of the metric in seconds.
+        /// </summary>
+        [Input("period")]
+        public Input<int>? Period { get; set; }
+
+        /// <summary>
         /// Statistic of the metrics to return.
         /// </summary>
         [Input("stat", required: true)]

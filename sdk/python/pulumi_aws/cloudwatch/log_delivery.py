@@ -461,7 +461,7 @@ class LogDelivery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> pulumi.Output[Optional[str]]:
+    def field_delimiter(self) -> pulumi.Output[str]:
         """
         The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         """

@@ -109,6 +109,34 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### VPC Lattice Resource Configuration Endpoint Type
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.VpcEndpoint("example", {
+ *     resourceConfigurationArn: exampleAwsVpclatticeResourceConfiguration.arn,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     vpcEndpointType: "Resource",
+ *     vpcId: exampleAwsVpc.id,
+ * });
+ * ```
+ *
+ * ### VPC Lattice Service Network Endpoint Type
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.VpcEndpoint("example", {
+ *     serviceNetworkArn: exampleAwsVpclatticeServiceNetwork.arn,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     vpcEndpointType: "ServiceNetwork",
+ *     vpcId: exampleAwsVpc.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
@@ -195,6 +223,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly requesterManaged!: pulumi.Output<boolean>;
     /**
+     * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     */
+    public readonly resourceConfigurationArn!: pulumi.Output<string | undefined>;
+    /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      */
     public readonly routeTableIds!: pulumi.Output<string[]>;
@@ -204,9 +236,13 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
-     * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+     * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      */
-    public readonly serviceName!: pulumi.Output<string>;
+    public readonly serviceName!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     */
+    public readonly serviceNetworkArn!: pulumi.Output<string | undefined>;
     /**
      * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
      */
@@ -234,7 +270,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+     * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
      */
     public readonly vpcEndpointType!: pulumi.Output<string | undefined>;
     /**
@@ -267,9 +303,11 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
             resourceInputs["privateDnsEnabled"] = state ? state.privateDnsEnabled : undefined;
             resourceInputs["requesterManaged"] = state ? state.requesterManaged : undefined;
+            resourceInputs["resourceConfigurationArn"] = state ? state.resourceConfigurationArn : undefined;
             resourceInputs["routeTableIds"] = state ? state.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["serviceName"] = state ? state.serviceName : undefined;
+            resourceInputs["serviceNetworkArn"] = state ? state.serviceNetworkArn : undefined;
             resourceInputs["serviceRegion"] = state ? state.serviceRegion : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["subnetConfigurations"] = state ? state.subnetConfigurations : undefined;
@@ -280,9 +318,6 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcEndpointArgs | undefined;
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serviceName'");
-            }
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
@@ -291,9 +326,11 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["privateDnsEnabled"] = args ? args.privateDnsEnabled : undefined;
+            resourceInputs["resourceConfigurationArn"] = args ? args.resourceConfigurationArn : undefined;
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["serviceNetworkArn"] = args ? args.serviceNetworkArn : undefined;
             resourceInputs["serviceRegion"] = args ? args.serviceRegion : undefined;
             resourceInputs["subnetConfigurations"] = args ? args.subnetConfigurations : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -369,6 +406,10 @@ export interface VpcEndpointState {
      */
     requesterManaged?: pulumi.Input<boolean>;
     /**
+     * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     */
+    resourceConfigurationArn?: pulumi.Input<string>;
+    /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -378,9 +419,13 @@ export interface VpcEndpointState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+     * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      */
     serviceName?: pulumi.Input<string>;
+    /**
+     * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     */
+    serviceNetworkArn?: pulumi.Input<string>;
     /**
      * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
      */
@@ -408,7 +453,7 @@ export interface VpcEndpointState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+     * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
      */
     vpcEndpointType?: pulumi.Input<string>;
     /**
@@ -443,6 +488,10 @@ export interface VpcEndpointArgs {
      */
     privateDnsEnabled?: pulumi.Input<boolean>;
     /**
+     * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     */
+    resourceConfigurationArn?: pulumi.Input<string>;
+    /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -452,9 +501,13 @@ export interface VpcEndpointArgs {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+     * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      */
-    serviceName: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
+    /**
+     * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     */
+    serviceNetworkArn?: pulumi.Input<string>;
     /**
      * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
      */
@@ -472,7 +525,7 @@ export interface VpcEndpointArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+     * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
      */
     vpcEndpointType?: pulumi.Input<string>;
     /**

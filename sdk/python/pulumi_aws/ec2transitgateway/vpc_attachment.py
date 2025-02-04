@@ -185,6 +185,7 @@ class VpcAttachmentArgs:
 class _VpcAttachmentState:
     def __init__(__self__, *,
                  appliance_mode_support: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  ipv6_support: Optional[pulumi.Input[str]] = None,
                  security_group_referencing_support: Optional[pulumi.Input[str]] = None,
@@ -199,6 +200,7 @@ class _VpcAttachmentState:
         """
         Input properties used for looking up and filtering VpcAttachment resources.
         :param pulumi.Input[str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[str] arn: ARN of the attachment.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
@@ -213,6 +215,8 @@ class _VpcAttachmentState:
         """
         if appliance_mode_support is not None:
             pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if dns_support is not None:
             pulumi.set(__self__, "dns_support", dns_support)
         if ipv6_support is not None:
@@ -250,6 +254,18 @@ class _VpcAttachmentState:
     @appliance_mode_support.setter
     def appliance_mode_support(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "appliance_mode_support", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the attachment.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="dnsSupport")
@@ -516,6 +532,7 @@ class VpcAttachment(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_owner_id"] = None
         super(VpcAttachment, __self__).__init__(
@@ -529,6 +546,7 @@ class VpcAttachment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             appliance_mode_support: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             dns_support: Optional[pulumi.Input[str]] = None,
             ipv6_support: Optional[pulumi.Input[str]] = None,
             security_group_referencing_support: Optional[pulumi.Input[str]] = None,
@@ -548,6 +566,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[str] arn: ARN of the attachment.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
@@ -565,6 +584,7 @@ class VpcAttachment(pulumi.CustomResource):
         __props__ = _VpcAttachmentState.__new__(_VpcAttachmentState)
 
         __props__.__dict__["appliance_mode_support"] = appliance_mode_support
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["dns_support"] = dns_support
         __props__.__dict__["ipv6_support"] = ipv6_support
         __props__.__dict__["security_group_referencing_support"] = security_group_referencing_support
@@ -585,6 +605,14 @@ class VpcAttachment(pulumi.CustomResource):
         Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         """
         return pulumi.get(self, "appliance_mode_support")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the attachment.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dnsSupport")

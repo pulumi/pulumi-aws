@@ -266,6 +266,21 @@ public final class TrailState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+     * 
+     */
+    @Import(name="snsTopicArn")
+    private @Nullable Output<String> snsTopicArn;
+
+    /**
+     * @return ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+     * 
+     */
+    public Optional<Output<String>> snsTopicArn() {
+        return Optional.ofNullable(this.snsTopicArn);
+    }
+
+    /**
      * Name of the Amazon SNS topic defined for notification of log file delivery.
      * 
      */
@@ -337,6 +352,7 @@ public final class TrailState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.s3BucketName = $.s3BucketName;
         this.s3KeyPrefix = $.s3KeyPrefix;
+        this.snsTopicArn = $.snsTopicArn;
         this.snsTopicName = $.snsTopicName;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -728,6 +744,27 @@ public final class TrailState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder s3KeyPrefix(String s3KeyPrefix) {
             return s3KeyPrefix(Output.of(s3KeyPrefix));
+        }
+
+        /**
+         * @param snsTopicArn ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snsTopicArn(@Nullable Output<String> snsTopicArn) {
+            $.snsTopicArn = snsTopicArn;
+            return this;
+        }
+
+        /**
+         * @param snsTopicArn ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snsTopicArn(String snsTopicArn) {
+            return snsTopicArn(Output.of(snsTopicArn));
         }
 
         /**

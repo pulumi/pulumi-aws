@@ -14,32 +14,44 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPeeringAttachmentResult {
+    /**
+     * @return ARN of the attachment.
+     * 
+     */
+    private String arn;
     private @Nullable List<GetPeeringAttachmentFilter> filters;
     private String id;
     /**
-     * @return Identifier of the peer AWS account
+     * @return Identifier of the peer AWS account.
      * 
      */
     private String peerAccountId;
     /**
-     * @return Identifier of the peer AWS region
+     * @return Identifier of the peer AWS region.
      * 
      */
     private String peerRegion;
     /**
-     * @return Identifier of the peer EC2 Transit Gateway
+     * @return Identifier of the peer EC2 Transit Gateway.
      * 
      */
     private String peerTransitGatewayId;
     private String state;
     private Map<String,String> tags;
     /**
-     * @return Identifier of the local EC2 Transit Gateway
+     * @return Identifier of the local EC2 Transit Gateway.
      * 
      */
     private String transitGatewayId;
 
     private GetPeeringAttachmentResult() {}
+    /**
+     * @return ARN of the attachment.
+     * 
+     */
+    public String arn() {
+        return this.arn;
+    }
     public List<GetPeeringAttachmentFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
@@ -47,21 +59,21 @@ public final class GetPeeringAttachmentResult {
         return this.id;
     }
     /**
-     * @return Identifier of the peer AWS account
+     * @return Identifier of the peer AWS account.
      * 
      */
     public String peerAccountId() {
         return this.peerAccountId;
     }
     /**
-     * @return Identifier of the peer AWS region
+     * @return Identifier of the peer AWS region.
      * 
      */
     public String peerRegion() {
         return this.peerRegion;
     }
     /**
-     * @return Identifier of the peer EC2 Transit Gateway
+     * @return Identifier of the peer EC2 Transit Gateway.
      * 
      */
     public String peerTransitGatewayId() {
@@ -74,7 +86,7 @@ public final class GetPeeringAttachmentResult {
         return this.tags;
     }
     /**
-     * @return Identifier of the local EC2 Transit Gateway
+     * @return Identifier of the local EC2 Transit Gateway.
      * 
      */
     public String transitGatewayId() {
@@ -90,6 +102,7 @@ public final class GetPeeringAttachmentResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
         private @Nullable List<GetPeeringAttachmentFilter> filters;
         private String id;
         private String peerAccountId;
@@ -101,6 +114,7 @@ public final class GetPeeringAttachmentResult {
         public Builder() {}
         public Builder(GetPeeringAttachmentResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.peerAccountId = defaults.peerAccountId;
@@ -111,6 +125,14 @@ public final class GetPeeringAttachmentResult {
     	      this.transitGatewayId = defaults.transitGatewayId;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAttachmentResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetPeeringAttachmentFilter> filters) {
 
@@ -178,6 +200,7 @@ public final class GetPeeringAttachmentResult {
         }
         public GetPeeringAttachmentResult build() {
             final var _resultValue = new GetPeeringAttachmentResult();
+            _resultValue.arn = arn;
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.peerAccountId = peerAccountId;

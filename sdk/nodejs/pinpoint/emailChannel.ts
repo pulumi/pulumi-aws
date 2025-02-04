@@ -109,6 +109,10 @@ export class EmailChannel extends pulumi.CustomResource {
      */
     public /*out*/ readonly messagesPerSecond!: pulumi.Output<number>;
     /**
+     * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+     */
+    public readonly orchestrationSendingRoleArn!: pulumi.Output<string | undefined>;
+    /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -132,6 +136,7 @@ export class EmailChannel extends pulumi.CustomResource {
             resourceInputs["fromAddress"] = state ? state.fromAddress : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["messagesPerSecond"] = state ? state.messagesPerSecond : undefined;
+            resourceInputs["orchestrationSendingRoleArn"] = state ? state.orchestrationSendingRoleArn : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as EmailChannelArgs | undefined;
@@ -149,6 +154,7 @@ export class EmailChannel extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["fromAddress"] = args ? args.fromAddress : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["orchestrationSendingRoleArn"] = args ? args.orchestrationSendingRoleArn : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["messagesPerSecond"] = undefined /*out*/;
         }
@@ -186,6 +192,10 @@ export interface EmailChannelState {
      */
     messagesPerSecond?: pulumi.Input<number>;
     /**
+     * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+     */
+    orchestrationSendingRoleArn?: pulumi.Input<string>;
+    /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
     roleArn?: pulumi.Input<string>;
@@ -215,6 +225,10 @@ export interface EmailChannelArgs {
      * The ARN of an identity verified with SES.
      */
     identity: pulumi.Input<string>;
+    /**
+     * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+     */
+    orchestrationSendingRoleArn?: pulumi.Input<string>;
     /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */

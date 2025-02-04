@@ -231,11 +231,28 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string ArnWithoutRevision;
         /// <summary>
-        /// ARN of the task execution role that the Amazon ECS container agent and the Docker.
+        /// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+        /// </summary>
+        public readonly string ContainerDefinitions;
+        /// <summary>
+        /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// </summary>
+        public readonly string Cpu;
+        /// <summary>
+        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
+        /// </summary>
+        public readonly bool EnableFaultInjection;
+        /// <summary>
+        /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTaskDefinitionEphemeralStorageResult> EphemeralStorages;
+        /// <summary>
+        /// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         /// </summary>
         public readonly string ExecutionRoleArn;
         /// <summary>
-        /// Family of this task definition.
+        /// A unique name for your task definition.
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Family;
         /// <summary>
@@ -243,22 +260,58 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Docker networking mode to use for the containers in this task.
+        /// Configuration block(s) with Inference Accelerators settings. Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTaskDefinitionInferenceAcceleratorResult> InferenceAccelerators;
+        /// <summary>
+        /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+        /// </summary>
+        public readonly string IpcMode;
+        /// <summary>
+        /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        /// </summary>
+        public readonly string Memory;
+        /// <summary>
+        /// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
         /// </summary>
         public readonly string NetworkMode;
         /// <summary>
-        /// Revision of this task definition.
+        /// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+        /// </summary>
+        public readonly string PidMode;
+        /// <summary>
+        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTaskDefinitionPlacementConstraintResult> PlacementConstraints;
+        /// <summary>
+        /// Configuration block for the App Mesh proxy. Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTaskDefinitionProxyConfigurationResult> ProxyConfigurations;
+        /// <summary>
+        /// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+        /// </summary>
+        public readonly ImmutableArray<string> RequiresCompatibilities;
+        /// <summary>
+        /// Revision of the task in a particular family.
         /// </summary>
         public readonly int Revision;
         /// <summary>
-        /// Status of this task definition.
+        /// Configuration block for runtime_platform that containers in your task may use.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTaskDefinitionRuntimePlatformResult> RuntimePlatforms;
+        /// <summary>
+        /// Status of the task definition.
         /// </summary>
         public readonly string Status;
         public readonly string TaskDefinition;
         /// <summary>
-        /// ARN of the IAM role that containers in this task can assume.
+        /// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         /// </summary>
         public readonly string TaskRoleArn;
+        /// <summary>
+        /// Configuration block for volumes that containers in your task may use. Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTaskDefinitionVolumeResult> Volumes;
 
         [OutputConstructor]
         private GetTaskDefinitionResult(
@@ -266,32 +319,71 @@ namespace Pulumi.Aws.Ecs
 
             string arnWithoutRevision,
 
+            string containerDefinitions,
+
+            string cpu,
+
+            bool enableFaultInjection,
+
+            ImmutableArray<Outputs.GetTaskDefinitionEphemeralStorageResult> ephemeralStorages,
+
             string executionRoleArn,
 
             string family,
 
             string id,
 
+            ImmutableArray<Outputs.GetTaskDefinitionInferenceAcceleratorResult> inferenceAccelerators,
+
+            string ipcMode,
+
+            string memory,
+
             string networkMode,
 
+            string pidMode,
+
+            ImmutableArray<Outputs.GetTaskDefinitionPlacementConstraintResult> placementConstraints,
+
+            ImmutableArray<Outputs.GetTaskDefinitionProxyConfigurationResult> proxyConfigurations,
+
+            ImmutableArray<string> requiresCompatibilities,
+
             int revision,
+
+            ImmutableArray<Outputs.GetTaskDefinitionRuntimePlatformResult> runtimePlatforms,
 
             string status,
 
             string taskDefinition,
 
-            string taskRoleArn)
+            string taskRoleArn,
+
+            ImmutableArray<Outputs.GetTaskDefinitionVolumeResult> volumes)
         {
             Arn = arn;
             ArnWithoutRevision = arnWithoutRevision;
+            ContainerDefinitions = containerDefinitions;
+            Cpu = cpu;
+            EnableFaultInjection = enableFaultInjection;
+            EphemeralStorages = ephemeralStorages;
             ExecutionRoleArn = executionRoleArn;
             Family = family;
             Id = id;
+            InferenceAccelerators = inferenceAccelerators;
+            IpcMode = ipcMode;
+            Memory = memory;
             NetworkMode = networkMode;
+            PidMode = pidMode;
+            PlacementConstraints = placementConstraints;
+            ProxyConfigurations = proxyConfigurations;
+            RequiresCompatibilities = requiresCompatibilities;
             Revision = revision;
+            RuntimePlatforms = runtimePlatforms;
             Status = status;
             TaskDefinition = taskDefinition;
             TaskRoleArn = taskRoleArn;
+            Volumes = volumes;
         }
     }
 }

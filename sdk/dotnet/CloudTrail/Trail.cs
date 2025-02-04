@@ -615,6 +615,12 @@ namespace Pulumi.Aws.CloudTrail
         public Output<string?> S3KeyPrefix { get; private set; } = null!;
 
         /// <summary>
+        /// ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+        /// </summary>
+        [Output("snsTopicArn")]
+        public Output<string> SnsTopicArn { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the Amazon SNS topic defined for notification of log file delivery.
         /// </summary>
         [Output("snsTopicName")]
@@ -923,6 +929,12 @@ namespace Pulumi.Aws.CloudTrail
         /// </summary>
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }
+
+        /// <summary>
+        /// ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+        /// </summary>
+        [Input("snsTopicArn")]
+        public Input<string>? SnsTopicArn { get; set; }
 
         /// <summary>
         /// Name of the Amazon SNS topic defined for notification of log file delivery.

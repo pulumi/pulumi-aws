@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,6 +19,11 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
      * 
      */
     private PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric metric;
+    /**
+     * @return The period of the metric in seconds.
+     * 
+     */
+    private @Nullable Integer period;
     /**
      * @return Statistic of the metrics to return.
      * 
@@ -36,6 +42,13 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
      */
     public PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric metric() {
         return this.metric;
+    }
+    /**
+     * @return The period of the metric in seconds.
+     * 
+     */
+    public Optional<Integer> period() {
+        return Optional.ofNullable(this.period);
     }
     /**
      * @return Statistic of the metrics to return.
@@ -62,12 +75,14 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     @CustomType.Builder
     public static final class Builder {
         private PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric metric;
+        private @Nullable Integer period;
         private String stat;
         private @Nullable String unit;
         public Builder() {}
         public Builder(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metric = defaults.metric;
+    	      this.period = defaults.period;
     	      this.stat = defaults.stat;
     	      this.unit = defaults.unit;
         }
@@ -78,6 +93,12 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
               throw new MissingRequiredPropertyException("PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat", "metric");
             }
             this.metric = metric;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder period(@Nullable Integer period) {
+
+            this.period = period;
             return this;
         }
         @CustomType.Setter
@@ -97,6 +118,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         public PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat build() {
             final var _resultValue = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat();
             _resultValue.metric = metric;
+            _resultValue.period = period;
             _resultValue.stat = stat;
             _resultValue.unit = unit;
             return _resultValue;

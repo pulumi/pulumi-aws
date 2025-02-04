@@ -18,6 +18,10 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly Outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric Metric;
         /// <summary>
+        /// The period of the metric in seconds.
+        /// </summary>
+        public readonly int? Period;
+        /// <summary>
         /// Statistic of the metrics to return.
         /// </summary>
         public readonly string Stat;
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         private PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat(
             Outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric metric,
 
+            int? period,
+
             string stat,
 
             string? unit)
         {
             Metric = metric;
+            Period = period;
             Stat = stat;
             Unit = unit;
         }

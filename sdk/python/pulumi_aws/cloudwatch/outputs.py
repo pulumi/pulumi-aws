@@ -30,6 +30,8 @@ __all__ = [
     'EventConnectionAuthParametersOauthOauthHttpParametersBody',
     'EventConnectionAuthParametersOauthOauthHttpParametersHeader',
     'EventConnectionAuthParametersOauthOauthHttpParametersQueryString',
+    'EventConnectionInvocationConnectivityParameters',
+    'EventConnectionInvocationConnectivityParametersResourceParameters',
     'EventEndpointEventBus',
     'EventEndpointReplicationConfig',
     'EventEndpointRoutingConfig',
@@ -870,6 +872,86 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
         The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EventConnectionInvocationConnectivityParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceParameters":
+            suggest = "resource_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionInvocationConnectivityParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionInvocationConnectivityParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionInvocationConnectivityParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_parameters: 'outputs.EventConnectionInvocationConnectivityParametersResourceParameters'):
+        """
+        :param 'EventConnectionInvocationConnectivityParametersResourceParametersArgs' resource_parameters: The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
+        """
+        pulumi.set(__self__, "resource_parameters", resource_parameters)
+
+    @property
+    @pulumi.getter(name="resourceParameters")
+    def resource_parameters(self) -> 'outputs.EventConnectionInvocationConnectivityParametersResourceParameters':
+        """
+        The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
+        """
+        return pulumi.get(self, "resource_parameters")
+
+
+@pulumi.output_type
+class EventConnectionInvocationConnectivityParametersResourceParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationArn":
+            suggest = "resource_configuration_arn"
+        elif key == "resourceAssociationArn":
+            suggest = "resource_association_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionInvocationConnectivityParametersResourceParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionInvocationConnectivityParametersResourceParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionInvocationConnectivityParametersResourceParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_arn: str,
+                 resource_association_arn: Optional[str] = None):
+        """
+        :param str resource_configuration_arn: ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+        """
+        pulumi.set(__self__, "resource_configuration_arn", resource_configuration_arn)
+        if resource_association_arn is not None:
+            pulumi.set(__self__, "resource_association_arn", resource_association_arn)
+
+    @property
+    @pulumi.getter(name="resourceConfigurationArn")
+    def resource_configuration_arn(self) -> str:
+        """
+        ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+        """
+        return pulumi.get(self, "resource_configuration_arn")
+
+    @property
+    @pulumi.getter(name="resourceAssociationArn")
+    def resource_association_arn(self) -> Optional[str]:
+        return pulumi.get(self, "resource_association_arn")
 
 
 @pulumi.output_type

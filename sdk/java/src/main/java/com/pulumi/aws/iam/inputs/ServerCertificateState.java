@@ -83,16 +83,14 @@ public final class ServerCertificateState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the Server Certificate. Do not include the
-     * path in this value. If omitted, the provider will assign a random, unique name.
+     * The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Server Certificate. Do not include the
-     * path in this value. If omitted, the provider will assign a random, unique name.
+     * @return The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -334,8 +332,7 @@ public final class ServerCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the Server Certificate. Do not include the
-         * path in this value. If omitted, the provider will assign a random, unique name.
+         * @param name The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -346,8 +343,7 @@ public final class ServerCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the Server Certificate. Do not include the
-         * path in this value. If omitted, the provider will assign a random, unique name.
+         * @param name The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 

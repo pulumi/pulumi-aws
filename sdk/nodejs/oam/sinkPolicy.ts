@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.oam.Sink("example", {name: "ExampleSink"});
  * const exampleSinkPolicy = new aws.oam.SinkPolicy("example", {
- *     sinkIdentifier: example.id,
+ *     sinkIdentifier: example.arn,
  *     policy: JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{

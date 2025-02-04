@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Oam
     /// <summary>
     /// Resource for managing an AWS CloudWatch Observability Access Manager Link.
     /// 
+    /// &gt; **NOTE:** Creating an `aws.oam.Link` may sometimes fail if the `aws.oam.SinkPolicy` for the attached `aws.oam.Sink` is not created before the `aws.oam.Link`. To prevent this, declare an explicit dependency using a `depends_on` meta-argument.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -24,6 +26,13 @@ namespace Pulumi.Aws.Oam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var exampleSink = new Aws.Oam.Sink("example");
+    /// 
+    ///     var exampleSinkPolicy = new Aws.Oam.SinkPolicy("example", new()
+    ///     {
+    ///         SinkIdentifier = exampleSink.Arn,
+    ///     });
+    /// 
     ///     var example = new Aws.Oam.Link("example", new()
     ///     {
     ///         LabelTemplate = "$AccountName",
@@ -31,10 +40,16 @@ namespace Pulumi.Aws.Oam
     ///         {
     ///             "AWS::CloudWatch::Metric",
     ///         },
-    ///         SinkIdentifier = test.Id,
+    ///         SinkIdentifier = exampleSink.Arn,
     ///         Tags = 
     ///         {
     ///             { "Env", "prod" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleSinkPolicy,
     ///         },
     ///     });
     /// 
@@ -65,7 +80,13 @@ namespace Pulumi.Aws.Oam
     ///         {
     ///             "AWS::Logs::LogGroup",
     ///         },
-    ///         SinkIdentifier = test.Id,
+    ///         SinkIdentifier = exampleAwsOamSink.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsOamSinkPolicy,
+    ///         },
     ///     });
     /// 
     /// });
@@ -95,7 +116,13 @@ namespace Pulumi.Aws.Oam
     ///         {
     ///             "AWS::CloudWatch::Metric",
     ///         },
-    ///         SinkIdentifier = test.Id,
+    ///         SinkIdentifier = exampleAwsOamSink.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsOamSinkPolicy,
+    ///         },
     ///     });
     /// 
     /// });

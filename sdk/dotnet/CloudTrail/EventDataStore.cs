@@ -168,6 +168,12 @@ namespace Pulumi.Aws.CloudTrail
         public Output<int?> RetentionPeriod { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+        /// </summary>
+        [Output("suspend")]
+        public Output<string?> Suspend { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -279,6 +285,12 @@ namespace Pulumi.Aws.CloudTrail
         [Input("retentionPeriod")]
         public Input<int>? RetentionPeriod { get; set; }
 
+        /// <summary>
+        /// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+        /// </summary>
+        [Input("suspend")]
+        public Input<string>? Suspend { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -358,6 +370,12 @@ namespace Pulumi.Aws.CloudTrail
         /// </summary>
         [Input("retentionPeriod")]
         public Input<int>? RetentionPeriod { get; set; }
+
+        /// <summary>
+        /// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+        /// </summary>
+        [Input("suspend")]
+        public Input<string>? Suspend { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

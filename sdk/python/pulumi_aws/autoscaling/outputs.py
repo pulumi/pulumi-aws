@@ -3308,14 +3308,18 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetric
     def __init__(__self__, *,
                  metric: 'outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric',
                  stat: str,
+                 period: Optional[int] = None,
                  unit: Optional[str] = None):
         """
         :param 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
         :param str stat: Statistic of the metrics to return.
+        :param int period: The period of the metric in seconds.
         :param str unit: Unit of the metrics to return.
         """
         pulumi.set(__self__, "metric", metric)
         pulumi.set(__self__, "stat", stat)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
 
@@ -3334,6 +3338,14 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetric
         Statistic of the metrics to return.
         """
         return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[int]:
+        """
+        The period of the metric in seconds.
+        """
+        return pulumi.get(self, "period")
 
     @property
     @pulumi.getter

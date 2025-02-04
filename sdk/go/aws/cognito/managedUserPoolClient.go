@@ -22,101 +22,24 @@ import (
 //
 // ## Example Usage
 //
+// ### Using Name Pattern
+//
 // ```go
 // package main
 //
 // import (
 //
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("example"),
+//			_, err := cognito.NewManagedUserPoolClient(ctx, "example", &cognito.ManagedUserPoolClientArgs{
+//				NamePattern: pulumi.String("^AmazonOpenSearchService-example-(\\w+)$"),
+//				UserPoolId:  pulumi.Any(exampleAwsCognitoUserPool.Id),
 //			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIdentityPool, err := cognito.NewIdentityPool(ctx, "example", &cognito.IdentityPoolArgs{
-//				IdentityPoolName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			current, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid: pulumi.StringRef(""),
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									fmt.Sprintf("es.%v", current.DnsSuffix),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example-role"),
-//				Path:             pulumi.String("/service-role/"),
-//				AssumeRolePolicy: pulumi.String(example.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				Role:      exampleRole.Name,
-//				PolicyArn: pulumi.Sprintf("arn:%v:iam::aws:policy/AmazonESCognitoAccess", current.Partition),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDomain, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				DomainName: pulumi.String("example"),
-//				CognitoOptions: &opensearch.DomainCognitoOptionsArgs{
-//					Enabled:        pulumi.Bool(true),
-//					UserPoolId:     exampleUserPool.ID(),
-//					IdentityPoolId: exampleIdentityPool.ID(),
-//					RoleArn:        exampleRole.Arn,
-//				},
-//				EbsOptions: &opensearch.DomainEbsOptionsArgs{
-//					EbsEnabled: pulumi.Bool(true),
-//					VolumeSize: pulumi.Int(10),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsCognitoUserPoolDomain,
-//				exampleRolePolicyAttachment,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewManagedUserPoolClient(ctx, "example", &cognito.ManagedUserPoolClientArgs{
-//				NamePrefix: pulumi.String("AmazonOpenSearchService-example"),
-//				UserPoolId: exampleUserPool.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleDomain,
-//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -166,9 +89,9 @@ type ManagedUserPoolClient struct {
 	LogoutUrls pulumi.StringArrayOutput `pulumi:"logoutUrls"`
 	// Name of the user pool client.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+	// Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
 	NamePattern pulumi.StringPtrOutput `pulumi:"namePattern"`
-	// String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+	// String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
 	//
 	// The following arguments are optional:
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
@@ -255,9 +178,9 @@ type managedUserPoolClientState struct {
 	LogoutUrls []string `pulumi:"logoutUrls"`
 	// Name of the user pool client.
 	Name *string `pulumi:"name"`
-	// Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+	// Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
 	NamePattern *string `pulumi:"namePattern"`
-	// String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+	// String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
 	//
 	// The following arguments are optional:
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -308,9 +231,9 @@ type ManagedUserPoolClientState struct {
 	LogoutUrls pulumi.StringArrayInput
 	// Name of the user pool client.
 	Name pulumi.StringPtrInput
-	// Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+	// Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
 	NamePattern pulumi.StringPtrInput
-	// String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+	// String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
 	//
 	// The following arguments are optional:
 	NamePrefix pulumi.StringPtrInput
@@ -361,9 +284,9 @@ type managedUserPoolClientArgs struct {
 	IdTokenValidity *int `pulumi:"idTokenValidity"`
 	// List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	LogoutUrls []string `pulumi:"logoutUrls"`
-	// Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+	// Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
 	NamePattern *string `pulumi:"namePattern"`
-	// String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+	// String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
 	//
 	// The following arguments are optional:
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -411,9 +334,9 @@ type ManagedUserPoolClientArgs struct {
 	IdTokenValidity pulumi.IntPtrInput
 	// List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	LogoutUrls pulumi.StringArrayInput
-	// Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+	// Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
 	NamePattern pulumi.StringPtrInput
-	// String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+	// String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
 	//
 	// The following arguments are optional:
 	NamePrefix pulumi.StringPtrInput
@@ -597,12 +520,12 @@ func (o ManagedUserPoolClientOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClient) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+// Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
 func (o ManagedUserPoolClientOutput) NamePattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClient) pulumi.StringPtrOutput { return v.NamePattern }).(pulumi.StringPtrOutput)
 }
 
-// String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+// String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
 //
 // The following arguments are optional:
 func (o ManagedUserPoolClientOutput) NamePrefix() pulumi.StringPtrOutput {

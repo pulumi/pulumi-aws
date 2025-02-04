@@ -78,6 +78,8 @@ import (
 type PeeringAttachment struct {
 	pulumi.CustomResourceState
 
+	// ARN of the attachment.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
 	Options PeeringAttachmentOptionsPtrOutput `pulumi:"options"`
 	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
@@ -136,6 +138,8 @@ func GetPeeringAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PeeringAttachment resources.
 type peeringAttachmentState struct {
+	// ARN of the attachment.
+	Arn *string `pulumi:"arn"`
 	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
 	Options *PeeringAttachmentOptions `pulumi:"options"`
 	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
@@ -156,6 +160,8 @@ type peeringAttachmentState struct {
 }
 
 type PeeringAttachmentState struct {
+	// ARN of the attachment.
+	Arn pulumi.StringPtrInput
 	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
 	Options PeeringAttachmentOptionsPtrInput
 	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
@@ -295,6 +301,11 @@ func (o PeeringAttachmentOutput) ToPeeringAttachmentOutput() PeeringAttachmentOu
 
 func (o PeeringAttachmentOutput) ToPeeringAttachmentOutputWithContext(ctx context.Context) PeeringAttachmentOutput {
 	return o
+}
+
+// ARN of the attachment.
+func (o PeeringAttachmentOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!

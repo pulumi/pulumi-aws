@@ -284,6 +284,7 @@ import * as storagegateway from "./storagegateway";
 import * as swf from "./swf";
 import * as synthetics from "./synthetics";
 import * as timestreaminfluxdb from "./timestreaminfluxdb";
+import * as timestreamquery from "./timestreamquery";
 import * as timestreamwrite from "./timestreamwrite";
 import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
@@ -505,6 +506,7 @@ export {
     swf,
     synthetics,
     timestreaminfluxdb,
+    timestreamquery,
     timestreamwrite,
     transcribe,
     transfer,

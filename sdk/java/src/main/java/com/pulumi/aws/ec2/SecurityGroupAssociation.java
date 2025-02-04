@@ -62,18 +62,26 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import VPC Endpoint Security Group Associations using `vpc_endpoint_id` together with `security_group_id`. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:ec2/securityGroupAssociation:SecurityGroupAssociation example vpce-aaaaaaaa/sg-bbbbbbbbbbbbbbbbb
+ * ```
+ * 
  */
 @ResourceType(type="aws:ec2/securityGroupAssociation:SecurityGroupAssociation")
 public class SecurityGroupAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
+     * Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
      * 
      */
     @Export(name="replaceDefaultAssociation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replaceDefaultAssociation;
 
     /**
-     * @return Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
+     * @return Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
      * 
      */
     public Output<Optional<Boolean>> replaceDefaultAssociation() {

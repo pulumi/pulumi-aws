@@ -16,14 +16,14 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
     public static final GetServerlessCollectionArgs Empty = new GetServerlessCollectionArgs();
 
     /**
-     * ID of the collection. Either `id` or `name` must be provided.
+     * ID of the collection.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return ID of the collection. Either `id` or `name` must be provided.
+     * @return ID of the collection.
      * 
      */
     public Optional<Output<String>> id() {
@@ -31,14 +31,14 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * Name of the collection. Either `name` or `id` must be provided.
+     * Name of the collection.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the collection. Either `name` or `id` must be provided.
+     * @return Name of the collection.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param id ID of the collection. Either `id` or `name` must be provided.
+         * @param id ID of the collection.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param id ID of the collection. Either `id` or `name` must be provided.
+         * @param id ID of the collection.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param name Name of the collection. Either `name` or `id` must be provided.
+         * @param name Name of the collection.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetServerlessCollectionArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param name Name of the collection. Either `name` or `id` must be provided.
+         * @param name Name of the collection.
          * 
          * @return builder
          * 

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -75,11 +78,28 @@ export interface GetTaskDefinitionResult {
      */
     readonly arnWithoutRevision: string;
     /**
-     * ARN of the task execution role that the Amazon ECS container agent and the Docker.
+     * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     */
+    readonly containerDefinitions: string;
+    /**
+     * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+     */
+    readonly cpu: string;
+    /**
+     * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
+     */
+    readonly enableFaultInjection: boolean;
+    /**
+     * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     */
+    readonly ephemeralStorages: outputs.ecs.GetTaskDefinitionEphemeralStorage[];
+    /**
+     * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      */
     readonly executionRoleArn: string;
     /**
-     * Family of this task definition.
+     * A unique name for your task definition.
+     * The following arguments are optional:
      */
     readonly family: string;
     /**
@@ -87,22 +107,58 @@ export interface GetTaskDefinitionResult {
      */
     readonly id: string;
     /**
-     * Docker networking mode to use for the containers in this task.
+     * Configuration block(s) with Inference Accelerators settings. Detailed below.
+     */
+    readonly inferenceAccelerators: outputs.ecs.GetTaskDefinitionInferenceAccelerator[];
+    /**
+     * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
+     */
+    readonly ipcMode: string;
+    /**
+     * Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+     */
+    readonly memory: string;
+    /**
+     * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
      */
     readonly networkMode: string;
     /**
-     * Revision of this task definition.
+     * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
+     */
+    readonly pidMode: string;
+    /**
+     * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
+     */
+    readonly placementConstraints: outputs.ecs.GetTaskDefinitionPlacementConstraint[];
+    /**
+     * Configuration block for the App Mesh proxy. Detailed below.
+     */
+    readonly proxyConfigurations: outputs.ecs.GetTaskDefinitionProxyConfiguration[];
+    /**
+     * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+     */
+    readonly requiresCompatibilities: string[];
+    /**
+     * Revision of the task in a particular family.
      */
     readonly revision: number;
     /**
-     * Status of this task definition.
+     * Configuration block for runtimePlatform that containers in your task may use.
+     */
+    readonly runtimePlatforms: outputs.ecs.GetTaskDefinitionRuntimePlatform[];
+    /**
+     * Status of the task definition.
      */
     readonly status: string;
     readonly taskDefinition: string;
     /**
-     * ARN of the IAM role that containers in this task can assume.
+     * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
     readonly taskRoleArn: string;
+    /**
+     * Configuration block for volumes that containers in your task may use. Detailed below.
+     */
+    readonly volumes: outputs.ecs.GetTaskDefinitionVolume[];
 }
 /**
  * The ECS task definition data source allows access to details of

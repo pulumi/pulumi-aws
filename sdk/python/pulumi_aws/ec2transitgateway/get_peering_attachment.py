@@ -28,7 +28,10 @@ class GetPeeringAttachmentResult:
     """
     A collection of values returned by getPeeringAttachment.
     """
-    def __init__(__self__, filters=None, id=None, peer_account_id=None, peer_region=None, peer_transit_gateway_id=None, state=None, tags=None, transit_gateway_id=None):
+    def __init__(__self__, arn=None, filters=None, id=None, peer_account_id=None, peer_region=None, peer_transit_gateway_id=None, state=None, tags=None, transit_gateway_id=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -56,6 +59,14 @@ class GetPeeringAttachmentResult:
 
     @property
     @pulumi.getter
+    def arn(self) -> str:
+        """
+        ARN of the attachment.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.GetPeeringAttachmentFilterResult']]:
         return pulumi.get(self, "filters")
 
@@ -68,7 +79,7 @@ class GetPeeringAttachmentResult:
     @pulumi.getter(name="peerAccountId")
     def peer_account_id(self) -> str:
         """
-        Identifier of the peer AWS account
+        Identifier of the peer AWS account.
         """
         return pulumi.get(self, "peer_account_id")
 
@@ -76,7 +87,7 @@ class GetPeeringAttachmentResult:
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> str:
         """
-        Identifier of the peer AWS region
+        Identifier of the peer AWS region.
         """
         return pulumi.get(self, "peer_region")
 
@@ -84,7 +95,7 @@ class GetPeeringAttachmentResult:
     @pulumi.getter(name="peerTransitGatewayId")
     def peer_transit_gateway_id(self) -> str:
         """
-        Identifier of the peer EC2 Transit Gateway
+        Identifier of the peer EC2 Transit Gateway.
         """
         return pulumi.get(self, "peer_transit_gateway_id")
 
@@ -102,7 +113,7 @@ class GetPeeringAttachmentResult:
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> str:
         """
-        Identifier of the local EC2 Transit Gateway
+        Identifier of the local EC2 Transit Gateway.
         """
         return pulumi.get(self, "transit_gateway_id")
 
@@ -113,6 +124,7 @@ class AwaitableGetPeeringAttachmentResult(GetPeeringAttachmentResult):
         if False:
             yield self
         return GetPeeringAttachmentResult(
+            arn=self.arn,
             filters=self.filters,
             id=self.id,
             peer_account_id=self.peer_account_id,
@@ -170,6 +182,7 @@ def get_peering_attachment(filters: Optional[Sequence[Union['GetPeeringAttachmen
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment', __args__, opts=opts, typ=GetPeeringAttachmentResult).value
 
     return AwaitableGetPeeringAttachmentResult(
+        arn=pulumi.get(__ret__, 'arn'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         peer_account_id=pulumi.get(__ret__, 'peer_account_id'),
@@ -224,6 +237,7 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment', __args__, opts=opts, typ=GetPeeringAttachmentResult)
     return __ret__.apply(lambda __response__: GetPeeringAttachmentResult(
+        arn=pulumi.get(__response__, 'arn'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         peer_account_id=pulumi.get(__response__, 'peer_account_id'),

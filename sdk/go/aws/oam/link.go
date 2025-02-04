@@ -14,6 +14,8 @@ import (
 
 // Resource for managing an AWS CloudWatch Observability Access Manager Link.
 //
+// > **NOTE:** Creating an `oam.Link` may sometimes fail if the `oam.SinkPolicy` for the attached `oam.Sink` is not created before the `oam.Link`. To prevent this, declare an explicit dependency using a `dependsOn` meta-argument.
+//
 // ## Example Usage
 //
 // ### Basic Usage
@@ -30,16 +32,28 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.NewLink(ctx, "example", &oam.LinkArgs{
+//			exampleSink, err := oam.NewSink(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSinkPolicy, err := oam.NewSinkPolicy(ctx, "example", &oam.SinkPolicyArgs{
+//				SinkIdentifier: exampleSink.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = oam.NewLink(ctx, "example", &oam.LinkArgs{
 //				LabelTemplate: pulumi.String("$AccountName"),
 //				ResourceTypes: pulumi.StringArray{
 //					pulumi.String("AWS::CloudWatch::Metric"),
 //				},
-//				SinkIdentifier: pulumi.Any(test.Id),
+//				SinkIdentifier: exampleSink.Arn,
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("prod"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSinkPolicy,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -73,8 +87,10 @@ import (
 //				ResourceTypes: pulumi.StringArray{
 //					pulumi.String("AWS::Logs::LogGroup"),
 //				},
-//				SinkIdentifier: pulumi.Any(test.Id),
-//			})
+//				SinkIdentifier: pulumi.Any(exampleAwsOamSink.Arn),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsOamSinkPolicy,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -108,8 +124,10 @@ import (
 //				ResourceTypes: pulumi.StringArray{
 //					pulumi.String("AWS::CloudWatch::Metric"),
 //				},
-//				SinkIdentifier: pulumi.Any(test.Id),
-//			})
+//				SinkIdentifier: pulumi.Any(exampleAwsOamSink.Arn),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsOamSinkPolicy,
+//			}))
 //			if err != nil {
 //				return err
 //			}

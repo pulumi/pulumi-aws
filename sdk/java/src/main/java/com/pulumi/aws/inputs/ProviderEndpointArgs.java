@@ -514,6 +514,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="billing")
+    private @Nullable Output<String> billing;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> billing() {
+        return Optional.ofNullable(this.billing);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="budgets")
     private @Nullable Output<String> budgets;
 
@@ -4506,6 +4521,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.beanstalk = $.beanstalk;
         this.bedrock = $.bedrock;
         this.bedrockagent = $.bedrockagent;
+        this.billing = $.billing;
         this.budgets = $.budgets;
         this.ce = $.ce;
         this.chatbot = $.chatbot;
@@ -5481,6 +5497,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder bedrockagent(String bedrockagent) {
             return bedrockagent(Output.of(bedrockagent));
+        }
+
+        /**
+         * @param billing Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billing(@Nullable Output<String> billing) {
+            $.billing = billing;
+            return this;
+        }
+
+        /**
+         * @param billing Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billing(String billing) {
+            return billing(Output.of(billing));
         }
 
         /**

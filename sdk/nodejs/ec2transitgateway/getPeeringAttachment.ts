@@ -73,24 +73,28 @@ export interface GetPeeringAttachmentArgs {
  * A collection of values returned by getPeeringAttachment.
  */
 export interface GetPeeringAttachmentResult {
+    /**
+     * ARN of the attachment.
+     */
+    readonly arn: string;
     readonly filters?: outputs.ec2transitgateway.GetPeeringAttachmentFilter[];
     readonly id: string;
     /**
-     * Identifier of the peer AWS account
+     * Identifier of the peer AWS account.
      */
     readonly peerAccountId: string;
     /**
-     * Identifier of the peer AWS region
+     * Identifier of the peer AWS region.
      */
     readonly peerRegion: string;
     /**
-     * Identifier of the peer EC2 Transit Gateway
+     * Identifier of the peer EC2 Transit Gateway.
      */
     readonly peerTransitGatewayId: string;
     readonly state: string;
     readonly tags: {[key: string]: string};
     /**
-     * Identifier of the local EC2 Transit Gateway
+     * Identifier of the local EC2 Transit Gateway.
      */
     readonly transitGatewayId: string;
 }

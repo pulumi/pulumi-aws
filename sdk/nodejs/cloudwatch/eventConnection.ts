@@ -186,6 +186,10 @@ export class EventConnection extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The parameters to use for invoking a private API. Documented below.
+     */
+    public readonly invocationConnectivityParameters!: pulumi.Output<outputs.cloudwatch.EventConnectionInvocationConnectivityParameters | undefined>;
+    /**
      * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */
     public readonly name!: pulumi.Output<string>;
@@ -211,6 +215,7 @@ export class EventConnection extends pulumi.CustomResource {
             resourceInputs["authParameters"] = state ? state.authParameters : undefined;
             resourceInputs["authorizationType"] = state ? state.authorizationType : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["invocationConnectivityParameters"] = state ? state.invocationConnectivityParameters : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["secretArn"] = state ? state.secretArn : undefined;
         } else {
@@ -224,6 +229,7 @@ export class EventConnection extends pulumi.CustomResource {
             resourceInputs["authParameters"] = args ? args.authParameters : undefined;
             resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["invocationConnectivityParameters"] = args ? args.invocationConnectivityParameters : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["secretArn"] = undefined /*out*/;
@@ -254,6 +260,10 @@ export interface EventConnectionState {
      */
     description?: pulumi.Input<string>;
     /**
+     * The parameters to use for invoking a private API. Documented below.
+     */
+    invocationConnectivityParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionInvocationConnectivityParameters>;
+    /**
      * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */
     name?: pulumi.Input<string>;
@@ -279,6 +289,10 @@ export interface EventConnectionArgs {
      * Enter a description for the connection. Maximum of 512 characters.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The parameters to use for invoking a private API. Documented below.
+     */
+    invocationConnectivityParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionInvocationConnectivityParameters>;
     /**
      * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */

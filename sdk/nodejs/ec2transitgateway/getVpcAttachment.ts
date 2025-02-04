@@ -74,6 +74,10 @@ export interface GetVpcAttachmentResult {
      */
     readonly applianceModeSupport: string;
     /**
+     * ARN of the attachment.
+     */
+    readonly arn: string;
+    /**
      * Whether DNS support is enabled.
      */
     readonly dnsSupport: string;

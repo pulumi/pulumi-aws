@@ -120,8 +120,7 @@ export class ServerCertificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly expiration!: pulumi.Output<string>;
     /**
-     * The name of the Server Certificate. Do not include the
-     * path in this value. If omitted, the provider will assign a random, unique name.
+     * The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -232,8 +231,7 @@ export interface ServerCertificateState {
      */
     expiration?: pulumi.Input<string>;
     /**
-     * The name of the Server Certificate. Do not include the
-     * path in this value. If omitted, the provider will assign a random, unique name.
+     * The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -286,8 +284,7 @@ export interface ServerCertificateArgs {
      */
     certificateChain?: pulumi.Input<string>;
     /**
-     * The name of the Server Certificate. Do not include the
-     * path in this value. If omitted, the provider will assign a random, unique name.
+     * The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**

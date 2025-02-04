@@ -225,6 +225,8 @@ type EventConnection struct {
 	AuthorizationType pulumi.StringOutput `pulumi:"authorizationType"`
 	// Enter a description for the connection. Maximum of 512 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The parameters to use for invoking a private API. Documented below.
+	InvocationConnectivityParameters EventConnectionInvocationConnectivityParametersPtrOutput `pulumi:"invocationConnectivityParameters"`
 	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
@@ -275,6 +277,8 @@ type eventConnectionState struct {
 	AuthorizationType *string `pulumi:"authorizationType"`
 	// Enter a description for the connection. Maximum of 512 characters.
 	Description *string `pulumi:"description"`
+	// The parameters to use for invoking a private API. Documented below.
+	InvocationConnectivityParameters *EventConnectionInvocationConnectivityParameters `pulumi:"invocationConnectivityParameters"`
 	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
@@ -290,6 +294,8 @@ type EventConnectionState struct {
 	AuthorizationType pulumi.StringPtrInput
 	// Enter a description for the connection. Maximum of 512 characters.
 	Description pulumi.StringPtrInput
+	// The parameters to use for invoking a private API. Documented below.
+	InvocationConnectivityParameters EventConnectionInvocationConnectivityParametersPtrInput
 	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
@@ -307,6 +313,8 @@ type eventConnectionArgs struct {
 	AuthorizationType string `pulumi:"authorizationType"`
 	// Enter a description for the connection. Maximum of 512 characters.
 	Description *string `pulumi:"description"`
+	// The parameters to use for invoking a private API. Documented below.
+	InvocationConnectivityParameters *EventConnectionInvocationConnectivityParameters `pulumi:"invocationConnectivityParameters"`
 	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name *string `pulumi:"name"`
 }
@@ -319,6 +327,8 @@ type EventConnectionArgs struct {
 	AuthorizationType pulumi.StringInput
 	// Enter a description for the connection. Maximum of 512 characters.
 	Description pulumi.StringPtrInput
+	// The parameters to use for invoking a private API. Documented below.
+	InvocationConnectivityParameters EventConnectionInvocationConnectivityParametersPtrInput
 	// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringPtrInput
 }
@@ -428,6 +438,13 @@ func (o EventConnectionOutput) AuthorizationType() pulumi.StringOutput {
 // Enter a description for the connection. Maximum of 512 characters.
 func (o EventConnectionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The parameters to use for invoking a private API. Documented below.
+func (o EventConnectionOutput) InvocationConnectivityParameters() EventConnectionInvocationConnectivityParametersPtrOutput {
+	return o.ApplyT(func(v *EventConnection) EventConnectionInvocationConnectivityParametersPtrOutput {
+		return v.InvocationConnectivityParameters
+	}).(EventConnectionInvocationConnectivityParametersPtrOutput)
 }
 
 // The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.

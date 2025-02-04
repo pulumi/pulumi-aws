@@ -24,18 +24,22 @@ class EventConnectionArgs:
                  auth_parameters: pulumi.Input['EventConnectionAuthParametersArgs'],
                  authorization_type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 invocation_connectivity_parameters: Optional[pulumi.Input['EventConnectionInvocationConnectivityParametersArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EventConnection resource.
         :param pulumi.Input['EventConnectionAuthParametersArgs'] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input[str] authorization_type: Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         :param pulumi.Input[str] description: Enter a description for the connection. Maximum of 512 characters.
+        :param pulumi.Input['EventConnectionInvocationConnectivityParametersArgs'] invocation_connectivity_parameters: The parameters to use for invoking a private API. Documented below.
         :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         """
         pulumi.set(__self__, "auth_parameters", auth_parameters)
         pulumi.set(__self__, "authorization_type", authorization_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if invocation_connectivity_parameters is not None:
+            pulumi.set(__self__, "invocation_connectivity_parameters", invocation_connectivity_parameters)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -76,6 +80,18 @@ class EventConnectionArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="invocationConnectivityParameters")
+    def invocation_connectivity_parameters(self) -> Optional[pulumi.Input['EventConnectionInvocationConnectivityParametersArgs']]:
+        """
+        The parameters to use for invoking a private API. Documented below.
+        """
+        return pulumi.get(self, "invocation_connectivity_parameters")
+
+    @invocation_connectivity_parameters.setter
+    def invocation_connectivity_parameters(self, value: Optional[pulumi.Input['EventConnectionInvocationConnectivityParametersArgs']]):
+        pulumi.set(self, "invocation_connectivity_parameters", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -95,6 +111,7 @@ class _EventConnectionState:
                  auth_parameters: Optional[pulumi.Input['EventConnectionAuthParametersArgs']] = None,
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 invocation_connectivity_parameters: Optional[pulumi.Input['EventConnectionInvocationConnectivityParametersArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -103,6 +120,7 @@ class _EventConnectionState:
         :param pulumi.Input['EventConnectionAuthParametersArgs'] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input[str] authorization_type: Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         :param pulumi.Input[str] description: Enter a description for the connection. Maximum of 512 characters.
+        :param pulumi.Input['EventConnectionInvocationConnectivityParametersArgs'] invocation_connectivity_parameters: The parameters to use for invoking a private API. Documented below.
         :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
         """
@@ -114,6 +132,8 @@ class _EventConnectionState:
             pulumi.set(__self__, "authorization_type", authorization_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if invocation_connectivity_parameters is not None:
+            pulumi.set(__self__, "invocation_connectivity_parameters", invocation_connectivity_parameters)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if secret_arn is not None:
@@ -168,6 +188,18 @@ class _EventConnectionState:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="invocationConnectivityParameters")
+    def invocation_connectivity_parameters(self) -> Optional[pulumi.Input['EventConnectionInvocationConnectivityParametersArgs']]:
+        """
+        The parameters to use for invoking a private API. Documented below.
+        """
+        return pulumi.get(self, "invocation_connectivity_parameters")
+
+    @invocation_connectivity_parameters.setter
+    def invocation_connectivity_parameters(self, value: Optional[pulumi.Input['EventConnectionInvocationConnectivityParametersArgs']]):
+        pulumi.set(self, "invocation_connectivity_parameters", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -200,6 +232,7 @@ class EventConnection(pulumi.CustomResource):
                  auth_parameters: Optional[pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']]] = None,
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 invocation_connectivity_parameters: Optional[pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -337,6 +370,7 @@ class EventConnection(pulumi.CustomResource):
         :param pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input[str] authorization_type: Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         :param pulumi.Input[str] description: Enter a description for the connection. Maximum of 512 characters.
+        :param pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']] invocation_connectivity_parameters: The parameters to use for invoking a private API. Documented below.
         :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         """
         ...
@@ -493,6 +527,7 @@ class EventConnection(pulumi.CustomResource):
                  auth_parameters: Optional[pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']]] = None,
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 invocation_connectivity_parameters: Optional[pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -510,6 +545,7 @@ class EventConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'authorization_type'")
             __props__.__dict__["authorization_type"] = authorization_type
             __props__.__dict__["description"] = description
+            __props__.__dict__["invocation_connectivity_parameters"] = invocation_connectivity_parameters
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
             __props__.__dict__["secret_arn"] = None
@@ -527,6 +563,7 @@ class EventConnection(pulumi.CustomResource):
             auth_parameters: Optional[pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']]] = None,
             authorization_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            invocation_connectivity_parameters: Optional[pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             secret_arn: Optional[pulumi.Input[str]] = None) -> 'EventConnection':
         """
@@ -540,6 +577,7 @@ class EventConnection(pulumi.CustomResource):
         :param pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input[str] authorization_type: Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         :param pulumi.Input[str] description: Enter a description for the connection. Maximum of 512 characters.
+        :param pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']] invocation_connectivity_parameters: The parameters to use for invoking a private API. Documented below.
         :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
         """
@@ -551,6 +589,7 @@ class EventConnection(pulumi.CustomResource):
         __props__.__dict__["auth_parameters"] = auth_parameters
         __props__.__dict__["authorization_type"] = authorization_type
         __props__.__dict__["description"] = description
+        __props__.__dict__["invocation_connectivity_parameters"] = invocation_connectivity_parameters
         __props__.__dict__["name"] = name
         __props__.__dict__["secret_arn"] = secret_arn
         return EventConnection(resource_name, opts=opts, __props__=__props__)
@@ -586,6 +625,14 @@ class EventConnection(pulumi.CustomResource):
         Enter a description for the connection. Maximum of 512 characters.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="invocationConnectivityParameters")
+    def invocation_connectivity_parameters(self) -> pulumi.Output[Optional['outputs.EventConnectionInvocationConnectivityParameters']]:
+        """
+        The parameters to use for invoking a private API. Documented below.
+        """
+        return pulumi.get(self, "invocation_connectivity_parameters")
 
     @property
     @pulumi.getter

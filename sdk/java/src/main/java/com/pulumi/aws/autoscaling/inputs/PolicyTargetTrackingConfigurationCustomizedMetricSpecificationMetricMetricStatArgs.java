@@ -7,6 +7,7 @@ import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationCustom
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,6 +31,21 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
      */
     public Output<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs> metric() {
         return this.metric;
+    }
+
+    /**
+     * The period of the metric in seconds.
+     * 
+     */
+    @Import(name="period")
+    private @Nullable Output<Integer> period;
+
+    /**
+     * @return The period of the metric in seconds.
+     * 
+     */
+    public Optional<Output<Integer>> period() {
+        return Optional.ofNullable(this.period);
     }
 
     /**
@@ -66,6 +82,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
 
     private PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs $) {
         this.metric = $.metric;
+        this.period = $.period;
         this.stat = $.stat;
         this.unit = $.unit;
     }
@@ -107,6 +124,27 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
          */
         public Builder metric(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs metric) {
             return metric(Output.of(metric));
+        }
+
+        /**
+         * @param period The period of the metric in seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder period(@Nullable Output<Integer> period) {
+            $.period = period;
+            return this;
+        }
+
+        /**
+         * @param period The period of the metric in seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder period(Integer period) {
+            return period(Output.of(period));
         }
 
         /**

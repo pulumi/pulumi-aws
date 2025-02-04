@@ -31988,6 +31988,143 @@ func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+type MultiplexProgramTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// MultiplexProgramTimeoutsInput is an input type that accepts MultiplexProgramTimeoutsArgs and MultiplexProgramTimeoutsOutput values.
+// You can construct a concrete instance of `MultiplexProgramTimeoutsInput` via:
+//
+//	MultiplexProgramTimeoutsArgs{...}
+type MultiplexProgramTimeoutsInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramTimeoutsOutput() MultiplexProgramTimeoutsOutput
+	ToMultiplexProgramTimeoutsOutputWithContext(context.Context) MultiplexProgramTimeoutsOutput
+}
+
+type MultiplexProgramTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (MultiplexProgramTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramTimeouts)(nil)).Elem()
+}
+
+func (i MultiplexProgramTimeoutsArgs) ToMultiplexProgramTimeoutsOutput() MultiplexProgramTimeoutsOutput {
+	return i.ToMultiplexProgramTimeoutsOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramTimeoutsArgs) ToMultiplexProgramTimeoutsOutputWithContext(ctx context.Context) MultiplexProgramTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramTimeoutsOutput)
+}
+
+func (i MultiplexProgramTimeoutsArgs) ToMultiplexProgramTimeoutsPtrOutput() MultiplexProgramTimeoutsPtrOutput {
+	return i.ToMultiplexProgramTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramTimeoutsArgs) ToMultiplexProgramTimeoutsPtrOutputWithContext(ctx context.Context) MultiplexProgramTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramTimeoutsOutput).ToMultiplexProgramTimeoutsPtrOutputWithContext(ctx)
+}
+
+// MultiplexProgramTimeoutsPtrInput is an input type that accepts MultiplexProgramTimeoutsArgs, MultiplexProgramTimeoutsPtr and MultiplexProgramTimeoutsPtrOutput values.
+// You can construct a concrete instance of `MultiplexProgramTimeoutsPtrInput` via:
+//
+//	        MultiplexProgramTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiplexProgramTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramTimeoutsPtrOutput() MultiplexProgramTimeoutsPtrOutput
+	ToMultiplexProgramTimeoutsPtrOutputWithContext(context.Context) MultiplexProgramTimeoutsPtrOutput
+}
+
+type multiplexProgramTimeoutsPtrType MultiplexProgramTimeoutsArgs
+
+func MultiplexProgramTimeoutsPtr(v *MultiplexProgramTimeoutsArgs) MultiplexProgramTimeoutsPtrInput {
+	return (*multiplexProgramTimeoutsPtrType)(v)
+}
+
+func (*multiplexProgramTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramTimeouts)(nil)).Elem()
+}
+
+func (i *multiplexProgramTimeoutsPtrType) ToMultiplexProgramTimeoutsPtrOutput() MultiplexProgramTimeoutsPtrOutput {
+	return i.ToMultiplexProgramTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiplexProgramTimeoutsPtrType) ToMultiplexProgramTimeoutsPtrOutputWithContext(ctx context.Context) MultiplexProgramTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramTimeoutsPtrOutput)
+}
+
+type MultiplexProgramTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramTimeouts)(nil)).Elem()
+}
+
+func (o MultiplexProgramTimeoutsOutput) ToMultiplexProgramTimeoutsOutput() MultiplexProgramTimeoutsOutput {
+	return o
+}
+
+func (o MultiplexProgramTimeoutsOutput) ToMultiplexProgramTimeoutsOutputWithContext(ctx context.Context) MultiplexProgramTimeoutsOutput {
+	return o
+}
+
+func (o MultiplexProgramTimeoutsOutput) ToMultiplexProgramTimeoutsPtrOutput() MultiplexProgramTimeoutsPtrOutput {
+	return o.ToMultiplexProgramTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiplexProgramTimeoutsOutput) ToMultiplexProgramTimeoutsPtrOutputWithContext(ctx context.Context) MultiplexProgramTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexProgramTimeouts) *MultiplexProgramTimeouts {
+		return &v
+	}).(MultiplexProgramTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MultiplexProgramTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type MultiplexProgramTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramTimeouts)(nil)).Elem()
+}
+
+func (o MultiplexProgramTimeoutsPtrOutput) ToMultiplexProgramTimeoutsPtrOutput() MultiplexProgramTimeoutsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramTimeoutsPtrOutput) ToMultiplexProgramTimeoutsPtrOutputWithContext(ctx context.Context) MultiplexProgramTimeoutsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramTimeoutsPtrOutput) Elem() MultiplexProgramTimeoutsOutput {
+	return o.ApplyT(func(v *MultiplexProgramTimeouts) MultiplexProgramTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret MultiplexProgramTimeouts
+		return ret
+	}).(MultiplexProgramTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MultiplexProgramTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetInputDestination struct {
 	Ip   string                   `pulumi:"ip"`
 	Port string                   `pulumi:"port"`
@@ -32835,6 +32972,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramTimeoutsInput)(nil)).Elem(), MultiplexProgramTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramTimeoutsPtrInput)(nil)).Elem(), MultiplexProgramTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationInput)(nil)).Elem(), GetInputDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationArrayInput)(nil)).Elem(), GetInputDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationVpcInput)(nil)).Elem(), GetInputDestinationVpcArgs{})
@@ -33182,6 +33321,8 @@ func init() {
 	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput{})
 	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramTimeoutsOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetInputDestinationOutput{})
 	pulumi.RegisterOutputType(GetInputDestinationArrayOutput{})
 	pulumi.RegisterOutputType(GetInputDestinationVpcOutput{})

@@ -15,9 +15,17 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs();
 
+    /**
+     * The names of the address fields.
+     * 
+     */
     @Import(name="identifiers", required=true)
     private Output<List<String>> identifiers;
 
+    /**
+     * @return The names of the address fields.
+     * 
+     */
     public Output<List<String>> identifiers() {
         return this.identifiers;
     }
@@ -46,15 +54,33 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identifiers The names of the address fields.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identifiers(Output<List<String>> identifiers) {
             $.identifiers = identifiers;
             return this;
         }
 
+        /**
+         * @param identifiers The names of the address fields.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identifiers(List<String> identifiers) {
             return identifiers(Output.of(identifiers));
         }
 
+        /**
+         * @param identifiers The names of the address fields.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identifiers(String... identifiers) {
             return identifiers(List.of(identifiers));
         }

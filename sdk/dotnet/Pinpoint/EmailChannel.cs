@@ -145,6 +145,12 @@ namespace Pulumi.Aws.Pinpoint
         public Output<int> MessagesPerSecond { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        /// </summary>
+        [Output("orchestrationSendingRoleArn")]
+        public Output<string?> OrchestrationSendingRoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
         [Output("roleArn")]
@@ -227,6 +233,12 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string> Identity { get; set; } = null!;
 
         /// <summary>
+        /// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        /// </summary>
+        [Input("orchestrationSendingRoleArn")]
+        public Input<string>? OrchestrationSendingRoleArn { get; set; }
+
+        /// <summary>
         /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
         [Input("roleArn")]
@@ -275,6 +287,12 @@ namespace Pulumi.Aws.Pinpoint
         /// </summary>
         [Input("messagesPerSecond")]
         public Input<int>? MessagesPerSecond { get; set; }
+
+        /// <summary>
+        /// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        /// </summary>
+        [Input("orchestrationSendingRoleArn")]
+        public Input<string>? OrchestrationSendingRoleArn { get; set; }
 
         /// <summary>
         /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.

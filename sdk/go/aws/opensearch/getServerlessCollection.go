@@ -52,9 +52,9 @@ func LookupServerlessCollection(ctx *pulumi.Context, args *LookupServerlessColle
 
 // A collection of arguments for invoking getServerlessCollection.
 type LookupServerlessCollectionArgs struct {
-	// ID of the collection. Either `id` or `name` must be provided.
+	// ID of the collection.
 	Id *string `pulumi:"id"`
-	// Name of the collection. Either `name` or `id` must be provided.
+	// Name of the collection.
 	Name *string `pulumi:"name"`
 }
 
@@ -98,9 +98,9 @@ func LookupServerlessCollectionOutput(ctx *pulumi.Context, args LookupServerless
 
 // A collection of arguments for invoking getServerlessCollection.
 type LookupServerlessCollectionOutputArgs struct {
-	// ID of the collection. Either `id` or `name` must be provided.
+	// ID of the collection.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the collection. Either `name` or `id` must be provided.
+	// Name of the collection.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 

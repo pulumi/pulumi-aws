@@ -21,6 +21,12 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("isSandboxEnvironment")]
         public Input<bool>? IsSandboxEnvironment { get; set; }
 
+        /// <summary>
+        /// Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+        /// </summary>
+        [Input("usePrivatelinkForMetadataAndAuthorization")]
+        public Input<bool>? UsePrivatelinkForMetadataAndAuthorization { get; set; }
+
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs()
         {
         }

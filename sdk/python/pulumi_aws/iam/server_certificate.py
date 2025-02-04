@@ -34,8 +34,7 @@ class ServerCertificateArgs:
         :param pulumi.Input[str] certificate_chain: The contents of the certificate chain.
                This is typically a concatenation of the PEM-encoded public key certificates
                of the chain.
-        :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the
-               path in this value. If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not
@@ -102,8 +101,7 @@ class ServerCertificateArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Server Certificate. Do not include the
-        path in this value. If omitted, the provider will assign a random, unique name.
+        The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -177,8 +175,7 @@ class _ServerCertificateState:
                This is typically a concatenation of the PEM-encoded public key certificates
                of the chain.
         :param pulumi.Input[str] expiration: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
-        :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the
-               path in this value. If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not
@@ -273,8 +270,7 @@ class _ServerCertificateState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Server Certificate. Do not include the
-        path in this value. If omitted, the provider will assign a random, unique name.
+        The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -444,8 +440,7 @@ class ServerCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_chain: The contents of the certificate chain.
                This is typically a concatenation of the PEM-encoded public key certificates
                of the chain.
-        :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the
-               path in this value. If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not
@@ -608,8 +603,7 @@ class ServerCertificate(pulumi.CustomResource):
                This is typically a concatenation of the PEM-encoded public key certificates
                of the chain.
         :param pulumi.Input[str] expiration: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
-        :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the
-               path in this value. If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not
@@ -679,8 +673,7 @@ class ServerCertificate(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Server Certificate. Do not include the
-        path in this value. If omitted, the provider will assign a random, unique name.
+        The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 

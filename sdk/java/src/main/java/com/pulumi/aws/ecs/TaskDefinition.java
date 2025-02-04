@@ -512,6 +512,24 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cpu);
     }
     /**
+     * Enables fault injection and allows for fault injection requests to be accepted from the task&#39;s containers. Default is `false`.
+     * 
+     * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
+     * 
+     */
+    @Export(name="enableFaultInjection", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableFaultInjection;
+
+    /**
+     * @return Enables fault injection and allows for fault injection requests to be accepted from the task&#39;s containers. Default is `false`.
+     * 
+     * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
+     * 
+     */
+    public Output<Boolean> enableFaultInjection() {
+        return this.enableFaultInjection;
+    }
+    /**
      * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      * 
      */

@@ -256,6 +256,20 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retentionPeriod);
     }
     /**
+     * Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+     * 
+     */
+    @Export(name="suspend", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> suspend;
+
+    /**
+     * @return Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+     * 
+     */
+    public Output<Optional<String>> suspend() {
+        return Codegen.optional(this.suspend);
+    }
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

@@ -245,6 +245,82 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### VPC Lattice Resource Configuration Endpoint Type
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new VpcEndpoint("example", VpcEndpointArgs.builder()
+ *             .resourceConfigurationArn(exampleAwsVpclatticeResourceConfiguration.arn())
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .vpcEndpointType("Resource")
+ *             .vpcId(exampleAwsVpc.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### VPC Lattice Service Network Endpoint Type
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new VpcEndpoint("example", VpcEndpointArgs.builder()
+ *             .serviceNetworkArn(exampleAwsVpclatticeServiceNetwork.arn())
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .vpcEndpointType("ServiceNetwork")
+ *             .vpcId(exampleAwsVpc.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
@@ -427,6 +503,20 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.requesterManaged;
     }
     /**
+     * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * 
+     */
+    @Export(name="resourceConfigurationArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> resourceConfigurationArn;
+
+    /**
+     * @return The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * 
+     */
+    public Output<Optional<String>> resourceConfigurationArn() {
+        return Codegen.optional(this.resourceConfigurationArn);
+    }
+    /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      * 
      */
@@ -457,18 +547,32 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.securityGroupIds;
     }
     /**
-     * The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+     * The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
      * 
      */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
-    private Output<String> serviceName;
+    private Output</* @Nullable */ String> serviceName;
 
     /**
-     * @return The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+     * @return The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
      * 
      */
-    public Output<String> serviceName() {
-        return this.serviceName;
+    public Output<Optional<String>> serviceName() {
+        return Codegen.optional(this.serviceName);
+    }
+    /**
+     * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * 
+     */
+    @Export(name="serviceNetworkArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> serviceNetworkArn;
+
+    /**
+     * @return The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+     * 
+     */
+    public Output<Optional<String>> serviceNetworkArn() {
+        return Codegen.optional(this.serviceNetworkArn);
     }
     /**
      * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
@@ -559,14 +663,14 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+     * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
      * 
      */
     @Export(name="vpcEndpointType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcEndpointType;
 
     /**
-     * @return The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+     * @return The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
      * 
      */
     public Output<Optional<String>> vpcEndpointType() {

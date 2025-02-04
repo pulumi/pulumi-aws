@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.medialive.MultiplexProgramArgs;
 import com.pulumi.aws.medialive.inputs.MultiplexProgramState;
 import com.pulumi.aws.medialive.outputs.MultiplexProgramMultiplexProgramSettings;
+import com.pulumi.aws.medialive.outputs.MultiplexProgramTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -145,6 +146,12 @@ public class MultiplexProgram extends com.pulumi.resources.CustomResource {
      */
     public Output<String> programName() {
         return this.programName;
+    }
+    @Export(name="timeouts", refs={MultiplexProgramTimeouts.class}, tree="[0]")
+    private Output</* @Nullable */ MultiplexProgramTimeouts> timeouts;
+
+    public Output<Optional<MultiplexProgramTimeouts>> timeouts() {
+        return Codegen.optional(this.timeouts);
     }
 
     /**

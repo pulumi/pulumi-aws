@@ -15,14 +15,14 @@ public final class GetServerlessCollectionPlainArgs extends com.pulumi.resources
     public static final GetServerlessCollectionPlainArgs Empty = new GetServerlessCollectionPlainArgs();
 
     /**
-     * ID of the collection. Either `id` or `name` must be provided.
+     * ID of the collection.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return ID of the collection. Either `id` or `name` must be provided.
+     * @return ID of the collection.
      * 
      */
     public Optional<String> id() {
@@ -30,14 +30,14 @@ public final class GetServerlessCollectionPlainArgs extends com.pulumi.resources
     }
 
     /**
-     * Name of the collection. Either `name` or `id` must be provided.
+     * Name of the collection.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Name of the collection. Either `name` or `id` must be provided.
+     * @return Name of the collection.
      * 
      */
     public Optional<String> name() {
@@ -70,7 +70,7 @@ public final class GetServerlessCollectionPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param id ID of the collection. Either `id` or `name` must be provided.
+         * @param id ID of the collection.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetServerlessCollectionPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name Name of the collection. Either `name` or `id` must be provided.
+         * @param name Name of the collection.
          * 
          * @return builder
          * 

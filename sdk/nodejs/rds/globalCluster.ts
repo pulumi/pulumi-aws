@@ -247,7 +247,7 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      */
     public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
     /**
@@ -371,7 +371,7 @@ export interface GlobalClusterState {
      */
     globalClusterResourceId?: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -423,7 +423,7 @@ export interface GlobalClusterArgs {
      */
     globalClusterIdentifier: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
     /**

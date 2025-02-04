@@ -2102,6 +2102,301 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOut
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput)
 }
 
+type EventConnectionInvocationConnectivityParameters struct {
+	// The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
+	ResourceParameters EventConnectionInvocationConnectivityParametersResourceParameters `pulumi:"resourceParameters"`
+}
+
+// EventConnectionInvocationConnectivityParametersInput is an input type that accepts EventConnectionInvocationConnectivityParametersArgs and EventConnectionInvocationConnectivityParametersOutput values.
+// You can construct a concrete instance of `EventConnectionInvocationConnectivityParametersInput` via:
+//
+//	EventConnectionInvocationConnectivityParametersArgs{...}
+type EventConnectionInvocationConnectivityParametersInput interface {
+	pulumi.Input
+
+	ToEventConnectionInvocationConnectivityParametersOutput() EventConnectionInvocationConnectivityParametersOutput
+	ToEventConnectionInvocationConnectivityParametersOutputWithContext(context.Context) EventConnectionInvocationConnectivityParametersOutput
+}
+
+type EventConnectionInvocationConnectivityParametersArgs struct {
+	// The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
+	ResourceParameters EventConnectionInvocationConnectivityParametersResourceParametersInput `pulumi:"resourceParameters"`
+}
+
+func (EventConnectionInvocationConnectivityParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionInvocationConnectivityParameters)(nil)).Elem()
+}
+
+func (i EventConnectionInvocationConnectivityParametersArgs) ToEventConnectionInvocationConnectivityParametersOutput() EventConnectionInvocationConnectivityParametersOutput {
+	return i.ToEventConnectionInvocationConnectivityParametersOutputWithContext(context.Background())
+}
+
+func (i EventConnectionInvocationConnectivityParametersArgs) ToEventConnectionInvocationConnectivityParametersOutputWithContext(ctx context.Context) EventConnectionInvocationConnectivityParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionInvocationConnectivityParametersOutput)
+}
+
+func (i EventConnectionInvocationConnectivityParametersArgs) ToEventConnectionInvocationConnectivityParametersPtrOutput() EventConnectionInvocationConnectivityParametersPtrOutput {
+	return i.ToEventConnectionInvocationConnectivityParametersPtrOutputWithContext(context.Background())
+}
+
+func (i EventConnectionInvocationConnectivityParametersArgs) ToEventConnectionInvocationConnectivityParametersPtrOutputWithContext(ctx context.Context) EventConnectionInvocationConnectivityParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionInvocationConnectivityParametersOutput).ToEventConnectionInvocationConnectivityParametersPtrOutputWithContext(ctx)
+}
+
+// EventConnectionInvocationConnectivityParametersPtrInput is an input type that accepts EventConnectionInvocationConnectivityParametersArgs, EventConnectionInvocationConnectivityParametersPtr and EventConnectionInvocationConnectivityParametersPtrOutput values.
+// You can construct a concrete instance of `EventConnectionInvocationConnectivityParametersPtrInput` via:
+//
+//	        EventConnectionInvocationConnectivityParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventConnectionInvocationConnectivityParametersPtrInput interface {
+	pulumi.Input
+
+	ToEventConnectionInvocationConnectivityParametersPtrOutput() EventConnectionInvocationConnectivityParametersPtrOutput
+	ToEventConnectionInvocationConnectivityParametersPtrOutputWithContext(context.Context) EventConnectionInvocationConnectivityParametersPtrOutput
+}
+
+type eventConnectionInvocationConnectivityParametersPtrType EventConnectionInvocationConnectivityParametersArgs
+
+func EventConnectionInvocationConnectivityParametersPtr(v *EventConnectionInvocationConnectivityParametersArgs) EventConnectionInvocationConnectivityParametersPtrInput {
+	return (*eventConnectionInvocationConnectivityParametersPtrType)(v)
+}
+
+func (*eventConnectionInvocationConnectivityParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionInvocationConnectivityParameters)(nil)).Elem()
+}
+
+func (i *eventConnectionInvocationConnectivityParametersPtrType) ToEventConnectionInvocationConnectivityParametersPtrOutput() EventConnectionInvocationConnectivityParametersPtrOutput {
+	return i.ToEventConnectionInvocationConnectivityParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *eventConnectionInvocationConnectivityParametersPtrType) ToEventConnectionInvocationConnectivityParametersPtrOutputWithContext(ctx context.Context) EventConnectionInvocationConnectivityParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionInvocationConnectivityParametersPtrOutput)
+}
+
+type EventConnectionInvocationConnectivityParametersOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionInvocationConnectivityParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionInvocationConnectivityParameters)(nil)).Elem()
+}
+
+func (o EventConnectionInvocationConnectivityParametersOutput) ToEventConnectionInvocationConnectivityParametersOutput() EventConnectionInvocationConnectivityParametersOutput {
+	return o
+}
+
+func (o EventConnectionInvocationConnectivityParametersOutput) ToEventConnectionInvocationConnectivityParametersOutputWithContext(ctx context.Context) EventConnectionInvocationConnectivityParametersOutput {
+	return o
+}
+
+func (o EventConnectionInvocationConnectivityParametersOutput) ToEventConnectionInvocationConnectivityParametersPtrOutput() EventConnectionInvocationConnectivityParametersPtrOutput {
+	return o.ToEventConnectionInvocationConnectivityParametersPtrOutputWithContext(context.Background())
+}
+
+func (o EventConnectionInvocationConnectivityParametersOutput) ToEventConnectionInvocationConnectivityParametersPtrOutputWithContext(ctx context.Context) EventConnectionInvocationConnectivityParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionInvocationConnectivityParameters) *EventConnectionInvocationConnectivityParameters {
+		return &v
+	}).(EventConnectionInvocationConnectivityParametersPtrOutput)
+}
+
+// The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
+func (o EventConnectionInvocationConnectivityParametersOutput) ResourceParameters() EventConnectionInvocationConnectivityParametersResourceParametersOutput {
+	return o.ApplyT(func(v EventConnectionInvocationConnectivityParameters) EventConnectionInvocationConnectivityParametersResourceParameters {
+		return v.ResourceParameters
+	}).(EventConnectionInvocationConnectivityParametersResourceParametersOutput)
+}
+
+type EventConnectionInvocationConnectivityParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionInvocationConnectivityParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionInvocationConnectivityParameters)(nil)).Elem()
+}
+
+func (o EventConnectionInvocationConnectivityParametersPtrOutput) ToEventConnectionInvocationConnectivityParametersPtrOutput() EventConnectionInvocationConnectivityParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionInvocationConnectivityParametersPtrOutput) ToEventConnectionInvocationConnectivityParametersPtrOutputWithContext(ctx context.Context) EventConnectionInvocationConnectivityParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionInvocationConnectivityParametersPtrOutput) Elem() EventConnectionInvocationConnectivityParametersOutput {
+	return o.ApplyT(func(v *EventConnectionInvocationConnectivityParameters) EventConnectionInvocationConnectivityParameters {
+		if v != nil {
+			return *v
+		}
+		var ret EventConnectionInvocationConnectivityParameters
+		return ret
+	}).(EventConnectionInvocationConnectivityParametersOutput)
+}
+
+// The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
+func (o EventConnectionInvocationConnectivityParametersPtrOutput) ResourceParameters() EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput {
+	return o.ApplyT(func(v *EventConnectionInvocationConnectivityParameters) *EventConnectionInvocationConnectivityParametersResourceParameters {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceParameters
+	}).(EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput)
+}
+
+type EventConnectionInvocationConnectivityParametersResourceParameters struct {
+	ResourceAssociationArn *string `pulumi:"resourceAssociationArn"`
+	// ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+	ResourceConfigurationArn string `pulumi:"resourceConfigurationArn"`
+}
+
+// EventConnectionInvocationConnectivityParametersResourceParametersInput is an input type that accepts EventConnectionInvocationConnectivityParametersResourceParametersArgs and EventConnectionInvocationConnectivityParametersResourceParametersOutput values.
+// You can construct a concrete instance of `EventConnectionInvocationConnectivityParametersResourceParametersInput` via:
+//
+//	EventConnectionInvocationConnectivityParametersResourceParametersArgs{...}
+type EventConnectionInvocationConnectivityParametersResourceParametersInput interface {
+	pulumi.Input
+
+	ToEventConnectionInvocationConnectivityParametersResourceParametersOutput() EventConnectionInvocationConnectivityParametersResourceParametersOutput
+	ToEventConnectionInvocationConnectivityParametersResourceParametersOutputWithContext(context.Context) EventConnectionInvocationConnectivityParametersResourceParametersOutput
+}
+
+type EventConnectionInvocationConnectivityParametersResourceParametersArgs struct {
+	ResourceAssociationArn pulumi.StringPtrInput `pulumi:"resourceAssociationArn"`
+	// ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+	ResourceConfigurationArn pulumi.StringInput `pulumi:"resourceConfigurationArn"`
+}
+
+func (EventConnectionInvocationConnectivityParametersResourceParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionInvocationConnectivityParametersResourceParameters)(nil)).Elem()
+}
+
+func (i EventConnectionInvocationConnectivityParametersResourceParametersArgs) ToEventConnectionInvocationConnectivityParametersResourceParametersOutput() EventConnectionInvocationConnectivityParametersResourceParametersOutput {
+	return i.ToEventConnectionInvocationConnectivityParametersResourceParametersOutputWithContext(context.Background())
+}
+
+func (i EventConnectionInvocationConnectivityParametersResourceParametersArgs) ToEventConnectionInvocationConnectivityParametersResourceParametersOutputWithContext(ctx context.Context) EventConnectionInvocationConnectivityParametersResourceParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionInvocationConnectivityParametersResourceParametersOutput)
+}
+
+func (i EventConnectionInvocationConnectivityParametersResourceParametersArgs) ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutput() EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput {
+	return i.ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (i EventConnectionInvocationConnectivityParametersResourceParametersArgs) ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutputWithContext(ctx context.Context) EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionInvocationConnectivityParametersResourceParametersOutput).ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutputWithContext(ctx)
+}
+
+// EventConnectionInvocationConnectivityParametersResourceParametersPtrInput is an input type that accepts EventConnectionInvocationConnectivityParametersResourceParametersArgs, EventConnectionInvocationConnectivityParametersResourceParametersPtr and EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput values.
+// You can construct a concrete instance of `EventConnectionInvocationConnectivityParametersResourceParametersPtrInput` via:
+//
+//	        EventConnectionInvocationConnectivityParametersResourceParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventConnectionInvocationConnectivityParametersResourceParametersPtrInput interface {
+	pulumi.Input
+
+	ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutput() EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput
+	ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutputWithContext(context.Context) EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput
+}
+
+type eventConnectionInvocationConnectivityParametersResourceParametersPtrType EventConnectionInvocationConnectivityParametersResourceParametersArgs
+
+func EventConnectionInvocationConnectivityParametersResourceParametersPtr(v *EventConnectionInvocationConnectivityParametersResourceParametersArgs) EventConnectionInvocationConnectivityParametersResourceParametersPtrInput {
+	return (*eventConnectionInvocationConnectivityParametersResourceParametersPtrType)(v)
+}
+
+func (*eventConnectionInvocationConnectivityParametersResourceParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionInvocationConnectivityParametersResourceParameters)(nil)).Elem()
+}
+
+func (i *eventConnectionInvocationConnectivityParametersResourceParametersPtrType) ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutput() EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput {
+	return i.ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *eventConnectionInvocationConnectivityParametersResourceParametersPtrType) ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutputWithContext(ctx context.Context) EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput)
+}
+
+type EventConnectionInvocationConnectivityParametersResourceParametersOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionInvocationConnectivityParametersResourceParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionInvocationConnectivityParametersResourceParameters)(nil)).Elem()
+}
+
+func (o EventConnectionInvocationConnectivityParametersResourceParametersOutput) ToEventConnectionInvocationConnectivityParametersResourceParametersOutput() EventConnectionInvocationConnectivityParametersResourceParametersOutput {
+	return o
+}
+
+func (o EventConnectionInvocationConnectivityParametersResourceParametersOutput) ToEventConnectionInvocationConnectivityParametersResourceParametersOutputWithContext(ctx context.Context) EventConnectionInvocationConnectivityParametersResourceParametersOutput {
+	return o
+}
+
+func (o EventConnectionInvocationConnectivityParametersResourceParametersOutput) ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutput() EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput {
+	return o.ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (o EventConnectionInvocationConnectivityParametersResourceParametersOutput) ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutputWithContext(ctx context.Context) EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionInvocationConnectivityParametersResourceParameters) *EventConnectionInvocationConnectivityParametersResourceParameters {
+		return &v
+	}).(EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput)
+}
+
+func (o EventConnectionInvocationConnectivityParametersResourceParametersOutput) ResourceAssociationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionInvocationConnectivityParametersResourceParameters) *string {
+		return v.ResourceAssociationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+func (o EventConnectionInvocationConnectivityParametersResourceParametersOutput) ResourceConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v EventConnectionInvocationConnectivityParametersResourceParameters) string {
+		return v.ResourceConfigurationArn
+	}).(pulumi.StringOutput)
+}
+
+type EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionInvocationConnectivityParametersResourceParameters)(nil)).Elem()
+}
+
+func (o EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput) ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutput() EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput) ToEventConnectionInvocationConnectivityParametersResourceParametersPtrOutputWithContext(ctx context.Context) EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput) Elem() EventConnectionInvocationConnectivityParametersResourceParametersOutput {
+	return o.ApplyT(func(v *EventConnectionInvocationConnectivityParametersResourceParameters) EventConnectionInvocationConnectivityParametersResourceParameters {
+		if v != nil {
+			return *v
+		}
+		var ret EventConnectionInvocationConnectivityParametersResourceParameters
+		return ret
+	}).(EventConnectionInvocationConnectivityParametersResourceParametersOutput)
+}
+
+func (o EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput) ResourceAssociationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnectionInvocationConnectivityParametersResourceParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAssociationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+func (o EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput) ResourceConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnectionInvocationConnectivityParametersResourceParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceConfigurationArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventEndpointEventBus struct {
 	// The ARN of the event bus the endpoint is associated with.
 	EventBusArn string `pulumi:"eventBusArn"`
@@ -8905,6 +9200,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput)(nil)).Elem(), EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput)(nil)).Elem(), EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput)(nil)).Elem(), EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionInvocationConnectivityParametersInput)(nil)).Elem(), EventConnectionInvocationConnectivityParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionInvocationConnectivityParametersPtrInput)(nil)).Elem(), EventConnectionInvocationConnectivityParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionInvocationConnectivityParametersResourceParametersInput)(nil)).Elem(), EventConnectionInvocationConnectivityParametersResourceParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionInvocationConnectivityParametersResourceParametersPtrInput)(nil)).Elem(), EventConnectionInvocationConnectivityParametersResourceParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointEventBusInput)(nil)).Elem(), EventEndpointEventBusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointEventBusArrayInput)(nil)).Elem(), EventEndpointEventBusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointReplicationConfigInput)(nil)).Elem(), EventEndpointReplicationConfigArgs{})
@@ -9024,6 +9323,10 @@ func init() {
 	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput{})
+	pulumi.RegisterOutputType(EventConnectionInvocationConnectivityParametersOutput{})
+	pulumi.RegisterOutputType(EventConnectionInvocationConnectivityParametersPtrOutput{})
+	pulumi.RegisterOutputType(EventConnectionInvocationConnectivityParametersResourceParametersOutput{})
+	pulumi.RegisterOutputType(EventConnectionInvocationConnectivityParametersResourceParametersPtrOutput{})
 	pulumi.RegisterOutputType(EventEndpointEventBusOutput{})
 	pulumi.RegisterOutputType(EventEndpointEventBusArrayOutput{})
 	pulumi.RegisterOutputType(EventEndpointReplicationConfigOutput{})

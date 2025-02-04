@@ -28,10 +28,13 @@ class GetVpcAttachmentResult:
     """
     A collection of values returned by getVpcAttachment.
     """
-    def __init__(__self__, appliance_mode_support=None, dns_support=None, filters=None, id=None, ipv6_support=None, security_group_referencing_support=None, subnet_ids=None, tags=None, transit_gateway_id=None, vpc_id=None, vpc_owner_id=None):
+    def __init__(__self__, appliance_mode_support=None, arn=None, dns_support=None, filters=None, id=None, ipv6_support=None, security_group_referencing_support=None, subnet_ids=None, tags=None, transit_gateway_id=None, vpc_id=None, vpc_owner_id=None):
         if appliance_mode_support and not isinstance(appliance_mode_support, str):
             raise TypeError("Expected argument 'appliance_mode_support' to be a str")
         pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if dns_support and not isinstance(dns_support, str):
             raise TypeError("Expected argument 'dns_support' to be a str")
         pulumi.set(__self__, "dns_support", dns_support)
@@ -70,6 +73,14 @@ class GetVpcAttachmentResult:
         Whether Appliance Mode support is enabled.
         """
         return pulumi.get(self, "appliance_mode_support")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        ARN of the attachment.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dnsSupport")
@@ -156,6 +167,7 @@ class AwaitableGetVpcAttachmentResult(GetVpcAttachmentResult):
             yield self
         return GetVpcAttachmentResult(
             appliance_mode_support=self.appliance_mode_support,
+            arn=self.arn,
             dns_support=self.dns_support,
             filters=self.filters,
             id=self.id,
@@ -212,6 +224,7 @@ def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterA
 
     return AwaitableGetVpcAttachmentResult(
         appliance_mode_support=pulumi.get(__ret__, 'appliance_mode_support'),
+        arn=pulumi.get(__ret__, 'arn'),
         dns_support=pulumi.get(__ret__, 'dns_support'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
@@ -265,6 +278,7 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getVpcAttachment:getVpcAttachment', __args__, opts=opts, typ=GetVpcAttachmentResult)
     return __ret__.apply(lambda __response__: GetVpcAttachmentResult(
         appliance_mode_support=pulumi.get(__response__, 'appliance_mode_support'),
+        arn=pulumi.get(__response__, 'arn'),
         dns_support=pulumi.get(__response__, 'dns_support'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),

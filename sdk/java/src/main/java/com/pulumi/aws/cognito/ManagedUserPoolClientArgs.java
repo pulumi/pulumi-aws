@@ -217,14 +217,14 @@ public final class ManagedUserPoolClientArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+     * Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
      * 
      */
     @Import(name="namePattern")
     private @Nullable Output<String> namePattern;
 
     /**
-     * @return Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+     * @return Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
      * 
      */
     public Optional<Output<String>> namePattern() {
@@ -232,7 +232,7 @@ public final class ManagedUserPoolClientArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+     * String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
      * 
      * The following arguments are optional:
      * 
@@ -241,7 +241,7 @@ public final class ManagedUserPoolClientArgs extends com.pulumi.resources.Resour
     private @Nullable Output<String> namePrefix;
 
     /**
-     * @return String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+     * @return String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
      * 
      * The following arguments are optional:
      * 
@@ -724,7 +724,7 @@ public final class ManagedUserPoolClientArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param namePattern Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+         * @param namePattern Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
          * 
          * @return builder
          * 
@@ -735,7 +735,7 @@ public final class ManagedUserPoolClientArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param namePattern Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+         * @param namePattern Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class ManagedUserPoolClientArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param namePrefix String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+         * @param namePrefix String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
          * 
          * The following arguments are optional:
          * 
@@ -758,7 +758,7 @@ public final class ManagedUserPoolClientArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param namePrefix String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+         * @param namePrefix String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
          * 
          * The following arguments are optional:
          * 

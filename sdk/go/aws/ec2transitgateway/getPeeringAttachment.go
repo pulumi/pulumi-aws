@@ -99,17 +99,19 @@ type LookupPeeringAttachmentArgs struct {
 
 // A collection of values returned by getPeeringAttachment.
 type LookupPeeringAttachmentResult struct {
+	// ARN of the attachment.
+	Arn     string                       `pulumi:"arn"`
 	Filters []GetPeeringAttachmentFilter `pulumi:"filters"`
 	Id      string                       `pulumi:"id"`
-	// Identifier of the peer AWS account
+	// Identifier of the peer AWS account.
 	PeerAccountId string `pulumi:"peerAccountId"`
-	// Identifier of the peer AWS region
+	// Identifier of the peer AWS region.
 	PeerRegion string `pulumi:"peerRegion"`
-	// Identifier of the peer EC2 Transit Gateway
+	// Identifier of the peer EC2 Transit Gateway.
 	PeerTransitGatewayId string            `pulumi:"peerTransitGatewayId"`
 	State                string            `pulumi:"state"`
 	Tags                 map[string]string `pulumi:"tags"`
-	// Identifier of the local EC2 Transit Gateway
+	// Identifier of the local EC2 Transit Gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
 
@@ -155,6 +157,11 @@ func (o LookupPeeringAttachmentResultOutput) ToLookupPeeringAttachmentResultOutp
 	return o
 }
 
+// ARN of the attachment.
+func (o LookupPeeringAttachmentResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
 func (o LookupPeeringAttachmentResultOutput) Filters() GetPeeringAttachmentFilterArrayOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) []GetPeeringAttachmentFilter { return v.Filters }).(GetPeeringAttachmentFilterArrayOutput)
 }
@@ -163,17 +170,17 @@ func (o LookupPeeringAttachmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Identifier of the peer AWS account
+// Identifier of the peer AWS account.
 func (o LookupPeeringAttachmentResultOutput) PeerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.PeerAccountId }).(pulumi.StringOutput)
 }
 
-// Identifier of the peer AWS region
+// Identifier of the peer AWS region.
 func (o LookupPeeringAttachmentResultOutput) PeerRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.PeerRegion }).(pulumi.StringOutput)
 }
 
-// Identifier of the peer EC2 Transit Gateway
+// Identifier of the peer EC2 Transit Gateway.
 func (o LookupPeeringAttachmentResultOutput) PeerTransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.PeerTransitGatewayId }).(pulumi.StringOutput)
 }
@@ -186,7 +193,7 @@ func (o LookupPeeringAttachmentResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Identifier of the local EC2 Transit Gateway
+// Identifier of the local EC2 Transit Gateway.
 func (o LookupPeeringAttachmentResultOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.TransitGatewayId }).(pulumi.StringOutput)
 }

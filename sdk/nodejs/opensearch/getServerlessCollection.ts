@@ -34,11 +34,11 @@ export function getServerlessCollection(args?: GetServerlessCollectionArgs, opts
  */
 export interface GetServerlessCollectionArgs {
     /**
-     * ID of the collection. Either `id` or `name` must be provided.
+     * ID of the collection.
      */
     id?: string;
     /**
-     * Name of the collection. Either `name` or `id` must be provided.
+     * Name of the collection.
      */
     name?: string;
 }
@@ -125,11 +125,11 @@ export function getServerlessCollectionOutput(args?: GetServerlessCollectionOutp
  */
 export interface GetServerlessCollectionOutputArgs {
     /**
-     * ID of the collection. Either `id` or `name` must be provided.
+     * ID of the collection.
      */
     id?: pulumi.Input<string>;
     /**
-     * Name of the collection. Either `name` or `id` must be provided.
+     * Name of the collection.
      */
     name?: pulumi.Input<string>;
 }

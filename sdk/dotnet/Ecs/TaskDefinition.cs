@@ -384,6 +384,14 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> Cpu { get; private set; } = null!;
 
         /// <summary>
+        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
+        /// 
+        /// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
+        /// </summary>
+        [Output("enableFaultInjection")]
+        public Output<bool> EnableFaultInjection { get; private set; } = null!;
+
+        /// <summary>
         /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         /// </summary>
         [Output("ephemeralStorage")]
@@ -558,6 +566,14 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Cpu { get; set; }
 
         /// <summary>
+        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
+        /// 
+        /// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
+        /// </summary>
+        [Input("enableFaultInjection")]
+        public Input<bool>? EnableFaultInjection { get; set; }
+
+        /// <summary>
         /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         /// </summary>
         [Input("ephemeralStorage")]
@@ -722,6 +738,14 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
+
+        /// <summary>
+        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
+        /// 
+        /// **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
+        /// </summary>
+        [Input("enableFaultInjection")]
+        public Input<bool>? EnableFaultInjection { get; set; }
 
         /// <summary>
         /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
