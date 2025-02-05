@@ -290,11 +290,11 @@
     },
     {
       "old": "      \"aws:createdBy$Terraform\",\n",
-      "new": "      \"aws:createdBy$TODO\",\n"
+      "new": "      \"aws:createdBy$Pulumi\",\n"
     },
     {
       "old": "Create a cost filter using resource tags, obtaining the tag value from a Terraform variable\n",
-      "new": "Create a cost filter using resource tags, obtaining the tag value from a TODO variable\n"
+      "new": "Create a cost filter using resource tags, obtaining the tag value from a variable\n"
     }
   ],
   "cleanrooms_collaboration.html.markdown": [
