@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datapipeline.NewPipeline(ctx, "default", &datapipeline.PipelineArgs{
+//			_default, err := datapipeline.NewPipeline(ctx, "default", &datapipeline.PipelineArgs{
 //				Name: pulumi.String("tf-pipeline-default"),
 //			})
 //			if err != nil {

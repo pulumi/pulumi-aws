@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dynamodb.NewTable(ctx, "us-east-1", &dynamodb.TableArgs{
+//			us_east_1, err := dynamodb.NewTable(ctx, "us-east-1", &dynamodb.TableArgs{
 //				HashKey:        pulumi.String("myAttribute"),
 //				Name:           pulumi.String("myTable"),
 //				StreamEnabled:  pulumi.Bool(true),
@@ -49,7 +49,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dynamodb.NewTable(ctx, "us-west-2", &dynamodb.TableArgs{
+//			us_west_2, err := dynamodb.NewTable(ctx, "us-west-2", &dynamodb.TableArgs{
 //				HashKey:        pulumi.String("myAttribute"),
 //				Name:           pulumi.String("myTable"),
 //				StreamEnabled:  pulumi.Bool(true),
