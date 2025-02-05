@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * export = async () => {
- *     const default = await aws.eks.getAddonVersion({
+ *     const _default = await aws.eks.getAddonVersion({
  *         addonName: "vpc-cni",
  *         kubernetesVersion: example.version,
  *     });
@@ -89,7 +89,7 @@ export interface GetAddonVersionResult {
  * import * as aws from "@pulumi/aws";
  *
  * export = async () => {
- *     const default = await aws.eks.getAddonVersion({
+ *     const _default = await aws.eks.getAddonVersion({
  *         addonName: "vpc-cni",
  *         kubernetesVersion: example.version,
  *     });
