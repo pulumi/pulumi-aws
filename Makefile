@@ -15,22 +15,19 @@ PULUMI_PROVIDER_BUILD_PARALLELISM ?= -p 2
 PULUMI_CONVERT := 1
 PULUMI_MISSING_DOCS_ERROR := true
 
-PULUMICTL_VERSION := v0.0.46
-PULUMICTL := $(shell which pulumictl || \
-	(test ! -e $(WORKING_DIR)/bin/pulumictl && \
-		GOPATH="$(WORKING_DIR)" go install "github.com/pulumi/pulumictl/cmd/pulumictl@$(PULUMICTL_VERSION)"; \
-	echo "$(WORKING_DIR)/bin/pulumictl"))
-
 # Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local & branch builds will just used this fixed default version unless specified
 PROVIDER_VERSION ?= 6.0.0-alpha.0+dev
-# Use this normalised version everywhere rather than the raw input to ensure consistency.
-VERSION_GENERIC = $(shell $(PULUMICTL) convert-version --language generic --version "$(PROVIDER_VERSION)")
+
+# Check version doesn't start with a "v" - this is a common mistake
+ifeq ($(shell echo $(PROVIDER_VERSION) | cut -c1),v)
+$(error PROVIDER_VERSION should not start with a "v")
+endif
 
 # Strips debug information from the provider binary to reduce its size and speed up builds
 LDFLAGS_STRIP_SYMBOLS=-s -w
-LDFLAGS_PROJ_VERSION=-X $(PROJECT)/$(VERSION_PATH)=$(VERSION_GENERIC) -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=$(VERSION_GENERIC)
-LDFLAGS_UPSTREAM_VERSION=-X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=v$(VERSION_GENERIC)
+LDFLAGS_PROJ_VERSION=-X $(PROJECT)/$(VERSION_PATH)=$(PROVIDER_VERSION) -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=$(PROVIDER_VERSION)
+LDFLAGS_UPSTREAM_VERSION=-X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=v$(PROVIDER_VERSION)
 LDFLAGS_EXTRAS=
 LDFLAGS=$(LDFLAGS_PROJ_VERSION) $(LDFLAGS_UPSTREAM_VERSION) $(LDFLAGS_EXTRAS) $(LDFLAGS_STRIP_SYMBOLS)
 
@@ -106,7 +103,7 @@ build_dotnet: .make/build_dotnet
 	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) dotnet --out sdk/dotnet/
 	cd sdk/dotnet/ && \
 		printf "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
-		echo "$(VERSION_GENERIC)" >version.txt
+		echo "$(PROVIDER_VERSION)" >version.txt
 	@touch $@
 .make/build_dotnet: .make/generate_dotnet
 	cd sdk/dotnet/ && dotnet build
@@ -127,12 +124,12 @@ build_go: .make/build_go
 generate_java: .make/generate_java
 build_java: .make/build_java
 .make/generate_java: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
-.make/generate_java: PACKAGE_VERSION := $(VERSION_GENERIC)
+.make/generate_java: PACKAGE_VERSION := $(PROVIDER_VERSION)
 .make/generate_java: .make/install_plugins bin/pulumi-java-gen .make/schema
 	PULUMI_HOME=$(GEN_PULUMI_HOME) PULUMI_CONVERT_EXAMPLES_CACHE_DIR=$(GEN_PULUMI_CONVERT_EXAMPLES_CACHE_DIR) bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
 	printf "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17\n" > sdk/java/go.mod
 	@touch $@
-.make/build_java: PACKAGE_VERSION := $(VERSION_GENERIC)
+.make/build_java: PACKAGE_VERSION := $(PROVIDER_VERSION)
 .make/build_java: .make/generate_java
 	cd sdk/java/ && \
 		gradle --console=plain build && \
@@ -263,7 +260,7 @@ tfgen_no_deps: .make/schema
 .make/schema: export PULUMI_MISSING_DOCS_ERROR := $(PULUMI_MISSING_DOCS_ERROR)
 .make/schema: bin/$(CODEGEN) .make/install_plugins .make/upstream
 	$(WORKING_DIR)/bin/$(CODEGEN) schema --out provider/cmd/$(PROVIDER)
-	(cd provider && VERSION=$(VERSION_GENERIC) go generate cmd/$(PROVIDER)/main.go)
+	(cd provider && VERSION=$(PROVIDER_VERSION) go generate cmd/$(PROVIDER)/main.go)
 	@touch $@
 tfgen_build_only: bin/$(CODEGEN)
 bin/$(CODEGEN): provider/*.go provider/go.* .make/upstream
@@ -284,8 +281,12 @@ endif
 	@touch $@
 .PHONY: upstream
 
-bin/pulumi-java-gen: .pulumi-java-gen.version
-	$(PULUMICTL) download-binary -n pulumi-language-java -v v$(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
+bin/pulumi-java-gen: PULUMI_JAVA_VERSION := $(shell cat .pulumi-java-gen.version)
+bin/pulumi-java-gen: PLAT := $(shell go version | sed -En "s/go version go.* (.*)\/(.*)/\1-\2/p")
+bin/pulumi-java-gen: PULUMI_JAVA_URL := "https://github.com/pulumi/pulumi-java/releases/download/v$(PULUMI_JAVA_VERSION)/pulumi-language-java-v$(PULUMI_JAVA_VERSION)-$(PLAT).tar.gz"
+bin/pulumi-java-gen:
+	wget -q -O - "$(PULUMI_JAVA_URL)" | tar -xzf - -C $(WORKING_DIR)/bin pulumi-java-gen
+	@touch bin/pulumi-language-java
 
 # To make an immediately observable change to .ci-mgmt.yaml:
 #
@@ -382,22 +383,22 @@ provider-darwin-arm64: bin/darwin-arm64/$(PROVIDER)
 provider-windows-amd64: bin/windows-amd64/$(PROVIDER).exe
 .PHONY: provider-linux-amd64 provider-linux-arm64 provider-darwin-amd64 provider-darwin-arm64 provider-windows-amd64
 
-bin/$(PROVIDER)-v$(VERSION_GENERIC)-linux-amd64.tar.gz: bin/linux-amd64/$(PROVIDER)
-bin/$(PROVIDER)-v$(VERSION_GENERIC)-linux-arm64.tar.gz: bin/linux-arm64/$(PROVIDER)
-bin/$(PROVIDER)-v$(VERSION_GENERIC)-darwin-amd64.tar.gz: bin/darwin-amd64/$(PROVIDER)
-bin/$(PROVIDER)-v$(VERSION_GENERIC)-darwin-arm64.tar.gz: bin/darwin-arm64/$(PROVIDER)
-bin/$(PROVIDER)-v$(VERSION_GENERIC)-windows-amd64.tar.gz: bin/windows-amd64/$(PROVIDER).exe
-bin/$(PROVIDER)-v$(VERSION_GENERIC)-%.tar.gz:
+bin/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-amd64.tar.gz: bin/linux-amd64/$(PROVIDER)
+bin/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-arm64.tar.gz: bin/linux-arm64/$(PROVIDER)
+bin/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-amd64.tar.gz: bin/darwin-amd64/$(PROVIDER)
+bin/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-arm64.tar.gz: bin/darwin-arm64/$(PROVIDER)
+bin/$(PROVIDER)-v$(PROVIDER_VERSION)-windows-amd64.tar.gz: bin/windows-amd64/$(PROVIDER).exe
+bin/$(PROVIDER)-v$(PROVIDER_VERSION)-%.tar.gz:
 	@mkdir -p dist
 	@# $< is the last dependency (the binary path from above) e.g. bin/linux-amd64/pulumi-resource-xyz
 	@# $@ is the current target e.g. bin/pulumi-resource-xyz-v1.2.3-linux-amd64.tar.gz
 	tar --gzip -cf $@ README.md LICENSE -C $$(dirname $<) .
 
-provider_dist-linux-amd64: bin/$(PROVIDER)-v$(VERSION_GENERIC)-linux-amd64.tar.gz
-provider_dist-linux-arm64: bin/$(PROVIDER)-v$(VERSION_GENERIC)-linux-arm64.tar.gz
-provider_dist-darwin-amd64: bin/$(PROVIDER)-v$(VERSION_GENERIC)-darwin-amd64.tar.gz
-provider_dist-darwin-arm64: bin/$(PROVIDER)-v$(VERSION_GENERIC)-darwin-arm64.tar.gz
-provider_dist-windows-amd64: bin/$(PROVIDER)-v$(VERSION_GENERIC)-windows-amd64.tar.gz
+provider_dist-linux-amd64: bin/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-amd64.tar.gz
+provider_dist-linux-arm64: bin/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-arm64.tar.gz
+provider_dist-darwin-amd64: bin/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-amd64.tar.gz
+provider_dist-darwin-arm64: bin/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-arm64.tar.gz
+provider_dist-windows-amd64: bin/$(PROVIDER)-v$(PROVIDER_VERSION)-windows-amd64.tar.gz
 provider_dist: provider_dist-linux-amd64 provider_dist-linux-arm64 provider_dist-darwin-amd64 provider_dist-darwin-arm64 provider_dist-windows-amd64
 .PHONY: provider_dist-linux-amd64 provider_dist-linux-arm64 provider_dist-darwin-amd64 provider_dist-darwin-arm64 provider_dist-windows-amd64 provider_dist
 
