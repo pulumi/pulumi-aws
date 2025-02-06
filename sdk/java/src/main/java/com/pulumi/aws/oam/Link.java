@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS CloudWatch Observability Access Manager Link.
  * 
+ * &gt; **NOTE:** Creating an `aws.oam.Link` may sometimes fail if the `aws.oam.SinkPolicy` for the attached `aws.oam.Sink` is not created before the `aws.oam.Link`. To prevent this, declare an explicit dependency using a `depends_on` meta-argument.
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage
@@ -32,8 +34,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.oam.Sink;
+ * import com.pulumi.aws.oam.SinkPolicy;
+ * import com.pulumi.aws.oam.SinkPolicyArgs;
  * import com.pulumi.aws.oam.Link;
  * import com.pulumi.aws.oam.LinkArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,12 +53,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         var exampleSink = new Sink("exampleSink");
+ * 
+ *         var exampleSinkPolicy = new SinkPolicy("exampleSinkPolicy", SinkPolicyArgs.builder()
+ *             .sinkIdentifier(exampleSink.arn())
+ *             .build());
+ * 
  *         var example = new Link("example", LinkArgs.builder()
  *             .labelTemplate("$AccountName")
  *             .resourceTypes("AWS::CloudWatch::Metric")
- *             .sinkIdentifier(test.id())
+ *             .sinkIdentifier(exampleSink.arn())
  *             .tags(Map.of("Env", "prod"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleSinkPolicy)
+ *                 .build());
  * 
  *     }
  * }
@@ -74,6 +88,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.oam.LinkArgs;
  * import com.pulumi.aws.oam.inputs.LinkLinkConfigurationArgs;
  * import com.pulumi.aws.oam.inputs.LinkLinkConfigurationLogGroupConfigurationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -95,8 +110,10 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .resourceTypes("AWS::Logs::LogGroup")
- *             .sinkIdentifier(test.id())
- *             .build());
+ *             .sinkIdentifier(exampleAwsOamSink.arn())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsOamSinkPolicy)
+ *                 .build());
  * 
  *     }
  * }
@@ -118,6 +135,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.oam.LinkArgs;
  * import com.pulumi.aws.oam.inputs.LinkLinkConfigurationArgs;
  * import com.pulumi.aws.oam.inputs.LinkLinkConfigurationMetricConfigurationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -139,8 +157,10 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .resourceTypes("AWS::CloudWatch::Metric")
- *             .sinkIdentifier(test.id())
- *             .build());
+ *             .sinkIdentifier(exampleAwsOamSink.arn())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsOamSinkPolicy)
+ *                 .build());
  * 
  *     }
  * }

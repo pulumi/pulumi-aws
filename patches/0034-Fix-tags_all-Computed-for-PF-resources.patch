@@ -18,7 +18,7 @@ index 63ab7ce64c..86339cdb90 100644
  		Blocks: map[string]schema.Block{
  			names.AttrDestination: schema.ListNestedBlock{
 diff --git a/internal/service/bedrock/custom_model.go b/internal/service/bedrock/custom_model.go
-index 7d1bbff332..0b7cdf8f23 100644
+index fba751ea25..679234fbf8 100644
 --- a/internal/service/bedrock/custom_model.go
 +++ b/internal/service/bedrock/custom_model.go
 @@ -139,7 +139,7 @@ func (r *customModelResource) Schema(ctx context.Context, request resource.Schem
@@ -27,8 +27,8 @@ index 7d1bbff332..0b7cdf8f23 100644
  			names.AttrTags:       tftags.TagsAttribute(),
 -			names.AttrTagsAll:    tftags.TagsAttributeComputedOnly(),
 +			names.AttrTagsAll:    tftags.TagsAttribute(),
- 			"training_metrics":   framework.ResourceComputedListOfObjectAttribute[trainingMetricsModel](ctx),
- 			"validation_metrics": framework.ResourceComputedListOfObjectAttribute[validatorMetricModel](ctx),
+ 			"training_metrics":   framework.ResourceComputedListOfObjectsAttribute[trainingMetricsModel](ctx),
+ 			"validation_metrics": framework.ResourceComputedListOfObjectsAttribute[validatorMetricModel](ctx),
  		},
 diff --git a/internal/service/codeguruprofiler/profiling_group.go b/internal/service/codeguruprofiler/profiling_group.go
 index d50d423d65..a5a56c6501 100644
@@ -44,7 +44,7 @@ index d50d423d65..a5a56c6501 100644
  		Blocks: map[string]schema.Block{
  			"agent_orchestration_config": schema.ListNestedBlock{
 diff --git a/internal/service/elasticache/serverless_cache.go b/internal/service/elasticache/serverless_cache.go
-index c1ffa7b5d0..28bcc89791 100644
+index 69838a90af..0b6039d971 100644
 --- a/internal/service/elasticache/serverless_cache.go
 +++ b/internal/service/elasticache/serverless_cache.go
 @@ -181,7 +181,7 @@ func (r *serverlessCacheResource) Schema(ctx context.Context, request resource.S

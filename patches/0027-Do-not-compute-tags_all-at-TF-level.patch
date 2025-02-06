@@ -21,10 +21,10 @@ index 6ece15b4f4..89844a1233 100644
  	if request.Plan.Raw.IsNull() {
  		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index c6408919dd..e57aa07e8f 100644
+index b94702c6e1..7068bc7a63 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -435,8 +435,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -445,8 +445,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  					continue
  				}
  				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {

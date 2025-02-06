@@ -8023,6 +8023,8 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce 
 	InstanceUrl *string `pulumi:"instanceUrl"`
 	// Indicates whether the connector profile applies to a sandbox or production environment.
 	IsSandboxEnvironment *bool `pulumi:"isSandboxEnvironment"`
+	// Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+	UsePrivatelinkForMetadataAndAuthorization *bool `pulumi:"usePrivatelinkForMetadataAndAuthorization"`
 }
 
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceOutput values.
@@ -8040,6 +8042,8 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceA
 	InstanceUrl pulumi.StringPtrInput `pulumi:"instanceUrl"`
 	// Indicates whether the connector profile applies to a sandbox or production environment.
 	IsSandboxEnvironment pulumi.BoolPtrInput `pulumi:"isSandboxEnvironment"`
+	// Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+	UsePrivatelinkForMetadataAndAuthorization pulumi.BoolPtrInput `pulumi:"usePrivatelinkForMetadataAndAuthorization"`
 }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs) ElementType() reflect.Type {
@@ -8132,6 +8136,13 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesfor
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceOutput) UsePrivatelinkForMetadataAndAuthorization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce) *bool {
+		return v.UsePrivatelinkForMetadataAndAuthorization
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput) ElementType() reflect.Type {
@@ -8172,6 +8183,16 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesfor
 			return nil
 		}
 		return v.IsSandboxEnvironment
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput) UsePrivatelinkForMetadataAndAuthorization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UsePrivatelinkForMetadataAndAuthorization
 	}).(pulumi.BoolPtrOutput)
 }
 

@@ -98,6 +98,7 @@ __all__ = [
     'LaunchTemplateMetadataOptions',
     'LaunchTemplateMonitoring',
     'LaunchTemplateNetworkInterface',
+    'LaunchTemplateNetworkInterfaceConnectionTrackingSpecification',
     'LaunchTemplatePlacement',
     'LaunchTemplatePrivateDnsNameOptions',
     'LaunchTemplateTagSpecification',
@@ -309,6 +310,7 @@ __all__ = [
     'GetLaunchTemplateMetadataOptionResult',
     'GetLaunchTemplateMonitoringResult',
     'GetLaunchTemplateNetworkInterfaceResult',
+    'GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult',
     'GetLaunchTemplatePlacementResult',
     'GetLaunchTemplatePrivateDnsNameOptionResult',
     'GetLaunchTemplateTagSpecificationResult',
@@ -436,11 +438,15 @@ __all__ = [
     'GetVpcIamPoolFilterResult',
     'GetVpcIamPoolsFilterResult',
     'GetVpcIamPoolsIpamPoolResult',
+    'GetVpcIpamOperatingRegionResult',
     'GetVpcIpamPoolCidrsFilterResult',
     'GetVpcIpamPoolCidrsIpamPoolCidrResult',
     'GetVpcIpamPoolFilterResult',
     'GetVpcIpamPoolsFilterResult',
     'GetVpcIpamPoolsIpamPoolResult',
+    'GetVpcIpamsFilterResult',
+    'GetVpcIpamsIpamResult',
+    'GetVpcIpamsIpamOperatingRegionResult',
     'GetVpcPeeringConnectionCidrBlockSetResult',
     'GetVpcPeeringConnectionFilterResult',
     'GetVpcPeeringConnectionIpv6CidrBlockSetResult',
@@ -6332,6 +6338,8 @@ class LaunchTemplateNetworkInterface(dict):
             suggest = "associate_carrier_ip_address"
         elif key == "associatePublicIpAddress":
             suggest = "associate_public_ip_address"
+        elif key == "connectionTrackingSpecification":
+            suggest = "connection_tracking_specification"
         elif key == "deleteOnTermination":
             suggest = "delete_on_termination"
         elif key == "deviceIndex":
@@ -6381,6 +6389,7 @@ class LaunchTemplateNetworkInterface(dict):
     def __init__(__self__, *,
                  associate_carrier_ip_address: Optional[str] = None,
                  associate_public_ip_address: Optional[str] = None,
+                 connection_tracking_specification: Optional['outputs.LaunchTemplateNetworkInterfaceConnectionTrackingSpecification'] = None,
                  delete_on_termination: Optional[str] = None,
                  description: Optional[str] = None,
                  device_index: Optional[int] = None,
@@ -6402,6 +6411,7 @@ class LaunchTemplateNetworkInterface(dict):
         """
         :param str associate_carrier_ip_address: Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
         :param str associate_public_ip_address: Associate a public ip address with the network interface. Boolean value, can be left unset.
+        :param 'LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs' connection_tracking_specification: The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
         :param str delete_on_termination: Whether the network interface should be destroyed on instance termination.
         :param str description: Description of the network interface.
         :param int device_index: The integer index of the network interface attachment.
@@ -6425,6 +6435,8 @@ class LaunchTemplateNetworkInterface(dict):
             pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
         if associate_public_ip_address is not None:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+        if connection_tracking_specification is not None:
+            pulumi.set(__self__, "connection_tracking_specification", connection_tracking_specification)
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if description is not None:
@@ -6477,6 +6489,14 @@ class LaunchTemplateNetworkInterface(dict):
         Associate a public ip address with the network interface. Boolean value, can be left unset.
         """
         return pulumi.get(self, "associate_public_ip_address")
+
+    @property
+    @pulumi.getter(name="connectionTrackingSpecification")
+    def connection_tracking_specification(self) -> Optional['outputs.LaunchTemplateNetworkInterfaceConnectionTrackingSpecification']:
+        """
+        The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+        """
+        return pulumi.get(self, "connection_tracking_specification")
 
     @property
     @pulumi.getter(name="deleteOnTermination")
@@ -6621,6 +6641,70 @@ class LaunchTemplateNetworkInterface(dict):
         The VPC Subnet ID to associate.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tcpEstablishedTimeout":
+            suggest = "tcp_established_timeout"
+        elif key == "udpStreamTimeout":
+            suggest = "udp_stream_timeout"
+        elif key == "udpTimeout":
+            suggest = "udp_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateNetworkInterfaceConnectionTrackingSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateNetworkInterfaceConnectionTrackingSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateNetworkInterfaceConnectionTrackingSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tcp_established_timeout: Optional[int] = None,
+                 udp_stream_timeout: Optional[int] = None,
+                 udp_timeout: Optional[int] = None):
+        """
+        :param int tcp_established_timeout: Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+        :param int udp_stream_timeout: Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+        :param int udp_timeout: Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+        """
+        if tcp_established_timeout is not None:
+            pulumi.set(__self__, "tcp_established_timeout", tcp_established_timeout)
+        if udp_stream_timeout is not None:
+            pulumi.set(__self__, "udp_stream_timeout", udp_stream_timeout)
+        if udp_timeout is not None:
+            pulumi.set(__self__, "udp_timeout", udp_timeout)
+
+    @property
+    @pulumi.getter(name="tcpEstablishedTimeout")
+    def tcp_established_timeout(self) -> Optional[int]:
+        """
+        Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+        """
+        return pulumi.get(self, "tcp_established_timeout")
+
+    @property
+    @pulumi.getter(name="udpStreamTimeout")
+    def udp_stream_timeout(self) -> Optional[int]:
+        """
+        Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+        """
+        return pulumi.get(self, "udp_stream_timeout")
+
+    @property
+    @pulumi.getter(name="udpTimeout")
+    def udp_timeout(self) -> Optional[int]:
+        """
+        Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+        """
+        return pulumi.get(self, "udp_timeout")
 
 
 @pulumi.output_type
@@ -17977,6 +18061,7 @@ class GetLaunchTemplateMonitoringResult(dict):
 class GetLaunchTemplateNetworkInterfaceResult(dict):
     def __init__(__self__, *,
                  associate_carrier_ip_address: str,
+                 connection_tracking_specifications: Sequence['outputs.GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult'],
                  description: str,
                  device_index: int,
                  interface_type: str,
@@ -17997,6 +18082,7 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
                  associate_public_ip_address: Optional[bool] = None,
                  delete_on_termination: Optional[bool] = None):
         pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
+        pulumi.set(__self__, "connection_tracking_specifications", connection_tracking_specifications)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "interface_type", interface_type)
@@ -18023,6 +18109,11 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
     @pulumi.getter(name="associateCarrierIpAddress")
     def associate_carrier_ip_address(self) -> str:
         return pulumi.get(self, "associate_carrier_ip_address")
+
+    @property
+    @pulumi.getter(name="connectionTrackingSpecifications")
+    def connection_tracking_specifications(self) -> Sequence['outputs.GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult']:
+        return pulumi.get(self, "connection_tracking_specifications")
 
     @property
     @pulumi.getter
@@ -18118,6 +18209,32 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[bool]:
         return pulumi.get(self, "delete_on_termination")
+
+
+@pulumi.output_type
+class GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult(dict):
+    def __init__(__self__, *,
+                 tcp_established_timeout: int,
+                 udp_stream_timeout: int,
+                 udp_timeout: int):
+        pulumi.set(__self__, "tcp_established_timeout", tcp_established_timeout)
+        pulumi.set(__self__, "udp_stream_timeout", udp_stream_timeout)
+        pulumi.set(__self__, "udp_timeout", udp_timeout)
+
+    @property
+    @pulumi.getter(name="tcpEstablishedTimeout")
+    def tcp_established_timeout(self) -> int:
+        return pulumi.get(self, "tcp_established_timeout")
+
+    @property
+    @pulumi.getter(name="udpStreamTimeout")
+    def udp_stream_timeout(self) -> int:
+        return pulumi.get(self, "udp_stream_timeout")
+
+    @property
+    @pulumi.getter(name="udpTimeout")
+    def udp_timeout(self) -> int:
+        return pulumi.get(self, "udp_timeout")
 
 
 @pulumi.output_type
@@ -23235,6 +23352,18 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
 
 @pulumi.output_type
+class GetVpcIpamOperatingRegionResult(dict):
+    def __init__(__self__, *,
+                 region_name: str):
+        pulumi.set(__self__, "region_name", region_name)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> str:
+        return pulumi.get(self, "region_name")
+
+
+@pulumi.output_type
 class GetVpcIpamPoolCidrsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
@@ -23531,6 +23660,234 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
         Map of tags to assigned to the resource.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetVpcIpamsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+               An IPAM resource will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
+        An IPAM resource will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpcIpamsIpamResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 default_resource_discovery_association_id: str,
+                 default_resource_discovery_id: str,
+                 description: str,
+                 enable_private_gua: bool,
+                 id: str,
+                 ipam_region: str,
+                 operating_regions: Sequence['outputs.GetVpcIpamsIpamOperatingRegionResult'],
+                 owner_id: str,
+                 private_default_scope_id: str,
+                 public_default_scope_id: str,
+                 resource_discovery_association_count: float,
+                 scope_count: float,
+                 state: str,
+                 state_message: str,
+                 tier: str):
+        """
+        :param str arn: ARN of the IPAM.
+        :param str default_resource_discovery_association_id: The default resource discovery association ID.
+        :param str default_resource_discovery_id: The default resource discovery ID.
+        :param str description: Description for the IPAM.
+        :param bool enable_private_gua: If private GUA is enabled.
+        :param str id: ID of the IPAM resource.
+        :param str ipam_region: Region that the IPAM exists in.
+        :param Sequence['GetVpcIpamsIpamOperatingRegionArgs'] operating_regions: Regions that the IPAM is configured to operate in.
+        :param str owner_id: ID of the account that owns this IPAM.
+        :param str private_default_scope_id: ID of the default private scope.
+        :param str public_default_scope_id: ID of the default public scope.
+        :param float resource_discovery_association_count: Number of resource discovery associations.
+        :param float scope_count: Number of scopes on this IPAM.
+        :param str state: Current state of the IPAM.
+        :param str state_message: State message of the IPAM.
+        :param str tier: IPAM Tier.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "default_resource_discovery_association_id", default_resource_discovery_association_id)
+        pulumi.set(__self__, "default_resource_discovery_id", default_resource_discovery_id)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "enable_private_gua", enable_private_gua)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "ipam_region", ipam_region)
+        pulumi.set(__self__, "operating_regions", operating_regions)
+        pulumi.set(__self__, "owner_id", owner_id)
+        pulumi.set(__self__, "private_default_scope_id", private_default_scope_id)
+        pulumi.set(__self__, "public_default_scope_id", public_default_scope_id)
+        pulumi.set(__self__, "resource_discovery_association_count", resource_discovery_association_count)
+        pulumi.set(__self__, "scope_count", scope_count)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "state_message", state_message)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        ARN of the IPAM.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="defaultResourceDiscoveryAssociationId")
+    def default_resource_discovery_association_id(self) -> str:
+        """
+        The default resource discovery association ID.
+        """
+        return pulumi.get(self, "default_resource_discovery_association_id")
+
+    @property
+    @pulumi.getter(name="defaultResourceDiscoveryId")
+    def default_resource_discovery_id(self) -> str:
+        """
+        The default resource discovery ID.
+        """
+        return pulumi.get(self, "default_resource_discovery_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description for the IPAM.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enablePrivateGua")
+    def enable_private_gua(self) -> bool:
+        """
+        If private GUA is enabled.
+        """
+        return pulumi.get(self, "enable_private_gua")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ID of the IPAM resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipamRegion")
+    def ipam_region(self) -> str:
+        """
+        Region that the IPAM exists in.
+        """
+        return pulumi.get(self, "ipam_region")
+
+    @property
+    @pulumi.getter(name="operatingRegions")
+    def operating_regions(self) -> Sequence['outputs.GetVpcIpamsIpamOperatingRegionResult']:
+        """
+        Regions that the IPAM is configured to operate in.
+        """
+        return pulumi.get(self, "operating_regions")
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> str:
+        """
+        ID of the account that owns this IPAM.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter(name="privateDefaultScopeId")
+    def private_default_scope_id(self) -> str:
+        """
+        ID of the default private scope.
+        """
+        return pulumi.get(self, "private_default_scope_id")
+
+    @property
+    @pulumi.getter(name="publicDefaultScopeId")
+    def public_default_scope_id(self) -> str:
+        """
+        ID of the default public scope.
+        """
+        return pulumi.get(self, "public_default_scope_id")
+
+    @property
+    @pulumi.getter(name="resourceDiscoveryAssociationCount")
+    def resource_discovery_association_count(self) -> float:
+        """
+        Number of resource discovery associations.
+        """
+        return pulumi.get(self, "resource_discovery_association_count")
+
+    @property
+    @pulumi.getter(name="scopeCount")
+    def scope_count(self) -> float:
+        """
+        Number of scopes on this IPAM.
+        """
+        return pulumi.get(self, "scope_count")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Current state of the IPAM.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> str:
+        """
+        State message of the IPAM.
+        """
+        return pulumi.get(self, "state_message")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        IPAM Tier.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class GetVpcIpamsIpamOperatingRegionResult(dict):
+    def __init__(__self__, *,
+                 region_name: str):
+        pulumi.set(__self__, "region_name", region_name)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> str:
+        return pulumi.get(self, "region_name")
 
 
 @pulumi.output_type

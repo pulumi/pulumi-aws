@@ -38,11 +38,27 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.isSandboxEnvironment);
     }
 
+    /**
+     * Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+     * 
+     */
+    @Import(name="usePrivatelinkForMetadataAndAuthorization")
+    private @Nullable Output<Boolean> usePrivatelinkForMetadataAndAuthorization;
+
+    /**
+     * @return Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+     * 
+     */
+    public Optional<Output<Boolean>> usePrivatelinkForMetadataAndAuthorization() {
+        return Optional.ofNullable(this.usePrivatelinkForMetadataAndAuthorization);
+    }
+
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs() {}
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs $) {
         this.instanceUrl = $.instanceUrl;
         this.isSandboxEnvironment = $.isSandboxEnvironment;
+        this.usePrivatelinkForMetadataAndAuthorization = $.usePrivatelinkForMetadataAndAuthorization;
     }
 
     public static Builder builder() {
@@ -91,6 +107,27 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
          */
         public Builder isSandboxEnvironment(Boolean isSandboxEnvironment) {
             return isSandboxEnvironment(Output.of(isSandboxEnvironment));
+        }
+
+        /**
+         * @param usePrivatelinkForMetadataAndAuthorization Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usePrivatelinkForMetadataAndAuthorization(@Nullable Output<Boolean> usePrivatelinkForMetadataAndAuthorization) {
+            $.usePrivatelinkForMetadataAndAuthorization = usePrivatelinkForMetadataAndAuthorization;
+            return this;
+        }
+
+        /**
+         * @param usePrivatelinkForMetadataAndAuthorization Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usePrivatelinkForMetadataAndAuthorization(Boolean usePrivatelinkForMetadataAndAuthorization) {
+            return usePrivatelinkForMetadataAndAuthorization(Output.of(usePrivatelinkForMetadataAndAuthorization));
         }
 
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs build() {

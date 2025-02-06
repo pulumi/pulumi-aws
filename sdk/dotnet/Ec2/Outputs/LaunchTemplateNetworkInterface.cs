@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? AssociatePublicIpAddress;
         /// <summary>
+        /// The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+        /// </summary>
+        public readonly Outputs.LaunchTemplateNetworkInterfaceConnectionTrackingSpecification? ConnectionTrackingSpecification;
+        /// <summary>
         /// Whether the network interface should be destroyed on instance termination.
         /// </summary>
         public readonly string? DeleteOnTermination;
@@ -100,6 +104,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? associatePublicIpAddress,
 
+            Outputs.LaunchTemplateNetworkInterfaceConnectionTrackingSpecification? connectionTrackingSpecification,
+
             string? deleteOnTermination,
 
             string? description,
@@ -138,6 +144,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         {
             AssociateCarrierIpAddress = associateCarrierIpAddress;
             AssociatePublicIpAddress = associatePublicIpAddress;
+            ConnectionTrackingSpecification = connectionTrackingSpecification;
             DeleteOnTermination = deleteOnTermination;
             Description = description;
             DeviceIndex = deviceIndex;

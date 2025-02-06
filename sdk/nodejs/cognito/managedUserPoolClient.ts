@@ -18,56 +18,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Using Name Pattern
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("example", {name: "example"});
- * const exampleIdentityPool = new aws.cognito.IdentityPool("example", {identityPoolName: "example"});
- * const current = aws.getPartition({});
- * const example = current.then(current => aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "",
- *         actions: ["sts:AssumeRole"],
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: [`es.${current.dnsSuffix}`],
- *         }],
- *     }],
- * }));
- * const exampleRole = new aws.iam.Role("example", {
- *     name: "example-role",
- *     path: "/service-role/",
- *     assumeRolePolicy: example.then(example => example.json),
- * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
- *     role: exampleRole.name,
- *     policyArn: current.then(current => `arn:${current.partition}:iam::aws:policy/AmazonESCognitoAccess`),
- * });
- * const exampleDomain = new aws.opensearch.Domain("example", {
- *     domainName: "example",
- *     cognitoOptions: {
- *         enabled: true,
- *         userPoolId: exampleUserPool.id,
- *         identityPoolId: exampleIdentityPool.id,
- *         roleArn: exampleRole.arn,
- *     },
- *     ebsOptions: {
- *         ebsEnabled: true,
- *         volumeSize: 10,
- *     },
- * }, {
- *     dependsOn: [
- *         exampleAwsCognitoUserPoolDomain,
- *         exampleRolePolicyAttachment,
- *     ],
- * });
- * const exampleManagedUserPoolClient = new aws.cognito.ManagedUserPoolClient("example", {
- *     namePrefix: "AmazonOpenSearchService-example",
- *     userPoolId: exampleUserPool.id,
- * }, {
- *     dependsOn: [exampleDomain],
+ * const example = new aws.cognito.ManagedUserPoolClient("example", {
+ *     namePattern: "^AmazonOpenSearchService-example-(\\w+)$",
+ *     userPoolId: exampleAwsCognitoUserPool.id,
  * });
  * ```
  *
@@ -168,11 +127,11 @@ export class ManagedUserPoolClient extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+     * Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
      */
     public readonly namePattern!: pulumi.Output<string | undefined>;
     /**
-     * String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+     * String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
      *
      * The following arguments are optional:
      */
@@ -345,11 +304,11 @@ export interface ManagedUserPoolClientState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+     * Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
      */
     namePattern?: pulumi.Input<string>;
     /**
-     * String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+     * String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
      *
      * The following arguments are optional:
      */
@@ -441,11 +400,11 @@ export interface ManagedUserPoolClientArgs {
      */
     logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+     * Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
      */
     namePattern?: pulumi.Input<string>;
     /**
-     * String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+     * String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
      *
      * The following arguments are optional:
      */

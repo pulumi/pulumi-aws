@@ -532,6 +532,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        billing: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         budgets: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1627,6 +1631,7 @@ class ProviderEndpointArgs:
                  beanstalk: Optional[pulumi.Input[str]] = None,
                  bedrock: Optional[pulumi.Input[str]] = None,
                  bedrockagent: Optional[pulumi.Input[str]] = None,
+                 billing: Optional[pulumi.Input[str]] = None,
                  budgets: Optional[pulumi.Input[str]] = None,
                  ce: Optional[pulumi.Input[str]] = None,
                  chatbot: Optional[pulumi.Input[str]] = None,
@@ -1925,6 +1930,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] beanstalk: Use this to override the default service endpoint URL
         :param pulumi.Input[str] bedrock: Use this to override the default service endpoint URL
         :param pulumi.Input[str] bedrockagent: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] billing: Use this to override the default service endpoint URL
         :param pulumi.Input[str] budgets: Use this to override the default service endpoint URL
         :param pulumi.Input[str] ce: Use this to override the default service endpoint URL
         :param pulumi.Input[str] chatbot: Use this to override the default service endpoint URL
@@ -2256,6 +2262,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "bedrock", bedrock)
         if bedrockagent is not None:
             pulumi.set(__self__, "bedrockagent", bedrockagent)
+        if billing is not None:
+            pulumi.set(__self__, "billing", billing)
         if budgets is not None:
             pulumi.set(__self__, "budgets", budgets)
         if ce is not None:
@@ -3180,6 +3188,18 @@ class ProviderEndpointArgs:
     @bedrockagent.setter
     def bedrockagent(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bedrockagent", value)
+
+    @property
+    @pulumi.getter
+    def billing(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "billing")
+
+    @billing.setter
+    def billing(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing", value)
 
     @property
     @pulumi.getter

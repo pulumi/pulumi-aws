@@ -260,6 +260,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string ApplianceModeSupport;
         /// <summary>
+        /// ARN of the attachment.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// Whether DNS support is enabled.
         /// </summary>
         public readonly string DnsSupport;
@@ -301,6 +305,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
         private GetVpcAttachmentResult(
             string applianceModeSupport,
 
+            string arn,
+
             string dnsSupport,
 
             ImmutableArray<Outputs.GetVpcAttachmentFilterResult> filters,
@@ -322,6 +328,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             string vpcOwnerId)
         {
             ApplianceModeSupport = applianceModeSupport;
+            Arn = arn;
             DnsSupport = dnsSupport;
             Filters = filters;
             Id = id;

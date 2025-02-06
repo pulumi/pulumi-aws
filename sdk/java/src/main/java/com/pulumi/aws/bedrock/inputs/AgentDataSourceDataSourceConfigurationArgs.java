@@ -3,7 +3,11 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationWebConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -16,6 +20,21 @@ import javax.annotation.Nullable;
 public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentDataSourceDataSourceConfigurationArgs Empty = new AgentDataSourceDataSourceConfigurationArgs();
+
+    /**
+     * Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+     * 
+     */
+    @Import(name="confluenceConfiguration")
+    private @Nullable Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs> confluenceConfiguration;
+
+    /**
+     * @return Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+     * 
+     */
+    public Optional<Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs>> confluenceConfiguration() {
+        return Optional.ofNullable(this.confluenceConfiguration);
+    }
 
     /**
      * Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
@@ -33,6 +52,36 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
     }
 
     /**
+     * Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
+     * 
+     */
+    @Import(name="salesforceConfiguration")
+    private @Nullable Output<AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs> salesforceConfiguration;
+
+    /**
+     * @return Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
+     * 
+     */
+    public Optional<Output<AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs>> salesforceConfiguration() {
+        return Optional.ofNullable(this.salesforceConfiguration);
+    }
+
+    /**
+     * Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
+     * 
+     */
+    @Import(name="sharePointConfiguration")
+    private @Nullable Output<AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs> sharePointConfiguration;
+
+    /**
+     * @return Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
+     * 
+     */
+    public Optional<Output<AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs>> sharePointConfiguration() {
+        return Optional.ofNullable(this.sharePointConfiguration);
+    }
+
+    /**
      * Type of storage for the data source. Valid values: `S3`.
      * 
      */
@@ -47,11 +96,22 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         return this.type;
     }
 
+    @Import(name="webConfiguration")
+    private @Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationArgs> webConfiguration;
+
+    public Optional<Output<AgentDataSourceDataSourceConfigurationWebConfigurationArgs>> webConfiguration() {
+        return Optional.ofNullable(this.webConfiguration);
+    }
+
     private AgentDataSourceDataSourceConfigurationArgs() {}
 
     private AgentDataSourceDataSourceConfigurationArgs(AgentDataSourceDataSourceConfigurationArgs $) {
+        this.confluenceConfiguration = $.confluenceConfiguration;
         this.s3Configuration = $.s3Configuration;
+        this.salesforceConfiguration = $.salesforceConfiguration;
+        this.sharePointConfiguration = $.sharePointConfiguration;
         this.type = $.type;
+        this.webConfiguration = $.webConfiguration;
     }
 
     public static Builder builder() {
@@ -70,6 +130,27 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
 
         public Builder(AgentDataSourceDataSourceConfigurationArgs defaults) {
             $ = new AgentDataSourceDataSourceConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param confluenceConfiguration Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder confluenceConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs> confluenceConfiguration) {
+            $.confluenceConfiguration = confluenceConfiguration;
+            return this;
+        }
+
+        /**
+         * @param confluenceConfiguration Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder confluenceConfiguration(AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs confluenceConfiguration) {
+            return confluenceConfiguration(Output.of(confluenceConfiguration));
         }
 
         /**
@@ -94,6 +175,48 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
+         * @param salesforceConfiguration Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder salesforceConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs> salesforceConfiguration) {
+            $.salesforceConfiguration = salesforceConfiguration;
+            return this;
+        }
+
+        /**
+         * @param salesforceConfiguration Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder salesforceConfiguration(AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs salesforceConfiguration) {
+            return salesforceConfiguration(Output.of(salesforceConfiguration));
+        }
+
+        /**
+         * @param sharePointConfiguration Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharePointConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs> sharePointConfiguration) {
+            $.sharePointConfiguration = sharePointConfiguration;
+            return this;
+        }
+
+        /**
+         * @param sharePointConfiguration Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharePointConfiguration(AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs sharePointConfiguration) {
+            return sharePointConfiguration(Output.of(sharePointConfiguration));
+        }
+
+        /**
          * @param type Type of storage for the data source. Valid values: `S3`.
          * 
          * @return builder
@@ -112,6 +235,15 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        public Builder webConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationArgs> webConfiguration) {
+            $.webConfiguration = webConfiguration;
+            return this;
+        }
+
+        public Builder webConfiguration(AgentDataSourceDataSourceConfigurationWebConfigurationArgs webConfiguration) {
+            return webConfiguration(Output.of(webConfiguration));
         }
 
         public AgentDataSourceDataSourceConfigurationArgs build() {

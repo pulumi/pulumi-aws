@@ -707,7 +707,7 @@ class Budget(pulumi.CustomResource):
             }])
         ```
 
-        Create a Cost Filter using Resource Tags
+        Create a cost filter using resource tags
 
         ```python
         import pulumi
@@ -715,11 +715,14 @@ class Budget(pulumi.CustomResource):
 
         cost = aws.budgets.Budget("cost", cost_filters=[{
             "name": "TagKeyValue",
-            "values": ["TagKey$TagValue"],
+            "values": [
+                "aws:createdBy$Pulumi",
+                "user:business-unit$human_resources",
+            ],
         }])
         ```
 
-        Create a cost_filter using resource tags, obtaining the tag value from a variable
+        Create a cost filter using resource tags, obtaining the tag value from a variable
 
         ```python
         import pulumi
@@ -895,7 +898,7 @@ class Budget(pulumi.CustomResource):
             }])
         ```
 
-        Create a Cost Filter using Resource Tags
+        Create a cost filter using resource tags
 
         ```python
         import pulumi
@@ -903,11 +906,14 @@ class Budget(pulumi.CustomResource):
 
         cost = aws.budgets.Budget("cost", cost_filters=[{
             "name": "TagKeyValue",
-            "values": ["TagKey$TagValue"],
+            "values": [
+                "aws:createdBy$Pulumi",
+                "user:business-unit$human_resources",
+            ],
         }])
         ```
 
-        Create a cost_filter using resource tags, obtaining the tag value from a variable
+        Create a cost filter using resource tags, obtaining the tag value from a variable
 
         ```python
         import pulumi

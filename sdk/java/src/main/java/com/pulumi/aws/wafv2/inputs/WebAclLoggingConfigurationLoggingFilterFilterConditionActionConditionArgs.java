@@ -15,14 +15,14 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
     public static final WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs Empty = new WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs();
 
     /**
-     * Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
+     * Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
+     * @return Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
      * 
      */
     public Output<String> action() {
@@ -54,7 +54,7 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
         }
 
         /**
-         * @param action Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
+         * @param action Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
         }
 
         /**
-         * @param action Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
+         * @param action Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
          * 
          * @return builder
          * 

@@ -233,6 +233,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The parameters to use for invoking a private API. Documented below.
+        /// </summary>
+        [Output("invocationConnectivityParameters")]
+        public Output<Outputs.EventConnectionInvocationConnectivityParameters?> InvocationConnectivityParameters { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         /// </summary>
         [Output("name")]
@@ -309,6 +315,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The parameters to use for invoking a private API. Documented below.
+        /// </summary>
+        [Input("invocationConnectivityParameters")]
+        public Input<Inputs.EventConnectionInvocationConnectivityParametersArgs>? InvocationConnectivityParameters { get; set; }
+
+        /// <summary>
         /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         /// </summary>
         [Input("name")]
@@ -345,6 +357,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The parameters to use for invoking a private API. Documented below.
+        /// </summary>
+        [Input("invocationConnectivityParameters")]
+        public Input<Inputs.EventConnectionInvocationConnectivityParametersGetArgs>? InvocationConnectivityParameters { get; set; }
 
         /// <summary>
         /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.

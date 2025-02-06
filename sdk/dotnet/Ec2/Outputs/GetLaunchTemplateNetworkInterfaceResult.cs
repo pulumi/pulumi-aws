@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     {
         public readonly string AssociateCarrierIpAddress;
         public readonly bool? AssociatePublicIpAddress;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult> ConnectionTrackingSpecifications;
         public readonly bool? DeleteOnTermination;
         public readonly string Description;
         public readonly int DeviceIndex;
@@ -39,6 +40,8 @@ namespace Pulumi.Aws.Ec2.Outputs
             string associateCarrierIpAddress,
 
             bool? associatePublicIpAddress,
+
+            ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult> connectionTrackingSpecifications,
 
             bool? deleteOnTermination,
 
@@ -78,6 +81,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         {
             AssociateCarrierIpAddress = associateCarrierIpAddress;
             AssociatePublicIpAddress = associatePublicIpAddress;
+            ConnectionTrackingSpecifications = connectionTrackingSpecifications;
             DeleteOnTermination = deleteOnTermination;
             Description = description;
             DeviceIndex = deviceIndex;

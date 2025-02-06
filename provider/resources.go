@@ -250,6 +250,7 @@ const (
 	syntheticsMod               = "Synthetics"               // Synthetics
 	timestreamInfluxDBMod       = "TimestreamInfluxDB"       // Timestream Influx DB
 	timestreamWriteMod          = "TimestreamWrite"          // Timestream Write
+	timestreamQuery             = "TimestreamQuery"          // Timestream Query"
 	transcribeMod               = "Transcribe"               // Transcribe
 	transferMod                 = "Transfer"                 // Transfer Service
 	verifiedpermissionsMod      = "VerifiedPermissions"      // Verified Permissions
@@ -479,6 +480,7 @@ var moduleMap = map[string]string{
 	"synthetics":                      syntheticsMod,
 	"timestreaminfluxdb":              timestreamInfluxDBMod,
 	"timestreamwrite":                 timestreamWriteMod,
+	"timestreamquery":                 timestreamQuery,
 	"transcribe":                      transcribeMod,
 	"transfer":                        transferMod,
 	"verifiedaccess":                  verifiedaccessMod,
@@ -4666,6 +4668,8 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_ec2_managed_prefix_list":          {Tok: awsDataSource(ec2Mod, "getManagedPrefixList")},
 			"aws_ec2_transit_gateway_route_tables": {Tok: awsDataSource(ec2Mod, "getTransitGatewayRouteTables")},
 			"aws_ec2_instance_types":               {Tok: awsDataSource(ec2Mod, "getInstanceTypes")},
+			"aws_vpc_ipam":                         {Tok: awsDataSource(ec2Mod, "getVpcIpam")},
+			"aws_vpc_ipams":                        {Tok: awsDataSource(ec2Mod, "getVpcIpams")},
 			"aws_vpc_ipam_pool":                    {Tok: awsDataSource(ec2Mod, "getVpcIpamPool")},
 			"aws_vpc_ipam_pools":                   {Tok: awsDataSource(ec2Mod, "getVpcIpamPools")},
 			"aws_vpc_ipam_pool_cidrs":              {Tok: awsDataSource(ec2Mod, "getVpcIpamPoolCidrs")},
@@ -6023,12 +6027,20 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		return attr(state, "multiRegionClusterName"), nil
 	}
 
+	prov.Resources["aws_guardduty_member_detector_feature"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, ",", "detectorId", "accountId", "name"), nil
+	}
+
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
 		"aws_cloudwatch_log_index_policy":                {"logGroupName"},
 		"aws_cloudwatch_log_delivery_source":             {"name"},
 		"aws_cloudwatch_log_delivery_destination_policy": {"deliveryDestinationName"},
 		"aws_cloudwatch_log_delivery_destination":        {"name"},
 		"aws_media_packagev2_channel_group":              {"name"},
+		"aws_timestreamquery_scheduled_query":            {"arn"},
+		"aws_route53domains_domain":                      {"domainName"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {

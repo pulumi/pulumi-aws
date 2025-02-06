@@ -43,6 +43,8 @@ __all__ = [
     'MalwareProtectionPlanProtectedResourceArgsDict',
     'MalwareProtectionPlanProtectedResourceS3BucketArgs',
     'MalwareProtectionPlanProtectedResourceS3BucketArgsDict',
+    'MemberDetectorFeatureAdditionalConfigurationArgs',
+    'MemberDetectorFeatureAdditionalConfigurationArgsDict',
     'OrganizationConfigurationDatasourcesArgs',
     'OrganizationConfigurationDatasourcesArgsDict',
     'OrganizationConfigurationDatasourcesKubernetesArgs',
@@ -714,6 +716,56 @@ class MalwareProtectionPlanProtectedResourceS3BucketArgs:
     @object_prefixes.setter
     def object_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "object_prefixes", value)
+
+
+if not MYPY:
+    class MemberDetectorFeatureAdditionalConfigurationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        """
+        status: pulumi.Input[str]
+        """
+        The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        """
+elif False:
+    MemberDetectorFeatureAdditionalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MemberDetectorFeatureAdditionalConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 status: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        :param pulumi.Input[str] status: The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        """
+        The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:

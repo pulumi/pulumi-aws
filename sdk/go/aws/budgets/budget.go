@@ -250,7 +250,7 @@ import (
 //
 // ```
 //
-// # Create a Cost Filter using Resource Tags
+// # Create a cost filter using resource tags
 //
 // ```go
 // package main
@@ -269,7 +269,8 @@ import (
 //					&budgets.BudgetCostFilterArgs{
 //						Name: pulumi.String("TagKeyValue"),
 //						Values: pulumi.StringArray{
-//							pulumi.String("TagKey$TagValue"),
+//							pulumi.String("aws:createdBy$Pulumi"),
+//							pulumi.String("user:business-unit$human_resources"),
 //						},
 //					},
 //				},
@@ -283,7 +284,7 @@ import (
 //
 // ```
 //
-// # Create a costFilter using resource tags, obtaining the tag value from a variable
+// # Create a cost filter using resource tags, obtaining the tag value from a variable
 //
 // ```go
 // package main

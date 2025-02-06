@@ -94,7 +94,8 @@ type MultiplexProgram struct {
 	// The following arguments are optional:
 	MultiplexProgramSettings MultiplexProgramMultiplexProgramSettingsPtrOutput `pulumi:"multiplexProgramSettings"`
 	// Unique program name.
-	ProgramName pulumi.StringOutput `pulumi:"programName"`
+	ProgramName pulumi.StringOutput               `pulumi:"programName"`
+	Timeouts    MultiplexProgramTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewMultiplexProgram registers a new resource with the given unique name, arguments, and options.
@@ -140,7 +141,8 @@ type multiplexProgramState struct {
 	// The following arguments are optional:
 	MultiplexProgramSettings *MultiplexProgramMultiplexProgramSettings `pulumi:"multiplexProgramSettings"`
 	// Unique program name.
-	ProgramName *string `pulumi:"programName"`
+	ProgramName *string                   `pulumi:"programName"`
+	Timeouts    *MultiplexProgramTimeouts `pulumi:"timeouts"`
 }
 
 type MultiplexProgramState struct {
@@ -152,6 +154,7 @@ type MultiplexProgramState struct {
 	MultiplexProgramSettings MultiplexProgramMultiplexProgramSettingsPtrInput
 	// Unique program name.
 	ProgramName pulumi.StringPtrInput
+	Timeouts    MultiplexProgramTimeoutsPtrInput
 }
 
 func (MultiplexProgramState) ElementType() reflect.Type {
@@ -166,7 +169,8 @@ type multiplexProgramArgs struct {
 	// The following arguments are optional:
 	MultiplexProgramSettings *MultiplexProgramMultiplexProgramSettings `pulumi:"multiplexProgramSettings"`
 	// Unique program name.
-	ProgramName string `pulumi:"programName"`
+	ProgramName string                    `pulumi:"programName"`
+	Timeouts    *MultiplexProgramTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a MultiplexProgram resource.
@@ -179,6 +183,7 @@ type MultiplexProgramArgs struct {
 	MultiplexProgramSettings MultiplexProgramMultiplexProgramSettingsPtrInput
 	// Unique program name.
 	ProgramName pulumi.StringInput
+	Timeouts    MultiplexProgramTimeoutsPtrInput
 }
 
 func (MultiplexProgramArgs) ElementType() reflect.Type {
@@ -285,6 +290,10 @@ func (o MultiplexProgramOutput) MultiplexProgramSettings() MultiplexProgramMulti
 // Unique program name.
 func (o MultiplexProgramOutput) ProgramName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiplexProgram) pulumi.StringOutput { return v.ProgramName }).(pulumi.StringOutput)
+}
+
+func (o MultiplexProgramOutput) Timeouts() MultiplexProgramTimeoutsPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgram) MultiplexProgramTimeoutsPtrOutput { return v.Timeouts }).(MultiplexProgramTimeoutsPtrOutput)
 }
 
 type MultiplexProgramArrayOutput struct{ *pulumi.OutputState }

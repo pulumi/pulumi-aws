@@ -1865,6 +1865,792 @@ func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Prefix() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResourceConfigurationResourceConfigurationDefinition struct {
+	// Resource DNS Configuration. See `arnResource` Block for details.
+	ArnResource *ResourceConfigurationResourceConfigurationDefinitionArnResource `pulumi:"arnResource"`
+	// Resource DNS Configuration. See `dnsResource` Block for details.
+	DnsResource *ResourceConfigurationResourceConfigurationDefinitionDnsResource `pulumi:"dnsResource"`
+	// Resource DNS Configuration. See `ipResource` Block for details.
+	IpResource *ResourceConfigurationResourceConfigurationDefinitionIpResource `pulumi:"ipResource"`
+}
+
+// ResourceConfigurationResourceConfigurationDefinitionInput is an input type that accepts ResourceConfigurationResourceConfigurationDefinitionArgs and ResourceConfigurationResourceConfigurationDefinitionOutput values.
+// You can construct a concrete instance of `ResourceConfigurationResourceConfigurationDefinitionInput` via:
+//
+//	ResourceConfigurationResourceConfigurationDefinitionArgs{...}
+type ResourceConfigurationResourceConfigurationDefinitionInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationResourceConfigurationDefinitionOutput() ResourceConfigurationResourceConfigurationDefinitionOutput
+	ToResourceConfigurationResourceConfigurationDefinitionOutputWithContext(context.Context) ResourceConfigurationResourceConfigurationDefinitionOutput
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionArgs struct {
+	// Resource DNS Configuration. See `arnResource` Block for details.
+	ArnResource ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrInput `pulumi:"arnResource"`
+	// Resource DNS Configuration. See `dnsResource` Block for details.
+	DnsResource ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrInput `pulumi:"dnsResource"`
+	// Resource DNS Configuration. See `ipResource` Block for details.
+	IpResource ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrInput `pulumi:"ipResource"`
+}
+
+func (ResourceConfigurationResourceConfigurationDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinition)(nil)).Elem()
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionArgs) ToResourceConfigurationResourceConfigurationDefinitionOutput() ResourceConfigurationResourceConfigurationDefinitionOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionArgs) ToResourceConfigurationResourceConfigurationDefinitionOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionOutput)
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionArgs) ToResourceConfigurationResourceConfigurationDefinitionPtrOutput() ResourceConfigurationResourceConfigurationDefinitionPtrOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionArgs) ToResourceConfigurationResourceConfigurationDefinitionPtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionOutput).ToResourceConfigurationResourceConfigurationDefinitionPtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationResourceConfigurationDefinitionPtrInput is an input type that accepts ResourceConfigurationResourceConfigurationDefinitionArgs, ResourceConfigurationResourceConfigurationDefinitionPtr and ResourceConfigurationResourceConfigurationDefinitionPtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationResourceConfigurationDefinitionPtrInput` via:
+//
+//	        ResourceConfigurationResourceConfigurationDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceConfigurationResourceConfigurationDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationResourceConfigurationDefinitionPtrOutput() ResourceConfigurationResourceConfigurationDefinitionPtrOutput
+	ToResourceConfigurationResourceConfigurationDefinitionPtrOutputWithContext(context.Context) ResourceConfigurationResourceConfigurationDefinitionPtrOutput
+}
+
+type resourceConfigurationResourceConfigurationDefinitionPtrType ResourceConfigurationResourceConfigurationDefinitionArgs
+
+func ResourceConfigurationResourceConfigurationDefinitionPtr(v *ResourceConfigurationResourceConfigurationDefinitionArgs) ResourceConfigurationResourceConfigurationDefinitionPtrInput {
+	return (*resourceConfigurationResourceConfigurationDefinitionPtrType)(v)
+}
+
+func (*resourceConfigurationResourceConfigurationDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationResourceConfigurationDefinition)(nil)).Elem()
+}
+
+func (i *resourceConfigurationResourceConfigurationDefinitionPtrType) ToResourceConfigurationResourceConfigurationDefinitionPtrOutput() ResourceConfigurationResourceConfigurationDefinitionPtrOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationResourceConfigurationDefinitionPtrType) ToResourceConfigurationResourceConfigurationDefinitionPtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionPtrOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationResourceConfigurationDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinition)(nil)).Elem()
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionOutput) ToResourceConfigurationResourceConfigurationDefinitionOutput() ResourceConfigurationResourceConfigurationDefinitionOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionOutput) ToResourceConfigurationResourceConfigurationDefinitionOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionOutput) ToResourceConfigurationResourceConfigurationDefinitionPtrOutput() ResourceConfigurationResourceConfigurationDefinitionPtrOutput {
+	return o.ToResourceConfigurationResourceConfigurationDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionOutput) ToResourceConfigurationResourceConfigurationDefinitionPtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinition {
+		return &v
+	}).(ResourceConfigurationResourceConfigurationDefinitionPtrOutput)
+}
+
+// Resource DNS Configuration. See `arnResource` Block for details.
+func (o ResourceConfigurationResourceConfigurationDefinitionOutput) ArnResource() ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput {
+	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionArnResource {
+		return v.ArnResource
+	}).(ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput)
+}
+
+// Resource DNS Configuration. See `dnsResource` Block for details.
+func (o ResourceConfigurationResourceConfigurationDefinitionOutput) DnsResource() ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
+	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionDnsResource {
+		return v.DnsResource
+	}).(ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput)
+}
+
+// Resource DNS Configuration. See `ipResource` Block for details.
+func (o ResourceConfigurationResourceConfigurationDefinitionOutput) IpResource() ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput {
+	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionIpResource {
+		return v.IpResource
+	}).(ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationResourceConfigurationDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationResourceConfigurationDefinition)(nil)).Elem()
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) ToResourceConfigurationResourceConfigurationDefinitionPtrOutput() ResourceConfigurationResourceConfigurationDefinitionPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) ToResourceConfigurationResourceConfigurationDefinitionPtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) Elem() ResourceConfigurationResourceConfigurationDefinitionOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinition) ResourceConfigurationResourceConfigurationDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationResourceConfigurationDefinition
+		return ret
+	}).(ResourceConfigurationResourceConfigurationDefinitionOutput)
+}
+
+// Resource DNS Configuration. See `arnResource` Block for details.
+func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) ArnResource() ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionArnResource {
+		if v == nil {
+			return nil
+		}
+		return v.ArnResource
+	}).(ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput)
+}
+
+// Resource DNS Configuration. See `dnsResource` Block for details.
+func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) DnsResource() ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionDnsResource {
+		if v == nil {
+			return nil
+		}
+		return v.DnsResource
+	}).(ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput)
+}
+
+// Resource DNS Configuration. See `ipResource` Block for details.
+func (o ResourceConfigurationResourceConfigurationDefinitionPtrOutput) IpResource() ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinition) *ResourceConfigurationResourceConfigurationDefinitionIpResource {
+		if v == nil {
+			return nil
+		}
+		return v.IpResource
+	}).(ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionArnResource struct {
+	// The ARN of the Resource for this configuration.
+	Arn string `pulumi:"arn"`
+}
+
+// ResourceConfigurationResourceConfigurationDefinitionArnResourceInput is an input type that accepts ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs and ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput values.
+// You can construct a concrete instance of `ResourceConfigurationResourceConfigurationDefinitionArnResourceInput` via:
+//
+//	ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs{...}
+type ResourceConfigurationResourceConfigurationDefinitionArnResourceInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationResourceConfigurationDefinitionArnResourceOutput() ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput
+	ToResourceConfigurationResourceConfigurationDefinitionArnResourceOutputWithContext(context.Context) ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs struct {
+	// The ARN of the Resource for this configuration.
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionArnResource)(nil)).Elem()
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionArnResourceOutput() ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionArnResourceOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionArnResourceOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput)
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput).ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrInput is an input type that accepts ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs, ResourceConfigurationResourceConfigurationDefinitionArnResourcePtr and ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrInput` via:
+//
+//	        ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput
+	ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutputWithContext(context.Context) ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput
+}
+
+type resourceConfigurationResourceConfigurationDefinitionArnResourcePtrType ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs
+
+func ResourceConfigurationResourceConfigurationDefinitionArnResourcePtr(v *ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs) ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrInput {
+	return (*resourceConfigurationResourceConfigurationDefinitionArnResourcePtrType)(v)
+}
+
+func (*resourceConfigurationResourceConfigurationDefinitionArnResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationResourceConfigurationDefinitionArnResource)(nil)).Elem()
+}
+
+func (i *resourceConfigurationResourceConfigurationDefinitionArnResourcePtrType) ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationResourceConfigurationDefinitionArnResourcePtrType) ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionArnResource)(nil)).Elem()
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionArnResourceOutput() ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionArnResourceOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput {
+	return o.ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationResourceConfigurationDefinitionArnResource) *ResourceConfigurationResourceConfigurationDefinitionArnResource {
+		return &v
+	}).(ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput)
+}
+
+// The ARN of the Resource for this configuration.
+func (o ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinitionArnResource) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationResourceConfigurationDefinitionArnResource)(nil)).Elem()
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput) ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput) ToResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput) Elem() ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionArnResource) ResourceConfigurationResourceConfigurationDefinitionArnResource {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationResourceConfigurationDefinitionArnResource
+		return ret
+	}).(ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput)
+}
+
+// The ARN of the Resource for this configuration.
+func (o ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionArnResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionDnsResource struct {
+	// The hostname of the Resource for this configuration.
+	DomainName string `pulumi:"domainName"`
+	// The IP Address type either `IPV4` or `IPV6`
+	IpAddressType string `pulumi:"ipAddressType"`
+}
+
+// ResourceConfigurationResourceConfigurationDefinitionDnsResourceInput is an input type that accepts ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs and ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput values.
+// You can construct a concrete instance of `ResourceConfigurationResourceConfigurationDefinitionDnsResourceInput` via:
+//
+//	ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{...}
+type ResourceConfigurationResourceConfigurationDefinitionDnsResourceInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput() ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput
+	ToResourceConfigurationResourceConfigurationDefinitionDnsResourceOutputWithContext(context.Context) ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs struct {
+	// The hostname of the Resource for this configuration.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The IP Address type either `IPV4` or `IPV6`
+	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
+}
+
+func (ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionDnsResource)(nil)).Elem()
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput() ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionDnsResourceOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionDnsResourceOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput)
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput).ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrInput is an input type that accepts ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs, ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtr and ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrInput` via:
+//
+//	        ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput
+	ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutputWithContext(context.Context) ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput
+}
+
+type resourceConfigurationResourceConfigurationDefinitionDnsResourcePtrType ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs
+
+func ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtr(v *ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs) ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrInput {
+	return (*resourceConfigurationResourceConfigurationDefinitionDnsResourcePtrType)(v)
+}
+
+func (*resourceConfigurationResourceConfigurationDefinitionDnsResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationResourceConfigurationDefinitionDnsResource)(nil)).Elem()
+}
+
+func (i *resourceConfigurationResourceConfigurationDefinitionDnsResourcePtrType) ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationResourceConfigurationDefinitionDnsResourcePtrType) ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionDnsResource)(nil)).Elem()
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput() ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionDnsResourceOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
+	return o.ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationResourceConfigurationDefinitionDnsResource) *ResourceConfigurationResourceConfigurationDefinitionDnsResource {
+		return &v
+	}).(ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput)
+}
+
+// The hostname of the Resource for this configuration.
+func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinitionDnsResource) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The IP Address type either `IPV4` or `IPV6`
+func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinitionDnsResource) string { return v.IpAddressType }).(pulumi.StringOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationResourceConfigurationDefinitionDnsResource)(nil)).Elem()
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput) ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput) ToResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput) Elem() ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionDnsResource) ResourceConfigurationResourceConfigurationDefinitionDnsResource {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationResourceConfigurationDefinitionDnsResource
+		return ret
+	}).(ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput)
+}
+
+// The hostname of the Resource for this configuration.
+func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionDnsResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP Address type either `IPV4` or `IPV6`
+func (o ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionDnsResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpAddressType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionIpResource struct {
+	// The IP Address of the Resource for this configuration.
+	IpAddress string `pulumi:"ipAddress"`
+}
+
+// ResourceConfigurationResourceConfigurationDefinitionIpResourceInput is an input type that accepts ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs and ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput values.
+// You can construct a concrete instance of `ResourceConfigurationResourceConfigurationDefinitionIpResourceInput` via:
+//
+//	ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs{...}
+type ResourceConfigurationResourceConfigurationDefinitionIpResourceInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationResourceConfigurationDefinitionIpResourceOutput() ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput
+	ToResourceConfigurationResourceConfigurationDefinitionIpResourceOutputWithContext(context.Context) ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs struct {
+	// The IP Address of the Resource for this configuration.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+}
+
+func (ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionIpResource)(nil)).Elem()
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionIpResourceOutput() ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionIpResourceOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionIpResourceOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput)
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs) ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput).ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrInput is an input type that accepts ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs, ResourceConfigurationResourceConfigurationDefinitionIpResourcePtr and ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrInput` via:
+//
+//	        ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput
+	ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutputWithContext(context.Context) ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput
+}
+
+type resourceConfigurationResourceConfigurationDefinitionIpResourcePtrType ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs
+
+func ResourceConfigurationResourceConfigurationDefinitionIpResourcePtr(v *ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs) ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrInput {
+	return (*resourceConfigurationResourceConfigurationDefinitionIpResourcePtrType)(v)
+}
+
+func (*resourceConfigurationResourceConfigurationDefinitionIpResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationResourceConfigurationDefinitionIpResource)(nil)).Elem()
+}
+
+func (i *resourceConfigurationResourceConfigurationDefinitionIpResourcePtrType) ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput {
+	return i.ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationResourceConfigurationDefinitionIpResourcePtrType) ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionIpResource)(nil)).Elem()
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionIpResourceOutput() ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionIpResourceOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput {
+	return o.ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput) ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationResourceConfigurationDefinitionIpResource) *ResourceConfigurationResourceConfigurationDefinitionIpResource {
+		return &v
+	}).(ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput)
+}
+
+// The IP Address of the Resource for this configuration.
+func (o ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceConfigurationResourceConfigurationDefinitionIpResource) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+type ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationResourceConfigurationDefinitionIpResource)(nil)).Elem()
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput) ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput() ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput) ToResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput) Elem() ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionIpResource) ResourceConfigurationResourceConfigurationDefinitionIpResource {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationResourceConfigurationDefinitionIpResource
+		return ret
+	}).(ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput)
+}
+
+// The IP Address of the Resource for this configuration.
+func (o ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationResourceConfigurationDefinitionIpResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceConfigurationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ResourceConfigurationTimeoutsInput is an input type that accepts ResourceConfigurationTimeoutsArgs and ResourceConfigurationTimeoutsOutput values.
+// You can construct a concrete instance of `ResourceConfigurationTimeoutsInput` via:
+//
+//	ResourceConfigurationTimeoutsArgs{...}
+type ResourceConfigurationTimeoutsInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationTimeoutsOutput() ResourceConfigurationTimeoutsOutput
+	ToResourceConfigurationTimeoutsOutputWithContext(context.Context) ResourceConfigurationTimeoutsOutput
+}
+
+type ResourceConfigurationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ResourceConfigurationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationTimeouts)(nil)).Elem()
+}
+
+func (i ResourceConfigurationTimeoutsArgs) ToResourceConfigurationTimeoutsOutput() ResourceConfigurationTimeoutsOutput {
+	return i.ToResourceConfigurationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationTimeoutsArgs) ToResourceConfigurationTimeoutsOutputWithContext(ctx context.Context) ResourceConfigurationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationTimeoutsOutput)
+}
+
+func (i ResourceConfigurationTimeoutsArgs) ToResourceConfigurationTimeoutsPtrOutput() ResourceConfigurationTimeoutsPtrOutput {
+	return i.ToResourceConfigurationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationTimeoutsArgs) ToResourceConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) ResourceConfigurationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationTimeoutsOutput).ToResourceConfigurationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationTimeoutsPtrInput is an input type that accepts ResourceConfigurationTimeoutsArgs, ResourceConfigurationTimeoutsPtr and ResourceConfigurationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationTimeoutsPtrInput` via:
+//
+//	        ResourceConfigurationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceConfigurationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationTimeoutsPtrOutput() ResourceConfigurationTimeoutsPtrOutput
+	ToResourceConfigurationTimeoutsPtrOutputWithContext(context.Context) ResourceConfigurationTimeoutsPtrOutput
+}
+
+type resourceConfigurationTimeoutsPtrType ResourceConfigurationTimeoutsArgs
+
+func ResourceConfigurationTimeoutsPtr(v *ResourceConfigurationTimeoutsArgs) ResourceConfigurationTimeoutsPtrInput {
+	return (*resourceConfigurationTimeoutsPtrType)(v)
+}
+
+func (*resourceConfigurationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationTimeouts)(nil)).Elem()
+}
+
+func (i *resourceConfigurationTimeoutsPtrType) ToResourceConfigurationTimeoutsPtrOutput() ResourceConfigurationTimeoutsPtrOutput {
+	return i.ToResourceConfigurationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationTimeoutsPtrType) ToResourceConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) ResourceConfigurationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationTimeoutsPtrOutput)
+}
+
+type ResourceConfigurationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationTimeouts)(nil)).Elem()
+}
+
+func (o ResourceConfigurationTimeoutsOutput) ToResourceConfigurationTimeoutsOutput() ResourceConfigurationTimeoutsOutput {
+	return o
+}
+
+func (o ResourceConfigurationTimeoutsOutput) ToResourceConfigurationTimeoutsOutputWithContext(ctx context.Context) ResourceConfigurationTimeoutsOutput {
+	return o
+}
+
+func (o ResourceConfigurationTimeoutsOutput) ToResourceConfigurationTimeoutsPtrOutput() ResourceConfigurationTimeoutsPtrOutput {
+	return o.ToResourceConfigurationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationTimeoutsOutput) ToResourceConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) ResourceConfigurationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationTimeouts) *ResourceConfigurationTimeouts {
+		return &v
+	}).(ResourceConfigurationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceConfigurationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceConfigurationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ResourceConfigurationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceConfigurationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceConfigurationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceConfigurationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ResourceConfigurationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationTimeouts)(nil)).Elem()
+}
+
+func (o ResourceConfigurationTimeoutsPtrOutput) ToResourceConfigurationTimeoutsPtrOutput() ResourceConfigurationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationTimeoutsPtrOutput) ToResourceConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) ResourceConfigurationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationTimeoutsPtrOutput) Elem() ResourceConfigurationTimeoutsOutput {
+	return o.ApplyT(func(v *ResourceConfigurationTimeouts) ResourceConfigurationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationTimeouts
+		return ret
+	}).(ResourceConfigurationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceConfigurationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ResourceConfigurationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceConfigurationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ResourceGatewayTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -2138,6 +2924,268 @@ func (o ServiceDnsEntryArrayOutput) Index(i pulumi.IntInput) ServiceDnsEntryOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDnsEntry {
 		return vs[0].([]ServiceDnsEntry)[vs[1].(int)]
 	}).(ServiceDnsEntryOutput)
+}
+
+type ServiceNetworkResourceAssociationDnsEntry struct {
+	// The domain name of the association in the service network.
+	DomainName string `pulumi:"domainName"`
+	// The ID of the hosted zone containing the domain name.
+	HostedZoneId string `pulumi:"hostedZoneId"`
+}
+
+// ServiceNetworkResourceAssociationDnsEntryInput is an input type that accepts ServiceNetworkResourceAssociationDnsEntryArgs and ServiceNetworkResourceAssociationDnsEntryOutput values.
+// You can construct a concrete instance of `ServiceNetworkResourceAssociationDnsEntryInput` via:
+//
+//	ServiceNetworkResourceAssociationDnsEntryArgs{...}
+type ServiceNetworkResourceAssociationDnsEntryInput interface {
+	pulumi.Input
+
+	ToServiceNetworkResourceAssociationDnsEntryOutput() ServiceNetworkResourceAssociationDnsEntryOutput
+	ToServiceNetworkResourceAssociationDnsEntryOutputWithContext(context.Context) ServiceNetworkResourceAssociationDnsEntryOutput
+}
+
+type ServiceNetworkResourceAssociationDnsEntryArgs struct {
+	// The domain name of the association in the service network.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The ID of the hosted zone containing the domain name.
+	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
+}
+
+func (ServiceNetworkResourceAssociationDnsEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkResourceAssociationDnsEntry)(nil)).Elem()
+}
+
+func (i ServiceNetworkResourceAssociationDnsEntryArgs) ToServiceNetworkResourceAssociationDnsEntryOutput() ServiceNetworkResourceAssociationDnsEntryOutput {
+	return i.ToServiceNetworkResourceAssociationDnsEntryOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkResourceAssociationDnsEntryArgs) ToServiceNetworkResourceAssociationDnsEntryOutputWithContext(ctx context.Context) ServiceNetworkResourceAssociationDnsEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkResourceAssociationDnsEntryOutput)
+}
+
+// ServiceNetworkResourceAssociationDnsEntryArrayInput is an input type that accepts ServiceNetworkResourceAssociationDnsEntryArray and ServiceNetworkResourceAssociationDnsEntryArrayOutput values.
+// You can construct a concrete instance of `ServiceNetworkResourceAssociationDnsEntryArrayInput` via:
+//
+//	ServiceNetworkResourceAssociationDnsEntryArray{ ServiceNetworkResourceAssociationDnsEntryArgs{...} }
+type ServiceNetworkResourceAssociationDnsEntryArrayInput interface {
+	pulumi.Input
+
+	ToServiceNetworkResourceAssociationDnsEntryArrayOutput() ServiceNetworkResourceAssociationDnsEntryArrayOutput
+	ToServiceNetworkResourceAssociationDnsEntryArrayOutputWithContext(context.Context) ServiceNetworkResourceAssociationDnsEntryArrayOutput
+}
+
+type ServiceNetworkResourceAssociationDnsEntryArray []ServiceNetworkResourceAssociationDnsEntryInput
+
+func (ServiceNetworkResourceAssociationDnsEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceNetworkResourceAssociationDnsEntry)(nil)).Elem()
+}
+
+func (i ServiceNetworkResourceAssociationDnsEntryArray) ToServiceNetworkResourceAssociationDnsEntryArrayOutput() ServiceNetworkResourceAssociationDnsEntryArrayOutput {
+	return i.ToServiceNetworkResourceAssociationDnsEntryArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkResourceAssociationDnsEntryArray) ToServiceNetworkResourceAssociationDnsEntryArrayOutputWithContext(ctx context.Context) ServiceNetworkResourceAssociationDnsEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkResourceAssociationDnsEntryArrayOutput)
+}
+
+type ServiceNetworkResourceAssociationDnsEntryOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkResourceAssociationDnsEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkResourceAssociationDnsEntry)(nil)).Elem()
+}
+
+func (o ServiceNetworkResourceAssociationDnsEntryOutput) ToServiceNetworkResourceAssociationDnsEntryOutput() ServiceNetworkResourceAssociationDnsEntryOutput {
+	return o
+}
+
+func (o ServiceNetworkResourceAssociationDnsEntryOutput) ToServiceNetworkResourceAssociationDnsEntryOutputWithContext(ctx context.Context) ServiceNetworkResourceAssociationDnsEntryOutput {
+	return o
+}
+
+// The domain name of the association in the service network.
+func (o ServiceNetworkResourceAssociationDnsEntryOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceNetworkResourceAssociationDnsEntry) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The ID of the hosted zone containing the domain name.
+func (o ServiceNetworkResourceAssociationDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceNetworkResourceAssociationDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+type ServiceNetworkResourceAssociationDnsEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkResourceAssociationDnsEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceNetworkResourceAssociationDnsEntry)(nil)).Elem()
+}
+
+func (o ServiceNetworkResourceAssociationDnsEntryArrayOutput) ToServiceNetworkResourceAssociationDnsEntryArrayOutput() ServiceNetworkResourceAssociationDnsEntryArrayOutput {
+	return o
+}
+
+func (o ServiceNetworkResourceAssociationDnsEntryArrayOutput) ToServiceNetworkResourceAssociationDnsEntryArrayOutputWithContext(ctx context.Context) ServiceNetworkResourceAssociationDnsEntryArrayOutput {
+	return o
+}
+
+func (o ServiceNetworkResourceAssociationDnsEntryArrayOutput) Index(i pulumi.IntInput) ServiceNetworkResourceAssociationDnsEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceNetworkResourceAssociationDnsEntry {
+		return vs[0].([]ServiceNetworkResourceAssociationDnsEntry)[vs[1].(int)]
+	}).(ServiceNetworkResourceAssociationDnsEntryOutput)
+}
+
+type ServiceNetworkResourceAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// ServiceNetworkResourceAssociationTimeoutsInput is an input type that accepts ServiceNetworkResourceAssociationTimeoutsArgs and ServiceNetworkResourceAssociationTimeoutsOutput values.
+// You can construct a concrete instance of `ServiceNetworkResourceAssociationTimeoutsInput` via:
+//
+//	ServiceNetworkResourceAssociationTimeoutsArgs{...}
+type ServiceNetworkResourceAssociationTimeoutsInput interface {
+	pulumi.Input
+
+	ToServiceNetworkResourceAssociationTimeoutsOutput() ServiceNetworkResourceAssociationTimeoutsOutput
+	ToServiceNetworkResourceAssociationTimeoutsOutputWithContext(context.Context) ServiceNetworkResourceAssociationTimeoutsOutput
+}
+
+type ServiceNetworkResourceAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (ServiceNetworkResourceAssociationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkResourceAssociationTimeouts)(nil)).Elem()
+}
+
+func (i ServiceNetworkResourceAssociationTimeoutsArgs) ToServiceNetworkResourceAssociationTimeoutsOutput() ServiceNetworkResourceAssociationTimeoutsOutput {
+	return i.ToServiceNetworkResourceAssociationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkResourceAssociationTimeoutsArgs) ToServiceNetworkResourceAssociationTimeoutsOutputWithContext(ctx context.Context) ServiceNetworkResourceAssociationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkResourceAssociationTimeoutsOutput)
+}
+
+func (i ServiceNetworkResourceAssociationTimeoutsArgs) ToServiceNetworkResourceAssociationTimeoutsPtrOutput() ServiceNetworkResourceAssociationTimeoutsPtrOutput {
+	return i.ToServiceNetworkResourceAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkResourceAssociationTimeoutsArgs) ToServiceNetworkResourceAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ServiceNetworkResourceAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkResourceAssociationTimeoutsOutput).ToServiceNetworkResourceAssociationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ServiceNetworkResourceAssociationTimeoutsPtrInput is an input type that accepts ServiceNetworkResourceAssociationTimeoutsArgs, ServiceNetworkResourceAssociationTimeoutsPtr and ServiceNetworkResourceAssociationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ServiceNetworkResourceAssociationTimeoutsPtrInput` via:
+//
+//	        ServiceNetworkResourceAssociationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceNetworkResourceAssociationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToServiceNetworkResourceAssociationTimeoutsPtrOutput() ServiceNetworkResourceAssociationTimeoutsPtrOutput
+	ToServiceNetworkResourceAssociationTimeoutsPtrOutputWithContext(context.Context) ServiceNetworkResourceAssociationTimeoutsPtrOutput
+}
+
+type serviceNetworkResourceAssociationTimeoutsPtrType ServiceNetworkResourceAssociationTimeoutsArgs
+
+func ServiceNetworkResourceAssociationTimeoutsPtr(v *ServiceNetworkResourceAssociationTimeoutsArgs) ServiceNetworkResourceAssociationTimeoutsPtrInput {
+	return (*serviceNetworkResourceAssociationTimeoutsPtrType)(v)
+}
+
+func (*serviceNetworkResourceAssociationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkResourceAssociationTimeouts)(nil)).Elem()
+}
+
+func (i *serviceNetworkResourceAssociationTimeoutsPtrType) ToServiceNetworkResourceAssociationTimeoutsPtrOutput() ServiceNetworkResourceAssociationTimeoutsPtrOutput {
+	return i.ToServiceNetworkResourceAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceNetworkResourceAssociationTimeoutsPtrType) ToServiceNetworkResourceAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ServiceNetworkResourceAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkResourceAssociationTimeoutsPtrOutput)
+}
+
+type ServiceNetworkResourceAssociationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkResourceAssociationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkResourceAssociationTimeouts)(nil)).Elem()
+}
+
+func (o ServiceNetworkResourceAssociationTimeoutsOutput) ToServiceNetworkResourceAssociationTimeoutsOutput() ServiceNetworkResourceAssociationTimeoutsOutput {
+	return o
+}
+
+func (o ServiceNetworkResourceAssociationTimeoutsOutput) ToServiceNetworkResourceAssociationTimeoutsOutputWithContext(ctx context.Context) ServiceNetworkResourceAssociationTimeoutsOutput {
+	return o
+}
+
+func (o ServiceNetworkResourceAssociationTimeoutsOutput) ToServiceNetworkResourceAssociationTimeoutsPtrOutput() ServiceNetworkResourceAssociationTimeoutsPtrOutput {
+	return o.ToServiceNetworkResourceAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkResourceAssociationTimeoutsOutput) ToServiceNetworkResourceAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ServiceNetworkResourceAssociationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNetworkResourceAssociationTimeouts) *ServiceNetworkResourceAssociationTimeouts {
+		return &v
+	}).(ServiceNetworkResourceAssociationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ServiceNetworkResourceAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceNetworkResourceAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ServiceNetworkResourceAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceNetworkResourceAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type ServiceNetworkResourceAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkResourceAssociationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkResourceAssociationTimeouts)(nil)).Elem()
+}
+
+func (o ServiceNetworkResourceAssociationTimeoutsPtrOutput) ToServiceNetworkResourceAssociationTimeoutsPtrOutput() ServiceNetworkResourceAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServiceNetworkResourceAssociationTimeoutsPtrOutput) ToServiceNetworkResourceAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ServiceNetworkResourceAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServiceNetworkResourceAssociationTimeoutsPtrOutput) Elem() ServiceNetworkResourceAssociationTimeoutsOutput {
+	return o.ApplyT(func(v *ServiceNetworkResourceAssociationTimeouts) ServiceNetworkResourceAssociationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNetworkResourceAssociationTimeouts
+		return ret
+	}).(ServiceNetworkResourceAssociationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ServiceNetworkResourceAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkResourceAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ServiceNetworkResourceAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkResourceAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceNetworkServiceAssociationDnsEntry struct {
@@ -3616,10 +4664,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatchPtrInput)(nil)).Elem(), ListenerRuleMatchHttpMatchPathMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatchMatchInput)(nil)).Elem(), ListenerRuleMatchHttpMatchPathMatchMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMatchHttpMatchPathMatchMatchPtrInput)(nil)).Elem(), ListenerRuleMatchHttpMatchPathMatchMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionPtrInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionArnResourceInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionDnsResourceInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionIpResourceInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrInput)(nil)).Elem(), ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationTimeoutsInput)(nil)).Elem(), ResourceConfigurationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationTimeoutsPtrInput)(nil)).Elem(), ResourceConfigurationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGatewayTimeoutsInput)(nil)).Elem(), ResourceGatewayTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGatewayTimeoutsPtrInput)(nil)).Elem(), ResourceGatewayTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsEntryInput)(nil)).Elem(), ServiceDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsEntryArrayInput)(nil)).Elem(), ServiceDnsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkResourceAssociationDnsEntryInput)(nil)).Elem(), ServiceNetworkResourceAssociationDnsEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkResourceAssociationDnsEntryArrayInput)(nil)).Elem(), ServiceNetworkResourceAssociationDnsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkResourceAssociationTimeoutsInput)(nil)).Elem(), ServiceNetworkResourceAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkResourceAssociationTimeoutsPtrInput)(nil)).Elem(), ServiceNetworkResourceAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntryInput)(nil)).Elem(), ServiceNetworkServiceAssociationDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntryArrayInput)(nil)).Elem(), ServiceNetworkServiceAssociationDnsEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupAttachmentTargetInput)(nil)).Elem(), TargetGroupAttachmentTargetArgs{})
@@ -3667,10 +4729,24 @@ func init() {
 	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchPathMatchPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchPathMatchMatchOutput{})
 	pulumi.RegisterOutputType(ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionArnResourceOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionArnResourcePtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionDnsResourceOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionDnsResourcePtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionIpResourceOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationResourceConfigurationDefinitionIpResourcePtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationTimeoutsOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGatewayTimeoutsOutput{})
 	pulumi.RegisterOutputType(ResourceGatewayTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDnsEntryOutput{})
 	pulumi.RegisterOutputType(ServiceDnsEntryArrayOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkResourceAssociationDnsEntryOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkResourceAssociationDnsEntryArrayOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkResourceAssociationTimeoutsOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkResourceAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationDnsEntryOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationDnsEntryArrayOutput{})
 	pulumi.RegisterOutputType(TargetGroupAttachmentTargetOutput{})

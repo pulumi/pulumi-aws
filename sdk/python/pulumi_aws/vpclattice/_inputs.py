@@ -43,10 +43,24 @@ __all__ = [
     'ListenerRuleMatchHttpMatchPathMatchArgsDict',
     'ListenerRuleMatchHttpMatchPathMatchMatchArgs',
     'ListenerRuleMatchHttpMatchPathMatchMatchArgsDict',
+    'ResourceConfigurationResourceConfigurationDefinitionArgs',
+    'ResourceConfigurationResourceConfigurationDefinitionArgsDict',
+    'ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs',
+    'ResourceConfigurationResourceConfigurationDefinitionArnResourceArgsDict',
+    'ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs',
+    'ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgsDict',
+    'ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs',
+    'ResourceConfigurationResourceConfigurationDefinitionIpResourceArgsDict',
+    'ResourceConfigurationTimeoutsArgs',
+    'ResourceConfigurationTimeoutsArgsDict',
     'ResourceGatewayTimeoutsArgs',
     'ResourceGatewayTimeoutsArgsDict',
     'ServiceDnsEntryArgs',
     'ServiceDnsEntryArgsDict',
+    'ServiceNetworkResourceAssociationDnsEntryArgs',
+    'ServiceNetworkResourceAssociationDnsEntryArgsDict',
+    'ServiceNetworkResourceAssociationTimeoutsArgs',
+    'ServiceNetworkResourceAssociationTimeoutsArgsDict',
     'ServiceNetworkServiceAssociationDnsEntryArgs',
     'ServiceNetworkServiceAssociationDnsEntryArgsDict',
     'TargetGroupAttachmentTargetArgs',
@@ -735,6 +749,262 @@ class ListenerRuleMatchHttpMatchPathMatchMatchArgs:
 
 
 if not MYPY:
+    class ResourceConfigurationResourceConfigurationDefinitionArgsDict(TypedDict):
+        arn_resource: NotRequired[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArnResourceArgsDict']]
+        """
+        Resource DNS Configuration. See `arn_resource` Block for details.
+        """
+        dns_resource: NotRequired[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgsDict']]
+        """
+        Resource DNS Configuration. See `dns_resource` Block for details.
+        """
+        ip_resource: NotRequired[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionIpResourceArgsDict']]
+        """
+        Resource DNS Configuration. See `ip_resource` Block for details.
+        """
+elif False:
+    ResourceConfigurationResourceConfigurationDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceConfigurationResourceConfigurationDefinitionArgs:
+    def __init__(__self__, *,
+                 arn_resource: Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs']] = None,
+                 dns_resource: Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs']] = None,
+                 ip_resource: Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs']] = None):
+        """
+        :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs'] arn_resource: Resource DNS Configuration. See `arn_resource` Block for details.
+        :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs'] dns_resource: Resource DNS Configuration. See `dns_resource` Block for details.
+        :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs'] ip_resource: Resource DNS Configuration. See `ip_resource` Block for details.
+        """
+        if arn_resource is not None:
+            pulumi.set(__self__, "arn_resource", arn_resource)
+        if dns_resource is not None:
+            pulumi.set(__self__, "dns_resource", dns_resource)
+        if ip_resource is not None:
+            pulumi.set(__self__, "ip_resource", ip_resource)
+
+    @property
+    @pulumi.getter(name="arnResource")
+    def arn_resource(self) -> Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs']]:
+        """
+        Resource DNS Configuration. See `arn_resource` Block for details.
+        """
+        return pulumi.get(self, "arn_resource")
+
+    @arn_resource.setter
+    def arn_resource(self, value: Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs']]):
+        pulumi.set(self, "arn_resource", value)
+
+    @property
+    @pulumi.getter(name="dnsResource")
+    def dns_resource(self) -> Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs']]:
+        """
+        Resource DNS Configuration. See `dns_resource` Block for details.
+        """
+        return pulumi.get(self, "dns_resource")
+
+    @dns_resource.setter
+    def dns_resource(self, value: Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs']]):
+        pulumi.set(self, "dns_resource", value)
+
+    @property
+    @pulumi.getter(name="ipResource")
+    def ip_resource(self) -> Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs']]:
+        """
+        Resource DNS Configuration. See `ip_resource` Block for details.
+        """
+        return pulumi.get(self, "ip_resource")
+
+    @ip_resource.setter
+    def ip_resource(self, value: Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs']]):
+        pulumi.set(self, "ip_resource", value)
+
+
+if not MYPY:
+    class ResourceConfigurationResourceConfigurationDefinitionArnResourceArgsDict(TypedDict):
+        arn: pulumi.Input[str]
+        """
+        The ARN of the Resource for this configuration.
+        """
+elif False:
+    ResourceConfigurationResourceConfigurationDefinitionArnResourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] arn: The ARN of the Resource for this configuration.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the Resource for this configuration.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
+
+if not MYPY:
+    class ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgsDict(TypedDict):
+        domain_name: pulumi.Input[str]
+        """
+        The hostname of the Resource for this configuration.
+        """
+        ip_address_type: pulumi.Input[str]
+        """
+        The IP Address type either `IPV4` or `IPV6`
+        """
+elif False:
+    ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 ip_address_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] domain_name: The hostname of the Resource for this configuration.
+        :param pulumi.Input[str] ip_address_type: The IP Address type either `IPV4` or `IPV6`
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The hostname of the Resource for this configuration.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Input[str]:
+        """
+        The IP Address type either `IPV4` or `IPV6`
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_address_type", value)
+
+
+if not MYPY:
+    class ResourceConfigurationResourceConfigurationDefinitionIpResourceArgsDict(TypedDict):
+        ip_address: pulumi.Input[str]
+        """
+        The IP Address of the Resource for this configuration.
+        """
+elif False:
+    ResourceConfigurationResourceConfigurationDefinitionIpResourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs:
+    def __init__(__self__, *,
+                 ip_address: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] ip_address: The IP Address of the Resource for this configuration.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> pulumi.Input[str]:
+        """
+        The IP Address of the Resource for this configuration.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_address", value)
+
+
+if not MYPY:
+    class ResourceConfigurationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    ResourceConfigurationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceConfigurationTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
     class ResourceGatewayTimeoutsArgsDict(TypedDict):
         create: NotRequired[pulumi.Input[str]]
         """
@@ -840,6 +1110,108 @@ class ServiceDnsEntryArgs:
     @hosted_zone_id.setter
     def hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hosted_zone_id", value)
+
+
+if not MYPY:
+    class ServiceNetworkResourceAssociationDnsEntryArgsDict(TypedDict):
+        domain_name: pulumi.Input[str]
+        """
+        The domain name of the association in the service network.
+        """
+        hosted_zone_id: pulumi.Input[str]
+        """
+        The ID of the hosted zone containing the domain name.
+        """
+elif False:
+    ServiceNetworkResourceAssociationDnsEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceNetworkResourceAssociationDnsEntryArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 hosted_zone_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] domain_name: The domain name of the association in the service network.
+        :param pulumi.Input[str] hosted_zone_id: The ID of the hosted zone containing the domain name.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        The domain name of the association in the service network.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the hosted zone containing the domain name.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+    @hosted_zone_id.setter
+    def hosted_zone_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hosted_zone_id", value)
+
+
+if not MYPY:
+    class ServiceNetworkResourceAssociationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    ServiceNetworkResourceAssociationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceNetworkResourceAssociationTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
 
 
 if not MYPY:

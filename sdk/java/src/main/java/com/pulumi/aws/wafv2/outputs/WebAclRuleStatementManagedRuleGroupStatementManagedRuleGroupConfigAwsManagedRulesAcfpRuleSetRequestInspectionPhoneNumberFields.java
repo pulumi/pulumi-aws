@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields {
+    /**
+     * @return The names of the phone number fields.
+     * 
+     */
     private List<String> identifiers;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields() {}
+    /**
+     * @return The names of the phone number fields.
+     * 
+     */
     public List<String> identifiers() {
         return this.identifiers;
     }

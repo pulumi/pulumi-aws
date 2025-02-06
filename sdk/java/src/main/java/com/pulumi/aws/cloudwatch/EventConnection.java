@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudwatch.EventConnectionArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventConnectionState;
 import com.pulumi.aws.cloudwatch.outputs.EventConnectionAuthParameters;
+import com.pulumi.aws.cloudwatch.outputs.EventConnectionInvocationConnectivityParameters;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -313,6 +314,20 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * The parameters to use for invoking a private API. Documented below.
+     * 
+     */
+    @Export(name="invocationConnectivityParameters", refs={EventConnectionInvocationConnectivityParameters.class}, tree="[0]")
+    private Output</* @Nullable */ EventConnectionInvocationConnectivityParameters> invocationConnectivityParameters;
+
+    /**
+     * @return The parameters to use for invoking a private API. Documented below.
+     * 
+     */
+    public Output<Optional<EventConnectionInvocationConnectivityParameters>> invocationConnectivityParameters() {
+        return Codegen.optional(this.invocationConnectivityParameters);
     }
     /**
      * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.

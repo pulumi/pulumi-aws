@@ -51,6 +51,8 @@ type Queue struct {
 
 	// The Arn of the queue
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+	ConcurrentJobs pulumi.IntOutput `pulumi:"concurrentJobs"`
 	// A description of the queue
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A unique identifier describing the queue
@@ -101,6 +103,8 @@ func GetQueue(ctx *pulumi.Context,
 type queueState struct {
 	// The Arn of the queue
 	Arn *string `pulumi:"arn"`
+	// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+	ConcurrentJobs *int `pulumi:"concurrentJobs"`
 	// A description of the queue
 	Description *string `pulumi:"description"`
 	// A unique identifier describing the queue
@@ -122,6 +126,8 @@ type queueState struct {
 type QueueState struct {
 	// The Arn of the queue
 	Arn pulumi.StringPtrInput
+	// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+	ConcurrentJobs pulumi.IntPtrInput
 	// A description of the queue
 	Description pulumi.StringPtrInput
 	// A unique identifier describing the queue
@@ -145,6 +151,8 @@ func (QueueState) ElementType() reflect.Type {
 }
 
 type queueArgs struct {
+	// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+	ConcurrentJobs *int `pulumi:"concurrentJobs"`
 	// A description of the queue
 	Description *string `pulumi:"description"`
 	// A unique identifier describing the queue
@@ -161,6 +169,8 @@ type queueArgs struct {
 
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
+	// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+	ConcurrentJobs pulumi.IntPtrInput
 	// A description of the queue
 	Description pulumi.StringPtrInput
 	// A unique identifier describing the queue
@@ -265,6 +275,11 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 // The Arn of the queue
 func (o QueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+func (o QueueOutput) ConcurrentJobs() pulumi.IntOutput {
+	return o.ApplyT(func(v *Queue) pulumi.IntOutput { return v.ConcurrentJobs }).(pulumi.IntOutput)
 }
 
 // A description of the queue

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ec2.outputs;
 
+import com.pulumi.aws.ec2.outputs.GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -17,6 +18,7 @@ import javax.annotation.Nullable;
 public final class GetLaunchTemplateNetworkInterface {
     private String associateCarrierIpAddress;
     private @Nullable Boolean associatePublicIpAddress;
+    private List<GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification> connectionTrackingSpecifications;
     private @Nullable Boolean deleteOnTermination;
     private String description;
     private Integer deviceIndex;
@@ -42,6 +44,9 @@ public final class GetLaunchTemplateNetworkInterface {
     }
     public Optional<Boolean> associatePublicIpAddress() {
         return Optional.ofNullable(this.associatePublicIpAddress);
+    }
+    public List<GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification> connectionTrackingSpecifications() {
+        return this.connectionTrackingSpecifications;
     }
     public Optional<Boolean> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
@@ -109,6 +114,7 @@ public final class GetLaunchTemplateNetworkInterface {
     public static final class Builder {
         private String associateCarrierIpAddress;
         private @Nullable Boolean associatePublicIpAddress;
+        private List<GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification> connectionTrackingSpecifications;
         private @Nullable Boolean deleteOnTermination;
         private String description;
         private Integer deviceIndex;
@@ -132,6 +138,7 @@ public final class GetLaunchTemplateNetworkInterface {
     	      Objects.requireNonNull(defaults);
     	      this.associateCarrierIpAddress = defaults.associateCarrierIpAddress;
     	      this.associatePublicIpAddress = defaults.associatePublicIpAddress;
+    	      this.connectionTrackingSpecifications = defaults.connectionTrackingSpecifications;
     	      this.deleteOnTermination = defaults.deleteOnTermination;
     	      this.description = defaults.description;
     	      this.deviceIndex = defaults.deviceIndex;
@@ -165,6 +172,17 @@ public final class GetLaunchTemplateNetworkInterface {
 
             this.associatePublicIpAddress = associatePublicIpAddress;
             return this;
+        }
+        @CustomType.Setter
+        public Builder connectionTrackingSpecifications(List<GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification> connectionTrackingSpecifications) {
+            if (connectionTrackingSpecifications == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "connectionTrackingSpecifications");
+            }
+            this.connectionTrackingSpecifications = connectionTrackingSpecifications;
+            return this;
+        }
+        public Builder connectionTrackingSpecifications(GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification... connectionTrackingSpecifications) {
+            return connectionTrackingSpecifications(List.of(connectionTrackingSpecifications));
         }
         @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
@@ -327,6 +345,7 @@ public final class GetLaunchTemplateNetworkInterface {
             final var _resultValue = new GetLaunchTemplateNetworkInterface();
             _resultValue.associateCarrierIpAddress = associateCarrierIpAddress;
             _resultValue.associatePublicIpAddress = associatePublicIpAddress;
+            _resultValue.connectionTrackingSpecifications = connectionTrackingSpecifications;
             _resultValue.deleteOnTermination = deleteOnTermination;
             _resultValue.description = description;
             _resultValue.deviceIndex = deviceIndex;

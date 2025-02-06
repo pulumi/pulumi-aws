@@ -214,8 +214,8 @@ def get_serverless_collection(id: Optional[str] = None,
     ```
 
 
-    :param str id: ID of the collection. Either `id` or `name` must be provided.
-    :param str name: Name of the collection. Either `name` or `id` must be provided.
+    :param str id: ID of the collection.
+    :param str name: Name of the collection.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -256,8 +256,8 @@ def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[str]]] =
     ```
 
 
-    :param str id: ID of the collection. Either `id` or `name` must be provided.
-    :param str name: Name of the collection. Either `name` or `id` must be provided.
+    :param str id: ID of the collection.
+    :param str name: Name of the collection.
     """
     __args__ = dict()
     __args__['id'] = id

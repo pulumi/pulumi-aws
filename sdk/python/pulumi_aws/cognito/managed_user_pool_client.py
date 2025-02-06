@@ -59,8 +59,8 @@ class ManagedUserPoolClientArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
         :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
-        :param pulumi.Input[str] name_pattern: Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
-        :param pulumi.Input[str] name_prefix: String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+        :param pulumi.Input[str] name_pattern: Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
+        :param pulumi.Input[str] name_prefix: String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
                
                The following arguments are optional:
         :param pulumi.Input[str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
@@ -286,7 +286,7 @@ class ManagedUserPoolClientArgs:
     @pulumi.getter(name="namePattern")
     def name_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+        Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
         """
         return pulumi.get(self, "name_pattern")
 
@@ -298,7 +298,7 @@ class ManagedUserPoolClientArgs:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+        String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
 
         The following arguments are optional:
         """
@@ -425,8 +425,8 @@ class _ManagedUserPoolClientState:
         :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] name: Name of the user pool client.
-        :param pulumi.Input[str] name_pattern: Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
-        :param pulumi.Input[str] name_prefix: String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+        :param pulumi.Input[str] name_pattern: Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
+        :param pulumi.Input[str] name_prefix: String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
                
                The following arguments are optional:
         :param pulumi.Input[str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
@@ -670,7 +670,7 @@ class _ManagedUserPoolClientState:
     @pulumi.getter(name="namePattern")
     def name_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+        Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
         """
         return pulumi.get(self, "name_pattern")
 
@@ -682,7 +682,7 @@ class _ManagedUserPoolClientState:
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+        String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
 
         The following arguments are optional:
         """
@@ -816,49 +816,15 @@ class ManagedUserPoolClient(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Using Name Pattern
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("example", name="example")
-        example_identity_pool = aws.cognito.IdentityPool("example", identity_pool_name="example")
-        current = aws.get_partition()
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "",
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": [f"es.{current.dns_suffix}"],
-            }],
-        }])
-        example_role = aws.iam.Role("example",
-            name="example-role",
-            path="/service-role/",
-            assume_role_policy=example.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example_role.name,
-            policy_arn=f"arn:{current.partition}:iam::aws:policy/AmazonESCognitoAccess")
-        example_domain = aws.opensearch.Domain("example",
-            domain_name="example",
-            cognito_options={
-                "enabled": True,
-                "user_pool_id": example_user_pool.id,
-                "identity_pool_id": example_identity_pool.id,
-                "role_arn": example_role.arn,
-            },
-            ebs_options={
-                "ebs_enabled": True,
-                "volume_size": 10,
-            },
-            opts = pulumi.ResourceOptions(depends_on=[
-                    example_aws_cognito_user_pool_domain,
-                    example_role_policy_attachment,
-                ]))
-        example_managed_user_pool_client = aws.cognito.ManagedUserPoolClient("example",
-            name_prefix="AmazonOpenSearchService-example",
-            user_pool_id=example_user_pool.id,
-            opts = pulumi.ResourceOptions(depends_on=[example_domain]))
+        example = aws.cognito.ManagedUserPoolClient("example",
+            name_pattern="^AmazonOpenSearchService-example-(\\\\w+)$",
+            user_pool_id=example_aws_cognito_user_pool["id"])
         ```
 
         ## Import
@@ -884,8 +850,8 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
         :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
-        :param pulumi.Input[str] name_pattern: Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
-        :param pulumi.Input[str] name_prefix: String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+        :param pulumi.Input[str] name_pattern: Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
+        :param pulumi.Input[str] name_prefix: String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
                
                The following arguments are optional:
         :param pulumi.Input[str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
@@ -913,49 +879,15 @@ class ManagedUserPoolClient(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Using Name Pattern
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("example", name="example")
-        example_identity_pool = aws.cognito.IdentityPool("example", identity_pool_name="example")
-        current = aws.get_partition()
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "",
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": [f"es.{current.dns_suffix}"],
-            }],
-        }])
-        example_role = aws.iam.Role("example",
-            name="example-role",
-            path="/service-role/",
-            assume_role_policy=example.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example_role.name,
-            policy_arn=f"arn:{current.partition}:iam::aws:policy/AmazonESCognitoAccess")
-        example_domain = aws.opensearch.Domain("example",
-            domain_name="example",
-            cognito_options={
-                "enabled": True,
-                "user_pool_id": example_user_pool.id,
-                "identity_pool_id": example_identity_pool.id,
-                "role_arn": example_role.arn,
-            },
-            ebs_options={
-                "ebs_enabled": True,
-                "volume_size": 10,
-            },
-            opts = pulumi.ResourceOptions(depends_on=[
-                    example_aws_cognito_user_pool_domain,
-                    example_role_policy_attachment,
-                ]))
-        example_managed_user_pool_client = aws.cognito.ManagedUserPoolClient("example",
-            name_prefix="AmazonOpenSearchService-example",
-            user_pool_id=example_user_pool.id,
-            opts = pulumi.ResourceOptions(depends_on=[example_domain]))
+        example = aws.cognito.ManagedUserPoolClient("example",
+            name_pattern="^AmazonOpenSearchService-example-(\\\\w+)$",
+            user_pool_id=example_aws_cognito_user_pool["id"])
         ```
 
         ## Import
@@ -1096,8 +1028,8 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] name: Name of the user pool client.
-        :param pulumi.Input[str] name_pattern: Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
-        :param pulumi.Input[str] name_prefix: String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+        :param pulumi.Input[str] name_pattern: Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
+        :param pulumi.Input[str] name_prefix: String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
                
                The following arguments are optional:
         :param pulumi.Input[str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
@@ -1262,7 +1194,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="namePattern")
     def name_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+        Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
         """
         return pulumi.get(self, "name_pattern")
 
@@ -1270,7 +1202,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
-        String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+        String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
 
         The following arguments are optional:
         """

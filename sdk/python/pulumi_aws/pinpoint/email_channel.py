@@ -24,6 +24,7 @@ class EmailChannelArgs:
                  identity: pulumi.Input[str],
                  configuration_set: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 orchestration_sending_role_arn: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EmailChannel resource.
@@ -32,6 +33,7 @@ class EmailChannelArgs:
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
+        :param pulumi.Input[str] orchestration_sending_role_arn: The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
         :param pulumi.Input[str] role_arn: *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         pulumi.set(__self__, "application_id", application_id)
@@ -41,6 +43,8 @@ class EmailChannelArgs:
             pulumi.set(__self__, "configuration_set", configuration_set)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if orchestration_sending_role_arn is not None:
+            pulumi.set(__self__, "orchestration_sending_role_arn", orchestration_sending_role_arn)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
@@ -105,6 +109,18 @@ class EmailChannelArgs:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter(name="orchestrationSendingRoleArn")
+    def orchestration_sending_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        """
+        return pulumi.get(self, "orchestration_sending_role_arn")
+
+    @orchestration_sending_role_arn.setter
+    def orchestration_sending_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "orchestration_sending_role_arn", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -126,6 +142,7 @@ class _EmailChannelState:
                  from_address: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[str]] = None,
                  messages_per_second: Optional[pulumi.Input[int]] = None,
+                 orchestration_sending_role_arn: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EmailChannel resources.
@@ -135,6 +152,7 @@ class _EmailChannelState:
         :param pulumi.Input[str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[int] messages_per_second: Messages per second that can be sent.
+        :param pulumi.Input[str] orchestration_sending_role_arn: The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
         :param pulumi.Input[str] role_arn: *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         if application_id is not None:
@@ -149,6 +167,8 @@ class _EmailChannelState:
             pulumi.set(__self__, "identity", identity)
         if messages_per_second is not None:
             pulumi.set(__self__, "messages_per_second", messages_per_second)
+        if orchestration_sending_role_arn is not None:
+            pulumi.set(__self__, "orchestration_sending_role_arn", orchestration_sending_role_arn)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
@@ -225,6 +245,18 @@ class _EmailChannelState:
         pulumi.set(self, "messages_per_second", value)
 
     @property
+    @pulumi.getter(name="orchestrationSendingRoleArn")
+    def orchestration_sending_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        """
+        return pulumi.get(self, "orchestration_sending_role_arn")
+
+    @orchestration_sending_role_arn.setter
+    def orchestration_sending_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "orchestration_sending_role_arn", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -247,6 +279,7 @@ class EmailChannel(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  from_address: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[str]] = None,
+                 orchestration_sending_role_arn: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -302,6 +335,7 @@ class EmailChannel(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
+        :param pulumi.Input[str] orchestration_sending_role_arn: The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
         :param pulumi.Input[str] role_arn: *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         ...
@@ -376,6 +410,7 @@ class EmailChannel(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  from_address: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[str]] = None,
+                 orchestration_sending_role_arn: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -397,6 +432,7 @@ class EmailChannel(pulumi.CustomResource):
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["orchestration_sending_role_arn"] = orchestration_sending_role_arn
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["messages_per_second"] = None
         super(EmailChannel, __self__).__init__(
@@ -415,6 +451,7 @@ class EmailChannel(pulumi.CustomResource):
             from_address: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[str]] = None,
             messages_per_second: Optional[pulumi.Input[int]] = None,
+            orchestration_sending_role_arn: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None) -> 'EmailChannel':
         """
         Get an existing EmailChannel resource's state with the given name, id, and optional extra
@@ -429,6 +466,7 @@ class EmailChannel(pulumi.CustomResource):
         :param pulumi.Input[str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[int] messages_per_second: Messages per second that can be sent.
+        :param pulumi.Input[str] orchestration_sending_role_arn: The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
         :param pulumi.Input[str] role_arn: *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -441,6 +479,7 @@ class EmailChannel(pulumi.CustomResource):
         __props__.__dict__["from_address"] = from_address
         __props__.__dict__["identity"] = identity
         __props__.__dict__["messages_per_second"] = messages_per_second
+        __props__.__dict__["orchestration_sending_role_arn"] = orchestration_sending_role_arn
         __props__.__dict__["role_arn"] = role_arn
         return EmailChannel(resource_name, opts=opts, __props__=__props__)
 
@@ -491,6 +530,14 @@ class EmailChannel(pulumi.CustomResource):
         Messages per second that can be sent.
         """
         return pulumi.get(self, "messages_per_second")
+
+    @property
+    @pulumi.getter(name="orchestrationSendingRoleArn")
+    def orchestration_sending_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        """
+        return pulumi.get(self, "orchestration_sending_role_arn")
 
     @property
     @pulumi.getter(name="roleArn")

@@ -30,8 +30,15 @@ __all__ = [
     'ListenerRuleMatchHttpMatchHeaderMatchMatch',
     'ListenerRuleMatchHttpMatchPathMatch',
     'ListenerRuleMatchHttpMatchPathMatchMatch',
+    'ResourceConfigurationResourceConfigurationDefinition',
+    'ResourceConfigurationResourceConfigurationDefinitionArnResource',
+    'ResourceConfigurationResourceConfigurationDefinitionDnsResource',
+    'ResourceConfigurationResourceConfigurationDefinitionIpResource',
+    'ResourceConfigurationTimeouts',
     'ResourceGatewayTimeouts',
     'ServiceDnsEntry',
+    'ServiceNetworkResourceAssociationDnsEntry',
+    'ServiceNetworkResourceAssociationTimeouts',
     'ServiceNetworkServiceAssociationDnsEntry',
     'TargetGroupAttachmentTarget',
     'TargetGroupConfig',
@@ -650,6 +657,214 @@ class ListenerRuleMatchHttpMatchPathMatchMatch(dict):
 
 
 @pulumi.output_type
+class ResourceConfigurationResourceConfigurationDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arnResource":
+            suggest = "arn_resource"
+        elif key == "dnsResource":
+            suggest = "dns_resource"
+        elif key == "ipResource":
+            suggest = "ip_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceConfigurationResourceConfigurationDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceConfigurationResourceConfigurationDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceConfigurationResourceConfigurationDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn_resource: Optional['outputs.ResourceConfigurationResourceConfigurationDefinitionArnResource'] = None,
+                 dns_resource: Optional['outputs.ResourceConfigurationResourceConfigurationDefinitionDnsResource'] = None,
+                 ip_resource: Optional['outputs.ResourceConfigurationResourceConfigurationDefinitionIpResource'] = None):
+        """
+        :param 'ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs' arn_resource: Resource DNS Configuration. See `arn_resource` Block for details.
+        :param 'ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs' dns_resource: Resource DNS Configuration. See `dns_resource` Block for details.
+        :param 'ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs' ip_resource: Resource DNS Configuration. See `ip_resource` Block for details.
+        """
+        if arn_resource is not None:
+            pulumi.set(__self__, "arn_resource", arn_resource)
+        if dns_resource is not None:
+            pulumi.set(__self__, "dns_resource", dns_resource)
+        if ip_resource is not None:
+            pulumi.set(__self__, "ip_resource", ip_resource)
+
+    @property
+    @pulumi.getter(name="arnResource")
+    def arn_resource(self) -> Optional['outputs.ResourceConfigurationResourceConfigurationDefinitionArnResource']:
+        """
+        Resource DNS Configuration. See `arn_resource` Block for details.
+        """
+        return pulumi.get(self, "arn_resource")
+
+    @property
+    @pulumi.getter(name="dnsResource")
+    def dns_resource(self) -> Optional['outputs.ResourceConfigurationResourceConfigurationDefinitionDnsResource']:
+        """
+        Resource DNS Configuration. See `dns_resource` Block for details.
+        """
+        return pulumi.get(self, "dns_resource")
+
+    @property
+    @pulumi.getter(name="ipResource")
+    def ip_resource(self) -> Optional['outputs.ResourceConfigurationResourceConfigurationDefinitionIpResource']:
+        """
+        Resource DNS Configuration. See `ip_resource` Block for details.
+        """
+        return pulumi.get(self, "ip_resource")
+
+
+@pulumi.output_type
+class ResourceConfigurationResourceConfigurationDefinitionArnResource(dict):
+    def __init__(__self__, *,
+                 arn: str):
+        """
+        :param str arn: The ARN of the Resource for this configuration.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the Resource for this configuration.
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class ResourceConfigurationResourceConfigurationDefinitionDnsResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceConfigurationResourceConfigurationDefinitionDnsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceConfigurationResourceConfigurationDefinitionDnsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceConfigurationResourceConfigurationDefinitionDnsResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: str,
+                 ip_address_type: str):
+        """
+        :param str domain_name: The hostname of the Resource for this configuration.
+        :param str ip_address_type: The IP Address type either `IPV4` or `IPV6`
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        The hostname of the Resource for this configuration.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> str:
+        """
+        The IP Address type either `IPV4` or `IPV6`
+        """
+        return pulumi.get(self, "ip_address_type")
+
+
+@pulumi.output_type
+class ResourceConfigurationResourceConfigurationDefinitionIpResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceConfigurationResourceConfigurationDefinitionIpResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceConfigurationResourceConfigurationDefinitionIpResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceConfigurationResourceConfigurationDefinitionIpResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: str):
+        """
+        :param str ip_address: The IP Address of the Resource for this configuration.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        The IP Address of the Resource for this configuration.
+        """
+        return pulumi.get(self, "ip_address")
+
+
+@pulumi.output_type
+class ResourceConfigurationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
 class ResourceGatewayTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
@@ -730,6 +945,85 @@ class ServiceDnsEntry(dict):
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[str]:
         return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class ServiceNetworkResourceAssociationDnsEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "hostedZoneId":
+            suggest = "hosted_zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNetworkResourceAssociationDnsEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNetworkResourceAssociationDnsEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNetworkResourceAssociationDnsEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: str,
+                 hosted_zone_id: str):
+        """
+        :param str domain_name: The domain name of the association in the service network.
+        :param str hosted_zone_id: The ID of the hosted zone containing the domain name.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        The domain name of the association in the service network.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> str:
+        """
+        The ID of the hosted zone containing the domain name.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class ServiceNetworkResourceAssociationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
 
 
 @pulumi.output_type

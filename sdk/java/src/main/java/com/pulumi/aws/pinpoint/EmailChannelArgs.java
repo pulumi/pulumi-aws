@@ -93,6 +93,21 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+     * 
+     */
+    @Import(name="orchestrationSendingRoleArn")
+    private @Nullable Output<String> orchestrationSendingRoleArn;
+
+    /**
+     * @return The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+     * 
+     */
+    public Optional<Output<String>> orchestrationSendingRoleArn() {
+        return Optional.ofNullable(this.orchestrationSendingRoleArn);
+    }
+
+    /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
      */
@@ -115,6 +130,7 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
         this.enabled = $.enabled;
         this.fromAddress = $.fromAddress;
         this.identity = $.identity;
+        this.orchestrationSendingRoleArn = $.orchestrationSendingRoleArn;
         this.roleArn = $.roleArn;
     }
 
@@ -239,6 +255,27 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder identity(String identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param orchestrationSendingRoleArn The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orchestrationSendingRoleArn(@Nullable Output<String> orchestrationSendingRoleArn) {
+            $.orchestrationSendingRoleArn = orchestrationSendingRoleArn;
+            return this;
+        }
+
+        /**
+         * @param orchestrationSendingRoleArn The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orchestrationSendingRoleArn(String orchestrationSendingRoleArn) {
+            return orchestrationSendingRoleArn(Output.of(orchestrationSendingRoleArn));
         }
 
         /**

@@ -4356,6 +4356,10 @@ if not MYPY:
         """
         Statistic of the metrics to return.
         """
+        period: NotRequired[pulumi.Input[int]]
+        """
+        The period of the metric in seconds.
+        """
         unit: NotRequired[pulumi.Input[str]]
         """
         Unit of the metrics to return.
@@ -4368,14 +4372,18 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetric
     def __init__(__self__, *,
                  metric: pulumi.Input['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs'],
                  stat: pulumi.Input[str],
+                 period: Optional[pulumi.Input[int]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs'] metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
         :param pulumi.Input[str] stat: Statistic of the metrics to return.
+        :param pulumi.Input[int] period: The period of the metric in seconds.
         :param pulumi.Input[str] unit: Unit of the metrics to return.
         """
         pulumi.set(__self__, "metric", metric)
         pulumi.set(__self__, "stat", stat)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
 
@@ -4402,6 +4410,18 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetric
     @stat.setter
     def stat(self, value: pulumi.Input[str]):
         pulumi.set(self, "stat", value)
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The period of the metric in seconds.
+        """
+        return pulumi.get(self, "period")
+
+    @period.setter
+    def period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period", value)
 
     @property
     @pulumi.getter

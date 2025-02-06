@@ -14029,6 +14029,8 @@ type LaunchTemplateNetworkInterface struct {
 	AssociateCarrierIpAddress *string `pulumi:"associateCarrierIpAddress"`
 	// Associate a public ip address with the network interface. Boolean value, can be left unset.
 	AssociatePublicIpAddress *string `pulumi:"associatePublicIpAddress"`
+	// The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+	ConnectionTrackingSpecification *LaunchTemplateNetworkInterfaceConnectionTrackingSpecification `pulumi:"connectionTrackingSpecification"`
 	// Whether the network interface should be destroyed on instance termination.
 	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
 	// Description of the network interface.
@@ -14083,6 +14085,8 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	AssociateCarrierIpAddress pulumi.StringPtrInput `pulumi:"associateCarrierIpAddress"`
 	// Associate a public ip address with the network interface. Boolean value, can be left unset.
 	AssociatePublicIpAddress pulumi.StringPtrInput `pulumi:"associatePublicIpAddress"`
+	// The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+	ConnectionTrackingSpecification LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrInput `pulumi:"connectionTrackingSpecification"`
 	// Whether the network interface should be destroyed on instance termination.
 	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
 	// Description of the network interface.
@@ -14180,6 +14184,13 @@ func (o LaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi
 // Associate a public ip address with the network interface. Boolean value, can be left unset.
 func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.AssociatePublicIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+func (o LaunchTemplateNetworkInterfaceOutput) ConnectionTrackingSpecification() LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *LaunchTemplateNetworkInterfaceConnectionTrackingSpecification {
+		return v.ConnectionTrackingSpecification
+	}).(LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput)
 }
 
 // Whether the network interface should be destroyed on instance termination.
@@ -14290,6 +14301,183 @@ func (o LaunchTemplateNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Laun
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateNetworkInterface {
 		return vs[0].([]LaunchTemplateNetworkInterface)[vs[1].(int)]
 	}).(LaunchTemplateNetworkInterfaceOutput)
+}
+
+type LaunchTemplateNetworkInterfaceConnectionTrackingSpecification struct {
+	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+	TcpEstablishedTimeout *int `pulumi:"tcpEstablishedTimeout"`
+	// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+	UdpStreamTimeout *int `pulumi:"udpStreamTimeout"`
+	// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+	UdpTimeout *int `pulumi:"udpTimeout"`
+}
+
+// LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationInput is an input type that accepts LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs and LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationInput` via:
+//
+//	LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs{...}
+type LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput() LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput
+	ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput
+}
+
+type LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs struct {
+	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+	TcpEstablishedTimeout pulumi.IntPtrInput `pulumi:"tcpEstablishedTimeout"`
+	// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+	UdpStreamTimeout pulumi.IntPtrInput `pulumi:"udpStreamTimeout"`
+	// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+	UdpTimeout pulumi.IntPtrInput `pulumi:"udpTimeout"`
+}
+
+func (LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs) ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput() LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput {
+	return i.ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs) ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput)
+}
+
+func (i LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs) ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput() LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return i.ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs) ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput).ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrInput is an input type that accepts LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs, LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtr and LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrInput` via:
+//
+//	        LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput() LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput
+	ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput
+}
+
+type launchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrType LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs
+
+func LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtr(v *LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs) LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrInput {
+	return (*launchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrType)(v)
+}
+
+func (*launchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (i *launchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrType) ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput() LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return i.ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrType) ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput)
+}
+
+type LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput() LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput() LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o.ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateNetworkInterfaceConnectionTrackingSpecification) *LaunchTemplateNetworkInterfaceConnectionTrackingSpecification {
+		return &v
+	}).(LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput)
+}
+
+// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterfaceConnectionTrackingSpecification) *int {
+		return v.TcpEstablishedTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterfaceConnectionTrackingSpecification) *int { return v.UdpStreamTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) UdpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterfaceConnectionTrackingSpecification) *int { return v.UdpTimeout }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput) ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput() LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput) ToLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput) Elem() LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceConnectionTrackingSpecification) LaunchTemplateNetworkInterfaceConnectionTrackingSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateNetworkInterfaceConnectionTrackingSpecification
+		return ret
+	}).(LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput)
+}
+
+// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceConnectionTrackingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TcpEstablishedTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceConnectionTrackingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UdpStreamTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput) UdpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceConnectionTrackingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UdpTimeout
+	}).(pulumi.IntPtrOutput)
 }
 
 type LaunchTemplatePlacement struct {
@@ -41680,26 +41868,27 @@ func (o GetLaunchTemplateMonitoringArrayOutput) Index(i pulumi.IntInput) GetLaun
 }
 
 type GetLaunchTemplateNetworkInterface struct {
-	AssociateCarrierIpAddress string   `pulumi:"associateCarrierIpAddress"`
-	AssociatePublicIpAddress  *bool    `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination       *bool    `pulumi:"deleteOnTermination"`
-	Description               string   `pulumi:"description"`
-	DeviceIndex               int      `pulumi:"deviceIndex"`
-	InterfaceType             string   `pulumi:"interfaceType"`
-	Ipv4AddressCount          int      `pulumi:"ipv4AddressCount"`
-	Ipv4Addresses             []string `pulumi:"ipv4Addresses"`
-	Ipv4PrefixCount           int      `pulumi:"ipv4PrefixCount"`
-	Ipv4Prefixes              []string `pulumi:"ipv4Prefixes"`
-	Ipv6AddressCount          int      `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses             []string `pulumi:"ipv6Addresses"`
-	Ipv6PrefixCount           int      `pulumi:"ipv6PrefixCount"`
-	Ipv6Prefixes              []string `pulumi:"ipv6Prefixes"`
-	NetworkCardIndex          int      `pulumi:"networkCardIndex"`
-	NetworkInterfaceId        string   `pulumi:"networkInterfaceId"`
-	PrimaryIpv6               string   `pulumi:"primaryIpv6"`
-	PrivateIpAddress          string   `pulumi:"privateIpAddress"`
-	SecurityGroups            []string `pulumi:"securityGroups"`
-	SubnetId                  string   `pulumi:"subnetId"`
+	AssociateCarrierIpAddress        string                                                             `pulumi:"associateCarrierIpAddress"`
+	AssociatePublicIpAddress         *bool                                                              `pulumi:"associatePublicIpAddress"`
+	ConnectionTrackingSpecifications []GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification `pulumi:"connectionTrackingSpecifications"`
+	DeleteOnTermination              *bool                                                              `pulumi:"deleteOnTermination"`
+	Description                      string                                                             `pulumi:"description"`
+	DeviceIndex                      int                                                                `pulumi:"deviceIndex"`
+	InterfaceType                    string                                                             `pulumi:"interfaceType"`
+	Ipv4AddressCount                 int                                                                `pulumi:"ipv4AddressCount"`
+	Ipv4Addresses                    []string                                                           `pulumi:"ipv4Addresses"`
+	Ipv4PrefixCount                  int                                                                `pulumi:"ipv4PrefixCount"`
+	Ipv4Prefixes                     []string                                                           `pulumi:"ipv4Prefixes"`
+	Ipv6AddressCount                 int                                                                `pulumi:"ipv6AddressCount"`
+	Ipv6Addresses                    []string                                                           `pulumi:"ipv6Addresses"`
+	Ipv6PrefixCount                  int                                                                `pulumi:"ipv6PrefixCount"`
+	Ipv6Prefixes                     []string                                                           `pulumi:"ipv6Prefixes"`
+	NetworkCardIndex                 int                                                                `pulumi:"networkCardIndex"`
+	NetworkInterfaceId               string                                                             `pulumi:"networkInterfaceId"`
+	PrimaryIpv6                      string                                                             `pulumi:"primaryIpv6"`
+	PrivateIpAddress                 string                                                             `pulumi:"privateIpAddress"`
+	SecurityGroups                   []string                                                           `pulumi:"securityGroups"`
+	SubnetId                         string                                                             `pulumi:"subnetId"`
 }
 
 // GetLaunchTemplateNetworkInterfaceInput is an input type that accepts GetLaunchTemplateNetworkInterfaceArgs and GetLaunchTemplateNetworkInterfaceOutput values.
@@ -41714,26 +41903,27 @@ type GetLaunchTemplateNetworkInterfaceInput interface {
 }
 
 type GetLaunchTemplateNetworkInterfaceArgs struct {
-	AssociateCarrierIpAddress pulumi.StringInput      `pulumi:"associateCarrierIpAddress"`
-	AssociatePublicIpAddress  pulumi.BoolPtrInput     `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination       pulumi.BoolPtrInput     `pulumi:"deleteOnTermination"`
-	Description               pulumi.StringInput      `pulumi:"description"`
-	DeviceIndex               pulumi.IntInput         `pulumi:"deviceIndex"`
-	InterfaceType             pulumi.StringInput      `pulumi:"interfaceType"`
-	Ipv4AddressCount          pulumi.IntInput         `pulumi:"ipv4AddressCount"`
-	Ipv4Addresses             pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
-	Ipv4PrefixCount           pulumi.IntInput         `pulumi:"ipv4PrefixCount"`
-	Ipv4Prefixes              pulumi.StringArrayInput `pulumi:"ipv4Prefixes"`
-	Ipv6AddressCount          pulumi.IntInput         `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses             pulumi.StringArrayInput `pulumi:"ipv6Addresses"`
-	Ipv6PrefixCount           pulumi.IntInput         `pulumi:"ipv6PrefixCount"`
-	Ipv6Prefixes              pulumi.StringArrayInput `pulumi:"ipv6Prefixes"`
-	NetworkCardIndex          pulumi.IntInput         `pulumi:"networkCardIndex"`
-	NetworkInterfaceId        pulumi.StringInput      `pulumi:"networkInterfaceId"`
-	PrimaryIpv6               pulumi.StringInput      `pulumi:"primaryIpv6"`
-	PrivateIpAddress          pulumi.StringInput      `pulumi:"privateIpAddress"`
-	SecurityGroups            pulumi.StringArrayInput `pulumi:"securityGroups"`
-	SubnetId                  pulumi.StringInput      `pulumi:"subnetId"`
+	AssociateCarrierIpAddress        pulumi.StringInput                                                         `pulumi:"associateCarrierIpAddress"`
+	AssociatePublicIpAddress         pulumi.BoolPtrInput                                                        `pulumi:"associatePublicIpAddress"`
+	ConnectionTrackingSpecifications GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayInput `pulumi:"connectionTrackingSpecifications"`
+	DeleteOnTermination              pulumi.BoolPtrInput                                                        `pulumi:"deleteOnTermination"`
+	Description                      pulumi.StringInput                                                         `pulumi:"description"`
+	DeviceIndex                      pulumi.IntInput                                                            `pulumi:"deviceIndex"`
+	InterfaceType                    pulumi.StringInput                                                         `pulumi:"interfaceType"`
+	Ipv4AddressCount                 pulumi.IntInput                                                            `pulumi:"ipv4AddressCount"`
+	Ipv4Addresses                    pulumi.StringArrayInput                                                    `pulumi:"ipv4Addresses"`
+	Ipv4PrefixCount                  pulumi.IntInput                                                            `pulumi:"ipv4PrefixCount"`
+	Ipv4Prefixes                     pulumi.StringArrayInput                                                    `pulumi:"ipv4Prefixes"`
+	Ipv6AddressCount                 pulumi.IntInput                                                            `pulumi:"ipv6AddressCount"`
+	Ipv6Addresses                    pulumi.StringArrayInput                                                    `pulumi:"ipv6Addresses"`
+	Ipv6PrefixCount                  pulumi.IntInput                                                            `pulumi:"ipv6PrefixCount"`
+	Ipv6Prefixes                     pulumi.StringArrayInput                                                    `pulumi:"ipv6Prefixes"`
+	NetworkCardIndex                 pulumi.IntInput                                                            `pulumi:"networkCardIndex"`
+	NetworkInterfaceId               pulumi.StringInput                                                         `pulumi:"networkInterfaceId"`
+	PrimaryIpv6                      pulumi.StringInput                                                         `pulumi:"primaryIpv6"`
+	PrivateIpAddress                 pulumi.StringInput                                                         `pulumi:"privateIpAddress"`
+	SecurityGroups                   pulumi.StringArrayInput                                                    `pulumi:"securityGroups"`
+	SubnetId                         pulumi.StringInput                                                         `pulumi:"subnetId"`
 }
 
 func (GetLaunchTemplateNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -41793,6 +41983,12 @@ func (o GetLaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pul
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetLaunchTemplateNetworkInterfaceOutput) ConnectionTrackingSpecifications() GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) []GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification {
+		return v.ConnectionTrackingSpecifications
+	}).(GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput)
 }
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
@@ -41885,6 +42081,116 @@ func (o GetLaunchTemplateNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) G
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateNetworkInterface {
 		return vs[0].([]GetLaunchTemplateNetworkInterface)[vs[1].(int)]
 	}).(GetLaunchTemplateNetworkInterfaceOutput)
+}
+
+type GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification struct {
+	TcpEstablishedTimeout int `pulumi:"tcpEstablishedTimeout"`
+	UdpStreamTimeout      int `pulumi:"udpStreamTimeout"`
+	UdpTimeout            int `pulumi:"udpTimeout"`
+}
+
+// GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationInput is an input type that accepts GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs and GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationInput` via:
+//
+//	GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs{...}
+type GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput() GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput
+	ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(context.Context) GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput
+}
+
+type GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs struct {
+	TcpEstablishedTimeout pulumi.IntInput `pulumi:"tcpEstablishedTimeout"`
+	UdpStreamTimeout      pulumi.IntInput `pulumi:"udpStreamTimeout"`
+	UdpTimeout            pulumi.IntInput `pulumi:"udpTimeout"`
+}
+
+func (GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs) ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput() GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput {
+	return i.ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs) ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(ctx context.Context) GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput)
+}
+
+// GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayInput is an input type that accepts GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArray and GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayInput` via:
+//
+//	GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArray{ GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs{...} }
+type GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput() GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput
+	ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutputWithContext(context.Context) GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput
+}
+
+type GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArray []GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationInput
+
+func (GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArray) ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput() GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput {
+	return i.ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArray) ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutputWithContext(ctx context.Context) GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput)
+}
+
+type GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput() GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput {
+	return o
+}
+
+func (o GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(ctx context.Context) GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput {
+	return o
+}
+
+func (o GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) TcpEstablishedTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification) int {
+		return v.TcpEstablishedTimeout
+	}).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) UdpStreamTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification) int {
+		return v.UdpStreamTimeout
+	}).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) UdpTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification) int { return v.UdpTimeout }).(pulumi.IntOutput)
+}
+
+type GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput) ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput() GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput) ToGetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutputWithContext(ctx context.Context) GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification {
+		return vs[0].([]GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecification)[vs[1].(int)]
+	}).(GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput)
 }
 
 type GetLaunchTemplatePlacement struct {
@@ -57036,6 +57342,100 @@ func (o GetVpcIamPoolsIpamPoolArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoo
 	}).(GetVpcIamPoolsIpamPoolOutput)
 }
 
+type GetVpcIpamOperatingRegion struct {
+	RegionName string `pulumi:"regionName"`
+}
+
+// GetVpcIpamOperatingRegionInput is an input type that accepts GetVpcIpamOperatingRegionArgs and GetVpcIpamOperatingRegionOutput values.
+// You can construct a concrete instance of `GetVpcIpamOperatingRegionInput` via:
+//
+//	GetVpcIpamOperatingRegionArgs{...}
+type GetVpcIpamOperatingRegionInput interface {
+	pulumi.Input
+
+	ToGetVpcIpamOperatingRegionOutput() GetVpcIpamOperatingRegionOutput
+	ToGetVpcIpamOperatingRegionOutputWithContext(context.Context) GetVpcIpamOperatingRegionOutput
+}
+
+type GetVpcIpamOperatingRegionArgs struct {
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+}
+
+func (GetVpcIpamOperatingRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIpamOperatingRegion)(nil)).Elem()
+}
+
+func (i GetVpcIpamOperatingRegionArgs) ToGetVpcIpamOperatingRegionOutput() GetVpcIpamOperatingRegionOutput {
+	return i.ToGetVpcIpamOperatingRegionOutputWithContext(context.Background())
+}
+
+func (i GetVpcIpamOperatingRegionArgs) ToGetVpcIpamOperatingRegionOutputWithContext(ctx context.Context) GetVpcIpamOperatingRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIpamOperatingRegionOutput)
+}
+
+// GetVpcIpamOperatingRegionArrayInput is an input type that accepts GetVpcIpamOperatingRegionArray and GetVpcIpamOperatingRegionArrayOutput values.
+// You can construct a concrete instance of `GetVpcIpamOperatingRegionArrayInput` via:
+//
+//	GetVpcIpamOperatingRegionArray{ GetVpcIpamOperatingRegionArgs{...} }
+type GetVpcIpamOperatingRegionArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcIpamOperatingRegionArrayOutput() GetVpcIpamOperatingRegionArrayOutput
+	ToGetVpcIpamOperatingRegionArrayOutputWithContext(context.Context) GetVpcIpamOperatingRegionArrayOutput
+}
+
+type GetVpcIpamOperatingRegionArray []GetVpcIpamOperatingRegionInput
+
+func (GetVpcIpamOperatingRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIpamOperatingRegion)(nil)).Elem()
+}
+
+func (i GetVpcIpamOperatingRegionArray) ToGetVpcIpamOperatingRegionArrayOutput() GetVpcIpamOperatingRegionArrayOutput {
+	return i.ToGetVpcIpamOperatingRegionArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcIpamOperatingRegionArray) ToGetVpcIpamOperatingRegionArrayOutputWithContext(ctx context.Context) GetVpcIpamOperatingRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIpamOperatingRegionArrayOutput)
+}
+
+type GetVpcIpamOperatingRegionOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIpamOperatingRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIpamOperatingRegion)(nil)).Elem()
+}
+
+func (o GetVpcIpamOperatingRegionOutput) ToGetVpcIpamOperatingRegionOutput() GetVpcIpamOperatingRegionOutput {
+	return o
+}
+
+func (o GetVpcIpamOperatingRegionOutput) ToGetVpcIpamOperatingRegionOutputWithContext(ctx context.Context) GetVpcIpamOperatingRegionOutput {
+	return o
+}
+
+func (o GetVpcIpamOperatingRegionOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+type GetVpcIpamOperatingRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIpamOperatingRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIpamOperatingRegion)(nil)).Elem()
+}
+
+func (o GetVpcIpamOperatingRegionArrayOutput) ToGetVpcIpamOperatingRegionArrayOutput() GetVpcIpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o GetVpcIpamOperatingRegionArrayOutput) ToGetVpcIpamOperatingRegionArrayOutputWithContext(ctx context.Context) GetVpcIpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o GetVpcIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) GetVpcIpamOperatingRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIpamOperatingRegion {
+		return vs[0].([]GetVpcIpamOperatingRegion)[vs[1].(int)]
+	}).(GetVpcIpamOperatingRegionOutput)
+}
+
 type GetVpcIpamPoolCidrsFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -57693,6 +58093,444 @@ func (o GetVpcIpamPoolsIpamPoolArrayOutput) Index(i pulumi.IntInput) GetVpcIpamP
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIpamPoolsIpamPool {
 		return vs[0].([]GetVpcIpamPoolsIpamPool)[vs[1].(int)]
 	}).(GetVpcIpamPoolsIpamPoolOutput)
+}
+
+type GetVpcIpamsFilter struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// An IPAM resource will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetVpcIpamsFilterInput is an input type that accepts GetVpcIpamsFilterArgs and GetVpcIpamsFilterOutput values.
+// You can construct a concrete instance of `GetVpcIpamsFilterInput` via:
+//
+//	GetVpcIpamsFilterArgs{...}
+type GetVpcIpamsFilterInput interface {
+	pulumi.Input
+
+	ToGetVpcIpamsFilterOutput() GetVpcIpamsFilterOutput
+	ToGetVpcIpamsFilterOutputWithContext(context.Context) GetVpcIpamsFilterOutput
+}
+
+type GetVpcIpamsFilterArgs struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// An IPAM resource will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetVpcIpamsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIpamsFilter)(nil)).Elem()
+}
+
+func (i GetVpcIpamsFilterArgs) ToGetVpcIpamsFilterOutput() GetVpcIpamsFilterOutput {
+	return i.ToGetVpcIpamsFilterOutputWithContext(context.Background())
+}
+
+func (i GetVpcIpamsFilterArgs) ToGetVpcIpamsFilterOutputWithContext(ctx context.Context) GetVpcIpamsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIpamsFilterOutput)
+}
+
+// GetVpcIpamsFilterArrayInput is an input type that accepts GetVpcIpamsFilterArray and GetVpcIpamsFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcIpamsFilterArrayInput` via:
+//
+//	GetVpcIpamsFilterArray{ GetVpcIpamsFilterArgs{...} }
+type GetVpcIpamsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcIpamsFilterArrayOutput() GetVpcIpamsFilterArrayOutput
+	ToGetVpcIpamsFilterArrayOutputWithContext(context.Context) GetVpcIpamsFilterArrayOutput
+}
+
+type GetVpcIpamsFilterArray []GetVpcIpamsFilterInput
+
+func (GetVpcIpamsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIpamsFilter)(nil)).Elem()
+}
+
+func (i GetVpcIpamsFilterArray) ToGetVpcIpamsFilterArrayOutput() GetVpcIpamsFilterArrayOutput {
+	return i.ToGetVpcIpamsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcIpamsFilterArray) ToGetVpcIpamsFilterArrayOutputWithContext(ctx context.Context) GetVpcIpamsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIpamsFilterArrayOutput)
+}
+
+type GetVpcIpamsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIpamsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIpamsFilter)(nil)).Elem()
+}
+
+func (o GetVpcIpamsFilterOutput) ToGetVpcIpamsFilterOutput() GetVpcIpamsFilterOutput {
+	return o
+}
+
+func (o GetVpcIpamsFilterOutput) ToGetVpcIpamsFilterOutputWithContext(ctx context.Context) GetVpcIpamsFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+func (o GetVpcIpamsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// An IPAM resource will be selected if any one of the given values matches.
+func (o GetVpcIpamsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcIpamsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetVpcIpamsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIpamsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIpamsFilter)(nil)).Elem()
+}
+
+func (o GetVpcIpamsFilterArrayOutput) ToGetVpcIpamsFilterArrayOutput() GetVpcIpamsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcIpamsFilterArrayOutput) ToGetVpcIpamsFilterArrayOutputWithContext(ctx context.Context) GetVpcIpamsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcIpamsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIpamsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIpamsFilter {
+		return vs[0].([]GetVpcIpamsFilter)[vs[1].(int)]
+	}).(GetVpcIpamsFilterOutput)
+}
+
+type GetVpcIpamsIpam struct {
+	// ARN of the IPAM.
+	Arn string `pulumi:"arn"`
+	// The default resource discovery association ID.
+	DefaultResourceDiscoveryAssociationId string `pulumi:"defaultResourceDiscoveryAssociationId"`
+	// The default resource discovery ID.
+	DefaultResourceDiscoveryId string `pulumi:"defaultResourceDiscoveryId"`
+	// Description for the IPAM.
+	Description string `pulumi:"description"`
+	// If private GUA is enabled.
+	EnablePrivateGua bool `pulumi:"enablePrivateGua"`
+	// ID of the IPAM resource.
+	Id string `pulumi:"id"`
+	// Region that the IPAM exists in.
+	IpamRegion string `pulumi:"ipamRegion"`
+	// Regions that the IPAM is configured to operate in.
+	OperatingRegions []GetVpcIpamsIpamOperatingRegion `pulumi:"operatingRegions"`
+	// ID of the account that owns this IPAM.
+	OwnerId string `pulumi:"ownerId"`
+	// ID of the default private scope.
+	PrivateDefaultScopeId string `pulumi:"privateDefaultScopeId"`
+	// ID of the default public scope.
+	PublicDefaultScopeId string `pulumi:"publicDefaultScopeId"`
+	// Number of resource discovery associations.
+	ResourceDiscoveryAssociationCount float64 `pulumi:"resourceDiscoveryAssociationCount"`
+	// Number of scopes on this IPAM.
+	ScopeCount float64 `pulumi:"scopeCount"`
+	// Current state of the IPAM.
+	State string `pulumi:"state"`
+	// State message of the IPAM.
+	StateMessage string `pulumi:"stateMessage"`
+	// IPAM Tier.
+	Tier string `pulumi:"tier"`
+}
+
+// GetVpcIpamsIpamInput is an input type that accepts GetVpcIpamsIpamArgs and GetVpcIpamsIpamOutput values.
+// You can construct a concrete instance of `GetVpcIpamsIpamInput` via:
+//
+//	GetVpcIpamsIpamArgs{...}
+type GetVpcIpamsIpamInput interface {
+	pulumi.Input
+
+	ToGetVpcIpamsIpamOutput() GetVpcIpamsIpamOutput
+	ToGetVpcIpamsIpamOutputWithContext(context.Context) GetVpcIpamsIpamOutput
+}
+
+type GetVpcIpamsIpamArgs struct {
+	// ARN of the IPAM.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The default resource discovery association ID.
+	DefaultResourceDiscoveryAssociationId pulumi.StringInput `pulumi:"defaultResourceDiscoveryAssociationId"`
+	// The default resource discovery ID.
+	DefaultResourceDiscoveryId pulumi.StringInput `pulumi:"defaultResourceDiscoveryId"`
+	// Description for the IPAM.
+	Description pulumi.StringInput `pulumi:"description"`
+	// If private GUA is enabled.
+	EnablePrivateGua pulumi.BoolInput `pulumi:"enablePrivateGua"`
+	// ID of the IPAM resource.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region that the IPAM exists in.
+	IpamRegion pulumi.StringInput `pulumi:"ipamRegion"`
+	// Regions that the IPAM is configured to operate in.
+	OperatingRegions GetVpcIpamsIpamOperatingRegionArrayInput `pulumi:"operatingRegions"`
+	// ID of the account that owns this IPAM.
+	OwnerId pulumi.StringInput `pulumi:"ownerId"`
+	// ID of the default private scope.
+	PrivateDefaultScopeId pulumi.StringInput `pulumi:"privateDefaultScopeId"`
+	// ID of the default public scope.
+	PublicDefaultScopeId pulumi.StringInput `pulumi:"publicDefaultScopeId"`
+	// Number of resource discovery associations.
+	ResourceDiscoveryAssociationCount pulumi.Float64Input `pulumi:"resourceDiscoveryAssociationCount"`
+	// Number of scopes on this IPAM.
+	ScopeCount pulumi.Float64Input `pulumi:"scopeCount"`
+	// Current state of the IPAM.
+	State pulumi.StringInput `pulumi:"state"`
+	// State message of the IPAM.
+	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
+	// IPAM Tier.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (GetVpcIpamsIpamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIpamsIpam)(nil)).Elem()
+}
+
+func (i GetVpcIpamsIpamArgs) ToGetVpcIpamsIpamOutput() GetVpcIpamsIpamOutput {
+	return i.ToGetVpcIpamsIpamOutputWithContext(context.Background())
+}
+
+func (i GetVpcIpamsIpamArgs) ToGetVpcIpamsIpamOutputWithContext(ctx context.Context) GetVpcIpamsIpamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIpamsIpamOutput)
+}
+
+// GetVpcIpamsIpamArrayInput is an input type that accepts GetVpcIpamsIpamArray and GetVpcIpamsIpamArrayOutput values.
+// You can construct a concrete instance of `GetVpcIpamsIpamArrayInput` via:
+//
+//	GetVpcIpamsIpamArray{ GetVpcIpamsIpamArgs{...} }
+type GetVpcIpamsIpamArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcIpamsIpamArrayOutput() GetVpcIpamsIpamArrayOutput
+	ToGetVpcIpamsIpamArrayOutputWithContext(context.Context) GetVpcIpamsIpamArrayOutput
+}
+
+type GetVpcIpamsIpamArray []GetVpcIpamsIpamInput
+
+func (GetVpcIpamsIpamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIpamsIpam)(nil)).Elem()
+}
+
+func (i GetVpcIpamsIpamArray) ToGetVpcIpamsIpamArrayOutput() GetVpcIpamsIpamArrayOutput {
+	return i.ToGetVpcIpamsIpamArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcIpamsIpamArray) ToGetVpcIpamsIpamArrayOutputWithContext(ctx context.Context) GetVpcIpamsIpamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIpamsIpamArrayOutput)
+}
+
+type GetVpcIpamsIpamOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIpamsIpamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIpamsIpam)(nil)).Elem()
+}
+
+func (o GetVpcIpamsIpamOutput) ToGetVpcIpamsIpamOutput() GetVpcIpamsIpamOutput {
+	return o
+}
+
+func (o GetVpcIpamsIpamOutput) ToGetVpcIpamsIpamOutputWithContext(ctx context.Context) GetVpcIpamsIpamOutput {
+	return o
+}
+
+// ARN of the IPAM.
+func (o GetVpcIpamsIpamOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The default resource discovery association ID.
+func (o GetVpcIpamsIpamOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.DefaultResourceDiscoveryAssociationId }).(pulumi.StringOutput)
+}
+
+// The default resource discovery ID.
+func (o GetVpcIpamsIpamOutput) DefaultResourceDiscoveryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.DefaultResourceDiscoveryId }).(pulumi.StringOutput)
+}
+
+// Description for the IPAM.
+func (o GetVpcIpamsIpamOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// If private GUA is enabled.
+func (o GetVpcIpamsIpamOutput) EnablePrivateGua() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) bool { return v.EnablePrivateGua }).(pulumi.BoolOutput)
+}
+
+// ID of the IPAM resource.
+func (o GetVpcIpamsIpamOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Region that the IPAM exists in.
+func (o GetVpcIpamsIpamOutput) IpamRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.IpamRegion }).(pulumi.StringOutput)
+}
+
+// Regions that the IPAM is configured to operate in.
+func (o GetVpcIpamsIpamOutput) OperatingRegions() GetVpcIpamsIpamOperatingRegionArrayOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) []GetVpcIpamsIpamOperatingRegion { return v.OperatingRegions }).(GetVpcIpamsIpamOperatingRegionArrayOutput)
+}
+
+// ID of the account that owns this IPAM.
+func (o GetVpcIpamsIpamOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// ID of the default private scope.
+func (o GetVpcIpamsIpamOutput) PrivateDefaultScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.PrivateDefaultScopeId }).(pulumi.StringOutput)
+}
+
+// ID of the default public scope.
+func (o GetVpcIpamsIpamOutput) PublicDefaultScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.PublicDefaultScopeId }).(pulumi.StringOutput)
+}
+
+// Number of resource discovery associations.
+func (o GetVpcIpamsIpamOutput) ResourceDiscoveryAssociationCount() pulumi.Float64Output {
+	return o.ApplyT(func(v GetVpcIpamsIpam) float64 { return v.ResourceDiscoveryAssociationCount }).(pulumi.Float64Output)
+}
+
+// Number of scopes on this IPAM.
+func (o GetVpcIpamsIpamOutput) ScopeCount() pulumi.Float64Output {
+	return o.ApplyT(func(v GetVpcIpamsIpam) float64 { return v.ScopeCount }).(pulumi.Float64Output)
+}
+
+// Current state of the IPAM.
+func (o GetVpcIpamsIpamOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.State }).(pulumi.StringOutput)
+}
+
+// State message of the IPAM.
+func (o GetVpcIpamsIpamOutput) StateMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.StateMessage }).(pulumi.StringOutput)
+}
+
+// IPAM Tier.
+func (o GetVpcIpamsIpamOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+type GetVpcIpamsIpamArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIpamsIpamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIpamsIpam)(nil)).Elem()
+}
+
+func (o GetVpcIpamsIpamArrayOutput) ToGetVpcIpamsIpamArrayOutput() GetVpcIpamsIpamArrayOutput {
+	return o
+}
+
+func (o GetVpcIpamsIpamArrayOutput) ToGetVpcIpamsIpamArrayOutputWithContext(ctx context.Context) GetVpcIpamsIpamArrayOutput {
+	return o
+}
+
+func (o GetVpcIpamsIpamArrayOutput) Index(i pulumi.IntInput) GetVpcIpamsIpamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIpamsIpam {
+		return vs[0].([]GetVpcIpamsIpam)[vs[1].(int)]
+	}).(GetVpcIpamsIpamOutput)
+}
+
+type GetVpcIpamsIpamOperatingRegion struct {
+	RegionName string `pulumi:"regionName"`
+}
+
+// GetVpcIpamsIpamOperatingRegionInput is an input type that accepts GetVpcIpamsIpamOperatingRegionArgs and GetVpcIpamsIpamOperatingRegionOutput values.
+// You can construct a concrete instance of `GetVpcIpamsIpamOperatingRegionInput` via:
+//
+//	GetVpcIpamsIpamOperatingRegionArgs{...}
+type GetVpcIpamsIpamOperatingRegionInput interface {
+	pulumi.Input
+
+	ToGetVpcIpamsIpamOperatingRegionOutput() GetVpcIpamsIpamOperatingRegionOutput
+	ToGetVpcIpamsIpamOperatingRegionOutputWithContext(context.Context) GetVpcIpamsIpamOperatingRegionOutput
+}
+
+type GetVpcIpamsIpamOperatingRegionArgs struct {
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+}
+
+func (GetVpcIpamsIpamOperatingRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIpamsIpamOperatingRegion)(nil)).Elem()
+}
+
+func (i GetVpcIpamsIpamOperatingRegionArgs) ToGetVpcIpamsIpamOperatingRegionOutput() GetVpcIpamsIpamOperatingRegionOutput {
+	return i.ToGetVpcIpamsIpamOperatingRegionOutputWithContext(context.Background())
+}
+
+func (i GetVpcIpamsIpamOperatingRegionArgs) ToGetVpcIpamsIpamOperatingRegionOutputWithContext(ctx context.Context) GetVpcIpamsIpamOperatingRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIpamsIpamOperatingRegionOutput)
+}
+
+// GetVpcIpamsIpamOperatingRegionArrayInput is an input type that accepts GetVpcIpamsIpamOperatingRegionArray and GetVpcIpamsIpamOperatingRegionArrayOutput values.
+// You can construct a concrete instance of `GetVpcIpamsIpamOperatingRegionArrayInput` via:
+//
+//	GetVpcIpamsIpamOperatingRegionArray{ GetVpcIpamsIpamOperatingRegionArgs{...} }
+type GetVpcIpamsIpamOperatingRegionArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcIpamsIpamOperatingRegionArrayOutput() GetVpcIpamsIpamOperatingRegionArrayOutput
+	ToGetVpcIpamsIpamOperatingRegionArrayOutputWithContext(context.Context) GetVpcIpamsIpamOperatingRegionArrayOutput
+}
+
+type GetVpcIpamsIpamOperatingRegionArray []GetVpcIpamsIpamOperatingRegionInput
+
+func (GetVpcIpamsIpamOperatingRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIpamsIpamOperatingRegion)(nil)).Elem()
+}
+
+func (i GetVpcIpamsIpamOperatingRegionArray) ToGetVpcIpamsIpamOperatingRegionArrayOutput() GetVpcIpamsIpamOperatingRegionArrayOutput {
+	return i.ToGetVpcIpamsIpamOperatingRegionArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcIpamsIpamOperatingRegionArray) ToGetVpcIpamsIpamOperatingRegionArrayOutputWithContext(ctx context.Context) GetVpcIpamsIpamOperatingRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIpamsIpamOperatingRegionArrayOutput)
+}
+
+type GetVpcIpamsIpamOperatingRegionOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIpamsIpamOperatingRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIpamsIpamOperatingRegion)(nil)).Elem()
+}
+
+func (o GetVpcIpamsIpamOperatingRegionOutput) ToGetVpcIpamsIpamOperatingRegionOutput() GetVpcIpamsIpamOperatingRegionOutput {
+	return o
+}
+
+func (o GetVpcIpamsIpamOperatingRegionOutput) ToGetVpcIpamsIpamOperatingRegionOutputWithContext(ctx context.Context) GetVpcIpamsIpamOperatingRegionOutput {
+	return o
+}
+
+func (o GetVpcIpamsIpamOperatingRegionOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpamOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+type GetVpcIpamsIpamOperatingRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIpamsIpamOperatingRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIpamsIpamOperatingRegion)(nil)).Elem()
+}
+
+func (o GetVpcIpamsIpamOperatingRegionArrayOutput) ToGetVpcIpamsIpamOperatingRegionArrayOutput() GetVpcIpamsIpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o GetVpcIpamsIpamOperatingRegionArrayOutput) ToGetVpcIpamsIpamOperatingRegionArrayOutputWithContext(ctx context.Context) GetVpcIpamsIpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o GetVpcIpamsIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) GetVpcIpamsIpamOperatingRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIpamsIpamOperatingRegion {
+		return vs[0].([]GetVpcIpamsIpamOperatingRegion)[vs[1].(int)]
+	}).(GetVpcIpamsIpamOperatingRegionOutput)
 }
 
 type GetVpcPeeringConnectionCidrBlockSet struct {
@@ -58688,6 +59526,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMonitoringPtrInput)(nil)).Elem(), LaunchTemplateMonitoringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceArrayInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementPtrInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateDnsNameOptionsInput)(nil)).Elem(), LaunchTemplatePrivateDnsNameOptionsArgs{})
@@ -59109,6 +59949,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateMonitoringArrayInput)(nil)).Elem(), GetLaunchTemplateMonitoringArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateNetworkInterfaceInput)(nil)).Elem(), GetLaunchTemplateNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateNetworkInterfaceArrayInput)(nil)).Elem(), GetLaunchTemplateNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationInput)(nil)).Elem(), GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayInput)(nil)).Elem(), GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplatePlacementInput)(nil)).Elem(), GetLaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplatePlacementArrayInput)(nil)).Elem(), GetLaunchTemplatePlacementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplatePrivateDnsNameOptionInput)(nil)).Elem(), GetLaunchTemplatePrivateDnsNameOptionArgs{})
@@ -59363,6 +60205,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolsFilterArrayInput)(nil)).Elem(), GetVpcIamPoolsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolsIpamPoolInput)(nil)).Elem(), GetVpcIamPoolsIpamPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolsIpamPoolArrayInput)(nil)).Elem(), GetVpcIamPoolsIpamPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamOperatingRegionInput)(nil)).Elem(), GetVpcIpamOperatingRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamOperatingRegionArrayInput)(nil)).Elem(), GetVpcIpamOperatingRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolCidrsFilterInput)(nil)).Elem(), GetVpcIpamPoolCidrsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolCidrsFilterArrayInput)(nil)).Elem(), GetVpcIpamPoolCidrsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolCidrsIpamPoolCidrInput)(nil)).Elem(), GetVpcIpamPoolCidrsIpamPoolCidrArgs{})
@@ -59373,6 +60217,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolsFilterArrayInput)(nil)).Elem(), GetVpcIpamPoolsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolsIpamPoolInput)(nil)).Elem(), GetVpcIpamPoolsIpamPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolsIpamPoolArrayInput)(nil)).Elem(), GetVpcIpamPoolsIpamPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamsFilterInput)(nil)).Elem(), GetVpcIpamsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamsFilterArrayInput)(nil)).Elem(), GetVpcIpamsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamsIpamInput)(nil)).Elem(), GetVpcIpamsIpamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamsIpamArrayInput)(nil)).Elem(), GetVpcIpamsIpamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamsIpamOperatingRegionInput)(nil)).Elem(), GetVpcIpamsIpamOperatingRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamsIpamOperatingRegionArrayInput)(nil)).Elem(), GetVpcIpamsIpamOperatingRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSetInput)(nil)).Elem(), GetVpcPeeringConnectionCidrBlockSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSetArrayInput)(nil)).Elem(), GetVpcPeeringConnectionCidrBlockSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionFilterInput)(nil)).Elem(), GetVpcPeeringConnectionFilterArgs{})
@@ -59551,6 +60401,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateMonitoringPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePlacementOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePlacementPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePrivateDnsNameOptionsOutput{})
@@ -59972,6 +60824,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchTemplateMonitoringArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplatePlacementOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplatePlacementArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplatePrivateDnsNameOptionOutput{})
@@ -60226,6 +61080,8 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcIamPoolsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcIamPoolsIpamPoolOutput{})
 	pulumi.RegisterOutputType(GetVpcIamPoolsIpamPoolArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcIpamOperatingRegionOutput{})
+	pulumi.RegisterOutputType(GetVpcIpamOperatingRegionArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamPoolCidrsFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamPoolCidrsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamPoolCidrsIpamPoolCidrOutput{})
@@ -60236,6 +61092,12 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcIpamPoolsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamPoolsIpamPoolOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamPoolsIpamPoolArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcIpamsFilterOutput{})
+	pulumi.RegisterOutputType(GetVpcIpamsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcIpamsIpamOutput{})
+	pulumi.RegisterOutputType(GetVpcIpamsIpamArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcIpamsIpamOperatingRegionOutput{})
+	pulumi.RegisterOutputType(GetVpcIpamsIpamOperatingRegionArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterOutput{})

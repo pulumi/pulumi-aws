@@ -120,14 +120,14 @@ public class LogDelivery extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="fieldDelimiter", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> fieldDelimiter;
+    private Output<String> fieldDelimiter;
 
     /**
      * @return The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
      * 
      */
-    public Output<Optional<String>> fieldDelimiter() {
-        return Codegen.optional(this.fieldDelimiter);
+    public Output<String> fieldDelimiter() {
+        return this.fieldDelimiter;
     }
     /**
      * The list of record fields to be delivered to the destination, in order.

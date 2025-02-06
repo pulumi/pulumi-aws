@@ -166,6 +166,54 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
+    /// ### VPC Lattice Resource Configuration Endpoint Type
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ec2.VpcEndpoint("example", new()
+    ///     {
+    ///         ResourceConfigurationArn = exampleAwsVpclatticeResourceConfiguration.Arn,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
+    ///         VpcEndpointType = "Resource",
+    ///         VpcId = exampleAwsVpc.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### VPC Lattice Service Network Endpoint Type
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ec2.VpcEndpoint("example", new()
+    ///     {
+    ///         ServiceNetworkArn = exampleAwsVpclatticeServiceNetwork.Arn,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
+    ///         VpcEndpointType = "ServiceNetwork",
+    ///         VpcId = exampleAwsVpc.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
@@ -251,6 +299,12 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> RequesterManaged { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// </summary>
+        [Output("resourceConfigurationArn")]
+        public Output<string?> ResourceConfigurationArn { get; private set; } = null!;
+
+        /// <summary>
         /// One or more route table IDs. Applicable for endpoints of type `Gateway`.
         /// </summary>
         [Output("routeTableIds")]
@@ -264,10 +318,16 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         /// </summary>
         [Output("serviceName")]
-        public Output<string> ServiceName { get; private set; } = null!;
+        public Output<string?> ServiceName { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// </summary>
+        [Output("serviceNetworkArn")]
+        public Output<string?> ServiceNetworkArn { get; private set; } = null!;
 
         /// <summary>
         /// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
@@ -306,7 +366,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
         /// </summary>
         [Output("vpcEndpointType")]
         public Output<string?> VpcEndpointType { get; private set; } = null!;
@@ -394,6 +454,12 @@ namespace Pulumi.Aws.Ec2
         [Input("privateDnsEnabled")]
         public Input<bool>? PrivateDnsEnabled { get; set; }
 
+        /// <summary>
+        /// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// </summary>
+        [Input("resourceConfigurationArn")]
+        public Input<string>? ResourceConfigurationArn { get; set; }
+
         [Input("routeTableIds")]
         private InputList<string>? _routeTableIds;
 
@@ -420,10 +486,16 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public Input<string> ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
+
+        /// <summary>
+        /// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// </summary>
+        [Input("serviceNetworkArn")]
+        public Input<string>? ServiceNetworkArn { get; set; }
 
         /// <summary>
         /// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
@@ -468,7 +540,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
         /// </summary>
         [Input("vpcEndpointType")]
         public Input<string>? VpcEndpointType { get; set; }
@@ -578,6 +650,12 @@ namespace Pulumi.Aws.Ec2
         [Input("requesterManaged")]
         public Input<bool>? RequesterManaged { get; set; }
 
+        /// <summary>
+        /// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// </summary>
+        [Input("resourceConfigurationArn")]
+        public Input<string>? ResourceConfigurationArn { get; set; }
+
         [Input("routeTableIds")]
         private InputList<string>? _routeTableIds;
 
@@ -604,10 +682,16 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
+
+        /// <summary>
+        /// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// </summary>
+        [Input("serviceNetworkArn")]
+        public Input<string>? ServiceNetworkArn { get; set; }
 
         /// <summary>
         /// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
@@ -671,7 +755,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
         /// </summary>
         [Input("vpcEndpointType")]
         public Input<string>? VpcEndpointType { get; set; }

@@ -3,10 +3,14 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
@@ -15,6 +19,16 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
      * 
      */
     private String embeddingModelArn;
+    /**
+     * @return The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
+     * 
+     */
+    private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration embeddingModelConfiguration;
+    /**
+     * @return supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
+     * 
+     */
+    private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration supplementalDataStorageConfiguration;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration() {}
     /**
@@ -23,6 +37,20 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
      */
     public String embeddingModelArn() {
         return this.embeddingModelArn;
+    }
+    /**
+     * @return The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
+     * 
+     */
+    public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration> embeddingModelConfiguration() {
+        return Optional.ofNullable(this.embeddingModelConfiguration);
+    }
+    /**
+     * @return supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
+     * 
+     */
+    public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration> supplementalDataStorageConfiguration() {
+        return Optional.ofNullable(this.supplementalDataStorageConfiguration);
     }
 
     public static Builder builder() {
@@ -35,10 +63,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
     @CustomType.Builder
     public static final class Builder {
         private String embeddingModelArn;
+        private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration embeddingModelConfiguration;
+        private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration supplementalDataStorageConfiguration;
         public Builder() {}
         public Builder(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.embeddingModelArn = defaults.embeddingModelArn;
+    	      this.embeddingModelConfiguration = defaults.embeddingModelConfiguration;
+    	      this.supplementalDataStorageConfiguration = defaults.supplementalDataStorageConfiguration;
         }
 
         @CustomType.Setter
@@ -49,9 +81,23 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
             this.embeddingModelArn = embeddingModelArn;
             return this;
         }
+        @CustomType.Setter
+        public Builder embeddingModelConfiguration(@Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration embeddingModelConfiguration) {
+
+            this.embeddingModelConfiguration = embeddingModelConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder supplementalDataStorageConfiguration(@Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration supplementalDataStorageConfiguration) {
+
+            this.supplementalDataStorageConfiguration = supplementalDataStorageConfiguration;
+            return this;
+        }
         public AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration build() {
             final var _resultValue = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration();
             _resultValue.embeddingModelArn = embeddingModelArn;
+            _resultValue.embeddingModelConfiguration = embeddingModelConfiguration;
+            _resultValue.supplementalDataStorageConfiguration = supplementalDataStorageConfiguration;
             return _resultValue;
         }
     }

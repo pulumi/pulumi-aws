@@ -34,6 +34,21 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * ARN of the attachment.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return ARN of the attachment.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
@@ -210,6 +225,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
 
     private VpcAttachmentState(VpcAttachmentState $) {
         this.applianceModeSupport = $.applianceModeSupport;
+        this.arn = $.arn;
         this.dnsSupport = $.dnsSupport;
         this.ipv6Support = $.ipv6Support;
         this.securityGroupReferencingSupport = $.securityGroupReferencingSupport;
@@ -260,6 +276,27 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder applianceModeSupport(String applianceModeSupport) {
             return applianceModeSupport(Output.of(applianceModeSupport));
+        }
+
+        /**
+         * @param arn ARN of the attachment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn ARN of the attachment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

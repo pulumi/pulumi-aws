@@ -293,6 +293,8 @@ class Link(pulumi.CustomResource):
         """
         Resource for managing an AWS CloudWatch Observability Access Manager Link.
 
+        > **NOTE:** Creating an `oam.Link` may sometimes fail if the `oam.SinkPolicy` for the attached `oam.Sink` is not created before the `oam.Link`. To prevent this, declare an explicit dependency using a `depends_on` meta-argument.
+
         ## Example Usage
 
         ### Basic Usage
@@ -301,13 +303,16 @@ class Link(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        example_sink = aws.oam.Sink("example")
+        example_sink_policy = aws.oam.SinkPolicy("example", sink_identifier=example_sink.arn)
         example = aws.oam.Link("example",
             label_template="$AccountName",
             resource_types=["AWS::CloudWatch::Metric"],
-            sink_identifier=test["id"],
+            sink_identifier=example_sink.arn,
             tags={
                 "Env": "prod",
-            })
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example_sink_policy]))
         ```
 
         ### Log Group Filtering
@@ -324,7 +329,8 @@ class Link(pulumi.CustomResource):
                 },
             },
             resource_types=["AWS::Logs::LogGroup"],
-            sink_identifier=test["id"])
+            sink_identifier=example_aws_oam_sink["arn"],
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_oam_sink_policy]))
         ```
 
         ### Metric Filtering
@@ -341,7 +347,8 @@ class Link(pulumi.CustomResource):
                 },
             },
             resource_types=["AWS::CloudWatch::Metric"],
-            sink_identifier=test["id"])
+            sink_identifier=example_aws_oam_sink["arn"],
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_oam_sink_policy]))
         ```
 
         ## Import
@@ -371,6 +378,8 @@ class Link(pulumi.CustomResource):
         """
         Resource for managing an AWS CloudWatch Observability Access Manager Link.
 
+        > **NOTE:** Creating an `oam.Link` may sometimes fail if the `oam.SinkPolicy` for the attached `oam.Sink` is not created before the `oam.Link`. To prevent this, declare an explicit dependency using a `depends_on` meta-argument.
+
         ## Example Usage
 
         ### Basic Usage
@@ -379,13 +388,16 @@ class Link(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        example_sink = aws.oam.Sink("example")
+        example_sink_policy = aws.oam.SinkPolicy("example", sink_identifier=example_sink.arn)
         example = aws.oam.Link("example",
             label_template="$AccountName",
             resource_types=["AWS::CloudWatch::Metric"],
-            sink_identifier=test["id"],
+            sink_identifier=example_sink.arn,
             tags={
                 "Env": "prod",
-            })
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example_sink_policy]))
         ```
 
         ### Log Group Filtering
@@ -402,7 +414,8 @@ class Link(pulumi.CustomResource):
                 },
             },
             resource_types=["AWS::Logs::LogGroup"],
-            sink_identifier=test["id"])
+            sink_identifier=example_aws_oam_sink["arn"],
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_oam_sink_policy]))
         ```
 
         ### Metric Filtering
@@ -419,7 +432,8 @@ class Link(pulumi.CustomResource):
                 },
             },
             resource_types=["AWS::CloudWatch::Metric"],
-            sink_identifier=test["id"])
+            sink_identifier=example_aws_oam_sink["arn"],
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_oam_sink_policy]))
         ```
 
         ## Import

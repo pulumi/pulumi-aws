@@ -7448,6 +7448,1290 @@ func (o GetClusterSettingArrayOutput) Index(i pulumi.IntInput) GetClusterSetting
 	}).(GetClusterSettingOutput)
 }
 
+type GetTaskDefinitionEphemeralStorage struct {
+	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+	SizeInGib int `pulumi:"sizeInGib"`
+}
+
+// GetTaskDefinitionEphemeralStorageInput is an input type that accepts GetTaskDefinitionEphemeralStorageArgs and GetTaskDefinitionEphemeralStorageOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionEphemeralStorageInput` via:
+//
+//	GetTaskDefinitionEphemeralStorageArgs{...}
+type GetTaskDefinitionEphemeralStorageInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionEphemeralStorageOutput() GetTaskDefinitionEphemeralStorageOutput
+	ToGetTaskDefinitionEphemeralStorageOutputWithContext(context.Context) GetTaskDefinitionEphemeralStorageOutput
+}
+
+type GetTaskDefinitionEphemeralStorageArgs struct {
+	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+	SizeInGib pulumi.IntInput `pulumi:"sizeInGib"`
+}
+
+func (GetTaskDefinitionEphemeralStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionEphemeralStorageArgs) ToGetTaskDefinitionEphemeralStorageOutput() GetTaskDefinitionEphemeralStorageOutput {
+	return i.ToGetTaskDefinitionEphemeralStorageOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionEphemeralStorageArgs) ToGetTaskDefinitionEphemeralStorageOutputWithContext(ctx context.Context) GetTaskDefinitionEphemeralStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionEphemeralStorageOutput)
+}
+
+// GetTaskDefinitionEphemeralStorageArrayInput is an input type that accepts GetTaskDefinitionEphemeralStorageArray and GetTaskDefinitionEphemeralStorageArrayOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionEphemeralStorageArrayInput` via:
+//
+//	GetTaskDefinitionEphemeralStorageArray{ GetTaskDefinitionEphemeralStorageArgs{...} }
+type GetTaskDefinitionEphemeralStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionEphemeralStorageArrayOutput() GetTaskDefinitionEphemeralStorageArrayOutput
+	ToGetTaskDefinitionEphemeralStorageArrayOutputWithContext(context.Context) GetTaskDefinitionEphemeralStorageArrayOutput
+}
+
+type GetTaskDefinitionEphemeralStorageArray []GetTaskDefinitionEphemeralStorageInput
+
+func (GetTaskDefinitionEphemeralStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionEphemeralStorageArray) ToGetTaskDefinitionEphemeralStorageArrayOutput() GetTaskDefinitionEphemeralStorageArrayOutput {
+	return i.ToGetTaskDefinitionEphemeralStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionEphemeralStorageArray) ToGetTaskDefinitionEphemeralStorageArrayOutputWithContext(ctx context.Context) GetTaskDefinitionEphemeralStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionEphemeralStorageArrayOutput)
+}
+
+type GetTaskDefinitionEphemeralStorageOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionEphemeralStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionEphemeralStorageOutput) ToGetTaskDefinitionEphemeralStorageOutput() GetTaskDefinitionEphemeralStorageOutput {
+	return o
+}
+
+func (o GetTaskDefinitionEphemeralStorageOutput) ToGetTaskDefinitionEphemeralStorageOutputWithContext(ctx context.Context) GetTaskDefinitionEphemeralStorageOutput {
+	return o
+}
+
+// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+func (o GetTaskDefinitionEphemeralStorageOutput) SizeInGib() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTaskDefinitionEphemeralStorage) int { return v.SizeInGib }).(pulumi.IntOutput)
+}
+
+type GetTaskDefinitionEphemeralStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionEphemeralStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionEphemeralStorageArrayOutput) ToGetTaskDefinitionEphemeralStorageArrayOutput() GetTaskDefinitionEphemeralStorageArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionEphemeralStorageArrayOutput) ToGetTaskDefinitionEphemeralStorageArrayOutputWithContext(ctx context.Context) GetTaskDefinitionEphemeralStorageArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionEphemeralStorageArrayOutput) Index(i pulumi.IntInput) GetTaskDefinitionEphemeralStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskDefinitionEphemeralStorage {
+		return vs[0].([]GetTaskDefinitionEphemeralStorage)[vs[1].(int)]
+	}).(GetTaskDefinitionEphemeralStorageOutput)
+}
+
+type GetTaskDefinitionInferenceAccelerator struct {
+	// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+	DeviceName string `pulumi:"deviceName"`
+	// Elastic Inference accelerator type to use.
+	DeviceType string `pulumi:"deviceType"`
+}
+
+// GetTaskDefinitionInferenceAcceleratorInput is an input type that accepts GetTaskDefinitionInferenceAcceleratorArgs and GetTaskDefinitionInferenceAcceleratorOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionInferenceAcceleratorInput` via:
+//
+//	GetTaskDefinitionInferenceAcceleratorArgs{...}
+type GetTaskDefinitionInferenceAcceleratorInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionInferenceAcceleratorOutput() GetTaskDefinitionInferenceAcceleratorOutput
+	ToGetTaskDefinitionInferenceAcceleratorOutputWithContext(context.Context) GetTaskDefinitionInferenceAcceleratorOutput
+}
+
+type GetTaskDefinitionInferenceAcceleratorArgs struct {
+	// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// Elastic Inference accelerator type to use.
+	DeviceType pulumi.StringInput `pulumi:"deviceType"`
+}
+
+func (GetTaskDefinitionInferenceAcceleratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionInferenceAccelerator)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionInferenceAcceleratorArgs) ToGetTaskDefinitionInferenceAcceleratorOutput() GetTaskDefinitionInferenceAcceleratorOutput {
+	return i.ToGetTaskDefinitionInferenceAcceleratorOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionInferenceAcceleratorArgs) ToGetTaskDefinitionInferenceAcceleratorOutputWithContext(ctx context.Context) GetTaskDefinitionInferenceAcceleratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionInferenceAcceleratorOutput)
+}
+
+// GetTaskDefinitionInferenceAcceleratorArrayInput is an input type that accepts GetTaskDefinitionInferenceAcceleratorArray and GetTaskDefinitionInferenceAcceleratorArrayOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionInferenceAcceleratorArrayInput` via:
+//
+//	GetTaskDefinitionInferenceAcceleratorArray{ GetTaskDefinitionInferenceAcceleratorArgs{...} }
+type GetTaskDefinitionInferenceAcceleratorArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionInferenceAcceleratorArrayOutput() GetTaskDefinitionInferenceAcceleratorArrayOutput
+	ToGetTaskDefinitionInferenceAcceleratorArrayOutputWithContext(context.Context) GetTaskDefinitionInferenceAcceleratorArrayOutput
+}
+
+type GetTaskDefinitionInferenceAcceleratorArray []GetTaskDefinitionInferenceAcceleratorInput
+
+func (GetTaskDefinitionInferenceAcceleratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionInferenceAccelerator)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionInferenceAcceleratorArray) ToGetTaskDefinitionInferenceAcceleratorArrayOutput() GetTaskDefinitionInferenceAcceleratorArrayOutput {
+	return i.ToGetTaskDefinitionInferenceAcceleratorArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionInferenceAcceleratorArray) ToGetTaskDefinitionInferenceAcceleratorArrayOutputWithContext(ctx context.Context) GetTaskDefinitionInferenceAcceleratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionInferenceAcceleratorArrayOutput)
+}
+
+type GetTaskDefinitionInferenceAcceleratorOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionInferenceAcceleratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionInferenceAccelerator)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionInferenceAcceleratorOutput) ToGetTaskDefinitionInferenceAcceleratorOutput() GetTaskDefinitionInferenceAcceleratorOutput {
+	return o
+}
+
+func (o GetTaskDefinitionInferenceAcceleratorOutput) ToGetTaskDefinitionInferenceAcceleratorOutputWithContext(ctx context.Context) GetTaskDefinitionInferenceAcceleratorOutput {
+	return o
+}
+
+// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+func (o GetTaskDefinitionInferenceAcceleratorOutput) DeviceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionInferenceAccelerator) string { return v.DeviceName }).(pulumi.StringOutput)
+}
+
+// Elastic Inference accelerator type to use.
+func (o GetTaskDefinitionInferenceAcceleratorOutput) DeviceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionInferenceAccelerator) string { return v.DeviceType }).(pulumi.StringOutput)
+}
+
+type GetTaskDefinitionInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionInferenceAccelerator)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionInferenceAcceleratorArrayOutput) ToGetTaskDefinitionInferenceAcceleratorArrayOutput() GetTaskDefinitionInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionInferenceAcceleratorArrayOutput) ToGetTaskDefinitionInferenceAcceleratorArrayOutputWithContext(ctx context.Context) GetTaskDefinitionInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) GetTaskDefinitionInferenceAcceleratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskDefinitionInferenceAccelerator {
+		return vs[0].([]GetTaskDefinitionInferenceAccelerator)[vs[1].(int)]
+	}).(GetTaskDefinitionInferenceAcceleratorOutput)
+}
+
+type GetTaskDefinitionPlacementConstraint struct {
+	// Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+	Expression string `pulumi:"expression"`
+	// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+	Type string `pulumi:"type"`
+}
+
+// GetTaskDefinitionPlacementConstraintInput is an input type that accepts GetTaskDefinitionPlacementConstraintArgs and GetTaskDefinitionPlacementConstraintOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionPlacementConstraintInput` via:
+//
+//	GetTaskDefinitionPlacementConstraintArgs{...}
+type GetTaskDefinitionPlacementConstraintInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionPlacementConstraintOutput() GetTaskDefinitionPlacementConstraintOutput
+	ToGetTaskDefinitionPlacementConstraintOutputWithContext(context.Context) GetTaskDefinitionPlacementConstraintOutput
+}
+
+type GetTaskDefinitionPlacementConstraintArgs struct {
+	// Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetTaskDefinitionPlacementConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionPlacementConstraint)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionPlacementConstraintArgs) ToGetTaskDefinitionPlacementConstraintOutput() GetTaskDefinitionPlacementConstraintOutput {
+	return i.ToGetTaskDefinitionPlacementConstraintOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionPlacementConstraintArgs) ToGetTaskDefinitionPlacementConstraintOutputWithContext(ctx context.Context) GetTaskDefinitionPlacementConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionPlacementConstraintOutput)
+}
+
+// GetTaskDefinitionPlacementConstraintArrayInput is an input type that accepts GetTaskDefinitionPlacementConstraintArray and GetTaskDefinitionPlacementConstraintArrayOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionPlacementConstraintArrayInput` via:
+//
+//	GetTaskDefinitionPlacementConstraintArray{ GetTaskDefinitionPlacementConstraintArgs{...} }
+type GetTaskDefinitionPlacementConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionPlacementConstraintArrayOutput() GetTaskDefinitionPlacementConstraintArrayOutput
+	ToGetTaskDefinitionPlacementConstraintArrayOutputWithContext(context.Context) GetTaskDefinitionPlacementConstraintArrayOutput
+}
+
+type GetTaskDefinitionPlacementConstraintArray []GetTaskDefinitionPlacementConstraintInput
+
+func (GetTaskDefinitionPlacementConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionPlacementConstraint)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionPlacementConstraintArray) ToGetTaskDefinitionPlacementConstraintArrayOutput() GetTaskDefinitionPlacementConstraintArrayOutput {
+	return i.ToGetTaskDefinitionPlacementConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionPlacementConstraintArray) ToGetTaskDefinitionPlacementConstraintArrayOutputWithContext(ctx context.Context) GetTaskDefinitionPlacementConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionPlacementConstraintArrayOutput)
+}
+
+type GetTaskDefinitionPlacementConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionPlacementConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionPlacementConstraint)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionPlacementConstraintOutput) ToGetTaskDefinitionPlacementConstraintOutput() GetTaskDefinitionPlacementConstraintOutput {
+	return o
+}
+
+func (o GetTaskDefinitionPlacementConstraintOutput) ToGetTaskDefinitionPlacementConstraintOutputWithContext(ctx context.Context) GetTaskDefinitionPlacementConstraintOutput {
+	return o
+}
+
+// Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+func (o GetTaskDefinitionPlacementConstraintOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionPlacementConstraint) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+func (o GetTaskDefinitionPlacementConstraintOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionPlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetTaskDefinitionPlacementConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionPlacementConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionPlacementConstraint)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionPlacementConstraintArrayOutput) ToGetTaskDefinitionPlacementConstraintArrayOutput() GetTaskDefinitionPlacementConstraintArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionPlacementConstraintArrayOutput) ToGetTaskDefinitionPlacementConstraintArrayOutputWithContext(ctx context.Context) GetTaskDefinitionPlacementConstraintArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionPlacementConstraintArrayOutput) Index(i pulumi.IntInput) GetTaskDefinitionPlacementConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskDefinitionPlacementConstraint {
+		return vs[0].([]GetTaskDefinitionPlacementConstraint)[vs[1].(int)]
+	}).(GetTaskDefinitionPlacementConstraintOutput)
+}
+
+type GetTaskDefinitionProxyConfiguration struct {
+	// Name of the container that will serve as the App Mesh proxy.
+	ContainerName string `pulumi:"containerName"`
+	// Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
+	Properties map[string]string `pulumi:"properties"`
+	// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+	Type string `pulumi:"type"`
+}
+
+// GetTaskDefinitionProxyConfigurationInput is an input type that accepts GetTaskDefinitionProxyConfigurationArgs and GetTaskDefinitionProxyConfigurationOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionProxyConfigurationInput` via:
+//
+//	GetTaskDefinitionProxyConfigurationArgs{...}
+type GetTaskDefinitionProxyConfigurationInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionProxyConfigurationOutput() GetTaskDefinitionProxyConfigurationOutput
+	ToGetTaskDefinitionProxyConfigurationOutputWithContext(context.Context) GetTaskDefinitionProxyConfigurationOutput
+}
+
+type GetTaskDefinitionProxyConfigurationArgs struct {
+	// Name of the container that will serve as the App Mesh proxy.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetTaskDefinitionProxyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionProxyConfiguration)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionProxyConfigurationArgs) ToGetTaskDefinitionProxyConfigurationOutput() GetTaskDefinitionProxyConfigurationOutput {
+	return i.ToGetTaskDefinitionProxyConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionProxyConfigurationArgs) ToGetTaskDefinitionProxyConfigurationOutputWithContext(ctx context.Context) GetTaskDefinitionProxyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionProxyConfigurationOutput)
+}
+
+// GetTaskDefinitionProxyConfigurationArrayInput is an input type that accepts GetTaskDefinitionProxyConfigurationArray and GetTaskDefinitionProxyConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionProxyConfigurationArrayInput` via:
+//
+//	GetTaskDefinitionProxyConfigurationArray{ GetTaskDefinitionProxyConfigurationArgs{...} }
+type GetTaskDefinitionProxyConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionProxyConfigurationArrayOutput() GetTaskDefinitionProxyConfigurationArrayOutput
+	ToGetTaskDefinitionProxyConfigurationArrayOutputWithContext(context.Context) GetTaskDefinitionProxyConfigurationArrayOutput
+}
+
+type GetTaskDefinitionProxyConfigurationArray []GetTaskDefinitionProxyConfigurationInput
+
+func (GetTaskDefinitionProxyConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionProxyConfiguration)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionProxyConfigurationArray) ToGetTaskDefinitionProxyConfigurationArrayOutput() GetTaskDefinitionProxyConfigurationArrayOutput {
+	return i.ToGetTaskDefinitionProxyConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionProxyConfigurationArray) ToGetTaskDefinitionProxyConfigurationArrayOutputWithContext(ctx context.Context) GetTaskDefinitionProxyConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionProxyConfigurationArrayOutput)
+}
+
+type GetTaskDefinitionProxyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionProxyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionProxyConfiguration)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionProxyConfigurationOutput) ToGetTaskDefinitionProxyConfigurationOutput() GetTaskDefinitionProxyConfigurationOutput {
+	return o
+}
+
+func (o GetTaskDefinitionProxyConfigurationOutput) ToGetTaskDefinitionProxyConfigurationOutputWithContext(ctx context.Context) GetTaskDefinitionProxyConfigurationOutput {
+	return o
+}
+
+// Name of the container that will serve as the App Mesh proxy.
+func (o GetTaskDefinitionProxyConfigurationOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionProxyConfiguration) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
+func (o GetTaskDefinitionProxyConfigurationOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTaskDefinitionProxyConfiguration) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+func (o GetTaskDefinitionProxyConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionProxyConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetTaskDefinitionProxyConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionProxyConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionProxyConfiguration)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionProxyConfigurationArrayOutput) ToGetTaskDefinitionProxyConfigurationArrayOutput() GetTaskDefinitionProxyConfigurationArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionProxyConfigurationArrayOutput) ToGetTaskDefinitionProxyConfigurationArrayOutputWithContext(ctx context.Context) GetTaskDefinitionProxyConfigurationArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionProxyConfigurationArrayOutput) Index(i pulumi.IntInput) GetTaskDefinitionProxyConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskDefinitionProxyConfiguration {
+		return vs[0].([]GetTaskDefinitionProxyConfiguration)[vs[1].(int)]
+	}).(GetTaskDefinitionProxyConfigurationOutput)
+}
+
+type GetTaskDefinitionRuntimePlatform struct {
+	// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+	CpuArchitecture string `pulumi:"cpuArchitecture"`
+	// If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+	OperatingSystemFamily string `pulumi:"operatingSystemFamily"`
+}
+
+// GetTaskDefinitionRuntimePlatformInput is an input type that accepts GetTaskDefinitionRuntimePlatformArgs and GetTaskDefinitionRuntimePlatformOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionRuntimePlatformInput` via:
+//
+//	GetTaskDefinitionRuntimePlatformArgs{...}
+type GetTaskDefinitionRuntimePlatformInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionRuntimePlatformOutput() GetTaskDefinitionRuntimePlatformOutput
+	ToGetTaskDefinitionRuntimePlatformOutputWithContext(context.Context) GetTaskDefinitionRuntimePlatformOutput
+}
+
+type GetTaskDefinitionRuntimePlatformArgs struct {
+	// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+	CpuArchitecture pulumi.StringInput `pulumi:"cpuArchitecture"`
+	// If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+	OperatingSystemFamily pulumi.StringInput `pulumi:"operatingSystemFamily"`
+}
+
+func (GetTaskDefinitionRuntimePlatformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionRuntimePlatformArgs) ToGetTaskDefinitionRuntimePlatformOutput() GetTaskDefinitionRuntimePlatformOutput {
+	return i.ToGetTaskDefinitionRuntimePlatformOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionRuntimePlatformArgs) ToGetTaskDefinitionRuntimePlatformOutputWithContext(ctx context.Context) GetTaskDefinitionRuntimePlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionRuntimePlatformOutput)
+}
+
+// GetTaskDefinitionRuntimePlatformArrayInput is an input type that accepts GetTaskDefinitionRuntimePlatformArray and GetTaskDefinitionRuntimePlatformArrayOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionRuntimePlatformArrayInput` via:
+//
+//	GetTaskDefinitionRuntimePlatformArray{ GetTaskDefinitionRuntimePlatformArgs{...} }
+type GetTaskDefinitionRuntimePlatformArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionRuntimePlatformArrayOutput() GetTaskDefinitionRuntimePlatformArrayOutput
+	ToGetTaskDefinitionRuntimePlatformArrayOutputWithContext(context.Context) GetTaskDefinitionRuntimePlatformArrayOutput
+}
+
+type GetTaskDefinitionRuntimePlatformArray []GetTaskDefinitionRuntimePlatformInput
+
+func (GetTaskDefinitionRuntimePlatformArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionRuntimePlatformArray) ToGetTaskDefinitionRuntimePlatformArrayOutput() GetTaskDefinitionRuntimePlatformArrayOutput {
+	return i.ToGetTaskDefinitionRuntimePlatformArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionRuntimePlatformArray) ToGetTaskDefinitionRuntimePlatformArrayOutputWithContext(ctx context.Context) GetTaskDefinitionRuntimePlatformArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionRuntimePlatformArrayOutput)
+}
+
+type GetTaskDefinitionRuntimePlatformOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionRuntimePlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionRuntimePlatformOutput) ToGetTaskDefinitionRuntimePlatformOutput() GetTaskDefinitionRuntimePlatformOutput {
+	return o
+}
+
+func (o GetTaskDefinitionRuntimePlatformOutput) ToGetTaskDefinitionRuntimePlatformOutputWithContext(ctx context.Context) GetTaskDefinitionRuntimePlatformOutput {
+	return o
+}
+
+// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+func (o GetTaskDefinitionRuntimePlatformOutput) CpuArchitecture() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionRuntimePlatform) string { return v.CpuArchitecture }).(pulumi.StringOutput)
+}
+
+// If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+func (o GetTaskDefinitionRuntimePlatformOutput) OperatingSystemFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionRuntimePlatform) string { return v.OperatingSystemFamily }).(pulumi.StringOutput)
+}
+
+type GetTaskDefinitionRuntimePlatformArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionRuntimePlatformArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionRuntimePlatformArrayOutput) ToGetTaskDefinitionRuntimePlatformArrayOutput() GetTaskDefinitionRuntimePlatformArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionRuntimePlatformArrayOutput) ToGetTaskDefinitionRuntimePlatformArrayOutputWithContext(ctx context.Context) GetTaskDefinitionRuntimePlatformArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionRuntimePlatformArrayOutput) Index(i pulumi.IntInput) GetTaskDefinitionRuntimePlatformOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskDefinitionRuntimePlatform {
+		return vs[0].([]GetTaskDefinitionRuntimePlatform)[vs[1].(int)]
+	}).(GetTaskDefinitionRuntimePlatformOutput)
+}
+
+type GetTaskDefinitionVolume struct {
+	// Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+	ConfigureAtLaunch bool `pulumi:"configureAtLaunch"`
+	// Configuration block to configure a docker volume. Detailed below.
+	DockerVolumeConfigurations []GetTaskDefinitionVolumeDockerVolumeConfiguration `pulumi:"dockerVolumeConfigurations"`
+	// Configuration block for an EFS volume. Detailed below.
+	EfsVolumeConfigurations []GetTaskDefinitionVolumeEfsVolumeConfiguration `pulumi:"efsVolumeConfigurations"`
+	// Configuration block for an FSX Windows File Server volume. Detailed below.
+	FsxWindowsFileServerVolumeConfigurations []GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration `pulumi:"fsxWindowsFileServerVolumeConfigurations"`
+	// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+	HostPath string `pulumi:"hostPath"`
+	// Name of the volume. This name is referenced in the `sourceVolume`
+	// parameter of container definition in the `mountPoints` section.
+	Name string `pulumi:"name"`
+}
+
+// GetTaskDefinitionVolumeInput is an input type that accepts GetTaskDefinitionVolumeArgs and GetTaskDefinitionVolumeOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionVolumeInput` via:
+//
+//	GetTaskDefinitionVolumeArgs{...}
+type GetTaskDefinitionVolumeInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionVolumeOutput() GetTaskDefinitionVolumeOutput
+	ToGetTaskDefinitionVolumeOutputWithContext(context.Context) GetTaskDefinitionVolumeOutput
+}
+
+type GetTaskDefinitionVolumeArgs struct {
+	// Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+	ConfigureAtLaunch pulumi.BoolInput `pulumi:"configureAtLaunch"`
+	// Configuration block to configure a docker volume. Detailed below.
+	DockerVolumeConfigurations GetTaskDefinitionVolumeDockerVolumeConfigurationArrayInput `pulumi:"dockerVolumeConfigurations"`
+	// Configuration block for an EFS volume. Detailed below.
+	EfsVolumeConfigurations GetTaskDefinitionVolumeEfsVolumeConfigurationArrayInput `pulumi:"efsVolumeConfigurations"`
+	// Configuration block for an FSX Windows File Server volume. Detailed below.
+	FsxWindowsFileServerVolumeConfigurations GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayInput `pulumi:"fsxWindowsFileServerVolumeConfigurations"`
+	// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+	HostPath pulumi.StringInput `pulumi:"hostPath"`
+	// Name of the volume. This name is referenced in the `sourceVolume`
+	// parameter of container definition in the `mountPoints` section.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetTaskDefinitionVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionVolume)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionVolumeArgs) ToGetTaskDefinitionVolumeOutput() GetTaskDefinitionVolumeOutput {
+	return i.ToGetTaskDefinitionVolumeOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionVolumeArgs) ToGetTaskDefinitionVolumeOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionVolumeOutput)
+}
+
+// GetTaskDefinitionVolumeArrayInput is an input type that accepts GetTaskDefinitionVolumeArray and GetTaskDefinitionVolumeArrayOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionVolumeArrayInput` via:
+//
+//	GetTaskDefinitionVolumeArray{ GetTaskDefinitionVolumeArgs{...} }
+type GetTaskDefinitionVolumeArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionVolumeArrayOutput() GetTaskDefinitionVolumeArrayOutput
+	ToGetTaskDefinitionVolumeArrayOutputWithContext(context.Context) GetTaskDefinitionVolumeArrayOutput
+}
+
+type GetTaskDefinitionVolumeArray []GetTaskDefinitionVolumeInput
+
+func (GetTaskDefinitionVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionVolume)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionVolumeArray) ToGetTaskDefinitionVolumeArrayOutput() GetTaskDefinitionVolumeArrayOutput {
+	return i.ToGetTaskDefinitionVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionVolumeArray) ToGetTaskDefinitionVolumeArrayOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionVolumeArrayOutput)
+}
+
+type GetTaskDefinitionVolumeOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionVolume)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionVolumeOutput) ToGetTaskDefinitionVolumeOutput() GetTaskDefinitionVolumeOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeOutput) ToGetTaskDefinitionVolumeOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeOutput {
+	return o
+}
+
+// Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+func (o GetTaskDefinitionVolumeOutput) ConfigureAtLaunch() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolume) bool { return v.ConfigureAtLaunch }).(pulumi.BoolOutput)
+}
+
+// Configuration block to configure a docker volume. Detailed below.
+func (o GetTaskDefinitionVolumeOutput) DockerVolumeConfigurations() GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolume) []GetTaskDefinitionVolumeDockerVolumeConfiguration {
+		return v.DockerVolumeConfigurations
+	}).(GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput)
+}
+
+// Configuration block for an EFS volume. Detailed below.
+func (o GetTaskDefinitionVolumeOutput) EfsVolumeConfigurations() GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolume) []GetTaskDefinitionVolumeEfsVolumeConfiguration {
+		return v.EfsVolumeConfigurations
+	}).(GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput)
+}
+
+// Configuration block for an FSX Windows File Server volume. Detailed below.
+func (o GetTaskDefinitionVolumeOutput) FsxWindowsFileServerVolumeConfigurations() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolume) []GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
+		return v.FsxWindowsFileServerVolumeConfigurations
+	}).(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput)
+}
+
+// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+func (o GetTaskDefinitionVolumeOutput) HostPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolume) string { return v.HostPath }).(pulumi.StringOutput)
+}
+
+// Name of the volume. This name is referenced in the `sourceVolume`
+// parameter of container definition in the `mountPoints` section.
+func (o GetTaskDefinitionVolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetTaskDefinitionVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionVolume)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionVolumeArrayOutput) ToGetTaskDefinitionVolumeArrayOutput() GetTaskDefinitionVolumeArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeArrayOutput) ToGetTaskDefinitionVolumeArrayOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeArrayOutput) Index(i pulumi.IntInput) GetTaskDefinitionVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskDefinitionVolume {
+		return vs[0].([]GetTaskDefinitionVolume)[vs[1].(int)]
+	}).(GetTaskDefinitionVolumeOutput)
+}
+
+type GetTaskDefinitionVolumeDockerVolumeConfiguration struct {
+	// If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
+	Autoprovision bool `pulumi:"autoprovision"`
+	// Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
+	Driver string `pulumi:"driver"`
+	// Map of Docker driver specific options.
+	DriverOpts map[string]string `pulumi:"driverOpts"`
+	// Map of custom metadata to add to your Docker volume.
+	Labels map[string]string `pulumi:"labels"`
+	// Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+	Scope string `pulumi:"scope"`
+}
+
+// GetTaskDefinitionVolumeDockerVolumeConfigurationInput is an input type that accepts GetTaskDefinitionVolumeDockerVolumeConfigurationArgs and GetTaskDefinitionVolumeDockerVolumeConfigurationOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionVolumeDockerVolumeConfigurationInput` via:
+//
+//	GetTaskDefinitionVolumeDockerVolumeConfigurationArgs{...}
+type GetTaskDefinitionVolumeDockerVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionVolumeDockerVolumeConfigurationOutput() GetTaskDefinitionVolumeDockerVolumeConfigurationOutput
+	ToGetTaskDefinitionVolumeDockerVolumeConfigurationOutputWithContext(context.Context) GetTaskDefinitionVolumeDockerVolumeConfigurationOutput
+}
+
+type GetTaskDefinitionVolumeDockerVolumeConfigurationArgs struct {
+	// If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
+	Autoprovision pulumi.BoolInput `pulumi:"autoprovision"`
+	// Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
+	Driver pulumi.StringInput `pulumi:"driver"`
+	// Map of Docker driver specific options.
+	DriverOpts pulumi.StringMapInput `pulumi:"driverOpts"`
+	// Map of custom metadata to add to your Docker volume.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (GetTaskDefinitionVolumeDockerVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionVolumeDockerVolumeConfiguration)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionVolumeDockerVolumeConfigurationArgs) ToGetTaskDefinitionVolumeDockerVolumeConfigurationOutput() GetTaskDefinitionVolumeDockerVolumeConfigurationOutput {
+	return i.ToGetTaskDefinitionVolumeDockerVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionVolumeDockerVolumeConfigurationArgs) ToGetTaskDefinitionVolumeDockerVolumeConfigurationOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeDockerVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionVolumeDockerVolumeConfigurationOutput)
+}
+
+// GetTaskDefinitionVolumeDockerVolumeConfigurationArrayInput is an input type that accepts GetTaskDefinitionVolumeDockerVolumeConfigurationArray and GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionVolumeDockerVolumeConfigurationArrayInput` via:
+//
+//	GetTaskDefinitionVolumeDockerVolumeConfigurationArray{ GetTaskDefinitionVolumeDockerVolumeConfigurationArgs{...} }
+type GetTaskDefinitionVolumeDockerVolumeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput() GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput
+	ToGetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutputWithContext(context.Context) GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput
+}
+
+type GetTaskDefinitionVolumeDockerVolumeConfigurationArray []GetTaskDefinitionVolumeDockerVolumeConfigurationInput
+
+func (GetTaskDefinitionVolumeDockerVolumeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionVolumeDockerVolumeConfiguration)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionVolumeDockerVolumeConfigurationArray) ToGetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput() GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput {
+	return i.ToGetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionVolumeDockerVolumeConfigurationArray) ToGetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput)
+}
+
+type GetTaskDefinitionVolumeDockerVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionVolumeDockerVolumeConfiguration)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) ToGetTaskDefinitionVolumeDockerVolumeConfigurationOutput() GetTaskDefinitionVolumeDockerVolumeConfigurationOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) ToGetTaskDefinitionVolumeDockerVolumeConfigurationOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeDockerVolumeConfigurationOutput {
+	return o
+}
+
+// If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
+func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) Autoprovision() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeDockerVolumeConfiguration) bool { return v.Autoprovision }).(pulumi.BoolOutput)
+}
+
+// Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
+func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) Driver() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeDockerVolumeConfiguration) string { return v.Driver }).(pulumi.StringOutput)
+}
+
+// Map of Docker driver specific options.
+func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) DriverOpts() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeDockerVolumeConfiguration) map[string]string { return v.DriverOpts }).(pulumi.StringMapOutput)
+}
+
+// Map of custom metadata to add to your Docker volume.
+func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeDockerVolumeConfiguration) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeDockerVolumeConfiguration) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+type GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionVolumeDockerVolumeConfiguration)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput) ToGetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput() GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput) ToGetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput) Index(i pulumi.IntInput) GetTaskDefinitionVolumeDockerVolumeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskDefinitionVolumeDockerVolumeConfiguration {
+		return vs[0].([]GetTaskDefinitionVolumeDockerVolumeConfiguration)[vs[1].(int)]
+	}).(GetTaskDefinitionVolumeDockerVolumeConfigurationOutput)
+}
+
+type GetTaskDefinitionVolumeEfsVolumeConfiguration struct {
+	// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+	AuthorizationConfigs []GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfigs"`
+	// The Amazon FSx for Windows File Server file system ID to use.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+	RootDirectory string `pulumi:"rootDirectory"`
+	// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+	TransitEncryption string `pulumi:"transitEncryption"`
+	// Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+	TransitEncryptionPort int `pulumi:"transitEncryptionPort"`
+}
+
+// GetTaskDefinitionVolumeEfsVolumeConfigurationInput is an input type that accepts GetTaskDefinitionVolumeEfsVolumeConfigurationArgs and GetTaskDefinitionVolumeEfsVolumeConfigurationOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionVolumeEfsVolumeConfigurationInput` via:
+//
+//	GetTaskDefinitionVolumeEfsVolumeConfigurationArgs{...}
+type GetTaskDefinitionVolumeEfsVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionVolumeEfsVolumeConfigurationOutput() GetTaskDefinitionVolumeEfsVolumeConfigurationOutput
+	ToGetTaskDefinitionVolumeEfsVolumeConfigurationOutputWithContext(context.Context) GetTaskDefinitionVolumeEfsVolumeConfigurationOutput
+}
+
+type GetTaskDefinitionVolumeEfsVolumeConfigurationArgs struct {
+	// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+	AuthorizationConfigs GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput `pulumi:"authorizationConfigs"`
+	// The Amazon FSx for Windows File Server file system ID to use.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+	RootDirectory pulumi.StringInput `pulumi:"rootDirectory"`
+	// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+	TransitEncryption pulumi.StringInput `pulumi:"transitEncryption"`
+	// Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+	TransitEncryptionPort pulumi.IntInput `pulumi:"transitEncryptionPort"`
+}
+
+func (GetTaskDefinitionVolumeEfsVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionVolumeEfsVolumeConfiguration)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionVolumeEfsVolumeConfigurationArgs) ToGetTaskDefinitionVolumeEfsVolumeConfigurationOutput() GetTaskDefinitionVolumeEfsVolumeConfigurationOutput {
+	return i.ToGetTaskDefinitionVolumeEfsVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionVolumeEfsVolumeConfigurationArgs) ToGetTaskDefinitionVolumeEfsVolumeConfigurationOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeEfsVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionVolumeEfsVolumeConfigurationOutput)
+}
+
+// GetTaskDefinitionVolumeEfsVolumeConfigurationArrayInput is an input type that accepts GetTaskDefinitionVolumeEfsVolumeConfigurationArray and GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionVolumeEfsVolumeConfigurationArrayInput` via:
+//
+//	GetTaskDefinitionVolumeEfsVolumeConfigurationArray{ GetTaskDefinitionVolumeEfsVolumeConfigurationArgs{...} }
+type GetTaskDefinitionVolumeEfsVolumeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput() GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput
+	ToGetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutputWithContext(context.Context) GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput
+}
+
+type GetTaskDefinitionVolumeEfsVolumeConfigurationArray []GetTaskDefinitionVolumeEfsVolumeConfigurationInput
+
+func (GetTaskDefinitionVolumeEfsVolumeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionVolumeEfsVolumeConfiguration)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionVolumeEfsVolumeConfigurationArray) ToGetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput() GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput {
+	return i.ToGetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionVolumeEfsVolumeConfigurationArray) ToGetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput)
+}
+
+type GetTaskDefinitionVolumeEfsVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionVolumeEfsVolumeConfiguration)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) ToGetTaskDefinitionVolumeEfsVolumeConfigurationOutput() GetTaskDefinitionVolumeEfsVolumeConfigurationOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) ToGetTaskDefinitionVolumeEfsVolumeConfigurationOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeEfsVolumeConfigurationOutput {
+	return o
+}
+
+// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) AuthorizationConfigs() GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfiguration) []GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+		return v.AuthorizationConfigs
+	}).(GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput)
+}
+
+// The Amazon FSx for Windows File Server file system ID to use.
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) RootDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfiguration) string { return v.RootDirectory }).(pulumi.StringOutput)
+}
+
+// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) TransitEncryption() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfiguration) string { return v.TransitEncryption }).(pulumi.StringOutput)
+}
+
+// Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfiguration) int { return v.TransitEncryptionPort }).(pulumi.IntOutput)
+}
+
+type GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionVolumeEfsVolumeConfiguration)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput) ToGetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput() GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput) ToGetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput) Index(i pulumi.IntInput) GetTaskDefinitionVolumeEfsVolumeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskDefinitionVolumeEfsVolumeConfiguration {
+		return vs[0].([]GetTaskDefinitionVolumeEfsVolumeConfiguration)[vs[1].(int)]
+	}).(GetTaskDefinitionVolumeEfsVolumeConfigurationOutput)
+}
+
+type GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig struct {
+	// Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+	AccessPointId string `pulumi:"accessPointId"`
+	// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+	Iam string `pulumi:"iam"`
+}
+
+// GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput is an input type that accepts GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs and GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput` via:
+//
+//	GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs{...}
+type GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput() GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput
+	ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(context.Context) GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput
+}
+
+type GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs struct {
+	// Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+	AccessPointId pulumi.StringInput `pulumi:"accessPointId"`
+	// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+	Iam pulumi.StringInput `pulumi:"iam"`
+}
+
+func (GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput() GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return i.ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput)
+}
+
+// GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput is an input type that accepts GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArray and GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput` via:
+//
+//	GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArray{ GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs{...} }
+type GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput() GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput
+	ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutputWithContext(context.Context) GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput
+}
+
+type GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArray []GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput
+
+func (GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArray) ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput() GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput {
+	return i.ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArray) ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput)
+}
+
+type GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput() GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return o
+}
+
+// Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) AccessPointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) string {
+		return v.AccessPointId
+	}).(pulumi.StringOutput)
+}
+
+// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) Iam() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) string { return v.Iam }).(pulumi.StringOutput)
+}
+
+type GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput) ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput() GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput) ToGetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput) Index(i pulumi.IntInput) GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+		return vs[0].([]GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)[vs[1].(int)]
+	}).(GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput)
+}
+
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration struct {
+	// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+	AuthorizationConfigs []GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfigs"`
+	// The Amazon FSx for Windows File Server file system ID to use.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+	RootDirectory string `pulumi:"rootDirectory"`
+}
+
+// GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationInput is an input type that accepts GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs and GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationInput` via:
+//
+//	GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs{...}
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput
+	ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutputWithContext(context.Context) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput
+}
+
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs struct {
+	// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+	AuthorizationConfigs GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayInput `pulumi:"authorizationConfigs"`
+	// The Amazon FSx for Windows File Server file system ID to use.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+	RootDirectory pulumi.StringInput `pulumi:"rootDirectory"`
+}
+
+func (GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput {
+	return i.ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput)
+}
+
+// GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayInput is an input type that accepts GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArray and GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayInput` via:
+//
+//	GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArray{ GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs{...} }
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput
+	ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutputWithContext(context.Context) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput
+}
+
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArray []GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationInput
+
+func (GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArray) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput {
+	return i.ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArray) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput)
+}
+
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput {
+	return o
+}
+
+// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) AuthorizationConfigs() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) []GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
+		return v.AuthorizationConfigs
+	}).(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput)
+}
+
+// The Amazon FSx for Windows File Server file system ID to use.
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) RootDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) string { return v.RootDirectory }).(pulumi.StringOutput)
+}
+
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput) Index(i pulumi.IntInput) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
+		return vs[0].([]GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration)[vs[1].(int)]
+	}).(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput)
+}
+
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig struct {
+	// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+	CredentialsParameter string `pulumi:"credentialsParameter"`
+	// A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+	Domain string `pulumi:"domain"`
+}
+
+// GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigInput is an input type that accepts GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs and GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigInput` via:
+//
+//	GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs{...}
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput
+	ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutputWithContext(context.Context) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput
+}
+
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs struct {
+	// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+	CredentialsParameter pulumi.StringInput `pulumi:"credentialsParameter"`
+	// A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+	Domain pulumi.StringInput `pulumi:"domain"`
+}
+
+func (GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput {
+	return i.ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput)
+}
+
+// GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayInput is an input type that accepts GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArray and GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput values.
+// You can construct a concrete instance of `GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayInput` via:
+//
+//	GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArray{ GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs{...} }
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput
+	ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutputWithContext(context.Context) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput
+}
+
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArray []GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigInput
+
+func (GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (i GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArray) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput {
+	return i.ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArray) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput)
+}
+
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput {
+	return o
+}
+
+// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) CredentialsParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) string {
+		return v.CredentialsParameter
+	}).(pulumi.StringOutput)
+}
+
+// A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) string {
+		return v.Domain
+	}).(pulumi.StringOutput)
+}
+
+type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput) ToGetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutputWithContext(ctx context.Context) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput {
+	return o
+}
+
+func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput) Index(i pulumi.IntInput) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
+		return vs[0].([]GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig)[vs[1].(int)]
+	}).(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput)
+}
+
 type GetTaskExecutionCapacityProviderStrategy struct {
 	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
 	Base *int `pulumi:"base"`
@@ -8770,6 +10054,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterServiceConnectDefaultArrayInput)(nil)).Elem(), GetClusterServiceConnectDefaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingInput)(nil)).Elem(), GetClusterSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingArrayInput)(nil)).Elem(), GetClusterSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionEphemeralStorageInput)(nil)).Elem(), GetTaskDefinitionEphemeralStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionEphemeralStorageArrayInput)(nil)).Elem(), GetTaskDefinitionEphemeralStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionInferenceAcceleratorInput)(nil)).Elem(), GetTaskDefinitionInferenceAcceleratorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionInferenceAcceleratorArrayInput)(nil)).Elem(), GetTaskDefinitionInferenceAcceleratorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionPlacementConstraintInput)(nil)).Elem(), GetTaskDefinitionPlacementConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionPlacementConstraintArrayInput)(nil)).Elem(), GetTaskDefinitionPlacementConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionProxyConfigurationInput)(nil)).Elem(), GetTaskDefinitionProxyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionProxyConfigurationArrayInput)(nil)).Elem(), GetTaskDefinitionProxyConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionRuntimePlatformInput)(nil)).Elem(), GetTaskDefinitionRuntimePlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionRuntimePlatformArrayInput)(nil)).Elem(), GetTaskDefinitionRuntimePlatformArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionVolumeInput)(nil)).Elem(), GetTaskDefinitionVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionVolumeArrayInput)(nil)).Elem(), GetTaskDefinitionVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionVolumeDockerVolumeConfigurationInput)(nil)).Elem(), GetTaskDefinitionVolumeDockerVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionVolumeDockerVolumeConfigurationArrayInput)(nil)).Elem(), GetTaskDefinitionVolumeDockerVolumeConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionVolumeEfsVolumeConfigurationInput)(nil)).Elem(), GetTaskDefinitionVolumeEfsVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionVolumeEfsVolumeConfigurationArrayInput)(nil)).Elem(), GetTaskDefinitionVolumeEfsVolumeConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput)(nil)).Elem(), GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput)(nil)).Elem(), GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationInput)(nil)).Elem(), GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayInput)(nil)).Elem(), GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigInput)(nil)).Elem(), GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayInput)(nil)).Elem(), GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionCapacityProviderStrategyInput)(nil)).Elem(), GetTaskExecutionCapacityProviderStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionCapacityProviderStrategyArrayInput)(nil)).Elem(), GetTaskExecutionCapacityProviderStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionNetworkConfigurationInput)(nil)).Elem(), GetTaskExecutionNetworkConfigurationArgs{})
@@ -8884,6 +10190,28 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterServiceConnectDefaultArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionEphemeralStorageOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionEphemeralStorageArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionInferenceAcceleratorOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionInferenceAcceleratorArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionPlacementConstraintOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionPlacementConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionProxyConfigurationOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionProxyConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionRuntimePlatformOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionRuntimePlatformArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionVolumeOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionVolumeArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionVolumeDockerVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionVolumeEfsVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetTaskExecutionCapacityProviderStrategyOutput{})
 	pulumi.RegisterOutputType(GetTaskExecutionCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(GetTaskExecutionNetworkConfigurationOutput{})

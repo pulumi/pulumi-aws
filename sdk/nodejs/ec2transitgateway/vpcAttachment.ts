@@ -61,6 +61,10 @@ export class VpcAttachment extends pulumi.CustomResource {
      */
     public readonly applianceModeSupport!: pulumi.Output<string | undefined>;
     /**
+     * ARN of the attachment.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     public readonly dnsSupport!: pulumi.Output<string | undefined>;
@@ -121,6 +125,7 @@ export class VpcAttachment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VpcAttachmentState | undefined;
             resourceInputs["applianceModeSupport"] = state ? state.applianceModeSupport : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["dnsSupport"] = state ? state.dnsSupport : undefined;
             resourceInputs["ipv6Support"] = state ? state.ipv6Support : undefined;
             resourceInputs["securityGroupReferencingSupport"] = state ? state.securityGroupReferencingSupport : undefined;
@@ -153,6 +158,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["transitGatewayDefaultRouteTablePropagation"] = args ? args.transitGatewayDefaultRouteTablePropagation : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["vpcOwnerId"] = undefined /*out*/;
         }
@@ -169,6 +175,10 @@ export interface VpcAttachmentState {
      * Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     applianceModeSupport?: pulumi.Input<string>;
+    /**
+     * ARN of the attachment.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */

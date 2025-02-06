@@ -18,14 +18,14 @@ public final class SecurityGroupAssociationArgs extends com.pulumi.resources.Res
     public static final SecurityGroupAssociationArgs Empty = new SecurityGroupAssociationArgs();
 
     /**
-     * Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
+     * Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
      * 
      */
     @Import(name="replaceDefaultAssociation")
     private @Nullable Output<Boolean> replaceDefaultAssociation;
 
     /**
-     * @return Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
+     * @return Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
      * 
      */
     public Optional<Output<Boolean>> replaceDefaultAssociation() {
@@ -89,7 +89,7 @@ public final class SecurityGroupAssociationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param replaceDefaultAssociation Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
+         * @param replaceDefaultAssociation Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class SecurityGroupAssociationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param replaceDefaultAssociation Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
+         * @param replaceDefaultAssociation Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
          * 
          * @return builder
          * 

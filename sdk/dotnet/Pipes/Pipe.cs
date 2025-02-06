@@ -333,6 +333,12 @@ namespace Pulumi.Aws.Pipes
         public Output<Outputs.PipeEnrichmentParameters?> EnrichmentParameters { get; private set; } = null!;
 
         /// <summary>
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        /// </summary>
+        [Output("kmsKeyIdentifier")]
+        public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// Logging configuration settings for the pipe. Detailed below.
         /// </summary>
         [Output("logConfiguration")]
@@ -465,6 +471,12 @@ namespace Pulumi.Aws.Pipes
         public Input<Inputs.PipeEnrichmentParametersArgs>? EnrichmentParameters { get; set; }
 
         /// <summary>
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        /// </summary>
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
+
+        /// <summary>
         /// Logging configuration settings for the pipe. Detailed below.
         /// </summary>
         [Input("logConfiguration")]
@@ -563,6 +575,12 @@ namespace Pulumi.Aws.Pipes
         /// </summary>
         [Input("enrichmentParameters")]
         public Input<Inputs.PipeEnrichmentParametersGetArgs>? EnrichmentParameters { get; set; }
+
+        /// <summary>
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        /// </summary>
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
 
         /// <summary>
         /// Logging configuration settings for the pipe. Detailed below.

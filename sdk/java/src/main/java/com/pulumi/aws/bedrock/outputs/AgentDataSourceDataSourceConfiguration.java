@@ -3,7 +3,11 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationS3Configuration;
+import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationWebConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -14,17 +18,40 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceDataSourceConfiguration {
     /**
+     * @return Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+     * 
+     */
+    private @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfiguration confluenceConfiguration;
+    /**
      * @return Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationS3Configuration s3Configuration;
     /**
+     * @return Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
+     * 
+     */
+    private @Nullable AgentDataSourceDataSourceConfigurationSalesforceConfiguration salesforceConfiguration;
+    /**
+     * @return Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
+     * 
+     */
+    private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfiguration sharePointConfiguration;
+    /**
      * @return Type of storage for the data source. Valid values: `S3`.
      * 
      */
     private String type;
+    private @Nullable AgentDataSourceDataSourceConfigurationWebConfiguration webConfiguration;
 
     private AgentDataSourceDataSourceConfiguration() {}
+    /**
+     * @return Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+     * 
+     */
+    public Optional<AgentDataSourceDataSourceConfigurationConfluenceConfiguration> confluenceConfiguration() {
+        return Optional.ofNullable(this.confluenceConfiguration);
+    }
     /**
      * @return Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
      * 
@@ -33,11 +60,28 @@ public final class AgentDataSourceDataSourceConfiguration {
         return Optional.ofNullable(this.s3Configuration);
     }
     /**
+     * @return Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
+     * 
+     */
+    public Optional<AgentDataSourceDataSourceConfigurationSalesforceConfiguration> salesforceConfiguration() {
+        return Optional.ofNullable(this.salesforceConfiguration);
+    }
+    /**
+     * @return Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
+     * 
+     */
+    public Optional<AgentDataSourceDataSourceConfigurationSharePointConfiguration> sharePointConfiguration() {
+        return Optional.ofNullable(this.sharePointConfiguration);
+    }
+    /**
      * @return Type of storage for the data source. Valid values: `S3`.
      * 
      */
     public String type() {
         return this.type;
+    }
+    public Optional<AgentDataSourceDataSourceConfigurationWebConfiguration> webConfiguration() {
+        return Optional.ofNullable(this.webConfiguration);
     }
 
     public static Builder builder() {
@@ -49,19 +93,45 @@ public final class AgentDataSourceDataSourceConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfiguration confluenceConfiguration;
         private @Nullable AgentDataSourceDataSourceConfigurationS3Configuration s3Configuration;
+        private @Nullable AgentDataSourceDataSourceConfigurationSalesforceConfiguration salesforceConfiguration;
+        private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfiguration sharePointConfiguration;
         private String type;
+        private @Nullable AgentDataSourceDataSourceConfigurationWebConfiguration webConfiguration;
         public Builder() {}
         public Builder(AgentDataSourceDataSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.confluenceConfiguration = defaults.confluenceConfiguration;
     	      this.s3Configuration = defaults.s3Configuration;
+    	      this.salesforceConfiguration = defaults.salesforceConfiguration;
+    	      this.sharePointConfiguration = defaults.sharePointConfiguration;
     	      this.type = defaults.type;
+    	      this.webConfiguration = defaults.webConfiguration;
         }
 
+        @CustomType.Setter
+        public Builder confluenceConfiguration(@Nullable AgentDataSourceDataSourceConfigurationConfluenceConfiguration confluenceConfiguration) {
+
+            this.confluenceConfiguration = confluenceConfiguration;
+            return this;
+        }
         @CustomType.Setter
         public Builder s3Configuration(@Nullable AgentDataSourceDataSourceConfigurationS3Configuration s3Configuration) {
 
             this.s3Configuration = s3Configuration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder salesforceConfiguration(@Nullable AgentDataSourceDataSourceConfigurationSalesforceConfiguration salesforceConfiguration) {
+
+            this.salesforceConfiguration = salesforceConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sharePointConfiguration(@Nullable AgentDataSourceDataSourceConfigurationSharePointConfiguration sharePointConfiguration) {
+
+            this.sharePointConfiguration = sharePointConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -72,10 +142,20 @@ public final class AgentDataSourceDataSourceConfiguration {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
+        public Builder webConfiguration(@Nullable AgentDataSourceDataSourceConfigurationWebConfiguration webConfiguration) {
+
+            this.webConfiguration = webConfiguration;
+            return this;
+        }
         public AgentDataSourceDataSourceConfiguration build() {
             final var _resultValue = new AgentDataSourceDataSourceConfiguration();
+            _resultValue.confluenceConfiguration = confluenceConfiguration;
             _resultValue.s3Configuration = s3Configuration;
+            _resultValue.salesforceConfiguration = salesforceConfiguration;
+            _resultValue.sharePointConfiguration = sharePointConfiguration;
             _resultValue.type = type;
+            _resultValue.webConfiguration = webConfiguration;
             return _resultValue;
         }
     }

@@ -355,6 +355,8 @@ type Pipe struct {
 	Enrichment pulumi.StringPtrOutput `pulumi:"enrichment"`
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters PipeEnrichmentParametersPtrOutput `pulumi:"enrichmentParameters"`
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// Logging configuration settings for the pipe. Detailed below.
 	LogConfiguration PipeLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -430,6 +432,8 @@ type pipeState struct {
 	Enrichment *string `pulumi:"enrichment"`
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Logging configuration settings for the pipe. Detailed below.
 	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -467,6 +471,8 @@ type PipeState struct {
 	Enrichment pulumi.StringPtrInput
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters PipeEnrichmentParametersPtrInput
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+	KmsKeyIdentifier pulumi.StringPtrInput
 	// Logging configuration settings for the pipe. Detailed below.
 	LogConfiguration PipeLogConfigurationPtrInput
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -506,6 +512,8 @@ type pipeArgs struct {
 	Enrichment *string `pulumi:"enrichment"`
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Logging configuration settings for the pipe. Detailed below.
 	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -538,6 +546,8 @@ type PipeArgs struct {
 	Enrichment pulumi.StringPtrInput
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters PipeEnrichmentParametersPtrInput
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+	KmsKeyIdentifier pulumi.StringPtrInput
 	// Logging configuration settings for the pipe. Detailed below.
 	LogConfiguration PipeLogConfigurationPtrInput
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -670,6 +680,11 @@ func (o PipeOutput) Enrichment() pulumi.StringPtrOutput {
 // Parameters to configure enrichment for your pipe. Detailed below.
 func (o PipeOutput) EnrichmentParameters() PipeEnrichmentParametersPtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeEnrichmentParametersPtrOutput { return v.EnrichmentParameters }).(PipeEnrichmentParametersPtrOutput)
+}
+
+// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+func (o PipeOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Logging configuration settings for the pipe. Detailed below.

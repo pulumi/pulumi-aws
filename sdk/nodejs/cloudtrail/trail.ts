@@ -376,6 +376,10 @@ export class Trail extends pulumi.CustomResource {
      */
     public readonly s3KeyPrefix!: pulumi.Output<string | undefined>;
     /**
+     * ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+     */
+    public /*out*/ readonly snsTopicArn!: pulumi.Output<string>;
+    /**
      * Name of the Amazon SNS topic defined for notification of log file delivery.
      */
     public readonly snsTopicName!: pulumi.Output<string | undefined>;
@@ -419,6 +423,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["s3BucketName"] = state ? state.s3BucketName : undefined;
             resourceInputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
+            resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
             resourceInputs["snsTopicName"] = state ? state.snsTopicName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -445,6 +450,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeRegion"] = undefined /*out*/;
+            resourceInputs["snsTopicArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -522,6 +528,10 @@ export interface TrailState {
      * S3 key prefix that follows the name of the bucket you have designated for log file delivery.
      */
     s3KeyPrefix?: pulumi.Input<string>;
+    /**
+     * ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
+     */
+    snsTopicArn?: pulumi.Input<string>;
     /**
      * Name of the Amazon SNS topic defined for notification of log file delivery.
      */

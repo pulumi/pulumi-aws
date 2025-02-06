@@ -186,6 +186,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
     [OutputType]
     public sealed class GetDirectConnectGatewayAttachmentResult
     {
+        /// <summary>
+        /// ARN of the attachment.
+        /// </summary>
+        public readonly string Arn;
         public readonly string? DxGatewayId;
         public readonly ImmutableArray<Outputs.GetDirectConnectGatewayAttachmentFilterResult> Filters;
         /// <summary>
@@ -193,13 +197,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Attachment
+        /// Key-value tags for the EC2 Transit Gateway Attachment.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string? TransitGatewayId;
 
         [OutputConstructor]
         private GetDirectConnectGatewayAttachmentResult(
+            string arn,
+
             string? dxGatewayId,
 
             ImmutableArray<Outputs.GetDirectConnectGatewayAttachmentFilterResult> filters,
@@ -210,6 +216,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string? transitGatewayId)
         {
+            Arn = arn;
             DxGatewayId = dxGatewayId;
             Filters = filters;
             Id = id;

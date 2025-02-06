@@ -2620,10 +2620,17 @@ func (o AgentAgentTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type AgentDataSourceDataSourceConfiguration struct {
+	// Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+	ConfluenceConfiguration *AgentDataSourceDataSourceConfigurationConfluenceConfiguration `pulumi:"confluenceConfiguration"`
 	// Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
 	S3Configuration *AgentDataSourceDataSourceConfigurationS3Configuration `pulumi:"s3Configuration"`
+	// Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+	SalesforceConfiguration *AgentDataSourceDataSourceConfigurationSalesforceConfiguration `pulumi:"salesforceConfiguration"`
+	// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+	SharePointConfiguration *AgentDataSourceDataSourceConfigurationSharePointConfiguration `pulumi:"sharePointConfiguration"`
 	// Type of storage for the data source. Valid values: `S3`.
-	Type string `pulumi:"type"`
+	Type             string                                                  `pulumi:"type"`
+	WebConfiguration *AgentDataSourceDataSourceConfigurationWebConfiguration `pulumi:"webConfiguration"`
 }
 
 // AgentDataSourceDataSourceConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationArgs and AgentDataSourceDataSourceConfigurationOutput values.
@@ -2638,10 +2645,17 @@ type AgentDataSourceDataSourceConfigurationInput interface {
 }
 
 type AgentDataSourceDataSourceConfigurationArgs struct {
+	// Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+	ConfluenceConfiguration AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrInput `pulumi:"confluenceConfiguration"`
 	// Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
 	S3Configuration AgentDataSourceDataSourceConfigurationS3ConfigurationPtrInput `pulumi:"s3Configuration"`
+	// Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+	SalesforceConfiguration AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrInput `pulumi:"salesforceConfiguration"`
+	// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+	SharePointConfiguration AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrInput `pulumi:"sharePointConfiguration"`
 	// Type of storage for the data source. Valid values: `S3`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type             pulumi.StringInput                                             `pulumi:"type"`
+	WebConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationPtrInput `pulumi:"webConfiguration"`
 }
 
 func (AgentDataSourceDataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -2721,6 +2735,13 @@ func (o AgentDataSourceDataSourceConfigurationOutput) ToAgentDataSourceDataSourc
 	}).(AgentDataSourceDataSourceConfigurationPtrOutput)
 }
 
+// Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+func (o AgentDataSourceDataSourceConfigurationOutput) ConfluenceConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfiguration {
+		return v.ConfluenceConfiguration
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput)
+}
+
 // Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
 func (o AgentDataSourceDataSourceConfigurationOutput) S3Configuration() AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationS3Configuration {
@@ -2728,9 +2749,29 @@ func (o AgentDataSourceDataSourceConfigurationOutput) S3Configuration() AgentDat
 	}).(AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
+// Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+func (o AgentDataSourceDataSourceConfigurationOutput) SalesforceConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfiguration {
+		return v.SalesforceConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput)
+}
+
+// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+func (o AgentDataSourceDataSourceConfigurationOutput) SharePointConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfiguration {
+		return v.SharePointConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput)
+}
+
 // Type of storage for the data source. Valid values: `S3`.
 func (o AgentDataSourceDataSourceConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationOutput) WebConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfiguration {
+		return v.WebConfiguration
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput)
 }
 
 type AgentDataSourceDataSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2757,6 +2798,16 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) Elem() AgentDataSourceD
 	}).(AgentDataSourceDataSourceConfigurationOutput)
 }
 
+// Details about the configuration of the Confluence data source. See `confluenceDataSourceConfiguration` block for details.
+func (o AgentDataSourceDataSourceConfigurationPtrOutput) ConfluenceConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ConfluenceConfiguration
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput)
+}
+
 // Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
 func (o AgentDataSourceDataSourceConfigurationPtrOutput) S3Configuration() AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationS3Configuration {
@@ -2767,6 +2818,26 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) S3Configuration() Agent
 	}).(AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
+// Details about the configuration of the Salesforce data source. See `salesforceDataSourceConfiguration` block for details.
+func (o AgentDataSourceDataSourceConfigurationPtrOutput) SalesforceConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SalesforceConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput)
+}
+
+// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
+func (o AgentDataSourceDataSourceConfigurationPtrOutput) SharePointConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SharePointConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput)
+}
+
 // Type of storage for the data source. Valid values: `S3`.
 func (o AgentDataSourceDataSourceConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *string {
@@ -2774,6 +2845,894 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) Type() pulumi.StringPtr
 			return nil
 		}
 		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationPtrOutput) WebConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.WebConfiguration
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfiguration struct {
+	CrawlerConfiguration *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration  `pulumi:"sourceConfiguration"`
+}
+
+// AgentDataSourceDataSourceConfigurationConfluenceConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs and AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationConfluenceConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs struct {
+	CrawlerConfiguration AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrInput  `pulumi:"sourceConfiguration"`
+}
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput).ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs, AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtr and AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationConfluenceConfigurationPtrType AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtr(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs) AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationConfluenceConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationConfluenceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationConfluenceConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationConfluenceConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationConfluenceConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationConfluenceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration {
+		return v.CrawlerConfiguration
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration {
+		return v.SourceConfiguration
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationConfluenceConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfiguration) AgentDataSourceDataSourceConfigurationConfluenceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationConfluenceConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerConfiguration
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SourceConfiguration
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration struct {
+	// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+	FilterConfiguration *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration `pulumi:"filterConfiguration"`
+}
+
+// AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs and AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs struct {
+	// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+	FilterConfiguration AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
+}
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput).ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs, AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtr and AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrType AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtr(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput)
+}
+
+// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput) FilterConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration {
+		return v.FilterConfiguration
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput)
+}
+
+// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput) FilterConfiguration() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FilterConfiguration
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration struct {
+	// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+	PatternObjectFilters []AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter `pulumi:"patternObjectFilters"`
+	// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+	Type string `pulumi:"type"`
+}
+
+// AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs and AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs struct {
+	// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+	PatternObjectFilters AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput `pulumi:"patternObjectFilters"`
+	// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput).ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs, AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtr and AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrType AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtr(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
+}
+
+// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput) PatternObjectFilters() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration) []AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
+		return v.PatternObjectFilters
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
+}
+
+// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput)
+}
+
+// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) PatternObjectFilters() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration) []AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
+		if v == nil {
+			return nil
+		}
+		return v.PatternObjectFilters
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
+}
+
+// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter struct {
+	// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+	//
+	// Each filter object should contain the following configuration:
+	Filters []AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter `pulumi:"filters"`
+}
+
+// AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs and AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs{...}
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs struct {
+	// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+	//
+	// Each filter object should contain the following configuration:
+	Filters AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput `pulumi:"filters"`
+}
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput)
+}
+
+// AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray and AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray{ AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs{...} }
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray []AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return o
+}
+
+// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+//
+// Each filter object should contain the following configuration:
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) Filters() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter) []AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+		return v.Filters
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput) Index(i pulumi.IntInput) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
+		return vs[0].([]AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)[vs[1].(int)]
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter struct {
+	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+	ExclusionFilters []string `pulumi:"exclusionFilters"`
+	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+	InclusionFilters []string `pulumi:"inclusionFilters"`
+	// The supported object type or content type of the data source.
+	ObjectType string `pulumi:"objectType"`
+}
+
+// AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs and AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs{...}
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs struct {
+	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
+	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
+	// The supported object type or content type of the data source.
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput)
+}
+
+// AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray and AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray{ AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs{...} }
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray []AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return o
+}
+
+// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ExclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
+		return v.ExclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) InclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
+		return v.InclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// The supported object type or content type of the data source.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) string {
+		return v.ObjectType
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput) Index(i pulumi.IntInput) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+		return vs[0].([]AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)[vs[1].(int)]
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration struct {
+	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+	AuthType string `pulumi:"authType"`
+	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
+	// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+	HostType string `pulumi:"hostType"`
+	// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+	HostUrl string `pulumi:"hostUrl"`
+}
+
+// AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs and AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs struct {
+	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+	AuthType pulumi.StringInput `pulumi:"authType"`
+	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
+	// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+	HostType pulumi.StringInput `pulumi:"hostType"`
+	// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+	HostUrl pulumi.StringInput `pulumi:"hostUrl"`
+}
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput).ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs, AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtr and AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrType AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtr(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs) AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput)
+}
+
+// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) string {
+		return v.AuthType
+	}).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) string {
+		return v.CredentialsSecretArn
+	}).(pulumi.StringOutput)
+}
+
+// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) HostType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) string {
+		return v.HostType
+	}).(pulumi.StringOutput)
+}
+
+// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) HostUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) string {
+		return v.HostUrl
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput)
+}
+
+// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) HostType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HostType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) HostUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HostUrl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2950,6 +3909,2666 @@ func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) Inclusio
 		}
 		return v.InclusionPrefixes
 	}).(pulumi.StringArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfiguration struct {
+	CrawlerConfiguration *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration  `pulumi:"sourceConfiguration"`
+}
+
+// AgentDataSourceDataSourceConfigurationSalesforceConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs and AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSalesforceConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs struct {
+	CrawlerConfiguration AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrInput  `pulumi:"sourceConfiguration"`
+}
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput).ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs, AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtr and AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationSalesforceConfigurationPtrType AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtr(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs) AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationSalesforceConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationSalesforceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSalesforceConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationSalesforceConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationSalesforceConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationSalesforceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration {
+		return v.CrawlerConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration {
+		return v.SourceConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSalesforceConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfiguration) AgentDataSourceDataSourceConfigurationSalesforceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationSalesforceConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SourceConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration struct {
+	// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+	FilterConfiguration *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration `pulumi:"filterConfiguration"`
+}
+
+// AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs and AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs struct {
+	// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+	FilterConfiguration AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
+}
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput).ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs, AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtr and AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrType AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtr(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput)
+}
+
+// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput) FilterConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration {
+		return v.FilterConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput)
+}
+
+// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput) FilterConfiguration() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FilterConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration struct {
+	// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+	PatternObjectFilters []AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter `pulumi:"patternObjectFilters"`
+	// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+	Type string `pulumi:"type"`
+}
+
+// AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs and AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs struct {
+	// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+	PatternObjectFilters AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput `pulumi:"patternObjectFilters"`
+	// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput).ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs, AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtr and AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrType AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtr(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
+}
+
+// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput) PatternObjectFilters() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration) []AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
+		return v.PatternObjectFilters
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
+}
+
+// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput)
+}
+
+// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) PatternObjectFilters() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration) []AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
+		if v == nil {
+			return nil
+		}
+		return v.PatternObjectFilters
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
+}
+
+// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter struct {
+	// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+	//
+	// Each filter object should contain the following configuration:
+	Filters []AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter `pulumi:"filters"`
+}
+
+// AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs and AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs{...}
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs struct {
+	// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+	//
+	// Each filter object should contain the following configuration:
+	Filters AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput `pulumi:"filters"`
+}
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput)
+}
+
+// AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray and AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray{ AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs{...} }
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray []AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return o
+}
+
+// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+//
+// Each filter object should contain the following configuration:
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) Filters() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter) []AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+		return v.Filters
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput) Index(i pulumi.IntInput) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
+		return vs[0].([]AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)[vs[1].(int)]
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter struct {
+	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+	ExclusionFilters []string `pulumi:"exclusionFilters"`
+	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+	InclusionFilters []string `pulumi:"inclusionFilters"`
+	// The supported object type or content type of the data source.
+	ObjectType string `pulumi:"objectType"`
+}
+
+// AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs and AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs{...}
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs struct {
+	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
+	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
+	// The supported object type or content type of the data source.
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput)
+}
+
+// AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray and AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray{ AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs{...} }
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray []AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return o
+}
+
+// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ExclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
+		return v.ExclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) InclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
+		return v.InclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// The supported object type or content type of the data source.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) string {
+		return v.ObjectType
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput) Index(i pulumi.IntInput) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+		return vs[0].([]AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)[vs[1].(int)]
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration struct {
+	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+	AuthType string `pulumi:"authType"`
+	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
+	// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+	HostUrl string `pulumi:"hostUrl"`
+}
+
+// AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs and AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs struct {
+	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+	AuthType pulumi.StringInput `pulumi:"authType"`
+	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
+	// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+	HostUrl pulumi.StringInput `pulumi:"hostUrl"`
+}
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput).ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs, AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtr and AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrType AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtr(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs) AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput)
+}
+
+// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) string {
+		return v.AuthType
+	}).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) string {
+		return v.CredentialsSecretArn
+	}).(pulumi.StringOutput)
+}
+
+// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput) HostUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) string {
+		return v.HostUrl
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput)
+}
+
+// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
+func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput) HostUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HostUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfiguration struct {
+	CrawlerConfiguration *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration  `pulumi:"sourceConfiguration"`
+}
+
+// AgentDataSourceDataSourceConfigurationSharePointConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs and AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSharePointConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs struct {
+	CrawlerConfiguration AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrInput  `pulumi:"sourceConfiguration"`
+}
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput).ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs, AgentDataSourceDataSourceConfigurationSharePointConfigurationPtr and AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationSharePointConfigurationPtrType AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationSharePointConfigurationPtr(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs) AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationSharePointConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationSharePointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSharePointConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationSharePointConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationSharePointConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationSharePointConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration {
+		return v.CrawlerConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration {
+		return v.SourceConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSharePointConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfiguration) AgentDataSourceDataSourceConfigurationSharePointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationSharePointConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SourceConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration struct {
+	// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+	FilterConfiguration *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration `pulumi:"filterConfiguration"`
+}
+
+// AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs and AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs struct {
+	// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+	FilterConfiguration AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
+}
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput).ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs, AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtr and AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrType AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtr(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput)
+}
+
+// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput) FilterConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration {
+		return v.FilterConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput)
+}
+
+// The Salesforce standard object configuration. See `filterConfiguration` block for details.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput) FilterConfiguration() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FilterConfiguration
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration struct {
+	// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+	PatternObjectFilters []AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter `pulumi:"patternObjectFilters"`
+	// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+	Type string `pulumi:"type"`
+}
+
+// AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs and AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs struct {
+	// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+	PatternObjectFilters AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput `pulumi:"patternObjectFilters"`
+	// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput).ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs, AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtr and AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrType AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtr(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput)
+}
+
+// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput) PatternObjectFilters() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration) []AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
+		return v.PatternObjectFilters
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
+}
+
+// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput)
+}
+
+// The configuration of filtering certain objects or content types of the data source. See `patternObjectFilter` block for details.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) PatternObjectFilters() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration) []AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
+		if v == nil {
+			return nil
+		}
+		return v.PatternObjectFilters
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
+}
+
+// The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter struct {
+	// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+	//
+	// Each filter object should contain the following configuration:
+	Filters []AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter `pulumi:"filters"`
+}
+
+// AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs and AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs{...}
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs struct {
+	// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+	//
+	// Each filter object should contain the following configuration:
+	Filters AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput `pulumi:"filters"`
+}
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput)
+}
+
+// AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray and AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray{ AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs{...} }
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray []AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return o
+}
+
+// The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
+//
+// Each filter object should contain the following configuration:
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput) Filters() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter) []AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+		return v.Filters
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput) Index(i pulumi.IntInput) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter {
+		return vs[0].([]AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter)[vs[1].(int)]
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter struct {
+	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+	ExclusionFilters []string `pulumi:"exclusionFilters"`
+	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+	InclusionFilters []string `pulumi:"inclusionFilters"`
+	// The supported object type or content type of the data source.
+	ObjectType string `pulumi:"objectType"`
+}
+
+// AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs and AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs{...}
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs struct {
+	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
+	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
+	// The supported object type or content type of the data source.
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput)
+}
+
+// AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray and AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray{ AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs{...} }
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray []AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return o
+}
+
+// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ExclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
+		return v.ExclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) InclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
+		return v.InclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// The supported object type or content type of the data source.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) string {
+		return v.ObjectType
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput) Index(i pulumi.IntInput) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
+		return vs[0].([]AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter)[vs[1].(int)]
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration struct {
+	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+	AuthType string `pulumi:"authType"`
+	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
+	// The domain of your SharePoint instance or site URL/URLs.
+	Domain string `pulumi:"domain"`
+	// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+	HostType string `pulumi:"hostType"`
+	// A list of one or more SharePoint site URLs.
+	SiteUrls []string `pulumi:"siteUrls"`
+	// The identifier of your Microsoft 365 tenant.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs and AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs struct {
+	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+	AuthType pulumi.StringInput `pulumi:"authType"`
+	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
+	// The domain of your SharePoint instance or site URL/URLs.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+	HostType pulumi.StringInput `pulumi:"hostType"`
+	// A list of one or more SharePoint site URLs.
+	SiteUrls pulumi.StringArrayInput `pulumi:"siteUrls"`
+	// The identifier of your Microsoft 365 tenant.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput).ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs, AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtr and AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrType AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtr(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs) AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput)
+}
+
+// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) string {
+		return v.AuthType
+	}).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) string {
+		return v.CredentialsSecretArn
+	}).(pulumi.StringOutput)
+}
+
+// The domain of your SharePoint instance or site URL/URLs.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) string {
+		return v.Domain
+	}).(pulumi.StringOutput)
+}
+
+// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) HostType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) string {
+		return v.HostType
+	}).(pulumi.StringOutput)
+}
+
+// A list of one or more SharePoint site URLs.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) SiteUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) []string {
+		return v.SiteUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The identifier of your Microsoft 365 tenant.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput)
+}
+
+// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The domain of your SharePoint instance or site URL/URLs.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) HostType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HostType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of one or more SharePoint site URLs.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) SiteUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SiteUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The identifier of your Microsoft 365 tenant.
+func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfiguration struct {
+	CrawlerConfiguration *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration  `pulumi:"sourceConfiguration"`
+}
+
+// AgentDataSourceDataSourceConfigurationWebConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationArgs and AgentDataSourceDataSourceConfigurationWebConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationWebConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationWebConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationWebConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationOutput() AgentDataSourceDataSourceConfigurationWebConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationArgs struct {
+	CrawlerConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrInput `pulumi:"crawlerConfiguration"`
+	SourceConfiguration  AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrInput  `pulumi:"sourceConfiguration"`
+}
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationOutput() AgentDataSourceDataSourceConfigurationWebConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationOutput).ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationWebConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationArgs, AgentDataSourceDataSourceConfigurationWebConfigurationPtr and AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationWebConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationWebConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationWebConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationWebConfigurationPtrType AgentDataSourceDataSourceConfigurationWebConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationWebConfigurationPtr(v *AgentDataSourceDataSourceConfigurationWebConfigurationArgs) AgentDataSourceDataSourceConfigurationWebConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationWebConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationWebConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationWebConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationWebConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationWebConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationOutput() AgentDataSourceDataSourceConfigurationWebConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationWebConfiguration) *AgentDataSourceDataSourceConfigurationWebConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration {
+		return v.CrawlerConfiguration
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration {
+		return v.SourceConfiguration
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationWebConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationWebConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfiguration) AgentDataSourceDataSourceConfigurationWebConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationWebConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) CrawlerConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerConfiguration
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) SourceConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SourceConfiguration
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration struct {
+	CrawlerLimits *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits `pulumi:"crawlerLimits"`
+	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+	ExclusionFilters []string `pulumi:"exclusionFilters"`
+	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+	InclusionFilters []string `pulumi:"inclusionFilters"`
+	Scope            *string  `pulumi:"scope"`
+	UserAgent        *string  `pulumi:"userAgent"`
+}
+
+// AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs and AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs struct {
+	CrawlerLimits AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrInput `pulumi:"crawlerLimits"`
+	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
+	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
+	Scope            pulumi.StringPtrInput   `pulumi:"scope"`
+	UserAgent        pulumi.StringPtrInput   `pulumi:"userAgent"`
+}
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput).ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs, AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtr and AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrType AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtr(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) CrawlerLimits() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits {
+		return v.CrawlerLimits
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput)
+}
+
+// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) ExclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
+		return v.ExclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) InclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
+		return v.InclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *string {
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) UserAgent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *string {
+		return v.UserAgent
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) CrawlerLimits() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerLimits
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput)
+}
+
+// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) ExclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) InclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) UserAgent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAgent
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits struct {
+	MaxPages  *float64 `pulumi:"maxPages"`
+	RateLimit *float64 `pulumi:"rateLimit"`
+}
+
+// AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs and AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs{...}
+type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs struct {
+	MaxPages  pulumi.Float64PtrInput `pulumi:"maxPages"`
+	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
+}
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput).ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs, AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtr and AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrType AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs
+
+func AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtr(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrInput {
+	return (*agentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrType) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrType) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) MaxPages() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *float64 {
+		return v.MaxPages
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) RateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *float64 {
+		return v.RateLimit
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput) Elem() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput) MaxPages() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPages
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.RateLimit
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration struct {
+	UrlConfiguration *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration `pulumi:"urlConfiguration"`
+}
+
+// AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs and AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs struct {
+	UrlConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrInput `pulumi:"urlConfiguration"`
+}
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput).ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs, AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtr and AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrType AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtr(v *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput) UrlConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
+		return v.UrlConfiguration
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput) UrlConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.UrlConfiguration
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration struct {
+	SeedUrls []AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl `pulumi:"seedUrls"`
+}
+
+// AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs and AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs{...}
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs struct {
+	SeedUrls AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayInput `pulumi:"seedUrls"`
+}
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput)
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput).ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs, AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtr and AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrInput` via:
+//
+//	        AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput
+}
+
+type agentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrType AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs
+
+func AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtr(v *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrInput {
+	return (*agentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrType) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
+	return o.ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
+		return &v
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput) SeedUrls() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration) []AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl {
+		return v.SeedUrls
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput) Elem() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration
+		return ret
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput)
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput) SeedUrls() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration) []AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl {
+		if v == nil {
+			return nil
+		}
+		return v.SeedUrls
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl struct {
+	Url *string `pulumi:"url"`
+}
+
+// AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs and AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs{...}
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs struct {
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput)
+}
+
+// AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArray and AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput values.
+// You can construct a concrete instance of `AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayInput` via:
+//
+//	AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArray{ AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs{...} }
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput
+	ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutputWithContext(context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArray []AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlInput
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl)(nil)).Elem()
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArray) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput {
+	return i.ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArray) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl) *string {
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl)(nil)).Elem()
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput) ToAgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutputWithContext(ctx context.Context) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput) Index(i pulumi.IntInput) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl {
+		return vs[0].([]AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl)[vs[1].(int)]
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput)
 }
 
 type AgentDataSourceServerSideEncryptionConfiguration struct {
@@ -5724,6 +9343,10 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) VectorKnowledgeBa
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration struct {
 	// ARN of the model used to create vector embeddings for the knowledge base.
 	EmbeddingModelArn string `pulumi:"embeddingModelArn"`
+	// The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+	EmbeddingModelConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration `pulumi:"embeddingModelConfiguration"`
+	// supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+	SupplementalDataStorageConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration `pulumi:"supplementalDataStorageConfiguration"`
 }
 
 // AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput values.
@@ -5740,6 +9363,10 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguratio
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs struct {
 	// ARN of the model used to create vector embeddings for the knowledge base.
 	EmbeddingModelArn pulumi.StringInput `pulumi:"embeddingModelArn"`
+	// The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+	EmbeddingModelConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrInput `pulumi:"embeddingModelConfiguration"`
+	// supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+	SupplementalDataStorageConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrInput `pulumi:"supplementalDataStorageConfiguration"`
 }
 
 func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs) ElementType() reflect.Type {
@@ -5826,6 +9453,20 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(pulumi.StringOutput)
 }
 
+// The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput) EmbeddingModelConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration {
+		return v.EmbeddingModelConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput)
+}
+
+// supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput) SupplementalDataStorageConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration {
+		return v.SupplementalDataStorageConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput)
+}
+
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput) ElementType() reflect.Type {
@@ -5857,6 +9498,713 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 			return nil
 		}
 		return &v.EmbeddingModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The embeddings model configuration details for the vector model used in Knowledge Base.  See `embeddingModelConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput) EmbeddingModelConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EmbeddingModelConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput)
+}
+
+// supplemental_data_storage_configuration.  See `supplementalDataStorageConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput) SupplementalDataStorageConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SupplementalDataStorageConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration struct {
+	// The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+	BedrockEmbeddingModelConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration `pulumi:"bedrockEmbeddingModelConfiguration"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs struct {
+	// The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+	BedrockEmbeddingModelConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrInput `pulumi:"bedrockEmbeddingModelConfiguration"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput)
+}
+
+// The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput) BedrockEmbeddingModelConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
+		return v.BedrockEmbeddingModelConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput)
+}
+
+// The vector configuration details on the Bedrock embeddings model.  See `bedrockEmbeddingModelConfiguration` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput) BedrockEmbeddingModelConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockEmbeddingModelConfiguration
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration struct {
+	// Dimension details for the vector configuration used on the Bedrock embeddings model.
+	Dimensions *int `pulumi:"dimensions"`
+	// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+	EmbeddingDataType *string `pulumi:"embeddingDataType"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs struct {
+	// Dimension details for the vector configuration used on the Bedrock embeddings model.
+	Dimensions pulumi.IntPtrInput `pulumi:"dimensions"`
+	// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+	EmbeddingDataType pulumi.StringPtrInput `pulumi:"embeddingDataType"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput)
+}
+
+// Dimension details for the vector configuration used on the Bedrock embeddings model.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) Dimensions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *int {
+		return v.Dimensions
+	}).(pulumi.IntPtrOutput)
+}
+
+// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput) EmbeddingDataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *string {
+		return v.EmbeddingDataType
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput)
+}
+
+// Dimension details for the vector configuration used on the Bedrock embeddings model.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput) Dimensions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(pulumi.IntPtrOutput)
+}
+
+// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput) EmbeddingDataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmbeddingDataType
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration struct {
+	// A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+	StorageLocations []AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation `pulumi:"storageLocations"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs struct {
+	// A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+	StorageLocations AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayInput `pulumi:"storageLocations"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput)
+}
+
+// A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput) StorageLocations() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration) []AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation {
+		return v.StorageLocations
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput)
+}
+
+// A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput) StorageLocations() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration) []AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation {
+		if v == nil {
+			return nil
+		}
+		return v.StorageLocations
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation struct {
+	// Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
+	S3Location *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location `pulumi:"s3Location"`
+	// Storage service used for this location. `S3` is the only valid value.
+	Type string `pulumi:"type"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs struct {
+	// Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
+	S3Location AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrInput `pulumi:"s3Location"`
+	// Storage service used for this location. `S3` is the only valid value.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArray and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArray{ AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs{...} }
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArray []AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationInput
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArray) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArray) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput {
+	return o
+}
+
+// Contains information about the Amazon S3 location for the extracted images.  See `s3Location` block for details.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput) S3Location() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location {
+		return v.S3Location
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput)
+}
+
+// Storage service used for this location. `S3` is the only valid value.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput) Index(i pulumi.IntInput) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation {
+		return vs[0].([]AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation)[vs[1].(int)]
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location struct {
+	// URI of the location.
+	Uri string `pulumi:"uri"`
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationInput` via:
+//
+//	AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs{...}
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs struct {
+	// URI of the location.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location)(nil)).Elem()
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput)
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput).ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutputWithContext(ctx)
+}
+
+// AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs, AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtr and AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput values.
+// You can construct a concrete instance of `AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrInput` via:
+//
+//	        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput
+	ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutputWithContext(context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput
+}
+
+type agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrType AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs
+
+func AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtr(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrInput {
+	return (*agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrType)(v)
+}
+
+func (*agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location)(nil)).Elem()
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput {
+	return i.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrType) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput {
+	return o.ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location {
+		return &v
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput)
+}
+
+// URI of the location.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location) string {
+		return v.Uri
+	}).(pulumi.StringOutput)
+}
+
+type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location)(nil)).Elem()
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput) ToAgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutputWithContext(ctx context.Context) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput {
+	return o
+}
+
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput) Elem() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location) AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location
+		return ret
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput)
+}
+
+// URI of the location.
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12539,8 +16887,56 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentTimeoutsPtrInput)(nil)).Elem(), AgentAgentTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationS3ConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationS3ConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationWebConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationWebConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceServerSideEncryptionConfigurationInput)(nil)).Elem(), AgentDataSourceServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), AgentDataSourceServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceTimeoutsInput)(nil)).Elem(), AgentDataSourceTimeoutsArgs{})
@@ -12579,6 +16975,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs{})
@@ -12713,8 +17119,56 @@ func init() {
 	pulumi.RegisterOutputType(AgentAgentTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationConfluenceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationConfluenceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationS3ConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSharePointConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArrayOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArrayOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationWebConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceServerSideEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceServerSideEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceTimeoutsOutput{})
@@ -12753,6 +17207,16 @@ func init() {
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArrayOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationOutput{})
+	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput{})

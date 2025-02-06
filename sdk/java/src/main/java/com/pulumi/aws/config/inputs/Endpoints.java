@@ -180,6 +180,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String billing;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String budgets;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1728,6 +1733,13 @@ public final class Endpoints {
      */
     public Optional<String> bedrockagent() {
         return Optional.ofNullable(this.bedrockagent);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> billing() {
+        return Optional.ofNullable(this.billing);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3620,6 +3632,7 @@ public final class Endpoints {
         private @Nullable String beanstalk;
         private @Nullable String bedrock;
         private @Nullable String bedrockagent;
+        private @Nullable String billing;
         private @Nullable String budgets;
         private @Nullable String ce;
         private @Nullable String chatbot;
@@ -3920,6 +3933,7 @@ public final class Endpoints {
     	      this.beanstalk = defaults.beanstalk;
     	      this.bedrock = defaults.bedrock;
     	      this.bedrockagent = defaults.bedrockagent;
+    	      this.billing = defaults.billing;
     	      this.budgets = defaults.budgets;
     	      this.ce = defaults.ce;
     	      this.chatbot = defaults.chatbot;
@@ -4382,6 +4396,12 @@ public final class Endpoints {
         public Builder bedrockagent(@Nullable String bedrockagent) {
 
             this.bedrockagent = bedrockagent;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder billing(@Nullable String billing) {
+
+            this.billing = billing;
             return this;
         }
         @CustomType.Setter
@@ -6003,6 +6023,7 @@ public final class Endpoints {
             _resultValue.beanstalk = beanstalk;
             _resultValue.bedrock = bedrock;
             _resultValue.bedrockagent = bedrockagent;
+            _resultValue.billing = billing;
             _resultValue.budgets = budgets;
             _resultValue.ce = ce;
             _resultValue.chatbot = chatbot;

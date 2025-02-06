@@ -344,6 +344,2077 @@ func (o DelegationSignerRecordTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainAdminContact struct {
+	// First line of the contact's address.
+	AddressLine1 *string `pulumi:"addressLine1"`
+	// Second line of contact's address, if any.
+	AddressLine2 *string `pulumi:"addressLine2"`
+	// The city of the contact's address.
+	City *string `pulumi:"city"`
+	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+	ContactType *string `pulumi:"contactType"`
+	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+	CountryCode *string `pulumi:"countryCode"`
+	// Email address of the contact.
+	Email *string `pulumi:"email"`
+	// A list of name-value pairs for parameters required by certain top-level domains.
+	ExtraParams []DomainAdminContactExtraParam `pulumi:"extraParams"`
+	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	Fax *string `pulumi:"fax"`
+	// First name of contact.
+	FirstName *string `pulumi:"firstName"`
+	// Last name of contact.
+	LastName *string `pulumi:"lastName"`
+	// Name of the organization for contact types other than `PERSON`.
+	OrganizationName *string `pulumi:"organizationName"`
+	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	PhoneNumber *string `pulumi:"phoneNumber"`
+	// The state or province of the contact's city.
+	State *string `pulumi:"state"`
+	// The zip or postal code of the contact's address.
+	ZipCode *string `pulumi:"zipCode"`
+}
+
+// DomainAdminContactInput is an input type that accepts DomainAdminContactArgs and DomainAdminContactOutput values.
+// You can construct a concrete instance of `DomainAdminContactInput` via:
+//
+//	DomainAdminContactArgs{...}
+type DomainAdminContactInput interface {
+	pulumi.Input
+
+	ToDomainAdminContactOutput() DomainAdminContactOutput
+	ToDomainAdminContactOutputWithContext(context.Context) DomainAdminContactOutput
+}
+
+type DomainAdminContactArgs struct {
+	// First line of the contact's address.
+	AddressLine1 pulumi.StringPtrInput `pulumi:"addressLine1"`
+	// Second line of contact's address, if any.
+	AddressLine2 pulumi.StringPtrInput `pulumi:"addressLine2"`
+	// The city of the contact's address.
+	City pulumi.StringPtrInput `pulumi:"city"`
+	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+	ContactType pulumi.StringPtrInput `pulumi:"contactType"`
+	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+	CountryCode pulumi.StringPtrInput `pulumi:"countryCode"`
+	// Email address of the contact.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// A list of name-value pairs for parameters required by certain top-level domains.
+	ExtraParams DomainAdminContactExtraParamArrayInput `pulumi:"extraParams"`
+	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	Fax pulumi.StringPtrInput `pulumi:"fax"`
+	// First name of contact.
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	// Last name of contact.
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	// Name of the organization for contact types other than `PERSON`.
+	OrganizationName pulumi.StringPtrInput `pulumi:"organizationName"`
+	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
+	// The state or province of the contact's city.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// The zip or postal code of the contact's address.
+	ZipCode pulumi.StringPtrInput `pulumi:"zipCode"`
+}
+
+func (DomainAdminContactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdminContact)(nil)).Elem()
+}
+
+func (i DomainAdminContactArgs) ToDomainAdminContactOutput() DomainAdminContactOutput {
+	return i.ToDomainAdminContactOutputWithContext(context.Background())
+}
+
+func (i DomainAdminContactArgs) ToDomainAdminContactOutputWithContext(ctx context.Context) DomainAdminContactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdminContactOutput)
+}
+
+func (i DomainAdminContactArgs) ToDomainAdminContactPtrOutput() DomainAdminContactPtrOutput {
+	return i.ToDomainAdminContactPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAdminContactArgs) ToDomainAdminContactPtrOutputWithContext(ctx context.Context) DomainAdminContactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdminContactOutput).ToDomainAdminContactPtrOutputWithContext(ctx)
+}
+
+// DomainAdminContactPtrInput is an input type that accepts DomainAdminContactArgs, DomainAdminContactPtr and DomainAdminContactPtrOutput values.
+// You can construct a concrete instance of `DomainAdminContactPtrInput` via:
+//
+//	        DomainAdminContactArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainAdminContactPtrInput interface {
+	pulumi.Input
+
+	ToDomainAdminContactPtrOutput() DomainAdminContactPtrOutput
+	ToDomainAdminContactPtrOutputWithContext(context.Context) DomainAdminContactPtrOutput
+}
+
+type domainAdminContactPtrType DomainAdminContactArgs
+
+func DomainAdminContactPtr(v *DomainAdminContactArgs) DomainAdminContactPtrInput {
+	return (*domainAdminContactPtrType)(v)
+}
+
+func (*domainAdminContactPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdminContact)(nil)).Elem()
+}
+
+func (i *domainAdminContactPtrType) ToDomainAdminContactPtrOutput() DomainAdminContactPtrOutput {
+	return i.ToDomainAdminContactPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAdminContactPtrType) ToDomainAdminContactPtrOutputWithContext(ctx context.Context) DomainAdminContactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdminContactPtrOutput)
+}
+
+type DomainAdminContactOutput struct{ *pulumi.OutputState }
+
+func (DomainAdminContactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdminContact)(nil)).Elem()
+}
+
+func (o DomainAdminContactOutput) ToDomainAdminContactOutput() DomainAdminContactOutput {
+	return o
+}
+
+func (o DomainAdminContactOutput) ToDomainAdminContactOutputWithContext(ctx context.Context) DomainAdminContactOutput {
+	return o
+}
+
+func (o DomainAdminContactOutput) ToDomainAdminContactPtrOutput() DomainAdminContactPtrOutput {
+	return o.ToDomainAdminContactPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAdminContactOutput) ToDomainAdminContactPtrOutputWithContext(ctx context.Context) DomainAdminContactPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAdminContact) *DomainAdminContact {
+		return &v
+	}).(DomainAdminContactPtrOutput)
+}
+
+// First line of the contact's address.
+func (o DomainAdminContactOutput) AddressLine1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.AddressLine1 }).(pulumi.StringPtrOutput)
+}
+
+// Second line of contact's address, if any.
+func (o DomainAdminContactOutput) AddressLine2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.AddressLine2 }).(pulumi.StringPtrOutput)
+}
+
+// The city of the contact's address.
+func (o DomainAdminContactOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.City }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+func (o DomainAdminContactOutput) ContactType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.ContactType }).(pulumi.StringPtrOutput)
+}
+
+// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+func (o DomainAdminContactOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
+}
+
+// Email address of the contact.
+func (o DomainAdminContactOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// A list of name-value pairs for parameters required by certain top-level domains.
+func (o DomainAdminContactOutput) ExtraParams() DomainAdminContactExtraParamArrayOutput {
+	return o.ApplyT(func(v DomainAdminContact) []DomainAdminContactExtraParam { return v.ExtraParams }).(DomainAdminContactExtraParamArrayOutput)
+}
+
+// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainAdminContactOutput) Fax() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.Fax }).(pulumi.StringPtrOutput)
+}
+
+// First name of contact.
+func (o DomainAdminContactOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Last name of contact.
+func (o DomainAdminContactOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the organization for contact types other than `PERSON`.
+func (o DomainAdminContactOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.OrganizationName }).(pulumi.StringPtrOutput)
+}
+
+// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainAdminContactOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+// The state or province of the contact's city.
+func (o DomainAdminContactOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The zip or postal code of the contact's address.
+func (o DomainAdminContactOutput) ZipCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdminContact) *string { return v.ZipCode }).(pulumi.StringPtrOutput)
+}
+
+type DomainAdminContactPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAdminContactPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdminContact)(nil)).Elem()
+}
+
+func (o DomainAdminContactPtrOutput) ToDomainAdminContactPtrOutput() DomainAdminContactPtrOutput {
+	return o
+}
+
+func (o DomainAdminContactPtrOutput) ToDomainAdminContactPtrOutputWithContext(ctx context.Context) DomainAdminContactPtrOutput {
+	return o
+}
+
+func (o DomainAdminContactPtrOutput) Elem() DomainAdminContactOutput {
+	return o.ApplyT(func(v *DomainAdminContact) DomainAdminContact {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAdminContact
+		return ret
+	}).(DomainAdminContactOutput)
+}
+
+// First line of the contact's address.
+func (o DomainAdminContactPtrOutput) AddressLine1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressLine1
+	}).(pulumi.StringPtrOutput)
+}
+
+// Second line of contact's address, if any.
+func (o DomainAdminContactPtrOutput) AddressLine2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressLine2
+	}).(pulumi.StringPtrOutput)
+}
+
+// The city of the contact's address.
+func (o DomainAdminContactPtrOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.City
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+func (o DomainAdminContactPtrOutput) ContactType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContactType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+func (o DomainAdminContactPtrOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CountryCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Email address of the contact.
+func (o DomainAdminContactPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of name-value pairs for parameters required by certain top-level domains.
+func (o DomainAdminContactPtrOutput) ExtraParams() DomainAdminContactExtraParamArrayOutput {
+	return o.ApplyT(func(v *DomainAdminContact) []DomainAdminContactExtraParam {
+		if v == nil {
+			return nil
+		}
+		return v.ExtraParams
+	}).(DomainAdminContactExtraParamArrayOutput)
+}
+
+// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainAdminContactPtrOutput) Fax() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Fax
+	}).(pulumi.StringPtrOutput)
+}
+
+// First name of contact.
+func (o DomainAdminContactPtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Last name of contact.
+func (o DomainAdminContactPtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the organization for contact types other than `PERSON`.
+func (o DomainAdminContactPtrOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainAdminContactPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state or province of the contact's city.
+func (o DomainAdminContactPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The zip or postal code of the contact's address.
+func (o DomainAdminContactPtrOutput) ZipCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdminContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ZipCode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainAdminContactExtraParam struct {
+	// The name of an additional parameter that is required by a top-level domain.
+	Name string `pulumi:"name"`
+	// The value that corresponds with the name of an extra parameter.
+	Value string `pulumi:"value"`
+}
+
+// DomainAdminContactExtraParamInput is an input type that accepts DomainAdminContactExtraParamArgs and DomainAdminContactExtraParamOutput values.
+// You can construct a concrete instance of `DomainAdminContactExtraParamInput` via:
+//
+//	DomainAdminContactExtraParamArgs{...}
+type DomainAdminContactExtraParamInput interface {
+	pulumi.Input
+
+	ToDomainAdminContactExtraParamOutput() DomainAdminContactExtraParamOutput
+	ToDomainAdminContactExtraParamOutputWithContext(context.Context) DomainAdminContactExtraParamOutput
+}
+
+type DomainAdminContactExtraParamArgs struct {
+	// The name of an additional parameter that is required by a top-level domain.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value that corresponds with the name of an extra parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DomainAdminContactExtraParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdminContactExtraParam)(nil)).Elem()
+}
+
+func (i DomainAdminContactExtraParamArgs) ToDomainAdminContactExtraParamOutput() DomainAdminContactExtraParamOutput {
+	return i.ToDomainAdminContactExtraParamOutputWithContext(context.Background())
+}
+
+func (i DomainAdminContactExtraParamArgs) ToDomainAdminContactExtraParamOutputWithContext(ctx context.Context) DomainAdminContactExtraParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdminContactExtraParamOutput)
+}
+
+// DomainAdminContactExtraParamArrayInput is an input type that accepts DomainAdminContactExtraParamArray and DomainAdminContactExtraParamArrayOutput values.
+// You can construct a concrete instance of `DomainAdminContactExtraParamArrayInput` via:
+//
+//	DomainAdminContactExtraParamArray{ DomainAdminContactExtraParamArgs{...} }
+type DomainAdminContactExtraParamArrayInput interface {
+	pulumi.Input
+
+	ToDomainAdminContactExtraParamArrayOutput() DomainAdminContactExtraParamArrayOutput
+	ToDomainAdminContactExtraParamArrayOutputWithContext(context.Context) DomainAdminContactExtraParamArrayOutput
+}
+
+type DomainAdminContactExtraParamArray []DomainAdminContactExtraParamInput
+
+func (DomainAdminContactExtraParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainAdminContactExtraParam)(nil)).Elem()
+}
+
+func (i DomainAdminContactExtraParamArray) ToDomainAdminContactExtraParamArrayOutput() DomainAdminContactExtraParamArrayOutput {
+	return i.ToDomainAdminContactExtraParamArrayOutputWithContext(context.Background())
+}
+
+func (i DomainAdminContactExtraParamArray) ToDomainAdminContactExtraParamArrayOutputWithContext(ctx context.Context) DomainAdminContactExtraParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdminContactExtraParamArrayOutput)
+}
+
+type DomainAdminContactExtraParamOutput struct{ *pulumi.OutputState }
+
+func (DomainAdminContactExtraParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdminContactExtraParam)(nil)).Elem()
+}
+
+func (o DomainAdminContactExtraParamOutput) ToDomainAdminContactExtraParamOutput() DomainAdminContactExtraParamOutput {
+	return o
+}
+
+func (o DomainAdminContactExtraParamOutput) ToDomainAdminContactExtraParamOutputWithContext(ctx context.Context) DomainAdminContactExtraParamOutput {
+	return o
+}
+
+// The name of an additional parameter that is required by a top-level domain.
+func (o DomainAdminContactExtraParamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainAdminContactExtraParam) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value that corresponds with the name of an extra parameter.
+func (o DomainAdminContactExtraParamOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainAdminContactExtraParam) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DomainAdminContactExtraParamArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainAdminContactExtraParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainAdminContactExtraParam)(nil)).Elem()
+}
+
+func (o DomainAdminContactExtraParamArrayOutput) ToDomainAdminContactExtraParamArrayOutput() DomainAdminContactExtraParamArrayOutput {
+	return o
+}
+
+func (o DomainAdminContactExtraParamArrayOutput) ToDomainAdminContactExtraParamArrayOutputWithContext(ctx context.Context) DomainAdminContactExtraParamArrayOutput {
+	return o
+}
+
+func (o DomainAdminContactExtraParamArrayOutput) Index(i pulumi.IntInput) DomainAdminContactExtraParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainAdminContactExtraParam {
+		return vs[0].([]DomainAdminContactExtraParam)[vs[1].(int)]
+	}).(DomainAdminContactExtraParamOutput)
+}
+
+type DomainBillingContact struct {
+	// First line of the contact's address.
+	AddressLine1 string `pulumi:"addressLine1"`
+	// Second line of contact's address, if any.
+	AddressLine2 string `pulumi:"addressLine2"`
+	// The city of the contact's address.
+	City string `pulumi:"city"`
+	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+	ContactType string `pulumi:"contactType"`
+	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+	CountryCode string `pulumi:"countryCode"`
+	// Email address of the contact.
+	Email string `pulumi:"email"`
+	// A list of name-value pairs for parameters required by certain top-level domains.
+	ExtraParams []DomainBillingContactExtraParam `pulumi:"extraParams"`
+	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	Fax string `pulumi:"fax"`
+	// First name of contact.
+	FirstName string `pulumi:"firstName"`
+	// Last name of contact.
+	LastName string `pulumi:"lastName"`
+	// Name of the organization for contact types other than `PERSON`.
+	OrganizationName string `pulumi:"organizationName"`
+	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	PhoneNumber string `pulumi:"phoneNumber"`
+	// The state or province of the contact's city.
+	State string `pulumi:"state"`
+	// The zip or postal code of the contact's address.
+	ZipCode string `pulumi:"zipCode"`
+}
+
+// DomainBillingContactInput is an input type that accepts DomainBillingContactArgs and DomainBillingContactOutput values.
+// You can construct a concrete instance of `DomainBillingContactInput` via:
+//
+//	DomainBillingContactArgs{...}
+type DomainBillingContactInput interface {
+	pulumi.Input
+
+	ToDomainBillingContactOutput() DomainBillingContactOutput
+	ToDomainBillingContactOutputWithContext(context.Context) DomainBillingContactOutput
+}
+
+type DomainBillingContactArgs struct {
+	// First line of the contact's address.
+	AddressLine1 pulumi.StringInput `pulumi:"addressLine1"`
+	// Second line of contact's address, if any.
+	AddressLine2 pulumi.StringInput `pulumi:"addressLine2"`
+	// The city of the contact's address.
+	City pulumi.StringInput `pulumi:"city"`
+	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+	ContactType pulumi.StringInput `pulumi:"contactType"`
+	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+	CountryCode pulumi.StringInput `pulumi:"countryCode"`
+	// Email address of the contact.
+	Email pulumi.StringInput `pulumi:"email"`
+	// A list of name-value pairs for parameters required by certain top-level domains.
+	ExtraParams DomainBillingContactExtraParamArrayInput `pulumi:"extraParams"`
+	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	Fax pulumi.StringInput `pulumi:"fax"`
+	// First name of contact.
+	FirstName pulumi.StringInput `pulumi:"firstName"`
+	// Last name of contact.
+	LastName pulumi.StringInput `pulumi:"lastName"`
+	// Name of the organization for contact types other than `PERSON`.
+	OrganizationName pulumi.StringInput `pulumi:"organizationName"`
+	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
+	// The state or province of the contact's city.
+	State pulumi.StringInput `pulumi:"state"`
+	// The zip or postal code of the contact's address.
+	ZipCode pulumi.StringInput `pulumi:"zipCode"`
+}
+
+func (DomainBillingContactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainBillingContact)(nil)).Elem()
+}
+
+func (i DomainBillingContactArgs) ToDomainBillingContactOutput() DomainBillingContactOutput {
+	return i.ToDomainBillingContactOutputWithContext(context.Background())
+}
+
+func (i DomainBillingContactArgs) ToDomainBillingContactOutputWithContext(ctx context.Context) DomainBillingContactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainBillingContactOutput)
+}
+
+// DomainBillingContactArrayInput is an input type that accepts DomainBillingContactArray and DomainBillingContactArrayOutput values.
+// You can construct a concrete instance of `DomainBillingContactArrayInput` via:
+//
+//	DomainBillingContactArray{ DomainBillingContactArgs{...} }
+type DomainBillingContactArrayInput interface {
+	pulumi.Input
+
+	ToDomainBillingContactArrayOutput() DomainBillingContactArrayOutput
+	ToDomainBillingContactArrayOutputWithContext(context.Context) DomainBillingContactArrayOutput
+}
+
+type DomainBillingContactArray []DomainBillingContactInput
+
+func (DomainBillingContactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainBillingContact)(nil)).Elem()
+}
+
+func (i DomainBillingContactArray) ToDomainBillingContactArrayOutput() DomainBillingContactArrayOutput {
+	return i.ToDomainBillingContactArrayOutputWithContext(context.Background())
+}
+
+func (i DomainBillingContactArray) ToDomainBillingContactArrayOutputWithContext(ctx context.Context) DomainBillingContactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainBillingContactArrayOutput)
+}
+
+type DomainBillingContactOutput struct{ *pulumi.OutputState }
+
+func (DomainBillingContactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainBillingContact)(nil)).Elem()
+}
+
+func (o DomainBillingContactOutput) ToDomainBillingContactOutput() DomainBillingContactOutput {
+	return o
+}
+
+func (o DomainBillingContactOutput) ToDomainBillingContactOutputWithContext(ctx context.Context) DomainBillingContactOutput {
+	return o
+}
+
+// First line of the contact's address.
+func (o DomainBillingContactOutput) AddressLine1() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.AddressLine1 }).(pulumi.StringOutput)
+}
+
+// Second line of contact's address, if any.
+func (o DomainBillingContactOutput) AddressLine2() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.AddressLine2 }).(pulumi.StringOutput)
+}
+
+// The city of the contact's address.
+func (o DomainBillingContactOutput) City() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.City }).(pulumi.StringOutput)
+}
+
+// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+func (o DomainBillingContactOutput) ContactType() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.ContactType }).(pulumi.StringOutput)
+}
+
+// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+func (o DomainBillingContactOutput) CountryCode() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.CountryCode }).(pulumi.StringOutput)
+}
+
+// Email address of the contact.
+func (o DomainBillingContactOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// A list of name-value pairs for parameters required by certain top-level domains.
+func (o DomainBillingContactOutput) ExtraParams() DomainBillingContactExtraParamArrayOutput {
+	return o.ApplyT(func(v DomainBillingContact) []DomainBillingContactExtraParam { return v.ExtraParams }).(DomainBillingContactExtraParamArrayOutput)
+}
+
+// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainBillingContactOutput) Fax() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.Fax }).(pulumi.StringOutput)
+}
+
+// First name of contact.
+func (o DomainBillingContactOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// Last name of contact.
+func (o DomainBillingContactOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+// Name of the organization for contact types other than `PERSON`.
+func (o DomainBillingContactOutput) OrganizationName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.OrganizationName }).(pulumi.StringOutput)
+}
+
+// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainBillingContactOutput) PhoneNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.PhoneNumber }).(pulumi.StringOutput)
+}
+
+// The state or province of the contact's city.
+func (o DomainBillingContactOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The zip or postal code of the contact's address.
+func (o DomainBillingContactOutput) ZipCode() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContact) string { return v.ZipCode }).(pulumi.StringOutput)
+}
+
+type DomainBillingContactArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainBillingContactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainBillingContact)(nil)).Elem()
+}
+
+func (o DomainBillingContactArrayOutput) ToDomainBillingContactArrayOutput() DomainBillingContactArrayOutput {
+	return o
+}
+
+func (o DomainBillingContactArrayOutput) ToDomainBillingContactArrayOutputWithContext(ctx context.Context) DomainBillingContactArrayOutput {
+	return o
+}
+
+func (o DomainBillingContactArrayOutput) Index(i pulumi.IntInput) DomainBillingContactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainBillingContact {
+		return vs[0].([]DomainBillingContact)[vs[1].(int)]
+	}).(DomainBillingContactOutput)
+}
+
+type DomainBillingContactExtraParam struct {
+	// The name of an additional parameter that is required by a top-level domain.
+	Name string `pulumi:"name"`
+	// The value that corresponds with the name of an extra parameter.
+	Value string `pulumi:"value"`
+}
+
+// DomainBillingContactExtraParamInput is an input type that accepts DomainBillingContactExtraParamArgs and DomainBillingContactExtraParamOutput values.
+// You can construct a concrete instance of `DomainBillingContactExtraParamInput` via:
+//
+//	DomainBillingContactExtraParamArgs{...}
+type DomainBillingContactExtraParamInput interface {
+	pulumi.Input
+
+	ToDomainBillingContactExtraParamOutput() DomainBillingContactExtraParamOutput
+	ToDomainBillingContactExtraParamOutputWithContext(context.Context) DomainBillingContactExtraParamOutput
+}
+
+type DomainBillingContactExtraParamArgs struct {
+	// The name of an additional parameter that is required by a top-level domain.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value that corresponds with the name of an extra parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DomainBillingContactExtraParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainBillingContactExtraParam)(nil)).Elem()
+}
+
+func (i DomainBillingContactExtraParamArgs) ToDomainBillingContactExtraParamOutput() DomainBillingContactExtraParamOutput {
+	return i.ToDomainBillingContactExtraParamOutputWithContext(context.Background())
+}
+
+func (i DomainBillingContactExtraParamArgs) ToDomainBillingContactExtraParamOutputWithContext(ctx context.Context) DomainBillingContactExtraParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainBillingContactExtraParamOutput)
+}
+
+// DomainBillingContactExtraParamArrayInput is an input type that accepts DomainBillingContactExtraParamArray and DomainBillingContactExtraParamArrayOutput values.
+// You can construct a concrete instance of `DomainBillingContactExtraParamArrayInput` via:
+//
+//	DomainBillingContactExtraParamArray{ DomainBillingContactExtraParamArgs{...} }
+type DomainBillingContactExtraParamArrayInput interface {
+	pulumi.Input
+
+	ToDomainBillingContactExtraParamArrayOutput() DomainBillingContactExtraParamArrayOutput
+	ToDomainBillingContactExtraParamArrayOutputWithContext(context.Context) DomainBillingContactExtraParamArrayOutput
+}
+
+type DomainBillingContactExtraParamArray []DomainBillingContactExtraParamInput
+
+func (DomainBillingContactExtraParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainBillingContactExtraParam)(nil)).Elem()
+}
+
+func (i DomainBillingContactExtraParamArray) ToDomainBillingContactExtraParamArrayOutput() DomainBillingContactExtraParamArrayOutput {
+	return i.ToDomainBillingContactExtraParamArrayOutputWithContext(context.Background())
+}
+
+func (i DomainBillingContactExtraParamArray) ToDomainBillingContactExtraParamArrayOutputWithContext(ctx context.Context) DomainBillingContactExtraParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainBillingContactExtraParamArrayOutput)
+}
+
+type DomainBillingContactExtraParamOutput struct{ *pulumi.OutputState }
+
+func (DomainBillingContactExtraParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainBillingContactExtraParam)(nil)).Elem()
+}
+
+func (o DomainBillingContactExtraParamOutput) ToDomainBillingContactExtraParamOutput() DomainBillingContactExtraParamOutput {
+	return o
+}
+
+func (o DomainBillingContactExtraParamOutput) ToDomainBillingContactExtraParamOutputWithContext(ctx context.Context) DomainBillingContactExtraParamOutput {
+	return o
+}
+
+// The name of an additional parameter that is required by a top-level domain.
+func (o DomainBillingContactExtraParamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContactExtraParam) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value that corresponds with the name of an extra parameter.
+func (o DomainBillingContactExtraParamOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainBillingContactExtraParam) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DomainBillingContactExtraParamArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainBillingContactExtraParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainBillingContactExtraParam)(nil)).Elem()
+}
+
+func (o DomainBillingContactExtraParamArrayOutput) ToDomainBillingContactExtraParamArrayOutput() DomainBillingContactExtraParamArrayOutput {
+	return o
+}
+
+func (o DomainBillingContactExtraParamArrayOutput) ToDomainBillingContactExtraParamArrayOutputWithContext(ctx context.Context) DomainBillingContactExtraParamArrayOutput {
+	return o
+}
+
+func (o DomainBillingContactExtraParamArrayOutput) Index(i pulumi.IntInput) DomainBillingContactExtraParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainBillingContactExtraParam {
+		return vs[0].([]DomainBillingContactExtraParam)[vs[1].(int)]
+	}).(DomainBillingContactExtraParamOutput)
+}
+
+type DomainNameServer struct {
+	// Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
+	GlueIps []string `pulumi:"glueIps"`
+	// The fully qualified host name of the name server.
+	Name string `pulumi:"name"`
+}
+
+// DomainNameServerInput is an input type that accepts DomainNameServerArgs and DomainNameServerOutput values.
+// You can construct a concrete instance of `DomainNameServerInput` via:
+//
+//	DomainNameServerArgs{...}
+type DomainNameServerInput interface {
+	pulumi.Input
+
+	ToDomainNameServerOutput() DomainNameServerOutput
+	ToDomainNameServerOutputWithContext(context.Context) DomainNameServerOutput
+}
+
+type DomainNameServerArgs struct {
+	// Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
+	GlueIps pulumi.StringArrayInput `pulumi:"glueIps"`
+	// The fully qualified host name of the name server.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DomainNameServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameServer)(nil)).Elem()
+}
+
+func (i DomainNameServerArgs) ToDomainNameServerOutput() DomainNameServerOutput {
+	return i.ToDomainNameServerOutputWithContext(context.Background())
+}
+
+func (i DomainNameServerArgs) ToDomainNameServerOutputWithContext(ctx context.Context) DomainNameServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameServerOutput)
+}
+
+// DomainNameServerArrayInput is an input type that accepts DomainNameServerArray and DomainNameServerArrayOutput values.
+// You can construct a concrete instance of `DomainNameServerArrayInput` via:
+//
+//	DomainNameServerArray{ DomainNameServerArgs{...} }
+type DomainNameServerArrayInput interface {
+	pulumi.Input
+
+	ToDomainNameServerArrayOutput() DomainNameServerArrayOutput
+	ToDomainNameServerArrayOutputWithContext(context.Context) DomainNameServerArrayOutput
+}
+
+type DomainNameServerArray []DomainNameServerInput
+
+func (DomainNameServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainNameServer)(nil)).Elem()
+}
+
+func (i DomainNameServerArray) ToDomainNameServerArrayOutput() DomainNameServerArrayOutput {
+	return i.ToDomainNameServerArrayOutputWithContext(context.Background())
+}
+
+func (i DomainNameServerArray) ToDomainNameServerArrayOutputWithContext(ctx context.Context) DomainNameServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameServerArrayOutput)
+}
+
+type DomainNameServerOutput struct{ *pulumi.OutputState }
+
+func (DomainNameServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameServer)(nil)).Elem()
+}
+
+func (o DomainNameServerOutput) ToDomainNameServerOutput() DomainNameServerOutput {
+	return o
+}
+
+func (o DomainNameServerOutput) ToDomainNameServerOutputWithContext(ctx context.Context) DomainNameServerOutput {
+	return o
+}
+
+// Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
+func (o DomainNameServerOutput) GlueIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainNameServer) []string { return v.GlueIps }).(pulumi.StringArrayOutput)
+}
+
+// The fully qualified host name of the name server.
+func (o DomainNameServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainNameServer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DomainNameServerArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainNameServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainNameServer)(nil)).Elem()
+}
+
+func (o DomainNameServerArrayOutput) ToDomainNameServerArrayOutput() DomainNameServerArrayOutput {
+	return o
+}
+
+func (o DomainNameServerArrayOutput) ToDomainNameServerArrayOutputWithContext(ctx context.Context) DomainNameServerArrayOutput {
+	return o
+}
+
+func (o DomainNameServerArrayOutput) Index(i pulumi.IntInput) DomainNameServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainNameServer {
+		return vs[0].([]DomainNameServer)[vs[1].(int)]
+	}).(DomainNameServerOutput)
+}
+
+type DomainRegistrantContact struct {
+	// First line of the contact's address.
+	AddressLine1 *string `pulumi:"addressLine1"`
+	// Second line of contact's address, if any.
+	AddressLine2 *string `pulumi:"addressLine2"`
+	// The city of the contact's address.
+	City *string `pulumi:"city"`
+	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+	ContactType *string `pulumi:"contactType"`
+	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+	CountryCode *string `pulumi:"countryCode"`
+	// Email address of the contact.
+	Email *string `pulumi:"email"`
+	// A list of name-value pairs for parameters required by certain top-level domains.
+	ExtraParams []DomainRegistrantContactExtraParam `pulumi:"extraParams"`
+	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	Fax *string `pulumi:"fax"`
+	// First name of contact.
+	FirstName *string `pulumi:"firstName"`
+	// Last name of contact.
+	LastName *string `pulumi:"lastName"`
+	// Name of the organization for contact types other than `PERSON`.
+	OrganizationName *string `pulumi:"organizationName"`
+	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	PhoneNumber *string `pulumi:"phoneNumber"`
+	// The state or province of the contact's city.
+	State *string `pulumi:"state"`
+	// The zip or postal code of the contact's address.
+	ZipCode *string `pulumi:"zipCode"`
+}
+
+// DomainRegistrantContactInput is an input type that accepts DomainRegistrantContactArgs and DomainRegistrantContactOutput values.
+// You can construct a concrete instance of `DomainRegistrantContactInput` via:
+//
+//	DomainRegistrantContactArgs{...}
+type DomainRegistrantContactInput interface {
+	pulumi.Input
+
+	ToDomainRegistrantContactOutput() DomainRegistrantContactOutput
+	ToDomainRegistrantContactOutputWithContext(context.Context) DomainRegistrantContactOutput
+}
+
+type DomainRegistrantContactArgs struct {
+	// First line of the contact's address.
+	AddressLine1 pulumi.StringPtrInput `pulumi:"addressLine1"`
+	// Second line of contact's address, if any.
+	AddressLine2 pulumi.StringPtrInput `pulumi:"addressLine2"`
+	// The city of the contact's address.
+	City pulumi.StringPtrInput `pulumi:"city"`
+	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+	ContactType pulumi.StringPtrInput `pulumi:"contactType"`
+	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+	CountryCode pulumi.StringPtrInput `pulumi:"countryCode"`
+	// Email address of the contact.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// A list of name-value pairs for parameters required by certain top-level domains.
+	ExtraParams DomainRegistrantContactExtraParamArrayInput `pulumi:"extraParams"`
+	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	Fax pulumi.StringPtrInput `pulumi:"fax"`
+	// First name of contact.
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	// Last name of contact.
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	// Name of the organization for contact types other than `PERSON`.
+	OrganizationName pulumi.StringPtrInput `pulumi:"organizationName"`
+	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
+	// The state or province of the contact's city.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// The zip or postal code of the contact's address.
+	ZipCode pulumi.StringPtrInput `pulumi:"zipCode"`
+}
+
+func (DomainRegistrantContactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRegistrantContact)(nil)).Elem()
+}
+
+func (i DomainRegistrantContactArgs) ToDomainRegistrantContactOutput() DomainRegistrantContactOutput {
+	return i.ToDomainRegistrantContactOutputWithContext(context.Background())
+}
+
+func (i DomainRegistrantContactArgs) ToDomainRegistrantContactOutputWithContext(ctx context.Context) DomainRegistrantContactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRegistrantContactOutput)
+}
+
+func (i DomainRegistrantContactArgs) ToDomainRegistrantContactPtrOutput() DomainRegistrantContactPtrOutput {
+	return i.ToDomainRegistrantContactPtrOutputWithContext(context.Background())
+}
+
+func (i DomainRegistrantContactArgs) ToDomainRegistrantContactPtrOutputWithContext(ctx context.Context) DomainRegistrantContactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRegistrantContactOutput).ToDomainRegistrantContactPtrOutputWithContext(ctx)
+}
+
+// DomainRegistrantContactPtrInput is an input type that accepts DomainRegistrantContactArgs, DomainRegistrantContactPtr and DomainRegistrantContactPtrOutput values.
+// You can construct a concrete instance of `DomainRegistrantContactPtrInput` via:
+//
+//	        DomainRegistrantContactArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainRegistrantContactPtrInput interface {
+	pulumi.Input
+
+	ToDomainRegistrantContactPtrOutput() DomainRegistrantContactPtrOutput
+	ToDomainRegistrantContactPtrOutputWithContext(context.Context) DomainRegistrantContactPtrOutput
+}
+
+type domainRegistrantContactPtrType DomainRegistrantContactArgs
+
+func DomainRegistrantContactPtr(v *DomainRegistrantContactArgs) DomainRegistrantContactPtrInput {
+	return (*domainRegistrantContactPtrType)(v)
+}
+
+func (*domainRegistrantContactPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRegistrantContact)(nil)).Elem()
+}
+
+func (i *domainRegistrantContactPtrType) ToDomainRegistrantContactPtrOutput() DomainRegistrantContactPtrOutput {
+	return i.ToDomainRegistrantContactPtrOutputWithContext(context.Background())
+}
+
+func (i *domainRegistrantContactPtrType) ToDomainRegistrantContactPtrOutputWithContext(ctx context.Context) DomainRegistrantContactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRegistrantContactPtrOutput)
+}
+
+type DomainRegistrantContactOutput struct{ *pulumi.OutputState }
+
+func (DomainRegistrantContactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRegistrantContact)(nil)).Elem()
+}
+
+func (o DomainRegistrantContactOutput) ToDomainRegistrantContactOutput() DomainRegistrantContactOutput {
+	return o
+}
+
+func (o DomainRegistrantContactOutput) ToDomainRegistrantContactOutputWithContext(ctx context.Context) DomainRegistrantContactOutput {
+	return o
+}
+
+func (o DomainRegistrantContactOutput) ToDomainRegistrantContactPtrOutput() DomainRegistrantContactPtrOutput {
+	return o.ToDomainRegistrantContactPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRegistrantContactOutput) ToDomainRegistrantContactPtrOutputWithContext(ctx context.Context) DomainRegistrantContactPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainRegistrantContact) *DomainRegistrantContact {
+		return &v
+	}).(DomainRegistrantContactPtrOutput)
+}
+
+// First line of the contact's address.
+func (o DomainRegistrantContactOutput) AddressLine1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.AddressLine1 }).(pulumi.StringPtrOutput)
+}
+
+// Second line of contact's address, if any.
+func (o DomainRegistrantContactOutput) AddressLine2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.AddressLine2 }).(pulumi.StringPtrOutput)
+}
+
+// The city of the contact's address.
+func (o DomainRegistrantContactOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.City }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+func (o DomainRegistrantContactOutput) ContactType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.ContactType }).(pulumi.StringPtrOutput)
+}
+
+// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+func (o DomainRegistrantContactOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
+}
+
+// Email address of the contact.
+func (o DomainRegistrantContactOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// A list of name-value pairs for parameters required by certain top-level domains.
+func (o DomainRegistrantContactOutput) ExtraParams() DomainRegistrantContactExtraParamArrayOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) []DomainRegistrantContactExtraParam { return v.ExtraParams }).(DomainRegistrantContactExtraParamArrayOutput)
+}
+
+// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainRegistrantContactOutput) Fax() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.Fax }).(pulumi.StringPtrOutput)
+}
+
+// First name of contact.
+func (o DomainRegistrantContactOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Last name of contact.
+func (o DomainRegistrantContactOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the organization for contact types other than `PERSON`.
+func (o DomainRegistrantContactOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.OrganizationName }).(pulumi.StringPtrOutput)
+}
+
+// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainRegistrantContactOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+// The state or province of the contact's city.
+func (o DomainRegistrantContactOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The zip or postal code of the contact's address.
+func (o DomainRegistrantContactOutput) ZipCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRegistrantContact) *string { return v.ZipCode }).(pulumi.StringPtrOutput)
+}
+
+type DomainRegistrantContactPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainRegistrantContactPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRegistrantContact)(nil)).Elem()
+}
+
+func (o DomainRegistrantContactPtrOutput) ToDomainRegistrantContactPtrOutput() DomainRegistrantContactPtrOutput {
+	return o
+}
+
+func (o DomainRegistrantContactPtrOutput) ToDomainRegistrantContactPtrOutputWithContext(ctx context.Context) DomainRegistrantContactPtrOutput {
+	return o
+}
+
+func (o DomainRegistrantContactPtrOutput) Elem() DomainRegistrantContactOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) DomainRegistrantContact {
+		if v != nil {
+			return *v
+		}
+		var ret DomainRegistrantContact
+		return ret
+	}).(DomainRegistrantContactOutput)
+}
+
+// First line of the contact's address.
+func (o DomainRegistrantContactPtrOutput) AddressLine1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressLine1
+	}).(pulumi.StringPtrOutput)
+}
+
+// Second line of contact's address, if any.
+func (o DomainRegistrantContactPtrOutput) AddressLine2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressLine2
+	}).(pulumi.StringPtrOutput)
+}
+
+// The city of the contact's address.
+func (o DomainRegistrantContactPtrOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.City
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+func (o DomainRegistrantContactPtrOutput) ContactType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContactType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+func (o DomainRegistrantContactPtrOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CountryCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Email address of the contact.
+func (o DomainRegistrantContactPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of name-value pairs for parameters required by certain top-level domains.
+func (o DomainRegistrantContactPtrOutput) ExtraParams() DomainRegistrantContactExtraParamArrayOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) []DomainRegistrantContactExtraParam {
+		if v == nil {
+			return nil
+		}
+		return v.ExtraParams
+	}).(DomainRegistrantContactExtraParamArrayOutput)
+}
+
+// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainRegistrantContactPtrOutput) Fax() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Fax
+	}).(pulumi.StringPtrOutput)
+}
+
+// First name of contact.
+func (o DomainRegistrantContactPtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Last name of contact.
+func (o DomainRegistrantContactPtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the organization for contact types other than `PERSON`.
+func (o DomainRegistrantContactPtrOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainRegistrantContactPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state or province of the contact's city.
+func (o DomainRegistrantContactPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The zip or postal code of the contact's address.
+func (o DomainRegistrantContactPtrOutput) ZipCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRegistrantContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ZipCode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainRegistrantContactExtraParam struct {
+	// The name of an additional parameter that is required by a top-level domain.
+	Name string `pulumi:"name"`
+	// The value that corresponds with the name of an extra parameter.
+	Value string `pulumi:"value"`
+}
+
+// DomainRegistrantContactExtraParamInput is an input type that accepts DomainRegistrantContactExtraParamArgs and DomainRegistrantContactExtraParamOutput values.
+// You can construct a concrete instance of `DomainRegistrantContactExtraParamInput` via:
+//
+//	DomainRegistrantContactExtraParamArgs{...}
+type DomainRegistrantContactExtraParamInput interface {
+	pulumi.Input
+
+	ToDomainRegistrantContactExtraParamOutput() DomainRegistrantContactExtraParamOutput
+	ToDomainRegistrantContactExtraParamOutputWithContext(context.Context) DomainRegistrantContactExtraParamOutput
+}
+
+type DomainRegistrantContactExtraParamArgs struct {
+	// The name of an additional parameter that is required by a top-level domain.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value that corresponds with the name of an extra parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DomainRegistrantContactExtraParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRegistrantContactExtraParam)(nil)).Elem()
+}
+
+func (i DomainRegistrantContactExtraParamArgs) ToDomainRegistrantContactExtraParamOutput() DomainRegistrantContactExtraParamOutput {
+	return i.ToDomainRegistrantContactExtraParamOutputWithContext(context.Background())
+}
+
+func (i DomainRegistrantContactExtraParamArgs) ToDomainRegistrantContactExtraParamOutputWithContext(ctx context.Context) DomainRegistrantContactExtraParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRegistrantContactExtraParamOutput)
+}
+
+// DomainRegistrantContactExtraParamArrayInput is an input type that accepts DomainRegistrantContactExtraParamArray and DomainRegistrantContactExtraParamArrayOutput values.
+// You can construct a concrete instance of `DomainRegistrantContactExtraParamArrayInput` via:
+//
+//	DomainRegistrantContactExtraParamArray{ DomainRegistrantContactExtraParamArgs{...} }
+type DomainRegistrantContactExtraParamArrayInput interface {
+	pulumi.Input
+
+	ToDomainRegistrantContactExtraParamArrayOutput() DomainRegistrantContactExtraParamArrayOutput
+	ToDomainRegistrantContactExtraParamArrayOutputWithContext(context.Context) DomainRegistrantContactExtraParamArrayOutput
+}
+
+type DomainRegistrantContactExtraParamArray []DomainRegistrantContactExtraParamInput
+
+func (DomainRegistrantContactExtraParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainRegistrantContactExtraParam)(nil)).Elem()
+}
+
+func (i DomainRegistrantContactExtraParamArray) ToDomainRegistrantContactExtraParamArrayOutput() DomainRegistrantContactExtraParamArrayOutput {
+	return i.ToDomainRegistrantContactExtraParamArrayOutputWithContext(context.Background())
+}
+
+func (i DomainRegistrantContactExtraParamArray) ToDomainRegistrantContactExtraParamArrayOutputWithContext(ctx context.Context) DomainRegistrantContactExtraParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRegistrantContactExtraParamArrayOutput)
+}
+
+type DomainRegistrantContactExtraParamOutput struct{ *pulumi.OutputState }
+
+func (DomainRegistrantContactExtraParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRegistrantContactExtraParam)(nil)).Elem()
+}
+
+func (o DomainRegistrantContactExtraParamOutput) ToDomainRegistrantContactExtraParamOutput() DomainRegistrantContactExtraParamOutput {
+	return o
+}
+
+func (o DomainRegistrantContactExtraParamOutput) ToDomainRegistrantContactExtraParamOutputWithContext(ctx context.Context) DomainRegistrantContactExtraParamOutput {
+	return o
+}
+
+// The name of an additional parameter that is required by a top-level domain.
+func (o DomainRegistrantContactExtraParamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainRegistrantContactExtraParam) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value that corresponds with the name of an extra parameter.
+func (o DomainRegistrantContactExtraParamOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainRegistrantContactExtraParam) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DomainRegistrantContactExtraParamArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainRegistrantContactExtraParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainRegistrantContactExtraParam)(nil)).Elem()
+}
+
+func (o DomainRegistrantContactExtraParamArrayOutput) ToDomainRegistrantContactExtraParamArrayOutput() DomainRegistrantContactExtraParamArrayOutput {
+	return o
+}
+
+func (o DomainRegistrantContactExtraParamArrayOutput) ToDomainRegistrantContactExtraParamArrayOutputWithContext(ctx context.Context) DomainRegistrantContactExtraParamArrayOutput {
+	return o
+}
+
+func (o DomainRegistrantContactExtraParamArrayOutput) Index(i pulumi.IntInput) DomainRegistrantContactExtraParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainRegistrantContactExtraParam {
+		return vs[0].([]DomainRegistrantContactExtraParam)[vs[1].(int)]
+	}).(DomainRegistrantContactExtraParamOutput)
+}
+
+type DomainTechContact struct {
+	// First line of the contact's address.
+	AddressLine1 *string `pulumi:"addressLine1"`
+	// Second line of contact's address, if any.
+	AddressLine2 *string `pulumi:"addressLine2"`
+	// The city of the contact's address.
+	City *string `pulumi:"city"`
+	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+	ContactType *string `pulumi:"contactType"`
+	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+	CountryCode *string `pulumi:"countryCode"`
+	// Email address of the contact.
+	Email *string `pulumi:"email"`
+	// A list of name-value pairs for parameters required by certain top-level domains.
+	ExtraParams []DomainTechContactExtraParam `pulumi:"extraParams"`
+	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	Fax *string `pulumi:"fax"`
+	// First name of contact.
+	FirstName *string `pulumi:"firstName"`
+	// Last name of contact.
+	LastName *string `pulumi:"lastName"`
+	// Name of the organization for contact types other than `PERSON`.
+	OrganizationName *string `pulumi:"organizationName"`
+	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	PhoneNumber *string `pulumi:"phoneNumber"`
+	// The state or province of the contact's city.
+	State *string `pulumi:"state"`
+	// The zip or postal code of the contact's address.
+	ZipCode *string `pulumi:"zipCode"`
+}
+
+// DomainTechContactInput is an input type that accepts DomainTechContactArgs and DomainTechContactOutput values.
+// You can construct a concrete instance of `DomainTechContactInput` via:
+//
+//	DomainTechContactArgs{...}
+type DomainTechContactInput interface {
+	pulumi.Input
+
+	ToDomainTechContactOutput() DomainTechContactOutput
+	ToDomainTechContactOutputWithContext(context.Context) DomainTechContactOutput
+}
+
+type DomainTechContactArgs struct {
+	// First line of the contact's address.
+	AddressLine1 pulumi.StringPtrInput `pulumi:"addressLine1"`
+	// Second line of contact's address, if any.
+	AddressLine2 pulumi.StringPtrInput `pulumi:"addressLine2"`
+	// The city of the contact's address.
+	City pulumi.StringPtrInput `pulumi:"city"`
+	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+	ContactType pulumi.StringPtrInput `pulumi:"contactType"`
+	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+	CountryCode pulumi.StringPtrInput `pulumi:"countryCode"`
+	// Email address of the contact.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// A list of name-value pairs for parameters required by certain top-level domains.
+	ExtraParams DomainTechContactExtraParamArrayInput `pulumi:"extraParams"`
+	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	Fax pulumi.StringPtrInput `pulumi:"fax"`
+	// First name of contact.
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	// Last name of contact.
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	// Name of the organization for contact types other than `PERSON`.
+	OrganizationName pulumi.StringPtrInput `pulumi:"organizationName"`
+	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
+	// The state or province of the contact's city.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// The zip or postal code of the contact's address.
+	ZipCode pulumi.StringPtrInput `pulumi:"zipCode"`
+}
+
+func (DomainTechContactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTechContact)(nil)).Elem()
+}
+
+func (i DomainTechContactArgs) ToDomainTechContactOutput() DomainTechContactOutput {
+	return i.ToDomainTechContactOutputWithContext(context.Background())
+}
+
+func (i DomainTechContactArgs) ToDomainTechContactOutputWithContext(ctx context.Context) DomainTechContactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTechContactOutput)
+}
+
+func (i DomainTechContactArgs) ToDomainTechContactPtrOutput() DomainTechContactPtrOutput {
+	return i.ToDomainTechContactPtrOutputWithContext(context.Background())
+}
+
+func (i DomainTechContactArgs) ToDomainTechContactPtrOutputWithContext(ctx context.Context) DomainTechContactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTechContactOutput).ToDomainTechContactPtrOutputWithContext(ctx)
+}
+
+// DomainTechContactPtrInput is an input type that accepts DomainTechContactArgs, DomainTechContactPtr and DomainTechContactPtrOutput values.
+// You can construct a concrete instance of `DomainTechContactPtrInput` via:
+//
+//	        DomainTechContactArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainTechContactPtrInput interface {
+	pulumi.Input
+
+	ToDomainTechContactPtrOutput() DomainTechContactPtrOutput
+	ToDomainTechContactPtrOutputWithContext(context.Context) DomainTechContactPtrOutput
+}
+
+type domainTechContactPtrType DomainTechContactArgs
+
+func DomainTechContactPtr(v *DomainTechContactArgs) DomainTechContactPtrInput {
+	return (*domainTechContactPtrType)(v)
+}
+
+func (*domainTechContactPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainTechContact)(nil)).Elem()
+}
+
+func (i *domainTechContactPtrType) ToDomainTechContactPtrOutput() DomainTechContactPtrOutput {
+	return i.ToDomainTechContactPtrOutputWithContext(context.Background())
+}
+
+func (i *domainTechContactPtrType) ToDomainTechContactPtrOutputWithContext(ctx context.Context) DomainTechContactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTechContactPtrOutput)
+}
+
+type DomainTechContactOutput struct{ *pulumi.OutputState }
+
+func (DomainTechContactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTechContact)(nil)).Elem()
+}
+
+func (o DomainTechContactOutput) ToDomainTechContactOutput() DomainTechContactOutput {
+	return o
+}
+
+func (o DomainTechContactOutput) ToDomainTechContactOutputWithContext(ctx context.Context) DomainTechContactOutput {
+	return o
+}
+
+func (o DomainTechContactOutput) ToDomainTechContactPtrOutput() DomainTechContactPtrOutput {
+	return o.ToDomainTechContactPtrOutputWithContext(context.Background())
+}
+
+func (o DomainTechContactOutput) ToDomainTechContactPtrOutputWithContext(ctx context.Context) DomainTechContactPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainTechContact) *DomainTechContact {
+		return &v
+	}).(DomainTechContactPtrOutput)
+}
+
+// First line of the contact's address.
+func (o DomainTechContactOutput) AddressLine1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.AddressLine1 }).(pulumi.StringPtrOutput)
+}
+
+// Second line of contact's address, if any.
+func (o DomainTechContactOutput) AddressLine2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.AddressLine2 }).(pulumi.StringPtrOutput)
+}
+
+// The city of the contact's address.
+func (o DomainTechContactOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.City }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+func (o DomainTechContactOutput) ContactType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.ContactType }).(pulumi.StringPtrOutput)
+}
+
+// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+func (o DomainTechContactOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
+}
+
+// Email address of the contact.
+func (o DomainTechContactOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// A list of name-value pairs for parameters required by certain top-level domains.
+func (o DomainTechContactOutput) ExtraParams() DomainTechContactExtraParamArrayOutput {
+	return o.ApplyT(func(v DomainTechContact) []DomainTechContactExtraParam { return v.ExtraParams }).(DomainTechContactExtraParamArrayOutput)
+}
+
+// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainTechContactOutput) Fax() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.Fax }).(pulumi.StringPtrOutput)
+}
+
+// First name of contact.
+func (o DomainTechContactOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Last name of contact.
+func (o DomainTechContactOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the organization for contact types other than `PERSON`.
+func (o DomainTechContactOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.OrganizationName }).(pulumi.StringPtrOutput)
+}
+
+// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainTechContactOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+// The state or province of the contact's city.
+func (o DomainTechContactOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The zip or postal code of the contact's address.
+func (o DomainTechContactOutput) ZipCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTechContact) *string { return v.ZipCode }).(pulumi.StringPtrOutput)
+}
+
+type DomainTechContactPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainTechContactPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainTechContact)(nil)).Elem()
+}
+
+func (o DomainTechContactPtrOutput) ToDomainTechContactPtrOutput() DomainTechContactPtrOutput {
+	return o
+}
+
+func (o DomainTechContactPtrOutput) ToDomainTechContactPtrOutputWithContext(ctx context.Context) DomainTechContactPtrOutput {
+	return o
+}
+
+func (o DomainTechContactPtrOutput) Elem() DomainTechContactOutput {
+	return o.ApplyT(func(v *DomainTechContact) DomainTechContact {
+		if v != nil {
+			return *v
+		}
+		var ret DomainTechContact
+		return ret
+	}).(DomainTechContactOutput)
+}
+
+// First line of the contact's address.
+func (o DomainTechContactPtrOutput) AddressLine1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressLine1
+	}).(pulumi.StringPtrOutput)
+}
+
+// Second line of contact's address, if any.
+func (o DomainTechContactPtrOutput) AddressLine2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressLine2
+	}).(pulumi.StringPtrOutput)
+}
+
+// The city of the contact's address.
+func (o DomainTechContactPtrOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.City
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+func (o DomainTechContactPtrOutput) ContactType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContactType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+func (o DomainTechContactPtrOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CountryCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Email address of the contact.
+func (o DomainTechContactPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of name-value pairs for parameters required by certain top-level domains.
+func (o DomainTechContactPtrOutput) ExtraParams() DomainTechContactExtraParamArrayOutput {
+	return o.ApplyT(func(v *DomainTechContact) []DomainTechContactExtraParam {
+		if v == nil {
+			return nil
+		}
+		return v.ExtraParams
+	}).(DomainTechContactExtraParamArrayOutput)
+}
+
+// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainTechContactPtrOutput) Fax() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Fax
+	}).(pulumi.StringPtrOutput)
+}
+
+// First name of contact.
+func (o DomainTechContactPtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Last name of contact.
+func (o DomainTechContactPtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the organization for contact types other than `PERSON`.
+func (o DomainTechContactPtrOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+func (o DomainTechContactPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state or province of the contact's city.
+func (o DomainTechContactPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The zip or postal code of the contact's address.
+func (o DomainTechContactPtrOutput) ZipCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTechContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ZipCode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainTechContactExtraParam struct {
+	// The name of an additional parameter that is required by a top-level domain.
+	Name string `pulumi:"name"`
+	// The value that corresponds with the name of an extra parameter.
+	Value string `pulumi:"value"`
+}
+
+// DomainTechContactExtraParamInput is an input type that accepts DomainTechContactExtraParamArgs and DomainTechContactExtraParamOutput values.
+// You can construct a concrete instance of `DomainTechContactExtraParamInput` via:
+//
+//	DomainTechContactExtraParamArgs{...}
+type DomainTechContactExtraParamInput interface {
+	pulumi.Input
+
+	ToDomainTechContactExtraParamOutput() DomainTechContactExtraParamOutput
+	ToDomainTechContactExtraParamOutputWithContext(context.Context) DomainTechContactExtraParamOutput
+}
+
+type DomainTechContactExtraParamArgs struct {
+	// The name of an additional parameter that is required by a top-level domain.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value that corresponds with the name of an extra parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DomainTechContactExtraParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTechContactExtraParam)(nil)).Elem()
+}
+
+func (i DomainTechContactExtraParamArgs) ToDomainTechContactExtraParamOutput() DomainTechContactExtraParamOutput {
+	return i.ToDomainTechContactExtraParamOutputWithContext(context.Background())
+}
+
+func (i DomainTechContactExtraParamArgs) ToDomainTechContactExtraParamOutputWithContext(ctx context.Context) DomainTechContactExtraParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTechContactExtraParamOutput)
+}
+
+// DomainTechContactExtraParamArrayInput is an input type that accepts DomainTechContactExtraParamArray and DomainTechContactExtraParamArrayOutput values.
+// You can construct a concrete instance of `DomainTechContactExtraParamArrayInput` via:
+//
+//	DomainTechContactExtraParamArray{ DomainTechContactExtraParamArgs{...} }
+type DomainTechContactExtraParamArrayInput interface {
+	pulumi.Input
+
+	ToDomainTechContactExtraParamArrayOutput() DomainTechContactExtraParamArrayOutput
+	ToDomainTechContactExtraParamArrayOutputWithContext(context.Context) DomainTechContactExtraParamArrayOutput
+}
+
+type DomainTechContactExtraParamArray []DomainTechContactExtraParamInput
+
+func (DomainTechContactExtraParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainTechContactExtraParam)(nil)).Elem()
+}
+
+func (i DomainTechContactExtraParamArray) ToDomainTechContactExtraParamArrayOutput() DomainTechContactExtraParamArrayOutput {
+	return i.ToDomainTechContactExtraParamArrayOutputWithContext(context.Background())
+}
+
+func (i DomainTechContactExtraParamArray) ToDomainTechContactExtraParamArrayOutputWithContext(ctx context.Context) DomainTechContactExtraParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTechContactExtraParamArrayOutput)
+}
+
+type DomainTechContactExtraParamOutput struct{ *pulumi.OutputState }
+
+func (DomainTechContactExtraParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTechContactExtraParam)(nil)).Elem()
+}
+
+func (o DomainTechContactExtraParamOutput) ToDomainTechContactExtraParamOutput() DomainTechContactExtraParamOutput {
+	return o
+}
+
+func (o DomainTechContactExtraParamOutput) ToDomainTechContactExtraParamOutputWithContext(ctx context.Context) DomainTechContactExtraParamOutput {
+	return o
+}
+
+// The name of an additional parameter that is required by a top-level domain.
+func (o DomainTechContactExtraParamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainTechContactExtraParam) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value that corresponds with the name of an extra parameter.
+func (o DomainTechContactExtraParamOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainTechContactExtraParam) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DomainTechContactExtraParamArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainTechContactExtraParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainTechContactExtraParam)(nil)).Elem()
+}
+
+func (o DomainTechContactExtraParamArrayOutput) ToDomainTechContactExtraParamArrayOutput() DomainTechContactExtraParamArrayOutput {
+	return o
+}
+
+func (o DomainTechContactExtraParamArrayOutput) ToDomainTechContactExtraParamArrayOutputWithContext(ctx context.Context) DomainTechContactExtraParamArrayOutput {
+	return o
+}
+
+func (o DomainTechContactExtraParamArrayOutput) Index(i pulumi.IntInput) DomainTechContactExtraParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainTechContactExtraParam {
+		return vs[0].([]DomainTechContactExtraParam)[vs[1].(int)]
+	}).(DomainTechContactExtraParamOutput)
+}
+
+type DomainTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// DomainTimeoutsInput is an input type that accepts DomainTimeoutsArgs and DomainTimeoutsOutput values.
+// You can construct a concrete instance of `DomainTimeoutsInput` via:
+//
+//	DomainTimeoutsArgs{...}
+type DomainTimeoutsInput interface {
+	pulumi.Input
+
+	ToDomainTimeoutsOutput() DomainTimeoutsOutput
+	ToDomainTimeoutsOutputWithContext(context.Context) DomainTimeoutsOutput
+}
+
+type DomainTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (DomainTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTimeouts)(nil)).Elem()
+}
+
+func (i DomainTimeoutsArgs) ToDomainTimeoutsOutput() DomainTimeoutsOutput {
+	return i.ToDomainTimeoutsOutputWithContext(context.Background())
+}
+
+func (i DomainTimeoutsArgs) ToDomainTimeoutsOutputWithContext(ctx context.Context) DomainTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTimeoutsOutput)
+}
+
+func (i DomainTimeoutsArgs) ToDomainTimeoutsPtrOutput() DomainTimeoutsPtrOutput {
+	return i.ToDomainTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainTimeoutsArgs) ToDomainTimeoutsPtrOutputWithContext(ctx context.Context) DomainTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTimeoutsOutput).ToDomainTimeoutsPtrOutputWithContext(ctx)
+}
+
+// DomainTimeoutsPtrInput is an input type that accepts DomainTimeoutsArgs, DomainTimeoutsPtr and DomainTimeoutsPtrOutput values.
+// You can construct a concrete instance of `DomainTimeoutsPtrInput` via:
+//
+//	        DomainTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToDomainTimeoutsPtrOutput() DomainTimeoutsPtrOutput
+	ToDomainTimeoutsPtrOutputWithContext(context.Context) DomainTimeoutsPtrOutput
+}
+
+type domainTimeoutsPtrType DomainTimeoutsArgs
+
+func DomainTimeoutsPtr(v *DomainTimeoutsArgs) DomainTimeoutsPtrInput {
+	return (*domainTimeoutsPtrType)(v)
+}
+
+func (*domainTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainTimeouts)(nil)).Elem()
+}
+
+func (i *domainTimeoutsPtrType) ToDomainTimeoutsPtrOutput() DomainTimeoutsPtrOutput {
+	return i.ToDomainTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainTimeoutsPtrType) ToDomainTimeoutsPtrOutputWithContext(ctx context.Context) DomainTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTimeoutsPtrOutput)
+}
+
+type DomainTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (DomainTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTimeouts)(nil)).Elem()
+}
+
+func (o DomainTimeoutsOutput) ToDomainTimeoutsOutput() DomainTimeoutsOutput {
+	return o
+}
+
+func (o DomainTimeoutsOutput) ToDomainTimeoutsOutputWithContext(ctx context.Context) DomainTimeoutsOutput {
+	return o
+}
+
+func (o DomainTimeoutsOutput) ToDomainTimeoutsPtrOutput() DomainTimeoutsPtrOutput {
+	return o.ToDomainTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainTimeoutsOutput) ToDomainTimeoutsPtrOutputWithContext(ctx context.Context) DomainTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainTimeouts) *DomainTimeouts {
+		return &v
+	}).(DomainTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DomainTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o DomainTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DomainTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type DomainTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainTimeouts)(nil)).Elem()
+}
+
+func (o DomainTimeoutsPtrOutput) ToDomainTimeoutsPtrOutput() DomainTimeoutsPtrOutput {
+	return o
+}
+
+func (o DomainTimeoutsPtrOutput) ToDomainTimeoutsPtrOutputWithContext(ctx context.Context) DomainTimeoutsPtrOutput {
+	return o
+}
+
+func (o DomainTimeoutsPtrOutput) Elem() DomainTimeoutsOutput {
+	return o.ApplyT(func(v *DomainTimeouts) DomainTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret DomainTimeouts
+		return ret
+	}).(DomainTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DomainTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o DomainTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DomainTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type RegisteredDomainAdminContact struct {
 	// First line of the contact's address.
 	AddressLine1 *string `pulumi:"addressLine1"`
@@ -1991,6 +4062,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSignerRecordSigningAttributesPtrInput)(nil)).Elem(), DelegationSignerRecordSigningAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSignerRecordTimeoutsInput)(nil)).Elem(), DelegationSignerRecordTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSignerRecordTimeoutsPtrInput)(nil)).Elem(), DelegationSignerRecordTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdminContactInput)(nil)).Elem(), DomainAdminContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdminContactPtrInput)(nil)).Elem(), DomainAdminContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdminContactExtraParamInput)(nil)).Elem(), DomainAdminContactExtraParamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdminContactExtraParamArrayInput)(nil)).Elem(), DomainAdminContactExtraParamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainBillingContactInput)(nil)).Elem(), DomainBillingContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainBillingContactArrayInput)(nil)).Elem(), DomainBillingContactArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainBillingContactExtraParamInput)(nil)).Elem(), DomainBillingContactExtraParamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainBillingContactExtraParamArrayInput)(nil)).Elem(), DomainBillingContactExtraParamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameServerInput)(nil)).Elem(), DomainNameServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameServerArrayInput)(nil)).Elem(), DomainNameServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRegistrantContactInput)(nil)).Elem(), DomainRegistrantContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRegistrantContactPtrInput)(nil)).Elem(), DomainRegistrantContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRegistrantContactExtraParamInput)(nil)).Elem(), DomainRegistrantContactExtraParamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRegistrantContactExtraParamArrayInput)(nil)).Elem(), DomainRegistrantContactExtraParamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTechContactInput)(nil)).Elem(), DomainTechContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTechContactPtrInput)(nil)).Elem(), DomainTechContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTechContactExtraParamInput)(nil)).Elem(), DomainTechContactExtraParamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTechContactExtraParamArrayInput)(nil)).Elem(), DomainTechContactExtraParamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTimeoutsInput)(nil)).Elem(), DomainTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTimeoutsPtrInput)(nil)).Elem(), DomainTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegisteredDomainAdminContactInput)(nil)).Elem(), RegisteredDomainAdminContactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegisteredDomainAdminContactPtrInput)(nil)).Elem(), RegisteredDomainAdminContactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegisteredDomainBillingContactInput)(nil)).Elem(), RegisteredDomainBillingContactArgs{})
@@ -2005,6 +4096,26 @@ func init() {
 	pulumi.RegisterOutputType(DelegationSignerRecordSigningAttributesPtrOutput{})
 	pulumi.RegisterOutputType(DelegationSignerRecordTimeoutsOutput{})
 	pulumi.RegisterOutputType(DelegationSignerRecordTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(DomainAdminContactOutput{})
+	pulumi.RegisterOutputType(DomainAdminContactPtrOutput{})
+	pulumi.RegisterOutputType(DomainAdminContactExtraParamOutput{})
+	pulumi.RegisterOutputType(DomainAdminContactExtraParamArrayOutput{})
+	pulumi.RegisterOutputType(DomainBillingContactOutput{})
+	pulumi.RegisterOutputType(DomainBillingContactArrayOutput{})
+	pulumi.RegisterOutputType(DomainBillingContactExtraParamOutput{})
+	pulumi.RegisterOutputType(DomainBillingContactExtraParamArrayOutput{})
+	pulumi.RegisterOutputType(DomainNameServerOutput{})
+	pulumi.RegisterOutputType(DomainNameServerArrayOutput{})
+	pulumi.RegisterOutputType(DomainRegistrantContactOutput{})
+	pulumi.RegisterOutputType(DomainRegistrantContactPtrOutput{})
+	pulumi.RegisterOutputType(DomainRegistrantContactExtraParamOutput{})
+	pulumi.RegisterOutputType(DomainRegistrantContactExtraParamArrayOutput{})
+	pulumi.RegisterOutputType(DomainTechContactOutput{})
+	pulumi.RegisterOutputType(DomainTechContactPtrOutput{})
+	pulumi.RegisterOutputType(DomainTechContactExtraParamOutput{})
+	pulumi.RegisterOutputType(DomainTechContactExtraParamArrayOutput{})
+	pulumi.RegisterOutputType(DomainTimeoutsOutput{})
+	pulumi.RegisterOutputType(DomainTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(RegisteredDomainAdminContactOutput{})
 	pulumi.RegisterOutputType(RegisteredDomainAdminContactPtrOutput{})
 	pulumi.RegisterOutputType(RegisteredDomainBillingContactOutput{})

@@ -43,6 +43,10 @@ __all__ = [
     'EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgsDict',
     'EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs',
     'EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgsDict',
+    'EventConnectionInvocationConnectivityParametersArgs',
+    'EventConnectionInvocationConnectivityParametersArgsDict',
+    'EventConnectionInvocationConnectivityParametersResourceParametersArgs',
+    'EventConnectionInvocationConnectivityParametersResourceParametersArgsDict',
     'EventEndpointEventBusArgs',
     'EventEndpointEventBusArgsDict',
     'EventEndpointReplicationConfigArgs',
@@ -1111,6 +1115,81 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class EventConnectionInvocationConnectivityParametersArgsDict(TypedDict):
+        resource_parameters: pulumi.Input['EventConnectionInvocationConnectivityParametersResourceParametersArgsDict']
+        """
+        The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
+        """
+elif False:
+    EventConnectionInvocationConnectivityParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventConnectionInvocationConnectivityParametersArgs:
+    def __init__(__self__, *,
+                 resource_parameters: pulumi.Input['EventConnectionInvocationConnectivityParametersResourceParametersArgs']):
+        """
+        :param pulumi.Input['EventConnectionInvocationConnectivityParametersResourceParametersArgs'] resource_parameters: The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
+        """
+        pulumi.set(__self__, "resource_parameters", resource_parameters)
+
+    @property
+    @pulumi.getter(name="resourceParameters")
+    def resource_parameters(self) -> pulumi.Input['EventConnectionInvocationConnectivityParametersResourceParametersArgs']:
+        """
+        The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
+        """
+        return pulumi.get(self, "resource_parameters")
+
+    @resource_parameters.setter
+    def resource_parameters(self, value: pulumi.Input['EventConnectionInvocationConnectivityParametersResourceParametersArgs']):
+        pulumi.set(self, "resource_parameters", value)
+
+
+if not MYPY:
+    class EventConnectionInvocationConnectivityParametersResourceParametersArgsDict(TypedDict):
+        resource_configuration_arn: pulumi.Input[str]
+        """
+        ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+        """
+        resource_association_arn: NotRequired[pulumi.Input[str]]
+elif False:
+    EventConnectionInvocationConnectivityParametersResourceParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventConnectionInvocationConnectivityParametersResourceParametersArgs:
+    def __init__(__self__, *,
+                 resource_configuration_arn: pulumi.Input[str],
+                 resource_association_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] resource_configuration_arn: ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+        """
+        pulumi.set(__self__, "resource_configuration_arn", resource_configuration_arn)
+        if resource_association_arn is not None:
+            pulumi.set(__self__, "resource_association_arn", resource_association_arn)
+
+    @property
+    @pulumi.getter(name="resourceConfigurationArn")
+    def resource_configuration_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+        """
+        return pulumi.get(self, "resource_configuration_arn")
+
+    @resource_configuration_arn.setter
+    def resource_configuration_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_configuration_arn", value)
+
+    @property
+    @pulumi.getter(name="resourceAssociationArn")
+    def resource_association_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_association_arn")
+
+    @resource_association_arn.setter
+    def resource_association_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_association_arn", value)
 
 
 if not MYPY:

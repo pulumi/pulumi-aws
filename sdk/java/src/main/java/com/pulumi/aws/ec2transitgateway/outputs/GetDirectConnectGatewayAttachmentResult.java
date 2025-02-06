@@ -15,6 +15,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDirectConnectGatewayAttachmentResult {
+    /**
+     * @return ARN of the attachment.
+     * 
+     */
+    private String arn;
     private @Nullable String dxGatewayId;
     private @Nullable List<GetDirectConnectGatewayAttachmentFilter> filters;
     /**
@@ -23,13 +28,20 @@ public final class GetDirectConnectGatewayAttachmentResult {
      */
     private String id;
     /**
-     * @return Key-value tags for the EC2 Transit Gateway Attachment
+     * @return Key-value tags for the EC2 Transit Gateway Attachment.
      * 
      */
     private Map<String,String> tags;
     private @Nullable String transitGatewayId;
 
     private GetDirectConnectGatewayAttachmentResult() {}
+    /**
+     * @return ARN of the attachment.
+     * 
+     */
+    public String arn() {
+        return this.arn;
+    }
     public Optional<String> dxGatewayId() {
         return Optional.ofNullable(this.dxGatewayId);
     }
@@ -44,7 +56,7 @@ public final class GetDirectConnectGatewayAttachmentResult {
         return this.id;
     }
     /**
-     * @return Key-value tags for the EC2 Transit Gateway Attachment
+     * @return Key-value tags for the EC2 Transit Gateway Attachment.
      * 
      */
     public Map<String,String> tags() {
@@ -63,6 +75,7 @@ public final class GetDirectConnectGatewayAttachmentResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
         private @Nullable String dxGatewayId;
         private @Nullable List<GetDirectConnectGatewayAttachmentFilter> filters;
         private String id;
@@ -71,6 +84,7 @@ public final class GetDirectConnectGatewayAttachmentResult {
         public Builder() {}
         public Builder(GetDirectConnectGatewayAttachmentResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.dxGatewayId = defaults.dxGatewayId;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
@@ -78,6 +92,14 @@ public final class GetDirectConnectGatewayAttachmentResult {
     	      this.transitGatewayId = defaults.transitGatewayId;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetDirectConnectGatewayAttachmentResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder dxGatewayId(@Nullable String dxGatewayId) {
 
@@ -117,6 +139,7 @@ public final class GetDirectConnectGatewayAttachmentResult {
         }
         public GetDirectConnectGatewayAttachmentResult build() {
             final var _resultValue = new GetDirectConnectGatewayAttachmentResult();
+            _resultValue.arn = arn;
             _resultValue.dxGatewayId = dxGatewayId;
             _resultValue.filters = filters;
             _resultValue.id = id;

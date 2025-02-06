@@ -26,6 +26,14 @@ import * as utilities from "../utilities";
  *     securityGroupId: sg.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import VPC Endpoint Security Group Associations using `vpc_endpoint_id` together with `security_group_id`. For example:
+ *
+ * ```sh
+ * $ pulumi import aws:ec2/securityGroupAssociation:SecurityGroupAssociation example vpce-aaaaaaaa/sg-bbbbbbbbbbbbbbbbb
+ * ```
  */
 export class SecurityGroupAssociation extends pulumi.CustomResource {
     /**
@@ -56,7 +64,7 @@ export class SecurityGroupAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
+     * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
      */
     public readonly replaceDefaultAssociation!: pulumi.Output<boolean | undefined>;
     /**
@@ -106,7 +114,7 @@ export class SecurityGroupAssociation extends pulumi.CustomResource {
  */
 export interface SecurityGroupAssociationState {
     /**
-     * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
+     * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
      */
     replaceDefaultAssociation?: pulumi.Input<boolean>;
     /**
@@ -124,7 +132,7 @@ export interface SecurityGroupAssociationState {
  */
 export interface SecurityGroupAssociationArgs {
     /**
-     * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
+     * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
      */
     replaceDefaultAssociation?: pulumi.Input<boolean>;
     /**

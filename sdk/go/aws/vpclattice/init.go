@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Listener{}
 	case "aws:vpclattice/listenerRule:ListenerRule":
 		r = &ListenerRule{}
+	case "aws:vpclattice/resourceConfiguration:ResourceConfiguration":
+		r = &ResourceConfiguration{}
 	case "aws:vpclattice/resourceGateway:ResourceGateway":
 		r = &ResourceGateway{}
 	case "aws:vpclattice/resourcePolicy:ResourcePolicy":
@@ -37,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Service{}
 	case "aws:vpclattice/serviceNetwork:ServiceNetwork":
 		r = &ServiceNetwork{}
+	case "aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation":
+		r = &ServiceNetworkResourceAssociation{}
 	case "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation":
 		r = &ServiceNetworkServiceAssociation{}
 	case "aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation":
@@ -80,6 +84,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"vpclattice/resourceConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"vpclattice/resourceGateway",
 		&module{version},
 	)
@@ -96,6 +105,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"vpclattice/serviceNetwork",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpclattice/serviceNetworkResourceAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

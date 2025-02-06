@@ -2540,6 +2540,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
             suggest = "instance_url"
         elif key == "isSandboxEnvironment":
             suggest = "is_sandbox_environment"
+        elif key == "usePrivatelinkForMetadataAndAuthorization":
+            suggest = "use_privatelink_for_metadata_and_authorization"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce. Access the value via the '{suggest}' property getter instead.")
@@ -2554,14 +2556,18 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
 
     def __init__(__self__, *,
                  instance_url: Optional[str] = None,
-                 is_sandbox_environment: Optional[bool] = None):
+                 is_sandbox_environment: Optional[bool] = None,
+                 use_privatelink_for_metadata_and_authorization: Optional[bool] = None):
         """
         :param bool is_sandbox_environment: Indicates whether the connector profile applies to a sandbox or production environment.
+        :param bool use_privatelink_for_metadata_and_authorization: Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
         """
         if instance_url is not None:
             pulumi.set(__self__, "instance_url", instance_url)
         if is_sandbox_environment is not None:
             pulumi.set(__self__, "is_sandbox_environment", is_sandbox_environment)
+        if use_privatelink_for_metadata_and_authorization is not None:
+            pulumi.set(__self__, "use_privatelink_for_metadata_and_authorization", use_privatelink_for_metadata_and_authorization)
 
     @property
     @pulumi.getter(name="instanceUrl")
@@ -2575,6 +2581,14 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
         Indicates whether the connector profile applies to a sandbox or production environment.
         """
         return pulumi.get(self, "is_sandbox_environment")
+
+    @property
+    @pulumi.getter(name="usePrivatelinkForMetadataAndAuthorization")
+    def use_privatelink_for_metadata_and_authorization(self) -> Optional[bool]:
+        """
+        Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+        """
+        return pulumi.get(self, "use_privatelink_for_metadata_and_authorization")
 
 
 @pulumi.output_type

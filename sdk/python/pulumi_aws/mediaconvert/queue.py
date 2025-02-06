@@ -21,6 +21,7 @@ __all__ = ['QueueArgs', 'Queue']
 @pulumi.input_type
 class QueueArgs:
     def __init__(__self__, *,
+                 concurrent_jobs: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,7 @@ class QueueArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Queue resource.
+        :param pulumi.Input[int] concurrent_jobs: The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         :param pulumi.Input[str] description: A description of the queue
         :param pulumi.Input[str] name: A unique identifier describing the queue
         :param pulumi.Input[str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
@@ -36,6 +38,8 @@ class QueueArgs:
         :param pulumi.Input[str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        if concurrent_jobs is not None:
+            pulumi.set(__self__, "concurrent_jobs", concurrent_jobs)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -48,6 +52,18 @@ class QueueArgs:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="concurrentJobs")
+    def concurrent_jobs(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        """
+        return pulumi.get(self, "concurrent_jobs")
+
+    @concurrent_jobs.setter
+    def concurrent_jobs(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "concurrent_jobs", value)
 
     @property
     @pulumi.getter
@@ -126,6 +142,7 @@ class QueueArgs:
 class _QueueState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 concurrent_jobs: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input[str]] = None,
@@ -136,6 +153,7 @@ class _QueueState:
         """
         Input properties used for looking up and filtering Queue resources.
         :param pulumi.Input[str] arn: The Arn of the queue
+        :param pulumi.Input[int] concurrent_jobs: The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         :param pulumi.Input[str] description: A description of the queue
         :param pulumi.Input[str] name: A unique identifier describing the queue
         :param pulumi.Input[str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
@@ -146,6 +164,8 @@ class _QueueState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if concurrent_jobs is not None:
+            pulumi.set(__self__, "concurrent_jobs", concurrent_jobs)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -175,6 +195,18 @@ class _QueueState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="concurrentJobs")
+    def concurrent_jobs(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        """
+        return pulumi.get(self, "concurrent_jobs")
+
+    @concurrent_jobs.setter
+    def concurrent_jobs(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "concurrent_jobs", value)
 
     @property
     @pulumi.getter
@@ -267,6 +299,7 @@ class Queue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 concurrent_jobs: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input[str]] = None,
@@ -296,6 +329,7 @@ class Queue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] concurrent_jobs: The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         :param pulumi.Input[str] description: A description of the queue
         :param pulumi.Input[str] name: A unique identifier describing the queue
         :param pulumi.Input[str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
@@ -344,6 +378,7 @@ class Queue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 concurrent_jobs: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input[str]] = None,
@@ -359,6 +394,7 @@ class Queue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = QueueArgs.__new__(QueueArgs)
 
+            __props__.__dict__["concurrent_jobs"] = concurrent_jobs
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["pricing_plan"] = pricing_plan
@@ -378,6 +414,7 @@ class Queue(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            concurrent_jobs: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             pricing_plan: Optional[pulumi.Input[str]] = None,
@@ -393,6 +430,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Arn of the queue
+        :param pulumi.Input[int] concurrent_jobs: The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         :param pulumi.Input[str] description: A description of the queue
         :param pulumi.Input[str] name: A unique identifier describing the queue
         :param pulumi.Input[str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
@@ -406,6 +444,7 @@ class Queue(pulumi.CustomResource):
         __props__ = _QueueState.__new__(_QueueState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["concurrent_jobs"] = concurrent_jobs
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["pricing_plan"] = pricing_plan
@@ -422,6 +461,14 @@ class Queue(pulumi.CustomResource):
         The Arn of the queue
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="concurrentJobs")
+    def concurrent_jobs(self) -> pulumi.Output[int]:
+        """
+        The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        """
+        return pulumi.get(self, "concurrent_jobs")
 
     @property
     @pulumi.getter

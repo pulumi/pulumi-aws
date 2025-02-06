@@ -50,6 +50,11 @@ export type ListenerRule = import("./listenerRule").ListenerRule;
 export const ListenerRule: typeof import("./listenerRule").ListenerRule = null as any;
 utilities.lazyLoad(exports, ["ListenerRule"], () => require("./listenerRule"));
 
+export { ResourceConfigurationArgs, ResourceConfigurationState } from "./resourceConfiguration";
+export type ResourceConfiguration = import("./resourceConfiguration").ResourceConfiguration;
+export const ResourceConfiguration: typeof import("./resourceConfiguration").ResourceConfiguration = null as any;
+utilities.lazyLoad(exports, ["ResourceConfiguration"], () => require("./resourceConfiguration"));
+
 export { ResourceGatewayArgs, ResourceGatewayState } from "./resourceGateway";
 export type ResourceGateway = import("./resourceGateway").ResourceGateway;
 export const ResourceGateway: typeof import("./resourceGateway").ResourceGateway = null as any;
@@ -69,6 +74,11 @@ export { ServiceNetworkArgs, ServiceNetworkState } from "./serviceNetwork";
 export type ServiceNetwork = import("./serviceNetwork").ServiceNetwork;
 export const ServiceNetwork: typeof import("./serviceNetwork").ServiceNetwork = null as any;
 utilities.lazyLoad(exports, ["ServiceNetwork"], () => require("./serviceNetwork"));
+
+export { ServiceNetworkResourceAssociationArgs, ServiceNetworkResourceAssociationState } from "./serviceNetworkResourceAssociation";
+export type ServiceNetworkResourceAssociation = import("./serviceNetworkResourceAssociation").ServiceNetworkResourceAssociation;
+export const ServiceNetworkResourceAssociation: typeof import("./serviceNetworkResourceAssociation").ServiceNetworkResourceAssociation = null as any;
+utilities.lazyLoad(exports, ["ServiceNetworkResourceAssociation"], () => require("./serviceNetworkResourceAssociation"));
 
 export { ServiceNetworkServiceAssociationArgs, ServiceNetworkServiceAssociationState } from "./serviceNetworkServiceAssociation";
 export type ServiceNetworkServiceAssociation = import("./serviceNetworkServiceAssociation").ServiceNetworkServiceAssociation;
@@ -103,6 +113,8 @@ const _module = {
                 return new Listener(name, <any>undefined, { urn })
             case "aws:vpclattice/listenerRule:ListenerRule":
                 return new ListenerRule(name, <any>undefined, { urn })
+            case "aws:vpclattice/resourceConfiguration:ResourceConfiguration":
+                return new ResourceConfiguration(name, <any>undefined, { urn })
             case "aws:vpclattice/resourceGateway:ResourceGateway":
                 return new ResourceGateway(name, <any>undefined, { urn })
             case "aws:vpclattice/resourcePolicy:ResourcePolicy":
@@ -111,6 +123,8 @@ const _module = {
                 return new Service(name, <any>undefined, { urn })
             case "aws:vpclattice/serviceNetwork:ServiceNetwork":
                 return new ServiceNetwork(name, <any>undefined, { urn })
+            case "aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation":
+                return new ServiceNetworkResourceAssociation(name, <any>undefined, { urn })
             case "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation":
                 return new ServiceNetworkServiceAssociation(name, <any>undefined, { urn })
             case "aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation":
@@ -128,10 +142,12 @@ pulumi.runtime.registerResourceModule("aws", "vpclattice/accessLogSubscription",
 pulumi.runtime.registerResourceModule("aws", "vpclattice/authPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/listener", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/listenerRule", _module)
+pulumi.runtime.registerResourceModule("aws", "vpclattice/resourceConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/resourceGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/service", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetwork", _module)
+pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetworkResourceAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetworkServiceAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetworkVpcAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/targetGroup", _module)

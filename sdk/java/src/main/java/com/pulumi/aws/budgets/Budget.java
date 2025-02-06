@@ -307,7 +307,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * Create a Cost Filter using Resource Tags
+ * Create a cost filter using resource tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -336,7 +336,9 @@ import javax.annotation.Nullable;
  *         var cost = new Budget("cost", BudgetArgs.builder()
  *             .costFilters(BudgetCostFilterArgs.builder()
  *                 .name("TagKeyValue")
- *                 .values("TagKey$TagValue")
+ *                 .values(                
+ *                     "aws:createdBy$Pulumi",
+ *                     "user:business-unit$human_resources")
  *                 .build())
  *             .build());
  * 
@@ -346,7 +348,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * Create a cost_filter using resource tags, obtaining the tag value from a variable
+ * Create a cost filter using resource tags, obtaining the tag value from a variable
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

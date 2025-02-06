@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch;
 
 import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
+import com.pulumi.aws.cloudwatch.inputs.EventConnectionInvocationConnectivityParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -63,6 +64,21 @@ public final class EventConnectionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The parameters to use for invoking a private API. Documented below.
+     * 
+     */
+    @Import(name="invocationConnectivityParameters")
+    private @Nullable Output<EventConnectionInvocationConnectivityParametersArgs> invocationConnectivityParameters;
+
+    /**
+     * @return The parameters to use for invoking a private API. Documented below.
+     * 
+     */
+    public Optional<Output<EventConnectionInvocationConnectivityParametersArgs>> invocationConnectivityParameters() {
+        return Optional.ofNullable(this.invocationConnectivityParameters);
+    }
+
+    /**
      * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      * 
      */
@@ -83,6 +99,7 @@ public final class EventConnectionArgs extends com.pulumi.resources.ResourceArgs
         this.authParameters = $.authParameters;
         this.authorizationType = $.authorizationType;
         this.description = $.description;
+        this.invocationConnectivityParameters = $.invocationConnectivityParameters;
         this.name = $.name;
     }
 
@@ -165,6 +182,27 @@ public final class EventConnectionArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param invocationConnectivityParameters The parameters to use for invoking a private API. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder invocationConnectivityParameters(@Nullable Output<EventConnectionInvocationConnectivityParametersArgs> invocationConnectivityParameters) {
+            $.invocationConnectivityParameters = invocationConnectivityParameters;
+            return this;
+        }
+
+        /**
+         * @param invocationConnectivityParameters The parameters to use for invoking a private API. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder invocationConnectivityParameters(EventConnectionInvocationConnectivityParametersArgs invocationConnectivityParameters) {
+            return invocationConnectivityParameters(Output.of(invocationConnectivityParameters));
         }
 
         /**

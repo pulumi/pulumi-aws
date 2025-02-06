@@ -148,7 +148,7 @@ class SinkPolicy(pulumi.CustomResource):
 
         example = aws.oam.Sink("example", name="ExampleSink")
         example_sink_policy = aws.oam.SinkPolicy("example",
-            sink_identifier=example.id,
+            sink_identifier=example.arn,
             policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -209,7 +209,7 @@ class SinkPolicy(pulumi.CustomResource):
 
         example = aws.oam.Sink("example", name="ExampleSink")
         example_sink_policy = aws.oam.SinkPolicy("example",
-            sink_identifier=example.id,
+            sink_identifier=example.arn,
             policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{

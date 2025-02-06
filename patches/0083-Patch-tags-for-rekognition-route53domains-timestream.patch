@@ -1,0 +1,72 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: corymhall <43035978+corymhall@users.noreply.github.com>
+Date: Tue, 4 Feb 2025 09:45:36 -0500
+Subject: [PATCH] Patch tags for rekognition, route53domains, timestreamquery,
+ vpclattice
+
+
+diff --git a/internal/service/rekognition/project.go b/internal/service/rekognition/project.go
+index 4c94547e2f..7fae3e37d7 100644
+--- a/internal/service/rekognition/project.go
++++ b/internal/service/rekognition/project.go
+@@ -81,7 +81,7 @@ func (r *resourceProject) Schema(ctx context.Context, req resource.SchemaRequest
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
+diff --git a/internal/service/route53domains/domain.go b/internal/service/route53domains/domain.go
+index 98708eda12..292fefb210 100644
+--- a/internal/service/route53domains/domain.go
++++ b/internal/service/route53domains/domain.go
+@@ -149,7 +149,7 @@ func (r *domainResource) Schema(ctx context.Context, request resource.SchemaRequ
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			"tech_privacy": schema.BoolAttribute{
+ 				Optional: true,
+ 				Computed: true,
+diff --git a/internal/service/timestreamquery/scheduled_query.go b/internal/service/timestreamquery/scheduled_query.go
+index 5c1b69bb1b..6adcc05130 100644
+--- a/internal/service/timestreamquery/scheduled_query.go
++++ b/internal/service/timestreamquery/scheduled_query.go
+@@ -91,7 +91,7 @@ func (r *resourceScheduledQuery) Schema(ctx context.Context, req resource.Schema
+ 				Computed:   true,
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"error_report_configuration": schema.ListNestedBlock{
+diff --git a/internal/service/vpclattice/resource_configuration.go b/internal/service/vpclattice/resource_configuration.go
+index abbbefdd0e..529904a5d9 100644
+--- a/internal/service/vpclattice/resource_configuration.go
++++ b/internal/service/vpclattice/resource_configuration.go
+@@ -126,7 +126,7 @@ func (r *resourceConfigurationResource) Schema(ctx context.Context, request reso
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			names.AttrType: schema.StringAttribute{
+ 				CustomType: typeType,
+ 				Optional:   true,
+diff --git a/internal/service/vpclattice/service_network_resource_association.go b/internal/service/vpclattice/service_network_resource_association.go
+index 058d15aa9a..0833439e37 100644
+--- a/internal/service/vpclattice/service_network_resource_association.go
++++ b/internal/service/vpclattice/service_network_resource_association.go
+@@ -74,7 +74,7 @@ func (r *serviceNetworkResourceAssociationResource) Schema(ctx context.Context,
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{

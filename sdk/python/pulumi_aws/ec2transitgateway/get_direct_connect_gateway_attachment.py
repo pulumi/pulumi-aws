@@ -28,7 +28,10 @@ class GetDirectConnectGatewayAttachmentResult:
     """
     A collection of values returned by getDirectConnectGatewayAttachment.
     """
-    def __init__(__self__, dx_gateway_id=None, filters=None, id=None, tags=None, transit_gateway_id=None):
+    def __init__(__self__, arn=None, dx_gateway_id=None, filters=None, id=None, tags=None, transit_gateway_id=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if dx_gateway_id and not isinstance(dx_gateway_id, str):
             raise TypeError("Expected argument 'dx_gateway_id' to be a str")
         pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
@@ -44,6 +47,14 @@ class GetDirectConnectGatewayAttachmentResult:
         if transit_gateway_id and not isinstance(transit_gateway_id, str):
             raise TypeError("Expected argument 'transit_gateway_id' to be a str")
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        ARN of the attachment.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dxGatewayId")
@@ -67,7 +78,7 @@ class GetDirectConnectGatewayAttachmentResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        Key-value tags for the EC2 Transit Gateway Attachment
+        Key-value tags for the EC2 Transit Gateway Attachment.
         """
         return pulumi.get(self, "tags")
 
@@ -83,6 +94,7 @@ class AwaitableGetDirectConnectGatewayAttachmentResult(GetDirectConnectGatewayAt
         if False:
             yield self
         return GetDirectConnectGatewayAttachmentResult(
+            arn=self.arn,
             dx_gateway_id=self.dx_gateway_id,
             filters=self.filters,
             id=self.id,
@@ -125,6 +137,7 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment', __args__, opts=opts, typ=GetDirectConnectGatewayAttachmentResult).value
 
     return AwaitableGetDirectConnectGatewayAttachmentResult(
+        arn=pulumi.get(__ret__, 'arn'),
         dx_gateway_id=pulumi.get(__ret__, 'dx_gateway_id'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
@@ -164,6 +177,7 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment', __args__, opts=opts, typ=GetDirectConnectGatewayAttachmentResult)
     return __ret__.apply(lambda __response__: GetDirectConnectGatewayAttachmentResult(
+        arn=pulumi.get(__response__, 'arn'),
         dx_gateway_id=pulumi.get(__response__, 'dx_gateway_id'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),

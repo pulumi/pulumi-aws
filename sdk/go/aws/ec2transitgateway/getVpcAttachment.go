@@ -97,6 +97,8 @@ type LookupVpcAttachmentArgs struct {
 type LookupVpcAttachmentResult struct {
 	// Whether Appliance Mode support is enabled.
 	ApplianceModeSupport string `pulumi:"applianceModeSupport"`
+	// ARN of the attachment.
+	Arn string `pulumi:"arn"`
 	// Whether DNS support is enabled.
 	DnsSupport string                   `pulumi:"dnsSupport"`
 	Filters    []GetVpcAttachmentFilter `pulumi:"filters"`
@@ -159,6 +161,11 @@ func (o LookupVpcAttachmentResultOutput) ToLookupVpcAttachmentResultOutputWithCo
 // Whether Appliance Mode support is enabled.
 func (o LookupVpcAttachmentResultOutput) ApplianceModeSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.ApplianceModeSupport }).(pulumi.StringOutput)
+}
+
+// ARN of the attachment.
+func (o LookupVpcAttachmentResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Whether DNS support is enabled.

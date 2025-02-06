@@ -142,7 +142,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * Create a Cost Filter using Resource Tags
+ * Create a cost filter using resource tags
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -150,11 +150,14 @@ import * as utilities from "../utilities";
  *
  * const cost = new aws.budgets.Budget("cost", {costFilters: [{
  *     name: "TagKeyValue",
- *     values: ["TagKey$TagValue"],
+ *     values: [
+ *         "aws:createdBy$Pulumi",
+ *         "user:business-unit$human_resources",
+ *     ],
  * }]});
  * ```
  *
- * Create a costFilter using resource tags, obtaining the tag value from a variable
+ * Create a cost filter using resource tags, obtaining the tag value from a variable
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

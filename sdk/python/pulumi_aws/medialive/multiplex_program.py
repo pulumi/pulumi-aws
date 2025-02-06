@@ -23,7 +23,8 @@ class MultiplexProgramArgs:
     def __init__(__self__, *,
                  multiplex_id: pulumi.Input[str],
                  program_name: pulumi.Input[str],
-                 multiplex_program_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs']] = None):
+                 multiplex_program_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs']] = None,
+                 timeouts: Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a MultiplexProgram resource.
         :param pulumi.Input[str] multiplex_id: Multiplex ID.
@@ -36,6 +37,8 @@ class MultiplexProgramArgs:
         pulumi.set(__self__, "program_name", program_name)
         if multiplex_program_settings is not None:
             pulumi.set(__self__, "multiplex_program_settings", multiplex_program_settings)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter(name="multiplexId")
@@ -75,13 +78,23 @@ class MultiplexProgramArgs:
     def multiplex_program_settings(self, value: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs']]):
         pulumi.set(self, "multiplex_program_settings", value)
 
+    @property
+    @pulumi.getter
+    def timeouts(self) -> Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']]:
+        return pulumi.get(self, "timeouts")
+
+    @timeouts.setter
+    def timeouts(self, value: Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']]):
+        pulumi.set(self, "timeouts", value)
+
 
 @pulumi.input_type
 class _MultiplexProgramState:
     def __init__(__self__, *,
                  multiplex_id: Optional[pulumi.Input[str]] = None,
                  multiplex_program_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs']] = None,
-                 program_name: Optional[pulumi.Input[str]] = None):
+                 program_name: Optional[pulumi.Input[str]] = None,
+                 timeouts: Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering MultiplexProgram resources.
         :param pulumi.Input[str] multiplex_id: Multiplex ID.
@@ -96,6 +109,8 @@ class _MultiplexProgramState:
             pulumi.set(__self__, "multiplex_program_settings", multiplex_program_settings)
         if program_name is not None:
             pulumi.set(__self__, "program_name", program_name)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter(name="multiplexId")
@@ -135,6 +150,15 @@ class _MultiplexProgramState:
     def program_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "program_name", value)
 
+    @property
+    @pulumi.getter
+    def timeouts(self) -> Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']]:
+        return pulumi.get(self, "timeouts")
+
+    @timeouts.setter
+    def timeouts(self, value: Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']]):
+        pulumi.set(self, "timeouts", value)
+
 
 class MultiplexProgram(pulumi.CustomResource):
     @overload
@@ -144,6 +168,7 @@ class MultiplexProgram(pulumi.CustomResource):
                  multiplex_id: Optional[pulumi.Input[str]] = None,
                  multiplex_program_settings: Optional[pulumi.Input[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict']]] = None,
                  program_name: Optional[pulumi.Input[str]] = None,
+                 timeouts: Optional[pulumi.Input[Union['MultiplexProgramTimeoutsArgs', 'MultiplexProgramTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS MediaLive MultiplexProgram.
@@ -273,6 +298,7 @@ class MultiplexProgram(pulumi.CustomResource):
                  multiplex_id: Optional[pulumi.Input[str]] = None,
                  multiplex_program_settings: Optional[pulumi.Input[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict']]] = None,
                  program_name: Optional[pulumi.Input[str]] = None,
+                 timeouts: Optional[pulumi.Input[Union['MultiplexProgramTimeoutsArgs', 'MultiplexProgramTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -289,6 +315,7 @@ class MultiplexProgram(pulumi.CustomResource):
             if program_name is None and not opts.urn:
                 raise TypeError("Missing required property 'program_name'")
             __props__.__dict__["program_name"] = program_name
+            __props__.__dict__["timeouts"] = timeouts
         super(MultiplexProgram, __self__).__init__(
             'aws:medialive/multiplexProgram:MultiplexProgram',
             resource_name,
@@ -301,7 +328,8 @@ class MultiplexProgram(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             multiplex_id: Optional[pulumi.Input[str]] = None,
             multiplex_program_settings: Optional[pulumi.Input[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict']]] = None,
-            program_name: Optional[pulumi.Input[str]] = None) -> 'MultiplexProgram':
+            program_name: Optional[pulumi.Input[str]] = None,
+            timeouts: Optional[pulumi.Input[Union['MultiplexProgramTimeoutsArgs', 'MultiplexProgramTimeoutsArgsDict']]] = None) -> 'MultiplexProgram':
         """
         Get an existing MultiplexProgram resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -322,6 +350,7 @@ class MultiplexProgram(pulumi.CustomResource):
         __props__.__dict__["multiplex_id"] = multiplex_id
         __props__.__dict__["multiplex_program_settings"] = multiplex_program_settings
         __props__.__dict__["program_name"] = program_name
+        __props__.__dict__["timeouts"] = timeouts
         return MultiplexProgram(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -349,4 +378,9 @@ class MultiplexProgram(pulumi.CustomResource):
         Unique program name.
         """
         return pulumi.get(self, "program_name")
+
+    @property
+    @pulumi.getter
+    def timeouts(self) -> pulumi.Output[Optional['outputs.MultiplexProgramTimeouts']]:
+        return pulumi.get(self, "timeouts")
 

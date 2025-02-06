@@ -18053,7 +18053,7 @@ if not MYPY:
     class WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgsDict(TypedDict):
         action: pulumi.Input[str]
         """
-        Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
+        Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
         """
 elif False:
     WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgsDict: TypeAlias = Mapping[str, Any]
@@ -18063,7 +18063,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] action: Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
+        :param pulumi.Input[str] action: Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
         """
         pulumi.set(__self__, "action", action)
 
@@ -18071,7 +18071,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
         """
-        Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
+        Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
         """
         return pulumi.get(self, "action")
 
@@ -21499,6 +21499,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgsDict(TypedDict):
         identifiers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The names of the address fields.
+        """
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -21506,11 +21509,17 @@ elif False:
 class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs:
     def __init__(__self__, *,
                  identifiers: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identifiers: The names of the address fields.
+        """
         pulumi.set(__self__, "identifiers", identifiers)
 
     @property
     @pulumi.getter
     def identifiers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The names of the address fields.
+        """
         return pulumi.get(self, "identifiers")
 
     @identifiers.setter
@@ -21583,6 +21592,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgsDict(TypedDict):
         identifiers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The names of the phone number fields.
+        """
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -21590,11 +21602,17 @@ elif False:
 class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs:
     def __init__(__self__, *,
                  identifiers: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identifiers: The names of the phone number fields.
+        """
         pulumi.set(__self__, "identifiers", identifiers)
 
     @property
     @pulumi.getter
     def identifiers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The names of the phone number fields.
+        """
         return pulumi.get(self, "identifiers")
 
     @identifiers.setter

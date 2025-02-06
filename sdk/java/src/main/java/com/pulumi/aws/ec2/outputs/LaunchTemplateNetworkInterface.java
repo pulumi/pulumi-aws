@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ec2.outputs;
 
+import com.pulumi.aws.ec2.outputs.LaunchTemplateNetworkInterfaceConnectionTrackingSpecification;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -23,6 +24,11 @@ public final class LaunchTemplateNetworkInterface {
      * 
      */
     private @Nullable String associatePublicIpAddress;
+    /**
+     * @return The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+     * 
+     */
+    private @Nullable LaunchTemplateNetworkInterfaceConnectionTrackingSpecification connectionTrackingSpecification;
     /**
      * @return Whether the network interface should be destroyed on instance termination.
      * 
@@ -128,6 +134,13 @@ public final class LaunchTemplateNetworkInterface {
      */
     public Optional<String> associatePublicIpAddress() {
         return Optional.ofNullable(this.associatePublicIpAddress);
+    }
+    /**
+     * @return The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+     * 
+     */
+    public Optional<LaunchTemplateNetworkInterfaceConnectionTrackingSpecification> connectionTrackingSpecification() {
+        return Optional.ofNullable(this.connectionTrackingSpecification);
     }
     /**
      * @return Whether the network interface should be destroyed on instance termination.
@@ -267,6 +280,7 @@ public final class LaunchTemplateNetworkInterface {
     public static final class Builder {
         private @Nullable String associateCarrierIpAddress;
         private @Nullable String associatePublicIpAddress;
+        private @Nullable LaunchTemplateNetworkInterfaceConnectionTrackingSpecification connectionTrackingSpecification;
         private @Nullable String deleteOnTermination;
         private @Nullable String description;
         private @Nullable Integer deviceIndex;
@@ -290,6 +304,7 @@ public final class LaunchTemplateNetworkInterface {
     	      Objects.requireNonNull(defaults);
     	      this.associateCarrierIpAddress = defaults.associateCarrierIpAddress;
     	      this.associatePublicIpAddress = defaults.associatePublicIpAddress;
+    	      this.connectionTrackingSpecification = defaults.connectionTrackingSpecification;
     	      this.deleteOnTermination = defaults.deleteOnTermination;
     	      this.description = defaults.description;
     	      this.deviceIndex = defaults.deviceIndex;
@@ -320,6 +335,12 @@ public final class LaunchTemplateNetworkInterface {
         public Builder associatePublicIpAddress(@Nullable String associatePublicIpAddress) {
 
             this.associatePublicIpAddress = associatePublicIpAddress;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder connectionTrackingSpecification(@Nullable LaunchTemplateNetworkInterfaceConnectionTrackingSpecification connectionTrackingSpecification) {
+
+            this.connectionTrackingSpecification = connectionTrackingSpecification;
             return this;
         }
         @CustomType.Setter
@@ -449,6 +470,7 @@ public final class LaunchTemplateNetworkInterface {
             final var _resultValue = new LaunchTemplateNetworkInterface();
             _resultValue.associateCarrierIpAddress = associateCarrierIpAddress;
             _resultValue.associatePublicIpAddress = associatePublicIpAddress;
+            _resultValue.connectionTrackingSpecification = connectionTrackingSpecification;
             _resultValue.deleteOnTermination = deleteOnTermination;
             _resultValue.description = description;
             _resultValue.deviceIndex = deviceIndex;

@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Using Name Pattern
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -38,25 +40,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.cognito.UserPoolArgs;
- * import com.pulumi.aws.cognito.IdentityPool;
- * import com.pulumi.aws.cognito.IdentityPoolArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.opensearch.Domain;
- * import com.pulumi.aws.opensearch.DomainArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainCognitoOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
  * import com.pulumi.aws.cognito.ManagedUserPoolClient;
  * import com.pulumi.aws.cognito.ManagedUserPoolClientArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,63 +55,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool("exampleUserPool", UserPoolArgs.builder()
- *             .name("example")
+ *         var example = new ManagedUserPoolClient("example", ManagedUserPoolClientArgs.builder()
+ *             .namePattern("^AmazonOpenSearchService-example-(\\w+)$")
+ *             .userPoolId(exampleAwsCognitoUserPool.id())
  *             .build());
- * 
- *         var exampleIdentityPool = new IdentityPool("exampleIdentityPool", IdentityPoolArgs.builder()
- *             .identityPoolName("example")
- *             .build());
- * 
- *         final var current = AwsFunctions.getPartition();
- * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("")
- *                 .actions("sts:AssumeRole")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers(String.format("es.%s", current.applyValue(getPartitionResult -> getPartitionResult.dnsSuffix())))
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .name("example-role")
- *             .path("/service-role/")
- *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
- *             .role(exampleRole.name())
- *             .policyArn(String.format("arn:%s:iam::aws:policy/AmazonESCognitoAccess", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
- *             .build());
- * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
- *             .domainName("example")
- *             .cognitoOptions(DomainCognitoOptionsArgs.builder()
- *                 .enabled(true)
- *                 .userPoolId(exampleUserPool.id())
- *                 .identityPoolId(exampleIdentityPool.id())
- *                 .roleArn(exampleRole.arn())
- *                 .build())
- *             .ebsOptions(DomainEbsOptionsArgs.builder()
- *                 .ebsEnabled(true)
- *                 .volumeSize(10)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleAwsCognitoUserPoolDomain,
- *                     exampleRolePolicyAttachment)
- *                 .build());
- * 
- *         var exampleManagedUserPoolClient = new ManagedUserPoolClient("exampleManagedUserPoolClient", ManagedUserPoolClientArgs.builder()
- *             .namePrefix("AmazonOpenSearchService-example")
- *             .userPoolId(exampleUserPool.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleDomain)
- *                 .build());
  * 
  *     }
  * }
@@ -356,21 +288,21 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+     * Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
      * 
      */
     @Export(name="namePattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namePattern;
 
     /**
-     * @return Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
+     * @return Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
      * 
      */
     public Output<Optional<String>> namePattern() {
         return Codegen.optional(this.namePattern);
     }
     /**
-     * String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+     * String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
      * 
      * The following arguments are optional:
      * 
@@ -379,7 +311,7 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> namePrefix;
 
     /**
-     * @return String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
+     * @return String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
      * 
      * The following arguments are optional:
      * 

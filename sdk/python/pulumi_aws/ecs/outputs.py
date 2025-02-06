@@ -64,6 +64,17 @@ __all__ = [
     'TaskSetServiceRegistries',
     'GetClusterServiceConnectDefaultResult',
     'GetClusterSettingResult',
+    'GetTaskDefinitionEphemeralStorageResult',
+    'GetTaskDefinitionInferenceAcceleratorResult',
+    'GetTaskDefinitionPlacementConstraintResult',
+    'GetTaskDefinitionProxyConfigurationResult',
+    'GetTaskDefinitionRuntimePlatformResult',
+    'GetTaskDefinitionVolumeResult',
+    'GetTaskDefinitionVolumeDockerVolumeConfigurationResult',
+    'GetTaskDefinitionVolumeEfsVolumeConfigurationResult',
+    'GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigResult',
+    'GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult',
+    'GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigResult',
     'GetTaskExecutionCapacityProviderStrategyResult',
     'GetTaskExecutionNetworkConfigurationResult',
     'GetTaskExecutionOverridesResult',
@@ -2853,6 +2864,448 @@ class GetClusterSettingResult(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTaskDefinitionEphemeralStorageResult(dict):
+    def __init__(__self__, *,
+                 size_in_gib: int):
+        """
+        :param int size_in_gib: The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+        """
+        pulumi.set(__self__, "size_in_gib", size_in_gib)
+
+    @property
+    @pulumi.getter(name="sizeInGib")
+    def size_in_gib(self) -> int:
+        """
+        The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+        """
+        return pulumi.get(self, "size_in_gib")
+
+
+@pulumi.output_type
+class GetTaskDefinitionInferenceAcceleratorResult(dict):
+    def __init__(__self__, *,
+                 device_name: str,
+                 device_type: str):
+        """
+        :param str device_name: Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+        :param str device_type: Elastic Inference accelerator type to use.
+        """
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "device_type", device_type)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> str:
+        """
+        Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
+        """
+        return pulumi.get(self, "device_name")
+
+    @property
+    @pulumi.getter(name="deviceType")
+    def device_type(self) -> str:
+        """
+        Elastic Inference accelerator type to use.
+        """
+        return pulumi.get(self, "device_type")
+
+
+@pulumi.output_type
+class GetTaskDefinitionPlacementConstraintResult(dict):
+    def __init__(__self__, *,
+                 expression: str,
+                 type: str):
+        """
+        :param str expression: Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+        :param str type: Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        """
+        Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetTaskDefinitionProxyConfigurationResult(dict):
+    def __init__(__self__, *,
+                 container_name: str,
+                 properties: Mapping[str, str],
+                 type: str):
+        """
+        :param str container_name: Name of the container that will serve as the App Mesh proxy.
+        :param Mapping[str, str] properties: Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
+        :param str type: Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        Name of the container that will serve as the App Mesh proxy.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Mapping[str, str]:
+        """
+        Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetTaskDefinitionRuntimePlatformResult(dict):
+    def __init__(__self__, *,
+                 cpu_architecture: str,
+                 operating_system_family: str):
+        """
+        :param str cpu_architecture: Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+        :param str operating_system_family: If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+        """
+        pulumi.set(__self__, "cpu_architecture", cpu_architecture)
+        pulumi.set(__self__, "operating_system_family", operating_system_family)
+
+    @property
+    @pulumi.getter(name="cpuArchitecture")
+    def cpu_architecture(self) -> str:
+        """
+        Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+        """
+        return pulumi.get(self, "cpu_architecture")
+
+    @property
+    @pulumi.getter(name="operatingSystemFamily")
+    def operating_system_family(self) -> str:
+        """
+        If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+        """
+        return pulumi.get(self, "operating_system_family")
+
+
+@pulumi.output_type
+class GetTaskDefinitionVolumeResult(dict):
+    def __init__(__self__, *,
+                 configure_at_launch: bool,
+                 docker_volume_configurations: Sequence['outputs.GetTaskDefinitionVolumeDockerVolumeConfigurationResult'],
+                 efs_volume_configurations: Sequence['outputs.GetTaskDefinitionVolumeEfsVolumeConfigurationResult'],
+                 fsx_windows_file_server_volume_configurations: Sequence['outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult'],
+                 host_path: str,
+                 name: str):
+        """
+        :param bool configure_at_launch: Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+        :param Sequence['GetTaskDefinitionVolumeDockerVolumeConfigurationArgs'] docker_volume_configurations: Configuration block to configure a docker volume. Detailed below.
+        :param Sequence['GetTaskDefinitionVolumeEfsVolumeConfigurationArgs'] efs_volume_configurations: Configuration block for an EFS volume. Detailed below.
+        :param Sequence['GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs'] fsx_windows_file_server_volume_configurations: Configuration block for an FSX Windows File Server volume. Detailed below.
+        :param str host_path: Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+        :param str name: Name of the volume. This name is referenced in the `sourceVolume`
+               parameter of container definition in the `mountPoints` section.
+        """
+        pulumi.set(__self__, "configure_at_launch", configure_at_launch)
+        pulumi.set(__self__, "docker_volume_configurations", docker_volume_configurations)
+        pulumi.set(__self__, "efs_volume_configurations", efs_volume_configurations)
+        pulumi.set(__self__, "fsx_windows_file_server_volume_configurations", fsx_windows_file_server_volume_configurations)
+        pulumi.set(__self__, "host_path", host_path)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="configureAtLaunch")
+    def configure_at_launch(self) -> bool:
+        """
+        Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+        """
+        return pulumi.get(self, "configure_at_launch")
+
+    @property
+    @pulumi.getter(name="dockerVolumeConfigurations")
+    def docker_volume_configurations(self) -> Sequence['outputs.GetTaskDefinitionVolumeDockerVolumeConfigurationResult']:
+        """
+        Configuration block to configure a docker volume. Detailed below.
+        """
+        return pulumi.get(self, "docker_volume_configurations")
+
+    @property
+    @pulumi.getter(name="efsVolumeConfigurations")
+    def efs_volume_configurations(self) -> Sequence['outputs.GetTaskDefinitionVolumeEfsVolumeConfigurationResult']:
+        """
+        Configuration block for an EFS volume. Detailed below.
+        """
+        return pulumi.get(self, "efs_volume_configurations")
+
+    @property
+    @pulumi.getter(name="fsxWindowsFileServerVolumeConfigurations")
+    def fsx_windows_file_server_volume_configurations(self) -> Sequence['outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult']:
+        """
+        Configuration block for an FSX Windows File Server volume. Detailed below.
+        """
+        return pulumi.get(self, "fsx_windows_file_server_volume_configurations")
+
+    @property
+    @pulumi.getter(name="hostPath")
+    def host_path(self) -> str:
+        """
+        Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
+        """
+        return pulumi.get(self, "host_path")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the volume. This name is referenced in the `sourceVolume`
+        parameter of container definition in the `mountPoints` section.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetTaskDefinitionVolumeDockerVolumeConfigurationResult(dict):
+    def __init__(__self__, *,
+                 autoprovision: bool,
+                 driver: str,
+                 driver_opts: Mapping[str, str],
+                 labels: Mapping[str, str],
+                 scope: str):
+        """
+        :param bool autoprovision: If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
+        :param str driver: Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
+        :param Mapping[str, str] driver_opts: Map of Docker driver specific options.
+        :param Mapping[str, str] labels: Map of custom metadata to add to your Docker volume.
+        :param str scope: Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+        """
+        pulumi.set(__self__, "autoprovision", autoprovision)
+        pulumi.set(__self__, "driver", driver)
+        pulumi.set(__self__, "driver_opts", driver_opts)
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def autoprovision(self) -> bool:
+        """
+        If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
+        """
+        return pulumi.get(self, "autoprovision")
+
+    @property
+    @pulumi.getter
+    def driver(self) -> str:
+        """
+        Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
+        """
+        return pulumi.get(self, "driver")
+
+    @property
+    @pulumi.getter(name="driverOpts")
+    def driver_opts(self) -> Mapping[str, str]:
+        """
+        Map of Docker driver specific options.
+        """
+        return pulumi.get(self, "driver_opts")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, str]:
+        """
+        Map of custom metadata to add to your Docker volume.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> str:
+        """
+        Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
+        """
+        return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class GetTaskDefinitionVolumeEfsVolumeConfigurationResult(dict):
+    def __init__(__self__, *,
+                 authorization_configs: Sequence['outputs.GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigResult'],
+                 file_system_id: str,
+                 root_directory: str,
+                 transit_encryption: str,
+                 transit_encryption_port: int):
+        """
+        :param Sequence['GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs'] authorization_configs: Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+        :param str file_system_id: The Amazon FSx for Windows File Server file system ID to use.
+        :param str root_directory: The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        :param str transit_encryption: Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+        :param int transit_encryption_port: Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+        """
+        pulumi.set(__self__, "authorization_configs", authorization_configs)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "root_directory", root_directory)
+        pulumi.set(__self__, "transit_encryption", transit_encryption)
+        pulumi.set(__self__, "transit_encryption_port", transit_encryption_port)
+
+    @property
+    @pulumi.getter(name="authorizationConfigs")
+    def authorization_configs(self) -> Sequence['outputs.GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigResult']:
+        """
+        Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+        """
+        return pulumi.get(self, "authorization_configs")
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> str:
+        """
+        The Amazon FSx for Windows File Server file system ID to use.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter(name="rootDirectory")
+    def root_directory(self) -> str:
+        """
+        The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        """
+        return pulumi.get(self, "root_directory")
+
+    @property
+    @pulumi.getter(name="transitEncryption")
+    def transit_encryption(self) -> str:
+        """
+        Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+        """
+        return pulumi.get(self, "transit_encryption")
+
+    @property
+    @pulumi.getter(name="transitEncryptionPort")
+    def transit_encryption_port(self) -> int:
+        """
+        Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+        """
+        return pulumi.get(self, "transit_encryption_port")
+
+
+@pulumi.output_type
+class GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigResult(dict):
+    def __init__(__self__, *,
+                 access_point_id: str,
+                 iam: str):
+        """
+        :param str access_point_id: Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+        :param str iam: Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+        """
+        pulumi.set(__self__, "access_point_id", access_point_id)
+        pulumi.set(__self__, "iam", iam)
+
+    @property
+    @pulumi.getter(name="accessPointId")
+    def access_point_id(self) -> str:
+        """
+        Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+        """
+        return pulumi.get(self, "access_point_id")
+
+    @property
+    @pulumi.getter
+    def iam(self) -> str:
+        """
+        Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+        """
+        return pulumi.get(self, "iam")
+
+
+@pulumi.output_type
+class GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult(dict):
+    def __init__(__self__, *,
+                 authorization_configs: Sequence['outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigResult'],
+                 file_system_id: str,
+                 root_directory: str):
+        """
+        :param Sequence['GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs'] authorization_configs: Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+        :param str file_system_id: The Amazon FSx for Windows File Server file system ID to use.
+        :param str root_directory: The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        """
+        pulumi.set(__self__, "authorization_configs", authorization_configs)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "root_directory", root_directory)
+
+    @property
+    @pulumi.getter(name="authorizationConfigs")
+    def authorization_configs(self) -> Sequence['outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigResult']:
+        """
+        Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+        """
+        return pulumi.get(self, "authorization_configs")
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> str:
+        """
+        The Amazon FSx for Windows File Server file system ID to use.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter(name="rootDirectory")
+    def root_directory(self) -> str:
+        """
+        The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        """
+        return pulumi.get(self, "root_directory")
+
+
+@pulumi.output_type
+class GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigResult(dict):
+    def __init__(__self__, *,
+                 credentials_parameter: str,
+                 domain: str):
+        """
+        :param str credentials_parameter: The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+        :param str domain: A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+        """
+        pulumi.set(__self__, "credentials_parameter", credentials_parameter)
+        pulumi.set(__self__, "domain", domain)
+
+    @property
+    @pulumi.getter(name="credentialsParameter")
+    def credentials_parameter(self) -> str:
+        """
+        The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+        """
+        return pulumi.get(self, "credentials_parameter")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        """
+        A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+        """
+        return pulumi.get(self, "domain")
 
 
 @pulumi.output_type

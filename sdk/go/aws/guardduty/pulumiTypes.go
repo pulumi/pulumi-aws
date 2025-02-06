@@ -1931,6 +1931,112 @@ func (o MalwareProtectionPlanProtectedResourceS3BucketPtrOutput) ObjectPrefixes(
 	}).(pulumi.StringArrayOutput)
 }
 
+type MemberDetectorFeatureAdditionalConfiguration struct {
+	// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+	Name string `pulumi:"name"`
+	// The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+	Status string `pulumi:"status"`
+}
+
+// MemberDetectorFeatureAdditionalConfigurationInput is an input type that accepts MemberDetectorFeatureAdditionalConfigurationArgs and MemberDetectorFeatureAdditionalConfigurationOutput values.
+// You can construct a concrete instance of `MemberDetectorFeatureAdditionalConfigurationInput` via:
+//
+//	MemberDetectorFeatureAdditionalConfigurationArgs{...}
+type MemberDetectorFeatureAdditionalConfigurationInput interface {
+	pulumi.Input
+
+	ToMemberDetectorFeatureAdditionalConfigurationOutput() MemberDetectorFeatureAdditionalConfigurationOutput
+	ToMemberDetectorFeatureAdditionalConfigurationOutputWithContext(context.Context) MemberDetectorFeatureAdditionalConfigurationOutput
+}
+
+type MemberDetectorFeatureAdditionalConfigurationArgs struct {
+	// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (MemberDetectorFeatureAdditionalConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberDetectorFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (i MemberDetectorFeatureAdditionalConfigurationArgs) ToMemberDetectorFeatureAdditionalConfigurationOutput() MemberDetectorFeatureAdditionalConfigurationOutput {
+	return i.ToMemberDetectorFeatureAdditionalConfigurationOutputWithContext(context.Background())
+}
+
+func (i MemberDetectorFeatureAdditionalConfigurationArgs) ToMemberDetectorFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) MemberDetectorFeatureAdditionalConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberDetectorFeatureAdditionalConfigurationOutput)
+}
+
+// MemberDetectorFeatureAdditionalConfigurationArrayInput is an input type that accepts MemberDetectorFeatureAdditionalConfigurationArray and MemberDetectorFeatureAdditionalConfigurationArrayOutput values.
+// You can construct a concrete instance of `MemberDetectorFeatureAdditionalConfigurationArrayInput` via:
+//
+//	MemberDetectorFeatureAdditionalConfigurationArray{ MemberDetectorFeatureAdditionalConfigurationArgs{...} }
+type MemberDetectorFeatureAdditionalConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToMemberDetectorFeatureAdditionalConfigurationArrayOutput() MemberDetectorFeatureAdditionalConfigurationArrayOutput
+	ToMemberDetectorFeatureAdditionalConfigurationArrayOutputWithContext(context.Context) MemberDetectorFeatureAdditionalConfigurationArrayOutput
+}
+
+type MemberDetectorFeatureAdditionalConfigurationArray []MemberDetectorFeatureAdditionalConfigurationInput
+
+func (MemberDetectorFeatureAdditionalConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemberDetectorFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (i MemberDetectorFeatureAdditionalConfigurationArray) ToMemberDetectorFeatureAdditionalConfigurationArrayOutput() MemberDetectorFeatureAdditionalConfigurationArrayOutput {
+	return i.ToMemberDetectorFeatureAdditionalConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i MemberDetectorFeatureAdditionalConfigurationArray) ToMemberDetectorFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) MemberDetectorFeatureAdditionalConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberDetectorFeatureAdditionalConfigurationArrayOutput)
+}
+
+type MemberDetectorFeatureAdditionalConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MemberDetectorFeatureAdditionalConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberDetectorFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (o MemberDetectorFeatureAdditionalConfigurationOutput) ToMemberDetectorFeatureAdditionalConfigurationOutput() MemberDetectorFeatureAdditionalConfigurationOutput {
+	return o
+}
+
+func (o MemberDetectorFeatureAdditionalConfigurationOutput) ToMemberDetectorFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) MemberDetectorFeatureAdditionalConfigurationOutput {
+	return o
+}
+
+// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+func (o MemberDetectorFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MemberDetectorFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+func (o MemberDetectorFeatureAdditionalConfigurationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v MemberDetectorFeatureAdditionalConfiguration) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type MemberDetectorFeatureAdditionalConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (MemberDetectorFeatureAdditionalConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemberDetectorFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (o MemberDetectorFeatureAdditionalConfigurationArrayOutput) ToMemberDetectorFeatureAdditionalConfigurationArrayOutput() MemberDetectorFeatureAdditionalConfigurationArrayOutput {
+	return o
+}
+
+func (o MemberDetectorFeatureAdditionalConfigurationArrayOutput) ToMemberDetectorFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) MemberDetectorFeatureAdditionalConfigurationArrayOutput {
+	return o
+}
+
+func (o MemberDetectorFeatureAdditionalConfigurationArrayOutput) Index(i pulumi.IntInput) MemberDetectorFeatureAdditionalConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MemberDetectorFeatureAdditionalConfiguration {
+		return vs[0].([]MemberDetectorFeatureAdditionalConfiguration)[vs[1].(int)]
+	}).(MemberDetectorFeatureAdditionalConfigurationOutput)
+}
+
 type OrganizationConfigurationDatasources struct {
 	// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
 	Kubernetes *OrganizationConfigurationDatasourcesKubernetes `pulumi:"kubernetes"`
@@ -3320,6 +3426,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanProtectedResourcePtrInput)(nil)).Elem(), MalwareProtectionPlanProtectedResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanProtectedResourceS3BucketInput)(nil)).Elem(), MalwareProtectionPlanProtectedResourceS3BucketArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanProtectedResourceS3BucketPtrInput)(nil)).Elem(), MalwareProtectionPlanProtectedResourceS3BucketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemberDetectorFeatureAdditionalConfigurationInput)(nil)).Elem(), MemberDetectorFeatureAdditionalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemberDetectorFeatureAdditionalConfigurationArrayInput)(nil)).Elem(), MemberDetectorFeatureAdditionalConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesInput)(nil)).Elem(), OrganizationConfigurationDatasourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetesInput)(nil)).Elem(), OrganizationConfigurationDatasourcesKubernetesArgs{})
@@ -3368,6 +3476,8 @@ func init() {
 	pulumi.RegisterOutputType(MalwareProtectionPlanProtectedResourcePtrOutput{})
 	pulumi.RegisterOutputType(MalwareProtectionPlanProtectedResourceS3BucketOutput{})
 	pulumi.RegisterOutputType(MalwareProtectionPlanProtectedResourceS3BucketPtrOutput{})
+	pulumi.RegisterOutputType(MemberDetectorFeatureAdditionalConfigurationOutput{})
+	pulumi.RegisterOutputType(MemberDetectorFeatureAdditionalConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesKubernetesOutput{})

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,7 +32,71 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             VectorKnowledgeBaseConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs
     ///             {
-    ///                 EmbeddingModelArn = "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v1",
+    ///                 EmbeddingModelArn = "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
+    ///             },
+    ///             Type = "VECTOR",
+    ///         },
+    ///         StorageConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseStorageConfigurationArgs
+    ///         {
+    ///             Type = "OPENSEARCH_SERVERLESS",
+    ///             OpensearchServerlessConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs
+    ///             {
+    ///                 CollectionArn = "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+    ///                 VectorIndexName = "bedrock-knowledge-base-default-index",
+    ///                 FieldMapping = new Aws.Bedrock.Inputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs
+    ///                 {
+    ///                     VectorField = "bedrock-knowledge-base-default-vector",
+    ///                     TextField = "AMAZON_BEDROCK_TEXT_CHUNK",
+    ///                     MetadataField = "AMAZON_BEDROCK_METADATA",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### With Supplemental Data Storage Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentKnowledgeBase("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         KnowledgeBaseConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs
+    ///         {
+    ///             VectorKnowledgeBaseConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs
+    ///             {
+    ///                 EmbeddingModelArn = "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
+    ///                 EmbeddingModelConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs
+    ///                 {
+    ///                     BedrockEmbeddingModelConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs
+    ///                     {
+    ///                         Dimensions = 1024,
+    ///                         EmbeddingDataType = "FLOAT32",
+    ///                     },
+    ///                 },
+    ///                 SupplementalDataStorageConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs
+    ///                 {
+    ///                     StorageLocations = new[]
+    ///                     {
+    ///                         new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs
+    ///                         {
+    ///                             Type = "S3",
+    ///                             S3Location = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs
+    ///                             {
+    ///                                 Uri = "s3://my-bucket/chunk-processor/",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
     ///             Type = "VECTOR",
     ///         },

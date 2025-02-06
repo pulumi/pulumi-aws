@@ -563,7 +563,7 @@ type Instance struct {
 	MasterUserSecretKmsKeyId pulumi.StringOutput `pulumi:"masterUserSecretKmsKeyId"`
 	// A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
 	MasterUserSecrets InstanceMasterUserSecretArrayOutput `pulumi:"masterUserSecrets"`
-	// When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
+	// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
 	MaxAllocatedStorage pulumi.IntPtrOutput `pulumi:"maxAllocatedStorage"`
 	// The interval, in seconds, between points
 	// when Enhanced Monitoring metrics are collected for the DB instance. To disable
@@ -848,7 +848,7 @@ type instanceState struct {
 	MasterUserSecretKmsKeyId *string `pulumi:"masterUserSecretKmsKeyId"`
 	// A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
 	MasterUserSecrets []InstanceMasterUserSecret `pulumi:"masterUserSecrets"`
-	// When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
+	// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
 	MaxAllocatedStorage *int `pulumi:"maxAllocatedStorage"`
 	// The interval, in seconds, between points
 	// when Enhanced Monitoring metrics are collected for the DB instance. To disable
@@ -1094,7 +1094,7 @@ type InstanceState struct {
 	MasterUserSecretKmsKeyId pulumi.StringPtrInput
 	// A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
 	MasterUserSecrets InstanceMasterUserSecretArrayInput
-	// When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
+	// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
 	MaxAllocatedStorage pulumi.IntPtrInput
 	// The interval, in seconds, between points
 	// when Enhanced Monitoring metrics are collected for the DB instance. To disable
@@ -1328,7 +1328,7 @@ type instanceArgs struct {
 	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
 	// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
 	MasterUserSecretKmsKeyId *string `pulumi:"masterUserSecretKmsKeyId"`
-	// When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
+	// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
 	MaxAllocatedStorage *int `pulumi:"maxAllocatedStorage"`
 	// The interval, in seconds, between points
 	// when Enhanced Monitoring metrics are collected for the DB instance. To disable
@@ -1550,7 +1550,7 @@ type InstanceArgs struct {
 	ManageMasterUserPassword pulumi.BoolPtrInput
 	// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
 	MasterUserSecretKmsKeyId pulumi.StringPtrInput
-	// When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
+	// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
 	MaxAllocatedStorage pulumi.IntPtrInput
 	// The interval, in seconds, between points
 	// when Enhanced Monitoring metrics are collected for the DB instance. To disable
@@ -2017,7 +2017,7 @@ func (o InstanceOutput) MasterUserSecrets() InstanceMasterUserSecretArrayOutput 
 	return o.ApplyT(func(v *Instance) InstanceMasterUserSecretArrayOutput { return v.MasterUserSecrets }).(InstanceMasterUserSecretArrayOutput)
 }
 
-// When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
+// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
 func (o InstanceOutput) MaxAllocatedStorage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.IntPtrOutput { return v.MaxAllocatedStorage }).(pulumi.IntPtrOutput)
 }

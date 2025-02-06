@@ -134,6 +134,10 @@ export class EventDataStore extends pulumi.CustomResource {
      */
     public readonly retentionPeriod!: pulumi.Output<number | undefined>;
     /**
+     * Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+     */
+    public readonly suspend!: pulumi.Output<string | undefined>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -169,6 +173,7 @@ export class EventDataStore extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["organizationEnabled"] = state ? state.organizationEnabled : undefined;
             resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
+            resourceInputs["suspend"] = state ? state.suspend : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["terminationProtectionEnabled"] = state ? state.terminationProtectionEnabled : undefined;
@@ -181,6 +186,7 @@ export class EventDataStore extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["organizationEnabled"] = args ? args.organizationEnabled : undefined;
             resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
+            resourceInputs["suspend"] = args ? args.suspend : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminationProtectionEnabled"] = args ? args.terminationProtectionEnabled : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -227,6 +233,10 @@ export interface EventDataStoreState {
      * The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
      */
     retentionPeriod?: pulumi.Input<number>;
+    /**
+     * Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+     */
+    suspend?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -275,6 +285,10 @@ export interface EventDataStoreArgs {
      * The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
      */
     retentionPeriod?: pulumi.Input<number>;
+    /**
+     * Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+     */
+    suspend?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

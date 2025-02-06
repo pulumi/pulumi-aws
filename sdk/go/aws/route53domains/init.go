@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:route53domains/delegationSignerRecord:DelegationSignerRecord":
 		r = &DelegationSignerRecord{}
+	case "aws:route53domains/domain:Domain":
+		r = &Domain{}
 	case "aws:route53domains/registeredDomain:RegisteredDomain":
 		r = &RegisteredDomain{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"route53domains/delegationSignerRecord",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53domains/domain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

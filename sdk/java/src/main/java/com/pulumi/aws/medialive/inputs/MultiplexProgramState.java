@@ -4,6 +4,7 @@
 package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsArgs;
+import com.pulumi.aws.medialive.inputs.MultiplexProgramTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -65,12 +66,20 @@ public final class MultiplexProgramState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.programName);
     }
 
+    @Import(name="timeouts")
+    private @Nullable Output<MultiplexProgramTimeoutsArgs> timeouts;
+
+    public Optional<Output<MultiplexProgramTimeoutsArgs>> timeouts() {
+        return Optional.ofNullable(this.timeouts);
+    }
+
     private MultiplexProgramState() {}
 
     private MultiplexProgramState(MultiplexProgramState $) {
         this.multiplexId = $.multiplexId;
         this.multiplexProgramSettings = $.multiplexProgramSettings;
         this.programName = $.programName;
+        this.timeouts = $.timeouts;
     }
 
     public static Builder builder() {
@@ -156,6 +165,15 @@ public final class MultiplexProgramState extends com.pulumi.resources.ResourceAr
          */
         public Builder programName(String programName) {
             return programName(Output.of(programName));
+        }
+
+        public Builder timeouts(@Nullable Output<MultiplexProgramTimeoutsArgs> timeouts) {
+            $.timeouts = timeouts;
+            return this;
+        }
+
+        public Builder timeouts(MultiplexProgramTimeoutsArgs timeouts) {
+            return timeouts(Output.of(timeouts));
         }
 
         public MultiplexProgramState build() {

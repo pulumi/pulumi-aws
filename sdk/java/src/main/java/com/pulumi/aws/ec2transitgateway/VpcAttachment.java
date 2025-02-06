@@ -83,6 +83,20 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.applianceModeSupport);
     }
     /**
+     * ARN of the attachment.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return ARN of the attachment.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */

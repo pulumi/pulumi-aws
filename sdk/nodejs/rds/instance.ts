@@ -545,7 +545,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly masterUserSecrets!: pulumi.Output<outputs.rds.InstanceMasterUserSecret[]>;
     /**
-     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
+     * Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
      */
     public readonly maxAllocatedStorage!: pulumi.Output<number | undefined>;
     /**
@@ -1141,7 +1141,7 @@ export interface InstanceState {
      */
     masterUserSecrets?: pulumi.Input<pulumi.Input<inputs.rds.InstanceMasterUserSecret>[]>;
     /**
-     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
+     * Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
      */
     maxAllocatedStorage?: pulumi.Input<number>;
     /**
@@ -1518,7 +1518,7 @@ export interface InstanceArgs {
      */
     masterUserSecretKmsKeyId?: pulumi.Input<string>;
     /**
-     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
+     * Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `maxAllocatedStorage` to **greater than or equal to** `allocatedStorage`. Setting `maxAllocatedStorage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocatedStorage` will be automatically ignored as the storage can dynamically scale.
      */
     maxAllocatedStorage?: pulumi.Input<number>;
     /**

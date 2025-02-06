@@ -56,6 +56,8 @@ type VpcAttachment struct {
 
 	// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
 	ApplianceModeSupport pulumi.StringPtrOutput `pulumi:"applianceModeSupport"`
+	// ARN of the attachment.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport pulumi.StringPtrOutput `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -123,6 +125,8 @@ func GetVpcAttachment(ctx *pulumi.Context,
 type vpcAttachmentState struct {
 	// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
 	ApplianceModeSupport *string `pulumi:"applianceModeSupport"`
+	// ARN of the attachment.
+	Arn *string `pulumi:"arn"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -152,6 +156,8 @@ type vpcAttachmentState struct {
 type VpcAttachmentState struct {
 	// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
 	ApplianceModeSupport pulumi.StringPtrInput
+	// ARN of the attachment.
+	Arn pulumi.StringPtrInput
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport pulumi.StringPtrInput
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -319,6 +325,11 @@ func (o VpcAttachmentOutput) ToVpcAttachmentOutputWithContext(ctx context.Contex
 // Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
 func (o VpcAttachmentOutput) ApplianceModeSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.ApplianceModeSupport }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the attachment.
+func (o VpcAttachmentOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.

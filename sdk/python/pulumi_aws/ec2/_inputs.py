@@ -178,6 +178,8 @@ __all__ = [
     'LaunchTemplateMonitoringArgsDict',
     'LaunchTemplateNetworkInterfaceArgs',
     'LaunchTemplateNetworkInterfaceArgsDict',
+    'LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs',
+    'LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgsDict',
     'LaunchTemplatePlacementArgs',
     'LaunchTemplatePlacementArgsDict',
     'LaunchTemplatePrivateDnsNameOptionsArgs',
@@ -572,6 +574,8 @@ __all__ = [
     'GetVpcIpamPoolFilterArgsDict',
     'GetVpcIpamPoolsFilterArgs',
     'GetVpcIpamPoolsFilterArgsDict',
+    'GetVpcIpamsFilterArgs',
+    'GetVpcIpamsFilterArgsDict',
     'GetVpcPeeringConnectionFilterArgs',
     'GetVpcPeeringConnectionFilterArgsDict',
     'GetVpcPeeringConnectionsFilterArgs',
@@ -8309,6 +8313,10 @@ if not MYPY:
         """
         Associate a public ip address with the network interface. Boolean value, can be left unset.
         """
+        connection_tracking_specification: NotRequired[pulumi.Input['LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgsDict']]
+        """
+        The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+        """
         delete_on_termination: NotRequired[pulumi.Input[str]]
         """
         Whether the network interface should be destroyed on instance termination.
@@ -8389,6 +8397,7 @@ class LaunchTemplateNetworkInterfaceArgs:
     def __init__(__self__, *,
                  associate_carrier_ip_address: Optional[pulumi.Input[str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[str]] = None,
+                 connection_tracking_specification: Optional[pulumi.Input['LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs']] = None,
                  delete_on_termination: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_index: Optional[pulumi.Input[int]] = None,
@@ -8410,6 +8419,7 @@ class LaunchTemplateNetworkInterfaceArgs:
         """
         :param pulumi.Input[str] associate_carrier_ip_address: Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
         :param pulumi.Input[str] associate_public_ip_address: Associate a public ip address with the network interface. Boolean value, can be left unset.
+        :param pulumi.Input['LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs'] connection_tracking_specification: The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
         :param pulumi.Input[str] delete_on_termination: Whether the network interface should be destroyed on instance termination.
         :param pulumi.Input[str] description: Description of the network interface.
         :param pulumi.Input[int] device_index: The integer index of the network interface attachment.
@@ -8433,6 +8443,8 @@ class LaunchTemplateNetworkInterfaceArgs:
             pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
         if associate_public_ip_address is not None:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+        if connection_tracking_specification is not None:
+            pulumi.set(__self__, "connection_tracking_specification", connection_tracking_specification)
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if description is not None:
@@ -8493,6 +8505,18 @@ class LaunchTemplateNetworkInterfaceArgs:
     @associate_public_ip_address.setter
     def associate_public_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "associate_public_ip_address", value)
+
+    @property
+    @pulumi.getter(name="connectionTrackingSpecification")
+    def connection_tracking_specification(self) -> Optional[pulumi.Input['LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs']]:
+        """
+        The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+        """
+        return pulumi.get(self, "connection_tracking_specification")
+
+    @connection_tracking_specification.setter
+    def connection_tracking_specification(self, value: Optional[pulumi.Input['LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs']]):
+        pulumi.set(self, "connection_tracking_specification", value)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
@@ -8709,6 +8733,78 @@ class LaunchTemplateNetworkInterfaceArgs:
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
+
+
+if not MYPY:
+    class LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgsDict(TypedDict):
+        tcp_established_timeout: NotRequired[pulumi.Input[int]]
+        """
+        Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+        """
+        udp_stream_timeout: NotRequired[pulumi.Input[int]]
+        """
+        Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+        """
+        udp_timeout: NotRequired[pulumi.Input[int]]
+        """
+        Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+        """
+elif False:
+    LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs:
+    def __init__(__self__, *,
+                 tcp_established_timeout: Optional[pulumi.Input[int]] = None,
+                 udp_stream_timeout: Optional[pulumi.Input[int]] = None,
+                 udp_timeout: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] tcp_established_timeout: Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+        :param pulumi.Input[int] udp_stream_timeout: Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+        :param pulumi.Input[int] udp_timeout: Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+        """
+        if tcp_established_timeout is not None:
+            pulumi.set(__self__, "tcp_established_timeout", tcp_established_timeout)
+        if udp_stream_timeout is not None:
+            pulumi.set(__self__, "udp_stream_timeout", udp_stream_timeout)
+        if udp_timeout is not None:
+            pulumi.set(__self__, "udp_timeout", udp_timeout)
+
+    @property
+    @pulumi.getter(name="tcpEstablishedTimeout")
+    def tcp_established_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
+        """
+        return pulumi.get(self, "tcp_established_timeout")
+
+    @tcp_established_timeout.setter
+    def tcp_established_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tcp_established_timeout", value)
+
+    @property
+    @pulumi.getter(name="udpStreamTimeout")
+    def udp_stream_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+        """
+        return pulumi.get(self, "udp_stream_timeout")
+
+    @udp_stream_timeout.setter
+    def udp_stream_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "udp_stream_timeout", value)
+
+    @property
+    @pulumi.getter(name="udpTimeout")
+    def udp_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+        """
+        return pulumi.get(self, "udp_timeout")
+
+    @udp_timeout.setter
+    def udp_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "udp_timeout", value)
 
 
 if not MYPY:
@@ -23273,6 +23369,62 @@ class GetVpcIpamPoolsFilterArgs:
     def values(self) -> Sequence[str]:
         """
         The filter values. Filter values are case-sensitive.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class GetVpcIpamsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        An IPAM resource will be selected if any one of the given values matches.
+        """
+elif False:
+    GetVpcIpamsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetVpcIpamsFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+               An IPAM resource will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
+        An IPAM resource will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 

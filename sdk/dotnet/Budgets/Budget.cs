@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Budgets
     /// });
     /// ```
     /// 
-    /// Create a Cost Filter using Resource Tags
+    /// Create a cost filter using resource tags
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -234,7 +234,8 @@ namespace Pulumi.Aws.Budgets
     ///                 Name = "TagKeyValue",
     ///                 Values = new[]
     ///                 {
-    ///                     "TagKey$TagValue",
+    ///                     "aws:createdBy$Pulumi",
+    ///                     "user:business-unit$human_resources",
     ///                 },
     ///             },
     ///         },
@@ -243,7 +244,7 @@ namespace Pulumi.Aws.Budgets
     /// });
     /// ```
     /// 
-    /// Create a cost_filter using resource tags, obtaining the tag value from a variable
+    /// Create a cost filter using resource tags, obtaining the tag value from a variable
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

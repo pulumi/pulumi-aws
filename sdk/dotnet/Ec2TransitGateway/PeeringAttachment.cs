@@ -68,6 +68,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class PeeringAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// ARN of the attachment.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
         /// </summary>
         [Output("options")]
@@ -208,6 +214,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class PeeringAttachmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the attachment.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
         /// </summary>

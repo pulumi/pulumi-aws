@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields
     {
+        /// <summary>
+        /// The names of the phone number fields.
+        /// </summary>
         public readonly ImmutableArray<string> Identifiers;
 
         [OutputConstructor]

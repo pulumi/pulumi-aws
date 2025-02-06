@@ -199,16 +199,14 @@ public class ServerCertificate extends com.pulumi.resources.CustomResource {
         return this.expiration;
     }
     /**
-     * The name of the Server Certificate. Do not include the
-     * path in this value. If omitted, the provider will assign a random, unique name.
+     * The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Server Certificate. Do not include the
-     * path in this value. If omitted, the provider will assign a random, unique name.
+     * @return The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {

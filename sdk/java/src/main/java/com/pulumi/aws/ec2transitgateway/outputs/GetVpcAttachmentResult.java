@@ -20,6 +20,11 @@ public final class GetVpcAttachmentResult {
      */
     private String applianceModeSupport;
     /**
+     * @return ARN of the attachment.
+     * 
+     */
+    private String arn;
+    /**
      * @return Whether DNS support is enabled.
      * 
      */
@@ -73,6 +78,13 @@ public final class GetVpcAttachmentResult {
      */
     public String applianceModeSupport() {
         return this.applianceModeSupport;
+    }
+    /**
+     * @return ARN of the attachment.
+     * 
+     */
+    public String arn() {
+        return this.arn;
     }
     /**
      * @return Whether DNS support is enabled.
@@ -151,6 +163,7 @@ public final class GetVpcAttachmentResult {
     @CustomType.Builder
     public static final class Builder {
         private String applianceModeSupport;
+        private String arn;
         private String dnsSupport;
         private @Nullable List<GetVpcAttachmentFilter> filters;
         private String id;
@@ -165,6 +178,7 @@ public final class GetVpcAttachmentResult {
         public Builder(GetVpcAttachmentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applianceModeSupport = defaults.applianceModeSupport;
+    	      this.arn = defaults.arn;
     	      this.dnsSupport = defaults.dnsSupport;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
@@ -183,6 +197,14 @@ public final class GetVpcAttachmentResult {
               throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "applianceModeSupport");
             }
             this.applianceModeSupport = applianceModeSupport;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -272,6 +294,7 @@ public final class GetVpcAttachmentResult {
         public GetVpcAttachmentResult build() {
             final var _resultValue = new GetVpcAttachmentResult();
             _resultValue.applianceModeSupport = applianceModeSupport;
+            _resultValue.arn = arn;
             _resultValue.dnsSupport = dnsSupport;
             _resultValue.filters = filters;
             _resultValue.id = id;

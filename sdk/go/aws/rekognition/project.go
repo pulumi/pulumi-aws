@@ -53,14 +53,20 @@ type Project struct {
 
 	// ARN of the Project.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`
+	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
 	AutoUpdate pulumi.StringOutput `pulumi:"autoUpdate"`
-	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`
+	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
 	Feature pulumi.StringPtrOutput `pulumi:"feature"`
-	// Desired name of the project
+	// Desired name of the project.
 	//
 	// The following arguments are optional:
-	Name     pulumi.StringOutput      `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll  pulumi.StringMapOutput   `pulumi:"tagsAll"`
 	Timeouts ProjectTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
@@ -96,28 +102,40 @@ func GetProject(ctx *pulumi.Context,
 type projectState struct {
 	// ARN of the Project.
 	Arn *string `pulumi:"arn"`
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`
+	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
 	AutoUpdate *string `pulumi:"autoUpdate"`
-	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`
+	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
 	Feature *string `pulumi:"feature"`
-	// Desired name of the project
+	// Desired name of the project.
 	//
 	// The following arguments are optional:
-	Name     *string          `pulumi:"name"`
-	Timeouts *ProjectTimeouts `pulumi:"timeouts"`
+	Name *string `pulumi:"name"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll  map[string]string `pulumi:"tagsAll"`
+	Timeouts *ProjectTimeouts  `pulumi:"timeouts"`
 }
 
 type ProjectState struct {
 	// ARN of the Project.
 	Arn pulumi.StringPtrInput
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`
+	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
 	AutoUpdate pulumi.StringPtrInput
-	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`
+	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
 	Feature pulumi.StringPtrInput
-	// Desired name of the project
+	// Desired name of the project.
 	//
 	// The following arguments are optional:
-	Name     pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll  pulumi.StringMapInput
 	Timeouts ProjectTimeoutsPtrInput
 }
 
@@ -126,27 +144,31 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`
+	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
 	AutoUpdate *string `pulumi:"autoUpdate"`
-	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`
+	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
 	Feature *string `pulumi:"feature"`
-	// Desired name of the project
+	// Desired name of the project.
 	//
 	// The following arguments are optional:
-	Name     *string          `pulumi:"name"`
-	Timeouts *ProjectTimeouts `pulumi:"timeouts"`
+	Name *string `pulumi:"name"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags     map[string]string `pulumi:"tags"`
+	Timeouts *ProjectTimeouts  `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`
+	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
 	AutoUpdate pulumi.StringPtrInput
-	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`
+	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
 	Feature pulumi.StringPtrInput
-	// Desired name of the project
+	// Desired name of the project.
 	//
 	// The following arguments are optional:
-	Name     pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags     pulumi.StringMapInput
 	Timeouts ProjectTimeoutsPtrInput
 }
 
@@ -242,21 +264,33 @@ func (o ProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`
+// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
 func (o ProjectOutput) AutoUpdate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.AutoUpdate }).(pulumi.StringOutput)
 }
 
-// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`
+// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
 func (o ProjectOutput) Feature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Feature }).(pulumi.StringPtrOutput)
 }
 
-// Desired name of the project
+// Desired name of the project.
 //
 // The following arguments are optional:
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o ProjectOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o ProjectOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 func (o ProjectOutput) Timeouts() ProjectTimeoutsPtrOutput {

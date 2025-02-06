@@ -14,6 +14,7 @@ from .invite_accepter import *
 from .ip_set import *
 from .malware_protection_plan import *
 from .member import *
+from .member_detector_feature import *
 from .organization_admin_account import *
 from .organization_configuration import *
 from .organization_configuration_feature import *

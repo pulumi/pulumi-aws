@@ -72,6 +72,10 @@ export class PeeringAttachment extends pulumi.CustomResource {
     }
 
     /**
+     * ARN of the attachment.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
      */
     public readonly options!: pulumi.Output<outputs.ec2transitgateway.PeeringAttachmentOptions | undefined>;
@@ -116,6 +120,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PeeringAttachmentState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
             resourceInputs["peerAccountId"] = state ? state.peerAccountId : undefined;
             resourceInputs["peerRegion"] = state ? state.peerRegion : undefined;
@@ -141,6 +146,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
             resourceInputs["peerTransitGatewayId"] = args ? args.peerTransitGatewayId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -153,6 +159,10 @@ export class PeeringAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PeeringAttachment resources.
  */
 export interface PeeringAttachmentState {
+    /**
+     * ARN of the attachment.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
      */

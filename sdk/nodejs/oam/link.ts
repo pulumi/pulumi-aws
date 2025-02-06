@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS CloudWatch Observability Access Manager Link.
  *
+ * > **NOTE:** Creating an `aws.oam.Link` may sometimes fail if the `aws.oam.SinkPolicy` for the attached `aws.oam.Sink` is not created before the `aws.oam.Link`. To prevent this, declare an explicit dependency using a `dependsOn` meta-argument.
+ *
  * ## Example Usage
  *
  * ### Basic Usage
@@ -18,13 +20,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const exampleSink = new aws.oam.Sink("example", {});
+ * const exampleSinkPolicy = new aws.oam.SinkPolicy("example", {sinkIdentifier: exampleSink.arn});
  * const example = new aws.oam.Link("example", {
  *     labelTemplate: "$AccountName",
  *     resourceTypes: ["AWS::CloudWatch::Metric"],
- *     sinkIdentifier: test.id,
+ *     sinkIdentifier: exampleSink.arn,
  *     tags: {
  *         Env: "prod",
  *     },
+ * }, {
+ *     dependsOn: [exampleSinkPolicy],
  * });
  * ```
  *
@@ -42,7 +48,9 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     resourceTypes: ["AWS::Logs::LogGroup"],
- *     sinkIdentifier: test.id,
+ *     sinkIdentifier: exampleAwsOamSink.arn,
+ * }, {
+ *     dependsOn: [exampleAwsOamSinkPolicy],
  * });
  * ```
  *
@@ -60,7 +68,9 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     resourceTypes: ["AWS::CloudWatch::Metric"],
- *     sinkIdentifier: test.id,
+ *     sinkIdentifier: exampleAwsOamSink.arn,
+ * }, {
+ *     dependsOn: [exampleAwsOamSinkPolicy],
  * });
  * ```
  *

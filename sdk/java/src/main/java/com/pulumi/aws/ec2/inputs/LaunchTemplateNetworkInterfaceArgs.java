@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ec2.inputs;
 
+import com.pulumi.aws.ec2.inputs.LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -45,6 +46,21 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
      */
     public Optional<Output<String>> associatePublicIpAddress() {
         return Optional.ofNullable(this.associatePublicIpAddress);
+    }
+
+    /**
+     * The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+     * 
+     */
+    @Import(name="connectionTrackingSpecification")
+    private @Nullable Output<LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs> connectionTrackingSpecification;
+
+    /**
+     * @return The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+     * 
+     */
+    public Optional<Output<LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs>> connectionTrackingSpecification() {
+        return Optional.ofNullable(this.connectionTrackingSpecification);
     }
 
     /**
@@ -322,6 +338,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     private LaunchTemplateNetworkInterfaceArgs(LaunchTemplateNetworkInterfaceArgs $) {
         this.associateCarrierIpAddress = $.associateCarrierIpAddress;
         this.associatePublicIpAddress = $.associatePublicIpAddress;
+        this.connectionTrackingSpecification = $.connectionTrackingSpecification;
         this.deleteOnTermination = $.deleteOnTermination;
         this.description = $.description;
         this.deviceIndex = $.deviceIndex;
@@ -400,6 +417,27 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
          */
         public Builder associatePublicIpAddress(String associatePublicIpAddress) {
             return associatePublicIpAddress(Output.of(associatePublicIpAddress));
+        }
+
+        /**
+         * @param connectionTrackingSpecification The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionTrackingSpecification(@Nullable Output<LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs> connectionTrackingSpecification) {
+            $.connectionTrackingSpecification = connectionTrackingSpecification;
+            return this;
+        }
+
+        /**
+         * @param connectionTrackingSpecification The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionTrackingSpecification(LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs connectionTrackingSpecification) {
+            return connectionTrackingSpecification(Output.of(connectionTrackingSpecification));
         }
 
         /**

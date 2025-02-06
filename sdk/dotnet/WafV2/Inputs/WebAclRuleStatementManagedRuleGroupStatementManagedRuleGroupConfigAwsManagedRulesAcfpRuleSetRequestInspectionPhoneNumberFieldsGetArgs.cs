@@ -14,6 +14,10 @@ namespace Pulumi.Aws.WafV2.Inputs
     {
         [Input("identifiers", required: true)]
         private InputList<string>? _identifiers;
+
+        /// <summary>
+        /// The names of the phone number fields.
+        /// </summary>
         public InputList<string> Identifiers
         {
             get => _identifiers ?? (_identifiers = new InputList<string>());

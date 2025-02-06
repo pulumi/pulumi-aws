@@ -242,6 +242,10 @@ export class Pipe extends pulumi.CustomResource {
      */
     public readonly enrichmentParameters!: pulumi.Output<outputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+     */
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    /**
      * Logging configuration settings for the pipe. Detailed below.
      */
     public readonly logConfiguration!: pulumi.Output<outputs.pipes.PipeLogConfiguration | undefined>;
@@ -304,6 +308,7 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["desiredState"] = state ? state.desiredState : undefined;
             resourceInputs["enrichment"] = state ? state.enrichment : undefined;
             resourceInputs["enrichmentParameters"] = state ? state.enrichmentParameters : undefined;
+            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
             resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
@@ -329,6 +334,7 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["desiredState"] = args ? args.desiredState : undefined;
             resourceInputs["enrichment"] = args ? args.enrichment : undefined;
             resourceInputs["enrichmentParameters"] = args ? args.enrichmentParameters : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
@@ -370,6 +376,10 @@ export interface PipeState {
      * Parameters to configure enrichment for your pipe. Detailed below.
      */
     enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters>;
+    /**
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * Logging configuration settings for the pipe. Detailed below.
      */
@@ -436,6 +446,10 @@ export interface PipeArgs {
      * Parameters to configure enrichment for your pipe. Detailed below.
      */
     enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters>;
+    /**
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * Logging configuration settings for the pipe. Detailed below.
      */

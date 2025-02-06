@@ -72,7 +72,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         /// </summary>
         [Output("fieldDelimiter")]
-        public Output<string?> FieldDelimiter { get; private set; } = null!;
+        public Output<string> FieldDelimiter { get; private set; } = null!;
 
         /// <summary>
         /// The list of record fields to be delivered to the destination, in order.

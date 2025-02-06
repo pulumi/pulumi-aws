@@ -203,6 +203,68 @@ import (
 //
 // ```
 //
+// ### VPC Lattice Resource Configuration Endpoint Type
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
+//				ResourceConfigurationArn: pulumi.Any(exampleAwsVpclatticeResourceConfiguration.Arn),
+//				SubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
+//				VpcEndpointType: pulumi.String("Resource"),
+//				VpcId:           pulumi.Any(exampleAwsVpc.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### VPC Lattice Service Network Endpoint Type
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
+//				ServiceNetworkArn: pulumi.Any(exampleAwsVpclatticeServiceNetwork.Arn),
+//				SubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
+//				VpcEndpointType: pulumi.String("ServiceNetwork"),
+//				VpcId:           pulumi.Any(exampleAwsVpc.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
@@ -238,13 +300,17 @@ type VpcEndpoint struct {
 	PrivateDnsEnabled pulumi.BoolOutput `pulumi:"privateDnsEnabled"`
 	// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
 	RequesterManaged pulumi.BoolOutput `pulumi:"requesterManaged"`
+	// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ResourceConfigurationArn pulumi.StringPtrOutput `pulumi:"resourceConfigurationArn"`
 	// One or more route table IDs. Applicable for endpoints of type `Gateway`.
 	RouteTableIds pulumi.StringArrayOutput `pulumi:"routeTableIds"`
 	// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
 	// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
+	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ServiceName pulumi.StringPtrOutput `pulumi:"serviceName"`
+	// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ServiceNetworkArn pulumi.StringPtrOutput `pulumi:"serviceNetworkArn"`
 	// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
 	ServiceRegion pulumi.StringOutput `pulumi:"serviceRegion"`
 	// The state of the VPC endpoint.
@@ -259,7 +325,7 @@ type VpcEndpoint struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
 	VpcEndpointType pulumi.StringPtrOutput `pulumi:"vpcEndpointType"`
 	// The ID of the VPC in which the endpoint will be used.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -272,9 +338,6 @@ func NewVpcEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceName'")
-	}
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
@@ -326,13 +389,17 @@ type vpcEndpointState struct {
 	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
 	// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
 	RequesterManaged *bool `pulumi:"requesterManaged"`
+	// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ResourceConfigurationArn *string `pulumi:"resourceConfigurationArn"`
 	// One or more route table IDs. Applicable for endpoints of type `Gateway`.
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
 	// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
 	ServiceName *string `pulumi:"serviceName"`
+	// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ServiceNetworkArn *string `pulumi:"serviceNetworkArn"`
 	// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
 	ServiceRegion *string `pulumi:"serviceRegion"`
 	// The state of the VPC endpoint.
@@ -347,7 +414,7 @@ type vpcEndpointState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
 	VpcEndpointType *string `pulumi:"vpcEndpointType"`
 	// The ID of the VPC in which the endpoint will be used.
 	VpcId *string `pulumi:"vpcId"`
@@ -379,13 +446,17 @@ type VpcEndpointState struct {
 	PrivateDnsEnabled pulumi.BoolPtrInput
 	// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
 	RequesterManaged pulumi.BoolPtrInput
+	// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ResourceConfigurationArn pulumi.StringPtrInput
 	// One or more route table IDs. Applicable for endpoints of type `Gateway`.
 	RouteTableIds pulumi.StringArrayInput
 	// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
 	// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
 	ServiceName pulumi.StringPtrInput
+	// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ServiceNetworkArn pulumi.StringPtrInput
 	// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
 	ServiceRegion pulumi.StringPtrInput
 	// The state of the VPC endpoint.
@@ -400,7 +471,7 @@ type VpcEndpointState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
 	VpcEndpointType pulumi.StringPtrInput
 	// The ID of the VPC in which the endpoint will be used.
 	VpcId pulumi.StringPtrInput
@@ -422,13 +493,17 @@ type vpcEndpointArgs struct {
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
 	// Defaults to `false`.
 	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
+	// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ResourceConfigurationArn *string `pulumi:"resourceConfigurationArn"`
 	// One or more route table IDs. Applicable for endpoints of type `Gateway`.
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
 	// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-	ServiceName string `pulumi:"serviceName"`
+	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ServiceName *string `pulumi:"serviceName"`
+	// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ServiceNetworkArn *string `pulumi:"serviceNetworkArn"`
 	// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
 	ServiceRegion *string `pulumi:"serviceRegion"`
 	// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
@@ -437,7 +512,7 @@ type vpcEndpointArgs struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
 	VpcEndpointType *string `pulumi:"vpcEndpointType"`
 	// The ID of the VPC in which the endpoint will be used.
 	VpcId string `pulumi:"vpcId"`
@@ -456,13 +531,17 @@ type VpcEndpointArgs struct {
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
 	// Defaults to `false`.
 	PrivateDnsEnabled pulumi.BoolPtrInput
+	// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ResourceConfigurationArn pulumi.StringPtrInput
 	// One or more route table IDs. Applicable for endpoints of type `Gateway`.
 	RouteTableIds pulumi.StringArrayInput
 	// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
 	// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-	ServiceName pulumi.StringInput
+	// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ServiceName pulumi.StringPtrInput
+	// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+	ServiceNetworkArn pulumi.StringPtrInput
 	// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
 	ServiceRegion pulumi.StringPtrInput
 	// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
@@ -471,7 +550,7 @@ type VpcEndpointArgs struct {
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+	// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
 	VpcEndpointType pulumi.StringPtrInput
 	// The ID of the VPC in which the endpoint will be used.
 	VpcId pulumi.StringInput
@@ -625,6 +704,11 @@ func (o VpcEndpointOutput) RequesterManaged() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.BoolOutput { return v.RequesterManaged }).(pulumi.BoolOutput)
 }
 
+// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+func (o VpcEndpointOutput) ResourceConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringPtrOutput { return v.ResourceConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
 // One or more route table IDs. Applicable for endpoints of type `Gateway`.
 func (o VpcEndpointOutput) RouteTableIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringArrayOutput { return v.RouteTableIds }).(pulumi.StringArrayOutput)
@@ -636,9 +720,14 @@ func (o VpcEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-func (o VpcEndpointOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
+// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+func (o VpcEndpointOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringPtrOutput { return v.ServiceName }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+func (o VpcEndpointOutput) ServiceNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringPtrOutput { return v.ServiceNetworkArn }).(pulumi.StringPtrOutput)
 }
 
 // The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
@@ -673,7 +762,7 @@ func (o VpcEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
+// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
 func (o VpcEndpointOutput) VpcEndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringPtrOutput { return v.VpcEndpointType }).(pulumi.StringPtrOutput)
 }

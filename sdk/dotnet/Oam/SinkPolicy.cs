@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Oam
     /// 
     ///     var exampleSinkPolicy = new Aws.Oam.SinkPolicy("example", new()
     ///     {
-    ///         SinkIdentifier = example.Id,
+    ///         SinkIdentifier = example.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",

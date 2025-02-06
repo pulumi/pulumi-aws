@@ -309,7 +309,7 @@ index c3170d4965..f13dada174 100644
  		HostedZoneId: aws.String(zoneID),
  	}
 diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
-index 86b843b763..21ed69c593 100644
+index 617da5a3d6..c370331f8d 100644
 --- a/internal/service/route53/zone.go
 +++ b/internal/service/route53/zone.go
 @@ -52,7 +52,7 @@ func resourceZone() *schema.Resource {

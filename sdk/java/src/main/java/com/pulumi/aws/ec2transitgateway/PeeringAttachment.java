@@ -85,6 +85,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2transitgateway/peeringAttachment:PeeringAttachment")
 public class PeeringAttachment extends com.pulumi.resources.CustomResource {
     /**
+     * ARN of the attachment.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return ARN of the attachment.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
      * 
      */

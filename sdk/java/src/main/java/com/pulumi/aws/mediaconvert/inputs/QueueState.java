@@ -6,6 +6,7 @@ package com.pulumi.aws.mediaconvert.inputs;
 import com.pulumi.aws.mediaconvert.inputs.QueueReservationPlanSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -30,6 +31,21 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+     * 
+     */
+    @Import(name="concurrentJobs")
+    private @Nullable Output<Integer> concurrentJobs;
+
+    /**
+     * @return The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+     * 
+     */
+    public Optional<Output<Integer>> concurrentJobs() {
+        return Optional.ofNullable(this.concurrentJobs);
     }
 
     /**
@@ -149,6 +165,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
 
     private QueueState(QueueState $) {
         this.arn = $.arn;
+        this.concurrentJobs = $.concurrentJobs;
         this.description = $.description;
         this.name = $.name;
         this.pricingPlan = $.pricingPlan;
@@ -195,6 +212,27 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param concurrentJobs The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder concurrentJobs(@Nullable Output<Integer> concurrentJobs) {
+            $.concurrentJobs = concurrentJobs;
+            return this;
+        }
+
+        /**
+         * @param concurrentJobs The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder concurrentJobs(Integer concurrentJobs) {
+            return concurrentJobs(Output.of(concurrentJobs));
         }
 
         /**
