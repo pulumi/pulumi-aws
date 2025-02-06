@@ -122,7 +122,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewInstance(ctx, "default", &rds.InstanceArgs{
+//			_default, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
 //				AllocatedStorage:         pulumi.Int(50),
 //				AutoMinorVersionUpgrade:  pulumi.Bool(false),
 //				CustomIamInstanceProfile: pulumi.String("AWSRDSCustomInstanceProfile"),

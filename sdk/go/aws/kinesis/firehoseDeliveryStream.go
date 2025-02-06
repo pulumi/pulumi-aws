@@ -481,7 +481,7 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "firehose-elasticsearch", &iam.RolePolicyArgs{
+//			firehose_elasticsearchRolePolicy, err := iam.NewRolePolicy(ctx, "firehose-elasticsearch", &iam.RolePolicyArgs{
 //				Name: pulumi.String("elasticsearch"),
 //				Role: pulumi.Any(firehose.Id),
 //				Policy: pulumi.String(firehose_elasticsearch.ApplyT(func(firehose_elasticsearch iam.GetPolicyDocumentResult) (*string, error) {
@@ -630,7 +630,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "firehose-opensearch", &iam.RolePolicyArgs{
+//			firehose_opensearch, err := iam.NewRolePolicy(ctx, "firehose-opensearch", &iam.RolePolicyArgs{
 //				Name: pulumi.String("opensearch"),
 //				Role: pulumi.Any(firehose.Id),
 //				Policy: pulumi.All(testCluster.Arn, testCluster.Arn).ApplyT(func(_args []interface{}) (string, error) {
