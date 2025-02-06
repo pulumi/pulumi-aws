@@ -69,7 +69,7 @@ import {Topic} from "./index";
  *     region: "us-east-1",
  *     "role-name": "service/service",
  * };
- * const sns-topic-policy = aws.iam.getPolicyDocument({
+ * const sns_topic_policy = aws.iam.getPolicyDocument({
  *     policyId: "__default_policy_ID",
  *     statements: [
  *         {
@@ -116,7 +116,7 @@ import {Topic} from "./index";
  *         },
  *     ],
  * });
- * const sqs-queue-policy = aws.iam.getPolicyDocument({
+ * const sqs_queue_policy = aws.iam.getPolicyDocument({
  *     policyId: `arn:aws:sqs:${sqs.region}:${sqs["account-id"]}:${sqs.name}/SQSDefaultPolicy`,
  *     statements: [{
  *         sid: "example-sns-topic",

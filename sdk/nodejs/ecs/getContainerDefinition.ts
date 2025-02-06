@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecs-mongo = aws.ecs.getContainerDefinition({
+ * const ecs_mongo = aws.ecs.getContainerDefinition({
  *     taskDefinition: mongo.id,
  *     containerName: "mongodb",
  * });
@@ -95,7 +95,7 @@ export interface GetContainerDefinitionResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecs-mongo = aws.ecs.getContainerDefinition({
+ * const ecs_mongo = aws.ecs.getContainerDefinition({
  *     taskDefinition: mongo.id,
  *     containerName: "mongodb",
  * });

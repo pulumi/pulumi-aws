@@ -87,7 +87,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
+//			_default, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
 //				AllocatedStorage:      pulumi.Int(10),
 //				Identifier:            pulumi.String("mydb"),
 //				Engine:                pulumi.String("postgres"),
