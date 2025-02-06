@@ -10,6 +10,268 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Budgets
 {
     /// <summary>
+    /// Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2 = new Aws.Budgets.Budget("ec2", new()
+    ///     {
+    ///         Name = "budget-ec2-monthly",
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "1200",
+    ///         LimitUnit = "USD",
+    ///         TimePeriodEnd = "2087-06-15_00:00",
+    ///         TimePeriodStart = "2017-07-01_00:00",
+    ///         TimeUnit = "MONTHLY",
+    ///         CostFilters = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///             {
+    ///                 Name = "Service",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "Amazon Elastic Compute Cloud - Compute",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Notifications = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetNotificationArgs
+    ///             {
+    ///                 ComparisonOperator = "GREATER_THAN",
+    ///                 Threshold = 100,
+    ///                 ThresholdType = "PERCENTAGE",
+    ///                 NotificationType = "FORECASTED",
+    ///                 SubscriberEmailAddresses = new[]
+    ///                 {
+    ///                     "test@example.com",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Create a budget for *$100*.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cost = new Aws.Budgets.Budget("cost", new()
+    ///     {
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "100",
+    ///         LimitUnit = "USD",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Create a budget with planned budget limits.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cost = new Aws.Budgets.Budget("cost", new()
+    ///     {
+    ///         PlannedLimits = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetPlannedLimitArgs
+    ///             {
+    ///                 StartTime = "2017-07-01_00:00",
+    ///                 Amount = "100",
+    ///                 Unit = "USD",
+    ///             },
+    ///             new Aws.Budgets.Inputs.BudgetPlannedLimitArgs
+    ///             {
+    ///                 StartTime = "2017-08-01_00:00",
+    ///                 Amount = "200",
+    ///                 Unit = "USD",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Create a budget for s3 with a limit of *3 GB* of storage.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var s3 = new Aws.Budgets.Budget("s3", new()
+    ///     {
+    ///         BudgetType = "USAGE",
+    ///         LimitAmount = "3",
+    ///         LimitUnit = "GB",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Create a Savings Plan Utilization Budget
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var savingsPlanUtilization = new Aws.Budgets.Budget("savings_plan_utilization", new()
+    ///     {
+    ///         BudgetType = "SAVINGS_PLANS_UTILIZATION",
+    ///         LimitAmount = "100.0",
+    ///         LimitUnit = "PERCENTAGE",
+    ///         CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
+    ///         {
+    ///             IncludeCredit = false,
+    ///             IncludeDiscount = false,
+    ///             IncludeOtherSubscription = false,
+    ///             IncludeRecurring = false,
+    ///             IncludeRefund = false,
+    ///             IncludeSubscription = true,
+    ///             IncludeSupport = false,
+    ///             IncludeTax = false,
+    ///             IncludeUpfront = false,
+    ///             UseBlended = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Create a RI Utilization Budget
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var riUtilization = new Aws.Budgets.Budget("ri_utilization", new()
+    ///     {
+    ///         BudgetType = "RI_UTILIZATION",
+    ///         LimitAmount = "100.0",
+    ///         LimitUnit = "PERCENTAGE",
+    ///         CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
+    ///         {
+    ///             IncludeCredit = false,
+    ///             IncludeDiscount = false,
+    ///             IncludeOtherSubscription = false,
+    ///             IncludeRecurring = false,
+    ///             IncludeRefund = false,
+    ///             IncludeSubscription = true,
+    ///             IncludeSupport = false,
+    ///             IncludeTax = false,
+    ///             IncludeUpfront = false,
+    ///             UseBlended = false,
+    ///         },
+    ///         CostFilters = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///             {
+    ///                 Name = "Service",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "Amazon Relational Database Service",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Create a cost filter using resource tags
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cost = new Aws.Budgets.Budget("cost", new()
+    ///     {
+    ///         CostFilters = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///             {
+    ///                 Name = "TagKeyValue",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "aws:createdBy$Pulumi",
+    ///                     "user:business-unit$human_resources",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Create a cost filter using resource tags, obtaining the tag value from a variable
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cost = new Aws.Budgets.Budget("cost", new()
+    ///     {
+    ///         CostFilters = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///             {
+    ///                 Name = "TagKeyValue",
+    ///                 Values = new[]
+    ///                 {
+    ///                     $"TagKey{"$"}{tagValue}",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:

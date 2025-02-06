@@ -22,6 +22,371 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
+ * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetNotificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var ec2 = new Budget("ec2", BudgetArgs.builder()
+ *             .name("budget-ec2-monthly")
+ *             .budgetType("COST")
+ *             .limitAmount("1200")
+ *             .limitUnit("USD")
+ *             .timePeriodEnd("2087-06-15_00:00")
+ *             .timePeriodStart("2017-07-01_00:00")
+ *             .timeUnit("MONTHLY")
+ *             .costFilters(BudgetCostFilterArgs.builder()
+ *                 .name("Service")
+ *                 .values("Amazon Elastic Compute Cloud - Compute")
+ *                 .build())
+ *             .notifications(BudgetNotificationArgs.builder()
+ *                 .comparisonOperator("GREATER_THAN")
+ *                 .threshold(100)
+ *                 .thresholdType("PERCENTAGE")
+ *                 .notificationType("FORECASTED")
+ *                 .subscriberEmailAddresses("test}{@literal @}{@code example.com")
+ *                 .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
+ *             ))
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * Create a budget for *$100*.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var cost = new Budget("cost", BudgetArgs.builder()
+ *             .budgetType("COST")
+ *             .limitAmount("100")
+ *             .limitUnit("USD")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * Create a budget with planned budget limits.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetPlannedLimitArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var cost = new Budget("cost", BudgetArgs.builder()
+ *             .plannedLimits(            
+ *                 BudgetPlannedLimitArgs.builder()
+ *                     .startTime("2017-07-01_00:00")
+ *                     .amount("100")
+ *                     .unit("USD")
+ *                     .build(),
+ *                 BudgetPlannedLimitArgs.builder()
+ *                     .startTime("2017-08-01_00:00")
+ *                     .amount("200")
+ *                     .unit("USD")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * Create a budget for s3 with a limit of *3 GB* of storage.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var s3 = new Budget("s3", BudgetArgs.builder()
+ *             .budgetType("USAGE")
+ *             .limitAmount("3")
+ *             .limitUnit("GB")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * Create a Savings Plan Utilization Budget
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetCostTypesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var savingsPlanUtilization = new Budget("savingsPlanUtilization", BudgetArgs.builder()
+ *             .budgetType("SAVINGS_PLANS_UTILIZATION")
+ *             .limitAmount("100.0")
+ *             .limitUnit("PERCENTAGE")
+ *             .costTypes(BudgetCostTypesArgs.builder()
+ *                 .includeCredit(false)
+ *                 .includeDiscount(false)
+ *                 .includeOtherSubscription(false)
+ *                 .includeRecurring(false)
+ *                 .includeRefund(false)
+ *                 .includeSubscription(true)
+ *                 .includeSupport(false)
+ *                 .includeTax(false)
+ *                 .includeUpfront(false)
+ *                 .useBlended(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * Create a RI Utilization Budget
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetCostTypesArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var riUtilization = new Budget("riUtilization", BudgetArgs.builder()
+ *             .budgetType("RI_UTILIZATION")
+ *             .limitAmount("100.0")
+ *             .limitUnit("PERCENTAGE")
+ *             .costTypes(BudgetCostTypesArgs.builder()
+ *                 .includeCredit(false)
+ *                 .includeDiscount(false)
+ *                 .includeOtherSubscription(false)
+ *                 .includeRecurring(false)
+ *                 .includeRefund(false)
+ *                 .includeSubscription(true)
+ *                 .includeSupport(false)
+ *                 .includeTax(false)
+ *                 .includeUpfront(false)
+ *                 .useBlended(false)
+ *                 .build())
+ *             .costFilters(BudgetCostFilterArgs.builder()
+ *                 .name("Service")
+ *                 .values("Amazon Relational Database Service")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * Create a cost filter using resource tags
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var cost = new Budget("cost", BudgetArgs.builder()
+ *             .costFilters(BudgetCostFilterArgs.builder()
+ *                 .name("TagKeyValue")
+ *                 .values(                
+ *                     "aws:createdBy$Pulumi",
+ *                     "user:business-unit$human_resources")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * Create a cost filter using resource tags, obtaining the tag value from a variable
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var cost = new Budget("cost", BudgetArgs.builder()
+ *             .costFilters(BudgetCostFilterArgs.builder()
+ *                 .name("TagKeyValue")
+ *                 .values(String.format("TagKey%s%s", "$",tagValue))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:

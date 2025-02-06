@@ -578,6 +578,162 @@ class Budget(pulumi.CustomResource):
                  time_unit: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ec2 = aws.budgets.Budget("ec2",
+            name="budget-ec2-monthly",
+            budget_type="COST",
+            limit_amount="1200",
+            limit_unit="USD",
+            time_period_end="2087-06-15_00:00",
+            time_period_start="2017-07-01_00:00",
+            time_unit="MONTHLY",
+            cost_filters=[{
+                "name": "Service",
+                "values": ["Amazon Elastic Compute Cloud - Compute"],
+            }],
+            notifications=[{
+                "comparison_operator": "GREATER_THAN",
+                "threshold": 100,
+                "threshold_type": "PERCENTAGE",
+                "notification_type": "FORECASTED",
+                "subscriber_email_addresses": ["test@example.com"],
+            }],
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
+        ```
+
+        Create a budget for *$100*.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost",
+            budget_type="COST",
+            limit_amount="100",
+            limit_unit="USD")
+        ```
+
+        Create a budget with planned budget limits.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost", planned_limits=[
+            {
+                "start_time": "2017-07-01_00:00",
+                "amount": "100",
+                "unit": "USD",
+            },
+            {
+                "start_time": "2017-08-01_00:00",
+                "amount": "200",
+                "unit": "USD",
+            },
+        ])
+        ```
+
+        Create a budget for s3 with a limit of *3 GB* of storage.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        s3 = aws.budgets.Budget("s3",
+            budget_type="USAGE",
+            limit_amount="3",
+            limit_unit="GB")
+        ```
+
+        Create a Savings Plan Utilization Budget
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        savings_plan_utilization = aws.budgets.Budget("savings_plan_utilization",
+            budget_type="SAVINGS_PLANS_UTILIZATION",
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE",
+            cost_types={
+                "include_credit": False,
+                "include_discount": False,
+                "include_other_subscription": False,
+                "include_recurring": False,
+                "include_refund": False,
+                "include_subscription": True,
+                "include_support": False,
+                "include_tax": False,
+                "include_upfront": False,
+                "use_blended": False,
+            })
+        ```
+
+        Create a RI Utilization Budget
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ri_utilization = aws.budgets.Budget("ri_utilization",
+            budget_type="RI_UTILIZATION",
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE",
+            cost_types={
+                "include_credit": False,
+                "include_discount": False,
+                "include_other_subscription": False,
+                "include_recurring": False,
+                "include_refund": False,
+                "include_subscription": True,
+                "include_support": False,
+                "include_tax": False,
+                "include_upfront": False,
+                "use_blended": False,
+            },
+            cost_filters=[{
+                "name": "Service",
+                "values": ["Amazon Relational Database Service"],
+            }])
+        ```
+
+        Create a cost filter using resource tags
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost", cost_filters=[{
+            "name": "TagKeyValue",
+            "values": [
+                "aws:createdBy$Pulumi",
+                "user:business-unit$human_resources",
+            ],
+        }])
+        ```
+
+        Create a cost filter using resource tags, obtaining the tag value from a variable
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost", cost_filters=[{
+            "name": "TagKeyValue",
+            "values": [f"TagKey{'$'}{tag_value}"],
+        }])
+        ```
+
         ## Import
 
         Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
@@ -613,6 +769,162 @@ class Budget(pulumi.CustomResource):
                  args: BudgetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ec2 = aws.budgets.Budget("ec2",
+            name="budget-ec2-monthly",
+            budget_type="COST",
+            limit_amount="1200",
+            limit_unit="USD",
+            time_period_end="2087-06-15_00:00",
+            time_period_start="2017-07-01_00:00",
+            time_unit="MONTHLY",
+            cost_filters=[{
+                "name": "Service",
+                "values": ["Amazon Elastic Compute Cloud - Compute"],
+            }],
+            notifications=[{
+                "comparison_operator": "GREATER_THAN",
+                "threshold": 100,
+                "threshold_type": "PERCENTAGE",
+                "notification_type": "FORECASTED",
+                "subscriber_email_addresses": ["test@example.com"],
+            }],
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
+        ```
+
+        Create a budget for *$100*.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost",
+            budget_type="COST",
+            limit_amount="100",
+            limit_unit="USD")
+        ```
+
+        Create a budget with planned budget limits.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost", planned_limits=[
+            {
+                "start_time": "2017-07-01_00:00",
+                "amount": "100",
+                "unit": "USD",
+            },
+            {
+                "start_time": "2017-08-01_00:00",
+                "amount": "200",
+                "unit": "USD",
+            },
+        ])
+        ```
+
+        Create a budget for s3 with a limit of *3 GB* of storage.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        s3 = aws.budgets.Budget("s3",
+            budget_type="USAGE",
+            limit_amount="3",
+            limit_unit="GB")
+        ```
+
+        Create a Savings Plan Utilization Budget
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        savings_plan_utilization = aws.budgets.Budget("savings_plan_utilization",
+            budget_type="SAVINGS_PLANS_UTILIZATION",
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE",
+            cost_types={
+                "include_credit": False,
+                "include_discount": False,
+                "include_other_subscription": False,
+                "include_recurring": False,
+                "include_refund": False,
+                "include_subscription": True,
+                "include_support": False,
+                "include_tax": False,
+                "include_upfront": False,
+                "use_blended": False,
+            })
+        ```
+
+        Create a RI Utilization Budget
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ri_utilization = aws.budgets.Budget("ri_utilization",
+            budget_type="RI_UTILIZATION",
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE",
+            cost_types={
+                "include_credit": False,
+                "include_discount": False,
+                "include_other_subscription": False,
+                "include_recurring": False,
+                "include_refund": False,
+                "include_subscription": True,
+                "include_support": False,
+                "include_tax": False,
+                "include_upfront": False,
+                "use_blended": False,
+            },
+            cost_filters=[{
+                "name": "Service",
+                "values": ["Amazon Relational Database Service"],
+            }])
+        ```
+
+        Create a cost filter using resource tags
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost", cost_filters=[{
+            "name": "TagKeyValue",
+            "values": [
+                "aws:createdBy$Pulumi",
+                "user:business-unit$human_resources",
+            ],
+        }])
+        ```
+
+        Create a cost filter using resource tags, obtaining the tag value from a variable
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost", cost_filters=[{
+            "name": "TagKeyValue",
+            "values": [f"TagKey{'$'}{tag_value}"],
+        }])
+        ```
+
         ## Import
 
         Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:

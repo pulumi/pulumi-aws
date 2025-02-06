@@ -8,6 +8,167 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ec2 = new aws.budgets.Budget("ec2", {
+ *     name: "budget-ec2-monthly",
+ *     budgetType: "COST",
+ *     limitAmount: "1200",
+ *     limitUnit: "USD",
+ *     timePeriodEnd: "2087-06-15_00:00",
+ *     timePeriodStart: "2017-07-01_00:00",
+ *     timeUnit: "MONTHLY",
+ *     costFilters: [{
+ *         name: "Service",
+ *         values: ["Amazon Elastic Compute Cloud - Compute"],
+ *     }],
+ *     notifications: [{
+ *         comparisonOperator: "GREATER_THAN",
+ *         threshold: 100,
+ *         thresholdType: "PERCENTAGE",
+ *         notificationType: "FORECASTED",
+ *         subscriberEmailAddresses: ["test@example.com"],
+ *     }],
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ * });
+ * ```
+ *
+ * Create a budget for *$100*.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const cost = new aws.budgets.Budget("cost", {
+ *     budgetType: "COST",
+ *     limitAmount: "100",
+ *     limitUnit: "USD",
+ * });
+ * ```
+ *
+ * Create a budget with planned budget limits.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const cost = new aws.budgets.Budget("cost", {plannedLimits: [
+ *     {
+ *         startTime: "2017-07-01_00:00",
+ *         amount: "100",
+ *         unit: "USD",
+ *     },
+ *     {
+ *         startTime: "2017-08-01_00:00",
+ *         amount: "200",
+ *         unit: "USD",
+ *     },
+ * ]});
+ * ```
+ *
+ * Create a budget for s3 with a limit of *3 GB* of storage.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const s3 = new aws.budgets.Budget("s3", {
+ *     budgetType: "USAGE",
+ *     limitAmount: "3",
+ *     limitUnit: "GB",
+ * });
+ * ```
+ *
+ * Create a Savings Plan Utilization Budget
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const savingsPlanUtilization = new aws.budgets.Budget("savings_plan_utilization", {
+ *     budgetType: "SAVINGS_PLANS_UTILIZATION",
+ *     limitAmount: "100.0",
+ *     limitUnit: "PERCENTAGE",
+ *     costTypes: {
+ *         includeCredit: false,
+ *         includeDiscount: false,
+ *         includeOtherSubscription: false,
+ *         includeRecurring: false,
+ *         includeRefund: false,
+ *         includeSubscription: true,
+ *         includeSupport: false,
+ *         includeTax: false,
+ *         includeUpfront: false,
+ *         useBlended: false,
+ *     },
+ * });
+ * ```
+ *
+ * Create a RI Utilization Budget
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const riUtilization = new aws.budgets.Budget("ri_utilization", {
+ *     budgetType: "RI_UTILIZATION",
+ *     limitAmount: "100.0",
+ *     limitUnit: "PERCENTAGE",
+ *     costTypes: {
+ *         includeCredit: false,
+ *         includeDiscount: false,
+ *         includeOtherSubscription: false,
+ *         includeRecurring: false,
+ *         includeRefund: false,
+ *         includeSubscription: true,
+ *         includeSupport: false,
+ *         includeTax: false,
+ *         includeUpfront: false,
+ *         useBlended: false,
+ *     },
+ *     costFilters: [{
+ *         name: "Service",
+ *         values: ["Amazon Relational Database Service"],
+ *     }],
+ * });
+ * ```
+ *
+ * Create a cost filter using resource tags
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const cost = new aws.budgets.Budget("cost", {costFilters: [{
+ *     name: "TagKeyValue",
+ *     values: [
+ *         "aws:createdBy$Pulumi",
+ *         "user:business-unit$human_resources",
+ *     ],
+ * }]});
+ * ```
+ *
+ * Create a cost filter using resource tags, obtaining the tag value from a variable
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const cost = new aws.budgets.Budget("cost", {costFilters: [{
+ *     name: "TagKeyValue",
+ *     values: [`TagKey${"$"}${tagValue}`],
+ * }]});
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
