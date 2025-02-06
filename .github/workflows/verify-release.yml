@@ -73,6 +73,9 @@ jobs:
         # See the docs for a similar example to this: https://docs.github.com/en/actions/learn-github-actions/expressions#fromjson
         runner: ${{ fromJSON(format('["ubuntu-latest","windows-latest"{0}]', inputs.enableMacRunner && ',"macos-latest"' || '')) }}
     runs-on: ${{ matrix.runner }}
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
       - name: Configure Git to checkout files with long names
         run: git config --global core.longpaths true

@@ -71,18 +71,10 @@ jobs:
           tools: pulumictl, pulumicli, ${{ matrix.language }}
       - name: Prepare local workspace
         run: make prepare_local_workspace
-      - name: Download codegen
-        uses: ./.github/actions/download-codegen
+      - name: Download prerequisites
+        uses: ./.github/actions/download-prerequisites
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-      - name: Download schema-embed.json
-        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
-        with:
-          # Use a pattern to avoid failing if the artifact doesn't exist
-          pattern: schema-embed.*
-          # Avoid creating directories for each artifact
-          merge-multiple: true
-          path: provider/cmd/pulumi-resource-aws
       - name: Restore makefile progress
         run: make --touch provider schema
       - name: Build SDK
