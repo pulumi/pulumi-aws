@@ -66,19 +66,19 @@ runs:
 
     - name: Setup DotNet
       if: inputs.tools == 'all' || contains(inputs.tools, 'dotnet')
-      uses: actions/setup-dotnet@87b7050bc53ea08284295505d98d2aa94301e852 # v4.2.0
+      uses: actions/setup-dotnet@3951f0dfe7a07e2313ec93c75700083e2005cbab # v4.3.0
       with:
         dotnet-version: 6.0.x
 
     - name: Setup Python
       if: inputs.tools == 'all' || contains(inputs.tools, 'python')
-      uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
+      uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
       with:
         python-version: 3.11.8
 
     - name: Setup Java
       if: inputs.tools == 'all' || contains(inputs.tools, 'java')
-      uses: actions/setup-java@7a6d8a8234af8eb26422e24e3006232cccaa061b # v4.6.0
+      uses: actions/setup-java@3a4f6e1af504cf6a31855fa899c6aa5355ba6c12 # v4.7.0
       with:
         cache: gradle
         distribution: temurin
