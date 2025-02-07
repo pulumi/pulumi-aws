@@ -67,7 +67,7 @@ jobs:
     - name: Prepare local workspace
       run: make prepare_local_workspace
     - name: Download bin
-      uses: ./.github/actions/download-bin
+      uses: ./.github/actions/download-provider
     - name: Download SDK
       uses: ./.github/actions/download-sdk
       with:

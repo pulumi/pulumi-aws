@@ -62,6 +62,7 @@ jobs:
     - uses: pulumi/provider-version-action@f96d032a2758fdda7939e5728eff6c0d980ae894 # v1.6.0
       id: provider-version
       with:
+        major-version: 6
         set-env: 'PROVIDER_VERSION'
     - name: Cache examples generation
       uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4
@@ -82,7 +83,7 @@ jobs:
     - name: Unit-test provider code
       run: make test_provider
     - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@0da7aa657d958d32c117fc47e1f977e7524753c7 # v5.3.0
+      uses: codecov/codecov-action@13ce06bfc6bbe3ecf90edbbf1bc32fe5978ca1d3 # v5.3.1
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     - if: inputs.is_pr
@@ -106,16 +107,5 @@ jobs:
 
           Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
 
-    - name: Upload codegen binary for aws
-      uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
-      with:
-        name: pulumi-tfgen-aws
-        path: ${{ github.workspace }}/bin/pulumi-tfgen-aws
-        retention-days: 30
-
-    - name: Upload schema-embed.json
-      uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
-      with:
-        name: schema-embed.json
-        path: provider/cmd/pulumi-resource-aws/schema-embed.json
-        retention-days: 30
+    - name: Upload artifacts
+      uses: ./.github/actions/upload-prerequisites

@@ -182,7 +182,10 @@ init() {
     esac
   done
 
-  assert_upstream_exists
+  if [[ ! -d upstream ]]; then
+    echo "No 'upstream' directory detected. Skipping init."
+    exit 0
+  fi
 
   if [[ "${force}" != "true" ]]; then
     assert_not_checked_out
