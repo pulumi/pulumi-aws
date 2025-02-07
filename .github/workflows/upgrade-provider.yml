@@ -75,14 +75,18 @@ jobs:
         # upstream_version will be empty if the provider is up-to-date
         run: echo "version=${{ github.event.inputs.version || steps.upstream_version.outputs.latest_version }}" >> "$GITHUB_OUTPUT"
         shell: bash
-      - name: Attempt provider upgrade
+      - name: Call upgrade provider action
         id: upgrade_provider
-        # Only attempt the upgrade if we have a target version
         if: steps.target_version.outputs.version != ''
-        # Don't mark the build as failed if we can't auto-open a PR as we've already opened the upgrade issue for tracking
         continue-on-error: true
-        run: upgrade-provider "${{ github.repository }}" --kind="all" --target-version="${{ steps.target_version.outputs.version }}" 
-        shell: bash
+        uses: pulumi/pulumi-upgrade-provider-action@a1d9f03fbfd923f787427c1d9e99c2356711d483 # v0.0.13
+        with:
+          kind: all
+          email: bot@pulumi.com
+          username: pulumi-bot
+          automerge: false
+          target-version: ${{ steps.target_version.outputs.version }}
+          allow-missing-docs: false
       - name: Comment on upgrade issue if automated PR failed
         if: steps.upgrade_provider.outcome == 'failure'
         shell: bash

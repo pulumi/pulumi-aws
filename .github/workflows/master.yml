@@ -44,47 +44,14 @@ jobs:
     with:
       version: ${{ needs.prerequisites.outputs.version }}
 
-  generate_coverage_data:
-    continue-on-error: true
-    env:
-      COVERAGE_OUTPUT_DIR: ${{ secrets.COVERAGE_OUTPUT_DIR }}
-    name: generate_coverage_data
+  post_build:
+    name: post_build
     needs: prerequisites
-    runs-on: ubuntu-latest
-    steps:
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
-      with:
-        tool-cache: false
-        swap-storage: false
-    - name: Checkout Repo
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      with:
-        submodules: true
-        persist-credentials: false
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
-      with:
-        aws-access-key-id: ${{ secrets.AWS_CORP_S3_UPLOAD_ACCESS_KEY_ID }}
-        aws-region: us-west-2
-        aws-secret-access-key: ${{ secrets.AWS_CORP_S3_UPLOAD_SECRET_ACCESS_KEY }}
-    - name: Setup tools
-      uses: ./.github/actions/setup-tools
-      with:
-        tools: pulumictl, pulumicli, go, schema-tools
-    - name: Echo Coverage Output Dir
-      run: 'echo "Coverage output directory: ${{ env.COVERAGE_OUTPUT_DIR }}"'
-    - name: Generate Coverage Data
-      run: PULUMI_MISSING_DOCS_ERROR=true make tfgen
-    - name: Summarize Provider Coverage Results
-      run: cat ${{ env.COVERAGE_OUTPUT_DIR }}/shortSummary.txt
-    - name: Upload coverage data to S3
-      run: >-
-        summaryName="${PROVIDER}_summary_$(date +"%Y-%m-%d_%H-%M-%S").json"
+    uses: ./.github/workflows/main-post-build.yml
+    secrets: inherit
+    with:
+      version: ${{ needs.prerequisites.outputs.version }}
 
-        s3FullURI="s3://${{ secrets.S3_COVERAGE_BUCKET_NAME }}/summaries/${summaryName}"
-
-        aws s3 cp "${{ env.COVERAGE_OUTPUT_DIR }}/summary.json" "${s3FullURI}" --acl bucket-owner-full-control
   license_check:
     name: License Check
     uses: ./.github/workflows/license.yml
@@ -94,6 +61,7 @@ jobs:
     name: publish
     permissions:
       contents: write
+      id-token: write
     needs:
       - prerequisites
       - build_provider
