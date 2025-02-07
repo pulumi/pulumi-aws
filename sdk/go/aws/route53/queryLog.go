@@ -80,7 +80,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policy", &cloudwatch.LogResourcePolicyArgs{
+//			route53_query_logging_policyLogResourcePolicy, err := cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policy", &cloudwatch.LogResourcePolicyArgs{
 //				PolicyDocument: pulumi.String(route53_query_logging_policy.Json),
 //				PolicyName:     pulumi.String("route53-query-logging-policy"),
 //			})
