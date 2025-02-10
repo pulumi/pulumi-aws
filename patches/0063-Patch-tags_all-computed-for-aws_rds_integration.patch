@@ -5,7 +5,7 @@ Subject: [PATCH] Patch tags_all computed for aws_rds_integration
 
 
 diff --git a/internal/service/rds/integration.go b/internal/service/rds/integration.go
-index 36fb262604..3044229a0d 100644
+index 36fb2626041..3044229a0db 100644
 --- a/internal/service/rds/integration.go
 +++ b/internal/service/rds/integration.go
 @@ -108,7 +108,7 @@ func (r *integrationResource) Schema(ctx context.Context, request resource.Schem

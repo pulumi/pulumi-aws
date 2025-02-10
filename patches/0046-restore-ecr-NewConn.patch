@@ -6,7 +6,7 @@ Subject: [PATCH] restore ecr NewConn
 
 diff --git a/internal/service/ecr/service_package_extra.go b/internal/service/ecr/service_package_extra.go
 new file mode 100644
-index 0000000000..7175d0cb71
+index 00000000000..7175d0cb71b
 --- /dev/null
 +++ b/internal/service/ecr/service_package_extra.go
 @@ -0,0 +1,16 @@
