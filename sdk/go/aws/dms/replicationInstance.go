@@ -57,42 +57,42 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRole(ctx, "dms-access-for-endpoint", &iam.RoleArgs{
+//			dms_access_for_endpoint, err := iam.NewRole(ctx, "dms-access-for-endpoint", &iam.RoleArgs{
 //				AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
 //				Name:             pulumi.String("dms-access-for-endpoint"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "dms-access-for-endpoint-AmazonDMSRedshiftS3Role", &iam.RolePolicyAttachmentArgs{
+//			dms_access_for_endpoint_AmazonDMSRedshiftS3Role, err := iam.NewRolePolicyAttachment(ctx, "dms-access-for-endpoint-AmazonDMSRedshiftS3Role", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role"),
 //				Role:      dms_access_for_endpoint.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRole(ctx, "dms-cloudwatch-logs-role", &iam.RoleArgs{
+//			dms_cloudwatch_logs_role, err := iam.NewRole(ctx, "dms-cloudwatch-logs-role", &iam.RoleArgs{
 //				AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
 //				Name:             pulumi.String("dms-cloudwatch-logs-role"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", &iam.RolePolicyAttachmentArgs{
+//			dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole, err := iam.NewRolePolicyAttachment(ctx, "dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole"),
 //				Role:      dms_cloudwatch_logs_role.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
+//			dms_vpc_role, err := iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
 //				AssumeRolePolicy: pulumi.String(dmsAssumeRole.Json),
 //				Name:             pulumi.String("dms-vpc-role"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "dms-vpc-role-AmazonDMSVPCManagementRole", &iam.RolePolicyAttachmentArgs{
+//			dms_vpc_role_AmazonDMSVPCManagementRole, err := iam.NewRolePolicyAttachment(ctx, "dms-vpc-role-AmazonDMSVPCManagementRole", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole"),
 //				Role:      dms_vpc_role.Name,
 //			})
