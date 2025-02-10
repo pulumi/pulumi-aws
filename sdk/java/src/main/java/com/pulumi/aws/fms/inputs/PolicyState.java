@@ -74,14 +74,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of lists of accounts and OU&#39;s to exclude from the policy.
+     * A map of lists of accounts and OU&#39;s to exclude from the policy. See the `exclude_map` block.
      * 
      */
     @Import(name="excludeMap")
     private @Nullable Output<PolicyExcludeMapArgs> excludeMap;
 
     /**
-     * @return A map of lists of accounts and OU&#39;s to exclude from the policy.
+     * @return A map of lists of accounts and OU&#39;s to exclude from the policy. See the `exclude_map` block.
      * 
      */
     public Optional<Output<PolicyExcludeMapArgs>> excludeMap() {
@@ -104,14 +104,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of lists of accounts and OU&#39;s to include in the policy.
+     * A map of lists of accounts and OU&#39;s to include in the policy. See the `include_map` block.
      * 
      */
     @Import(name="includeMap")
     private @Nullable Output<PolicyIncludeMapArgs> includeMap;
 
     /**
-     * @return A map of lists of accounts and OU&#39;s to include in the policy.
+     * @return A map of lists of accounts and OU&#39;s to include in the policy. See the `include_map` block.
      * 
      */
     public Optional<Output<PolicyIncludeMapArgs>> includeMap() {
@@ -216,14 +216,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The objects to include in Security Service Policy Data. Documented below.
+     * The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
      * 
      */
     @Import(name="securityServicePolicyData")
     private @Nullable Output<PolicySecurityServicePolicyDataArgs> securityServicePolicyData;
 
     /**
-     * @return The objects to include in Security Service Policy Data. Documented below.
+     * @return The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
      * 
      */
     public Optional<Output<PolicySecurityServicePolicyDataArgs>> securityServicePolicyData() {
@@ -381,7 +381,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeMap A map of lists of accounts and OU&#39;s to exclude from the policy.
+         * @param excludeMap A map of lists of accounts and OU&#39;s to exclude from the policy. See the `exclude_map` block.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeMap A map of lists of accounts and OU&#39;s to exclude from the policy.
+         * @param excludeMap A map of lists of accounts and OU&#39;s to exclude from the policy. See the `exclude_map` block.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeMap A map of lists of accounts and OU&#39;s to include in the policy.
+         * @param includeMap A map of lists of accounts and OU&#39;s to include in the policy. See the `include_map` block.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeMap A map of lists of accounts and OU&#39;s to include in the policy.
+         * @param includeMap A map of lists of accounts and OU&#39;s to include in the policy. See the `include_map` block.
          * 
          * @return builder
          * 
@@ -593,7 +593,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityServicePolicyData The objects to include in Security Service Policy Data. Documented below.
+         * @param securityServicePolicyData The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityServicePolicyData The objects to include in Security Service Policy Data. Documented below.
+         * @param securityServicePolicyData The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
          * 
          * @return builder
          * 

@@ -7,10 +7,13 @@ import * as utilities from "../utilities";
 import {PolicyDocument} from "../iam";
 
 /**
- * Allows you to set a policy of an SQS Queue
- * while referencing ARN of the queue within the policy.
+ * Allows you to set a policy of an SQS Queue while referencing the ARN of the queue within the policy.
+ *
+ * !> AWS will hang indefinitely when creating or updating an `aws.sqs.Queue` with an associated policy if `Version = "2012-10-17"` is not explicitly set in the policy. See below for an example of how to avoid this issue.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -37,6 +40,38 @@ import {PolicyDocument} from "../iam";
  * const testQueuePolicy = new aws.sqs.QueuePolicy("test", {
  *     queueUrl: q.id,
  *     policy: test.apply(test => test.json),
+ * });
+ * ```
+ *
+ * ### Timeout Problems Creating/Updating
+ *
+ * If `Version = "2012-10-17"` is not explicitly set in the policy, AWS may hang, causing the AWS provider to time out. To avoid this, make sure to include `Version` as shown in the example below.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.s3.BucketV2("example", {bucket: "brodobaggins"});
+ * const exampleQueue = new aws.sqs.Queue("example", {name: "be-giant"});
+ * const exampleQueuePolicy = new aws.sqs.QueuePolicy("example", {
+ *     queueUrl: exampleQueue.id,
+ *     policy: pulumi.jsonStringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Sid: "Cejuwdam",
+ *             Effect: "Allow",
+ *             Principal: {
+ *                 Service: "s3.amazonaws.com",
+ *             },
+ *             Action: "SQS:SendMessage",
+ *             Resource: exampleQueue.arn,
+ *             Condition: {
+ *                 ArnLike: {
+ *                     "aws:SourceArn": example.arn,
+ *                 },
+ *             },
+ *         }],
+ *     }),
  * });
  * ```
  *
@@ -76,12 +111,9 @@ export class QueuePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === QueuePolicy.__pulumiType;
     }
 
-    /**
-     * The JSON policy for the SQS queue.
-     */
     public readonly policy!: pulumi.Output<string>;
     /**
-     * The URL of the SQS Queue to which to attach the policy
+     * URL of the SQS Queue to which to attach the policy.
      */
     public readonly queueUrl!: pulumi.Output<string>;
 
@@ -120,12 +152,9 @@ export class QueuePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering QueuePolicy resources.
  */
 export interface QueuePolicyState {
-    /**
-     * The JSON policy for the SQS queue.
-     */
     policy?: pulumi.Input<string | PolicyDocument>;
     /**
-     * The URL of the SQS Queue to which to attach the policy
+     * URL of the SQS Queue to which to attach the policy.
      */
     queueUrl?: pulumi.Input<string>;
 }
@@ -134,12 +163,9 @@ export interface QueuePolicyState {
  * The set of arguments for constructing a QueuePolicy resource.
  */
 export interface QueuePolicyArgs {
-    /**
-     * The JSON policy for the SQS queue.
-     */
     policy: pulumi.Input<string | PolicyDocument>;
     /**
-     * The URL of the SQS Queue to which to attach the policy
+     * URL of the SQS Queue to which to attach the policy.
      */
     queueUrl: pulumi.Input<string>;
 }

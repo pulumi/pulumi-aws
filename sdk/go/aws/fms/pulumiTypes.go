@@ -344,9 +344,9 @@ func (o PolicyIncludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 type PolicySecurityServicePolicyData struct {
 	// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 	ManagedServiceData *string `pulumi:"managedServiceData"`
-	// Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+	// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
 	PolicyOption *PolicySecurityServicePolicyDataPolicyOption `pulumi:"policyOption"`
-	// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
+	// An integer value containing ICMP type.
 	Type string `pulumi:"type"`
 }
 
@@ -364,9 +364,9 @@ type PolicySecurityServicePolicyDataInput interface {
 type PolicySecurityServicePolicyDataArgs struct {
 	// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 	ManagedServiceData pulumi.StringPtrInput `pulumi:"managedServiceData"`
-	// Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+	// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
 	PolicyOption PolicySecurityServicePolicyDataPolicyOptionPtrInput `pulumi:"policyOption"`
-	// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
+	// An integer value containing ICMP type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -452,14 +452,14 @@ func (o PolicySecurityServicePolicyDataOutput) ManagedServiceData() pulumi.Strin
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) *string { return v.ManagedServiceData }).(pulumi.StringPtrOutput)
 }
 
-// Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
 func (o PolicySecurityServicePolicyDataOutput) PolicyOption() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) *PolicySecurityServicePolicyDataPolicyOption {
 		return v.PolicyOption
 	}).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
 }
 
-// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
+// An integer value containing ICMP type.
 func (o PolicySecurityServicePolicyDataOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -498,7 +498,7 @@ func (o PolicySecurityServicePolicyDataPtrOutput) ManagedServiceData() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
 func (o PolicySecurityServicePolicyDataPtrOutput) PolicyOption() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *PolicySecurityServicePolicyDataPolicyOption {
 		if v == nil {
@@ -508,7 +508,7 @@ func (o PolicySecurityServicePolicyDataPtrOutput) PolicyOption() PolicySecurityS
 	}).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
 }
 
-// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
+// An integer value containing ICMP type.
 func (o PolicySecurityServicePolicyDataPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *string {
 		if v == nil {
@@ -519,7 +519,9 @@ func (o PolicySecurityServicePolicyDataPtrOutput) Type() pulumi.StringPtrOutput 
 }
 
 type PolicySecurityServicePolicyDataPolicyOption struct {
-	// Defines the deployment model to use for the firewall policy. Documented below.
+	// Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
+	NetworkAclCommonPolicy *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy `pulumi:"networkAclCommonPolicy"`
+	// Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
 	NetworkFirewallPolicy    *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy    `pulumi:"networkFirewallPolicy"`
 	ThirdPartyFirewallPolicy *PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy `pulumi:"thirdPartyFirewallPolicy"`
 }
@@ -536,7 +538,9 @@ type PolicySecurityServicePolicyDataPolicyOptionInput interface {
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionArgs struct {
-	// Defines the deployment model to use for the firewall policy. Documented below.
+	// Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
+	NetworkAclCommonPolicy PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrInput `pulumi:"networkAclCommonPolicy"`
+	// Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
 	NetworkFirewallPolicy    PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrInput    `pulumi:"networkFirewallPolicy"`
 	ThirdPartyFirewallPolicy PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrInput `pulumi:"thirdPartyFirewallPolicy"`
 }
@@ -618,7 +622,14 @@ func (o PolicySecurityServicePolicyDataPolicyOptionOutput) ToPolicySecurityServi
 	}).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
 }
 
-// Defines the deployment model to use for the firewall policy. Documented below.
+// Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
+func (o PolicySecurityServicePolicyDataPolicyOptionOutput) NetworkAclCommonPolicy() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy {
+		return v.NetworkAclCommonPolicy
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput)
+}
+
+// Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionOutput) NetworkFirewallPolicy() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy {
 		return v.NetworkFirewallPolicy
@@ -655,7 +666,17 @@ func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) Elem() PolicySecur
 	}).(PolicySecurityServicePolicyDataPolicyOptionOutput)
 }
 
-// Defines the deployment model to use for the firewall policy. Documented below.
+// Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
+func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) NetworkAclCommonPolicy() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkAclCommonPolicy
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput)
+}
+
+// Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
 func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) NetworkFirewallPolicy() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy {
 		if v == nil {
@@ -672,6 +693,1117 @@ func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) ThirdPartyFirewall
 		}
 		return v.ThirdPartyFirewallPolicy
 	}).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy struct {
+	// Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
+	NetworkAclEntrySet *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet `pulumi:"networkAclEntrySet"`
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs{...}
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs struct {
+	// Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
+	NetworkAclEntrySet PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrInput `pulumi:"networkAclEntrySet"`
+}
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput)
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput).ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutputWithContext(ctx)
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs, PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtr and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrInput` via:
+//
+//	        PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput
+}
+
+type policySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrType PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs
+
+func PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtr(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrInput {
+	return (*policySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrType)(v)
+}
+
+func (*policySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy)(nil)).Elem()
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrType) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrType) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput {
+	return o.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy) *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy {
+		return &v
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput)
+}
+
+// Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput) NetworkAclEntrySet() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy) *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet {
+		return v.NetworkAclEntrySet
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput) Elem() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy
+		return ret
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput)
+}
+
+// Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput) NetworkAclEntrySet() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy) *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkAclEntrySet
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet struct {
+	// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
+	FirstEntries []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry `pulumi:"firstEntries"`
+	// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+	ForceRemediateForFirstEntries bool `pulumi:"forceRemediateForFirstEntries"`
+	// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+	ForceRemediateForLastEntries bool `pulumi:"forceRemediateForLastEntries"`
+	// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
+	LastEntries []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry `pulumi:"lastEntries"`
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs{...}
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs struct {
+	// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
+	FirstEntries PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayInput `pulumi:"firstEntries"`
+	// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+	ForceRemediateForFirstEntries pulumi.BoolInput `pulumi:"forceRemediateForFirstEntries"`
+	// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+	ForceRemediateForLastEntries pulumi.BoolInput `pulumi:"forceRemediateForLastEntries"`
+	// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
+	LastEntries PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayInput `pulumi:"lastEntries"`
+}
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput)
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput).ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutputWithContext(ctx)
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs, PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtr and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrInput` via:
+//
+//	        PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput
+}
+
+type policySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrType PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs
+
+func PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtr(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrInput {
+	return (*policySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrType)(v)
+}
+
+func (*policySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet)(nil)).Elem()
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrType) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutputWithContext(context.Background())
+}
+
+func (i *policySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrType) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput {
+	return o.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutputWithContext(context.Background())
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet {
+		return &v
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput)
+}
+
+// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) FirstEntries() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry {
+		return v.FirstEntries
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput)
+}
+
+// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) ForceRemediateForFirstEntries() pulumi.BoolOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) bool {
+		return v.ForceRemediateForFirstEntries
+	}).(pulumi.BoolOutput)
+}
+
+// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) ForceRemediateForLastEntries() pulumi.BoolOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) bool {
+		return v.ForceRemediateForLastEntries
+	}).(pulumi.BoolOutput)
+}
+
+// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput) LastEntries() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry {
+		return v.LastEntries
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput) Elem() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet
+		return ret
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput)
+}
+
+// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput) FirstEntries() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry {
+		if v == nil {
+			return nil
+		}
+		return v.FirstEntries
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput)
+}
+
+// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput) ForceRemediateForFirstEntries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ForceRemediateForFirstEntries
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput) ForceRemediateForLastEntries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ForceRemediateForLastEntries
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput) LastEntries() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput {
+	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry {
+		if v == nil {
+			return nil
+		}
+		return v.LastEntries
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry struct {
+	// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+	CidrBlock *string `pulumi:"cidrBlock"`
+	// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+	Egress bool `pulumi:"egress"`
+	// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+	IcmpTypeCodes []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode `pulumi:"icmpTypeCodes"`
+	// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// A configuration block for PortRange. See the `portRange` block.
+	PortRanges []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange `pulumi:"portRanges"`
+	// The protocol number. A value of "-1" means all protocols.
+	Protocol string `pulumi:"protocol"`
+	// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+	RuleAction string `pulumi:"ruleAction"`
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs{...}
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs struct {
+	// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
+	// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+	Egress pulumi.BoolInput `pulumi:"egress"`
+	// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+	IcmpTypeCodes PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayInput `pulumi:"icmpTypeCodes"`
+	// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
+	// A configuration block for PortRange. See the `portRange` block.
+	PortRanges PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayInput `pulumi:"portRanges"`
+	// The protocol number. A value of "-1" means all protocols.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+	RuleAction pulumi.StringInput `pulumi:"ruleAction"`
+}
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput)
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArray and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArray{ PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs{...} }
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArray []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryInput
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArray) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArray) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput {
+	return o
+}
+
+// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) *string {
+		return v.CidrBlock
+	}).(pulumi.StringPtrOutput)
+}
+
+// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) Egress() pulumi.BoolOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) bool {
+		return v.Egress
+	}).(pulumi.BoolOutput)
+}
+
+// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) IcmpTypeCodes() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode {
+		return v.IcmpTypeCodes
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput)
+}
+
+// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) *string {
+		return v.Ipv6CidrBlock
+	}).(pulumi.StringPtrOutput)
+}
+
+// A configuration block for PortRange. See the `portRange` block.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) PortRanges() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange {
+		return v.PortRanges
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput)
+}
+
+// The protocol number. A value of "-1" means all protocols.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput) RuleAction() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry) string {
+		return v.RuleAction
+	}).(pulumi.StringOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput) Index(i pulumi.IntInput) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry {
+		return vs[0].([]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry)[vs[1].(int)]
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode struct {
+	// An integer value containing ICMP code.
+	Code *int `pulumi:"code"`
+	// An integer value containing ICMP type.
+	Type *int `pulumi:"type"`
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs{...}
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs struct {
+	// An integer value containing ICMP code.
+	Code pulumi.IntPtrInput `pulumi:"code"`
+	// An integer value containing ICMP type.
+	Type pulumi.IntPtrInput `pulumi:"type"`
+}
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput)
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArray and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArray{ PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs{...} }
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArray []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeInput
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArray) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArray) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput {
+	return o
+}
+
+// An integer value containing ICMP code.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput) Code() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode) *int {
+		return v.Code
+	}).(pulumi.IntPtrOutput)
+}
+
+// An integer value containing ICMP type.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput) Type() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode) *int {
+		return v.Type
+	}).(pulumi.IntPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput) Index(i pulumi.IntInput) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode {
+		return vs[0].([]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode)[vs[1].(int)]
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange struct {
+	// The beginning port number of the range.
+	From *int `pulumi:"from"`
+	// The ending port number of the range.
+	To *int `pulumi:"to"`
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs{...}
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs struct {
+	// The beginning port number of the range.
+	From pulumi.IntPtrInput `pulumi:"from"`
+	// The ending port number of the range.
+	To pulumi.IntPtrInput `pulumi:"to"`
+}
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput)
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArray and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArray{ PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs{...} }
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArray []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeInput
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArray) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArray) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput {
+	return o
+}
+
+// The beginning port number of the range.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange) *int {
+		return v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ending port number of the range.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange) *int {
+		return v.To
+	}).(pulumi.IntPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput) Index(i pulumi.IntInput) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange {
+		return vs[0].([]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange)[vs[1].(int)]
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry struct {
+	// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+	CidrBlock *string `pulumi:"cidrBlock"`
+	// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+	Egress bool `pulumi:"egress"`
+	// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+	IcmpTypeCodes []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode `pulumi:"icmpTypeCodes"`
+	// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// A configuration block for PortRange. See the `portRange` block.
+	PortRanges []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange `pulumi:"portRanges"`
+	// The protocol number. A value of "-1" means all protocols.
+	Protocol string `pulumi:"protocol"`
+	// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+	RuleAction string `pulumi:"ruleAction"`
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs{...}
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs struct {
+	// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
+	// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+	Egress pulumi.BoolInput `pulumi:"egress"`
+	// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+	IcmpTypeCodes PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayInput `pulumi:"icmpTypeCodes"`
+	// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
+	// A configuration block for PortRange. See the `portRange` block.
+	PortRanges PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayInput `pulumi:"portRanges"`
+	// The protocol number. A value of "-1" means all protocols.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+	RuleAction pulumi.StringInput `pulumi:"ruleAction"`
+}
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput)
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArray and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArray{ PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs{...} }
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArray []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryInput
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArray) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArray) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput {
+	return o
+}
+
+// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) *string {
+		return v.CidrBlock
+	}).(pulumi.StringPtrOutput)
+}
+
+// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) Egress() pulumi.BoolOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) bool {
+		return v.Egress
+	}).(pulumi.BoolOutput)
+}
+
+// A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) IcmpTypeCodes() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode {
+		return v.IcmpTypeCodes
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput)
+}
+
+// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) *string {
+		return v.Ipv6CidrBlock
+	}).(pulumi.StringPtrOutput)
+}
+
+// A configuration block for PortRange. See the `portRange` block.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) PortRanges() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange {
+		return v.PortRanges
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput)
+}
+
+// The protocol number. A value of "-1" means all protocols.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput) RuleAction() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry) string {
+		return v.RuleAction
+	}).(pulumi.StringOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput) Index(i pulumi.IntInput) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry {
+		return vs[0].([]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry)[vs[1].(int)]
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode struct {
+	// An integer value containing ICMP code.
+	Code *int `pulumi:"code"`
+	// An integer value containing ICMP type.
+	Type *int `pulumi:"type"`
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs{...}
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs struct {
+	// An integer value containing ICMP code.
+	Code pulumi.IntPtrInput `pulumi:"code"`
+	// An integer value containing ICMP type.
+	Type pulumi.IntPtrInput `pulumi:"type"`
+}
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput)
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArray and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArray{ PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs{...} }
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArray []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeInput
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArray) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArray) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput {
+	return o
+}
+
+// An integer value containing ICMP code.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput) Code() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode) *int {
+		return v.Code
+	}).(pulumi.IntPtrOutput)
+}
+
+// An integer value containing ICMP type.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput) Type() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode) *int {
+		return v.Type
+	}).(pulumi.IntPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput) Index(i pulumi.IntInput) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode {
+		return vs[0].([]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode)[vs[1].(int)]
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange struct {
+	// The beginning port number of the range.
+	From *int `pulumi:"from"`
+	// The ending port number of the range.
+	To *int `pulumi:"to"`
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs{...}
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs struct {
+	// The beginning port number of the range.
+	From pulumi.IntPtrInput `pulumi:"from"`
+	// The ending port number of the range.
+	To pulumi.IntPtrInput `pulumi:"to"`
+}
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput)
+}
+
+// PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayInput is an input type that accepts PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArray and PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput values.
+// You can construct a concrete instance of `PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayInput` via:
+//
+//	PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArray{ PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs{...} }
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayInput interface {
+	pulumi.Input
+
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput
+	ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutputWithContext(context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArray []PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeInput
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange)(nil)).Elem()
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArray) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput {
+	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArray) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput {
+	return o
+}
+
+// The beginning port number of the range.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange) *int {
+		return v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ending port number of the range.
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange) *int {
+		return v.To
+	}).(pulumi.IntPtrOutput)
+}
+
+type PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange)(nil)).Elem()
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput {
+	return o
+}
+
+func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput) Index(i pulumi.IntInput) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange {
+		return vs[0].([]PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange)[vs[1].(int)]
+	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput)
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy struct {
@@ -1284,6 +2416,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs{})
@@ -1300,6 +2448,22 @@ func init() {
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPtrOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionPtrOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyPtrOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetPtrOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArrayOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArrayOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArrayOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArrayOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArrayOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeOutput{})
+	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArrayOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput{})

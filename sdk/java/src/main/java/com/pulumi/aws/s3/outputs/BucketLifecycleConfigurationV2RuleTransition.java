@@ -5,7 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
+import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,7 +22,7 @@ public final class BucketLifecycleConfigurationV2RuleTransition {
      * @return Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
      * 
      */
-    private @Nullable Integer days;
+    private @Nullable Double days;
     /**
      * @return Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
      * 
@@ -41,7 +41,7 @@ public final class BucketLifecycleConfigurationV2RuleTransition {
      * @return Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
      * 
      */
-    public Optional<Integer> days() {
+    public Optional<Double> days() {
         return Optional.ofNullable(this.days);
     }
     /**
@@ -62,7 +62,7 @@ public final class BucketLifecycleConfigurationV2RuleTransition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String date;
-        private @Nullable Integer days;
+        private @Nullable Double days;
         private String storageClass;
         public Builder() {}
         public Builder(BucketLifecycleConfigurationV2RuleTransition defaults) {
@@ -79,7 +79,7 @@ public final class BucketLifecycleConfigurationV2RuleTransition {
             return this;
         }
         @CustomType.Setter
-        public Builder days(@Nullable Integer days) {
+        public Builder days(@Nullable Double days) {
 
             this.days = days;
             return this;

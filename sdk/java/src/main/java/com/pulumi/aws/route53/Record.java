@@ -236,6 +236,57 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Alias record for AWS Global Accelerator
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.globalaccelerator.Accelerator;
+ * import com.pulumi.aws.globalaccelerator.AcceleratorArgs;
+ * import com.pulumi.aws.route53.Record;
+ * import com.pulumi.aws.route53.RecordArgs;
+ * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var main = new Accelerator("main", AcceleratorArgs.builder()
+ *             .name("foobar-terraform-accelerator")
+ *             .enabled(true)
+ *             .ipAddressType("IPV4")
+ *             .build());
+ * 
+ *         var www = new Record("www", RecordArgs.builder()
+ *             .zoneId(primary.zoneId())
+ *             .name("example.com")
+ *             .type("A")
+ *             .aliases(RecordAliasArgs.builder()
+ *                 .name(main.dnsName())
+ *                 .zoneId(main.hostedZoneId())
+ *                 .evaluateTargetHealth(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### NS and SOA Record Management
  * 
  * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.

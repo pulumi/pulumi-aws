@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Fms
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A map of lists of accounts and OU's to exclude from the policy.
+        /// A map of lists of accounts and OU's to exclude from the policy. See the `exclude_map` block.
         /// </summary>
         [Output("excludeMap")]
         public Output<Outputs.PolicyExcludeMap?> ExcludeMap { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Fms
         public Output<bool> ExcludeResourceTags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of lists of accounts and OU's to include in the policy.
+        /// A map of lists of accounts and OU's to include in the policy. See the `include_map` block.
         /// </summary>
         [Output("includeMap")]
         public Output<Outputs.PolicyIncludeMap?> IncludeMap { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Fms
         public Output<ImmutableArray<string>> ResourceTypeLists { get; private set; } = null!;
 
         /// <summary>
-        /// The objects to include in Security Service Policy Data. Documented below.
+        /// The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
         /// </summary>
         [Output("securityServicePolicyData")]
         public Output<Outputs.PolicySecurityServicePolicyData> SecurityServicePolicyData { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Fms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A map of lists of accounts and OU's to exclude from the policy.
+        /// A map of lists of accounts and OU's to exclude from the policy. See the `exclude_map` block.
         /// </summary>
         [Input("excludeMap")]
         public Input<Inputs.PolicyExcludeMapArgs>? ExcludeMap { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.Fms
         public Input<bool> ExcludeResourceTags { get; set; } = null!;
 
         /// <summary>
-        /// A map of lists of accounts and OU's to include in the policy.
+        /// A map of lists of accounts and OU's to include in the policy. See the `include_map` block.
         /// </summary>
         [Input("includeMap")]
         public Input<Inputs.PolicyIncludeMapArgs>? IncludeMap { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.Fms
         }
 
         /// <summary>
-        /// The objects to include in Security Service Policy Data. Documented below.
+        /// The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
         /// </summary>
         [Input("securityServicePolicyData", required: true)]
         public Input<Inputs.PolicySecurityServicePolicyDataArgs> SecurityServicePolicyData { get; set; } = null!;
@@ -357,7 +357,7 @@ namespace Pulumi.Aws.Fms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A map of lists of accounts and OU's to exclude from the policy.
+        /// A map of lists of accounts and OU's to exclude from the policy. See the `exclude_map` block.
         /// </summary>
         [Input("excludeMap")]
         public Input<Inputs.PolicyExcludeMapGetArgs>? ExcludeMap { get; set; }
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.Fms
         public Input<bool>? ExcludeResourceTags { get; set; }
 
         /// <summary>
-        /// A map of lists of accounts and OU's to include in the policy.
+        /// A map of lists of accounts and OU's to include in the policy. See the `include_map` block.
         /// </summary>
         [Input("includeMap")]
         public Input<Inputs.PolicyIncludeMapGetArgs>? IncludeMap { get; set; }
@@ -431,7 +431,7 @@ namespace Pulumi.Aws.Fms
         }
 
         /// <summary>
-        /// The objects to include in Security Service Policy Data. Documented below.
+        /// The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
         /// </summary>
         [Input("securityServicePolicyData")]
         public Input<Inputs.PolicySecurityServicePolicyDataGetArgs>? SecurityServicePolicyData { get; set; }

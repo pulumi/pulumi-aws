@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.s3.BucketLifecycleConfigurationV2Args;
 import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2State;
 import com.pulumi.aws.s3.outputs.BucketLifecycleConfigurationV2Rule;
+import com.pulumi.aws.s3.outputs.BucketLifecycleConfigurationV2Timeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -651,28 +652,34 @@ public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomR
      * 
      */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> expectedBucketOwner;
+    private Output<String> expectedBucketOwner;
 
     /**
      * @return Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
-    public Output<Optional<String>> expectedBucketOwner() {
-        return Codegen.optional(this.expectedBucketOwner);
+    public Output<String> expectedBucketOwner() {
+        return this.expectedBucketOwner;
     }
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
     @Export(name="rules", refs={List.class,BucketLifecycleConfigurationV2Rule.class}, tree="[0,1]")
-    private Output<List<BucketLifecycleConfigurationV2Rule>> rules;
+    private Output</* @Nullable */ List<BucketLifecycleConfigurationV2Rule>> rules;
 
     /**
      * @return List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
-    public Output<List<BucketLifecycleConfigurationV2Rule>> rules() {
-        return this.rules;
+    public Output<Optional<List<BucketLifecycleConfigurationV2Rule>>> rules() {
+        return Codegen.optional(this.rules);
+    }
+    @Export(name="timeouts", refs={BucketLifecycleConfigurationV2Timeouts.class}, tree="[0]")
+    private Output</* @Nullable */ BucketLifecycleConfigurationV2Timeouts> timeouts;
+
+    public Output<Optional<BucketLifecycleConfigurationV2Timeouts>> timeouts() {
+        return Codegen.optional(this.timeouts);
     }
     /**
      * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
