@@ -69,3 +69,4 @@ releaseVerification:
   python: examples/webserver-py
   dotnet: examples/webserver-cs
   go: examples/webserver-go
+autoMergeProviderUpgrades: false
