@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * });
  * // Example CloudWatch log resource policy to allow Route53 to write logs
  * // to any log group under /aws/route53/*
- * const route53-query-logging-policy = aws.iam.getPolicyDocument({
+ * const route53_query_logging_policy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "logs:CreateLogStream",

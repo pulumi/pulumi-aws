@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewUser(ctx, "default", &elasticache.UserArgs{
+//			_default, err := elasticache.NewUser(ctx, "default", &elasticache.UserArgs{
 //				UserId:       pulumi.String("defaultUserID"),
 //				UserName:     pulumi.String("default"),
 //				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
