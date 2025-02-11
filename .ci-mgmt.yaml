@@ -52,6 +52,7 @@ plugins:
     kind: converter
 # Use `pulumi convert` for translating examples from TF to Pulumi.
 pulumiConvert: 1
+allowMissingDocs: false
 goBuildParallelism: 2
 actions:
   preTest:
