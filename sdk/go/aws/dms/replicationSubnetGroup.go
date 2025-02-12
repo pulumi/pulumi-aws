@@ -88,7 +88,7 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
+//			dms_vpc_role, err := iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
 //				Name:             pulumi.String("dms-vpc-role"),
 //				Description:      pulumi.String("Allows DMS to manage VPC"),
 //				AssumeRolePolicy: pulumi.String(json0),
