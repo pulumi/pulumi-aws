@@ -810,7 +810,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appsync.NewGraphQLApi(ctx, "graphql-api", &appsync.GraphQLApiArgs{
+//			graphql_api, err := appsync.NewGraphQLApi(ctx, "graphql-api", &appsync.GraphQLApiArgs{
 //				Name:               pulumi.String("api"),
 //				AuthenticationType: pulumi.String("AWS_IAM"),
 //				Schema: pulumi.String(`    schema {
