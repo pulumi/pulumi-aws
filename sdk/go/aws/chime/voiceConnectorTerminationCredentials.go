@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
+//			_default, err := chime.NewVoiceConnector(ctx, "default", &chime.VoiceConnectorArgs{
 //				Name:              pulumi.String("test"),
 //				RequireEncryption: pulumi.Bool(true),
 //			})

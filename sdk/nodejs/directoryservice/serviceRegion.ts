@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *         subnetIds: exampleSubnet.map(__item => __item.id),
  *     },
  * });
- * const available-secondary = aws.getAvailabilityZones({
+ * const available_secondary = aws.getAvailabilityZones({
  *     state: "available",
  *     filters: [{
  *         name: "opt-in-status",

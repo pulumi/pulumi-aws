@@ -40,7 +40,7 @@ import {RestApi} from "./index";
  *
  * const config = new pulumi.Config();
  * const cognitoUserPoolName = config.requireObject("cognitoUserPoolName");
- * const this = aws.cognito.getUserPools({
+ * const _this = aws.cognito.getUserPools({
  *     name: cognitoUserPoolName,
  * });
  * const thisRestApi = new aws.apigateway.RestApi("this", {name: "with-authorizer"});

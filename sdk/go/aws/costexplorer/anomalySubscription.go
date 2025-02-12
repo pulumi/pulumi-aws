@@ -265,7 +265,7 @@ import (
 // },
 // }, nil))), nil
 // }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
+// _default, err := sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 // Arn: costAnomalyUpdates.Arn,
 // Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
 // return &snsTopicPolicy.Json, nil
