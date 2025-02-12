@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketV2(ctx, "default", &s3.BucketV2Args{
+//			_default, err := s3.NewBucketV2(ctx, "default", &s3.BucketV2Args{
 //				Bucket: pulumi.String("tf-spot-datafeed"),
 //			})
 //			if err != nil {

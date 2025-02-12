@@ -112,7 +112,7 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = ec2.NewVpc(ctx, "example-secondary", &ec2.VpcArgs{
+// example_secondary, err := ec2.NewVpc(ctx, "example-secondary", &ec2.VpcArgs{
 // CidrBlock: pulumi.String("10.1.0.0/16"),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("Secondary"),

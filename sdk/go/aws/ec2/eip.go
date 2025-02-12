@@ -60,7 +60,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNetworkInterface(ctx, "multi-ip", &ec2.NetworkInterfaceArgs{
+//			multi_ip, err := ec2.NewNetworkInterface(ctx, "multi-ip", &ec2.NetworkInterfaceArgs{
 //				SubnetId: pulumi.Any(main.Id),
 //				PrivateIps: pulumi.StringArray{
 //					pulumi.String("10.0.0.10"),
@@ -106,7 +106,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpc(ctx, "default", &ec2.VpcArgs{
+//			_default, err := ec2.NewVpc(ctx, "default", &ec2.VpcArgs{
 //				CidrBlock:          pulumi.String("10.0.0.0/16"),
 //				EnableDnsHostnames: pulumi.Bool(true),
 //			})

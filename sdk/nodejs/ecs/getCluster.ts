@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecs-mongo = aws.ecs.getCluster({
+ * const ecs_mongo = aws.ecs.getCluster({
  *     clusterName: "ecs-mongo-production",
  * });
  * ```
@@ -96,7 +96,7 @@ export interface GetClusterResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecs-mongo = aws.ecs.getCluster({
+ * const ecs_mongo = aws.ecs.getCluster({
  *     clusterName: "ecs-mongo-production",
  * });
  * ```
