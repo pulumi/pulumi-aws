@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
+//			_default, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
