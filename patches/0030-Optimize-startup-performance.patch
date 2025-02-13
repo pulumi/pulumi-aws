@@ -5,7 +5,7 @@ Subject: [PATCH] Optimize startup performance
 
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index bf08af0363..8e45a8a381 100644
+index bf08af03634..8e45a8a3817 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -317,7 +317,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
@@ -28,7 +28,7 @@ index bf08af0363..8e45a8a381 100644
  				// Ensure that the schema look OK.
 diff --git a/internal/provider/provider_tagcheck.go b/internal/provider/provider_tagcheck.go
 new file mode 100644
-index 0000000000..8cea6059ba
+index 00000000000..8cea6059ba2
 --- /dev/null
 +++ b/internal/provider/provider_tagcheck.go
 @@ -0,0 +1,37 @@
@@ -70,7 +70,7 @@ index 0000000000..8cea6059ba
 +	return r.SchemaMap()
 +}
 diff --git a/shim/shim.go b/shim/shim.go
-index e24e53fe17..3378f955bb 100644
+index e24e53fe17f..3378f955bb9 100644
 --- a/shim/shim.go
 +++ b/shim/shim.go
 @@ -17,7 +17,7 @@ type UpstreamProvider struct {

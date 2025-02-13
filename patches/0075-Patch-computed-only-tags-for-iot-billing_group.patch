@@ -5,7 +5,7 @@ Subject: [PATCH] Patch computed only tags for iot/billing_group
 
 
 diff --git a/internal/service/iot/billing_group.go b/internal/service/iot/billing_group.go
-index 90d64baff5..dd84f3acb3 100644
+index 90d64baff5a..dd84f3acb33 100644
 --- a/internal/service/iot/billing_group.go
 +++ b/internal/service/iot/billing_group.go
 @@ -75,7 +75,7 @@ func (r *resourceBillingGroup) Schema(ctx context.Context, request resource.Sche

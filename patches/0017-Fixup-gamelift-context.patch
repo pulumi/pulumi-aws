@@ -5,7 +5,7 @@ Subject: [PATCH] Fixup gamelift context
 
 
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
-index d8ee20dc65..e17f71e6b6 100644
+index d8ee20dc65c..e17f71e6b66 100644
 --- a/internal/service/gamelift/matchmaking_configuration.go
 +++ b/internal/service/gamelift/matchmaking_configuration.go
 @@ -148,7 +148,7 @@ func ResourceMatchMakingConfiguration() *schema.Resource {
@@ -18,7 +18,7 @@ index d8ee20dc65..e17f71e6b6 100644
  	input := gamelift.CreateMatchmakingConfigurationInput{
  		AcceptanceRequired:    aws.Bool(d.Get("acceptance_required").(bool)),
 diff --git a/internal/service/gamelift/matchmaking_rule_set.go b/internal/service/gamelift/matchmaking_rule_set.go
-index 8c1189199f..254c96efc6 100644
+index 8c1189199fb..254c96efc6e 100644
 --- a/internal/service/gamelift/matchmaking_rule_set.go
 +++ b/internal/service/gamelift/matchmaking_rule_set.go
 @@ -60,7 +60,7 @@ func ResourceMatchmakingRuleSet() *schema.Resource {
