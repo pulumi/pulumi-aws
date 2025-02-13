@@ -150,14 +150,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A map of lists of accounts and OU&#39;s to exclude from the policy.
+     * A map of lists of accounts and OU&#39;s to exclude from the policy. See the `exclude_map` block.
      * 
      */
     @Export(name="excludeMap", refs={PolicyExcludeMap.class}, tree="[0]")
     private Output</* @Nullable */ PolicyExcludeMap> excludeMap;
 
     /**
-     * @return A map of lists of accounts and OU&#39;s to exclude from the policy.
+     * @return A map of lists of accounts and OU&#39;s to exclude from the policy. See the `exclude_map` block.
      * 
      */
     public Output<Optional<PolicyExcludeMap>> excludeMap() {
@@ -178,14 +178,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.excludeResourceTags;
     }
     /**
-     * A map of lists of accounts and OU&#39;s to include in the policy.
+     * A map of lists of accounts and OU&#39;s to include in the policy. See the `include_map` block.
      * 
      */
     @Export(name="includeMap", refs={PolicyIncludeMap.class}, tree="[0]")
     private Output</* @Nullable */ PolicyIncludeMap> includeMap;
 
     /**
-     * @return A map of lists of accounts and OU&#39;s to include in the policy.
+     * @return A map of lists of accounts and OU&#39;s to include in the policy. See the `include_map` block.
      * 
      */
     public Output<Optional<PolicyIncludeMap>> includeMap() {
@@ -282,14 +282,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.resourceTypeLists;
     }
     /**
-     * The objects to include in Security Service Policy Data. Documented below.
+     * The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
      * 
      */
     @Export(name="securityServicePolicyData", refs={PolicySecurityServicePolicyData.class}, tree="[0]")
     private Output<PolicySecurityServicePolicyData> securityServicePolicyData;
 
     /**
-     * @return The objects to include in Security Service Policy Data. Documented below.
+     * @return The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
      * 
      */
     public Output<PolicySecurityServicePolicyData> securityServicePolicyData() {

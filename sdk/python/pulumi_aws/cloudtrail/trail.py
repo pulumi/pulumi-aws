@@ -55,7 +55,7 @@ class TrailArgs:
         :param pulumi.Input[str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[str] name: Name of the trail.
         :param pulumi.Input[str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
-        :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery.
+        :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
@@ -264,7 +264,7 @@ class TrailArgs:
     @pulumi.getter(name="snsTopicName")
     def sns_topic_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Amazon SNS topic defined for notification of log file delivery.
+        Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         """
         return pulumi.get(self, "sns_topic_name")
 
@@ -329,7 +329,7 @@ class _TrailState:
                The following arguments are optional:
         :param pulumi.Input[str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[str] sns_topic_arn: ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
-        :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery.
+        :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -587,7 +587,7 @@ class _TrailState:
     @pulumi.getter(name="snsTopicName")
     def sns_topic_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Amazon SNS topic defined for notification of log file delivery.
+        Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         """
         return pulumi.get(self, "sns_topic_name")
 
@@ -917,7 +917,7 @@ class Trail(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
-        :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery.
+        :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -1300,7 +1300,7 @@ class Trail(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[str] sns_topic_arn: ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
-        :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery.
+        :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -1472,7 +1472,7 @@ class Trail(pulumi.CustomResource):
     @pulumi.getter(name="snsTopicName")
     def sns_topic_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the Amazon SNS topic defined for notification of log file delivery.
+        Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         """
         return pulumi.get(self, "sns_topic_name")
 

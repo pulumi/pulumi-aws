@@ -115,6 +115,29 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Alias record for AWS Global Accelerator
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = new aws.globalaccelerator.Accelerator("main", {
+ *     name: "foobar-terraform-accelerator",
+ *     enabled: true,
+ *     ipAddressType: "IPV4",
+ * });
+ * const www = new aws.route53.Record("www", {
+ *     zoneId: primary.zoneId,
+ *     name: "example.com",
+ *     type: aws.route53.RecordType.A,
+ *     aliases: [{
+ *         name: main.dnsName,
+ *         zoneId: main.hostedZoneId,
+ *         evaluateTargetHealth: false,
+ *     }],
+ * });
+ * ```
+ *
  * ### NS and SOA Record Management
  *
  * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allowOverwrite` argument will allow managing these records in a single deployment without the requirement for `import`.

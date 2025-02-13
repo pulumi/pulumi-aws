@@ -1476,7 +1476,7 @@ if not MYPY:
         """
         type: pulumi.Input[str]
         """
-        An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+        An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
         """
         value: pulumi.Input[str]
         """
@@ -1493,7 +1493,7 @@ class SelectionSelectionTagArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key: The key in a key-value pair.
-        :param pulumi.Input[str] type: An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+        :param pulumi.Input[str] type: An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
         :param pulumi.Input[str] value: The value in a key-value pair.
         """
         pulumi.set(__self__, "key", key)
@@ -1516,7 +1516,7 @@ class SelectionSelectionTagArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+        An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
         """
         return pulumi.get(self, "type")
 

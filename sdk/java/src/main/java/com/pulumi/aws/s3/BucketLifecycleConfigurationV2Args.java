@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3;
 
 import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleArgs;
+import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2TimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -52,15 +53,22 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
      * List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
-    @Import(name="rules", required=true)
-    private Output<List<BucketLifecycleConfigurationV2RuleArgs>> rules;
+    @Import(name="rules")
+    private @Nullable Output<List<BucketLifecycleConfigurationV2RuleArgs>> rules;
 
     /**
      * @return List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
-    public Output<List<BucketLifecycleConfigurationV2RuleArgs>> rules() {
-        return this.rules;
+    public Optional<Output<List<BucketLifecycleConfigurationV2RuleArgs>>> rules() {
+        return Optional.ofNullable(this.rules);
+    }
+
+    @Import(name="timeouts")
+    private @Nullable Output<BucketLifecycleConfigurationV2TimeoutsArgs> timeouts;
+
+    public Optional<Output<BucketLifecycleConfigurationV2TimeoutsArgs>> timeouts() {
+        return Optional.ofNullable(this.timeouts);
     }
 
     /**
@@ -84,6 +92,7 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
         this.bucket = $.bucket;
         this.expectedBucketOwner = $.expectedBucketOwner;
         this.rules = $.rules;
+        this.timeouts = $.timeouts;
         this.transitionDefaultMinimumObjectSize = $.transitionDefaultMinimumObjectSize;
     }
 
@@ -153,7 +162,7 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder rules(Output<List<BucketLifecycleConfigurationV2RuleArgs>> rules) {
+        public Builder rules(@Nullable Output<List<BucketLifecycleConfigurationV2RuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
@@ -176,6 +185,15 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
          */
         public Builder rules(BucketLifecycleConfigurationV2RuleArgs... rules) {
             return rules(List.of(rules));
+        }
+
+        public Builder timeouts(@Nullable Output<BucketLifecycleConfigurationV2TimeoutsArgs> timeouts) {
+            $.timeouts = timeouts;
+            return this;
+        }
+
+        public Builder timeouts(BucketLifecycleConfigurationV2TimeoutsArgs timeouts) {
+            return timeouts(Output.of(timeouts));
         }
 
         /**
@@ -202,9 +220,6 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
         public BucketLifecycleConfigurationV2Args build() {
             if ($.bucket == null) {
                 throw new MissingRequiredPropertyException("BucketLifecycleConfigurationV2Args", "bucket");
-            }
-            if ($.rules == null) {
-                throw new MissingRequiredPropertyException("BucketLifecycleConfigurationV2Args", "rules");
             }
             return $;
         }

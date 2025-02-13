@@ -83,6 +83,8 @@ type LookupClusterResult struct {
 	KmsKeyId                    string                       `pulumi:"kmsKeyId"`
 	MasterUserSecrets           []GetClusterMasterUserSecret `pulumi:"masterUserSecrets"`
 	MasterUsername              string                       `pulumi:"masterUsername"`
+	MonitoringInterval          int                          `pulumi:"monitoringInterval"`
+	MonitoringRoleArn           string                       `pulumi:"monitoringRoleArn"`
 	NetworkType                 string                       `pulumi:"networkType"`
 	Port                        int                          `pulumi:"port"`
 	PreferredBackupWindow       string                       `pulumi:"preferredBackupWindow"`
@@ -226,6 +228,14 @@ func (o LookupClusterResultOutput) MasterUserSecrets() GetClusterMasterUserSecre
 
 func (o LookupClusterResultOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MasterUsername }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) MonitoringInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupClusterResult) int { return v.MonitoringInterval }).(pulumi.IntOutput)
+}
+
+func (o LookupClusterResultOutput) MonitoringRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.MonitoringRoleArn }).(pulumi.StringOutput)
 }
 
 func (o LookupClusterResultOutput) NetworkType() pulumi.StringOutput {

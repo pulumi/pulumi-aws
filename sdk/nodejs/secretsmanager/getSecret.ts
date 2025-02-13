@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const by-arn = aws.secretsmanager.getSecret({
+ * const by_arn = aws.secretsmanager.getSecret({
  *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
  * });
  * ```
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const by-name = aws.secretsmanager.getSecret({
+ * const by_name = aws.secretsmanager.getSecret({
  *     name: "example",
  * });
  * ```
@@ -108,7 +108,7 @@ export interface GetSecretResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const by-arn = aws.secretsmanager.getSecret({
+ * const by_arn = aws.secretsmanager.getSecret({
  *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
  * });
  * ```
@@ -119,7 +119,7 @@ export interface GetSecretResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const by-name = aws.secretsmanager.getSecret({
+ * const by_name = aws.secretsmanager.getSecret({
  *     name: "example",
  * });
  * ```

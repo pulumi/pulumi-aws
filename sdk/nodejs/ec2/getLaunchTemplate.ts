@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const default = aws.ec2.getLaunchTemplate({
+ * const _default = aws.ec2.getLaunchTemplate({
  *     name: "my-launch-template",
  * });
  * ```
@@ -124,7 +124,7 @@ export interface GetLaunchTemplateResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const default = aws.ec2.getLaunchTemplate({
+ * const _default = aws.ec2.getLaunchTemplate({
  *     name: "my-launch-template",
  * });
  * ```

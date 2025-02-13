@@ -185,6 +185,42 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// 
+    /// ### Alias record for AWS Global Accelerator
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var main = new Aws.GlobalAccelerator.Accelerator("main", new()
+    ///     {
+    ///         Name = "foobar-terraform-accelerator",
+    ///         Enabled = true,
+    ///         IpAddressType = "IPV4",
+    ///     });
+    /// 
+    ///     var www = new Aws.Route53.Record("www", new()
+    ///     {
+    ///         ZoneId = primary.ZoneId,
+    ///         Name = "example.com",
+    ///         Type = Aws.Route53.RecordType.A,
+    ///         Aliases = new[]
+    ///         {
+    ///             new Aws.Route53.Inputs.RecordAliasArgs
+    ///             {
+    ///                 Name = main.DnsName,
+    ///                 ZoneId = main.HostedZoneId,
+    ///                 EvaluateTargetHealth = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### NS and SOA Record Management
     /// 
     /// When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.

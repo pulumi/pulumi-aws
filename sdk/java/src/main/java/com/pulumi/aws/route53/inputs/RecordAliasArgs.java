@@ -31,14 +31,14 @@ public final class RecordAliasArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+     * DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+     * @return DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
      * 
      */
     public Output<String> name() {
@@ -46,14 +46,14 @@ public final class RecordAliasArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
      * 
      */
     @Import(name="zoneId", required=true)
     private Output<String> zoneId;
 
     /**
-     * @return Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+     * @return Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
      * 
      */
     public Output<String> zoneId() {
@@ -108,7 +108,7 @@ public final class RecordAliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+         * @param name DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class RecordAliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+         * @param name DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class RecordAliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneId Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+         * @param zoneId Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class RecordAliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneId Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+         * @param zoneId Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
          * 
          * @return builder
          * 
