@@ -1740,7 +1740,7 @@
     },
     {
       "old": "  name            = \"foobar-terraform-accelerator\"\n",
-      "new": "  name            = \"foobar-TODO-accelerator\"\n"
+      "new": "  name            = \"foobar-pulumi-accelerator\"\n"
     }
   ],
   "route53_zone_association.html.markdown": [
@@ -2240,7 +2240,7 @@
     },
     {
       "old": "* `policy` - (Optional) JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.\n",
-      "new": "* `policy` - (Optional) JSON policy for the SQS queue. For more information about building AWS IAM policy documents with TODO, see the AWS IAM Policy Document Guide.\n"
+      "new": "* `policy` - (Optional) JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.\n"
     }
   ],
   "ssm_document.html.markdown": [
