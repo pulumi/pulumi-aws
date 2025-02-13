@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const default = aws.ec2.getSpotDatafeedSubscription({});
+ * const _default = aws.ec2.getSpotDatafeedSubscription({});
  * ```
  */
 export function getSpotDatafeedSubscription(opts?: pulumi.InvokeOptions): Promise<GetSpotDatafeedSubscriptionResult> {
@@ -52,7 +52,7 @@ export interface GetSpotDatafeedSubscriptionResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const default = aws.ec2.getSpotDatafeedSubscription({});
+ * const _default = aws.ec2.getSpotDatafeedSubscription({});
  * ```
  */
 export function getSpotDatafeedSubscriptionOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpotDatafeedSubscriptionResult> {

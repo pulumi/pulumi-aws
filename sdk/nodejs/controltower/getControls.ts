@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const this = aws.organizations.getOrganization({});
+ * const _this = aws.organizations.getOrganization({});
  * const thisGetOrganizationalUnits = _this.then(_this => aws.organizations.getOrganizationalUnits({
  *     parentId: _this.roots?.[0]?.id,
  * }));
@@ -62,7 +62,7 @@ export interface GetControlsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const this = aws.organizations.getOrganization({});
+ * const _this = aws.organizations.getOrganization({});
  * const thisGetOrganizationalUnits = _this.then(_this => aws.organizations.getOrganizationalUnits({
  *     parentId: _this.roots?.[0]?.id,
  * }));

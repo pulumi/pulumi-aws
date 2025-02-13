@@ -17,7 +17,7 @@ import {PolicyDocument} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const elasticsearch-log-publishing-policy = aws.iam.getPolicyDocument({
+ * const elasticsearch_log_publishing_policy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "logs:CreateLogStream",
@@ -43,7 +43,7 @@ import {PolicyDocument} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const route53-query-logging-policy = aws.iam.getPolicyDocument({
+ * const route53_query_logging_policy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "logs:CreateLogStream",

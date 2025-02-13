@@ -111,7 +111,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewAccessPoint(ctx, "example-access-point", &s3.AccessPointArgs{
+//			example_access_point, err := s3.NewAccessPoint(ctx, "example-access-point", &s3.AccessPointArgs{
 //				Bucket: example.ID(),
 //				Name:   pulumi.String("example-access-point"),
 //			})
