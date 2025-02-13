@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewCluster(ctx, "default", &redshift.ClusterArgs{
+//			_default, err := redshift.NewCluster(ctx, "default", &redshift.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("default"),
 //				DatabaseName:      pulumi.String("default"),
 //			})
