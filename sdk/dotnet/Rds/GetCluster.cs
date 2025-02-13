@@ -168,6 +168,8 @@ namespace Pulumi.Aws.Rds
         public readonly string KmsKeyId;
         public readonly ImmutableArray<Outputs.GetClusterMasterUserSecretResult> MasterUserSecrets;
         public readonly string MasterUsername;
+        public readonly int MonitoringInterval;
+        public readonly string MonitoringRoleArn;
         public readonly string NetworkType;
         public readonly int Port;
         public readonly string PreferredBackupWindow;
@@ -231,6 +233,10 @@ namespace Pulumi.Aws.Rds
 
             string masterUsername,
 
+            int monitoringInterval,
+
+            string monitoringRoleArn,
+
             string networkType,
 
             int port,
@@ -273,6 +279,8 @@ namespace Pulumi.Aws.Rds
             KmsKeyId = kmsKeyId;
             MasterUserSecrets = masterUserSecrets;
             MasterUsername = masterUsername;
+            MonitoringInterval = monitoringInterval;
+            MonitoringRoleArn = monitoringRoleArn;
             NetworkType = networkType;
             Port = port;
             PreferredBackupWindow = preferredBackupWindow;

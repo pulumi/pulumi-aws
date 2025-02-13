@@ -1139,7 +1139,7 @@ class SelectionSelectionTag(dict):
                  value: str):
         """
         :param str key: The key in a key-value pair.
-        :param str type: An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+        :param str type: An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
         :param str value: The value in a key-value pair.
         """
         pulumi.set(__self__, "key", key)
@@ -1158,7 +1158,7 @@ class SelectionSelectionTag(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+        An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
         """
         return pulumi.get(self, "type")
 

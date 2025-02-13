@@ -380,7 +380,7 @@ export class Trail extends pulumi.CustomResource {
      */
     public /*out*/ readonly snsTopicArn!: pulumi.Output<string>;
     /**
-     * Name of the Amazon SNS topic defined for notification of log file delivery.
+     * Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
      */
     public readonly snsTopicName!: pulumi.Output<string | undefined>;
     /**
@@ -533,7 +533,7 @@ export interface TrailState {
      */
     snsTopicArn?: pulumi.Input<string>;
     /**
-     * Name of the Amazon SNS topic defined for notification of log file delivery.
+     * Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
      */
     snsTopicName?: pulumi.Input<string>;
     /**
@@ -611,7 +611,7 @@ export interface TrailArgs {
      */
     s3KeyPrefix?: pulumi.Input<string>;
     /**
-     * Name of the Amazon SNS topic defined for notification of log file delivery.
+     * Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
      */
     snsTopicName?: pulumi.Input<string>;
     /**

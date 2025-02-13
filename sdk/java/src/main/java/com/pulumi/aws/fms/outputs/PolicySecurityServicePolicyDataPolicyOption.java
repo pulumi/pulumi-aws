@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.fms.outputs;
 
+import com.pulumi.aws.fms.outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy;
 import com.pulumi.aws.fms.outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy;
 import com.pulumi.aws.fms.outputs.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy;
 import com.pulumi.core.annotations.CustomType;
@@ -13,7 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicySecurityServicePolicyDataPolicyOption {
     /**
-     * @return Defines the deployment model to use for the firewall policy. Documented below.
+     * @return Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
+     * 
+     */
+    private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy networkAclCommonPolicy;
+    /**
+     * @return Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
      * 
      */
     private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy networkFirewallPolicy;
@@ -21,7 +27,14 @@ public final class PolicySecurityServicePolicyDataPolicyOption {
 
     private PolicySecurityServicePolicyDataPolicyOption() {}
     /**
-     * @return Defines the deployment model to use for the firewall policy. Documented below.
+     * @return Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
+     * 
+     */
+    public Optional<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy> networkAclCommonPolicy() {
+        return Optional.ofNullable(this.networkAclCommonPolicy);
+    }
+    /**
+     * @return Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
      * 
      */
     public Optional<PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy> networkFirewallPolicy() {
@@ -40,15 +53,23 @@ public final class PolicySecurityServicePolicyDataPolicyOption {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy networkAclCommonPolicy;
         private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy networkFirewallPolicy;
         private @Nullable PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy thirdPartyFirewallPolicy;
         public Builder() {}
         public Builder(PolicySecurityServicePolicyDataPolicyOption defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.networkAclCommonPolicy = defaults.networkAclCommonPolicy;
     	      this.networkFirewallPolicy = defaults.networkFirewallPolicy;
     	      this.thirdPartyFirewallPolicy = defaults.thirdPartyFirewallPolicy;
         }
 
+        @CustomType.Setter
+        public Builder networkAclCommonPolicy(@Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy networkAclCommonPolicy) {
+
+            this.networkAclCommonPolicy = networkAclCommonPolicy;
+            return this;
+        }
         @CustomType.Setter
         public Builder networkFirewallPolicy(@Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy networkFirewallPolicy) {
 
@@ -63,6 +84,7 @@ public final class PolicySecurityServicePolicyDataPolicyOption {
         }
         public PolicySecurityServicePolicyDataPolicyOption build() {
             final var _resultValue = new PolicySecurityServicePolicyDataPolicyOption();
+            _resultValue.networkAclCommonPolicy = networkAclCommonPolicy;
             _resultValue.networkFirewallPolicy = networkFirewallPolicy;
             _resultValue.thirdPartyFirewallPolicy = thirdPartyFirewallPolicy;
             return _resultValue;

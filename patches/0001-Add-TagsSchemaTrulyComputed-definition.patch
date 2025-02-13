@@ -5,7 +5,7 @@ Subject: [PATCH] Add TagsSchemaTrulyComputed definition
 
 
 diff --git a/internal/tags/tags.go b/internal/tags/tags.go
-index 40c06bb057..247a01bba3 100644
+index 40c06bb057f..247a01bba3c 100644
 --- a/internal/tags/tags.go
 +++ b/internal/tags/tags.go
 @@ -37,3 +37,11 @@ var TagsSchemaForceNew = sync.OnceValue(func() *schema.Schema {

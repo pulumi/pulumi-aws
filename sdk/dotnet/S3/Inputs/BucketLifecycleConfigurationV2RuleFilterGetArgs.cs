@@ -22,13 +22,13 @@ namespace Pulumi.Aws.S3.Inputs
         /// Minimum object size (in bytes) to which the rule applies.
         /// </summary>
         [Input("objectSizeGreaterThan")]
-        public Input<string>? ObjectSizeGreaterThan { get; set; }
+        public Input<int>? ObjectSizeGreaterThan { get; set; }
 
         /// <summary>
         /// Maximum object size (in bytes) to which the rule applies.
         /// </summary>
         [Input("objectSizeLessThan")]
-        public Input<string>? ObjectSizeLessThan { get; set; }
+        public Input<int>? ObjectSizeLessThan { get; set; }
 
         /// <summary>
         /// Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.

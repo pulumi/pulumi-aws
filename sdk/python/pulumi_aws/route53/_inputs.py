@@ -292,11 +292,11 @@ if not MYPY:
         """
         name: pulumi.Input[str]
         """
-        DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+        DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
         """
         zone_id: pulumi.Input[str]
         """
-        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
         """
 elif False:
     RecordAliasArgsDict: TypeAlias = Mapping[str, Any]
@@ -309,8 +309,8 @@ class RecordAliasArgs:
                  zone_id: pulumi.Input[str]):
         """
         :param pulumi.Input[bool] evaluate_target_health: Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
-        :param pulumi.Input[str] name: DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-        :param pulumi.Input[str] zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+        :param pulumi.Input[str] name: DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
+        :param pulumi.Input[str] zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
         """
         pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
         pulumi.set(__self__, "name", name)
@@ -332,7 +332,7 @@ class RecordAliasArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+        DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
         """
         return pulumi.get(self, "name")
 
@@ -344,7 +344,7 @@ class RecordAliasArgs:
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> pulumi.Input[str]:
         """
-        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
         """
         return pulumi.get(self, "zone_id")
 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Backup.Inputs
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+        /// An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

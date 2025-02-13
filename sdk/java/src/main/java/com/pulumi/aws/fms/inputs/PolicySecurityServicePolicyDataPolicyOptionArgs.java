@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.fms.inputs;
 
+import com.pulumi.aws.fms.inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs;
 import com.pulumi.aws.fms.inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs;
 import com.pulumi.aws.fms.inputs.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs;
 import com.pulumi.core.Output;
@@ -17,14 +18,29 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
     public static final PolicySecurityServicePolicyDataPolicyOptionArgs Empty = new PolicySecurityServicePolicyDataPolicyOptionArgs();
 
     /**
-     * Defines the deployment model to use for the firewall policy. Documented below.
+     * Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
+     * 
+     */
+    @Import(name="networkAclCommonPolicy")
+    private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs> networkAclCommonPolicy;
+
+    /**
+     * @return Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
+     * 
+     */
+    public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs>> networkAclCommonPolicy() {
+        return Optional.ofNullable(this.networkAclCommonPolicy);
+    }
+
+    /**
+     * Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
      * 
      */
     @Import(name="networkFirewallPolicy")
     private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs> networkFirewallPolicy;
 
     /**
-     * @return Defines the deployment model to use for the firewall policy. Documented below.
+     * @return Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
      * 
      */
     public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs>> networkFirewallPolicy() {
@@ -41,6 +57,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
     private PolicySecurityServicePolicyDataPolicyOptionArgs() {}
 
     private PolicySecurityServicePolicyDataPolicyOptionArgs(PolicySecurityServicePolicyDataPolicyOptionArgs $) {
+        this.networkAclCommonPolicy = $.networkAclCommonPolicy;
         this.networkFirewallPolicy = $.networkFirewallPolicy;
         this.thirdPartyFirewallPolicy = $.thirdPartyFirewallPolicy;
     }
@@ -64,7 +81,28 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
         }
 
         /**
-         * @param networkFirewallPolicy Defines the deployment model to use for the firewall policy. Documented below.
+         * @param networkAclCommonPolicy Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkAclCommonPolicy(@Nullable Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs> networkAclCommonPolicy) {
+            $.networkAclCommonPolicy = networkAclCommonPolicy;
+            return this;
+        }
+
+        /**
+         * @param networkAclCommonPolicy Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkAclCommonPolicy(PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs networkAclCommonPolicy) {
+            return networkAclCommonPolicy(Output.of(networkAclCommonPolicy));
+        }
+
+        /**
+         * @param networkFirewallPolicy Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
          * 
          * @return builder
          * 
@@ -75,7 +113,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
         }
 
         /**
-         * @param networkFirewallPolicy Defines the deployment model to use for the firewall policy. Documented below.
+         * @param networkFirewallPolicy Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
          * 
          * @return builder
          * 

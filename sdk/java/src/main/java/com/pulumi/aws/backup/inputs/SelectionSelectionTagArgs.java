@@ -30,14 +30,14 @@ public final class SelectionSelectionTagArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+     * An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+     * @return An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
      * 
      */
     public Output<String> type() {
@@ -107,7 +107,7 @@ public final class SelectionSelectionTagArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+         * @param type An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class SelectionSelectionTagArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+         * @param type An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
          * 
          * @return builder
          * 

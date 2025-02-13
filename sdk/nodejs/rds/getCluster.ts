@@ -74,6 +74,8 @@ export interface GetClusterResult {
     readonly kmsKeyId: string;
     readonly masterUserSecrets: outputs.rds.GetClusterMasterUserSecret[];
     readonly masterUsername: string;
+    readonly monitoringInterval: number;
+    readonly monitoringRoleArn: string;
     readonly networkType: string;
     readonly port: number;
     readonly preferredBackupWindow: string;

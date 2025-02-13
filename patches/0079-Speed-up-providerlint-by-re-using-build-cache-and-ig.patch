@@ -6,7 +6,7 @@ Subject: [PATCH] Speed up providerlint by re-using build cache and ignoring
 
 
 diff --git a/GNUmakefile b/GNUmakefile
-index a0ccf63172..6bf7c74db7 100644
+index 43b0baf4ed5..1a08fc7f17c 100644
 --- a/GNUmakefile
 +++ b/GNUmakefile
 @@ -338,9 +338,10 @@ prereq-go: ## If $(GO_VER) is not installed, install it

@@ -14,17 +14,24 @@ namespace Pulumi.Aws.Fms.Outputs
     public sealed class PolicySecurityServicePolicyDataPolicyOption
     {
         /// <summary>
-        /// Defines the deployment model to use for the firewall policy. Documented below.
+        /// Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
+        /// </summary>
+        public readonly Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy? NetworkAclCommonPolicy;
+        /// <summary>
+        /// Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
         /// </summary>
         public readonly Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy? NetworkFirewallPolicy;
         public readonly Outputs.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy? ThirdPartyFirewallPolicy;
 
         [OutputConstructor]
         private PolicySecurityServicePolicyDataPolicyOption(
+            Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy? networkAclCommonPolicy,
+
             Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy? networkFirewallPolicy,
 
             Outputs.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy? thirdPartyFirewallPolicy)
         {
+            NetworkAclCommonPolicy = networkAclCommonPolicy;
             NetworkFirewallPolicy = networkFirewallPolicy;
             ThirdPartyFirewallPolicy = thirdPartyFirewallPolicy;
         }

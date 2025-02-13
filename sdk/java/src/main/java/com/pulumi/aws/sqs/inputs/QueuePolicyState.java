@@ -15,30 +15,22 @@ public final class QueuePolicyState extends com.pulumi.resources.ResourceArgs {
 
     public static final QueuePolicyState Empty = new QueuePolicyState();
 
-    /**
-     * The JSON policy for the SQS queue.
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return The JSON policy for the SQS queue.
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
     /**
-     * The URL of the SQS Queue to which to attach the policy
+     * URL of the SQS Queue to which to attach the policy.
      * 
      */
     @Import(name="queueUrl")
     private @Nullable Output<String> queueUrl;
 
     /**
-     * @return The URL of the SQS Queue to which to attach the policy
+     * @return URL of the SQS Queue to which to attach the policy.
      * 
      */
     public Optional<Output<String>> queueUrl() {
@@ -70,29 +62,17 @@ public final class QueuePolicyState extends com.pulumi.resources.ResourceArgs {
             $ = new QueuePolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy The JSON policy for the SQS queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The JSON policy for the SQS queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
         /**
-         * @param queueUrl The URL of the SQS Queue to which to attach the policy
+         * @param queueUrl URL of the SQS Queue to which to attach the policy.
          * 
          * @return builder
          * 
@@ -103,7 +83,7 @@ public final class QueuePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queueUrl The URL of the SQS Queue to which to attach the policy
+         * @param queueUrl URL of the SQS Queue to which to attach the policy.
          * 
          * @return builder
          * 

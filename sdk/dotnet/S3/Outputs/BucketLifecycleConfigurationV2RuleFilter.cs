@@ -20,11 +20,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Minimum object size (in bytes) to which the rule applies.
         /// </summary>
-        public readonly string? ObjectSizeGreaterThan;
+        public readonly int? ObjectSizeGreaterThan;
         /// <summary>
         /// Maximum object size (in bytes) to which the rule applies.
         /// </summary>
-        public readonly string? ObjectSizeLessThan;
+        public readonly int? ObjectSizeLessThan;
         /// <summary>
         /// Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
         /// </summary>
@@ -38,9 +38,9 @@ namespace Pulumi.Aws.S3.Outputs
         private BucketLifecycleConfigurationV2RuleFilter(
             Outputs.BucketLifecycleConfigurationV2RuleFilterAnd? and,
 
-            string? objectSizeGreaterThan,
+            int? objectSizeGreaterThan,
 
-            string? objectSizeLessThan,
+            int? objectSizeLessThan,
 
             string? prefix,
 

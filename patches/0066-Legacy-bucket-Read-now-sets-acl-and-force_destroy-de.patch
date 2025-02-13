@@ -5,7 +5,7 @@ Subject: [PATCH] Legacy bucket Read now sets acl and force_destroy defaults
 
 
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index 2fed6dc3e3..2e2ffe77b0 100644
+index 2fed6dc3e39..2e2ffe77b0a 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -34,6 +34,10 @@ import (

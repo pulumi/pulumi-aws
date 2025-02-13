@@ -12,10 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows you to set a policy of an SQS Queue
-// while referencing ARN of the queue within the policy.
+// Allows you to set a policy of an SQS Queue while referencing the ARN of the queue within the policy.
+//
+// !> AWS will hang indefinitely when creating or updating an `sqs.Queue` with an associated policy if `Version = "2012-10-17"` is not explicitly set in the policy. See below for an example of how to avoid this issue.
 //
 // ## Example Usage
+//
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -82,6 +85,79 @@ import (
 // }
 // ```
 //
+// ### Timeout Problems Creating/Updating
+//
+// If `Version = "2012-10-17"` is not explicitly set in the policy, AWS may hang, causing the AWS provider to time out. To avoid this, make sure to include `Version` as shown in the example below.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("brodobaggins"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleQueue, err := sqs.NewQueue(ctx, "example", &sqs.QueueArgs{
+//				Name: pulumi.String("be-giant"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sqs.NewQueuePolicy(ctx, "example", &sqs.QueuePolicyArgs{
+//				QueueUrl: exampleQueue.ID(),
+//				Policy: pulumi.All(exampleQueue.Arn, example.Arn).ApplyT(func(_args []interface{}) (string, error) {
+//					exampleQueueArn := _args[0].(string)
+//					exampleArn := _args[1].(string)
+//					var _zero string
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"Version": "2012-10-17",
+//						"Statement": []map[string]interface{}{
+//							map[string]interface{}{
+//								"Sid":    "Cejuwdam",
+//								"Effect": "Allow",
+//								"Principal": map[string]interface{}{
+//									"Service": "s3.amazonaws.com",
+//								},
+//								"Action":   "SQS:SendMessage",
+//								"Resource": exampleQueueArn,
+//								"Condition": map[string]interface{}{
+//									"ArnLike": map[string]interface{}{
+//										"aws:SourceArn": exampleArn,
+//									},
+//								},
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return json0, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
@@ -92,9 +168,8 @@ import (
 type QueuePolicy struct {
 	pulumi.CustomResourceState
 
-	// The JSON policy for the SQS queue.
 	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The URL of the SQS Queue to which to attach the policy
+	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringOutput `pulumi:"queueUrl"`
 }
 
@@ -134,16 +209,14 @@ func GetQueuePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueuePolicy resources.
 type queuePolicyState struct {
-	// The JSON policy for the SQS queue.
 	Policy interface{} `pulumi:"policy"`
-	// The URL of the SQS Queue to which to attach the policy
+	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl *string `pulumi:"queueUrl"`
 }
 
 type QueuePolicyState struct {
-	// The JSON policy for the SQS queue.
 	Policy pulumi.Input
-	// The URL of the SQS Queue to which to attach the policy
+	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringPtrInput
 }
 
@@ -152,17 +225,15 @@ func (QueuePolicyState) ElementType() reflect.Type {
 }
 
 type queuePolicyArgs struct {
-	// The JSON policy for the SQS queue.
 	Policy interface{} `pulumi:"policy"`
-	// The URL of the SQS Queue to which to attach the policy
+	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl string `pulumi:"queueUrl"`
 }
 
 // The set of arguments for constructing a QueuePolicy resource.
 type QueuePolicyArgs struct {
-	// The JSON policy for the SQS queue.
 	Policy pulumi.Input
-	// The URL of the SQS Queue to which to attach the policy
+	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringInput
 }
 
@@ -253,12 +324,11 @@ func (o QueuePolicyOutput) ToQueuePolicyOutputWithContext(ctx context.Context) Q
 	return o
 }
 
-// The JSON policy for the SQS queue.
 func (o QueuePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The URL of the SQS Queue to which to attach the policy
+// URL of the SQS Queue to which to attach the policy.
 func (o QueuePolicyOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.QueueUrl }).(pulumi.StringOutput)
 }

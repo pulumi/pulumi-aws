@@ -5,7 +5,7 @@ Subject: [PATCH] Add EKS cluster certificate_authorities (plural)
 
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index c0f792399f..c2b5a975a9 100644
+index c0f792399f6..c2b5a975a98 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
 @@ -122,9 +122,24 @@ func resourceCluster() *schema.Resource {

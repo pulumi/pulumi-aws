@@ -621,7 +621,7 @@ namespace Pulumi.Aws.CloudTrail
         public Output<string> SnsTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Amazon SNS topic defined for notification of log file delivery.
+        /// Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         /// </summary>
         [Output("snsTopicName")]
         public Output<string?> SnsTopicName { get; private set; } = null!;
@@ -789,7 +789,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<string>? S3KeyPrefix { get; set; }
 
         /// <summary>
-        /// Name of the Amazon SNS topic defined for notification of log file delivery.
+        /// Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         /// </summary>
         [Input("snsTopicName")]
         public Input<string>? SnsTopicName { get; set; }
@@ -937,7 +937,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<string>? SnsTopicArn { get; set; }
 
         /// <summary>
-        /// Name of the Amazon SNS topic defined for notification of log file delivery.
+        /// Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         /// </summary>
         [Input("snsTopicName")]
         public Input<string>? SnsTopicName { get; set; }

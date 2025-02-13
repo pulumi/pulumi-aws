@@ -6,7 +6,7 @@ Subject: [PATCH] Fix tags_all Computed for
 
 
 diff --git a/internal/service/backup/logically_air_gapped_vault.go b/internal/service/backup/logically_air_gapped_vault.go
-index 6363263403..820d6a6c59 100644
+index 6363263403b..820d6a6c59a 100644
 --- a/internal/service/backup/logically_air_gapped_vault.go
 +++ b/internal/service/backup/logically_air_gapped_vault.go
 @@ -88,7 +88,7 @@ func (r *logicallyAirGappedVaultResource) Schema(ctx context.Context, request re

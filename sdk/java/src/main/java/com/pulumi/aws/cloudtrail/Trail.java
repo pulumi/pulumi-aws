@@ -749,14 +749,14 @@ public class Trail extends com.pulumi.resources.CustomResource {
         return this.snsTopicArn;
     }
     /**
-     * Name of the Amazon SNS topic defined for notification of log file delivery.
+     * Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
      * 
      */
     @Export(name="snsTopicName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snsTopicName;
 
     /**
-     * @return Name of the Amazon SNS topic defined for notification of log file delivery.
+     * @return Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
      * 
      */
     public Output<Optional<String>> snsTopicName() {

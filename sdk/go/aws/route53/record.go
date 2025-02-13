@@ -206,6 +206,50 @@ import (
 //
 // ```
 //
+// ### Alias record for AWS Global Accelerator
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/globalaccelerator"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := globalaccelerator.NewAccelerator(ctx, "main", &globalaccelerator.AcceleratorArgs{
+//				Name:          pulumi.String("foobar-terraform-accelerator"),
+//				Enabled:       pulumi.Bool(true),
+//				IpAddressType: pulumi.String("IPV4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
+//				ZoneId: pulumi.Any(primary.ZoneId),
+//				Name:   pulumi.String("example.com"),
+//				Type:   pulumi.String(route53.RecordTypeA),
+//				Aliases: route53.RecordAliasArray{
+//					&route53.RecordAliasArgs{
+//						Name:                 main.DnsName,
+//						ZoneId:               main.HostedZoneId,
+//						EvaluateTargetHealth: pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### NS and SOA Record Management
 //
 // When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allowOverwrite` argument will allow managing these records in a single deployment without the requirement for `import`.

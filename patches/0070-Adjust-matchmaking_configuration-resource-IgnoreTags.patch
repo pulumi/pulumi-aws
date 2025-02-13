@@ -5,7 +5,7 @@ Subject: [PATCH] Adjust matchmaking_configuration resource IgnoreTagsConfig
 
 
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
-index 5811f1f884..3af285382c 100644
+index 5811f1f8849..3af285382cd 100644
 --- a/internal/service/gamelift/matchmaking_configuration.go
 +++ b/internal/service/gamelift/matchmaking_configuration.go
 @@ -206,7 +206,7 @@ func resourceMatchmakingConfigurationCreate(ctx context.Context, d *schema.Resou

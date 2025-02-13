@@ -328,12 +328,12 @@ import (
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id: pulumi.String("Allow small object transitions"),
 //						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							ObjectSizeGreaterThan: pulumi.String("1"),
+//							ObjectSizeGreaterThan: pulumi.Int(1),
 //						},
 //						Status: pulumi.String("Enabled"),
 //						Transitions: s3.BucketLifecycleConfigurationV2RuleTransitionArray{
 //							&s3.BucketLifecycleConfigurationV2RuleTransitionArgs{
-//								Days:         pulumi.Int(365),
+//								Days:         pulumi.Float64(365),
 //								StorageClass: pulumi.String("GLACIER_IR"),
 //							},
 //						},
@@ -423,7 +423,7 @@ import (
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id: pulumi.String("log"),
 //						Expiration: &s3.BucketLifecycleConfigurationV2RuleExpirationArgs{
-//							Days: pulumi.Int(90),
+//							Days: pulumi.Float64(90),
 //						},
 //						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
 //							And: &s3.BucketLifecycleConfigurationV2RuleFilterAndArgs{
@@ -437,11 +437,11 @@ import (
 //						Status: pulumi.String("Enabled"),
 //						Transitions: s3.BucketLifecycleConfigurationV2RuleTransitionArray{
 //							&s3.BucketLifecycleConfigurationV2RuleTransitionArgs{
-//								Days:         pulumi.Int(30),
+//								Days:         pulumi.Float64(30),
 //								StorageClass: pulumi.String("STANDARD_IA"),
 //							},
 //							&s3.BucketLifecycleConfigurationV2RuleTransitionArgs{
-//								Days:         pulumi.Int(60),
+//								Days:         pulumi.Float64(60),
 //								StorageClass: pulumi.String("GLACIER"),
 //							},
 //						},
@@ -492,15 +492,15 @@ import (
 //							Prefix: pulumi.String("config/"),
 //						},
 //						NoncurrentVersionExpiration: &s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs{
-//							NoncurrentDays: pulumi.Int(90),
+//							NoncurrentDays: pulumi.Float64(90),
 //						},
 //						NoncurrentVersionTransitions: s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray{
 //							&s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{
-//								NoncurrentDays: pulumi.Int(30),
+//								NoncurrentDays: pulumi.Float64(30),
 //								StorageClass:   pulumi.String("STANDARD_IA"),
 //							},
 //							&s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{
-//								NoncurrentDays: pulumi.Int(60),
+//								NoncurrentDays: pulumi.Float64(60),
 //								StorageClass:   pulumi.String("GLACIER"),
 //							},
 //						},
@@ -541,9 +541,10 @@ type BucketLifecycleConfigurationV2 struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
+	ExpectedBucketOwner pulumi.StringOutput `pulumi:"expectedBucketOwner"`
 	// List of configuration blocks describing the rules managing the replication. See below.
-	Rules BucketLifecycleConfigurationV2RuleArrayOutput `pulumi:"rules"`
+	Rules    BucketLifecycleConfigurationV2RuleArrayOutput   `pulumi:"rules"`
+	Timeouts BucketLifecycleConfigurationV2TimeoutsPtrOutput `pulumi:"timeouts"`
 	// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
 	TransitionDefaultMinimumObjectSize pulumi.StringOutput `pulumi:"transitionDefaultMinimumObjectSize"`
 }
@@ -557,9 +558,6 @@ func NewBucketLifecycleConfigurationV2(ctx *pulumi.Context,
 
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
-	}
-	if args.Rules == nil {
-		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketLifecycleConfigurationV2
@@ -589,7 +587,8 @@ type bucketLifecycleConfigurationV2State struct {
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// List of configuration blocks describing the rules managing the replication. See below.
-	Rules []BucketLifecycleConfigurationV2Rule `pulumi:"rules"`
+	Rules    []BucketLifecycleConfigurationV2Rule    `pulumi:"rules"`
+	Timeouts *BucketLifecycleConfigurationV2Timeouts `pulumi:"timeouts"`
 	// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
 	TransitionDefaultMinimumObjectSize *string `pulumi:"transitionDefaultMinimumObjectSize"`
 }
@@ -600,7 +599,8 @@ type BucketLifecycleConfigurationV2State struct {
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// List of configuration blocks describing the rules managing the replication. See below.
-	Rules BucketLifecycleConfigurationV2RuleArrayInput
+	Rules    BucketLifecycleConfigurationV2RuleArrayInput
+	Timeouts BucketLifecycleConfigurationV2TimeoutsPtrInput
 	// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
 	TransitionDefaultMinimumObjectSize pulumi.StringPtrInput
 }
@@ -615,7 +615,8 @@ type bucketLifecycleConfigurationV2Args struct {
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// List of configuration blocks describing the rules managing the replication. See below.
-	Rules []BucketLifecycleConfigurationV2Rule `pulumi:"rules"`
+	Rules    []BucketLifecycleConfigurationV2Rule    `pulumi:"rules"`
+	Timeouts *BucketLifecycleConfigurationV2Timeouts `pulumi:"timeouts"`
 	// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
 	TransitionDefaultMinimumObjectSize *string `pulumi:"transitionDefaultMinimumObjectSize"`
 }
@@ -627,7 +628,8 @@ type BucketLifecycleConfigurationV2Args struct {
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// List of configuration blocks describing the rules managing the replication. See below.
-	Rules BucketLifecycleConfigurationV2RuleArrayInput
+	Rules    BucketLifecycleConfigurationV2RuleArrayInput
+	Timeouts BucketLifecycleConfigurationV2TimeoutsPtrInput
 	// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
 	TransitionDefaultMinimumObjectSize pulumi.StringPtrInput
 }
@@ -725,13 +727,19 @@ func (o BucketLifecycleConfigurationV2Output) Bucket() pulumi.StringOutput {
 }
 
 // Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-func (o BucketLifecycleConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+func (o BucketLifecycleConfigurationV2Output) ExpectedBucketOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationV2) pulumi.StringOutput { return v.ExpectedBucketOwner }).(pulumi.StringOutput)
 }
 
 // List of configuration blocks describing the rules managing the replication. See below.
 func (o BucketLifecycleConfigurationV2Output) Rules() BucketLifecycleConfigurationV2RuleArrayOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2) BucketLifecycleConfigurationV2RuleArrayOutput { return v.Rules }).(BucketLifecycleConfigurationV2RuleArrayOutput)
+}
+
+func (o BucketLifecycleConfigurationV2Output) Timeouts() BucketLifecycleConfigurationV2TimeoutsPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationV2) BucketLifecycleConfigurationV2TimeoutsPtrOutput {
+		return v.Timeouts
+	}).(BucketLifecycleConfigurationV2TimeoutsPtrOutput)
 }
 
 // The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.

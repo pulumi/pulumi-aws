@@ -237,14 +237,14 @@ public final class TrailArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Amazon SNS topic defined for notification of log file delivery.
+     * Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
      * 
      */
     @Import(name="snsTopicName")
     private @Nullable Output<String> snsTopicName;
 
     /**
-     * @return Name of the Amazon SNS topic defined for notification of log file delivery.
+     * @return Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
      * 
      */
     public Optional<Output<String>> snsTopicName() {
@@ -634,7 +634,7 @@ public final class TrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snsTopicName Name of the Amazon SNS topic defined for notification of log file delivery.
+         * @param snsTopicName Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
          * 
          * @return builder
          * 
@@ -645,7 +645,7 @@ public final class TrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snsTopicName Name of the Amazon SNS topic defined for notification of log file delivery.
+         * @param snsTopicName Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
          * 
          * @return builder
          * 

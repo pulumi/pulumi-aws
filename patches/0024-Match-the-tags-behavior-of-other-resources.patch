@@ -5,7 +5,7 @@ Subject: [PATCH] Match the "tags" behavior of other resources
 
 
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index dc93531e67..1da08293c4 100644
+index dc93531e67c..1da08293c49 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -31,6 +31,7 @@ import (

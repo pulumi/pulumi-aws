@@ -43,6 +43,8 @@ public final class GetClusterResult {
     private String kmsKeyId;
     private List<GetClusterMasterUserSecret> masterUserSecrets;
     private String masterUsername;
+    private Integer monitoringInterval;
+    private String monitoringRoleArn;
     private String networkType;
     private Integer port;
     private String preferredBackupWindow;
@@ -134,6 +136,12 @@ public final class GetClusterResult {
     public String masterUsername() {
         return this.masterUsername;
     }
+    public Integer monitoringInterval() {
+        return this.monitoringInterval;
+    }
+    public String monitoringRoleArn() {
+        return this.monitoringRoleArn;
+    }
     public String networkType() {
         return this.networkType;
     }
@@ -199,6 +207,8 @@ public final class GetClusterResult {
         private String kmsKeyId;
         private List<GetClusterMasterUserSecret> masterUserSecrets;
         private String masterUsername;
+        private Integer monitoringInterval;
+        private String monitoringRoleArn;
         private String networkType;
         private Integer port;
         private String preferredBackupWindow;
@@ -235,6 +245,8 @@ public final class GetClusterResult {
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.masterUserSecrets = defaults.masterUserSecrets;
     	      this.masterUsername = defaults.masterUsername;
+    	      this.monitoringInterval = defaults.monitoringInterval;
+    	      this.monitoringRoleArn = defaults.monitoringRoleArn;
     	      this.networkType = defaults.networkType;
     	      this.port = defaults.port;
     	      this.preferredBackupWindow = defaults.preferredBackupWindow;
@@ -454,6 +466,22 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder monitoringInterval(Integer monitoringInterval) {
+            if (monitoringInterval == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "monitoringInterval");
+            }
+            this.monitoringInterval = monitoringInterval;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder monitoringRoleArn(String monitoringRoleArn) {
+            if (monitoringRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "monitoringRoleArn");
+            }
+            this.monitoringRoleArn = monitoringRoleArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder networkType(String networkType) {
             if (networkType == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "networkType");
@@ -554,6 +582,8 @@ public final class GetClusterResult {
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.masterUserSecrets = masterUserSecrets;
             _resultValue.masterUsername = masterUsername;
+            _resultValue.monitoringInterval = monitoringInterval;
+            _resultValue.monitoringRoleArn = monitoringRoleArn;
             _resultValue.networkType = networkType;
             _resultValue.port = port;
             _resultValue.preferredBackupWindow = preferredBackupWindow;

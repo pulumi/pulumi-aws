@@ -14,10 +14,13 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Allows you to set a policy of an SQS Queue
- * while referencing ARN of the queue within the policy.
+ * Allows you to set a policy of an SQS Queue while referencing the ARN of the queue within the policy.
+ * 
+ * !&gt; AWS will hang indefinitely when creating or updating an `aws.sqs.Queue` with an associated policy if `Version = &#34;2012-10-17&#34;` is not explicitly set in the policy. See below for an example of how to avoid this issue.
  * 
  * ## Example Usage
+ * 
+ * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -79,6 +82,78 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Timeout Problems Creating/Updating
+ * 
+ * If `Version = &#34;2012-10-17&#34;` is not explicitly set in the policy, AWS may hang, causing the AWS provider to time out. To avoid this, make sure to include `Version` as shown in the example below.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.sqs.QueueArgs;
+ * import com.pulumi.aws.sqs.QueuePolicy;
+ * import com.pulumi.aws.sqs.QueuePolicyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new BucketV2("example", BucketV2Args.builder()
+ *             .bucket("brodobaggins")
+ *             .build());
+ * 
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
+ *             .name("be-giant")
+ *             .build());
+ * 
+ *         var exampleQueuePolicy = new QueuePolicy("exampleQueuePolicy", QueuePolicyArgs.builder()
+ *             .queueUrl(exampleQueue.id())
+ *             .policy(Output.tuple(exampleQueue.arn(), example.arn()).applyValue(values -> {
+ *                 var exampleQueueArn = values.t1;
+ *                 var exampleArn = values.t2;
+ *                 return serializeJson(
+ *                     jsonObject(
+ *                         jsonProperty("Version", "2012-10-17"),
+ *                         jsonProperty("Statement", jsonArray(jsonObject(
+ *                             jsonProperty("Sid", "Cejuwdam"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("Service", "s3.amazonaws.com")
+ *                             )),
+ *                             jsonProperty("Action", "SQS:SendMessage"),
+ *                             jsonProperty("Resource", exampleQueueArn),
+ *                             jsonProperty("Condition", jsonObject(
+ *                                 jsonProperty("ArnLike", jsonObject(
+ *                                     jsonProperty("aws:SourceArn", exampleArn)
+ *                                 ))
+ *                             ))
+ *                         )))
+ *                     ));
+ *             }))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
@@ -90,29 +165,21 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:sqs/queuePolicy:QueuePolicy")
 public class QueuePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The JSON policy for the SQS queue.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The JSON policy for the SQS queue.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
     /**
-     * The URL of the SQS Queue to which to attach the policy
+     * URL of the SQS Queue to which to attach the policy.
      * 
      */
     @Export(name="queueUrl", refs={String.class}, tree="[0]")
     private Output<String> queueUrl;
 
     /**
-     * @return The URL of the SQS Queue to which to attach the policy
+     * @return URL of the SQS Queue to which to attach the policy.
      * 
      */
     public Output<String> queueUrl() {

@@ -61,6 +61,8 @@ class ClusterArgs:
                  master_password: Optional[pulumi.Input[str]] = None,
                  master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
+                 monitoring_interval: Optional[pulumi.Input[int]] = None,
+                 monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
                  performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -127,6 +129,8 @@ class ClusterArgs:
         :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[str] master_user_secret_kms_key_id: Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        :param pulumi.Input[int] monitoring_interval: Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        :param pulumi.Input[str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[bool] performance_insights_enabled: Enables Performance Insights.
         :param pulumi.Input[str] performance_insights_kms_key_id: Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
@@ -223,6 +227,10 @@ class ClusterArgs:
             pulumi.set(__self__, "master_user_secret_kms_key_id", master_user_secret_kms_key_id)
         if master_username is not None:
             pulumi.set(__self__, "master_username", master_username)
+        if monitoring_interval is not None:
+            pulumi.set(__self__, "monitoring_interval", monitoring_interval)
+        if monitoring_role_arn is not None:
+            pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if network_type is not None:
             pulumi.set(__self__, "network_type", network_type)
         if performance_insights_enabled is not None:
@@ -737,6 +745,30 @@ class ClusterArgs:
         pulumi.set(self, "master_username", value)
 
     @property
+    @pulumi.getter(name="monitoringInterval")
+    def monitoring_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        """
+        return pulumi.get(self, "monitoring_interval")
+
+    @monitoring_interval.setter
+    def monitoring_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monitoring_interval", value)
+
+    @property
+    @pulumi.getter(name="monitoringRoleArn")
+    def monitoring_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
+        """
+        return pulumi.get(self, "monitoring_role_arn")
+
+    @monitoring_role_arn.setter
+    def monitoring_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitoring_role_arn", value)
+
+    @property
     @pulumi.getter(name="networkType")
     def network_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1011,6 +1043,8 @@ class _ClusterState:
                  master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
+                 monitoring_interval: Optional[pulumi.Input[int]] = None,
+                 monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
                  performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -1086,6 +1120,8 @@ class _ClusterState:
         :param pulumi.Input[str] master_user_secret_kms_key_id: Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]] master_user_secrets: Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        :param pulumi.Input[int] monitoring_interval: Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        :param pulumi.Input[str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[bool] performance_insights_enabled: Enables Performance Insights.
         :param pulumi.Input[str] performance_insights_kms_key_id: Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
@@ -1200,6 +1236,10 @@ class _ClusterState:
             pulumi.set(__self__, "master_user_secrets", master_user_secrets)
         if master_username is not None:
             pulumi.set(__self__, "master_username", master_username)
+        if monitoring_interval is not None:
+            pulumi.set(__self__, "monitoring_interval", monitoring_interval)
+        if monitoring_role_arn is not None:
+            pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if network_type is not None:
             pulumi.set(__self__, "network_type", network_type)
         if performance_insights_enabled is not None:
@@ -1805,6 +1845,30 @@ class _ClusterState:
         pulumi.set(self, "master_username", value)
 
     @property
+    @pulumi.getter(name="monitoringInterval")
+    def monitoring_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        """
+        return pulumi.get(self, "monitoring_interval")
+
+    @monitoring_interval.setter
+    def monitoring_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monitoring_interval", value)
+
+    @property
+    @pulumi.getter(name="monitoringRoleArn")
+    def monitoring_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
+        """
+        return pulumi.get(self, "monitoring_role_arn")
+
+    @monitoring_role_arn.setter
+    def monitoring_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitoring_role_arn", value)
+
+    @property
     @pulumi.getter(name="networkType")
     def network_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2100,6 +2164,8 @@ class Cluster(pulumi.CustomResource):
                  master_password: Optional[pulumi.Input[str]] = None,
                  master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
+                 monitoring_interval: Optional[pulumi.Input[int]] = None,
+                 monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
                  performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -2371,6 +2437,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[str] master_user_secret_kms_key_id: Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        :param pulumi.Input[int] monitoring_interval: Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        :param pulumi.Input[str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[bool] performance_insights_enabled: Enables Performance Insights.
         :param pulumi.Input[str] performance_insights_kms_key_id: Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
@@ -2654,6 +2722,8 @@ class Cluster(pulumi.CustomResource):
                  master_password: Optional[pulumi.Input[str]] = None,
                  master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
+                 monitoring_interval: Optional[pulumi.Input[int]] = None,
+                 monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
                  performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -2723,6 +2793,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["master_password"] = None if master_password is None else pulumi.Output.secret(master_password)
             __props__.__dict__["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
             __props__.__dict__["master_username"] = master_username
+            __props__.__dict__["monitoring_interval"] = monitoring_interval
+            __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
             __props__.__dict__["network_type"] = network_type
             __props__.__dict__["performance_insights_enabled"] = performance_insights_enabled
             __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
@@ -2809,6 +2881,8 @@ class Cluster(pulumi.CustomResource):
             master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
             master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterMasterUserSecretArgs', 'ClusterMasterUserSecretArgsDict']]]]] = None,
             master_username: Optional[pulumi.Input[str]] = None,
+            monitoring_interval: Optional[pulumi.Input[int]] = None,
+            monitoring_role_arn: Optional[pulumi.Input[str]] = None,
             network_type: Optional[pulumi.Input[str]] = None,
             performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
             performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -2889,6 +2963,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] master_user_secret_kms_key_id: Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterMasterUserSecretArgs', 'ClusterMasterUserSecretArgsDict']]]] master_user_secrets: Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        :param pulumi.Input[int] monitoring_interval: Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        :param pulumi.Input[str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[bool] performance_insights_enabled: Enables Performance Insights.
         :param pulumi.Input[str] performance_insights_kms_key_id: Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
@@ -2961,6 +3037,8 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
         __props__.__dict__["master_user_secrets"] = master_user_secrets
         __props__.__dict__["master_username"] = master_username
+        __props__.__dict__["monitoring_interval"] = monitoring_interval
+        __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
         __props__.__dict__["network_type"] = network_type
         __props__.__dict__["performance_insights_enabled"] = performance_insights_enabled
         __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
@@ -3357,6 +3435,22 @@ class Cluster(pulumi.CustomResource):
         Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         """
         return pulumi.get(self, "master_username")
+
+    @property
+    @pulumi.getter(name="monitoringInterval")
+    def monitoring_interval(self) -> pulumi.Output[int]:
+        """
+        Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        """
+        return pulumi.get(self, "monitoring_interval")
+
+    @property
+    @pulumi.getter(name="monitoringRoleArn")
+    def monitoring_role_arn(self) -> pulumi.Output[str]:
+        """
+        ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
+        """
+        return pulumi.get(self, "monitoring_role_arn")
 
     @property
     @pulumi.getter(name="networkType")

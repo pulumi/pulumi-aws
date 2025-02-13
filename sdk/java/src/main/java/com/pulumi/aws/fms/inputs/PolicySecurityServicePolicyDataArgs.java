@@ -33,14 +33,14 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
     }
 
     /**
-     * Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+     * Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
      * 
      */
     @Import(name="policyOption")
     private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionArgs> policyOption;
 
     /**
-     * @return Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+     * @return Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
      * 
      */
     public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionArgs>> policyOption() {
@@ -48,14 +48,14 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
     }
 
     /**
-     * The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
+     * An integer value containing ICMP type.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
+     * @return An integer value containing ICMP type.
      * 
      */
     public Output<String> type() {
@@ -110,7 +110,7 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param policyOption Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+         * @param policyOption Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param policyOption Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+         * @param policyOption Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param type The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
+         * @param type An integer value containing ICMP type.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class PolicySecurityServicePolicyDataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param type The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
+         * @param type An integer value containing ICMP type.
          * 
          * @return builder
          * 

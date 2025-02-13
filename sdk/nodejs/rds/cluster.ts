@@ -442,6 +442,14 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly masterUsername!: pulumi.Output<string>;
     /**
+     * Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+     */
+    public readonly monitoringInterval!: pulumi.Output<number>;
+    /**
+     * ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
+     */
+    public readonly monitoringRoleArn!: pulumi.Output<string>;
+    /**
      * Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      */
     public readonly networkType!: pulumi.Output<string>;
@@ -585,6 +593,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterUserSecretKmsKeyId"] = state ? state.masterUserSecretKmsKeyId : undefined;
             resourceInputs["masterUserSecrets"] = state ? state.masterUserSecrets : undefined;
             resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
+            resourceInputs["monitoringInterval"] = state ? state.monitoringInterval : undefined;
+            resourceInputs["monitoringRoleArn"] = state ? state.monitoringRoleArn : undefined;
             resourceInputs["networkType"] = state ? state.networkType : undefined;
             resourceInputs["performanceInsightsEnabled"] = state ? state.performanceInsightsEnabled : undefined;
             resourceInputs["performanceInsightsKmsKeyId"] = state ? state.performanceInsightsKmsKeyId : undefined;
@@ -650,6 +660,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
             resourceInputs["masterUserSecretKmsKeyId"] = args ? args.masterUserSecretKmsKeyId : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
+            resourceInputs["monitoringInterval"] = args ? args.monitoringInterval : undefined;
+            resourceInputs["monitoringRoleArn"] = args ? args.monitoringRoleArn : undefined;
             resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["performanceInsightsEnabled"] = args ? args.performanceInsightsEnabled : undefined;
             resourceInputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
@@ -880,6 +892,14 @@ export interface ClusterState {
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     masterUsername?: pulumi.Input<string>;
+    /**
+     * Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+     */
+    monitoringInterval?: pulumi.Input<number>;
+    /**
+     * ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
+     */
+    monitoringRoleArn?: pulumi.Input<string>;
     /**
      * Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      */
@@ -1132,6 +1152,14 @@ export interface ClusterArgs {
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     masterUsername?: pulumi.Input<string>;
+    /**
+     * Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+     */
+    monitoringInterval?: pulumi.Input<number>;
+    /**
+     * ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
+     */
+    monitoringRoleArn?: pulumi.Input<string>;
     /**
      * Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      */

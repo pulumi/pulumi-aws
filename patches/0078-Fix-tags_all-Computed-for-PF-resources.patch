@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/bedrock/inference_profile.go b/internal/service/bedrock/inference_profile.go
-index 184cc60639..38ec8e4c28 100644
+index 184cc606393..38ec8e4c28d 100644
 --- a/internal/service/bedrock/inference_profile.go
 +++ b/internal/service/bedrock/inference_profile.go
 @@ -119,7 +119,7 @@ func (r *resourceInferenceProfile) Schema(ctx context.Context, req resource.Sche
@@ -18,7 +18,7 @@ index 184cc60639..38ec8e4c28 100644
  		Blocks: map[string]schema.Block{
  			"model_source": schema.ListNestedBlock{
 diff --git a/internal/service/logs/anomaly_detector.go b/internal/service/logs/anomaly_detector.go
-index c67de9372f..45fda2c8e8 100644
+index c67de9372f4..45fda2c8e8c 100644
 --- a/internal/service/logs/anomaly_detector.go
 +++ b/internal/service/logs/anomaly_detector.go
 @@ -89,7 +89,7 @@ func (r *anomalyDetectorResource) Schema(ctx context.Context, request resource.S
@@ -31,7 +31,7 @@ index c67de9372f..45fda2c8e8 100644
  	}
  }
 diff --git a/internal/service/servicecatalogappregistry/application.go b/internal/service/servicecatalogappregistry/application.go
-index 2844029f5c..735bfe81bb 100644
+index 2844029f5c8..735bfe81bb5 100644
 --- a/internal/service/servicecatalogappregistry/application.go
 +++ b/internal/service/servicecatalogappregistry/application.go
 @@ -70,7 +70,7 @@ func (r *resourceApplication) Schema(ctx context.Context, req resource.SchemaReq
@@ -44,7 +44,7 @@ index 2844029f5c..735bfe81bb 100644
  	}
  }
 diff --git a/internal/service/servicecatalogappregistry/attribute_group.go b/internal/service/servicecatalogappregistry/attribute_group.go
-index e1719b8cfa..4e28fbd51a 100644
+index e1719b8cfa1..4e28fbd51a4 100644
 --- a/internal/service/servicecatalogappregistry/attribute_group.go
 +++ b/internal/service/servicecatalogappregistry/attribute_group.go
 @@ -76,7 +76,7 @@ func (r *resourceAttributeGroup) Schema(ctx context.Context, req resource.Schema

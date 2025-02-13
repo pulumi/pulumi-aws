@@ -66,6 +66,8 @@ __all__ = [
     'BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgsDict',
     'BucketLifecycleConfigurationV2RuleTransitionArgs',
     'BucketLifecycleConfigurationV2RuleTransitionArgsDict',
+    'BucketLifecycleConfigurationV2TimeoutsArgs',
+    'BucketLifecycleConfigurationV2TimeoutsArgsDict',
     'BucketLifecycleRuleArgs',
     'BucketLifecycleRuleArgsDict',
     'BucketLifecycleRuleExpirationArgs',
@@ -1555,7 +1557,7 @@ class BucketLifecycleConfigurationV2RuleArgs:
 
 if not MYPY:
     class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgsDict(TypedDict):
-        days_after_initiation: NotRequired[pulumi.Input[int]]
+        days_after_initiation: NotRequired[pulumi.Input[float]]
         """
         Number of days after which Amazon S3 aborts an incomplete multipart upload.
         """
@@ -1565,23 +1567,23 @@ elif False:
 @pulumi.input_type
 class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs:
     def __init__(__self__, *,
-                 days_after_initiation: Optional[pulumi.Input[int]] = None):
+                 days_after_initiation: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[int] days_after_initiation: Number of days after which Amazon S3 aborts an incomplete multipart upload.
+        :param pulumi.Input[float] days_after_initiation: Number of days after which Amazon S3 aborts an incomplete multipart upload.
         """
         if days_after_initiation is not None:
             pulumi.set(__self__, "days_after_initiation", days_after_initiation)
 
     @property
     @pulumi.getter(name="daysAfterInitiation")
-    def days_after_initiation(self) -> Optional[pulumi.Input[int]]:
+    def days_after_initiation(self) -> Optional[pulumi.Input[float]]:
         """
         Number of days after which Amazon S3 aborts an incomplete multipart upload.
         """
         return pulumi.get(self, "days_after_initiation")
 
     @days_after_initiation.setter
-    def days_after_initiation(self, value: Optional[pulumi.Input[int]]):
+    def days_after_initiation(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "days_after_initiation", value)
 
 
@@ -1591,7 +1593,7 @@ if not MYPY:
         """
         Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
         """
-        days: NotRequired[pulumi.Input[int]]
+        days: NotRequired[pulumi.Input[float]]
         """
         Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
         """
@@ -1606,11 +1608,11 @@ elif False:
 class BucketLifecycleConfigurationV2RuleExpirationArgs:
     def __init__(__self__, *,
                  date: Optional[pulumi.Input[str]] = None,
-                 days: Optional[pulumi.Input[int]] = None,
+                 days: Optional[pulumi.Input[float]] = None,
                  expired_object_delete_marker: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] date: Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
-        :param pulumi.Input[int] days: Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+        :param pulumi.Input[float] days: Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
         :param pulumi.Input[bool] expired_object_delete_marker: Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
         """
         if date is not None:
@@ -1634,14 +1636,14 @@ class BucketLifecycleConfigurationV2RuleExpirationArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[int]]:
+    def days(self) -> Optional[pulumi.Input[float]]:
         """
         Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[int]]):
+    def days(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "days", value)
 
     @property
@@ -1663,11 +1665,11 @@ if not MYPY:
         """
         Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
         """
-        object_size_greater_than: NotRequired[pulumi.Input[str]]
+        object_size_greater_than: NotRequired[pulumi.Input[int]]
         """
         Minimum object size (in bytes) to which the rule applies.
         """
-        object_size_less_than: NotRequired[pulumi.Input[str]]
+        object_size_less_than: NotRequired[pulumi.Input[int]]
         """
         Maximum object size (in bytes) to which the rule applies.
         """
@@ -1686,14 +1688,14 @@ elif False:
 class BucketLifecycleConfigurationV2RuleFilterArgs:
     def __init__(__self__, *,
                  and_: Optional[pulumi.Input['BucketLifecycleConfigurationV2RuleFilterAndArgs']] = None,
-                 object_size_greater_than: Optional[pulumi.Input[str]] = None,
-                 object_size_less_than: Optional[pulumi.Input[str]] = None,
+                 object_size_greater_than: Optional[pulumi.Input[int]] = None,
+                 object_size_less_than: Optional[pulumi.Input[int]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  tag: Optional[pulumi.Input['BucketLifecycleConfigurationV2RuleFilterTagArgs']] = None):
         """
         :param pulumi.Input['BucketLifecycleConfigurationV2RuleFilterAndArgs'] and_: Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
-        :param pulumi.Input[str] object_size_greater_than: Minimum object size (in bytes) to which the rule applies.
-        :param pulumi.Input[str] object_size_less_than: Maximum object size (in bytes) to which the rule applies.
+        :param pulumi.Input[int] object_size_greater_than: Minimum object size (in bytes) to which the rule applies.
+        :param pulumi.Input[int] object_size_less_than: Maximum object size (in bytes) to which the rule applies.
         :param pulumi.Input[str] prefix: Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
         :param pulumi.Input['BucketLifecycleConfigurationV2RuleFilterTagArgs'] tag: Configuration block for specifying a tag key and value. See below.
         """
@@ -1722,26 +1724,26 @@ class BucketLifecycleConfigurationV2RuleFilterArgs:
 
     @property
     @pulumi.getter(name="objectSizeGreaterThan")
-    def object_size_greater_than(self) -> Optional[pulumi.Input[str]]:
+    def object_size_greater_than(self) -> Optional[pulumi.Input[int]]:
         """
         Minimum object size (in bytes) to which the rule applies.
         """
         return pulumi.get(self, "object_size_greater_than")
 
     @object_size_greater_than.setter
-    def object_size_greater_than(self, value: Optional[pulumi.Input[str]]):
+    def object_size_greater_than(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "object_size_greater_than", value)
 
     @property
     @pulumi.getter(name="objectSizeLessThan")
-    def object_size_less_than(self) -> Optional[pulumi.Input[str]]:
+    def object_size_less_than(self) -> Optional[pulumi.Input[int]]:
         """
         Maximum object size (in bytes) to which the rule applies.
         """
         return pulumi.get(self, "object_size_less_than")
 
     @object_size_less_than.setter
-    def object_size_less_than(self, value: Optional[pulumi.Input[str]]):
+    def object_size_less_than(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "object_size_less_than", value)
 
     @property
@@ -1913,11 +1915,11 @@ class BucketLifecycleConfigurationV2RuleFilterTagArgs:
 
 if not MYPY:
     class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgsDict(TypedDict):
-        newer_noncurrent_versions: NotRequired[pulumi.Input[str]]
+        newer_noncurrent_versions: NotRequired[pulumi.Input[float]]
         """
         Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         """
-        noncurrent_days: NotRequired[pulumi.Input[int]]
+        noncurrent_days: NotRequired[pulumi.Input[float]]
         """
         Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
         """
@@ -1927,11 +1929,11 @@ elif False:
 @pulumi.input_type
 class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs:
     def __init__(__self__, *,
-                 newer_noncurrent_versions: Optional[pulumi.Input[str]] = None,
-                 noncurrent_days: Optional[pulumi.Input[int]] = None):
+                 newer_noncurrent_versions: Optional[pulumi.Input[float]] = None,
+                 noncurrent_days: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[str] newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-        :param pulumi.Input[int] noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
+        :param pulumi.Input[float] newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+        :param pulumi.Input[float] noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
         """
         if newer_noncurrent_versions is not None:
             pulumi.set(__self__, "newer_noncurrent_versions", newer_noncurrent_versions)
@@ -1940,26 +1942,26 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs:
 
     @property
     @pulumi.getter(name="newerNoncurrentVersions")
-    def newer_noncurrent_versions(self) -> Optional[pulumi.Input[str]]:
+    def newer_noncurrent_versions(self) -> Optional[pulumi.Input[float]]:
         """
         Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         """
         return pulumi.get(self, "newer_noncurrent_versions")
 
     @newer_noncurrent_versions.setter
-    def newer_noncurrent_versions(self, value: Optional[pulumi.Input[str]]):
+    def newer_noncurrent_versions(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "newer_noncurrent_versions", value)
 
     @property
     @pulumi.getter(name="noncurrentDays")
-    def noncurrent_days(self) -> Optional[pulumi.Input[int]]:
+    def noncurrent_days(self) -> Optional[pulumi.Input[float]]:
         """
         Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
         """
         return pulumi.get(self, "noncurrent_days")
 
     @noncurrent_days.setter
-    def noncurrent_days(self, value: Optional[pulumi.Input[int]]):
+    def noncurrent_days(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "noncurrent_days", value)
 
 
@@ -1969,11 +1971,11 @@ if not MYPY:
         """
         Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
         """
-        newer_noncurrent_versions: NotRequired[pulumi.Input[str]]
+        newer_noncurrent_versions: NotRequired[pulumi.Input[float]]
         """
         Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         """
-        noncurrent_days: NotRequired[pulumi.Input[int]]
+        noncurrent_days: NotRequired[pulumi.Input[float]]
         """
         Number of days an object is noncurrent before Amazon S3 can perform the associated action.
         """
@@ -1984,12 +1986,12 @@ elif False:
 class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs:
     def __init__(__self__, *,
                  storage_class: pulumi.Input[str],
-                 newer_noncurrent_versions: Optional[pulumi.Input[str]] = None,
-                 noncurrent_days: Optional[pulumi.Input[int]] = None):
+                 newer_noncurrent_versions: Optional[pulumi.Input[float]] = None,
+                 noncurrent_days: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[str] storage_class: Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
-        :param pulumi.Input[str] newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-        :param pulumi.Input[int] noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action.
+        :param pulumi.Input[float] newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+        :param pulumi.Input[float] noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action.
         """
         pulumi.set(__self__, "storage_class", storage_class)
         if newer_noncurrent_versions is not None:
@@ -2011,26 +2013,26 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs:
 
     @property
     @pulumi.getter(name="newerNoncurrentVersions")
-    def newer_noncurrent_versions(self) -> Optional[pulumi.Input[str]]:
+    def newer_noncurrent_versions(self) -> Optional[pulumi.Input[float]]:
         """
         Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         """
         return pulumi.get(self, "newer_noncurrent_versions")
 
     @newer_noncurrent_versions.setter
-    def newer_noncurrent_versions(self, value: Optional[pulumi.Input[str]]):
+    def newer_noncurrent_versions(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "newer_noncurrent_versions", value)
 
     @property
     @pulumi.getter(name="noncurrentDays")
-    def noncurrent_days(self) -> Optional[pulumi.Input[int]]:
+    def noncurrent_days(self) -> Optional[pulumi.Input[float]]:
         """
         Number of days an object is noncurrent before Amazon S3 can perform the associated action.
         """
         return pulumi.get(self, "noncurrent_days")
 
     @noncurrent_days.setter
-    def noncurrent_days(self, value: Optional[pulumi.Input[int]]):
+    def noncurrent_days(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "noncurrent_days", value)
 
 
@@ -2044,7 +2046,7 @@ if not MYPY:
         """
         Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
         """
-        days: NotRequired[pulumi.Input[int]]
+        days: NotRequired[pulumi.Input[float]]
         """
         Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
         """
@@ -2056,11 +2058,11 @@ class BucketLifecycleConfigurationV2RuleTransitionArgs:
     def __init__(__self__, *,
                  storage_class: pulumi.Input[str],
                  date: Optional[pulumi.Input[str]] = None,
-                 days: Optional[pulumi.Input[int]] = None):
+                 days: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[str] storage_class: Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
         :param pulumi.Input[str] date: Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
-        :param pulumi.Input[int] days: Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
+        :param pulumi.Input[float] days: Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
         """
         pulumi.set(__self__, "storage_class", storage_class)
         if date is not None:
@@ -2094,15 +2096,67 @@ class BucketLifecycleConfigurationV2RuleTransitionArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[int]]:
+    def days(self) -> Optional[pulumi.Input[float]]:
         """
         Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[int]]):
+    def days(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "days", value)
+
+
+if not MYPY:
+    class BucketLifecycleConfigurationV2TimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    BucketLifecycleConfigurationV2TimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketLifecycleConfigurationV2TimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
 
 
 if not MYPY:
