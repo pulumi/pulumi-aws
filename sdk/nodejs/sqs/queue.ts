@@ -192,6 +192,9 @@ export class Queue extends pulumi.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string>;
+    /**
+     * JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+     */
     public readonly policy!: pulumi.Output<string>;
     /**
      * Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
@@ -343,6 +346,9 @@ export interface QueueState {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+     */
     policy?: pulumi.Input<string>;
     /**
      * Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
@@ -428,6 +434,9 @@ export interface QueueArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+     */
     policy?: pulumi.Input<string>;
     /**
      * Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.

@@ -265,7 +265,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new Accelerator("main", AcceleratorArgs.builder()
- *             .name("foobar-terraform-accelerator")
+ *             .name("foobar-pulumi-accelerator")
  *             .enabled(true)
  *             .ipAddressType("IPV4")
  *             .build());

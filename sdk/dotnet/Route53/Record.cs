@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var main = new Aws.GlobalAccelerator.Accelerator("main", new()
     ///     {
-    ///         Name = "foobar-terraform-accelerator",
+    ///         Name = "foobar-pulumi-accelerator",
     ///         Enabled = true,
     ///         IpAddressType = "IPV4",
     ///     });

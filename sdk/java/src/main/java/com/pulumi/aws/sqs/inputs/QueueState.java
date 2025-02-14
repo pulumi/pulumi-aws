@@ -198,9 +198,17 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.namePrefix);
     }
 
+    /**
+     * JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+     * 
+     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
+    /**
+     * @return JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+     * 
+     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
@@ -629,11 +637,23 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
             return namePrefix(Output.of(namePrefix));
         }
 
+        /**
+         * @param policy JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

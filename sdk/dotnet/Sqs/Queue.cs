@@ -253,6 +253,9 @@ namespace Pulumi.Aws.Sqs
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
+        /// <summary>
+        /// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -416,6 +419,9 @@ namespace Pulumi.Aws.Sqs
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
+        /// <summary>
+        /// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
@@ -541,6 +547,9 @@ namespace Pulumi.Aws.Sqs
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
+        /// <summary>
+        /// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

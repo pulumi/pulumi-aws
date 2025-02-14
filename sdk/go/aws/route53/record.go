@@ -222,7 +222,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			main, err := globalaccelerator.NewAccelerator(ctx, "main", &globalaccelerator.AcceleratorArgs{
-//				Name:          pulumi.String("foobar-terraform-accelerator"),
+//				Name:          pulumi.String("foobar-pulumi-accelerator"),
 //				Enabled:       pulumi.Bool(true),
 //				IpAddressType: pulumi.String("IPV4"),
 //			})

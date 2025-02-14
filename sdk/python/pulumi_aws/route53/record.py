@@ -703,7 +703,7 @@ class Record(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.globalaccelerator.Accelerator("main",
-            name="foobar-terraform-accelerator",
+            name="foobar-pulumi-accelerator",
             enabled=True,
             ip_address_type="IPV4")
         www = aws.route53.Record("www",
@@ -896,7 +896,7 @@ class Record(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.globalaccelerator.Accelerator("main",
-            name="foobar-terraform-accelerator",
+            name="foobar-pulumi-accelerator",
             enabled=True,
             ip_address_type="IPV4")
         www = aws.route53.Record("www",

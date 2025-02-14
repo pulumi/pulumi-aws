@@ -122,7 +122,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.globalaccelerator.Accelerator("main", {
- *     name: "foobar-terraform-accelerator",
+ *     name: "foobar-pulumi-accelerator",
  *     enabled: true,
  *     ipAddressType: "IPV4",
  * });

@@ -50,6 +50,7 @@ class QueueArgs:
         :param pulumi.Input[int] message_retention_seconds: Number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
         :param pulumi.Input[str] name: Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] policy: JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[int] receive_wait_time_seconds: Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_allow_policy: JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         :param pulumi.Input[str] redrive_policy: JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
@@ -229,6 +230,9 @@ class QueueArgs:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -346,6 +350,7 @@ class _QueueState:
         :param pulumi.Input[int] message_retention_seconds: Number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
         :param pulumi.Input[str] name: Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] policy: JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[int] receive_wait_time_seconds: Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_allow_policy: JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         :param pulumi.Input[str] redrive_policy: JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
@@ -548,6 +553,9 @@ class _QueueState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -796,6 +804,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[int] message_retention_seconds: Number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
         :param pulumi.Input[str] name: Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] policy: JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[int] receive_wait_time_seconds: Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_allow_policy: JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         :param pulumi.Input[str] redrive_policy: JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
@@ -1029,6 +1038,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[int] message_retention_seconds: Number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
         :param pulumi.Input[str] name: Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[str] policy: JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[int] receive_wait_time_seconds: Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_allow_policy: JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
         :param pulumi.Input[str] redrive_policy: JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
@@ -1164,6 +1174,9 @@ class Queue(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
+        """
+        JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+        """
         return pulumi.get(self, "policy")
 
     @property
