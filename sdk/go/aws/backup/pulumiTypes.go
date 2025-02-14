@@ -2817,7 +2817,7 @@ func (o SelectionConditionStringNotLikeArrayOutput) Index(i pulumi.IntInput) Sel
 type SelectionSelectionTag struct {
 	// The key in a key-value pair.
 	Key string `pulumi:"key"`
-	// An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+	// An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
 	Type string `pulumi:"type"`
 	// The value in a key-value pair.
 	Value string `pulumi:"value"`
@@ -2837,7 +2837,7 @@ type SelectionSelectionTagInput interface {
 type SelectionSelectionTagArgs struct {
 	// The key in a key-value pair.
 	Key pulumi.StringInput `pulumi:"key"`
-	// An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+	// An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The value in a key-value pair.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -2899,7 +2899,7 @@ func (o SelectionSelectionTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionSelectionTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
+// An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
 func (o SelectionSelectionTagOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionSelectionTag) string { return v.Type }).(pulumi.StringOutput)
 }

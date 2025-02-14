@@ -6,7 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
+import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -37,13 +37,13 @@ public final class BucketLifecycleConfigurationV2RuleTransitionArgs extends com.
      * 
      */
     @Import(name="days")
-    private @Nullable Output<Integer> days;
+    private @Nullable Output<Double> days;
 
     /**
      * @return Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
      * 
      */
-    public Optional<Output<Integer>> days() {
+    public Optional<Output<Double>> days() {
         return Optional.ofNullable(this.days);
     }
 
@@ -115,7 +115,7 @@ public final class BucketLifecycleConfigurationV2RuleTransitionArgs extends com.
          * @return builder
          * 
          */
-        public Builder days(@Nullable Output<Integer> days) {
+        public Builder days(@Nullable Output<Double> days) {
             $.days = days;
             return this;
         }
@@ -126,7 +126,7 @@ public final class BucketLifecycleConfigurationV2RuleTransitionArgs extends com.
          * @return builder
          * 
          */
-        public Builder days(Integer days) {
+        public Builder days(Double days) {
             return days(Output.of(days));
         }
 

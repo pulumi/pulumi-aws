@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleArgs;
+import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2TimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -62,6 +63,13 @@ public final class BucketLifecycleConfigurationV2State extends com.pulumi.resour
         return Optional.ofNullable(this.rules);
     }
 
+    @Import(name="timeouts")
+    private @Nullable Output<BucketLifecycleConfigurationV2TimeoutsArgs> timeouts;
+
+    public Optional<Output<BucketLifecycleConfigurationV2TimeoutsArgs>> timeouts() {
+        return Optional.ofNullable(this.timeouts);
+    }
+
     /**
      * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
      * 
@@ -83,6 +91,7 @@ public final class BucketLifecycleConfigurationV2State extends com.pulumi.resour
         this.bucket = $.bucket;
         this.expectedBucketOwner = $.expectedBucketOwner;
         this.rules = $.rules;
+        this.timeouts = $.timeouts;
         this.transitionDefaultMinimumObjectSize = $.transitionDefaultMinimumObjectSize;
     }
 
@@ -175,6 +184,15 @@ public final class BucketLifecycleConfigurationV2State extends com.pulumi.resour
          */
         public Builder rules(BucketLifecycleConfigurationV2RuleArgs... rules) {
             return rules(List.of(rules));
+        }
+
+        public Builder timeouts(@Nullable Output<BucketLifecycleConfigurationV2TimeoutsArgs> timeouts) {
+            $.timeouts = timeouts;
+            return this;
+        }
+
+        public Builder timeouts(BucketLifecycleConfigurationV2TimeoutsArgs timeouts) {
+            return timeouts(Output.of(timeouts));
         }
 
         /**

@@ -567,7 +567,7 @@ type Trail struct {
 	S3KeyPrefix pulumi.StringPtrOutput `pulumi:"s3KeyPrefix"`
 	// ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
 	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
-	// Name of the Amazon SNS topic defined for notification of log file delivery.
+	// Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
 	SnsTopicName pulumi.StringPtrOutput `pulumi:"snsTopicName"`
 	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -646,7 +646,7 @@ type trailState struct {
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 	// ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
-	// Name of the Amazon SNS topic defined for notification of log file delivery.
+	// Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
 	SnsTopicName *string `pulumi:"snsTopicName"`
 	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -693,7 +693,7 @@ type TrailState struct {
 	S3KeyPrefix pulumi.StringPtrInput
 	// ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
 	SnsTopicArn pulumi.StringPtrInput
-	// Name of the Amazon SNS topic defined for notification of log file delivery.
+	// Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
 	SnsTopicName pulumi.StringPtrInput
 	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -738,7 +738,7 @@ type trailArgs struct {
 	S3BucketName string `pulumi:"s3BucketName"`
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
-	// Name of the Amazon SNS topic defined for notification of log file delivery.
+	// Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
 	SnsTopicName *string `pulumi:"snsTopicName"`
 	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -776,7 +776,7 @@ type TrailArgs struct {
 	S3BucketName pulumi.StringInput
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix pulumi.StringPtrInput
-	// Name of the Amazon SNS topic defined for notification of log file delivery.
+	// Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
 	SnsTopicName pulumi.StringPtrInput
 	// Map of tags to assign to the trail. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -956,7 +956,7 @@ func (o TrailOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
 
-// Name of the Amazon SNS topic defined for notification of log file delivery.
+// Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
 func (o TrailOutput) SnsTopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringPtrOutput { return v.SnsTopicName }).(pulumi.StringPtrOutput)
 }

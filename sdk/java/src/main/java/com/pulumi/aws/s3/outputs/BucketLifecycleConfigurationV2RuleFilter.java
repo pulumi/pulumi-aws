@@ -6,6 +6,7 @@ package com.pulumi.aws.s3.outputs;
 import com.pulumi.aws.s3.outputs.BucketLifecycleConfigurationV2RuleFilterAnd;
 import com.pulumi.aws.s3.outputs.BucketLifecycleConfigurationV2RuleFilterTag;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,12 +23,12 @@ public final class BucketLifecycleConfigurationV2RuleFilter {
      * @return Minimum object size (in bytes) to which the rule applies.
      * 
      */
-    private @Nullable String objectSizeGreaterThan;
+    private @Nullable Integer objectSizeGreaterThan;
     /**
      * @return Maximum object size (in bytes) to which the rule applies.
      * 
      */
-    private @Nullable String objectSizeLessThan;
+    private @Nullable Integer objectSizeLessThan;
     /**
      * @return Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if not specified.
      * 
@@ -51,14 +52,14 @@ public final class BucketLifecycleConfigurationV2RuleFilter {
      * @return Minimum object size (in bytes) to which the rule applies.
      * 
      */
-    public Optional<String> objectSizeGreaterThan() {
+    public Optional<Integer> objectSizeGreaterThan() {
         return Optional.ofNullable(this.objectSizeGreaterThan);
     }
     /**
      * @return Maximum object size (in bytes) to which the rule applies.
      * 
      */
-    public Optional<String> objectSizeLessThan() {
+    public Optional<Integer> objectSizeLessThan() {
         return Optional.ofNullable(this.objectSizeLessThan);
     }
     /**
@@ -86,8 +87,8 @@ public final class BucketLifecycleConfigurationV2RuleFilter {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable BucketLifecycleConfigurationV2RuleFilterAnd and;
-        private @Nullable String objectSizeGreaterThan;
-        private @Nullable String objectSizeLessThan;
+        private @Nullable Integer objectSizeGreaterThan;
+        private @Nullable Integer objectSizeLessThan;
         private @Nullable String prefix;
         private @Nullable BucketLifecycleConfigurationV2RuleFilterTag tag;
         public Builder() {}
@@ -107,13 +108,13 @@ public final class BucketLifecycleConfigurationV2RuleFilter {
             return this;
         }
         @CustomType.Setter
-        public Builder objectSizeGreaterThan(@Nullable String objectSizeGreaterThan) {
+        public Builder objectSizeGreaterThan(@Nullable Integer objectSizeGreaterThan) {
 
             this.objectSizeGreaterThan = objectSizeGreaterThan;
             return this;
         }
         @CustomType.Setter
-        public Builder objectSizeLessThan(@Nullable String objectSizeLessThan) {
+        public Builder objectSizeLessThan(@Nullable Integer objectSizeLessThan) {
 
             this.objectSizeLessThan = objectSizeLessThan;
             return this;

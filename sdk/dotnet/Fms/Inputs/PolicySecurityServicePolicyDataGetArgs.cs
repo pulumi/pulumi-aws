@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Fms.Inputs
         public Input<string>? ManagedServiceData { get; set; }
 
         /// <summary>
-        /// Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+        /// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
         /// </summary>
         [Input("policyOption")]
         public Input<Inputs.PolicySecurityServicePolicyDataPolicyOptionGetArgs>? PolicyOption { get; set; }
 
         /// <summary>
-        /// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
+        /// An integer value containing ICMP type.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

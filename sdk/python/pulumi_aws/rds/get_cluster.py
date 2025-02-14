@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, db_system_id=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, id=None, kms_key_id=None, master_user_secrets=None, master_username=None, network_type=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, db_system_id=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, id=None, kms_key_id=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -100,6 +100,12 @@ class GetClusterResult:
         if master_username and not isinstance(master_username, str):
             raise TypeError("Expected argument 'master_username' to be a str")
         pulumi.set(__self__, "master_username", master_username)
+        if monitoring_interval and not isinstance(monitoring_interval, int):
+            raise TypeError("Expected argument 'monitoring_interval' to be a int")
+        pulumi.set(__self__, "monitoring_interval", monitoring_interval)
+        if monitoring_role_arn and not isinstance(monitoring_role_arn, str):
+            raise TypeError("Expected argument 'monitoring_role_arn' to be a str")
+        pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if network_type and not isinstance(network_type, str):
             raise TypeError("Expected argument 'network_type' to be a str")
         pulumi.set(__self__, "network_type", network_type)
@@ -252,6 +258,16 @@ class GetClusterResult:
         return pulumi.get(self, "master_username")
 
     @property
+    @pulumi.getter(name="monitoringInterval")
+    def monitoring_interval(self) -> int:
+        return pulumi.get(self, "monitoring_interval")
+
+    @property
+    @pulumi.getter(name="monitoringRoleArn")
+    def monitoring_role_arn(self) -> str:
+        return pulumi.get(self, "monitoring_role_arn")
+
+    @property
     @pulumi.getter(name="networkType")
     def network_type(self) -> str:
         return pulumi.get(self, "network_type")
@@ -330,6 +346,8 @@ class AwaitableGetClusterResult(GetClusterResult):
             kms_key_id=self.kms_key_id,
             master_user_secrets=self.master_user_secrets,
             master_username=self.master_username,
+            monitoring_interval=self.monitoring_interval,
+            monitoring_role_arn=self.monitoring_role_arn,
             network_type=self.network_type,
             port=self.port,
             preferred_backup_window=self.preferred_backup_window,
@@ -391,6 +409,8 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         master_user_secrets=pulumi.get(__ret__, 'master_user_secrets'),
         master_username=pulumi.get(__ret__, 'master_username'),
+        monitoring_interval=pulumi.get(__ret__, 'monitoring_interval'),
+        monitoring_role_arn=pulumi.get(__ret__, 'monitoring_role_arn'),
         network_type=pulumi.get(__ret__, 'network_type'),
         port=pulumi.get(__ret__, 'port'),
         preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
@@ -449,6 +469,8 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         master_user_secrets=pulumi.get(__response__, 'master_user_secrets'),
         master_username=pulumi.get(__response__, 'master_username'),
+        monitoring_interval=pulumi.get(__response__, 'monitoring_interval'),
+        monitoring_role_arn=pulumi.get(__response__, 'monitoring_role_arn'),
         network_type=pulumi.get(__response__, 'network_type'),
         port=pulumi.get(__response__, 'port'),
         preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),

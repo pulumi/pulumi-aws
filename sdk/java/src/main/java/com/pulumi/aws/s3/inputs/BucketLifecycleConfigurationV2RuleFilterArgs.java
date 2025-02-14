@@ -7,6 +7,7 @@ import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs;
 import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterTagArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -37,13 +38,13 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs extends com.pulu
      * 
      */
     @Import(name="objectSizeGreaterThan")
-    private @Nullable Output<String> objectSizeGreaterThan;
+    private @Nullable Output<Integer> objectSizeGreaterThan;
 
     /**
      * @return Minimum object size (in bytes) to which the rule applies.
      * 
      */
-    public Optional<Output<String>> objectSizeGreaterThan() {
+    public Optional<Output<Integer>> objectSizeGreaterThan() {
         return Optional.ofNullable(this.objectSizeGreaterThan);
     }
 
@@ -52,13 +53,13 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs extends com.pulu
      * 
      */
     @Import(name="objectSizeLessThan")
-    private @Nullable Output<String> objectSizeLessThan;
+    private @Nullable Output<Integer> objectSizeLessThan;
 
     /**
      * @return Maximum object size (in bytes) to which the rule applies.
      * 
      */
-    public Optional<Output<String>> objectSizeLessThan() {
+    public Optional<Output<Integer>> objectSizeLessThan() {
         return Optional.ofNullable(this.objectSizeLessThan);
     }
 
@@ -147,7 +148,7 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs extends com.pulu
          * @return builder
          * 
          */
-        public Builder objectSizeGreaterThan(@Nullable Output<String> objectSizeGreaterThan) {
+        public Builder objectSizeGreaterThan(@Nullable Output<Integer> objectSizeGreaterThan) {
             $.objectSizeGreaterThan = objectSizeGreaterThan;
             return this;
         }
@@ -158,7 +159,7 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs extends com.pulu
          * @return builder
          * 
          */
-        public Builder objectSizeGreaterThan(String objectSizeGreaterThan) {
+        public Builder objectSizeGreaterThan(Integer objectSizeGreaterThan) {
             return objectSizeGreaterThan(Output.of(objectSizeGreaterThan));
         }
 
@@ -168,7 +169,7 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs extends com.pulu
          * @return builder
          * 
          */
-        public Builder objectSizeLessThan(@Nullable Output<String> objectSizeLessThan) {
+        public Builder objectSizeLessThan(@Nullable Output<Integer> objectSizeLessThan) {
             $.objectSizeLessThan = objectSizeLessThan;
             return this;
         }
@@ -179,7 +180,7 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs extends com.pulu
          * @return builder
          * 
          */
-        public Builder objectSizeLessThan(String objectSizeLessThan) {
+        public Builder objectSizeLessThan(Integer objectSizeLessThan) {
             return objectSizeLessThan(Output.of(objectSizeLessThan));
         }
 

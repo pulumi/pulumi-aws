@@ -99,7 +99,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A map of lists of accounts and OU's to exclude from the policy.
+     * A map of lists of accounts and OU's to exclude from the policy. See the `excludeMap` block.
      */
     public readonly excludeMap!: pulumi.Output<outputs.fms.PolicyExcludeMap | undefined>;
     /**
@@ -107,7 +107,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly excludeResourceTags!: pulumi.Output<boolean>;
     /**
-     * A map of lists of accounts and OU's to include in the policy.
+     * A map of lists of accounts and OU's to include in the policy. See the `includeMap` block.
      */
     public readonly includeMap!: pulumi.Output<outputs.fms.PolicyIncludeMap | undefined>;
     /**
@@ -136,7 +136,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly resourceTypeLists!: pulumi.Output<string[]>;
     /**
-     * The objects to include in Security Service Policy Data. Documented below.
+     * The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
      */
     public readonly securityServicePolicyData!: pulumi.Output<outputs.fms.PolicySecurityServicePolicyData>;
     /**
@@ -229,7 +229,7 @@ export interface PolicyState {
      */
     description?: pulumi.Input<string>;
     /**
-     * A map of lists of accounts and OU's to exclude from the policy.
+     * A map of lists of accounts and OU's to exclude from the policy. See the `excludeMap` block.
      */
     excludeMap?: pulumi.Input<inputs.fms.PolicyExcludeMap>;
     /**
@@ -237,7 +237,7 @@ export interface PolicyState {
      */
     excludeResourceTags?: pulumi.Input<boolean>;
     /**
-     * A map of lists of accounts and OU's to include in the policy.
+     * A map of lists of accounts and OU's to include in the policy. See the `includeMap` block.
      */
     includeMap?: pulumi.Input<inputs.fms.PolicyIncludeMap>;
     /**
@@ -266,7 +266,7 @@ export interface PolicyState {
      */
     resourceTypeLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The objects to include in Security Service Policy Data. Documented below.
+     * The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
      */
     securityServicePolicyData?: pulumi.Input<inputs.fms.PolicySecurityServicePolicyData>;
     /**
@@ -298,7 +298,7 @@ export interface PolicyArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A map of lists of accounts and OU's to exclude from the policy.
+     * A map of lists of accounts and OU's to exclude from the policy. See the `excludeMap` block.
      */
     excludeMap?: pulumi.Input<inputs.fms.PolicyExcludeMap>;
     /**
@@ -306,7 +306,7 @@ export interface PolicyArgs {
      */
     excludeResourceTags: pulumi.Input<boolean>;
     /**
-     * A map of lists of accounts and OU's to include in the policy.
+     * A map of lists of accounts and OU's to include in the policy. See the `includeMap` block.
      */
     includeMap?: pulumi.Input<inputs.fms.PolicyIncludeMap>;
     /**
@@ -331,7 +331,7 @@ export interface PolicyArgs {
      */
     resourceTypeLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The objects to include in Security Service Policy Data. Documented below.
+     * The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
      */
     securityServicePolicyData: pulumi.Input<inputs.fms.PolicySecurityServicePolicyData>;
     /**

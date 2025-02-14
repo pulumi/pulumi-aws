@@ -5,7 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Integer;
+import java.lang.Double;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,13 +20,13 @@ public final class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpl
      * 
      */
     @Import(name="daysAfterInitiation")
-    private @Nullable Output<Integer> daysAfterInitiation;
+    private @Nullable Output<Double> daysAfterInitiation;
 
     /**
      * @return Number of days after which Amazon S3 aborts an incomplete multipart upload.
      * 
      */
-    public Optional<Output<Integer>> daysAfterInitiation() {
+    public Optional<Output<Double>> daysAfterInitiation() {
         return Optional.ofNullable(this.daysAfterInitiation);
     }
 
@@ -60,7 +60,7 @@ public final class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpl
          * @return builder
          * 
          */
-        public Builder daysAfterInitiation(@Nullable Output<Integer> daysAfterInitiation) {
+        public Builder daysAfterInitiation(@Nullable Output<Double> daysAfterInitiation) {
             $.daysAfterInitiation = daysAfterInitiation;
             return this;
         }
@@ -71,7 +71,7 @@ public final class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpl
          * @return builder
          * 
          */
-        public Builder daysAfterInitiation(Integer daysAfterInitiation) {
+        public Builder daysAfterInitiation(Double daysAfterInitiation) {
             return daysAfterInitiation(Output.of(daysAfterInitiation));
         }
 

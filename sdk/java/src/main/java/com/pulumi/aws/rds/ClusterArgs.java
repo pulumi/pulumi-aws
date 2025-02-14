@@ -625,6 +625,36 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+     * 
+     */
+    @Import(name="monitoringInterval")
+    private @Nullable Output<Integer> monitoringInterval;
+
+    /**
+     * @return Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+     * 
+     */
+    public Optional<Output<Integer>> monitoringInterval() {
+        return Optional.ofNullable(this.monitoringInterval);
+    }
+
+    /**
+     * ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
+     * 
+     */
+    @Import(name="monitoringRoleArn")
+    private @Nullable Output<String> monitoringRoleArn;
+
+    /**
+     * @return ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
+     * 
+     */
+    public Optional<Output<String>> monitoringRoleArn() {
+        return Optional.ofNullable(this.monitoringRoleArn);
+    }
+
+    /**
      * Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      * 
      */
@@ -943,6 +973,8 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.masterPassword = $.masterPassword;
         this.masterUserSecretKmsKeyId = $.masterUserSecretKmsKeyId;
         this.masterUsername = $.masterUsername;
+        this.monitoringInterval = $.monitoringInterval;
+        this.monitoringRoleArn = $.monitoringRoleArn;
         this.networkType = $.networkType;
         this.performanceInsightsEnabled = $.performanceInsightsEnabled;
         this.performanceInsightsKmsKeyId = $.performanceInsightsKmsKeyId;
@@ -1894,6 +1926,48 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder masterUsername(String masterUsername) {
             return masterUsername(Output.of(masterUsername));
+        }
+
+        /**
+         * @param monitoringInterval Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringInterval(@Nullable Output<Integer> monitoringInterval) {
+            $.monitoringInterval = monitoringInterval;
+            return this;
+        }
+
+        /**
+         * @param monitoringInterval Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringInterval(Integer monitoringInterval) {
+            return monitoringInterval(Output.of(monitoringInterval));
+        }
+
+        /**
+         * @param monitoringRoleArn ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringRoleArn(@Nullable Output<String> monitoringRoleArn) {
+            $.monitoringRoleArn = monitoringRoleArn;
+            return this;
+        }
+
+        /**
+         * @param monitoringRoleArn ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringRoleArn(String monitoringRoleArn) {
+            return monitoringRoleArn(Output.of(monitoringRoleArn));
         }
 
         /**

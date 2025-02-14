@@ -7,7 +7,7 @@ Subject: [PATCH] Catch cty panic in new
 The root cause is not fully understood yet but this might unblock us.
 
 diff --git a/internal/service/sns/topic_subscription.go b/internal/service/sns/topic_subscription.go
-index 06e4c0b2ba..a2e5572a34 100644
+index 06e4c0b2bad..a2e5572a34a 100644
 --- a/internal/service/sns/topic_subscription.go
 +++ b/internal/service/sns/topic_subscription.go
 @@ -545,9 +545,11 @@ func normalizeTopicSubscriptionDeliveryPolicy(policy string) ([]byte, error) {

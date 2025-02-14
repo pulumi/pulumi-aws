@@ -696,6 +696,27 @@ class Record(pulumi.CustomResource):
             }])
         ```
 
+        ### Alias record for AWS Global Accelerator
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.globalaccelerator.Accelerator("main",
+            name="foobar-pulumi-accelerator",
+            enabled=True,
+            ip_address_type="IPV4")
+        www = aws.route53.Record("www",
+            zone_id=primary["zoneId"],
+            name="example.com",
+            type=aws.route53.RecordType.A,
+            aliases=[{
+                "name": main.dns_name,
+                "zone_id": main.hosted_zone_id,
+                "evaluate_target_health": False,
+            }])
+        ```
+
         ### NS and SOA Record Management
 
         When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
@@ -865,6 +886,27 @@ class Record(pulumi.CustomResource):
                 "name": main.dns_name,
                 "zone_id": main.zone_id,
                 "evaluate_target_health": True,
+            }])
+        ```
+
+        ### Alias record for AWS Global Accelerator
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.globalaccelerator.Accelerator("main",
+            name="foobar-pulumi-accelerator",
+            enabled=True,
+            ip_address_type="IPV4")
+        www = aws.route53.Record("www",
+            zone_id=primary["zoneId"],
+            name="example.com",
+            type=aws.route53.RecordType.A,
+            aliases=[{
+                "name": main.dns_name,
+                "zone_id": main.hosted_zone_id,
+                "evaluate_target_health": False,
             }])
         ```
 

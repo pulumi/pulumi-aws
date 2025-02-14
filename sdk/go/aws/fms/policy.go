@@ -101,11 +101,11 @@ type Policy struct {
 	DeleteUnusedFmManagedResources pulumi.BoolPtrOutput `pulumi:"deleteUnusedFmManagedResources"`
 	// The description of the AWS Network Firewall firewall policy.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A map of lists of accounts and OU's to exclude from the policy.
+	// A map of lists of accounts and OU's to exclude from the policy. See the `excludeMap` block.
 	ExcludeMap PolicyExcludeMapPtrOutput `pulumi:"excludeMap"`
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
 	ExcludeResourceTags pulumi.BoolOutput `pulumi:"excludeResourceTags"`
-	// A map of lists of accounts and OU's to include in the policy.
+	// A map of lists of accounts and OU's to include in the policy. See the `includeMap` block.
 	IncludeMap PolicyIncludeMapPtrOutput `pulumi:"includeMap"`
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -120,7 +120,7 @@ type Policy struct {
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
 	ResourceTypeLists pulumi.StringArrayOutput `pulumi:"resourceTypeLists"`
-	// The objects to include in Security Service Policy Data. Documented below.
+	// The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataOutput `pulumi:"securityServicePolicyData"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -173,11 +173,11 @@ type policyState struct {
 	DeleteUnusedFmManagedResources *bool `pulumi:"deleteUnusedFmManagedResources"`
 	// The description of the AWS Network Firewall firewall policy.
 	Description *string `pulumi:"description"`
-	// A map of lists of accounts and OU's to exclude from the policy.
+	// A map of lists of accounts and OU's to exclude from the policy. See the `excludeMap` block.
 	ExcludeMap *PolicyExcludeMap `pulumi:"excludeMap"`
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
 	ExcludeResourceTags *bool `pulumi:"excludeResourceTags"`
-	// A map of lists of accounts and OU's to include in the policy.
+	// A map of lists of accounts and OU's to include in the policy. See the `includeMap` block.
 	IncludeMap *PolicyIncludeMap `pulumi:"includeMap"`
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name *string `pulumi:"name"`
@@ -192,7 +192,7 @@ type policyState struct {
 	ResourceType *string `pulumi:"resourceType"`
 	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
-	// The objects to include in Security Service Policy Data. Documented below.
+	// The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
 	SecurityServicePolicyData *PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
@@ -210,11 +210,11 @@ type PolicyState struct {
 	DeleteUnusedFmManagedResources pulumi.BoolPtrInput
 	// The description of the AWS Network Firewall firewall policy.
 	Description pulumi.StringPtrInput
-	// A map of lists of accounts and OU's to exclude from the policy.
+	// A map of lists of accounts and OU's to exclude from the policy. See the `excludeMap` block.
 	ExcludeMap PolicyExcludeMapPtrInput
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
 	ExcludeResourceTags pulumi.BoolPtrInput
-	// A map of lists of accounts and OU's to include in the policy.
+	// A map of lists of accounts and OU's to include in the policy. See the `includeMap` block.
 	IncludeMap PolicyIncludeMapPtrInput
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name pulumi.StringPtrInput
@@ -229,7 +229,7 @@ type PolicyState struct {
 	ResourceType pulumi.StringPtrInput
 	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
 	ResourceTypeLists pulumi.StringArrayInput
-	// The objects to include in Security Service Policy Data. Documented below.
+	// The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
@@ -250,11 +250,11 @@ type policyArgs struct {
 	DeleteUnusedFmManagedResources *bool `pulumi:"deleteUnusedFmManagedResources"`
 	// The description of the AWS Network Firewall firewall policy.
 	Description *string `pulumi:"description"`
-	// A map of lists of accounts and OU's to exclude from the policy.
+	// A map of lists of accounts and OU's to exclude from the policy. See the `excludeMap` block.
 	ExcludeMap *PolicyExcludeMap `pulumi:"excludeMap"`
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
 	ExcludeResourceTags bool `pulumi:"excludeResourceTags"`
-	// A map of lists of accounts and OU's to include in the policy.
+	// A map of lists of accounts and OU's to include in the policy. See the `includeMap` block.
 	IncludeMap *PolicyIncludeMap `pulumi:"includeMap"`
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name *string `pulumi:"name"`
@@ -267,7 +267,7 @@ type policyArgs struct {
 	ResourceType *string `pulumi:"resourceType"`
 	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
-	// The objects to include in Security Service Policy Data. Documented below.
+	// The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
 	SecurityServicePolicyData PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
@@ -281,11 +281,11 @@ type PolicyArgs struct {
 	DeleteUnusedFmManagedResources pulumi.BoolPtrInput
 	// The description of the AWS Network Firewall firewall policy.
 	Description pulumi.StringPtrInput
-	// A map of lists of accounts and OU's to exclude from the policy.
+	// A map of lists of accounts and OU's to exclude from the policy. See the `excludeMap` block.
 	ExcludeMap PolicyExcludeMapPtrInput
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
 	ExcludeResourceTags pulumi.BoolInput
-	// A map of lists of accounts and OU's to include in the policy.
+	// A map of lists of accounts and OU's to include in the policy. See the `includeMap` block.
 	IncludeMap PolicyIncludeMapPtrInput
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name pulumi.StringPtrInput
@@ -298,7 +298,7 @@ type PolicyArgs struct {
 	ResourceType pulumi.StringPtrInput
 	// A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
 	ResourceTypeLists pulumi.StringArrayInput
-	// The objects to include in Security Service Policy Data. Documented below.
+	// The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
@@ -410,7 +410,7 @@ func (o PolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A map of lists of accounts and OU's to exclude from the policy.
+// A map of lists of accounts and OU's to exclude from the policy. See the `excludeMap` block.
 func (o PolicyOutput) ExcludeMap() PolicyExcludeMapPtrOutput {
 	return o.ApplyT(func(v *Policy) PolicyExcludeMapPtrOutput { return v.ExcludeMap }).(PolicyExcludeMapPtrOutput)
 }
@@ -420,7 +420,7 @@ func (o PolicyOutput) ExcludeResourceTags() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Policy) pulumi.BoolOutput { return v.ExcludeResourceTags }).(pulumi.BoolOutput)
 }
 
-// A map of lists of accounts and OU's to include in the policy.
+// A map of lists of accounts and OU's to include in the policy. See the `includeMap` block.
 func (o PolicyOutput) IncludeMap() PolicyIncludeMapPtrOutput {
 	return o.ApplyT(func(v *Policy) PolicyIncludeMapPtrOutput { return v.IncludeMap }).(PolicyIncludeMapPtrOutput)
 }
@@ -459,7 +459,7 @@ func (o PolicyOutput) ResourceTypeLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.ResourceTypeLists }).(pulumi.StringArrayOutput)
 }
 
-// The objects to include in Security Service Policy Data. Documented below.
+// The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
 func (o PolicyOutput) SecurityServicePolicyData() PolicySecurityServicePolicyDataOutput {
 	return o.ApplyT(func(v *Policy) PolicySecurityServicePolicyDataOutput { return v.SecurityServicePolicyData }).(PolicySecurityServicePolicyDataOutput)
 }
