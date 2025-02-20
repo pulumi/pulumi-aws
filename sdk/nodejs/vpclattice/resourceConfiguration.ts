@@ -44,6 +44,7 @@ import * as utilities from "../utilities";
  *     name: "Example",
  *     resourceGatewayIdentifier: exampleAwsVpclatticeResourceGateway.id,
  *     portRanges: ["80"],
+ *     protocol: "TCP",
  *     resourceConfigurationDefinition: {
  *         ipResource: {
  *             ipAddress: "10.0.0.1",

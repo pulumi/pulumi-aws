@@ -67,6 +67,7 @@ namespace Pulumi.Aws.VpcLattice
     ///         {
     ///             "80",
     ///         },
+    ///         Protocol = "TCP",
     ///         ResourceConfigurationDefinition = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionArgs
     ///         {
     ///             IpResource = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs

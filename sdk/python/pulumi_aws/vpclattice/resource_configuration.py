@@ -442,6 +442,7 @@ class ResourceConfiguration(pulumi.CustomResource):
             name="Example",
             resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
             port_ranges=["80"],
+            protocol="TCP",
             resource_configuration_definition={
                 "ip_resource": {
                     "ip_address": "10.0.0.1",
@@ -533,6 +534,7 @@ class ResourceConfiguration(pulumi.CustomResource):
             name="Example",
             resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
             port_ranges=["80"],
+            protocol="TCP",
             resource_configuration_definition={
                 "ip_resource": {
                     "ip_address": "10.0.0.1",

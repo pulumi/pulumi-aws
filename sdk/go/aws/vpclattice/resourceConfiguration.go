@@ -74,6 +74,7 @@ import (
 //				PortRanges: pulumi.StringArray{
 //					pulumi.String("80"),
 //				},
+//				Protocol: pulumi.String("TCP"),
 //				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
 //					IpResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs{
 //						IpAddress: pulumi.String("10.0.0.1"),
