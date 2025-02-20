@@ -19,6 +19,8 @@ linters:
   - unused
   enable-all: false
 issues:
+  exclude-dirs:
+  - pkg/vendored
   exclude-files:
   - schema.go
   - pulumiManifest.go
