@@ -266,14 +266,6 @@ var fixUpVpclatticeResourceconfigurationExample = tfbridge.DocsEdit{
 	},
 }
 
-//
-//				 targetedReplace(
-//	"vpclattice_resource_configuration.html.markdown",
-//	`port_ranges = ["80"]`,
-//	`port_ranges = ["80"]\n` +
-//		`protocol="TCP"`,
-//)
-
 func reReplace(from string, to string) tfbridge.DocsEdit {
 	fromR, toB := regexp.MustCompile(from), []byte(to)
 	return tfbridge.DocsEdit{
