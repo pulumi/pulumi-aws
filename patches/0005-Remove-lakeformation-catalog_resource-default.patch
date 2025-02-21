@@ -5,7 +5,7 @@ Subject: [PATCH] Remove lakeformation catalog_resource default
 
 
 diff --git a/internal/service/lakeformation/permissions.go b/internal/service/lakeformation/permissions.go
-index c03bd97d82e..9c8ecb2c882 100644
+index c03bd97d82..9c8ecb2c88 100644
 --- a/internal/service/lakeformation/permissions.go
 +++ b/internal/service/lakeformation/permissions.go
 @@ -44,8 +44,8 @@ func ResourcePermissions() *schema.Resource {

@@ -5,7 +5,7 @@ Subject: [PATCH] securitylake_subscriber tags_all patch
 
 
 diff --git a/internal/service/securitylake/subscriber.go b/internal/service/securitylake/subscriber.go
-index 7390c88b582..4eb91609b59 100644
+index 7390c88b58..4eb91609b5 100644
 --- a/internal/service/securitylake/subscriber.go
 +++ b/internal/service/securitylake/subscriber.go
 @@ -98,7 +98,7 @@ func (r *subscriberResource) Schema(ctx context.Context, request resource.Schema

@@ -1,0 +1,45 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: guineveresaenger <guinevere@pulumi.com>
+Date: Fri, 21 Feb 2025 10:44:05 -0800
+Subject: [PATCH] Remove Computed Only for Cloudwatch and Qbusiness
+
+
+diff --git a/internal/service/cloudwatch/contributor_insight_rule.go b/internal/service/cloudwatch/contributor_insight_rule.go
+index 6b252e51ee..0892500818 100644
+--- a/internal/service/cloudwatch/contributor_insight_rule.go
++++ b/internal/service/cloudwatch/contributor_insight_rule.go
+@@ -66,7 +66,7 @@ func (r *resourceContributorInsightRule) Schema(ctx context.Context, req resourc
+ 				CustomType: fwtypes.StringEnumType[stateValue](),
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 	}
+ }
+diff --git a/internal/service/cloudwatch/contributor_managed_insight_rule.go b/internal/service/cloudwatch/contributor_managed_insight_rule.go
+index b876ce0b5a..aee3d99f50 100644
+--- a/internal/service/cloudwatch/contributor_managed_insight_rule.go
++++ b/internal/service/cloudwatch/contributor_managed_insight_rule.go
+@@ -85,7 +85,7 @@ func (r *resourceContributorManagedInsightRule) Schema(ctx context.Context, req
+ 				Computed: true,
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 	}
+ }
+diff --git a/internal/service/qbusiness/application.go b/internal/service/qbusiness/application.go
+index 25de3c626a..51b04845bd 100644
+--- a/internal/service/qbusiness/application.go
++++ b/internal/service/qbusiness/application.go
+@@ -93,7 +93,7 @@ func (r *resourceApplication) Schema(ctx context.Context, req resource.SchemaReq
+ 				Required:    true,
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"attachments_configuration": schema.ListNestedBlock{
