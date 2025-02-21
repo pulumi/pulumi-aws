@@ -197,9 +197,17 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         return this.type;
     }
 
+    /**
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -506,11 +514,23 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
             return type(Either.ofRight(type));
         }
 
+        /**
+         * @param value Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

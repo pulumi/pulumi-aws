@@ -480,7 +480,8 @@ type Cluster struct {
 	// Endpoint for your Kubernetes API server.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
-	Identities              ClusterIdentityArrayOutput           `pulumi:"identities"`
+	Identities ClusterIdentityArrayOutput `pulumi:"identities"`
+	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigOutput `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -573,7 +574,8 @@ type clusterState struct {
 	// Endpoint for your Kubernetes API server.
 	Endpoint *string `pulumi:"endpoint"`
 	// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
-	Identities              []ClusterIdentity               `pulumi:"identities"`
+	Identities []ClusterIdentity `pulumi:"identities"`
+	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name *string `pulumi:"name"`
@@ -631,7 +633,8 @@ type ClusterState struct {
 	// Endpoint for your Kubernetes API server.
 	Endpoint pulumi.StringPtrInput
 	// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
-	Identities              ClusterIdentityArrayInput
+	Identities ClusterIdentityArrayInput
+	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name pulumi.StringPtrInput
@@ -680,7 +683,8 @@ type clusterArgs struct {
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Detailed below.
-	EncryptionConfig        *ClusterEncryptionConfig        `pulumi:"encryptionConfig"`
+	EncryptionConfig *ClusterEncryptionConfig `pulumi:"encryptionConfig"`
+	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name *string `pulumi:"name"`
@@ -718,7 +722,8 @@ type ClusterArgs struct {
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
 	// Configuration block with encryption configuration for the cluster. Detailed below.
-	EncryptionConfig        ClusterEncryptionConfigPtrInput
+	EncryptionConfig ClusterEncryptionConfigPtrInput
+	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name pulumi.StringPtrInput
@@ -894,6 +899,7 @@ func (o ClusterOutput) Identities() ClusterIdentityArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterIdentityArrayOutput { return v.Identities }).(ClusterIdentityArrayOutput)
 }
 
+// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 func (o ClusterOutput) KubernetesNetworkConfig() ClusterKubernetesNetworkConfigOutput {
 	return o.ApplyT(func(v *Cluster) ClusterKubernetesNetworkConfigOutput { return v.KubernetesNetworkConfig }).(ClusterKubernetesNetworkConfigOutput)
 }

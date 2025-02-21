@@ -146,6 +146,9 @@ export class Parameter extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+     */
     public readonly value!: pulumi.Output<string>;
     /**
      * Version of the parameter.
@@ -264,6 +267,9 @@ export interface ParameterState {
      * The following arguments are optional:
      */
     type?: pulumi.Input<string | enums.ssm.ParameterType>;
+    /**
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+     */
     value?: pulumi.Input<string>;
     /**
      * Version of the parameter.
@@ -323,5 +329,8 @@ export interface ParameterArgs {
      * The following arguments are optional:
      */
     type: pulumi.Input<string | enums.ssm.ParameterType>;
+    /**
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+     */
     value?: pulumi.Input<string>;
 }

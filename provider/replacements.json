@@ -768,7 +768,7 @@
     },
     {
       "old": "* `kubernetes_network_config` - (Optional) Configuration block with kubernetes network configuration for the cluster. [Detailed](#kubernetes_network_config) below. If removed, Terraform will only perform drift detection if a configuration value is provided.\n",
-      "new": "* `kubernetes_network_config` - (Optional) Configuration block with kubernetes network configuration for the cluster. [Detailed](#kubernetes_network_config) below. If removed, TODO will only perform drift detection if a configuration value is provided.\n"
+      "new": "* `kubernetes_network_config` - (Optional) Configuration block with kubernetes network configuration for the cluster. [Detailed](#kubernetes_network_config) below. If removed, the provider will only perform drift detection if a configuration value is provided.\n"
     }
   ],
   "eks_cluster_auth.html.markdown": [
@@ -2272,11 +2272,11 @@
     },
     {
       "old": "* `value` - (Optional, exactly one of `value`, `value_wo` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.\n",
-      "new": "* `value` - (Optional, exactly one of `value`, `value_wo` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. In TODO CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the TODO v0.15 Upgrade Guide.\n"
+      "new": "* `value` - (Optional, exactly one of `value`, `value_wo` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type\n"
     },
     {
       "old": "* `value_wo` - (Optional, Write-Only, exactly one of `value`, `value_wo` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.\n",
-      "new": "* `value_wo` - (Optional, Write-Only, exactly one of `value`, `value_wo` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument. In TODO CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the TODO v0.15 Upgrade Guide.\n"
+      "new": "* `value_wo` - (Optional, Write-Only, exactly one of `value`, `value_wo` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.\n"
     }
   ],
   "ssmcontacts_contact.html.markdown": [

@@ -111,9 +111,17 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.encryptionConfig);
     }
 
+    /**
+     * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+     * 
+     */
     @Import(name="kubernetesNetworkConfig")
     private @Nullable Output<ClusterKubernetesNetworkConfigArgs> kubernetesNetworkConfig;
 
+    /**
+     * @return Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+     * 
+     */
     public Optional<Output<ClusterKubernetesNetworkConfigArgs>> kubernetesNetworkConfig() {
         return Optional.ofNullable(this.kubernetesNetworkConfig);
     }
@@ -440,11 +448,23 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
             return encryptionConfig(Output.of(encryptionConfig));
         }
 
+        /**
+         * @param kubernetesNetworkConfig Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kubernetesNetworkConfig(@Nullable Output<ClusterKubernetesNetworkConfigArgs> kubernetesNetworkConfig) {
             $.kubernetesNetworkConfig = kubernetesNetworkConfig;
             return this;
         }
 
+        /**
+         * @param kubernetesNetworkConfig Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kubernetesNetworkConfig(ClusterKubernetesNetworkConfigArgs kubernetesNetworkConfig) {
             return kubernetesNetworkConfig(Output.of(kubernetesNetworkConfig));
         }

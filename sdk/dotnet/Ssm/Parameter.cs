@@ -160,6 +160,9 @@ namespace Pulumi.Aws.Ssm
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -295,6 +298,10 @@ namespace Pulumi.Aws.Ssm
 
         [Input("value")]
         private Input<string>? _value;
+
+        /// <summary>
+        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+        /// </summary>
         public Input<string>? Value
         {
             get => _value;
@@ -402,6 +409,10 @@ namespace Pulumi.Aws.Ssm
 
         [Input("value")]
         private Input<string>? _value;
+
+        /// <summary>
+        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+        /// </summary>
         public Input<string>? Value
         {
             get => _value;

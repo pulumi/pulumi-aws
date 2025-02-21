@@ -307,9 +307,17 @@ public class Parameter extends com.pulumi.resources.CustomResource {
     public Output<String> type() {
         return this.type;
     }
+    /**
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+     * 
+     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
+    /**
+     * @return Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }

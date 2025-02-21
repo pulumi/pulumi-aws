@@ -633,9 +633,17 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<List<ClusterIdentity>> identities() {
         return this.identities;
     }
+    /**
+     * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+     * 
+     */
     @Export(name="kubernetesNetworkConfig", refs={ClusterKubernetesNetworkConfig.class}, tree="[0]")
     private Output<ClusterKubernetesNetworkConfig> kubernetesNetworkConfig;
 
+    /**
+     * @return Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+     * 
+     */
     public Output<ClusterKubernetesNetworkConfig> kubernetesNetworkConfig() {
         return this.kubernetesNetworkConfig;
     }

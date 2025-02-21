@@ -513,6 +513,9 @@ namespace Pulumi.Aws.Eks
         [Output("identities")]
         public Output<ImmutableArray<Outputs.ClusterIdentity>> Identities { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Output("kubernetesNetworkConfig")]
         public Output<Outputs.ClusterKubernetesNetworkConfig> KubernetesNetworkConfig { get; private set; } = null!;
 
@@ -686,6 +689,9 @@ namespace Pulumi.Aws.Eks
         [Input("encryptionConfig")]
         public Input<Inputs.ClusterEncryptionConfigArgs>? EncryptionConfig { get; set; }
 
+        /// <summary>
+        /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("kubernetesNetworkConfig")]
         public Input<Inputs.ClusterKubernetesNetworkConfigArgs>? KubernetesNetworkConfig { get; set; }
 
@@ -859,6 +865,9 @@ namespace Pulumi.Aws.Eks
             set => _identities = value;
         }
 
+        /// <summary>
+        /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("kubernetesNetworkConfig")]
         public Input<Inputs.ClusterKubernetesNetworkConfigGetArgs>? KubernetesNetworkConfig { get; set; }
 
