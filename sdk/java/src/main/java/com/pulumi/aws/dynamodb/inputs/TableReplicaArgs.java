@@ -33,14 +33,20 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+     * ARN of the CMK that should be used for the AWS KMS encryption.
+     * This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+     * **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+     * **Note:** Changing this value will recreate the replica.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+     * @return ARN of the CMK that should be used for the AWS KMS encryption.
+     * This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+     * **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+     * **Note:** Changing this value will recreate the replica.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -63,14 +69,24 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+     * Whether to propagate the global table&#39;s tags to a replica.
+     * Default is `false`.
+     * Changes to tags only move in one direction: from global (source) to replica.
+     * Tag drift on a replica will not trigger an update.
+     * Tag changes on the global table are propagated to replicas.
+     * Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
      * 
      */
     @Import(name="propagateTags")
     private @Nullable Output<Boolean> propagateTags;
 
     /**
-     * @return Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+     * @return Whether to propagate the global table&#39;s tags to a replica.
+     * Default is `false`.
+     * Changes to tags only move in one direction: from global (source) to replica.
+     * Tag drift on a replica will not trigger an update.
+     * Tag changes on the global table are propagated to replicas.
+     * Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
      * 
      */
     public Optional<Output<Boolean>> propagateTags() {
@@ -174,7 +190,10 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption.
+         * This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+         * **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+         * **Note:** Changing this value will recreate the replica.
          * 
          * @return builder
          * 
@@ -185,7 +204,10 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption.
+         * This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+         * **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+         * **Note:** Changing this value will recreate the replica.
          * 
          * @return builder
          * 
@@ -216,7 +238,12 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param propagateTags Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+         * @param propagateTags Whether to propagate the global table&#39;s tags to a replica.
+         * Default is `false`.
+         * Changes to tags only move in one direction: from global (source) to replica.
+         * Tag drift on a replica will not trigger an update.
+         * Tag changes on the global table are propagated to replicas.
+         * Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
          * 
          * @return builder
          * 
@@ -227,7 +254,12 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param propagateTags Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+         * @param propagateTags Whether to propagate the global table&#39;s tags to a replica.
+         * Default is `false`.
+         * Changes to tags only move in one direction: from global (source) to replica.
+         * Tag drift on a replica will not trigger an update.
+         * Tag changes on the global table are propagated to replicas.
+         * Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
          * 
          * @return builder
          * 

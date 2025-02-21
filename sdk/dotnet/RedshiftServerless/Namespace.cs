@@ -41,6 +41,9 @@ namespace Pulumi.Aws.RedshiftServerless
     [AwsResourceType("aws:redshiftserverless/namespace:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+        /// </summary>
         [Output("adminPasswordSecretArn")]
         public Output<string> AdminPasswordSecretArn { get; private set; } = null!;
 
@@ -52,7 +55,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
-        /// Conflicts with `manage_admin_password`.
+        /// Conflicts with `manage_admin_password` and `admin_user_password_wo`.
         /// </summary>
         [Output("adminUserPassword")]
         public Output<string?> AdminUserPassword { get; private set; } = null!;
@@ -101,7 +104,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// Whether to use AWS SecretManager to manage namespace's admin credentials.
-        /// Conflicts with `admin_user_password`.
+        /// Conflicts with `admin_user_password` and `admin_user_password_wo`.
         /// </summary>
         [Output("manageAdminPassword")]
         public Output<bool?> ManageAdminPassword { get; private set; } = null!;
@@ -192,7 +195,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
-        /// Conflicts with `manage_admin_password`.
+        /// Conflicts with `manage_admin_password` and `admin_user_password_wo`.
         /// </summary>
         public Input<string>? AdminUserPassword
         {
@@ -264,7 +267,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// Whether to use AWS SecretManager to manage namespace's admin credentials.
-        /// Conflicts with `admin_user_password`.
+        /// Conflicts with `admin_user_password` and `admin_user_password_wo`.
         /// </summary>
         [Input("manageAdminPassword")]
         public Input<bool>? ManageAdminPassword { get; set; }
@@ -295,6 +298,9 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class NamespaceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+        /// </summary>
         [Input("adminPasswordSecretArn")]
         public Input<string>? AdminPasswordSecretArn { get; set; }
 
@@ -309,7 +315,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// The password of the administrator for the first database created in the namespace.
-        /// Conflicts with `manage_admin_password`.
+        /// Conflicts with `manage_admin_password` and `admin_user_password_wo`.
         /// </summary>
         public Input<string>? AdminUserPassword
         {
@@ -387,7 +393,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// Whether to use AWS SecretManager to manage namespace's admin credentials.
-        /// Conflicts with `admin_user_password`.
+        /// Conflicts with `admin_user_password` and `admin_user_password_wo`.
         /// </summary>
         [Input("manageAdminPassword")]
         public Input<bool>? ManageAdminPassword { get; set; }

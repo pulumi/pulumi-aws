@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

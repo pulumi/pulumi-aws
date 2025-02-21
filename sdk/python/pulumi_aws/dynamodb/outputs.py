@@ -18,6 +18,7 @@ from . import outputs
 __all__ = [
     'GlobalTableReplica',
     'TableAttribute',
+    'TableExportIncrementalExportSpecification',
     'TableGlobalSecondaryIndex',
     'TableGlobalSecondaryIndexOnDemandThroughput',
     'TableImportTable',
@@ -32,7 +33,9 @@ __all__ = [
     'TableTtl',
     'GetTableAttributeResult',
     'GetTableGlobalSecondaryIndexResult',
+    'GetTableGlobalSecondaryIndexOnDemandThroughputResult',
     'GetTableLocalSecondaryIndexResult',
+    'GetTableOnDemandThroughputResult',
     'GetTablePointInTimeRecoveryResult',
     'GetTableReplicaResult',
     'GetTableServerSideEncryptionResult',
@@ -101,6 +104,56 @@ class TableAttribute(dict):
         Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class TableExportIncrementalExportSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exportFromTime":
+            suggest = "export_from_time"
+        elif key == "exportToTime":
+            suggest = "export_to_time"
+        elif key == "exportViewType":
+            suggest = "export_view_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableExportIncrementalExportSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableExportIncrementalExportSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableExportIncrementalExportSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 export_from_time: Optional[str] = None,
+                 export_to_time: Optional[str] = None,
+                 export_view_type: Optional[str] = None):
+        if export_from_time is not None:
+            pulumi.set(__self__, "export_from_time", export_from_time)
+        if export_to_time is not None:
+            pulumi.set(__self__, "export_to_time", export_to_time)
+        if export_view_type is not None:
+            pulumi.set(__self__, "export_view_type", export_view_type)
+
+    @property
+    @pulumi.getter(name="exportFromTime")
+    def export_from_time(self) -> Optional[str]:
+        return pulumi.get(self, "export_from_time")
+
+    @property
+    @pulumi.getter(name="exportToTime")
+    def export_to_time(self) -> Optional[str]:
+        return pulumi.get(self, "export_to_time")
+
+    @property
+    @pulumi.getter(name="exportViewType")
+    def export_view_type(self) -> Optional[str]:
+        return pulumi.get(self, "export_view_type")
 
 
 @pulumi.output_type
@@ -677,9 +730,17 @@ class TableReplica(dict):
         """
         :param str region_name: Region name of the replica.
         :param str arn: ARN of the table
-        :param str kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+        :param str kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption.
+               This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+               **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+               **Note:** Changing this value will recreate the replica.
         :param bool point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
-        :param bool propagate_tags: Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+        :param bool propagate_tags: Whether to propagate the global table's tags to a replica.
+               Default is `false`.
+               Changes to tags only move in one direction: from global (source) to replica.
+               Tag drift on a replica will not trigger an update.
+               Tag changes on the global table are propagated to replicas.
+               Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
         :param str stream_arn: ARN of the Table Stream. Only available when `stream_enabled = true`
         :param str stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         """
@@ -717,7 +778,10 @@ class TableReplica(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
         """
-        ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+        ARN of the CMK that should be used for the AWS KMS encryption.
+        This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+        **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+        **Note:** Changing this value will recreate the replica.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -733,7 +797,12 @@ class TableReplica(dict):
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[bool]:
         """
-        Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+        Whether to propagate the global table's tags to a replica.
+        Default is `false`.
+        Changes to tags only move in one direction: from global (source) to replica.
+        Tag drift on a replica will not trigger an update.
+        Tag changes on the global table are propagated to replicas.
+        Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
         """
         return pulumi.get(self, "propagate_tags")
 
@@ -884,6 +953,7 @@ class GetTableGlobalSecondaryIndexResult(dict):
                  hash_key: str,
                  name: str,
                  non_key_attributes: Sequence[str],
+                 on_demand_throughputs: Sequence['outputs.GetTableGlobalSecondaryIndexOnDemandThroughputResult'],
                  projection_type: str,
                  range_key: str,
                  read_capacity: int,
@@ -894,6 +964,7 @@ class GetTableGlobalSecondaryIndexResult(dict):
         pulumi.set(__self__, "hash_key", hash_key)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "non_key_attributes", non_key_attributes)
+        pulumi.set(__self__, "on_demand_throughputs", on_demand_throughputs)
         pulumi.set(__self__, "projection_type", projection_type)
         pulumi.set(__self__, "range_key", range_key)
         pulumi.set(__self__, "read_capacity", read_capacity)
@@ -918,6 +989,11 @@ class GetTableGlobalSecondaryIndexResult(dict):
         return pulumi.get(self, "non_key_attributes")
 
     @property
+    @pulumi.getter(name="onDemandThroughputs")
+    def on_demand_throughputs(self) -> Sequence['outputs.GetTableGlobalSecondaryIndexOnDemandThroughputResult']:
+        return pulumi.get(self, "on_demand_throughputs")
+
+    @property
     @pulumi.getter(name="projectionType")
     def projection_type(self) -> str:
         return pulumi.get(self, "projection_type")
@@ -936,6 +1012,25 @@ class GetTableGlobalSecondaryIndexResult(dict):
     @pulumi.getter(name="writeCapacity")
     def write_capacity(self) -> int:
         return pulumi.get(self, "write_capacity")
+
+
+@pulumi.output_type
+class GetTableGlobalSecondaryIndexOnDemandThroughputResult(dict):
+    def __init__(__self__, *,
+                 max_read_request_units: int,
+                 max_write_request_units: int):
+        pulumi.set(__self__, "max_read_request_units", max_read_request_units)
+        pulumi.set(__self__, "max_write_request_units", max_write_request_units)
+
+    @property
+    @pulumi.getter(name="maxReadRequestUnits")
+    def max_read_request_units(self) -> int:
+        return pulumi.get(self, "max_read_request_units")
+
+    @property
+    @pulumi.getter(name="maxWriteRequestUnits")
+    def max_write_request_units(self) -> int:
+        return pulumi.get(self, "max_write_request_units")
 
 
 @pulumi.output_type
@@ -975,6 +1070,25 @@ class GetTableLocalSecondaryIndexResult(dict):
     @pulumi.getter(name="rangeKey")
     def range_key(self) -> str:
         return pulumi.get(self, "range_key")
+
+
+@pulumi.output_type
+class GetTableOnDemandThroughputResult(dict):
+    def __init__(__self__, *,
+                 max_read_request_units: int,
+                 max_write_request_units: int):
+        pulumi.set(__self__, "max_read_request_units", max_read_request_units)
+        pulumi.set(__self__, "max_write_request_units", max_write_request_units)
+
+    @property
+    @pulumi.getter(name="maxReadRequestUnits")
+    def max_read_request_units(self) -> int:
+        return pulumi.get(self, "max_read_request_units")
+
+    @property
+    @pulumi.getter(name="maxWriteRequestUnits")
+    def max_write_request_units(self) -> int:
+        return pulumi.get(self, "max_write_request_units")
 
 
 @pulumi.output_type

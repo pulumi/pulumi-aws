@@ -24,6 +24,21 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
     public static final PartitionStorageDescriptorArgs Empty = new PartitionStorageDescriptorArgs();
 
     /**
+     * List of locations that point to the path where a Delta table is located.
+     * 
+     */
+    @Import(name="additionalLocations")
+    private @Nullable Output<List<String>> additionalLocations;
+
+    /**
+     * @return List of locations that point to the path where a Delta table is located.
+     * 
+     */
+    public Optional<Output<List<String>>> additionalLocations() {
+        return Optional.ofNullable(this.additionalLocations);
+    }
+
+    /**
      * A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
@@ -206,6 +221,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
     private PartitionStorageDescriptorArgs() {}
 
     private PartitionStorageDescriptorArgs(PartitionStorageDescriptorArgs $) {
+        this.additionalLocations = $.additionalLocations;
         this.bucketColumns = $.bucketColumns;
         this.columns = $.columns;
         this.compressed = $.compressed;
@@ -236,6 +252,37 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
 
         public Builder(PartitionStorageDescriptorArgs defaults) {
             $ = new PartitionStorageDescriptorArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param additionalLocations List of locations that point to the path where a Delta table is located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalLocations(@Nullable Output<List<String>> additionalLocations) {
+            $.additionalLocations = additionalLocations;
+            return this;
+        }
+
+        /**
+         * @param additionalLocations List of locations that point to the path where a Delta table is located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalLocations(List<String> additionalLocations) {
+            return additionalLocations(Output.of(additionalLocations));
+        }
+
+        /**
+         * @param additionalLocations List of locations that point to the path where a Delta table is located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalLocations(String... additionalLocations) {
+            return additionalLocations(List.of(additionalLocations));
         }
 
         /**

@@ -19,14 +19,14 @@ public final class ClusterVpcConfigArgs extends com.pulumi.resources.ResourceArg
     public static final ClusterVpcConfigArgs Empty = new ClusterVpcConfigArgs();
 
     /**
-     * Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+     * Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
      * 
      */
     @Import(name="clusterSecurityGroupId")
     private @Nullable Output<String> clusterSecurityGroupId;
 
     /**
-     * @return Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+     * @return Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
      * 
      */
     public Optional<Output<String>> clusterSecurityGroupId() {
@@ -154,7 +154,7 @@ public final class ClusterVpcConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param clusterSecurityGroupId Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+         * @param clusterSecurityGroupId Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ClusterVpcConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param clusterSecurityGroupId Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+         * @param clusterSecurityGroupId Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
          * 
          * @return builder
          * 

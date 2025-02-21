@@ -17,14 +17,14 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
     public static final ResolverRuleTargetIpArgs Empty = new ResolverRuleTargetIpArgs();
 
     /**
-     * One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+     * One IPv4 address that you want to forward DNS queries to.
      * 
      */
     @Import(name="ip")
     private @Nullable Output<String> ip;
 
     /**
-     * @return One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+     * @return One IPv4 address that you want to forward DNS queries to.
      * 
      */
     public Optional<Output<String>> ip() {
@@ -104,7 +104,7 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ip One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+         * @param ip One IPv4 address that you want to forward DNS queries to.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ip One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+         * @param ip One IPv4 address that you want to forward DNS queries to.
          * 
          * @return builder
          * 

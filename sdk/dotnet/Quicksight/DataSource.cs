@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Example Usage
     /// 
+    /// ### S3 Data Source
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,6 +37,149 @@ namespace Pulumi.Aws.Quicksight
     ///                     Bucket = "my-bucket",
     ///                     Key = "path/to/manifest.json",
     ///                 },
+    ///             },
+    ///         },
+    ///         Type = "S3",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### S3 Data Source with IAM Role ARN
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var example = new Aws.S3.BucketV2("example");
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
+    ///     {
+    ///         Bucket = example.Bucket,
+    ///         Key = "manifest.json",
+    ///         Content = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["fileLocations"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["URIPrefixes"] = new[]
+    ///                     {
+    ///                         Output.Tuple(example.Id, currentGetRegion, currentGetPartition).Apply(values =&gt;
+    ///                         {
+    ///                             var id = values.Item1;
+    ///                             var currentGetRegion = values.Item2;
+    ///                             var currentGetPartition = values.Item3;
+    ///                             return $"https://{id}.s3-{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}.{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
+    ///                         }),
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ["globalUploadSettings"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["format"] = "CSV",
+    ///                 ["delimiter"] = ",",
+    ///                 ["textqualifier"] = "\"",
+    ///                 ["containsHeader"] = true,
+    ///             },
+    ///         })),
+    ///     });
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "quicksight.amazonaws.com",
+    ///                     },
+    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["StringEquals"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["aws:SourceAccount"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var examplePolicy = new Aws.Iam.Policy("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Description = "Policy to allow QuickSight access to S3 bucket",
+    ///         PolicyDocument = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "s3:GetObject",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = Output.Tuple(example.Arn, exampleBucketObjectv2.Key).Apply(values =&gt;
+    ///                     {
+    ///                         var arn = values.Item1;
+    ///                         var key = values.Item2;
+    ///                         return $"{arn}/{key}";
+    ///                     }),
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "s3:ListBucket",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = example.Arn,
+    ///                 },
+    ///             },
+    ///         })),
+    ///     });
+    /// 
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
+    ///     {
+    ///         PolicyArn = examplePolicy.Arn,
+    ///         Role = exampleRole.Name,
+    ///     });
+    /// 
+    ///     var exampleDataSource = new Aws.Quicksight.DataSource("example", new()
+    ///     {
+    ///         DataSourceId = "example-id",
+    ///         Name = "manifest in S3",
+    ///         Parameters = new Aws.Quicksight.Inputs.DataSourceParametersArgs
+    ///         {
+    ///             S3 = new Aws.Quicksight.Inputs.DataSourceParametersS3Args
+    ///             {
+    ///                 ManifestFileLocation = new Aws.Quicksight.Inputs.DataSourceParametersS3ManifestFileLocationArgs
+    ///                 {
+    ///                     Bucket = example.Arn,
+    ///                     Key = exampleBucketObjectv2.Key,
+    ///                 },
+    ///                 RoleArn = exampleRole.Arn,
     ///             },
     ///         },
     ///         Type = "S3",

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var alb = new VpcOrigin("alb", VpcOriginArgs.builder()
  *             .vpcOriginEndpointConfig(VpcOriginVpcOriginEndpointConfigArgs.builder()
- *                 .name("Example VPC Origin")
+ *                 .name("example-vpc-origin")
  *                 .arn(this_.arn())
  *                 .httpPort(8080)
  *                 .httpsPort(8443)

@@ -20,6 +20,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PartitionStorageDescriptor {
     /**
+     * @return List of locations that point to the path where a Delta table is located.
+     * 
+     */
+    private @Nullable List<String> additionalLocations;
+    /**
      * @return A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
@@ -81,6 +86,13 @@ public final class PartitionStorageDescriptor {
     private @Nullable Boolean storedAsSubDirectories;
 
     private PartitionStorageDescriptor() {}
+    /**
+     * @return List of locations that point to the path where a Delta table is located.
+     * 
+     */
+    public List<String> additionalLocations() {
+        return this.additionalLocations == null ? List.of() : this.additionalLocations;
+    }
     /**
      * @return A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
@@ -175,6 +187,7 @@ public final class PartitionStorageDescriptor {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> additionalLocations;
         private @Nullable List<String> bucketColumns;
         private @Nullable List<PartitionStorageDescriptorColumn> columns;
         private @Nullable Boolean compressed;
@@ -190,6 +203,7 @@ public final class PartitionStorageDescriptor {
         public Builder() {}
         public Builder(PartitionStorageDescriptor defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.additionalLocations = defaults.additionalLocations;
     	      this.bucketColumns = defaults.bucketColumns;
     	      this.columns = defaults.columns;
     	      this.compressed = defaults.compressed;
@@ -204,6 +218,15 @@ public final class PartitionStorageDescriptor {
     	      this.storedAsSubDirectories = defaults.storedAsSubDirectories;
         }
 
+        @CustomType.Setter
+        public Builder additionalLocations(@Nullable List<String> additionalLocations) {
+
+            this.additionalLocations = additionalLocations;
+            return this;
+        }
+        public Builder additionalLocations(String... additionalLocations) {
+            return additionalLocations(List.of(additionalLocations));
+        }
         @CustomType.Setter
         public Builder bucketColumns(@Nullable List<String> bucketColumns) {
 
@@ -287,6 +310,7 @@ public final class PartitionStorageDescriptor {
         }
         public PartitionStorageDescriptor build() {
             final var _resultValue = new PartitionStorageDescriptor();
+            _resultValue.additionalLocations = additionalLocations;
             _resultValue.bucketColumns = bucketColumns;
             _resultValue.columns = columns;
             _resultValue.compressed = compressed;

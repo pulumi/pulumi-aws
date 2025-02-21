@@ -85,7 +85,7 @@ export class SecretVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` is not set. Needs to be encoded to base64.
+     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
      */
     public readonly secretBinary!: pulumi.Output<string | undefined>;
     /**
@@ -93,7 +93,7 @@ export class SecretVersion extends pulumi.CustomResource {
      */
     public readonly secretId!: pulumi.Output<string>;
     /**
-     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` is not set.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
      */
     public readonly secretString!: pulumi.Output<string | undefined>;
     /**
@@ -154,7 +154,7 @@ export interface SecretVersionState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` is not set. Needs to be encoded to base64.
+     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
      */
     secretBinary?: pulumi.Input<string>;
     /**
@@ -162,7 +162,7 @@ export interface SecretVersionState {
      */
     secretId?: pulumi.Input<string>;
     /**
-     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` is not set.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
      */
     secretString?: pulumi.Input<string>;
     /**
@@ -182,7 +182,7 @@ export interface SecretVersionState {
  */
 export interface SecretVersionArgs {
     /**
-     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` is not set. Needs to be encoded to base64.
+     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
      */
     secretBinary?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface SecretVersionArgs {
      */
     secretId: pulumi.Input<string>;
     /**
-     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` is not set.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
      */
     secretString?: pulumi.Input<string>;
     /**

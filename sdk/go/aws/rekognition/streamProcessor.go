@@ -332,6 +332,8 @@ import (
 type StreamProcessor struct {
 	pulumi.CustomResourceState
 
+	// ARN of the Stream Processor.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// See `dataSharingPreference`.
 	DataSharingPreference StreamProcessorDataSharingPreferencePtrOutput `pulumi:"dataSharingPreference"`
 	// Input video stream. See `input`.
@@ -352,7 +354,10 @@ type StreamProcessor struct {
 	//
 	// The following arguments are optional:
 	Settings StreamProcessorSettingsPtrOutput `pulumi:"settings"`
-	// ARN of the Stream Processor.
+	// (**Deprecated**) ARN of the Stream Processor.
+	// Use `arn` instead.
+	//
+	// Deprecated: Use 'arn' instead. This attribute will be removed in a future version of the provider.
 	StreamProcessorArn pulumi.StringOutput `pulumi:"streamProcessorArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -396,6 +401,8 @@ func GetStreamProcessor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamProcessor resources.
 type streamProcessorState struct {
+	// ARN of the Stream Processor.
+	Arn *string `pulumi:"arn"`
 	// See `dataSharingPreference`.
 	DataSharingPreference *StreamProcessorDataSharingPreference `pulumi:"dataSharingPreference"`
 	// Input video stream. See `input`.
@@ -416,7 +423,10 @@ type streamProcessorState struct {
 	//
 	// The following arguments are optional:
 	Settings *StreamProcessorSettings `pulumi:"settings"`
-	// ARN of the Stream Processor.
+	// (**Deprecated**) ARN of the Stream Processor.
+	// Use `arn` instead.
+	//
+	// Deprecated: Use 'arn' instead. This attribute will be removed in a future version of the provider.
 	StreamProcessorArn *string `pulumi:"streamProcessorArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -428,6 +438,8 @@ type streamProcessorState struct {
 }
 
 type StreamProcessorState struct {
+	// ARN of the Stream Processor.
+	Arn pulumi.StringPtrInput
 	// See `dataSharingPreference`.
 	DataSharingPreference StreamProcessorDataSharingPreferencePtrInput
 	// Input video stream. See `input`.
@@ -448,7 +460,10 @@ type StreamProcessorState struct {
 	//
 	// The following arguments are optional:
 	Settings StreamProcessorSettingsPtrInput
-	// ARN of the Stream Processor.
+	// (**Deprecated**) ARN of the Stream Processor.
+	// Use `arn` instead.
+	//
+	// Deprecated: Use 'arn' instead. This attribute will be removed in a future version of the provider.
 	StreamProcessorArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -603,6 +618,11 @@ func (o StreamProcessorOutput) ToStreamProcessorOutputWithContext(ctx context.Co
 	return o
 }
 
+// ARN of the Stream Processor.
+func (o StreamProcessorOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamProcessor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
 // See `dataSharingPreference`.
 func (o StreamProcessorOutput) DataSharingPreference() StreamProcessorDataSharingPreferencePtrOutput {
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorDataSharingPreferencePtrOutput { return v.DataSharingPreference }).(StreamProcessorDataSharingPreferencePtrOutput)
@@ -650,7 +670,10 @@ func (o StreamProcessorOutput) Settings() StreamProcessorSettingsPtrOutput {
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorSettingsPtrOutput { return v.Settings }).(StreamProcessorSettingsPtrOutput)
 }
 
-// ARN of the Stream Processor.
+// (**Deprecated**) ARN of the Stream Processor.
+// Use `arn` instead.
+//
+// Deprecated: Use 'arn' instead. This attribute will be removed in a future version of the provider.
 func (o StreamProcessorOutput) StreamProcessorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamProcessor) pulumi.StringOutput { return v.StreamProcessorArn }).(pulumi.StringOutput)
 }

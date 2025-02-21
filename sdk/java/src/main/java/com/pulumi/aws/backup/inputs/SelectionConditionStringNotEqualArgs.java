@@ -15,14 +15,14 @@ public final class SelectionConditionStringNotEqualArgs extends com.pulumi.resou
     public static final SelectionConditionStringNotEqualArgs Empty = new SelectionConditionStringNotEqualArgs();
 
     /**
-     * The key in a key-value pair.
+     * Key for the filter.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The key in a key-value pair.
+     * @return Key for the filter.
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class SelectionConditionStringNotEqualArgs extends com.pulumi.resou
     }
 
     /**
-     * The value in a key-value pair.
+     * Value for the filter.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value in a key-value pair.
+     * @return Value for the filter.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class SelectionConditionStringNotEqualArgs extends com.pulumi.resou
         }
 
         /**
-         * @param key The key in a key-value pair.
+         * @param key Key for the filter.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class SelectionConditionStringNotEqualArgs extends com.pulumi.resou
         }
 
         /**
-         * @param key The key in a key-value pair.
+         * @param key Key for the filter.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class SelectionConditionStringNotEqualArgs extends com.pulumi.resou
         }
 
         /**
-         * @param value The value in a key-value pair.
+         * @param value Value for the filter.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class SelectionConditionStringNotEqualArgs extends com.pulumi.resou
         }
 
         /**
-         * @param value The value in a key-value pair.
+         * @param value Value for the filter.
          * 
          * @return builder
          * 

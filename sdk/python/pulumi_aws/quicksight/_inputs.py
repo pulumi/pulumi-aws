@@ -5481,17 +5481,25 @@ if not MYPY:
         """
         An object containing the S3 location of the S3 manifest file.
         """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        Use the `role_arn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `role_arn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
+        """
 elif False:
     DataSourceParametersS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceParametersS3Args:
     def __init__(__self__, *,
-                 manifest_file_location: pulumi.Input['DataSourceParametersS3ManifestFileLocationArgs']):
+                 manifest_file_location: pulumi.Input['DataSourceParametersS3ManifestFileLocationArgs'],
+                 role_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['DataSourceParametersS3ManifestFileLocationArgs'] manifest_file_location: An object containing the S3 location of the S3 manifest file.
+        :param pulumi.Input[str] role_arn: Use the `role_arn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `role_arn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
         """
         pulumi.set(__self__, "manifest_file_location", manifest_file_location)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="manifestFileLocation")
@@ -5504,6 +5512,18 @@ class DataSourceParametersS3Args:
     @manifest_file_location.setter
     def manifest_file_location(self, value: pulumi.Input['DataSourceParametersS3ManifestFileLocationArgs']):
         pulumi.set(self, "manifest_file_location", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use the `role_arn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `role_arn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
 
 
 if not MYPY:

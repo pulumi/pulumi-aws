@@ -184,7 +184,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
         /// </summary>
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
@@ -444,7 +444,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -693,7 +693,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
         /// </summary>
         public Input<string>? MasterPassword
         {

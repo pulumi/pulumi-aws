@@ -86,7 +86,7 @@ export class Table extends pulumi.CustomResource {
     public readonly format!: pulumi.Output<string>;
     /**
      * A single table bucket maintenance configuration block.
-     * See `maintenanceConfiguration` below
+     * See `maintenanceConfiguration` below.
      */
     public readonly maintenanceConfiguration!: pulumi.Output<outputs.s3tables.TableMaintenanceConfiguration>;
     /**
@@ -105,6 +105,7 @@ export class Table extends pulumi.CustomResource {
      * Name of the table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -220,7 +221,7 @@ export interface TableState {
     format?: pulumi.Input<string>;
     /**
      * A single table bucket maintenance configuration block.
-     * See `maintenanceConfiguration` below
+     * See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration>;
     /**
@@ -239,6 +240,7 @@ export interface TableState {
      * Name of the table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      */
     name?: pulumi.Input<string>;
     /**
@@ -283,13 +285,14 @@ export interface TableArgs {
     format: pulumi.Input<string>;
     /**
      * A single table bucket maintenance configuration block.
-     * See `maintenanceConfiguration` below
+     * See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration>;
     /**
      * Name of the table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      */
     name?: pulumi.Input<string>;
     /**

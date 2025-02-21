@@ -42,6 +42,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+        /// </summary>
         [Input("webConfiguration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationArgs>? WebConfiguration { get; set; }
 

@@ -13,41 +13,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration {
+    /**
+     * @return Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+     * 
+     */
     private @Nullable AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits crawlerLimits;
     /**
-     * @return A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+     * @return List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
      * 
      */
     private @Nullable List<String> exclusionFilters;
     /**
-     * @return A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+     * @return List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
      * 
      */
     private @Nullable List<String> inclusionFilters;
+    /**
+     * @return Scope of what is crawled for your URLs.
+     * 
+     */
     private @Nullable String scope;
+    /**
+     * @return String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+     * 
+     */
     private @Nullable String userAgent;
 
     private AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration() {}
+    /**
+     * @return Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+     * 
+     */
     public Optional<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits> crawlerLimits() {
         return Optional.ofNullable(this.crawlerLimits);
     }
     /**
-     * @return A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+     * @return List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
      * 
      */
     public List<String> exclusionFilters() {
         return this.exclusionFilters == null ? List.of() : this.exclusionFilters;
     }
     /**
-     * @return A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+     * @return List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
      * 
      */
     public List<String> inclusionFilters() {
         return this.inclusionFilters == null ? List.of() : this.inclusionFilters;
     }
+    /**
+     * @return Scope of what is crawled for your URLs.
+     * 
+     */
     public Optional<String> scope() {
         return Optional.ofNullable(this.scope);
     }
+    /**
+     * @return String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+     * 
+     */
     public Optional<String> userAgent() {
         return Optional.ofNullable(this.userAgent);
     }

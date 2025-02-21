@@ -15,7 +15,7 @@ namespace Pulumi.Aws.S3Tables.Outputs
     {
         /// <summary>
         /// Settings for snapshot management.
-        /// See `iceberg_snapshot_management.settings` below
+        /// See `iceberg_snapshot_management.settings` below.
         /// </summary>
         public readonly Outputs.TableMaintenanceConfigurationIcebergSnapshotManagementSettings Settings;
         /// <summary>

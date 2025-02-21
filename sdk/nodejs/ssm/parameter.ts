@@ -146,11 +146,6 @@ export class Parameter extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
-    /**
-     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
-     *
-     * > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-     */
     public readonly value!: pulumi.Output<string>;
     /**
      * Version of the parameter.
@@ -269,11 +264,6 @@ export interface ParameterState {
      * The following arguments are optional:
      */
     type?: pulumi.Input<string | enums.ssm.ParameterType>;
-    /**
-     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
-     *
-     * > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-     */
     value?: pulumi.Input<string>;
     /**
      * Version of the parameter.
@@ -333,10 +323,5 @@ export interface ParameterArgs {
      * The following arguments are optional:
      */
     type: pulumi.Input<string | enums.ssm.ParameterType>;
-    /**
-     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
-     *
-     * > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-     */
     value?: pulumi.Input<string>;
 }

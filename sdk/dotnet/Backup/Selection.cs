@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Backup
     public partial class Selection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of conditions that you define to assign resources to your backup plans using tags.
+        /// Condition-based filters used to specify sets of resources for a backup plan. See below for details.
         /// </summary>
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.SelectionCondition>> Conditions { get; private set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.Backup
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
 
         /// <summary>
-        /// Tag-based conditions used to specify a set of resources to assign to a backup plan.
+        /// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
         /// </summary>
         [Output("selectionTags")]
         public Output<ImmutableArray<Outputs.SelectionSelectionTag>> SelectionTags { get; private set; } = null!;
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.Backup
         private InputList<Inputs.SelectionConditionArgs>? _conditions;
 
         /// <summary>
-        /// A list of conditions that you define to assign resources to your backup plans using tags.
+        /// Condition-based filters used to specify sets of resources for a backup plan. See below for details.
         /// </summary>
         public InputList<Inputs.SelectionConditionArgs> Conditions
         {
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.Backup
         private InputList<Inputs.SelectionSelectionTagArgs>? _selectionTags;
 
         /// <summary>
-        /// Tag-based conditions used to specify a set of resources to assign to a backup plan.
+        /// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
         /// </summary>
         public InputList<Inputs.SelectionSelectionTagArgs> SelectionTags
         {
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.Backup
         private InputList<Inputs.SelectionConditionGetArgs>? _conditions;
 
         /// <summary>
-        /// A list of conditions that you define to assign resources to your backup plans using tags.
+        /// Condition-based filters used to specify sets of resources for a backup plan. See below for details.
         /// </summary>
         public InputList<Inputs.SelectionConditionGetArgs> Conditions
         {
@@ -448,7 +448,7 @@ namespace Pulumi.Aws.Backup
         private InputList<Inputs.SelectionSelectionTagGetArgs>? _selectionTags;
 
         /// <summary>
-        /// Tag-based conditions used to specify a set of resources to assign to a backup plan.
+        /// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
         /// </summary>
         public InputList<Inputs.SelectionSelectionTagGetArgs> SelectionTags
         {

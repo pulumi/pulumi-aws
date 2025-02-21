@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Detective
     ///     {
     ///         AccountId = "ACCOUNT ID",
     ///         EmailAddress = "EMAIL",
-    ///         GraphArn = primary.Id,
+    ///         GraphArn = primary.GraphArn,
     ///         Message = "Message of the invite",
     ///     });
     /// 

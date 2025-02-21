@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Backup.Outputs
     public sealed class SelectionSelectionTag
     {
         /// <summary>
-        /// The key in a key-value pair.
+        /// Key for the filter.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
+        /// An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The value in a key-value pair.
+        /// Value for the filter.
         /// </summary>
         public readonly string Value;
 

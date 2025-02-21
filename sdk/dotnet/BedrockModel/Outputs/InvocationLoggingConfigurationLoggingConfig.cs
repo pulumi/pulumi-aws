@@ -14,43 +14,50 @@ namespace Pulumi.Aws.BedrockModel.Outputs
     public sealed class InvocationLoggingConfigurationLoggingConfig
     {
         /// <summary>
-        /// CloudWatch logging configuration.
+        /// CloudWatch logging configuration. See `cloudwatch_config` Block for details.
         /// </summary>
         public readonly Outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfig? CloudwatchConfig;
         /// <summary>
-        /// Set to include embeddings data in the log delivery.
+        /// Set to include embeddings data in the log delivery. Defaults to `true`.
         /// </summary>
-        public readonly bool EmbeddingDataDeliveryEnabled;
+        public readonly bool? EmbeddingDataDeliveryEnabled;
         /// <summary>
-        /// Set to include image data in the log delivery.
+        /// Set to include image data in the log delivery. Defaults to `true`.
         /// </summary>
-        public readonly bool ImageDataDeliveryEnabled;
+        public readonly bool? ImageDataDeliveryEnabled;
         /// <summary>
-        /// S3 configuration for storing log data.
+        /// S3 configuration for storing log data. See `s3_config` Block for details.
         /// </summary>
         public readonly Outputs.InvocationLoggingConfigurationLoggingConfigS3Config? S3Config;
         /// <summary>
-        /// Set to include text data in the log delivery.
+        /// Set to include text data in the log delivery. Defaults to `true`.
         /// </summary>
-        public readonly bool TextDataDeliveryEnabled;
+        public readonly bool? TextDataDeliveryEnabled;
+        /// <summary>
+        /// Set to include text data in the log delivery. Defaults to `true`.
+        /// </summary>
+        public readonly bool? VideoDataDeliveryEnabled;
 
         [OutputConstructor]
         private InvocationLoggingConfigurationLoggingConfig(
             Outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfig? cloudwatchConfig,
 
-            bool embeddingDataDeliveryEnabled,
+            bool? embeddingDataDeliveryEnabled,
 
-            bool imageDataDeliveryEnabled,
+            bool? imageDataDeliveryEnabled,
 
             Outputs.InvocationLoggingConfigurationLoggingConfigS3Config? s3Config,
 
-            bool textDataDeliveryEnabled)
+            bool? textDataDeliveryEnabled,
+
+            bool? videoDataDeliveryEnabled)
         {
             CloudwatchConfig = cloudwatchConfig;
             EmbeddingDataDeliveryEnabled = embeddingDataDeliveryEnabled;
             ImageDataDeliveryEnabled = imageDataDeliveryEnabled;
             S3Config = s3Config;
             TextDataDeliveryEnabled = textDataDeliveryEnabled;
+            VideoDataDeliveryEnabled = videoDataDeliveryEnabled;
         }
     }
 }

@@ -7847,6 +7847,241 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricArrayOutput) Index(i pul
 	}).(MetricStreamStatisticsConfigurationIncludeMetricOutput)
 }
 
+type GetContributorManagedInsightRulesManagedRule struct {
+	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
+	//
+	// The following arguments are optional:
+	//
+	// There are no optional arguments.
+	ResourceArn string `pulumi:"resourceArn"`
+	// Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `ruleState reference` below for details.
+	RuleStates []GetContributorManagedInsightRulesManagedRuleRuleState `pulumi:"ruleStates"`
+	// Template name for the managed rule. Used to enable managed rules using `PutManagedInsightRules`.
+	TemplateName string `pulumi:"templateName"`
+}
+
+// GetContributorManagedInsightRulesManagedRuleInput is an input type that accepts GetContributorManagedInsightRulesManagedRuleArgs and GetContributorManagedInsightRulesManagedRuleOutput values.
+// You can construct a concrete instance of `GetContributorManagedInsightRulesManagedRuleInput` via:
+//
+//	GetContributorManagedInsightRulesManagedRuleArgs{...}
+type GetContributorManagedInsightRulesManagedRuleInput interface {
+	pulumi.Input
+
+	ToGetContributorManagedInsightRulesManagedRuleOutput() GetContributorManagedInsightRulesManagedRuleOutput
+	ToGetContributorManagedInsightRulesManagedRuleOutputWithContext(context.Context) GetContributorManagedInsightRulesManagedRuleOutput
+}
+
+type GetContributorManagedInsightRulesManagedRuleArgs struct {
+	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
+	//
+	// The following arguments are optional:
+	//
+	// There are no optional arguments.
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	// Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `ruleState reference` below for details.
+	RuleStates GetContributorManagedInsightRulesManagedRuleRuleStateArrayInput `pulumi:"ruleStates"`
+	// Template name for the managed rule. Used to enable managed rules using `PutManagedInsightRules`.
+	TemplateName pulumi.StringInput `pulumi:"templateName"`
+}
+
+func (GetContributorManagedInsightRulesManagedRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContributorManagedInsightRulesManagedRule)(nil)).Elem()
+}
+
+func (i GetContributorManagedInsightRulesManagedRuleArgs) ToGetContributorManagedInsightRulesManagedRuleOutput() GetContributorManagedInsightRulesManagedRuleOutput {
+	return i.ToGetContributorManagedInsightRulesManagedRuleOutputWithContext(context.Background())
+}
+
+func (i GetContributorManagedInsightRulesManagedRuleArgs) ToGetContributorManagedInsightRulesManagedRuleOutputWithContext(ctx context.Context) GetContributorManagedInsightRulesManagedRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContributorManagedInsightRulesManagedRuleOutput)
+}
+
+// GetContributorManagedInsightRulesManagedRuleArrayInput is an input type that accepts GetContributorManagedInsightRulesManagedRuleArray and GetContributorManagedInsightRulesManagedRuleArrayOutput values.
+// You can construct a concrete instance of `GetContributorManagedInsightRulesManagedRuleArrayInput` via:
+//
+//	GetContributorManagedInsightRulesManagedRuleArray{ GetContributorManagedInsightRulesManagedRuleArgs{...} }
+type GetContributorManagedInsightRulesManagedRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetContributorManagedInsightRulesManagedRuleArrayOutput() GetContributorManagedInsightRulesManagedRuleArrayOutput
+	ToGetContributorManagedInsightRulesManagedRuleArrayOutputWithContext(context.Context) GetContributorManagedInsightRulesManagedRuleArrayOutput
+}
+
+type GetContributorManagedInsightRulesManagedRuleArray []GetContributorManagedInsightRulesManagedRuleInput
+
+func (GetContributorManagedInsightRulesManagedRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContributorManagedInsightRulesManagedRule)(nil)).Elem()
+}
+
+func (i GetContributorManagedInsightRulesManagedRuleArray) ToGetContributorManagedInsightRulesManagedRuleArrayOutput() GetContributorManagedInsightRulesManagedRuleArrayOutput {
+	return i.ToGetContributorManagedInsightRulesManagedRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetContributorManagedInsightRulesManagedRuleArray) ToGetContributorManagedInsightRulesManagedRuleArrayOutputWithContext(ctx context.Context) GetContributorManagedInsightRulesManagedRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContributorManagedInsightRulesManagedRuleArrayOutput)
+}
+
+type GetContributorManagedInsightRulesManagedRuleOutput struct{ *pulumi.OutputState }
+
+func (GetContributorManagedInsightRulesManagedRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContributorManagedInsightRulesManagedRule)(nil)).Elem()
+}
+
+func (o GetContributorManagedInsightRulesManagedRuleOutput) ToGetContributorManagedInsightRulesManagedRuleOutput() GetContributorManagedInsightRulesManagedRuleOutput {
+	return o
+}
+
+func (o GetContributorManagedInsightRulesManagedRuleOutput) ToGetContributorManagedInsightRulesManagedRuleOutputWithContext(ctx context.Context) GetContributorManagedInsightRulesManagedRuleOutput {
+	return o
+}
+
+// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
+//
+// The following arguments are optional:
+//
+// There are no optional arguments.
+func (o GetContributorManagedInsightRulesManagedRuleOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContributorManagedInsightRulesManagedRule) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `ruleState reference` below for details.
+func (o GetContributorManagedInsightRulesManagedRuleOutput) RuleStates() GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput {
+	return o.ApplyT(func(v GetContributorManagedInsightRulesManagedRule) []GetContributorManagedInsightRulesManagedRuleRuleState {
+		return v.RuleStates
+	}).(GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput)
+}
+
+// Template name for the managed rule. Used to enable managed rules using `PutManagedInsightRules`.
+func (o GetContributorManagedInsightRulesManagedRuleOutput) TemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContributorManagedInsightRulesManagedRule) string { return v.TemplateName }).(pulumi.StringOutput)
+}
+
+type GetContributorManagedInsightRulesManagedRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetContributorManagedInsightRulesManagedRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContributorManagedInsightRulesManagedRule)(nil)).Elem()
+}
+
+func (o GetContributorManagedInsightRulesManagedRuleArrayOutput) ToGetContributorManagedInsightRulesManagedRuleArrayOutput() GetContributorManagedInsightRulesManagedRuleArrayOutput {
+	return o
+}
+
+func (o GetContributorManagedInsightRulesManagedRuleArrayOutput) ToGetContributorManagedInsightRulesManagedRuleArrayOutputWithContext(ctx context.Context) GetContributorManagedInsightRulesManagedRuleArrayOutput {
+	return o
+}
+
+func (o GetContributorManagedInsightRulesManagedRuleArrayOutput) Index(i pulumi.IntInput) GetContributorManagedInsightRulesManagedRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContributorManagedInsightRulesManagedRule {
+		return vs[0].([]GetContributorManagedInsightRulesManagedRule)[vs[1].(int)]
+	}).(GetContributorManagedInsightRulesManagedRuleOutput)
+}
+
+type GetContributorManagedInsightRulesManagedRuleRuleState struct {
+	// Name of the Contributor Insights rule that contains data for the specified Amazon Web Services resource.
+	RuleName string `pulumi:"ruleName"`
+	// Indicates whether the rule is enabled or disabled.
+	State string `pulumi:"state"`
+}
+
+// GetContributorManagedInsightRulesManagedRuleRuleStateInput is an input type that accepts GetContributorManagedInsightRulesManagedRuleRuleStateArgs and GetContributorManagedInsightRulesManagedRuleRuleStateOutput values.
+// You can construct a concrete instance of `GetContributorManagedInsightRulesManagedRuleRuleStateInput` via:
+//
+//	GetContributorManagedInsightRulesManagedRuleRuleStateArgs{...}
+type GetContributorManagedInsightRulesManagedRuleRuleStateInput interface {
+	pulumi.Input
+
+	ToGetContributorManagedInsightRulesManagedRuleRuleStateOutput() GetContributorManagedInsightRulesManagedRuleRuleStateOutput
+	ToGetContributorManagedInsightRulesManagedRuleRuleStateOutputWithContext(context.Context) GetContributorManagedInsightRulesManagedRuleRuleStateOutput
+}
+
+type GetContributorManagedInsightRulesManagedRuleRuleStateArgs struct {
+	// Name of the Contributor Insights rule that contains data for the specified Amazon Web Services resource.
+	RuleName pulumi.StringInput `pulumi:"ruleName"`
+	// Indicates whether the rule is enabled or disabled.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (GetContributorManagedInsightRulesManagedRuleRuleStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleRuleState)(nil)).Elem()
+}
+
+func (i GetContributorManagedInsightRulesManagedRuleRuleStateArgs) ToGetContributorManagedInsightRulesManagedRuleRuleStateOutput() GetContributorManagedInsightRulesManagedRuleRuleStateOutput {
+	return i.ToGetContributorManagedInsightRulesManagedRuleRuleStateOutputWithContext(context.Background())
+}
+
+func (i GetContributorManagedInsightRulesManagedRuleRuleStateArgs) ToGetContributorManagedInsightRulesManagedRuleRuleStateOutputWithContext(ctx context.Context) GetContributorManagedInsightRulesManagedRuleRuleStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContributorManagedInsightRulesManagedRuleRuleStateOutput)
+}
+
+// GetContributorManagedInsightRulesManagedRuleRuleStateArrayInput is an input type that accepts GetContributorManagedInsightRulesManagedRuleRuleStateArray and GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput values.
+// You can construct a concrete instance of `GetContributorManagedInsightRulesManagedRuleRuleStateArrayInput` via:
+//
+//	GetContributorManagedInsightRulesManagedRuleRuleStateArray{ GetContributorManagedInsightRulesManagedRuleRuleStateArgs{...} }
+type GetContributorManagedInsightRulesManagedRuleRuleStateArrayInput interface {
+	pulumi.Input
+
+	ToGetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput() GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput
+	ToGetContributorManagedInsightRulesManagedRuleRuleStateArrayOutputWithContext(context.Context) GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput
+}
+
+type GetContributorManagedInsightRulesManagedRuleRuleStateArray []GetContributorManagedInsightRulesManagedRuleRuleStateInput
+
+func (GetContributorManagedInsightRulesManagedRuleRuleStateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContributorManagedInsightRulesManagedRuleRuleState)(nil)).Elem()
+}
+
+func (i GetContributorManagedInsightRulesManagedRuleRuleStateArray) ToGetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput() GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput {
+	return i.ToGetContributorManagedInsightRulesManagedRuleRuleStateArrayOutputWithContext(context.Background())
+}
+
+func (i GetContributorManagedInsightRulesManagedRuleRuleStateArray) ToGetContributorManagedInsightRulesManagedRuleRuleStateArrayOutputWithContext(ctx context.Context) GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput)
+}
+
+type GetContributorManagedInsightRulesManagedRuleRuleStateOutput struct{ *pulumi.OutputState }
+
+func (GetContributorManagedInsightRulesManagedRuleRuleStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleRuleState)(nil)).Elem()
+}
+
+func (o GetContributorManagedInsightRulesManagedRuleRuleStateOutput) ToGetContributorManagedInsightRulesManagedRuleRuleStateOutput() GetContributorManagedInsightRulesManagedRuleRuleStateOutput {
+	return o
+}
+
+func (o GetContributorManagedInsightRulesManagedRuleRuleStateOutput) ToGetContributorManagedInsightRulesManagedRuleRuleStateOutputWithContext(ctx context.Context) GetContributorManagedInsightRulesManagedRuleRuleStateOutput {
+	return o
+}
+
+// Name of the Contributor Insights rule that contains data for the specified Amazon Web Services resource.
+func (o GetContributorManagedInsightRulesManagedRuleRuleStateOutput) RuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContributorManagedInsightRulesManagedRuleRuleState) string { return v.RuleName }).(pulumi.StringOutput)
+}
+
+// Indicates whether the rule is enabled or disabled.
+func (o GetContributorManagedInsightRulesManagedRuleRuleStateOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContributorManagedInsightRulesManagedRuleRuleState) string { return v.State }).(pulumi.StringOutput)
+}
+
+type GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContributorManagedInsightRulesManagedRuleRuleState)(nil)).Elem()
+}
+
+func (o GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput) ToGetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput() GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput {
+	return o
+}
+
+func (o GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput) ToGetContributorManagedInsightRulesManagedRuleRuleStateArrayOutputWithContext(ctx context.Context) GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput {
+	return o
+}
+
+func (o GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput) Index(i pulumi.IntInput) GetContributorManagedInsightRulesManagedRuleRuleStateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContributorManagedInsightRulesManagedRuleRuleState {
+		return vs[0].([]GetContributorManagedInsightRulesManagedRuleRuleState)[vs[1].(int)]
+	}).(GetContributorManagedInsightRulesManagedRuleRuleStateOutput)
+}
+
 type GetEventBusesEventBus struct {
 	// The ARN of the event bus.
 	Arn string `pulumi:"arn"`
@@ -9276,6 +9511,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationIncludeMetricInput)(nil)).Elem(), MetricStreamStatisticsConfigurationIncludeMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationIncludeMetricArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationIncludeMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleArrayInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleRuleStateInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleRuleStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleRuleStateArrayInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleRuleStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusesEventBusInput)(nil)).Elem(), GetEventBusesEventBusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusesEventBusArrayInput)(nil)).Elem(), GetEventBusesEventBusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementArgs{})
@@ -9399,6 +9638,10 @@ func init() {
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationIncludeMetricOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationIncludeMetricArrayOutput{})
+	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleOutput{})
+	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleRuleStateOutput{})
+	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput{})
 	pulumi.RegisterOutputType(GetEventBusesEventBusOutput{})
 	pulumi.RegisterOutputType(GetEventBusesEventBusArrayOutput{})
 	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOutput{})

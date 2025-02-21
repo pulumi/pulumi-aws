@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("seedUrls")]
         private InputList<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs>? _seedUrls;
+
+        /// <summary>
+        /// List of one or more seed URLs to crawl. See `seed_urls` block for details.
+        /// </summary>
         public InputList<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs> SeedUrls
         {
             get => _seedUrls ?? (_seedUrls = new InputList<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs>());

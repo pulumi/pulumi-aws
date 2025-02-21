@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RecorderRecordingMode {
     /**
-     * @return Default reecording frequency. `CONTINUOUS` or `DAILY`.
+     * @return Default recording frequency. `CONTINUOUS` or `DAILY`.
      * 
      */
     private @Nullable String recordingFrequency;
@@ -25,7 +25,7 @@ public final class RecorderRecordingMode {
 
     private RecorderRecordingMode() {}
     /**
-     * @return Default reecording frequency. `CONTINUOUS` or `DAILY`.
+     * @return Default recording frequency. `CONTINUOUS` or `DAILY`.
      * 
      */
     public Optional<String> recordingFrequency() {

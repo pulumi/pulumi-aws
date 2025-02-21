@@ -18,7 +18,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointConfigurationDataCaptureConfig {
     /**
-     * @return The content type headers to capture. Fields are documented below.
+     * @return The content type headers to capture.
+     * See `capture_content_type_header` below.
      * 
      */
     private @Nullable EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader captureContentTypeHeader;
@@ -50,7 +51,8 @@ public final class EndpointConfigurationDataCaptureConfig {
 
     private EndpointConfigurationDataCaptureConfig() {}
     /**
-     * @return The content type headers to capture. Fields are documented below.
+     * @return The content type headers to capture.
+     * See `capture_content_type_header` below.
      * 
      */
     public Optional<EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader> captureContentTypeHeader() {

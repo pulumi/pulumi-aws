@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Backup.Inputs
     public sealed class SelectionSelectionTagGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key in a key-value pair.
+        /// Key for the filter.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
+        /// An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The value in a key-value pair.
+        /// Value for the filter.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### S3 Data Source
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,6 +27,88 @@ import * as utilities from "../utilities";
  *                 bucket: "my-bucket",
  *                 key: "path/to/manifest.json",
  *             },
+ *         },
+ *     },
+ *     type: "S3",
+ * });
+ * ```
+ *
+ * ### S3 Data Source with IAM Role ARN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
+ * const currentGetRegion = aws.getRegion({});
+ * const example = new aws.s3.BucketV2("example", {});
+ * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
+ *     bucket: example.bucket,
+ *     key: "manifest.json",
+ *     content: pulumi.jsonStringify({
+ *         fileLocations: [{
+ *             URIPrefixes: [pulumi.all([example.id, currentGetRegion, currentGetPartition]).apply(([id, currentGetRegion, currentGetPartition]) => `https://${id}.s3-${currentGetRegion.name}.${currentGetPartition.dnsSuffix}`)],
+ *         }],
+ *         globalUploadSettings: {
+ *             format: "CSV",
+ *             delimiter: ",",
+ *             textqualifier: "\"",
+ *             containsHeader: true,
+ *         },
+ *     }),
+ * });
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Principal: {
+ *                 Service: "quicksight.amazonaws.com",
+ *             },
+ *             Condition: {
+ *                 StringEquals: {
+ *                     "aws:SourceAccount": current.then(current => current.accountId),
+ *                 },
+ *             },
+ *         }],
+ *     }),
+ * });
+ * const examplePolicy = new aws.iam.Policy("example", {
+ *     name: "example",
+ *     description: "Policy to allow QuickSight access to S3 bucket",
+ *     policy: pulumi.jsonStringify({
+ *         Version: "2012-10-17",
+ *         Statement: [
+ *             {
+ *                 Action: ["s3:GetObject"],
+ *                 Effect: "Allow",
+ *                 Resource: pulumi.interpolate`${example.arn}/${exampleBucketObjectv2.key}`,
+ *             },
+ *             {
+ *                 Action: ["s3:ListBucket"],
+ *                 Effect: "Allow",
+ *                 Resource: example.arn,
+ *             },
+ *         ],
+ *     }),
+ * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ *     policyArn: examplePolicy.arn,
+ *     role: exampleRole.name,
+ * });
+ * const exampleDataSource = new aws.quicksight.DataSource("example", {
+ *     dataSourceId: "example-id",
+ *     name: "manifest in S3",
+ *     parameters: {
+ *         s3: {
+ *             manifestFileLocation: {
+ *                 bucket: example.arn,
+ *                 key: exampleBucketObjectv2.key,
+ *             },
+ *             roleArn: exampleRole.arn,
  *         },
  *     },
  *     type: "S3",

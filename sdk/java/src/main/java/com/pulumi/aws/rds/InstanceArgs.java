@@ -683,14 +683,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
      * 
      */
     @Import(name="manageMasterUserPassword")
     private @Nullable Output<Boolean> manageMasterUserPassword;
 
     /**
-     * @return Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+     * @return Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
      * 
      */
     public Optional<Output<Boolean>> manageMasterUserPassword() {
@@ -868,18 +868,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
     public Optional<Output<String>> password() {
@@ -2242,7 +2238,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
          * 
          * @return builder
          * 
@@ -2253,7 +2249,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+         * @param manageMasterUserPassword Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
          * 
          * @return builder
          * 
@@ -2493,9 +2489,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-         * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
-         * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+         * @param password Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
          * 
          * @return builder
          * 
@@ -2506,9 +2500,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-         * is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
-         * logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+         * @param password Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
          * 
          * @return builder
          * 

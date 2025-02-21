@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits {
+    /**
+     * @return Max number of web pages crawled from your source URLs, up to 25,000 pages.
+     * 
+     */
     private @Nullable Double maxPages;
+    /**
+     * @return Max rate at which pages are crawled, up to 300 per minute per host.
+     * 
+     */
     private @Nullable Double rateLimit;
 
     private AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits() {}
+    /**
+     * @return Max number of web pages crawled from your source URLs, up to 25,000 pages.
+     * 
+     */
     public Optional<Double> maxPages() {
         return Optional.ofNullable(this.maxPages);
     }
+    /**
+     * @return Max rate at which pages are crawled, up to 300 per minute per host.
+     * 
+     */
     public Optional<Double> rateLimit() {
         return Optional.ofNullable(this.rateLimit);
     }

@@ -103,13 +103,15 @@ namespace Pulumi.Aws.Route53
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        /// Protocols you want to use for the Route 53 Resolver endpoint.
+        /// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
         /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
         /// <summary>
-        /// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        /// Endpoint IP type. This endpoint type is applied to all IP addresses.
+        /// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         /// </summary>
         [Output("resolverEndpointType")]
         public Output<string> ResolverEndpointType { get; private set; } = null!;
@@ -209,7 +211,8 @@ namespace Pulumi.Aws.Route53
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        /// Protocols you want to use for the Route 53 Resolver endpoint.
+        /// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -218,7 +221,8 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        /// Endpoint IP type. This endpoint type is applied to all IP addresses.
+        /// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         /// </summary>
         [Input("resolverEndpointType")]
         public Input<string>? ResolverEndpointType { get; set; }
@@ -298,7 +302,8 @@ namespace Pulumi.Aws.Route53
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        /// Protocols you want to use for the Route 53 Resolver endpoint.
+        /// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -307,7 +312,8 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        /// Endpoint IP type. This endpoint type is applied to all IP addresses.
+        /// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         /// </summary>
         [Input("resolverEndpointType")]
         public Input<string>? ResolverEndpointType { get; set; }

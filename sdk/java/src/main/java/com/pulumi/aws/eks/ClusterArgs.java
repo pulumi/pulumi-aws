@@ -30,14 +30,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClusterArgs Empty = new ClusterArgs();
 
     /**
-     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
      * 
      */
     @Import(name="accessConfig")
     private @Nullable Output<ClusterAccessConfigArgs> accessConfig;
 
     /**
-     * @return Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+     * @return Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
      * 
      */
     public Optional<Output<ClusterAccessConfigArgs>> accessConfig() {
@@ -111,17 +111,9 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.encryptionConfig);
     }
 
-    /**
-     * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
-     * 
-     */
     @Import(name="kubernetesNetworkConfig")
     private @Nullable Output<ClusterKubernetesNetworkConfigArgs> kubernetesNetworkConfig;
 
-    /**
-     * @return Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
-     * 
-     */
     public Optional<Output<ClusterKubernetesNetworkConfigArgs>> kubernetesNetworkConfig() {
         return Optional.ofNullable(this.kubernetesNetworkConfig);
     }
@@ -321,7 +313,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessConfig Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+         * @param accessConfig Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
          * 
          * @return builder
          * 
@@ -332,7 +324,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessConfig Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+         * @param accessConfig Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
          * 
          * @return builder
          * 
@@ -448,23 +440,11 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
             return encryptionConfig(Output.of(encryptionConfig));
         }
 
-        /**
-         * @param kubernetesNetworkConfig Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kubernetesNetworkConfig(@Nullable Output<ClusterKubernetesNetworkConfigArgs> kubernetesNetworkConfig) {
             $.kubernetesNetworkConfig = kubernetesNetworkConfig;
             return this;
         }
 
-        /**
-         * @param kubernetesNetworkConfig Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kubernetesNetworkConfig(ClusterKubernetesNetworkConfigArgs kubernetesNetworkConfig) {
             return kubernetesNetworkConfig(Output.of(kubernetesNetworkConfig));
         }

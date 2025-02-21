@@ -2824,6 +2824,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="mediapackagevod")
+    private @Nullable Output<String> mediapackagevod;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> mediapackagevod() {
+        return Optional.ofNullable(this.mediapackagevod);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="mediastore")
     private @Nullable Output<String> mediastore;
 
@@ -4675,6 +4690,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.medialive = $.medialive;
         this.mediapackage = $.mediapackage;
         this.mediapackagev2 = $.mediapackagev2;
+        this.mediapackagevod = $.mediapackagevod;
         this.mediastore = $.mediastore;
         this.memorydb = $.memorydb;
         this.mgn = $.mgn;
@@ -8731,6 +8747,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder mediapackagev2(String mediapackagev2) {
             return mediapackagev2(Output.of(mediapackagev2));
+        }
+
+        /**
+         * @param mediapackagevod Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mediapackagevod(@Nullable Output<String> mediapackagevod) {
+            $.mediapackagevod = mediapackagevod;
+            return this;
+        }
+
+        /**
+         * @param mediapackagevod Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mediapackagevod(String mediapackagevod) {
+            return mediapackagevod(Output.of(mediapackagevod));
         }
 
         /**

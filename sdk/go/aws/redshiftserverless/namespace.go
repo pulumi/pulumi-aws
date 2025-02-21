@@ -50,11 +50,12 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
 	AdminPasswordSecretArn pulumi.StringOutput `pulumi:"adminPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId pulumi.StringOutput `pulumi:"adminPasswordSecretKmsKeyId"`
 	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword`.
+	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword pulumi.StringPtrOutput `pulumi:"adminUserPassword"`
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
@@ -71,7 +72,7 @@ type Namespace struct {
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports pulumi.StringArrayOutput `pulumi:"logExports"`
 	// Whether to use AWS SecretManager to manage namespace's admin credentials.
-	// Conflicts with `adminUserPassword`.
+	// Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
 	ManageAdminPassword pulumi.BoolPtrOutput `pulumi:"manageAdminPassword"`
 	// The Redshift Namespace ID.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
@@ -129,11 +130,12 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
+	// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
 	AdminPasswordSecretArn *string `pulumi:"adminPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId *string `pulumi:"adminPasswordSecretKmsKeyId"`
 	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword`.
+	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword *string `pulumi:"adminUserPassword"`
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername *string `pulumi:"adminUsername"`
@@ -150,7 +152,7 @@ type namespaceState struct {
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports []string `pulumi:"logExports"`
 	// Whether to use AWS SecretManager to manage namespace's admin credentials.
-	// Conflicts with `adminUserPassword`.
+	// Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
 	ManageAdminPassword *bool `pulumi:"manageAdminPassword"`
 	// The Redshift Namespace ID.
 	NamespaceId *string `pulumi:"namespaceId"`
@@ -165,11 +167,12 @@ type namespaceState struct {
 }
 
 type NamespaceState struct {
+	// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
 	AdminPasswordSecretArn pulumi.StringPtrInput
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId pulumi.StringPtrInput
 	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword`.
+	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword pulumi.StringPtrInput
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername pulumi.StringPtrInput
@@ -186,7 +189,7 @@ type NamespaceState struct {
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports pulumi.StringArrayInput
 	// Whether to use AWS SecretManager to manage namespace's admin credentials.
-	// Conflicts with `adminUserPassword`.
+	// Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
 	ManageAdminPassword pulumi.BoolPtrInput
 	// The Redshift Namespace ID.
 	NamespaceId pulumi.StringPtrInput
@@ -208,7 +211,7 @@ type namespaceArgs struct {
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId *string `pulumi:"adminPasswordSecretKmsKeyId"`
 	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword`.
+	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword *string `pulumi:"adminUserPassword"`
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername *string `pulumi:"adminUsername"`
@@ -223,7 +226,7 @@ type namespaceArgs struct {
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports []string `pulumi:"logExports"`
 	// Whether to use AWS SecretManager to manage namespace's admin credentials.
-	// Conflicts with `adminUserPassword`.
+	// Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
 	ManageAdminPassword *bool `pulumi:"manageAdminPassword"`
 	// The name of the namespace.
 	NamespaceName string `pulumi:"namespaceName"`
@@ -236,7 +239,7 @@ type NamespaceArgs struct {
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId pulumi.StringPtrInput
 	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword`.
+	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword pulumi.StringPtrInput
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername pulumi.StringPtrInput
@@ -251,7 +254,7 @@ type NamespaceArgs struct {
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports pulumi.StringArrayInput
 	// Whether to use AWS SecretManager to manage namespace's admin credentials.
-	// Conflicts with `adminUserPassword`.
+	// Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
 	ManageAdminPassword pulumi.BoolPtrInput
 	// The name of the namespace.
 	NamespaceName pulumi.StringInput
@@ -346,6 +349,7 @@ func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) Names
 	return o
 }
 
+// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
 func (o NamespaceOutput) AdminPasswordSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.AdminPasswordSecretArn }).(pulumi.StringOutput)
 }
@@ -356,7 +360,7 @@ func (o NamespaceOutput) AdminPasswordSecretKmsKeyId() pulumi.StringOutput {
 }
 
 // The password of the administrator for the first database created in the namespace.
-// Conflicts with `manageAdminPassword`.
+// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 func (o NamespaceOutput) AdminUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.AdminUserPassword }).(pulumi.StringPtrOutput)
 }
@@ -397,7 +401,7 @@ func (o NamespaceOutput) LogExports() pulumi.StringArrayOutput {
 }
 
 // Whether to use AWS SecretManager to manage namespace's admin credentials.
-// Conflicts with `adminUserPassword`.
+// Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
 func (o NamespaceOutput) ManageAdminPassword() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.ManageAdminPassword }).(pulumi.BoolPtrOutput)
 }

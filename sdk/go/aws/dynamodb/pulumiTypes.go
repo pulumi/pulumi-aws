@@ -216,6 +216,169 @@ func (o TableAttributeArrayOutput) Index(i pulumi.IntInput) TableAttributeOutput
 	}).(TableAttributeOutput)
 }
 
+type TableExportIncrementalExportSpecification struct {
+	ExportFromTime *string `pulumi:"exportFromTime"`
+	ExportToTime   *string `pulumi:"exportToTime"`
+	ExportViewType *string `pulumi:"exportViewType"`
+}
+
+// TableExportIncrementalExportSpecificationInput is an input type that accepts TableExportIncrementalExportSpecificationArgs and TableExportIncrementalExportSpecificationOutput values.
+// You can construct a concrete instance of `TableExportIncrementalExportSpecificationInput` via:
+//
+//	TableExportIncrementalExportSpecificationArgs{...}
+type TableExportIncrementalExportSpecificationInput interface {
+	pulumi.Input
+
+	ToTableExportIncrementalExportSpecificationOutput() TableExportIncrementalExportSpecificationOutput
+	ToTableExportIncrementalExportSpecificationOutputWithContext(context.Context) TableExportIncrementalExportSpecificationOutput
+}
+
+type TableExportIncrementalExportSpecificationArgs struct {
+	ExportFromTime pulumi.StringPtrInput `pulumi:"exportFromTime"`
+	ExportToTime   pulumi.StringPtrInput `pulumi:"exportToTime"`
+	ExportViewType pulumi.StringPtrInput `pulumi:"exportViewType"`
+}
+
+func (TableExportIncrementalExportSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableExportIncrementalExportSpecification)(nil)).Elem()
+}
+
+func (i TableExportIncrementalExportSpecificationArgs) ToTableExportIncrementalExportSpecificationOutput() TableExportIncrementalExportSpecificationOutput {
+	return i.ToTableExportIncrementalExportSpecificationOutputWithContext(context.Background())
+}
+
+func (i TableExportIncrementalExportSpecificationArgs) ToTableExportIncrementalExportSpecificationOutputWithContext(ctx context.Context) TableExportIncrementalExportSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableExportIncrementalExportSpecificationOutput)
+}
+
+func (i TableExportIncrementalExportSpecificationArgs) ToTableExportIncrementalExportSpecificationPtrOutput() TableExportIncrementalExportSpecificationPtrOutput {
+	return i.ToTableExportIncrementalExportSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TableExportIncrementalExportSpecificationArgs) ToTableExportIncrementalExportSpecificationPtrOutputWithContext(ctx context.Context) TableExportIncrementalExportSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableExportIncrementalExportSpecificationOutput).ToTableExportIncrementalExportSpecificationPtrOutputWithContext(ctx)
+}
+
+// TableExportIncrementalExportSpecificationPtrInput is an input type that accepts TableExportIncrementalExportSpecificationArgs, TableExportIncrementalExportSpecificationPtr and TableExportIncrementalExportSpecificationPtrOutput values.
+// You can construct a concrete instance of `TableExportIncrementalExportSpecificationPtrInput` via:
+//
+//	        TableExportIncrementalExportSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableExportIncrementalExportSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTableExportIncrementalExportSpecificationPtrOutput() TableExportIncrementalExportSpecificationPtrOutput
+	ToTableExportIncrementalExportSpecificationPtrOutputWithContext(context.Context) TableExportIncrementalExportSpecificationPtrOutput
+}
+
+type tableExportIncrementalExportSpecificationPtrType TableExportIncrementalExportSpecificationArgs
+
+func TableExportIncrementalExportSpecificationPtr(v *TableExportIncrementalExportSpecificationArgs) TableExportIncrementalExportSpecificationPtrInput {
+	return (*tableExportIncrementalExportSpecificationPtrType)(v)
+}
+
+func (*tableExportIncrementalExportSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableExportIncrementalExportSpecification)(nil)).Elem()
+}
+
+func (i *tableExportIncrementalExportSpecificationPtrType) ToTableExportIncrementalExportSpecificationPtrOutput() TableExportIncrementalExportSpecificationPtrOutput {
+	return i.ToTableExportIncrementalExportSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableExportIncrementalExportSpecificationPtrType) ToTableExportIncrementalExportSpecificationPtrOutputWithContext(ctx context.Context) TableExportIncrementalExportSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableExportIncrementalExportSpecificationPtrOutput)
+}
+
+type TableExportIncrementalExportSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableExportIncrementalExportSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableExportIncrementalExportSpecification)(nil)).Elem()
+}
+
+func (o TableExportIncrementalExportSpecificationOutput) ToTableExportIncrementalExportSpecificationOutput() TableExportIncrementalExportSpecificationOutput {
+	return o
+}
+
+func (o TableExportIncrementalExportSpecificationOutput) ToTableExportIncrementalExportSpecificationOutputWithContext(ctx context.Context) TableExportIncrementalExportSpecificationOutput {
+	return o
+}
+
+func (o TableExportIncrementalExportSpecificationOutput) ToTableExportIncrementalExportSpecificationPtrOutput() TableExportIncrementalExportSpecificationPtrOutput {
+	return o.ToTableExportIncrementalExportSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TableExportIncrementalExportSpecificationOutput) ToTableExportIncrementalExportSpecificationPtrOutputWithContext(ctx context.Context) TableExportIncrementalExportSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableExportIncrementalExportSpecification) *TableExportIncrementalExportSpecification {
+		return &v
+	}).(TableExportIncrementalExportSpecificationPtrOutput)
+}
+
+func (o TableExportIncrementalExportSpecificationOutput) ExportFromTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableExportIncrementalExportSpecification) *string { return v.ExportFromTime }).(pulumi.StringPtrOutput)
+}
+
+func (o TableExportIncrementalExportSpecificationOutput) ExportToTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableExportIncrementalExportSpecification) *string { return v.ExportToTime }).(pulumi.StringPtrOutput)
+}
+
+func (o TableExportIncrementalExportSpecificationOutput) ExportViewType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableExportIncrementalExportSpecification) *string { return v.ExportViewType }).(pulumi.StringPtrOutput)
+}
+
+type TableExportIncrementalExportSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableExportIncrementalExportSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableExportIncrementalExportSpecification)(nil)).Elem()
+}
+
+func (o TableExportIncrementalExportSpecificationPtrOutput) ToTableExportIncrementalExportSpecificationPtrOutput() TableExportIncrementalExportSpecificationPtrOutput {
+	return o
+}
+
+func (o TableExportIncrementalExportSpecificationPtrOutput) ToTableExportIncrementalExportSpecificationPtrOutputWithContext(ctx context.Context) TableExportIncrementalExportSpecificationPtrOutput {
+	return o
+}
+
+func (o TableExportIncrementalExportSpecificationPtrOutput) Elem() TableExportIncrementalExportSpecificationOutput {
+	return o.ApplyT(func(v *TableExportIncrementalExportSpecification) TableExportIncrementalExportSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TableExportIncrementalExportSpecification
+		return ret
+	}).(TableExportIncrementalExportSpecificationOutput)
+}
+
+func (o TableExportIncrementalExportSpecificationPtrOutput) ExportFromTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableExportIncrementalExportSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExportFromTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableExportIncrementalExportSpecificationPtrOutput) ExportToTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableExportIncrementalExportSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExportToTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableExportIncrementalExportSpecificationPtrOutput) ExportViewType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableExportIncrementalExportSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExportViewType
+	}).(pulumi.StringPtrOutput)
+}
+
 type TableGlobalSecondaryIndex struct {
 	// Name of the hash key in the index; must be defined as an attribute in the resource.
 	HashKey string `pulumi:"hashKey"`
@@ -1636,11 +1799,19 @@ func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
 type TableReplicaType struct {
 	// ARN of the table
 	Arn *string `pulumi:"arn"`
-	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+	// ARN of the CMK that should be used for the AWS KMS encryption.
+	// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+	// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+	// **Note:** Changing this value will recreate the replica.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
-	// Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+	// Whether to propagate the global table's tags to a replica.
+	// Default is `false`.
+	// Changes to tags only move in one direction: from global (source) to replica.
+	// Tag drift on a replica will not trigger an update.
+	// Tag changes on the global table are propagated to replicas.
+	// Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
 	PropagateTags *bool `pulumi:"propagateTags"`
 	// Region name of the replica.
 	RegionName string `pulumi:"regionName"`
@@ -1664,11 +1835,19 @@ type TableReplicaTypeInput interface {
 type TableReplicaTypeArgs struct {
 	// ARN of the table
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+	// ARN of the CMK that should be used for the AWS KMS encryption.
+	// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+	// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+	// **Note:** Changing this value will recreate the replica.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrInput `pulumi:"pointInTimeRecovery"`
-	// Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+	// Whether to propagate the global table's tags to a replica.
+	// Default is `false`.
+	// Changes to tags only move in one direction: from global (source) to replica.
+	// Tag drift on a replica will not trigger an update.
+	// Tag changes on the global table are propagated to replicas.
+	// Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
 	PropagateTags pulumi.BoolPtrInput `pulumi:"propagateTags"`
 	// Region name of the replica.
 	RegionName pulumi.StringInput `pulumi:"regionName"`
@@ -1734,7 +1913,10 @@ func (o TableReplicaTypeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+// ARN of the CMK that should be used for the AWS KMS encryption.
+// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+// **Note:** Changing this value will recreate the replica.
 func (o TableReplicaTypeOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -1744,7 +1926,12 @@ func (o TableReplicaTypeOutput) PointInTimeRecovery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *bool { return v.PointInTimeRecovery }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+// Whether to propagate the global table's tags to a replica.
+// Default is `false`.
+// Changes to tags only move in one direction: from global (source) to replica.
+// Tag drift on a replica will not trigger an update.
+// Tag changes on the global table are propagated to replicas.
+// Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
 func (o TableReplicaTypeOutput) PropagateTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *bool { return v.PropagateTags }).(pulumi.BoolPtrOutput)
 }
@@ -2210,12 +2397,13 @@ func (o GetTableAttributeArrayOutput) Index(i pulumi.IntInput) GetTableAttribute
 type GetTableGlobalSecondaryIndex struct {
 	HashKey string `pulumi:"hashKey"`
 	// Name of the DynamoDB table.
-	Name             string   `pulumi:"name"`
-	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
-	ProjectionType   string   `pulumi:"projectionType"`
-	RangeKey         string   `pulumi:"rangeKey"`
-	ReadCapacity     int      `pulumi:"readCapacity"`
-	WriteCapacity    int      `pulumi:"writeCapacity"`
+	Name                string                                           `pulumi:"name"`
+	NonKeyAttributes    []string                                         `pulumi:"nonKeyAttributes"`
+	OnDemandThroughputs []GetTableGlobalSecondaryIndexOnDemandThroughput `pulumi:"onDemandThroughputs"`
+	ProjectionType      string                                           `pulumi:"projectionType"`
+	RangeKey            string                                           `pulumi:"rangeKey"`
+	ReadCapacity        int                                              `pulumi:"readCapacity"`
+	WriteCapacity       int                                              `pulumi:"writeCapacity"`
 }
 
 // GetTableGlobalSecondaryIndexInput is an input type that accepts GetTableGlobalSecondaryIndexArgs and GetTableGlobalSecondaryIndexOutput values.
@@ -2232,12 +2420,13 @@ type GetTableGlobalSecondaryIndexInput interface {
 type GetTableGlobalSecondaryIndexArgs struct {
 	HashKey pulumi.StringInput `pulumi:"hashKey"`
 	// Name of the DynamoDB table.
-	Name             pulumi.StringInput      `pulumi:"name"`
-	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
-	ProjectionType   pulumi.StringInput      `pulumi:"projectionType"`
-	RangeKey         pulumi.StringInput      `pulumi:"rangeKey"`
-	ReadCapacity     pulumi.IntInput         `pulumi:"readCapacity"`
-	WriteCapacity    pulumi.IntInput         `pulumi:"writeCapacity"`
+	Name                pulumi.StringInput                                       `pulumi:"name"`
+	NonKeyAttributes    pulumi.StringArrayInput                                  `pulumi:"nonKeyAttributes"`
+	OnDemandThroughputs GetTableGlobalSecondaryIndexOnDemandThroughputArrayInput `pulumi:"onDemandThroughputs"`
+	ProjectionType      pulumi.StringInput                                       `pulumi:"projectionType"`
+	RangeKey            pulumi.StringInput                                       `pulumi:"rangeKey"`
+	ReadCapacity        pulumi.IntInput                                          `pulumi:"readCapacity"`
+	WriteCapacity       pulumi.IntInput                                          `pulumi:"writeCapacity"`
 }
 
 func (GetTableGlobalSecondaryIndexArgs) ElementType() reflect.Type {
@@ -2304,6 +2493,12 @@ func (o GetTableGlobalSecondaryIndexOutput) NonKeyAttributes() pulumi.StringArra
 	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
 }
 
+func (o GetTableGlobalSecondaryIndexOutput) OnDemandThroughputs() GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) []GetTableGlobalSecondaryIndexOnDemandThroughput {
+		return v.OnDemandThroughputs
+	}).(GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput)
+}
+
 func (o GetTableGlobalSecondaryIndexOutput) ProjectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) string { return v.ProjectionType }).(pulumi.StringOutput)
 }
@@ -2338,6 +2533,106 @@ func (o GetTableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) GetTab
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableGlobalSecondaryIndex {
 		return vs[0].([]GetTableGlobalSecondaryIndex)[vs[1].(int)]
 	}).(GetTableGlobalSecondaryIndexOutput)
+}
+
+type GetTableGlobalSecondaryIndexOnDemandThroughput struct {
+	MaxReadRequestUnits  int `pulumi:"maxReadRequestUnits"`
+	MaxWriteRequestUnits int `pulumi:"maxWriteRequestUnits"`
+}
+
+// GetTableGlobalSecondaryIndexOnDemandThroughputInput is an input type that accepts GetTableGlobalSecondaryIndexOnDemandThroughputArgs and GetTableGlobalSecondaryIndexOnDemandThroughputOutput values.
+// You can construct a concrete instance of `GetTableGlobalSecondaryIndexOnDemandThroughputInput` via:
+//
+//	GetTableGlobalSecondaryIndexOnDemandThroughputArgs{...}
+type GetTableGlobalSecondaryIndexOnDemandThroughputInput interface {
+	pulumi.Input
+
+	ToGetTableGlobalSecondaryIndexOnDemandThroughputOutput() GetTableGlobalSecondaryIndexOnDemandThroughputOutput
+	ToGetTableGlobalSecondaryIndexOnDemandThroughputOutputWithContext(context.Context) GetTableGlobalSecondaryIndexOnDemandThroughputOutput
+}
+
+type GetTableGlobalSecondaryIndexOnDemandThroughputArgs struct {
+	MaxReadRequestUnits  pulumi.IntInput `pulumi:"maxReadRequestUnits"`
+	MaxWriteRequestUnits pulumi.IntInput `pulumi:"maxWriteRequestUnits"`
+}
+
+func (GetTableGlobalSecondaryIndexOnDemandThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableGlobalSecondaryIndexOnDemandThroughput)(nil)).Elem()
+}
+
+func (i GetTableGlobalSecondaryIndexOnDemandThroughputArgs) ToGetTableGlobalSecondaryIndexOnDemandThroughputOutput() GetTableGlobalSecondaryIndexOnDemandThroughputOutput {
+	return i.ToGetTableGlobalSecondaryIndexOnDemandThroughputOutputWithContext(context.Background())
+}
+
+func (i GetTableGlobalSecondaryIndexOnDemandThroughputArgs) ToGetTableGlobalSecondaryIndexOnDemandThroughputOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexOnDemandThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableGlobalSecondaryIndexOnDemandThroughputOutput)
+}
+
+// GetTableGlobalSecondaryIndexOnDemandThroughputArrayInput is an input type that accepts GetTableGlobalSecondaryIndexOnDemandThroughputArray and GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput values.
+// You can construct a concrete instance of `GetTableGlobalSecondaryIndexOnDemandThroughputArrayInput` via:
+//
+//	GetTableGlobalSecondaryIndexOnDemandThroughputArray{ GetTableGlobalSecondaryIndexOnDemandThroughputArgs{...} }
+type GetTableGlobalSecondaryIndexOnDemandThroughputArrayInput interface {
+	pulumi.Input
+
+	ToGetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput() GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput
+	ToGetTableGlobalSecondaryIndexOnDemandThroughputArrayOutputWithContext(context.Context) GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput
+}
+
+type GetTableGlobalSecondaryIndexOnDemandThroughputArray []GetTableGlobalSecondaryIndexOnDemandThroughputInput
+
+func (GetTableGlobalSecondaryIndexOnDemandThroughputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableGlobalSecondaryIndexOnDemandThroughput)(nil)).Elem()
+}
+
+func (i GetTableGlobalSecondaryIndexOnDemandThroughputArray) ToGetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput() GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput {
+	return i.ToGetTableGlobalSecondaryIndexOnDemandThroughputArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableGlobalSecondaryIndexOnDemandThroughputArray) ToGetTableGlobalSecondaryIndexOnDemandThroughputArrayOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput)
+}
+
+type GetTableGlobalSecondaryIndexOnDemandThroughputOutput struct{ *pulumi.OutputState }
+
+func (GetTableGlobalSecondaryIndexOnDemandThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableGlobalSecondaryIndexOnDemandThroughput)(nil)).Elem()
+}
+
+func (o GetTableGlobalSecondaryIndexOnDemandThroughputOutput) ToGetTableGlobalSecondaryIndexOnDemandThroughputOutput() GetTableGlobalSecondaryIndexOnDemandThroughputOutput {
+	return o
+}
+
+func (o GetTableGlobalSecondaryIndexOnDemandThroughputOutput) ToGetTableGlobalSecondaryIndexOnDemandThroughputOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexOnDemandThroughputOutput {
+	return o
+}
+
+func (o GetTableGlobalSecondaryIndexOnDemandThroughputOutput) MaxReadRequestUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndexOnDemandThroughput) int { return v.MaxReadRequestUnits }).(pulumi.IntOutput)
+}
+
+func (o GetTableGlobalSecondaryIndexOnDemandThroughputOutput) MaxWriteRequestUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndexOnDemandThroughput) int { return v.MaxWriteRequestUnits }).(pulumi.IntOutput)
+}
+
+type GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableGlobalSecondaryIndexOnDemandThroughput)(nil)).Elem()
+}
+
+func (o GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput) ToGetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput() GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput {
+	return o
+}
+
+func (o GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput) ToGetTableGlobalSecondaryIndexOnDemandThroughputArrayOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput {
+	return o
+}
+
+func (o GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput) Index(i pulumi.IntInput) GetTableGlobalSecondaryIndexOnDemandThroughputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableGlobalSecondaryIndexOnDemandThroughput {
+		return vs[0].([]GetTableGlobalSecondaryIndexOnDemandThroughput)[vs[1].(int)]
+	}).(GetTableGlobalSecondaryIndexOnDemandThroughputOutput)
 }
 
 type GetTableLocalSecondaryIndex struct {
@@ -2453,6 +2748,106 @@ func (o GetTableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) GetTabl
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableLocalSecondaryIndex {
 		return vs[0].([]GetTableLocalSecondaryIndex)[vs[1].(int)]
 	}).(GetTableLocalSecondaryIndexOutput)
+}
+
+type GetTableOnDemandThroughput struct {
+	MaxReadRequestUnits  int `pulumi:"maxReadRequestUnits"`
+	MaxWriteRequestUnits int `pulumi:"maxWriteRequestUnits"`
+}
+
+// GetTableOnDemandThroughputInput is an input type that accepts GetTableOnDemandThroughputArgs and GetTableOnDemandThroughputOutput values.
+// You can construct a concrete instance of `GetTableOnDemandThroughputInput` via:
+//
+//	GetTableOnDemandThroughputArgs{...}
+type GetTableOnDemandThroughputInput interface {
+	pulumi.Input
+
+	ToGetTableOnDemandThroughputOutput() GetTableOnDemandThroughputOutput
+	ToGetTableOnDemandThroughputOutputWithContext(context.Context) GetTableOnDemandThroughputOutput
+}
+
+type GetTableOnDemandThroughputArgs struct {
+	MaxReadRequestUnits  pulumi.IntInput `pulumi:"maxReadRequestUnits"`
+	MaxWriteRequestUnits pulumi.IntInput `pulumi:"maxWriteRequestUnits"`
+}
+
+func (GetTableOnDemandThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableOnDemandThroughput)(nil)).Elem()
+}
+
+func (i GetTableOnDemandThroughputArgs) ToGetTableOnDemandThroughputOutput() GetTableOnDemandThroughputOutput {
+	return i.ToGetTableOnDemandThroughputOutputWithContext(context.Background())
+}
+
+func (i GetTableOnDemandThroughputArgs) ToGetTableOnDemandThroughputOutputWithContext(ctx context.Context) GetTableOnDemandThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableOnDemandThroughputOutput)
+}
+
+// GetTableOnDemandThroughputArrayInput is an input type that accepts GetTableOnDemandThroughputArray and GetTableOnDemandThroughputArrayOutput values.
+// You can construct a concrete instance of `GetTableOnDemandThroughputArrayInput` via:
+//
+//	GetTableOnDemandThroughputArray{ GetTableOnDemandThroughputArgs{...} }
+type GetTableOnDemandThroughputArrayInput interface {
+	pulumi.Input
+
+	ToGetTableOnDemandThroughputArrayOutput() GetTableOnDemandThroughputArrayOutput
+	ToGetTableOnDemandThroughputArrayOutputWithContext(context.Context) GetTableOnDemandThroughputArrayOutput
+}
+
+type GetTableOnDemandThroughputArray []GetTableOnDemandThroughputInput
+
+func (GetTableOnDemandThroughputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableOnDemandThroughput)(nil)).Elem()
+}
+
+func (i GetTableOnDemandThroughputArray) ToGetTableOnDemandThroughputArrayOutput() GetTableOnDemandThroughputArrayOutput {
+	return i.ToGetTableOnDemandThroughputArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableOnDemandThroughputArray) ToGetTableOnDemandThroughputArrayOutputWithContext(ctx context.Context) GetTableOnDemandThroughputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableOnDemandThroughputArrayOutput)
+}
+
+type GetTableOnDemandThroughputOutput struct{ *pulumi.OutputState }
+
+func (GetTableOnDemandThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableOnDemandThroughput)(nil)).Elem()
+}
+
+func (o GetTableOnDemandThroughputOutput) ToGetTableOnDemandThroughputOutput() GetTableOnDemandThroughputOutput {
+	return o
+}
+
+func (o GetTableOnDemandThroughputOutput) ToGetTableOnDemandThroughputOutputWithContext(ctx context.Context) GetTableOnDemandThroughputOutput {
+	return o
+}
+
+func (o GetTableOnDemandThroughputOutput) MaxReadRequestUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTableOnDemandThroughput) int { return v.MaxReadRequestUnits }).(pulumi.IntOutput)
+}
+
+func (o GetTableOnDemandThroughputOutput) MaxWriteRequestUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTableOnDemandThroughput) int { return v.MaxWriteRequestUnits }).(pulumi.IntOutput)
+}
+
+type GetTableOnDemandThroughputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableOnDemandThroughputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableOnDemandThroughput)(nil)).Elem()
+}
+
+func (o GetTableOnDemandThroughputArrayOutput) ToGetTableOnDemandThroughputArrayOutput() GetTableOnDemandThroughputArrayOutput {
+	return o
+}
+
+func (o GetTableOnDemandThroughputArrayOutput) ToGetTableOnDemandThroughputArrayOutputWithContext(ctx context.Context) GetTableOnDemandThroughputArrayOutput {
+	return o
+}
+
+func (o GetTableOnDemandThroughputArrayOutput) Index(i pulumi.IntInput) GetTableOnDemandThroughputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableOnDemandThroughput {
+		return vs[0].([]GetTableOnDemandThroughput)[vs[1].(int)]
+	}).(GetTableOnDemandThroughputOutput)
 }
 
 type GetTablePointInTimeRecovery struct {
@@ -2812,6 +3207,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableReplicaArrayInput)(nil)).Elem(), GlobalTableReplicaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAttributeInput)(nil)).Elem(), TableAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAttributeArrayInput)(nil)).Elem(), TableAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableExportIncrementalExportSpecificationInput)(nil)).Elem(), TableExportIncrementalExportSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableExportIncrementalExportSpecificationPtrInput)(nil)).Elem(), TableExportIncrementalExportSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexInput)(nil)).Elem(), TableGlobalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexArrayInput)(nil)).Elem(), TableGlobalSecondaryIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexOnDemandThroughputInput)(nil)).Elem(), TableGlobalSecondaryIndexOnDemandThroughputArgs{})
@@ -2840,8 +3237,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableAttributeArrayInput)(nil)).Elem(), GetTableAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexInput)(nil)).Elem(), GetTableGlobalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexArrayInput)(nil)).Elem(), GetTableGlobalSecondaryIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexOnDemandThroughputInput)(nil)).Elem(), GetTableGlobalSecondaryIndexOnDemandThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexOnDemandThroughputArrayInput)(nil)).Elem(), GetTableGlobalSecondaryIndexOnDemandThroughputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableLocalSecondaryIndexInput)(nil)).Elem(), GetTableLocalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableLocalSecondaryIndexArrayInput)(nil)).Elem(), GetTableLocalSecondaryIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableOnDemandThroughputInput)(nil)).Elem(), GetTableOnDemandThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableOnDemandThroughputArrayInput)(nil)).Elem(), GetTableOnDemandThroughputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTablePointInTimeRecoveryInput)(nil)).Elem(), GetTablePointInTimeRecoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableReplicaTypeInput)(nil)).Elem(), GetTableReplicaTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableReplicaTypeArrayInput)(nil)).Elem(), GetTableReplicaTypeArray{})
@@ -2852,6 +3253,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableReplicaArrayOutput{})
 	pulumi.RegisterOutputType(TableAttributeOutput{})
 	pulumi.RegisterOutputType(TableAttributeArrayOutput{})
+	pulumi.RegisterOutputType(TableExportIncrementalExportSpecificationOutput{})
+	pulumi.RegisterOutputType(TableExportIncrementalExportSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOnDemandThroughputOutput{})
@@ -2880,8 +3283,12 @@ func init() {
 	pulumi.RegisterOutputType(GetTableAttributeArrayOutput{})
 	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexArrayOutput{})
+	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexOnDemandThroughputOutput{})
+	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput{})
 	pulumi.RegisterOutputType(GetTableLocalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(GetTableLocalSecondaryIndexArrayOutput{})
+	pulumi.RegisterOutputType(GetTableOnDemandThroughputOutput{})
+	pulumi.RegisterOutputType(GetTableOnDemandThroughputArrayOutput{})
 	pulumi.RegisterOutputType(GetTablePointInTimeRecoveryOutput{})
 	pulumi.RegisterOutputType(GetTableReplicaTypeOutput{})
 	pulumi.RegisterOutputType(GetTableReplicaTypeArrayOutput{})

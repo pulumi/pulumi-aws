@@ -16,14 +16,14 @@ public final class InvocationLoggingConfigurationArgs extends com.pulumi.resourc
     public static final InvocationLoggingConfigurationArgs Empty = new InvocationLoggingConfigurationArgs();
 
     /**
-     * The logging configuration values to set.
+     * The logging configuration values to set. See `logging_config` Block for details.
      * 
      */
     @Import(name="loggingConfig")
     private @Nullable Output<InvocationLoggingConfigurationLoggingConfigArgs> loggingConfig;
 
     /**
-     * @return The logging configuration values to set.
+     * @return The logging configuration values to set. See `logging_config` Block for details.
      * 
      */
     public Optional<Output<InvocationLoggingConfigurationLoggingConfigArgs>> loggingConfig() {
@@ -55,7 +55,7 @@ public final class InvocationLoggingConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param loggingConfig The logging configuration values to set.
+         * @param loggingConfig The logging configuration values to set. See `logging_config` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class InvocationLoggingConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param loggingConfig The logging configuration values to set.
+         * @param loggingConfig The logging configuration values to set. See `logging_config` Block for details.
          * 
          * @return builder
          * 

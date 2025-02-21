@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ses
     ///     var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("example_amazonses_verification_record", new()
     ///     {
     ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
-    ///         Name = example.Id.Apply(id =&gt; $"_amazonses.{id}"),
+    ///         Name = example.Domain.Apply(domain =&gt; $"_amazonses.{domain}"),
     ///         Type = Aws.Route53.RecordType.TXT,
     ///         Ttl = 600,
     ///         Records = new[]
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ses
     /// 
     ///     var exampleVerification = new Aws.Ses.DomainIdentityVerification("example_verification", new()
     ///     {
-    ///         Domain = example.Id,
+    ///         Domain = example.Domain,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

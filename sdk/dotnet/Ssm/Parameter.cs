@@ -160,11 +160,6 @@ namespace Pulumi.Aws.Ssm
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
-        /// 
-        /// &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -300,12 +295,6 @@ namespace Pulumi.Aws.Ssm
 
         [Input("value")]
         private Input<string>? _value;
-
-        /// <summary>
-        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
-        /// 
-        /// &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-        /// </summary>
         public Input<string>? Value
         {
             get => _value;
@@ -413,12 +402,6 @@ namespace Pulumi.Aws.Ssm
 
         [Input("value")]
         private Input<string>? _value;
-
-        /// <summary>
-        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
-        /// 
-        /// &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-        /// </summary>
         public Input<string>? Value
         {
             get => _value;

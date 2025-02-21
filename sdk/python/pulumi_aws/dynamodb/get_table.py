@@ -28,7 +28,7 @@ class GetTableResult:
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, arn=None, attributes=None, billing_mode=None, deletion_protection_enabled=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, table_class=None, tags=None, ttl=None, write_capacity=None):
+    def __init__(__self__, arn=None, attributes=None, billing_mode=None, deletion_protection_enabled=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, on_demand_throughputs=None, point_in_time_recovery=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, table_class=None, tags=None, ttl=None, write_capacity=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,6 +56,9 @@ class GetTableResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if on_demand_throughputs and not isinstance(on_demand_throughputs, list):
+            raise TypeError("Expected argument 'on_demand_throughputs' to be a list")
+        pulumi.set(__self__, "on_demand_throughputs", on_demand_throughputs)
         if point_in_time_recovery and not isinstance(point_in_time_recovery, dict):
             raise TypeError("Expected argument 'point_in_time_recovery' to be a dict")
         pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
@@ -145,6 +148,11 @@ class GetTableResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="onDemandThroughputs")
+    def on_demand_throughputs(self) -> Sequence['outputs.GetTableOnDemandThroughputResult']:
+        return pulumi.get(self, "on_demand_throughputs")
+
+    @property
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> 'outputs.GetTablePointInTimeRecoveryResult':
         return pulumi.get(self, "point_in_time_recovery")
@@ -225,6 +233,7 @@ class AwaitableGetTableResult(GetTableResult):
             id=self.id,
             local_secondary_indexes=self.local_secondary_indexes,
             name=self.name,
+            on_demand_throughputs=self.on_demand_throughputs,
             point_in_time_recovery=self.point_in_time_recovery,
             range_key=self.range_key,
             read_capacity=self.read_capacity,
@@ -276,6 +285,7 @@ def get_table(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         local_secondary_indexes=pulumi.get(__ret__, 'local_secondary_indexes'),
         name=pulumi.get(__ret__, 'name'),
+        on_demand_throughputs=pulumi.get(__ret__, 'on_demand_throughputs'),
         point_in_time_recovery=pulumi.get(__ret__, 'point_in_time_recovery'),
         range_key=pulumi.get(__ret__, 'range_key'),
         read_capacity=pulumi.get(__ret__, 'read_capacity'),
@@ -324,6 +334,7 @@ def get_table_output(name: Optional[pulumi.Input[str]] = None,
         id=pulumi.get(__response__, 'id'),
         local_secondary_indexes=pulumi.get(__response__, 'local_secondary_indexes'),
         name=pulumi.get(__response__, 'name'),
+        on_demand_throughputs=pulumi.get(__response__, 'on_demand_throughputs'),
         point_in_time_recovery=pulumi.get(__response__, 'point_in_time_recovery'),
         range_key=pulumi.get(__response__, 'range_key'),
         read_capacity=pulumi.get(__response__, 'read_capacity'),

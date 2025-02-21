@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class SelectionConditionStringEqual {
     /**
-     * @return The key in a key-value pair.
+     * @return Key for the filter.
      * 
      */
     private String key;
     /**
-     * @return The value in a key-value pair.
+     * @return Value for the filter.
      * 
      */
     private String value;
 
     private SelectionConditionStringEqual() {}
     /**
-     * @return The key in a key-value pair.
+     * @return Key for the filter.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return The value in a key-value pair.
+     * @return Value for the filter.
      * 
      */
     public String value() {

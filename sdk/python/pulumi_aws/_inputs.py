@@ -1148,6 +1148,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        mediapackagevod: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         mediastore: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1785,6 +1789,7 @@ class ProviderEndpointArgs:
                  medialive: Optional[pulumi.Input[str]] = None,
                  mediapackage: Optional[pulumi.Input[str]] = None,
                  mediapackagev2: Optional[pulumi.Input[str]] = None,
+                 mediapackagevod: Optional[pulumi.Input[str]] = None,
                  mediastore: Optional[pulumi.Input[str]] = None,
                  memorydb: Optional[pulumi.Input[str]] = None,
                  mgn: Optional[pulumi.Input[str]] = None,
@@ -2084,6 +2089,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] medialive: Use this to override the default service endpoint URL
         :param pulumi.Input[str] mediapackage: Use this to override the default service endpoint URL
         :param pulumi.Input[str] mediapackagev2: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] mediapackagevod: Use this to override the default service endpoint URL
         :param pulumi.Input[str] mediastore: Use this to override the default service endpoint URL
         :param pulumi.Input[str] memorydb: Use this to override the default service endpoint URL
         :param pulumi.Input[str] mgn: Use this to override the default service endpoint URL
@@ -2570,6 +2576,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "mediapackage", mediapackage)
         if mediapackagev2 is not None:
             pulumi.set(__self__, "mediapackagev2", mediapackagev2)
+        if mediapackagevod is not None:
+            pulumi.set(__self__, "mediapackagevod", mediapackagevod)
         if mediastore is not None:
             pulumi.set(__self__, "mediastore", mediastore)
         if memorydb is not None:
@@ -5036,6 +5044,18 @@ class ProviderEndpointArgs:
     @mediapackagev2.setter
     def mediapackagev2(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mediapackagev2", value)
+
+    @property
+    @pulumi.getter
+    def mediapackagevod(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "mediapackagevod")
+
+    @mediapackagevod.setter
+    def mediapackagevod(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mediapackagevod", value)
 
     @property
     @pulumi.getter

@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### S3 Data Source
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -61,6 +63,145 @@ import javax.annotation.Nullable;
  *                         .bucket("my-bucket")
  *                         .key("path/to/manifest.json")
  *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .type("S3")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### S3 Data Source with IAM Role ARN
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketObjectv2;
+ * import com.pulumi.aws.s3.BucketObjectv2Args;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.Policy;
+ * import com.pulumi.aws.iam.PolicyArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.quicksight.DataSource;
+ * import com.pulumi.aws.quicksight.DataSourceArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSourceParametersArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSourceParametersS3Args;
+ * import com.pulumi.aws.quicksight.inputs.DataSourceParametersS3ManifestFileLocationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         final var currentGetPartition = AwsFunctions.getPartition();
+ * 
+ *         final var currentGetRegion = AwsFunctions.getRegion();
+ * 
+ *         var example = new BucketV2("example");
+ * 
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()
+ *             .bucket(example.bucket())
+ *             .key("manifest.json")
+ *             .content(example.id().applyValue(id -> serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("fileLocations", jsonArray(jsonObject(
+ *                         jsonProperty("URIPrefixes", jsonArray(String.format("https://%s.s3-%s.%s", id,currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.dnsSuffix()))))
+ *                     ))),
+ *                     jsonProperty("globalUploadSettings", jsonObject(
+ *                         jsonProperty("format", "CSV"),
+ *                         jsonProperty("delimiter", ","),
+ *                         jsonProperty("textqualifier", "\""),
+ *                         jsonProperty("containsHeader", true)
+ *                     ))
+ *                 ))))
+ *             .build());
+ * 
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
+ *             .name("example")
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "quicksight.amazonaws.com")
+ *                         )),
+ *                         jsonProperty("Condition", jsonObject(
+ *                             jsonProperty("StringEquals", jsonObject(
+ *                                 jsonProperty("aws:SourceAccount", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                             ))
+ *                         ))
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
+ *             .name("example")
+ *             .description("Policy to allow QuickSight access to S3 bucket")
+ *             .policy(Output.tuple(example.arn(), exampleBucketObjectv2.key(), example.arn()).applyValue(values -> {
+ *                 var exampleArn = values.t1;
+ *                 var key = values.t2;
+ *                 var exampleArn1 = values.t3;
+ *                 return serializeJson(
+ *                     jsonObject(
+ *                         jsonProperty("Version", "2012-10-17"),
+ *                         jsonProperty("Statement", jsonArray(
+ *                             jsonObject(
+ *                                 jsonProperty("Action", jsonArray("s3:GetObject")),
+ *                                 jsonProperty("Effect", "Allow"),
+ *                                 jsonProperty("Resource", String.format("%s/%s", exampleArn,key))
+ *                             ), 
+ *                             jsonObject(
+ *                                 jsonProperty("Action", jsonArray("s3:ListBucket")),
+ *                                 jsonProperty("Effect", "Allow"),
+ *                                 jsonProperty("Resource", exampleArn1)
+ *                             )
+ *                         ))
+ *                     ));
+ *             }))
+ *             .build());
+ * 
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
+ *             .policyArn(examplePolicy.arn())
+ *             .role(exampleRole.name())
+ *             .build());
+ * 
+ *         var exampleDataSource = new DataSource("exampleDataSource", DataSourceArgs.builder()
+ *             .dataSourceId("example-id")
+ *             .name("manifest in S3")
+ *             .parameters(DataSourceParametersArgs.builder()
+ *                 .s3(DataSourceParametersS3Args.builder()
+ *                     .manifestFileLocation(DataSourceParametersS3ManifestFileLocationArgs.builder()
+ *                         .bucket(example.arn())
+ *                         .key(exampleBucketObjectv2.key())
+ *                         .build())
+ *                     .roleArn(exampleRole.arn())
  *                     .build())
  *                 .build())
  *             .type("S3")

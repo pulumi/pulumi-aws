@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const exampleMember = new aws.detective.Member("example", {
  *     accountId: "AWS ACCOUNT ID",
  *     emailAddress: "EMAIL",
- *     graphArn: example.id,
+ *     graphArn: example.graphArn,
  *     message: "Message of the invitation",
  *     disableEmailNotification: true,
  * });

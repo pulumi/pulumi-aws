@@ -261,6 +261,96 @@ import (
 //
 // ```
 //
+// ### EKS Cluster with EKS Hybrid Nodes
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": []string{
+//							"sts:AssumeRole",
+//							"sts:TagSession",
+//						},
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "eks.amazonaws.com",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			cluster, err := iam.NewRole(ctx, "cluster", &iam.RoleArgs{
+//				Name:             pulumi.String("eks-cluster-example"),
+//				AssumeRolePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			clusterAmazonEKSClusterPolicy, err := iam.NewRolePolicyAttachment(ctx, "cluster_AmazonEKSClusterPolicy", &iam.RolePolicyAttachmentArgs{
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"),
+//				Role:      cluster.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eks.NewCluster(ctx, "example", &eks.ClusterArgs{
+//				Name: pulumi.String("example"),
+//				AccessConfig: &eks.ClusterAccessConfigArgs{
+//					AuthenticationMode: pulumi.String("API"),
+//				},
+//				RoleArn: cluster.Arn,
+//				Version: pulumi.String("1.31"),
+//				RemoteNetworkConfig: &eks.ClusterRemoteNetworkConfigArgs{
+//					RemoteNodeNetworks: &eks.ClusterRemoteNetworkConfigRemoteNodeNetworksArgs{
+//						Cidrs: pulumi.StringArray{
+//							pulumi.String("172.16.0.0/18"),
+//						},
+//					},
+//					RemotePodNetworks: &eks.ClusterRemoteNetworkConfigRemotePodNetworksArgs{
+//						Cidrs: pulumi.StringArray{
+//							pulumi.String("172.16.64.0/18"),
+//						},
+//					},
+//				},
+//				VpcConfig: &eks.ClusterVpcConfigArgs{
+//					EndpointPrivateAccess: pulumi.Bool(true),
+//					EndpointPublicAccess:  pulumi.Bool(true),
+//					SubnetIds: pulumi.StringArray{
+//						az1.Id,
+//						az2.Id,
+//						az3.Id,
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				clusterAmazonEKSClusterPolicy,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Local EKS Cluster on AWS Outpost
 //
 // [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
@@ -367,7 +457,7 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
 	AccessConfig ClusterAccessConfigOutput `pulumi:"accessConfig"`
 	// ARN of the cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -390,8 +480,7 @@ type Cluster struct {
 	// Endpoint for your Kubernetes API server.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
-	Identities ClusterIdentityArrayOutput `pulumi:"identities"`
-	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+	Identities              ClusterIdentityArrayOutput           `pulumi:"identities"`
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigOutput `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -461,7 +550,7 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
 	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
 	// ARN of the cluster.
 	Arn *string `pulumi:"arn"`
@@ -484,8 +573,7 @@ type clusterState struct {
 	// Endpoint for your Kubernetes API server.
 	Endpoint *string `pulumi:"endpoint"`
 	// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
-	Identities []ClusterIdentity `pulumi:"identities"`
-	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+	Identities              []ClusterIdentity               `pulumi:"identities"`
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name *string `pulumi:"name"`
@@ -520,7 +608,7 @@ type clusterState struct {
 }
 
 type ClusterState struct {
-	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
 	AccessConfig ClusterAccessConfigPtrInput
 	// ARN of the cluster.
 	Arn pulumi.StringPtrInput
@@ -543,8 +631,7 @@ type ClusterState struct {
 	// Endpoint for your Kubernetes API server.
 	Endpoint pulumi.StringPtrInput
 	// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
-	Identities ClusterIdentityArrayInput
-	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+	Identities              ClusterIdentityArrayInput
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name pulumi.StringPtrInput
@@ -583,7 +670,7 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
 	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
 	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
 	BootstrapSelfManagedAddons *bool `pulumi:"bootstrapSelfManagedAddons"`
@@ -593,8 +680,7 @@ type clusterArgs struct {
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Detailed below.
-	EncryptionConfig *ClusterEncryptionConfig `pulumi:"encryptionConfig"`
-	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+	EncryptionConfig        *ClusterEncryptionConfig        `pulumi:"encryptionConfig"`
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name *string `pulumi:"name"`
@@ -622,7 +708,7 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
 	AccessConfig ClusterAccessConfigPtrInput
 	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
 	BootstrapSelfManagedAddons pulumi.BoolPtrInput
@@ -632,8 +718,7 @@ type ClusterArgs struct {
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
 	// Configuration block with encryption configuration for the cluster. Detailed below.
-	EncryptionConfig ClusterEncryptionConfigPtrInput
-	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+	EncryptionConfig        ClusterEncryptionConfigPtrInput
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
 	Name pulumi.StringPtrInput
@@ -746,7 +831,7 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
-// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
 func (o ClusterOutput) AccessConfig() ClusterAccessConfigOutput {
 	return o.ApplyT(func(v *Cluster) ClusterAccessConfigOutput { return v.AccessConfig }).(ClusterAccessConfigOutput)
 }
@@ -809,7 +894,6 @@ func (o ClusterOutput) Identities() ClusterIdentityArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterIdentityArrayOutput { return v.Identities }).(ClusterIdentityArrayOutput)
 }
 
-// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
 func (o ClusterOutput) KubernetesNetworkConfig() ClusterKubernetesNetworkConfigOutput {
 	return o.ApplyT(func(v *Cluster) ClusterKubernetesNetworkConfigOutput { return v.KubernetesNetworkConfig }).(ClusterKubernetesNetworkConfigOutput)
 }

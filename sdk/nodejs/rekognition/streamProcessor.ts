@@ -227,6 +227,10 @@ export class StreamProcessor extends pulumi.CustomResource {
     }
 
     /**
+     * ARN of the Stream Processor.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * See `dataSharingPreference`.
      */
     public readonly dataSharingPreference!: pulumi.Output<outputs.rekognition.StreamProcessorDataSharingPreference | undefined>;
@@ -265,7 +269,10 @@ export class StreamProcessor extends pulumi.CustomResource {
      */
     public readonly settings!: pulumi.Output<outputs.rekognition.StreamProcessorSettings | undefined>;
     /**
-     * ARN of the Stream Processor.
+     * (**Deprecated**) ARN of the Stream Processor.
+     * Use `arn` instead.
+     *
+     * @deprecated Use 'arn' instead. This attribute will be removed in a future version of the provider.
      */
     public /*out*/ readonly streamProcessorArn!: pulumi.Output<string>;
     /**
@@ -293,6 +300,7 @@ export class StreamProcessor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamProcessorState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["dataSharingPreference"] = state ? state.dataSharingPreference : undefined;
             resourceInputs["input"] = state ? state.input : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
@@ -322,6 +330,7 @@ export class StreamProcessor extends pulumi.CustomResource {
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["streamProcessorArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -334,6 +343,10 @@ export class StreamProcessor extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StreamProcessor resources.
  */
 export interface StreamProcessorState {
+    /**
+     * ARN of the Stream Processor.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * See `dataSharingPreference`.
      */
@@ -373,7 +386,10 @@ export interface StreamProcessorState {
      */
     settings?: pulumi.Input<inputs.rekognition.StreamProcessorSettings>;
     /**
-     * ARN of the Stream Processor.
+     * (**Deprecated**) ARN of the Stream Processor.
+     * Use `arn` instead.
+     *
+     * @deprecated Use 'arn' instead. This attribute will be removed in a future version of the provider.
      */
     streamProcessorArn?: pulumi.Input<string>;
     /**

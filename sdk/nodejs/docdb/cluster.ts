@@ -160,7 +160,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
      */
     public readonly masterPassword!: pulumi.Output<string | undefined>;
     /**
@@ -403,7 +403,7 @@ export interface ClusterState {
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
      */
     masterPassword?: pulumi.Input<string>;
     /**
@@ -540,7 +540,7 @@ export interface ClusterArgs {
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
      */
     masterPassword?: pulumi.Input<string>;
     /**

@@ -15,9 +15,17 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
 
     public static final AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs Empty = new AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs();
 
+    /**
+     * Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
+     * 
+     */
     @Import(name="url")
     private @Nullable Output<String> url;
 
+    /**
+     * @return Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
+     * 
+     */
     public Optional<Output<String>> url() {
         return Optional.ofNullable(this.url);
     }
@@ -46,11 +54,23 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
             $ = new AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param url Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
 
+        /**
+         * @param url Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

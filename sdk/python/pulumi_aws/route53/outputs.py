@@ -555,7 +555,7 @@ class ResolverRuleTargetIp(dict):
                  port: Optional[int] = None,
                  protocol: Optional[str] = None):
         """
-        :param str ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+        :param str ip: One IPv4 address that you want to forward DNS queries to.
         :param str ipv6: One IPv6 address that you want to forward DNS queries to.
         :param int port: Port at `ip` that you want to forward DNS queries to. Default value is `53`.
         :param str protocol: Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
@@ -573,7 +573,7 @@ class ResolverRuleTargetIp(dict):
     @pulumi.getter
     def ip(self) -> Optional[str]:
         """
-        One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+        One IPv4 address that you want to forward DNS queries to.
         """
         return pulumi.get(self, "ip")
 

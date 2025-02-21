@@ -950,6 +950,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String mediapackagevod;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String mediastore;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2816,6 +2821,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> mediapackagevod() {
+        return Optional.ofNullable(this.mediapackagevod);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> mediastore() {
         return Optional.ofNullable(this.mediastore);
     }
@@ -3786,6 +3798,7 @@ public final class Endpoints {
         private @Nullable String medialive;
         private @Nullable String mediapackage;
         private @Nullable String mediapackagev2;
+        private @Nullable String mediapackagevod;
         private @Nullable String mediastore;
         private @Nullable String memorydb;
         private @Nullable String mgn;
@@ -4087,6 +4100,7 @@ public final class Endpoints {
     	      this.medialive = defaults.medialive;
     	      this.mediapackage = defaults.mediapackage;
     	      this.mediapackagev2 = defaults.mediapackagev2;
+    	      this.mediapackagevod = defaults.mediapackagevod;
     	      this.mediastore = defaults.mediastore;
     	      this.memorydb = defaults.memorydb;
     	      this.mgn = defaults.mgn;
@@ -5323,6 +5337,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder mediapackagevod(@Nullable String mediapackagevod) {
+
+            this.mediapackagevod = mediapackagevod;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mediastore(@Nullable String mediastore) {
 
             this.mediastore = mediastore;
@@ -6177,6 +6197,7 @@ public final class Endpoints {
             _resultValue.medialive = medialive;
             _resultValue.mediapackage = mediapackage;
             _resultValue.mediapackagev2 = mediapackagev2;
+            _resultValue.mediapackagevod = mediapackagevod;
             _resultValue.mediastore = mediastore;
             _resultValue.memorydb = memorydb;
             _resultValue.mgn = mgn;

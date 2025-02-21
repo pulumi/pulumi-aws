@@ -725,7 +725,7 @@ class ReplicationInstance(pulumi.CustomResource):
             multi_az=False,
             preferred_maintenance_window="sun:10:30-sun:14:30",
             publicly_accessible=True,
-            replication_instance_class="dms.t2.micro",
+            replication_instance_class="dms.t3.micro",
             replication_instance_id="test-dms-replication-instance-tf",
             replication_subnet_group_id=test_dms_replication_subnet_group_tf["id"],
             tags={
@@ -835,7 +835,7 @@ class ReplicationInstance(pulumi.CustomResource):
             multi_az=False,
             preferred_maintenance_window="sun:10:30-sun:14:30",
             publicly_accessible=True,
-            replication_instance_class="dms.t2.micro",
+            replication_instance_class="dms.t3.micro",
             replication_instance_id="test-dms-replication-instance-tf",
             replication_subnet_group_id=test_dms_replication_subnet_group_tf["id"],
             tags={

@@ -100,14 +100,16 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     * Protocols you want to use for the Route 53 Resolver endpoint.
+     * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
      * 
      */
     @Import(name="protocols")
     private @Nullable Output<List<String>> protocols;
 
     /**
-     * @return Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     * @return Protocols you want to use for the Route 53 Resolver endpoint.
+     * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
      * 
      */
     public Optional<Output<List<String>>> protocols() {
@@ -115,14 +117,16 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     * Endpoint IP type. This endpoint type is applied to all IP addresses.
+     * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
      * 
      */
     @Import(name="resolverEndpointType")
     private @Nullable Output<String> resolverEndpointType;
 
     /**
-     * @return Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     * @return Endpoint IP type. This endpoint type is applied to all IP addresses.
+     * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
      * 
      */
     public Optional<Output<String>> resolverEndpointType() {
@@ -338,7 +342,8 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param protocols Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+         * @param protocols Protocols you want to use for the Route 53 Resolver endpoint.
+         * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
          * 
          * @return builder
          * 
@@ -349,7 +354,8 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param protocols Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+         * @param protocols Protocols you want to use for the Route 53 Resolver endpoint.
+         * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
          * 
          * @return builder
          * 
@@ -359,7 +365,8 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param protocols Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+         * @param protocols Protocols you want to use for the Route 53 Resolver endpoint.
+         * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
          * 
          * @return builder
          * 
@@ -369,7 +376,8 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resolverEndpointType Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+         * @param resolverEndpointType Endpoint IP type. This endpoint type is applied to all IP addresses.
+         * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
          * 
          * @return builder
          * 
@@ -380,7 +388,8 @@ public final class ResolverEndpointState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resolverEndpointType Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+         * @param resolverEndpointType Endpoint IP type. This endpoint type is applied to all IP addresses.
+         * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
          * 
          * @return builder
          * 

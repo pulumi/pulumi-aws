@@ -14,16 +14,18 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type InvocationLoggingConfigurationLoggingConfig struct {
-	// CloudWatch logging configuration.
+	// CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
 	CloudwatchConfig *InvocationLoggingConfigurationLoggingConfigCloudwatchConfig `pulumi:"cloudwatchConfig"`
-	// Set to include embeddings data in the log delivery.
-	EmbeddingDataDeliveryEnabled bool `pulumi:"embeddingDataDeliveryEnabled"`
-	// Set to include image data in the log delivery.
-	ImageDataDeliveryEnabled bool `pulumi:"imageDataDeliveryEnabled"`
-	// S3 configuration for storing log data.
+	// Set to include embeddings data in the log delivery. Defaults to `true`.
+	EmbeddingDataDeliveryEnabled *bool `pulumi:"embeddingDataDeliveryEnabled"`
+	// Set to include image data in the log delivery. Defaults to `true`.
+	ImageDataDeliveryEnabled *bool `pulumi:"imageDataDeliveryEnabled"`
+	// S3 configuration for storing log data. See `s3Config` Block for details.
 	S3Config *InvocationLoggingConfigurationLoggingConfigS3Config `pulumi:"s3Config"`
-	// Set to include text data in the log delivery.
-	TextDataDeliveryEnabled bool `pulumi:"textDataDeliveryEnabled"`
+	// Set to include text data in the log delivery. Defaults to `true`.
+	TextDataDeliveryEnabled *bool `pulumi:"textDataDeliveryEnabled"`
+	// Set to include text data in the log delivery. Defaults to `true`.
+	VideoDataDeliveryEnabled *bool `pulumi:"videoDataDeliveryEnabled"`
 }
 
 // InvocationLoggingConfigurationLoggingConfigInput is an input type that accepts InvocationLoggingConfigurationLoggingConfigArgs and InvocationLoggingConfigurationLoggingConfigOutput values.
@@ -38,16 +40,18 @@ type InvocationLoggingConfigurationLoggingConfigInput interface {
 }
 
 type InvocationLoggingConfigurationLoggingConfigArgs struct {
-	// CloudWatch logging configuration.
+	// CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
 	CloudwatchConfig InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrInput `pulumi:"cloudwatchConfig"`
-	// Set to include embeddings data in the log delivery.
-	EmbeddingDataDeliveryEnabled pulumi.BoolInput `pulumi:"embeddingDataDeliveryEnabled"`
-	// Set to include image data in the log delivery.
-	ImageDataDeliveryEnabled pulumi.BoolInput `pulumi:"imageDataDeliveryEnabled"`
-	// S3 configuration for storing log data.
+	// Set to include embeddings data in the log delivery. Defaults to `true`.
+	EmbeddingDataDeliveryEnabled pulumi.BoolPtrInput `pulumi:"embeddingDataDeliveryEnabled"`
+	// Set to include image data in the log delivery. Defaults to `true`.
+	ImageDataDeliveryEnabled pulumi.BoolPtrInput `pulumi:"imageDataDeliveryEnabled"`
+	// S3 configuration for storing log data. See `s3Config` Block for details.
 	S3Config InvocationLoggingConfigurationLoggingConfigS3ConfigPtrInput `pulumi:"s3Config"`
-	// Set to include text data in the log delivery.
-	TextDataDeliveryEnabled pulumi.BoolInput `pulumi:"textDataDeliveryEnabled"`
+	// Set to include text data in the log delivery. Defaults to `true`.
+	TextDataDeliveryEnabled pulumi.BoolPtrInput `pulumi:"textDataDeliveryEnabled"`
+	// Set to include text data in the log delivery. Defaults to `true`.
+	VideoDataDeliveryEnabled pulumi.BoolPtrInput `pulumi:"videoDataDeliveryEnabled"`
 }
 
 func (InvocationLoggingConfigurationLoggingConfigArgs) ElementType() reflect.Type {
@@ -127,33 +131,38 @@ func (o InvocationLoggingConfigurationLoggingConfigOutput) ToInvocationLoggingCo
 	}).(InvocationLoggingConfigurationLoggingConfigPtrOutput)
 }
 
-// CloudWatch logging configuration.
+// CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
 func (o InvocationLoggingConfigurationLoggingConfigOutput) CloudwatchConfig() InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) *InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
 		return v.CloudwatchConfig
 	}).(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput)
 }
 
-// Set to include embeddings data in the log delivery.
-func (o InvocationLoggingConfigurationLoggingConfigOutput) EmbeddingDataDeliveryEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) bool { return v.EmbeddingDataDeliveryEnabled }).(pulumi.BoolOutput)
+// Set to include embeddings data in the log delivery. Defaults to `true`.
+func (o InvocationLoggingConfigurationLoggingConfigOutput) EmbeddingDataDeliveryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) *bool { return v.EmbeddingDataDeliveryEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Set to include image data in the log delivery.
-func (o InvocationLoggingConfigurationLoggingConfigOutput) ImageDataDeliveryEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) bool { return v.ImageDataDeliveryEnabled }).(pulumi.BoolOutput)
+// Set to include image data in the log delivery. Defaults to `true`.
+func (o InvocationLoggingConfigurationLoggingConfigOutput) ImageDataDeliveryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) *bool { return v.ImageDataDeliveryEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// S3 configuration for storing log data.
+// S3 configuration for storing log data. See `s3Config` Block for details.
 func (o InvocationLoggingConfigurationLoggingConfigOutput) S3Config() InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) *InvocationLoggingConfigurationLoggingConfigS3Config {
 		return v.S3Config
 	}).(InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput)
 }
 
-// Set to include text data in the log delivery.
-func (o InvocationLoggingConfigurationLoggingConfigOutput) TextDataDeliveryEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) bool { return v.TextDataDeliveryEnabled }).(pulumi.BoolOutput)
+// Set to include text data in the log delivery. Defaults to `true`.
+func (o InvocationLoggingConfigurationLoggingConfigOutput) TextDataDeliveryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) *bool { return v.TextDataDeliveryEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Set to include text data in the log delivery. Defaults to `true`.
+func (o InvocationLoggingConfigurationLoggingConfigOutput) VideoDataDeliveryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfig) *bool { return v.VideoDataDeliveryEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type InvocationLoggingConfigurationLoggingConfigPtrOutput struct{ *pulumi.OutputState }
@@ -180,7 +189,7 @@ func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) Elem() InvocationL
 	}).(InvocationLoggingConfigurationLoggingConfigOutput)
 }
 
-// CloudWatch logging configuration.
+// CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
 func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) CloudwatchConfig() InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfig) *InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
 		if v == nil {
@@ -190,27 +199,27 @@ func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) CloudwatchConfig()
 	}).(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput)
 }
 
-// Set to include embeddings data in the log delivery.
+// Set to include embeddings data in the log delivery. Defaults to `true`.
 func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) EmbeddingDataDeliveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfig) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.EmbeddingDataDeliveryEnabled
+		return v.EmbeddingDataDeliveryEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Set to include image data in the log delivery.
+// Set to include image data in the log delivery. Defaults to `true`.
 func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) ImageDataDeliveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfig) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.ImageDataDeliveryEnabled
+		return v.ImageDataDeliveryEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// S3 configuration for storing log data.
+// S3 configuration for storing log data. See `s3Config` Block for details.
 func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) S3Config() InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfig) *InvocationLoggingConfigurationLoggingConfigS3Config {
 		if v == nil {
@@ -220,18 +229,28 @@ func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) S3Config() Invocat
 	}).(InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput)
 }
 
-// Set to include text data in the log delivery.
+// Set to include text data in the log delivery. Defaults to `true`.
 func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) TextDataDeliveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfig) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.TextDataDeliveryEnabled
+		return v.TextDataDeliveryEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set to include text data in the log delivery. Defaults to `true`.
+func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) VideoDataDeliveryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VideoDataDeliveryEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
 type InvocationLoggingConfigurationLoggingConfigCloudwatchConfig struct {
-	// S3 configuration for delivering a large amount of data.
+	// S3 configuration for delivering a large amount of data. See `largeDataDeliveryS3Config` Block for details.
 	LargeDataDeliveryS3Config *InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config `pulumi:"largeDataDeliveryS3Config"`
 	// Log group name.
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -251,7 +270,7 @@ type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigInput interface 
 }
 
 type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs struct {
-	// S3 configuration for delivering a large amount of data.
+	// S3 configuration for delivering a large amount of data. See `largeDataDeliveryS3Config` Block for details.
 	LargeDataDeliveryS3Config InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrInput `pulumi:"largeDataDeliveryS3Config"`
 	// Log group name.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
@@ -336,7 +355,7 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) ToInv
 	}).(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput)
 }
 
-// S3 configuration for delivering a large amount of data.
+// S3 configuration for delivering a large amount of data. See `largeDataDeliveryS3Config` Block for details.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) LargeDataDeliveryS3Config() InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) *InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config {
 		return v.LargeDataDeliveryS3Config
@@ -377,7 +396,7 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) El
 	}).(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput)
 }
 
-// S3 configuration for delivering a large amount of data.
+// S3 configuration for delivering a large amount of data. See `largeDataDeliveryS3Config` Block for details.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) LargeDataDeliveryS3Config() InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) *InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config {
 		if v == nil {

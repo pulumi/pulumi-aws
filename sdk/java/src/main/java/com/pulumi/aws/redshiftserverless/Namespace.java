@@ -66,9 +66,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:redshiftserverless/namespace:Namespace")
 public class Namespace extends com.pulumi.resources.CustomResource {
+    /**
+     * Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+     * 
+     */
     @Export(name="adminPasswordSecretArn", refs={String.class}, tree="[0]")
     private Output<String> adminPasswordSecretArn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+     * 
+     */
     public Output<String> adminPasswordSecretArn() {
         return this.adminPasswordSecretArn;
     }
@@ -88,7 +96,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     }
     /**
      * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manage_admin_password`.
+     * Conflicts with `manage_admin_password` and `admin_user_password_wo`.
      * 
      */
     @Export(name="adminUserPassword", refs={String.class}, tree="[0]")
@@ -96,7 +104,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manage_admin_password`.
+     * Conflicts with `manage_admin_password` and `admin_user_password_wo`.
      * 
      */
     public Output<Optional<String>> adminUserPassword() {
@@ -202,7 +210,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     }
     /**
      * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `admin_user_password`.
+     * Conflicts with `admin_user_password` and `admin_user_password_wo`.
      * 
      */
     @Export(name="manageAdminPassword", refs={Boolean.class}, tree="[0]")
@@ -210,7 +218,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `admin_user_password`.
+     * Conflicts with `admin_user_password` and `admin_user_password_wo`.
      * 
      */
     public Output<Optional<Boolean>> manageAdminPassword() {

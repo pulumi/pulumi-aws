@@ -36,7 +36,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manage_admin_password`.
+     * Conflicts with `manage_admin_password` and `admin_user_password_wo`.
      * 
      */
     @Import(name="adminUserPassword")
@@ -44,7 +44,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manage_admin_password`.
+     * Conflicts with `manage_admin_password` and `admin_user_password_wo`.
      * 
      */
     public Optional<Output<String>> adminUserPassword() {
@@ -143,7 +143,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `admin_user_password`.
+     * Conflicts with `admin_user_password` and `admin_user_password_wo`.
      * 
      */
     @Import(name="manageAdminPassword")
@@ -151,7 +151,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `admin_user_password`.
+     * Conflicts with `admin_user_password` and `admin_user_password_wo`.
      * 
      */
     public Optional<Output<Boolean>> manageAdminPassword() {
@@ -245,7 +245,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param adminUserPassword The password of the administrator for the first database created in the namespace.
-         * Conflicts with `manage_admin_password`.
+         * Conflicts with `manage_admin_password` and `admin_user_password_wo`.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param adminUserPassword The password of the administrator for the first database created in the namespace.
-         * Conflicts with `manage_admin_password`.
+         * Conflicts with `manage_admin_password` and `admin_user_password_wo`.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param manageAdminPassword Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-         * Conflicts with `admin_user_password`.
+         * Conflicts with `admin_user_password` and `admin_user_password_wo`.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param manageAdminPassword Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-         * Conflicts with `admin_user_password`.
+         * Conflicts with `admin_user_password` and `admin_user_password_wo`.
          * 
          * @return builder
          * 

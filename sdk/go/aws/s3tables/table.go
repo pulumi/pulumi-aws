@@ -78,7 +78,7 @@ type Table struct {
 	// Must be `ICEBERG`.
 	Format pulumi.StringOutput `pulumi:"format"`
 	// A single table bucket maintenance configuration block.
-	// See `maintenanceConfiguration` below
+	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationOutput `pulumi:"maintenanceConfiguration"`
 	// Location of table metadata.
 	MetadataLocation pulumi.StringOutput `pulumi:"metadataLocation"`
@@ -89,6 +89,7 @@ type Table struct {
 	// Name of the table.
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the namespace for this table.
 	// Must be between 1 and 255 characters in length.
@@ -158,7 +159,7 @@ type tableState struct {
 	// Must be `ICEBERG`.
 	Format *string `pulumi:"format"`
 	// A single table bucket maintenance configuration block.
-	// See `maintenanceConfiguration` below
+	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
 	// Location of table metadata.
 	MetadataLocation *string `pulumi:"metadataLocation"`
@@ -169,6 +170,7 @@ type tableState struct {
 	// Name of the table.
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 	Name *string `pulumi:"name"`
 	// Name of the namespace for this table.
 	// Must be between 1 and 255 characters in length.
@@ -200,7 +202,7 @@ type TableState struct {
 	// Must be `ICEBERG`.
 	Format pulumi.StringPtrInput
 	// A single table bucket maintenance configuration block.
-	// See `maintenanceConfiguration` below
+	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationPtrInput
 	// Location of table metadata.
 	MetadataLocation pulumi.StringPtrInput
@@ -211,6 +213,7 @@ type TableState struct {
 	// Name of the table.
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 	Name pulumi.StringPtrInput
 	// Name of the namespace for this table.
 	// Must be between 1 and 255 characters in length.
@@ -240,11 +243,12 @@ type tableArgs struct {
 	// Must be `ICEBERG`.
 	Format string `pulumi:"format"`
 	// A single table bucket maintenance configuration block.
-	// See `maintenanceConfiguration` below
+	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
 	// Name of the table.
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 	Name *string `pulumi:"name"`
 	// Name of the namespace for this table.
 	// Must be between 1 and 255 characters in length.
@@ -262,11 +266,12 @@ type TableArgs struct {
 	// Must be `ICEBERG`.
 	Format pulumi.StringInput
 	// A single table bucket maintenance configuration block.
-	// See `maintenanceConfiguration` below
+	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationPtrInput
 	// Name of the table.
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 	Name pulumi.StringPtrInput
 	// Name of the namespace for this table.
 	// Must be between 1 and 255 characters in length.
@@ -387,7 +392,7 @@ func (o TableOutput) Format() pulumi.StringOutput {
 }
 
 // A single table bucket maintenance configuration block.
-// See `maintenanceConfiguration` below
+// See `maintenanceConfiguration` below.
 func (o TableOutput) MaintenanceConfiguration() TableMaintenanceConfigurationOutput {
 	return o.ApplyT(func(v *Table) TableMaintenanceConfigurationOutput { return v.MaintenanceConfiguration }).(TableMaintenanceConfigurationOutput)
 }
@@ -410,6 +415,7 @@ func (o TableOutput) ModifiedBy() pulumi.StringOutput {
 // Name of the table.
 // Must be between 1 and 255 characters in length.
 // Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -18,7 +18,10 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+        /// ARN of the CMK that should be used for the AWS KMS encryption.
+        /// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+        /// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+        /// **Note:** Changing this value will recreate the replica.
         /// </summary>
         public readonly string? KmsKeyArn;
         /// <summary>
@@ -26,7 +29,12 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly bool? PointInTimeRecovery;
         /// <summary>
-        /// Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+        /// Whether to propagate the global table's tags to a replica.
+        /// Default is `false`.
+        /// Changes to tags only move in one direction: from global (source) to replica.
+        /// Tag drift on a replica will not trigger an update.
+        /// Tag changes on the global table are propagated to replicas.
+        /// Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
         /// </summary>
         public readonly bool? PropagateTags;
         /// <summary>

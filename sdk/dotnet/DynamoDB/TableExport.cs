@@ -76,6 +76,31 @@ namespace Pulumi.Aws.DynamoDB
     /// });
     /// ```
     /// 
+    /// ### Incremental export
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DynamoDB.TableExport("example", new()
+    ///     {
+    ///         ExportType = "INCREMENTAL_EXPORT",
+    ///         S3Bucket = exampleAwsS3Bucket.Id,
+    ///         TableArn = exampleAwsDynamodbTable.Arn,
+    ///         IncrementalExportSpecification = new Aws.DynamoDB.Inputs.TableExportIncrementalExportSpecificationArgs
+    ///         {
+    ///             ExportFromTime = "2025-02-09T12:00:00+01:00",
+    ///             ExportToTime = "2025-02-09T13:00:00+01:00",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
@@ -106,7 +131,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> EndTime { get; private set; } = null!;
 
         /// <summary>
-        /// Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+        /// Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         /// </summary>
         [Output("exportFormat")]
         public Output<string?> ExportFormat { get; private set; } = null!;
@@ -122,6 +147,16 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Output("exportTime")]
         public Output<string> ExportTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+        /// `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+        /// </summary>
+        [Output("exportType")]
+        public Output<string> ExportType { get; private set; } = null!;
+
+        [Output("incrementalExportSpecification")]
+        public Output<Outputs.TableExportIncrementalExportSpecification?> IncrementalExportSpecification { get; private set; } = null!;
 
         /// <summary>
         /// Number of items exported.
@@ -226,7 +261,7 @@ namespace Pulumi.Aws.DynamoDB
     public sealed class TableExportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+        /// Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         /// </summary>
         [Input("exportFormat")]
         public Input<string>? ExportFormat { get; set; }
@@ -236,6 +271,16 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("exportTime")]
         public Input<string>? ExportTime { get; set; }
+
+        /// <summary>
+        /// Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+        /// `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+        /// </summary>
+        [Input("exportType")]
+        public Input<string>? ExportType { get; set; }
+
+        [Input("incrementalExportSpecification")]
+        public Input<Inputs.TableExportIncrementalExportSpecificationArgs>? IncrementalExportSpecification { get; set; }
 
         /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
@@ -302,7 +347,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
-        /// Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+        /// Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         /// </summary>
         [Input("exportFormat")]
         public Input<string>? ExportFormat { get; set; }
@@ -318,6 +363,16 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("exportTime")]
         public Input<string>? ExportTime { get; set; }
+
+        /// <summary>
+        /// Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+        /// `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+        /// </summary>
+        [Input("exportType")]
+        public Input<string>? ExportType { get; set; }
+
+        [Input("incrementalExportSpecification")]
+        public Input<Inputs.TableExportIncrementalExportSpecificationGetArgs>? IncrementalExportSpecification { get; set; }
 
         /// <summary>
         /// Number of items exported.

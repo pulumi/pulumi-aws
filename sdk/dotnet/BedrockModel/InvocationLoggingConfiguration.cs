@@ -28,7 +28,7 @@ namespace Pulumi.Aws.BedrockModel
     public partial class InvocationLoggingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The logging configuration values to set.
+        /// The logging configuration values to set. See `logging_config` Block for details.
         /// </summary>
         [Output("loggingConfig")]
         public Output<Outputs.InvocationLoggingConfigurationLoggingConfig?> LoggingConfig { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.BedrockModel
     public sealed class InvocationLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The logging configuration values to set.
+        /// The logging configuration values to set. See `logging_config` Block for details.
         /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigArgs>? LoggingConfig { get; set; }
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.BedrockModel
     public sealed class InvocationLoggingConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The logging configuration values to set.
+        /// The logging configuration values to set. See `logging_config` Block for details.
         /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigGetArgs>? LoggingConfig { get; set; }

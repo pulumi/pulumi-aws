@@ -4,6 +4,8 @@
 package com.pulumi.aws.cloudwatch;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.cloudwatch.inputs.GetContributorManagedInsightRulesArgs;
+import com.pulumi.aws.cloudwatch.inputs.GetContributorManagedInsightRulesPlainArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetEventBusPlainArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
@@ -18,6 +20,7 @@ import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetLogGroupPlainArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsPlainArgs;
+import com.pulumi.aws.cloudwatch.outputs.GetContributorManagedInsightRulesResult;
 import com.pulumi.aws.cloudwatch.outputs.GetEventBusResult;
 import com.pulumi.aws.cloudwatch.outputs.GetEventBusesResult;
 import com.pulumi.aws.cloudwatch.outputs.GetEventConnectionResult;
@@ -33,6 +36,226 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class CloudwatchFunctions {
+    /**
+     * Data source for managing an AWS CloudWatch Contributor Managed Insight Rules.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetContributorManagedInsightRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudwatchFunctions.getContributorManagedInsightRules(GetContributorManagedInsightRulesArgs.builder()
+     *             .resourceArn("arn:aws:ec2:us-west-2:123456789012:resource-name/resourceid")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetContributorManagedInsightRulesResult> getContributorManagedInsightRules(GetContributorManagedInsightRulesArgs args) {
+        return getContributorManagedInsightRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Contributor Managed Insight Rules.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetContributorManagedInsightRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudwatchFunctions.getContributorManagedInsightRules(GetContributorManagedInsightRulesArgs.builder()
+     *             .resourceArn("arn:aws:ec2:us-west-2:123456789012:resource-name/resourceid")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetContributorManagedInsightRulesResult> getContributorManagedInsightRulesPlain(GetContributorManagedInsightRulesPlainArgs args) {
+        return getContributorManagedInsightRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Contributor Managed Insight Rules.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetContributorManagedInsightRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudwatchFunctions.getContributorManagedInsightRules(GetContributorManagedInsightRulesArgs.builder()
+     *             .resourceArn("arn:aws:ec2:us-west-2:123456789012:resource-name/resourceid")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetContributorManagedInsightRulesResult> getContributorManagedInsightRules(GetContributorManagedInsightRulesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cloudwatch/getContributorManagedInsightRules:getContributorManagedInsightRules", TypeShape.of(GetContributorManagedInsightRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Contributor Managed Insight Rules.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetContributorManagedInsightRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudwatchFunctions.getContributorManagedInsightRules(GetContributorManagedInsightRulesArgs.builder()
+     *             .resourceArn("arn:aws:ec2:us-west-2:123456789012:resource-name/resourceid")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetContributorManagedInsightRulesResult> getContributorManagedInsightRules(GetContributorManagedInsightRulesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:cloudwatch/getContributorManagedInsightRules:getContributorManagedInsightRules", TypeShape.of(GetContributorManagedInsightRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS CloudWatch Contributor Managed Insight Rules.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetContributorManagedInsightRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudwatchFunctions.getContributorManagedInsightRules(GetContributorManagedInsightRulesArgs.builder()
+     *             .resourceArn("arn:aws:ec2:us-west-2:123456789012:resource-name/resourceid")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetContributorManagedInsightRulesResult> getContributorManagedInsightRulesPlain(GetContributorManagedInsightRulesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:cloudwatch/getContributorManagedInsightRules:getContributorManagedInsightRules", TypeShape.of(GetContributorManagedInsightRulesResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * This data source can be used to fetch information about a specific
      * EventBridge event bus. Use this data source to compute the ARN of

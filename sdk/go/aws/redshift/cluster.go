@@ -155,14 +155,14 @@ type Cluster struct {
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrOutput `pulumi:"maintenanceTrackName"`
 	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-	// Conflicts with `masterPassword`.
+	// Conflicts with `masterPassword` and `masterPasswordWo`.
 	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	ManageMasterPassword pulumi.BoolPtrOutput `pulumi:"manageMasterPassword"`
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"manualSnapshotRetentionPeriod"`
 	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword`.
-	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+	// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	// Note that this may show up in logs, and it will be stored in the state file.
 	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
@@ -320,14 +320,14 @@ type clusterState struct {
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
 	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-	// Conflicts with `masterPassword`.
+	// Conflicts with `masterPassword` and `masterPasswordWo`.
 	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	ManageMasterPassword *bool `pulumi:"manageMasterPassword"`
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
 	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword`.
-	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+	// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	// Note that this may show up in logs, and it will be stored in the state file.
 	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword *string `pulumi:"masterPassword"`
@@ -443,14 +443,14 @@ type ClusterState struct {
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrInput
 	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-	// Conflicts with `masterPassword`.
+	// Conflicts with `masterPassword` and `masterPasswordWo`.
 	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	ManageMasterPassword pulumi.BoolPtrInput
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
 	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword`.
-	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+	// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	// Note that this may show up in logs, and it will be stored in the state file.
 	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword pulumi.StringPtrInput
@@ -562,14 +562,14 @@ type clusterArgs struct {
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
 	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-	// Conflicts with `masterPassword`.
+	// Conflicts with `masterPassword` and `masterPasswordWo`.
 	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	ManageMasterPassword *bool `pulumi:"manageMasterPassword"`
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
 	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword`.
-	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+	// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	// Note that this may show up in logs, and it will be stored in the state file.
 	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword *string `pulumi:"masterPassword"`
@@ -672,14 +672,14 @@ type ClusterArgs struct {
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrInput
 	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-	// Conflicts with `masterPassword`.
+	// Conflicts with `masterPassword` and `masterPasswordWo`.
 	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	ManageMasterPassword pulumi.BoolPtrInput
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
 	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword`.
-	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+	// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	// Note that this may show up in logs, and it will be stored in the state file.
 	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword pulumi.StringPtrInput
@@ -959,7 +959,7 @@ func (o ClusterOutput) MaintenanceTrackName() pulumi.StringPtrOutput {
 }
 
 // Whether to use AWS SecretsManager to manage the cluster admin credentials.
-// Conflicts with `masterPassword`.
+// Conflicts with `masterPassword` and `masterPasswordWo`.
 // One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 func (o ClusterOutput) ManageMasterPassword() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.ManageMasterPassword }).(pulumi.BoolPtrOutput)
@@ -971,8 +971,8 @@ func (o ClusterOutput) ManualSnapshotRetentionPeriod() pulumi.IntPtrOutput {
 }
 
 // Password for the master DB user.
-// Conflicts with `manageMasterPassword`.
-// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 // Note that this may show up in logs, and it will be stored in the state file.
 // Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 func (o ClusterOutput) MasterPassword() pulumi.StringPtrOutput {

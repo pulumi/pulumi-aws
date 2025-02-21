@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['TableExportArgs', 'TableExport']
 
@@ -23,6 +25,8 @@ class TableExportArgs:
                  table_arn: pulumi.Input[str],
                  export_format: Optional[pulumi.Input[str]] = None,
                  export_time: Optional[pulumi.Input[str]] = None,
+                 export_type: Optional[pulumi.Input[str]] = None,
+                 incremental_export_specification: Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']] = None,
                  s3_bucket_owner: Optional[pulumi.Input[str]] = None,
                  s3_prefix: Optional[pulumi.Input[str]] = None,
                  s3_sse_algorithm: Optional[pulumi.Input[str]] = None,
@@ -33,8 +37,10 @@ class TableExportArgs:
         :param pulumi.Input[str] table_arn: ARN associated with the table to export.
                
                The following arguments are optional:
-        :param pulumi.Input[str] export_format: Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+        :param pulumi.Input[str] export_format: Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         :param pulumi.Input[str] export_time: Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
+        :param pulumi.Input[str] export_type: Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+               `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
         :param pulumi.Input[str] s3_bucket_owner: ID of the AWS account that owns the bucket the export will be stored in.
         :param pulumi.Input[str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         :param pulumi.Input[str] s3_sse_algorithm: Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
@@ -46,6 +52,10 @@ class TableExportArgs:
             pulumi.set(__self__, "export_format", export_format)
         if export_time is not None:
             pulumi.set(__self__, "export_time", export_time)
+        if export_type is not None:
+            pulumi.set(__self__, "export_type", export_type)
+        if incremental_export_specification is not None:
+            pulumi.set(__self__, "incremental_export_specification", incremental_export_specification)
         if s3_bucket_owner is not None:
             pulumi.set(__self__, "s3_bucket_owner", s3_bucket_owner)
         if s3_prefix is not None:
@@ -85,7 +95,7 @@ class TableExportArgs:
     @pulumi.getter(name="exportFormat")
     def export_format(self) -> Optional[pulumi.Input[str]]:
         """
-        Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+        Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         """
         return pulumi.get(self, "export_format")
 
@@ -104,6 +114,28 @@ class TableExportArgs:
     @export_time.setter
     def export_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "export_time", value)
+
+    @property
+    @pulumi.getter(name="exportType")
+    def export_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+        `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+        """
+        return pulumi.get(self, "export_type")
+
+    @export_type.setter
+    def export_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "export_type", value)
+
+    @property
+    @pulumi.getter(name="incrementalExportSpecification")
+    def incremental_export_specification(self) -> Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']]:
+        return pulumi.get(self, "incremental_export_specification")
+
+    @incremental_export_specification.setter
+    def incremental_export_specification(self, value: Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']]):
+        pulumi.set(self, "incremental_export_specification", value)
 
     @property
     @pulumi.getter(name="s3BucketOwner")
@@ -163,6 +195,8 @@ class _TableExportState:
                  export_format: Optional[pulumi.Input[str]] = None,
                  export_status: Optional[pulumi.Input[str]] = None,
                  export_time: Optional[pulumi.Input[str]] = None,
+                 export_type: Optional[pulumi.Input[str]] = None,
+                 incremental_export_specification: Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']] = None,
                  item_count: Optional[pulumi.Input[int]] = None,
                  manifest_files_s3_key: Optional[pulumi.Input[str]] = None,
                  s3_bucket: Optional[pulumi.Input[str]] = None,
@@ -177,9 +211,11 @@ class _TableExportState:
         :param pulumi.Input[str] arn: ARN of the Table Export.
         :param pulumi.Input[int] billed_size_in_bytes: Billable size of the table export.
         :param pulumi.Input[str] end_time: Time at which the export task completed.
-        :param pulumi.Input[str] export_format: Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+        :param pulumi.Input[str] export_format: Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         :param pulumi.Input[str] export_status: Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
         :param pulumi.Input[str] export_time: Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
+        :param pulumi.Input[str] export_type: Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+               `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
         :param pulumi.Input[int] item_count: Number of items exported.
         :param pulumi.Input[str] manifest_files_s3_key: Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
         :param pulumi.Input[str] s3_bucket: Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
@@ -204,6 +240,10 @@ class _TableExportState:
             pulumi.set(__self__, "export_status", export_status)
         if export_time is not None:
             pulumi.set(__self__, "export_time", export_time)
+        if export_type is not None:
+            pulumi.set(__self__, "export_type", export_type)
+        if incremental_export_specification is not None:
+            pulumi.set(__self__, "incremental_export_specification", incremental_export_specification)
         if item_count is not None:
             pulumi.set(__self__, "item_count", item_count)
         if manifest_files_s3_key is not None:
@@ -263,7 +303,7 @@ class _TableExportState:
     @pulumi.getter(name="exportFormat")
     def export_format(self) -> Optional[pulumi.Input[str]]:
         """
-        Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+        Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         """
         return pulumi.get(self, "export_format")
 
@@ -294,6 +334,28 @@ class _TableExportState:
     @export_time.setter
     def export_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "export_time", value)
+
+    @property
+    @pulumi.getter(name="exportType")
+    def export_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+        `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+        """
+        return pulumi.get(self, "export_type")
+
+    @export_type.setter
+    def export_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "export_type", value)
+
+    @property
+    @pulumi.getter(name="incrementalExportSpecification")
+    def incremental_export_specification(self) -> Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']]:
+        return pulumi.get(self, "incremental_export_specification")
+
+    @incremental_export_specification.setter
+    def incremental_export_specification(self, value: Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']]):
+        pulumi.set(self, "incremental_export_specification", value)
 
     @property
     @pulumi.getter(name="itemCount")
@@ -413,6 +475,8 @@ class TableExport(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  export_format: Optional[pulumi.Input[str]] = None,
                  export_time: Optional[pulumi.Input[str]] = None,
+                 export_type: Optional[pulumi.Input[str]] = None,
+                 incremental_export_specification: Optional[pulumi.Input[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_bucket_owner: Optional[pulumi.Input[str]] = None,
                  s3_prefix: Optional[pulumi.Input[str]] = None,
@@ -460,6 +524,22 @@ class TableExport(pulumi.CustomResource):
             table_arn=example_aws_dynamodb_table["arn"])
         ```
 
+        ### Incremental export
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dynamodb.TableExport("example",
+            export_type="INCREMENTAL_EXPORT",
+            s3_bucket=example_aws_s3_bucket["id"],
+            table_arn=example_aws_dynamodb_table["arn"],
+            incremental_export_specification={
+                "export_from_time": "2025-02-09T12:00:00+01:00",
+                "export_to_time": "2025-02-09T13:00:00+01:00",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
@@ -470,8 +550,10 @@ class TableExport(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] export_format: Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+        :param pulumi.Input[str] export_format: Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         :param pulumi.Input[str] export_time: Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
+        :param pulumi.Input[str] export_type: Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+               `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
         :param pulumi.Input[str] s3_bucket: Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
         :param pulumi.Input[str] s3_bucket_owner: ID of the AWS account that owns the bucket the export will be stored in.
         :param pulumi.Input[str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
@@ -527,6 +609,22 @@ class TableExport(pulumi.CustomResource):
             table_arn=example_aws_dynamodb_table["arn"])
         ```
 
+        ### Incremental export
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dynamodb.TableExport("example",
+            export_type="INCREMENTAL_EXPORT",
+            s3_bucket=example_aws_s3_bucket["id"],
+            table_arn=example_aws_dynamodb_table["arn"],
+            incremental_export_specification={
+                "export_from_time": "2025-02-09T12:00:00+01:00",
+                "export_to_time": "2025-02-09T13:00:00+01:00",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
@@ -552,6 +650,8 @@ class TableExport(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  export_format: Optional[pulumi.Input[str]] = None,
                  export_time: Optional[pulumi.Input[str]] = None,
+                 export_type: Optional[pulumi.Input[str]] = None,
+                 incremental_export_specification: Optional[pulumi.Input[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_bucket_owner: Optional[pulumi.Input[str]] = None,
                  s3_prefix: Optional[pulumi.Input[str]] = None,
@@ -569,6 +669,8 @@ class TableExport(pulumi.CustomResource):
 
             __props__.__dict__["export_format"] = export_format
             __props__.__dict__["export_time"] = export_time
+            __props__.__dict__["export_type"] = export_type
+            __props__.__dict__["incremental_export_specification"] = incremental_export_specification
             if s3_bucket is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket'")
             __props__.__dict__["s3_bucket"] = s3_bucket
@@ -602,6 +704,8 @@ class TableExport(pulumi.CustomResource):
             export_format: Optional[pulumi.Input[str]] = None,
             export_status: Optional[pulumi.Input[str]] = None,
             export_time: Optional[pulumi.Input[str]] = None,
+            export_type: Optional[pulumi.Input[str]] = None,
+            incremental_export_specification: Optional[pulumi.Input[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
             item_count: Optional[pulumi.Input[int]] = None,
             manifest_files_s3_key: Optional[pulumi.Input[str]] = None,
             s3_bucket: Optional[pulumi.Input[str]] = None,
@@ -621,9 +725,11 @@ class TableExport(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the Table Export.
         :param pulumi.Input[int] billed_size_in_bytes: Billable size of the table export.
         :param pulumi.Input[str] end_time: Time at which the export task completed.
-        :param pulumi.Input[str] export_format: Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+        :param pulumi.Input[str] export_format: Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         :param pulumi.Input[str] export_status: Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
         :param pulumi.Input[str] export_time: Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
+        :param pulumi.Input[str] export_type: Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+               `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
         :param pulumi.Input[int] item_count: Number of items exported.
         :param pulumi.Input[str] manifest_files_s3_key: Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
         :param pulumi.Input[str] s3_bucket: Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
@@ -646,6 +752,8 @@ class TableExport(pulumi.CustomResource):
         __props__.__dict__["export_format"] = export_format
         __props__.__dict__["export_status"] = export_status
         __props__.__dict__["export_time"] = export_time
+        __props__.__dict__["export_type"] = export_type
+        __props__.__dict__["incremental_export_specification"] = incremental_export_specification
         __props__.__dict__["item_count"] = item_count
         __props__.__dict__["manifest_files_s3_key"] = manifest_files_s3_key
         __props__.__dict__["s3_bucket"] = s3_bucket
@@ -685,7 +793,7 @@ class TableExport(pulumi.CustomResource):
     @pulumi.getter(name="exportFormat")
     def export_format(self) -> pulumi.Output[Optional[str]]:
         """
-        Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+        Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         """
         return pulumi.get(self, "export_format")
 
@@ -704,6 +812,20 @@ class TableExport(pulumi.CustomResource):
         Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
         """
         return pulumi.get(self, "export_time")
+
+    @property
+    @pulumi.getter(name="exportType")
+    def export_type(self) -> pulumi.Output[str]:
+        """
+        Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+        `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+        """
+        return pulumi.get(self, "export_type")
+
+    @property
+    @pulumi.getter(name="incrementalExportSpecification")
+    def incremental_export_specification(self) -> pulumi.Output[Optional['outputs.TableExportIncrementalExportSpecification']]:
+        return pulumi.get(self, "incremental_export_specification")
 
     @property
     @pulumi.getter(name="itemCount")

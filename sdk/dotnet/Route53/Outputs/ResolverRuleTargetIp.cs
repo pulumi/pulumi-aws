@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Route53.Outputs
     public sealed class ResolverRuleTargetIp
     {
         /// <summary>
-        /// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+        /// One IPv4 address that you want to forward DNS queries to.
         /// </summary>
         public readonly string? Ip;
         /// <summary>

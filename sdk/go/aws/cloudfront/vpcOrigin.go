@@ -36,7 +36,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewVpcOrigin(ctx, "alb", &cloudfront.VpcOriginArgs{
 //				VpcOriginEndpointConfig: &cloudfront.VpcOriginVpcOriginEndpointConfigArgs{
-//					Name:                 pulumi.String("Example VPC Origin"),
+//					Name:                 pulumi.String("example-vpc-origin"),
 //					Arn:                  pulumi.Any(this.Arn),
 //					HttpPort:             pulumi.Int(8080),
 //					HttpsPort:            pulumi.Int(8443),

@@ -83,7 +83,7 @@ class InvitationAccepter(pulumi.CustomResource):
         primary_member = aws.detective.Member("primary",
             account_id="ACCOUNT ID",
             email_address="EMAIL",
-            graph_arn=primary.id,
+            graph_arn=primary.graph_arn,
             message="Message of the invite")
         member = aws.detective.InvitationAccepter("member", graph_arn=primary.graph_arn,
         opts = pulumi.ResourceOptions(depends_on=[primary_member]))
@@ -120,7 +120,7 @@ class InvitationAccepter(pulumi.CustomResource):
         primary_member = aws.detective.Member("primary",
             account_id="ACCOUNT ID",
             email_address="EMAIL",
-            graph_arn=primary.id,
+            graph_arn=primary.graph_arn,
             message="Message of the invite")
         member = aws.detective.InvitationAccepter("member", graph_arn=primary.graph_arn,
         opts = pulumi.ResourceOptions(depends_on=[primary_member]))

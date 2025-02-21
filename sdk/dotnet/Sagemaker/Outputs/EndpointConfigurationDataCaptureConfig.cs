@@ -14,7 +14,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class EndpointConfigurationDataCaptureConfig
     {
         /// <summary>
-        /// The content type headers to capture. Fields are documented below.
+        /// The content type headers to capture.
+        /// See `capture_content_type_header` below.
         /// </summary>
         public readonly Outputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader? CaptureContentTypeHeader;
         /// <summary>

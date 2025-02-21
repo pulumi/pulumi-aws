@@ -17,7 +17,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
 
     /**
      * Settings for compaction.
-     * See `iceberg_compaction.settings` below
+     * See `iceberg_compaction.settings` below.
      * 
      */
     @Import(name="settings", required=true)
@@ -25,7 +25,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
 
     /**
      * @return Settings for compaction.
-     * See `iceberg_compaction.settings` below
+     * See `iceberg_compaction.settings` below.
      * 
      */
     public Output<TableMaintenanceConfigurationIcebergCompactionSettingsArgs> settings() {
@@ -76,7 +76,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
 
         /**
          * @param settings Settings for compaction.
-         * See `iceberg_compaction.settings` below
+         * See `iceberg_compaction.settings` below.
          * 
          * @return builder
          * 
@@ -88,7 +88,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
 
         /**
          * @param settings Settings for compaction.
-         * See `iceberg_compaction.settings` below
+         * See `iceberg_compaction.settings` below.
          * 
          * @return builder
          * 

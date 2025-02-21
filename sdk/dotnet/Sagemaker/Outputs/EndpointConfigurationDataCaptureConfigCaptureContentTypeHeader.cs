@@ -15,10 +15,12 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     {
         /// <summary>
         /// The CSV content type headers to capture.
+        /// One of `csv_content_types` or `json_content_types` is required.
         /// </summary>
         public readonly ImmutableArray<string> CsvContentTypes;
         /// <summary>
         /// The JSON content type headers to capture.
+        /// One of `json_content_types` or `csv_content_types` is required.
         /// </summary>
         public readonly ImmutableArray<string> JsonContentTypes;
 

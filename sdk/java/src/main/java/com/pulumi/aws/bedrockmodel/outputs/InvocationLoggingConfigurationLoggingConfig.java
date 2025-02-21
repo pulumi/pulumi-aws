@@ -6,7 +6,6 @@ package com.pulumi.aws.bedrockmodel.outputs;
 import com.pulumi.aws.bedrockmodel.outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfig;
 import com.pulumi.aws.bedrockmodel.outputs.InvocationLoggingConfigurationLoggingConfigS3Config;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,66 +14,78 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InvocationLoggingConfigurationLoggingConfig {
     /**
-     * @return CloudWatch logging configuration.
+     * @return CloudWatch logging configuration. See `cloudwatch_config` Block for details.
      * 
      */
     private @Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfig cloudwatchConfig;
     /**
-     * @return Set to include embeddings data in the log delivery.
+     * @return Set to include embeddings data in the log delivery. Defaults to `true`.
      * 
      */
-    private Boolean embeddingDataDeliveryEnabled;
+    private @Nullable Boolean embeddingDataDeliveryEnabled;
     /**
-     * @return Set to include image data in the log delivery.
+     * @return Set to include image data in the log delivery. Defaults to `true`.
      * 
      */
-    private Boolean imageDataDeliveryEnabled;
+    private @Nullable Boolean imageDataDeliveryEnabled;
     /**
-     * @return S3 configuration for storing log data.
+     * @return S3 configuration for storing log data. See `s3_config` Block for details.
      * 
      */
     private @Nullable InvocationLoggingConfigurationLoggingConfigS3Config s3Config;
     /**
-     * @return Set to include text data in the log delivery.
+     * @return Set to include text data in the log delivery. Defaults to `true`.
      * 
      */
-    private Boolean textDataDeliveryEnabled;
+    private @Nullable Boolean textDataDeliveryEnabled;
+    /**
+     * @return Set to include text data in the log delivery. Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean videoDataDeliveryEnabled;
 
     private InvocationLoggingConfigurationLoggingConfig() {}
     /**
-     * @return CloudWatch logging configuration.
+     * @return CloudWatch logging configuration. See `cloudwatch_config` Block for details.
      * 
      */
     public Optional<InvocationLoggingConfigurationLoggingConfigCloudwatchConfig> cloudwatchConfig() {
         return Optional.ofNullable(this.cloudwatchConfig);
     }
     /**
-     * @return Set to include embeddings data in the log delivery.
+     * @return Set to include embeddings data in the log delivery. Defaults to `true`.
      * 
      */
-    public Boolean embeddingDataDeliveryEnabled() {
-        return this.embeddingDataDeliveryEnabled;
+    public Optional<Boolean> embeddingDataDeliveryEnabled() {
+        return Optional.ofNullable(this.embeddingDataDeliveryEnabled);
     }
     /**
-     * @return Set to include image data in the log delivery.
+     * @return Set to include image data in the log delivery. Defaults to `true`.
      * 
      */
-    public Boolean imageDataDeliveryEnabled() {
-        return this.imageDataDeliveryEnabled;
+    public Optional<Boolean> imageDataDeliveryEnabled() {
+        return Optional.ofNullable(this.imageDataDeliveryEnabled);
     }
     /**
-     * @return S3 configuration for storing log data.
+     * @return S3 configuration for storing log data. See `s3_config` Block for details.
      * 
      */
     public Optional<InvocationLoggingConfigurationLoggingConfigS3Config> s3Config() {
         return Optional.ofNullable(this.s3Config);
     }
     /**
-     * @return Set to include text data in the log delivery.
+     * @return Set to include text data in the log delivery. Defaults to `true`.
      * 
      */
-    public Boolean textDataDeliveryEnabled() {
-        return this.textDataDeliveryEnabled;
+    public Optional<Boolean> textDataDeliveryEnabled() {
+        return Optional.ofNullable(this.textDataDeliveryEnabled);
+    }
+    /**
+     * @return Set to include text data in the log delivery. Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> videoDataDeliveryEnabled() {
+        return Optional.ofNullable(this.videoDataDeliveryEnabled);
     }
 
     public static Builder builder() {
@@ -87,10 +98,11 @@ public final class InvocationLoggingConfigurationLoggingConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfig cloudwatchConfig;
-        private Boolean embeddingDataDeliveryEnabled;
-        private Boolean imageDataDeliveryEnabled;
+        private @Nullable Boolean embeddingDataDeliveryEnabled;
+        private @Nullable Boolean imageDataDeliveryEnabled;
         private @Nullable InvocationLoggingConfigurationLoggingConfigS3Config s3Config;
-        private Boolean textDataDeliveryEnabled;
+        private @Nullable Boolean textDataDeliveryEnabled;
+        private @Nullable Boolean videoDataDeliveryEnabled;
         public Builder() {}
         public Builder(InvocationLoggingConfigurationLoggingConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -99,6 +111,7 @@ public final class InvocationLoggingConfigurationLoggingConfig {
     	      this.imageDataDeliveryEnabled = defaults.imageDataDeliveryEnabled;
     	      this.s3Config = defaults.s3Config;
     	      this.textDataDeliveryEnabled = defaults.textDataDeliveryEnabled;
+    	      this.videoDataDeliveryEnabled = defaults.videoDataDeliveryEnabled;
         }
 
         @CustomType.Setter
@@ -108,18 +121,14 @@ public final class InvocationLoggingConfigurationLoggingConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder embeddingDataDeliveryEnabled(Boolean embeddingDataDeliveryEnabled) {
-            if (embeddingDataDeliveryEnabled == null) {
-              throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfig", "embeddingDataDeliveryEnabled");
-            }
+        public Builder embeddingDataDeliveryEnabled(@Nullable Boolean embeddingDataDeliveryEnabled) {
+
             this.embeddingDataDeliveryEnabled = embeddingDataDeliveryEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder imageDataDeliveryEnabled(Boolean imageDataDeliveryEnabled) {
-            if (imageDataDeliveryEnabled == null) {
-              throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfig", "imageDataDeliveryEnabled");
-            }
+        public Builder imageDataDeliveryEnabled(@Nullable Boolean imageDataDeliveryEnabled) {
+
             this.imageDataDeliveryEnabled = imageDataDeliveryEnabled;
             return this;
         }
@@ -130,11 +139,15 @@ public final class InvocationLoggingConfigurationLoggingConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder textDataDeliveryEnabled(Boolean textDataDeliveryEnabled) {
-            if (textDataDeliveryEnabled == null) {
-              throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfig", "textDataDeliveryEnabled");
-            }
+        public Builder textDataDeliveryEnabled(@Nullable Boolean textDataDeliveryEnabled) {
+
             this.textDataDeliveryEnabled = textDataDeliveryEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder videoDataDeliveryEnabled(@Nullable Boolean videoDataDeliveryEnabled) {
+
+            this.videoDataDeliveryEnabled = videoDataDeliveryEnabled;
             return this;
         }
         public InvocationLoggingConfigurationLoggingConfig build() {
@@ -144,6 +157,7 @@ public final class InvocationLoggingConfigurationLoggingConfig {
             _resultValue.imageDataDeliveryEnabled = imageDataDeliveryEnabled;
             _resultValue.s3Config = s3Config;
             _resultValue.textDataDeliveryEnabled = textDataDeliveryEnabled;
+            _resultValue.videoDataDeliveryEnabled = videoDataDeliveryEnabled;
             return _resultValue;
         }
     }

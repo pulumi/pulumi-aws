@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Cfg.Outputs
     public sealed class RecorderRecordingMode
     {
         /// <summary>
-        /// Default reecording frequency. `CONTINUOUS` or `DAILY`.
+        /// Default recording frequency. `CONTINUOUS` or `DAILY`.
         /// </summary>
         public readonly string? RecordingFrequency;
         /// <summary>

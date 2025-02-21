@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Cfg.Inputs
     public sealed class RecorderRecordingModeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Default reecording frequency. `CONTINUOUS` or `DAILY`.
+        /// Default recording frequency. `CONTINUOUS` or `DAILY`.
         /// </summary>
         [Input("recordingFrequency")]
         public Input<string>? RecordingFrequency { get; set; }

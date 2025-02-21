@@ -533,7 +533,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly maintenanceWindow!: pulumi.Output<string>;
     /**
-     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `passwordWo` is provided.
      */
     public readonly manageMasterUserPassword!: pulumi.Output<boolean | undefined>;
     /**
@@ -589,9 +589,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly parameterGroupName!: pulumi.Output<string>;
     /**
-     * (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
-     * is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -1129,7 +1127,7 @@ export interface InstanceState {
      */
     maintenanceWindow?: pulumi.Input<string>;
     /**
-     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `passwordWo` is provided.
      */
     manageMasterUserPassword?: pulumi.Input<boolean>;
     /**
@@ -1185,9 +1183,7 @@ export interface InstanceState {
      */
     parameterGroupName?: pulumi.Input<string>;
     /**
-     * (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
-     * is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     password?: pulumi.Input<string>;
     /**
@@ -1510,7 +1506,7 @@ export interface InstanceArgs {
      */
     maintenanceWindow?: pulumi.Input<string>;
     /**
-     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+     * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `passwordWo` is provided.
      */
     manageMasterUserPassword?: pulumi.Input<boolean>;
     /**
@@ -1562,9 +1558,7 @@ export interface InstanceArgs {
      */
     parameterGroupName?: pulumi.Input<string>;
     /**
-     * (Required unless `manageMasterUserPassword` is set to true or unless a `snapshotIdentifier` or `replicateSourceDb`
-     * is provided or `manageMasterUserPassword` is set.) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     password?: pulumi.Input<string>;
     /**

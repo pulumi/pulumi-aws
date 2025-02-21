@@ -58,14 +58,14 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAmazonsesVerificationRecord = new Record("exampleAmazonsesVerificationRecord", RecordArgs.builder()
  *             .zoneId(exampleAwsRoute53Zone.zoneId())
- *             .name(example.id().applyValue(id -> String.format("_amazonses.%s", id)))
+ *             .name(example.domain().applyValue(domain -> String.format("_amazonses.%s", domain)))
  *             .type("TXT")
  *             .ttl("600")
  *             .records(example.verificationToken())
  *             .build());
  * 
  *         var exampleVerification = new DomainIdentityVerification("exampleVerification", DomainIdentityVerificationArgs.builder()
- *             .domain(example.id())
+ *             .domain(example.domain())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAmazonsesVerificationRecord)
  *                 .build());

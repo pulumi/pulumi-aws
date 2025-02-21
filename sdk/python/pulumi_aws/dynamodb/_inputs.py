@@ -19,6 +19,8 @@ __all__ = [
     'GlobalTableReplicaArgsDict',
     'TableAttributeArgs',
     'TableAttributeArgsDict',
+    'TableExportIncrementalExportSpecificationArgs',
+    'TableExportIncrementalExportSpecificationArgsDict',
     'TableGlobalSecondaryIndexArgs',
     'TableGlobalSecondaryIndexArgsDict',
     'TableGlobalSecondaryIndexOnDemandThroughputArgs',
@@ -128,6 +130,55 @@ class TableAttributeArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class TableExportIncrementalExportSpecificationArgsDict(TypedDict):
+        export_from_time: NotRequired[pulumi.Input[str]]
+        export_to_time: NotRequired[pulumi.Input[str]]
+        export_view_type: NotRequired[pulumi.Input[str]]
+elif False:
+    TableExportIncrementalExportSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableExportIncrementalExportSpecificationArgs:
+    def __init__(__self__, *,
+                 export_from_time: Optional[pulumi.Input[str]] = None,
+                 export_to_time: Optional[pulumi.Input[str]] = None,
+                 export_view_type: Optional[pulumi.Input[str]] = None):
+        if export_from_time is not None:
+            pulumi.set(__self__, "export_from_time", export_from_time)
+        if export_to_time is not None:
+            pulumi.set(__self__, "export_to_time", export_to_time)
+        if export_view_type is not None:
+            pulumi.set(__self__, "export_view_type", export_view_type)
+
+    @property
+    @pulumi.getter(name="exportFromTime")
+    def export_from_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "export_from_time")
+
+    @export_from_time.setter
+    def export_from_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "export_from_time", value)
+
+    @property
+    @pulumi.getter(name="exportToTime")
+    def export_to_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "export_to_time")
+
+    @export_to_time.setter
+    def export_to_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "export_to_time", value)
+
+    @property
+    @pulumi.getter(name="exportViewType")
+    def export_view_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "export_view_type")
+
+    @export_view_type.setter
+    def export_view_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "export_view_type", value)
 
 
 if not MYPY:
@@ -795,7 +846,10 @@ if not MYPY:
         """
         kms_key_arn: NotRequired[pulumi.Input[str]]
         """
-        ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+        ARN of the CMK that should be used for the AWS KMS encryption.
+        This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+        **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+        **Note:** Changing this value will recreate the replica.
         """
         point_in_time_recovery: NotRequired[pulumi.Input[bool]]
         """
@@ -803,7 +857,12 @@ if not MYPY:
         """
         propagate_tags: NotRequired[pulumi.Input[bool]]
         """
-        Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+        Whether to propagate the global table's tags to a replica.
+        Default is `false`.
+        Changes to tags only move in one direction: from global (source) to replica.
+        Tag drift on a replica will not trigger an update.
+        Tag changes on the global table are propagated to replicas.
+        Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
         """
         stream_arn: NotRequired[pulumi.Input[str]]
         """
@@ -829,9 +888,17 @@ class TableReplicaArgs:
         """
         :param pulumi.Input[str] region_name: Region name of the replica.
         :param pulumi.Input[str] arn: ARN of the table
-        :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+        :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption.
+               This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+               **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+               **Note:** Changing this value will recreate the replica.
         :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
-        :param pulumi.Input[bool] propagate_tags: Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+        :param pulumi.Input[bool] propagate_tags: Whether to propagate the global table's tags to a replica.
+               Default is `false`.
+               Changes to tags only move in one direction: from global (source) to replica.
+               Tag drift on a replica will not trigger an update.
+               Tag changes on the global table are propagated to replicas.
+               Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
         :param pulumi.Input[str] stream_arn: ARN of the Table Stream. Only available when `stream_enabled = true`
         :param pulumi.Input[str] stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         """
@@ -877,7 +944,10 @@ class TableReplicaArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+        ARN of the CMK that should be used for the AWS KMS encryption.
+        This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+        **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+        **Note:** Changing this value will recreate the replica.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -901,7 +971,12 @@ class TableReplicaArgs:
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+        Whether to propagate the global table's tags to a replica.
+        Default is `false`.
+        Changes to tags only move in one direction: from global (source) to replica.
+        Tag drift on a replica will not trigger an update.
+        Tag changes on the global table are propagated to replicas.
+        Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
         """
         return pulumi.get(self, "propagate_tags")
 

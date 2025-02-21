@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class ClusterStorageConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block with block storage configuration for the cluster. Detailed below.
+        /// </summary>
         [Input("blockStorage")]
         public Input<Inputs.ClusterStorageConfigBlockStorageGetArgs>? BlockStorage { get; set; }
 

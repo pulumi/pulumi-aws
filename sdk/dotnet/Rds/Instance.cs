@@ -675,7 +675,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
         /// </summary>
         [Output("manageMasterUserPassword")]
         public Output<bool?> ManageMasterUserPassword { get; private set; } = null!;
@@ -752,9 +752,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-        /// is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
-        /// logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -1255,7 +1253,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
         /// </summary>
         [Input("manageMasterUserPassword")]
         public Input<bool>? ManageMasterUserPassword { get; set; }
@@ -1329,9 +1327,7 @@ namespace Pulumi.Aws.Rds
         private Input<string>? _password;
 
         /// <summary>
-        /// (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-        /// is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
-        /// logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
         public Input<string>? Password
         {
@@ -1836,7 +1832,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` is provided.
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
         /// </summary>
         [Input("manageMasterUserPassword")]
         public Input<bool>? ManageMasterUserPassword { get; set; }
@@ -1922,9 +1918,7 @@ namespace Pulumi.Aws.Rds
         private Input<string>? _password;
 
         /// <summary>
-        /// (Required unless `manage_master_user_password` is set to true or unless a `snapshot_identifier` or `replicate_source_db`
-        /// is provided or `manage_master_user_password` is set.) Password for the master DB user. Note that this may show up in
-        /// logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
         public Input<string>? Password
         {

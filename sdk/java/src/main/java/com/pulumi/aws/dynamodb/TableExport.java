@@ -6,6 +6,7 @@ package com.pulumi.aws.dynamodb;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.dynamodb.TableExportArgs;
 import com.pulumi.aws.dynamodb.inputs.TableExportState;
+import com.pulumi.aws.dynamodb.outputs.TableExportIncrementalExportSpecification;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -115,6 +116,48 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Incremental export
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.TableExport;
+ * import com.pulumi.aws.dynamodb.TableExportArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableExportIncrementalExportSpecificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TableExport("example", TableExportArgs.builder()
+ *             .exportType("INCREMENTAL_EXPORT")
+ *             .s3Bucket(exampleAwsS3Bucket.id())
+ *             .tableArn(exampleAwsDynamodbTable.arn())
+ *             .incrementalExportSpecification(TableExportIncrementalExportSpecificationArgs.builder()
+ *                 .exportFromTime("2025-02-09T12:00:00+01:00")
+ *                 .exportToTime("2025-02-09T13:00:00+01:00")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
@@ -169,14 +212,14 @@ public class TableExport extends com.pulumi.resources.CustomResource {
         return this.endTime;
     }
     /**
-     * Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+     * Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
      * 
      */
     @Export(name="exportFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> exportFormat;
 
     /**
-     * @return Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+     * @return Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
      * 
      */
     public Output<Optional<String>> exportFormat() {
@@ -209,6 +252,28 @@ public class TableExport extends com.pulumi.resources.CustomResource {
      */
     public Output<String> exportTime() {
         return this.exportTime;
+    }
+    /**
+     * Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+     * `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+     * 
+     */
+    @Export(name="exportType", refs={String.class}, tree="[0]")
+    private Output<String> exportType;
+
+    /**
+     * @return Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+     * `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+     * 
+     */
+    public Output<String> exportType() {
+        return this.exportType;
+    }
+    @Export(name="incrementalExportSpecification", refs={TableExportIncrementalExportSpecification.class}, tree="[0]")
+    private Output</* @Nullable */ TableExportIncrementalExportSpecification> incrementalExportSpecification;
+
+    public Output<Optional<TableExportIncrementalExportSpecification>> incrementalExportSpecification() {
+        return Codegen.optional(this.incrementalExportSpecification);
     }
     /**
      * Number of items exported.

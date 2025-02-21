@@ -17,11 +17,19 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// An object containing the S3 location of the S3 manifest file.
         /// </summary>
         public readonly Outputs.DataSourceParametersS3ManifestFileLocation ManifestFileLocation;
+        /// <summary>
+        /// Use the `role_arn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `role_arn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
+        /// </summary>
+        public readonly string? RoleArn;
 
         [OutputConstructor]
-        private DataSourceParametersS3(Outputs.DataSourceParametersS3ManifestFileLocation manifestFileLocation)
+        private DataSourceParametersS3(
+            Outputs.DataSourceParametersS3ManifestFileLocation manifestFileLocation,
+
+            string? roleArn)
         {
             ManifestFileLocation = manifestFileLocation;
+            RoleArn = roleArn;
         }
     }
 }

@@ -151,6 +151,7 @@ namespace Pulumi.Aws.DynamoDB
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetTableLocalSecondaryIndexResult> LocalSecondaryIndexes;
         public readonly string Name;
+        public readonly ImmutableArray<Outputs.GetTableOnDemandThroughputResult> OnDemandThroughputs;
         public readonly Outputs.GetTablePointInTimeRecoveryResult PointInTimeRecovery;
         public readonly string RangeKey;
         public readonly int ReadCapacity;
@@ -184,6 +185,8 @@ namespace Pulumi.Aws.DynamoDB
             ImmutableArray<Outputs.GetTableLocalSecondaryIndexResult> localSecondaryIndexes,
 
             string name,
+
+            ImmutableArray<Outputs.GetTableOnDemandThroughputResult> onDemandThroughputs,
 
             Outputs.GetTablePointInTimeRecoveryResult pointInTimeRecovery,
 
@@ -220,6 +223,7 @@ namespace Pulumi.Aws.DynamoDB
             Id = id;
             LocalSecondaryIndexes = localSecondaryIndexes;
             Name = name;
+            OnDemandThroughputs = onDemandThroughputs;
             PointInTimeRecovery = pointInTimeRecovery;
             RangeKey = rangeKey;
             ReadCapacity = readCapacity;

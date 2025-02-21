@@ -64,9 +64,17 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("resourceIdentifier")]
         public Output<string> ResourceIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+        /// </summary>
+        [Output("serviceNetworkLogType")]
+        public Output<string> ServiceNetworkLogType { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -128,9 +136,17 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("resourceIdentifier", required: true)]
         public Input<string> ResourceIdentifier { get; set; } = null!;
+
+        /// <summary>
+        /// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+        /// </summary>
+        [Input("serviceNetworkLogType")]
+        public Input<string>? ServiceNetworkLogType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -168,9 +184,17 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("resourceIdentifier")]
         public Input<string>? ResourceIdentifier { get; set; }
+
+        /// <summary>
+        /// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+        /// </summary>
+        [Input("serviceNetworkLogType")]
+        public Input<string>? ServiceNetworkLogType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

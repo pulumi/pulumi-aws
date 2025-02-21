@@ -985,6 +985,12 @@ class SelectionCondition(dict):
                  string_likes: Optional[Sequence['outputs.SelectionConditionStringLike']] = None,
                  string_not_equals: Optional[Sequence['outputs.SelectionConditionStringNotEqual']] = None,
                  string_not_likes: Optional[Sequence['outputs.SelectionConditionStringNotLike']] = None):
+        """
+        :param Sequence['SelectionConditionStringEqualArgs'] string_equals: Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
+        :param Sequence['SelectionConditionStringLikeArgs'] string_likes: Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+        :param Sequence['SelectionConditionStringNotEqualArgs'] string_not_equals: Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
+        :param Sequence['SelectionConditionStringNotLikeArgs'] string_not_likes: Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+        """
         if string_equals is not None:
             pulumi.set(__self__, "string_equals", string_equals)
         if string_likes is not None:
@@ -997,21 +1003,33 @@ class SelectionCondition(dict):
     @property
     @pulumi.getter(name="stringEquals")
     def string_equals(self) -> Optional[Sequence['outputs.SelectionConditionStringEqual']]:
+        """
+        Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
+        """
         return pulumi.get(self, "string_equals")
 
     @property
     @pulumi.getter(name="stringLikes")
     def string_likes(self) -> Optional[Sequence['outputs.SelectionConditionStringLike']]:
+        """
+        Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+        """
         return pulumi.get(self, "string_likes")
 
     @property
     @pulumi.getter(name="stringNotEquals")
     def string_not_equals(self) -> Optional[Sequence['outputs.SelectionConditionStringNotEqual']]:
+        """
+        Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
+        """
         return pulumi.get(self, "string_not_equals")
 
     @property
     @pulumi.getter(name="stringNotLikes")
     def string_not_likes(self) -> Optional[Sequence['outputs.SelectionConditionStringNotLike']]:
+        """
+        Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+        """
         return pulumi.get(self, "string_not_likes")
 
 
@@ -1021,8 +1039,8 @@ class SelectionConditionStringEqual(dict):
                  key: str,
                  value: str):
         """
-        :param str key: The key in a key-value pair.
-        :param str value: The value in a key-value pair.
+        :param str key: Key for the filter.
+        :param str value: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1031,7 +1049,7 @@ class SelectionConditionStringEqual(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         return pulumi.get(self, "key")
 
@@ -1039,7 +1057,7 @@ class SelectionConditionStringEqual(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
         return pulumi.get(self, "value")
 
@@ -1050,8 +1068,8 @@ class SelectionConditionStringLike(dict):
                  key: str,
                  value: str):
         """
-        :param str key: The key in a key-value pair.
-        :param str value: The value in a key-value pair.
+        :param str key: Key for the filter.
+        :param str value: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1060,7 +1078,7 @@ class SelectionConditionStringLike(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         return pulumi.get(self, "key")
 
@@ -1068,7 +1086,7 @@ class SelectionConditionStringLike(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
         return pulumi.get(self, "value")
 
@@ -1079,8 +1097,8 @@ class SelectionConditionStringNotEqual(dict):
                  key: str,
                  value: str):
         """
-        :param str key: The key in a key-value pair.
-        :param str value: The value in a key-value pair.
+        :param str key: Key for the filter.
+        :param str value: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1089,7 +1107,7 @@ class SelectionConditionStringNotEqual(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         return pulumi.get(self, "key")
 
@@ -1097,7 +1115,7 @@ class SelectionConditionStringNotEqual(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
         return pulumi.get(self, "value")
 
@@ -1108,8 +1126,8 @@ class SelectionConditionStringNotLike(dict):
                  key: str,
                  value: str):
         """
-        :param str key: The key in a key-value pair.
-        :param str value: The value in a key-value pair.
+        :param str key: Key for the filter.
+        :param str value: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1118,7 +1136,7 @@ class SelectionConditionStringNotLike(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         return pulumi.get(self, "key")
 
@@ -1126,7 +1144,7 @@ class SelectionConditionStringNotLike(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
         return pulumi.get(self, "value")
 
@@ -1138,9 +1156,9 @@ class SelectionSelectionTag(dict):
                  type: str,
                  value: str):
         """
-        :param str key: The key in a key-value pair.
-        :param str type: An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
-        :param str value: The value in a key-value pair.
+        :param str key: Key for the filter.
+        :param str type: An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
+        :param str value: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "type", type)
@@ -1150,7 +1168,7 @@ class SelectionSelectionTag(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         return pulumi.get(self, "key")
 
@@ -1158,7 +1176,7 @@ class SelectionSelectionTag(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
+        An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
         """
         return pulumi.get(self, "type")
 
@@ -1166,7 +1184,7 @@ class SelectionSelectionTag(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
         return pulumi.get(self, "value")
 

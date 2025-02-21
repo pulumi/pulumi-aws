@@ -35,6 +35,8 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="resourceIdentifier", required=true)
     private Output<String> resourceIdentifier;
@@ -42,9 +44,26 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
     /**
      * @return The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> resourceIdentifier() {
         return this.resourceIdentifier;
+    }
+
+    /**
+     * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+     * 
+     */
+    @Import(name="serviceNetworkLogType")
+    private @Nullable Output<String> serviceNetworkLogType;
+
+    /**
+     * @return Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+     * 
+     */
+    public Optional<Output<String>> serviceNetworkLogType() {
+        return Optional.ofNullable(this.serviceNetworkLogType);
     }
 
     @Import(name="tags")
@@ -59,6 +78,7 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
     private AccessLogSubscriptionArgs(AccessLogSubscriptionArgs $) {
         this.destinationArn = $.destinationArn;
         this.resourceIdentifier = $.resourceIdentifier;
+        this.serviceNetworkLogType = $.serviceNetworkLogType;
         this.tags = $.tags;
     }
 
@@ -104,6 +124,8 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
         /**
          * @param resourceIdentifier The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -115,11 +137,34 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
         /**
          * @param resourceIdentifier The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
         public Builder resourceIdentifier(String resourceIdentifier) {
             return resourceIdentifier(Output.of(resourceIdentifier));
+        }
+
+        /**
+         * @param serviceNetworkLogType Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceNetworkLogType(@Nullable Output<String> serviceNetworkLogType) {
+            $.serviceNetworkLogType = serviceNetworkLogType;
+            return this;
+        }
+
+        /**
+         * @param serviceNetworkLogType Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceNetworkLogType(String serviceNetworkLogType) {
+            return serviceNetworkLogType(Output.of(serviceNetworkLogType));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

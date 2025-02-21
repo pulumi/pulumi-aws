@@ -247,7 +247,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `master_password`.
+        /// Conflicts with `master_password` and `master_password_wo`.
         /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         /// </summary>
         [Output("manageMasterPassword")]
@@ -261,8 +261,8 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Password for the master DB user.
-        /// Conflicts with `manage_master_password`.
-        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `manage_master_password` and `master_password_wo`.
+        /// One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         /// Note that this may show up in logs, and it will be stored in the state file.
         /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
@@ -587,7 +587,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `master_password`.
+        /// Conflicts with `master_password` and `master_password_wo`.
         /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         /// </summary>
         [Input("manageMasterPassword")]
@@ -604,8 +604,8 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Password for the master DB user.
-        /// Conflicts with `manage_master_password`.
-        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `manage_master_password` and `master_password_wo`.
+        /// One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         /// Note that this may show up in logs, and it will be stored in the state file.
         /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
@@ -925,7 +925,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `master_password`.
+        /// Conflicts with `master_password` and `master_password_wo`.
         /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         /// </summary>
         [Input("manageMasterPassword")]
@@ -942,8 +942,8 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Password for the master DB user.
-        /// Conflicts with `manage_master_password`.
-        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Conflicts with `manage_master_password` and `master_password_wo`.
+        /// One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         /// Note that this may show up in logs, and it will be stored in the state file.
         /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>

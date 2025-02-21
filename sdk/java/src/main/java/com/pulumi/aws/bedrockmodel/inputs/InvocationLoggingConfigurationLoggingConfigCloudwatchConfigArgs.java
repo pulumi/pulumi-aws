@@ -17,14 +17,14 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
     public static final InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs Empty = new InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs();
 
     /**
-     * S3 configuration for delivering a large amount of data.
+     * S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
      * 
      */
     @Import(name="largeDataDeliveryS3Config")
     private @Nullable Output<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs> largeDataDeliveryS3Config;
 
     /**
-     * @return S3 configuration for delivering a large amount of data.
+     * @return S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
      * 
      */
     public Optional<Output<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs>> largeDataDeliveryS3Config() {
@@ -88,7 +88,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
         }
 
         /**
-         * @param largeDataDeliveryS3Config S3 configuration for delivering a large amount of data.
+         * @param largeDataDeliveryS3Config S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
         }
 
         /**
-         * @param largeDataDeliveryS3Config S3 configuration for delivering a large amount of data.
+         * @param largeDataDeliveryS3Config S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
          * 
          * @return builder
          * 

@@ -6,6 +6,7 @@ package com.pulumi.aws.dynamodb.outputs;
 import com.pulumi.aws.dynamodb.outputs.GetTableAttribute;
 import com.pulumi.aws.dynamodb.outputs.GetTableGlobalSecondaryIndex;
 import com.pulumi.aws.dynamodb.outputs.GetTableLocalSecondaryIndex;
+import com.pulumi.aws.dynamodb.outputs.GetTableOnDemandThroughput;
 import com.pulumi.aws.dynamodb.outputs.GetTablePointInTimeRecovery;
 import com.pulumi.aws.dynamodb.outputs.GetTableReplica;
 import com.pulumi.aws.dynamodb.outputs.GetTableServerSideEncryption;
@@ -34,6 +35,7 @@ public final class GetTableResult {
     private String id;
     private List<GetTableLocalSecondaryIndex> localSecondaryIndexes;
     private String name;
+    private List<GetTableOnDemandThroughput> onDemandThroughputs;
     private GetTablePointInTimeRecovery pointInTimeRecovery;
     private String rangeKey;
     private Integer readCapacity;
@@ -79,6 +81,9 @@ public final class GetTableResult {
     }
     public String name() {
         return this.name;
+    }
+    public List<GetTableOnDemandThroughput> onDemandThroughputs() {
+        return this.onDemandThroughputs;
     }
     public GetTablePointInTimeRecovery pointInTimeRecovery() {
         return this.pointInTimeRecovery;
@@ -138,6 +143,7 @@ public final class GetTableResult {
         private String id;
         private List<GetTableLocalSecondaryIndex> localSecondaryIndexes;
         private String name;
+        private List<GetTableOnDemandThroughput> onDemandThroughputs;
         private GetTablePointInTimeRecovery pointInTimeRecovery;
         private String rangeKey;
         private Integer readCapacity;
@@ -163,6 +169,7 @@ public final class GetTableResult {
     	      this.id = defaults.id;
     	      this.localSecondaryIndexes = defaults.localSecondaryIndexes;
     	      this.name = defaults.name;
+    	      this.onDemandThroughputs = defaults.onDemandThroughputs;
     	      this.pointInTimeRecovery = defaults.pointInTimeRecovery;
     	      this.rangeKey = defaults.rangeKey;
     	      this.readCapacity = defaults.readCapacity;
@@ -258,6 +265,17 @@ public final class GetTableResult {
             }
             this.name = name;
             return this;
+        }
+        @CustomType.Setter
+        public Builder onDemandThroughputs(List<GetTableOnDemandThroughput> onDemandThroughputs) {
+            if (onDemandThroughputs == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "onDemandThroughputs");
+            }
+            this.onDemandThroughputs = onDemandThroughputs;
+            return this;
+        }
+        public Builder onDemandThroughputs(GetTableOnDemandThroughput... onDemandThroughputs) {
+            return onDemandThroughputs(List.of(onDemandThroughputs));
         }
         @CustomType.Setter
         public Builder pointInTimeRecovery(GetTablePointInTimeRecovery pointInTimeRecovery) {
@@ -377,6 +395,7 @@ public final class GetTableResult {
             _resultValue.id = id;
             _resultValue.localSecondaryIndexes = localSecondaryIndexes;
             _resultValue.name = name;
+            _resultValue.onDemandThroughputs = onDemandThroughputs;
             _resultValue.pointInTimeRecovery = pointInTimeRecovery;
             _resultValue.rangeKey = rangeKey;
             _resultValue.readCapacity = readCapacity;

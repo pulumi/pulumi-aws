@@ -25,6 +25,21 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
     public static final StreamProcessorState Empty = new StreamProcessorState();
 
     /**
+     * ARN of the Stream Processor.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return ARN of the Stream Processor.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * See `data_sharing_preference`.
      * 
      */
@@ -164,16 +179,26 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * ARN of the Stream Processor.
+     * (**Deprecated**) ARN of the Stream Processor.
+     * Use `arn` instead.
+     * 
+     * @deprecated
+     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
     @Import(name="streamProcessorArn")
     private @Nullable Output<String> streamProcessorArn;
 
     /**
-     * @return ARN of the Stream Processor.
+     * @return (**Deprecated**) ARN of the Stream Processor.
+     * Use `arn` instead.
+     * 
+     * @deprecated
+     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
     public Optional<Output<String>> streamProcessorArn() {
         return Optional.ofNullable(this.streamProcessorArn);
     }
@@ -226,6 +251,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
     private StreamProcessorState() {}
 
     private StreamProcessorState(StreamProcessorState $) {
+        this.arn = $.arn;
         this.dataSharingPreference = $.dataSharingPreference;
         this.input = $.input;
         this.kmsKeyId = $.kmsKeyId;
@@ -257,6 +283,27 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
 
         public Builder(StreamProcessorState defaults) {
             $ = new StreamProcessorState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn ARN of the Stream Processor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn ARN of the Stream Processor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**
@@ -463,22 +510,32 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param streamProcessorArn ARN of the Stream Processor.
+         * @param streamProcessorArn (**Deprecated**) ARN of the Stream Processor.
+         * Use `arn` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+         * 
          */
+        @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
         public Builder streamProcessorArn(@Nullable Output<String> streamProcessorArn) {
             $.streamProcessorArn = streamProcessorArn;
             return this;
         }
 
         /**
-         * @param streamProcessorArn ARN of the Stream Processor.
+         * @param streamProcessorArn (**Deprecated**) ARN of the Stream Processor.
+         * Use `arn` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+         * 
          */
+        @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
         public Builder streamProcessorArn(String streamProcessorArn) {
             return streamProcessorArn(Output.of(streamProcessorArn));
         }

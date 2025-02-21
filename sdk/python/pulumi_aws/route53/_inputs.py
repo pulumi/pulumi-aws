@@ -782,7 +782,7 @@ if not MYPY:
     class ResolverRuleTargetIpArgsDict(TypedDict):
         ip: NotRequired[pulumi.Input[str]]
         """
-        One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+        One IPv4 address that you want to forward DNS queries to.
         """
         ipv6: NotRequired[pulumi.Input[str]]
         """
@@ -807,7 +807,7 @@ class ResolverRuleTargetIpArgs:
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+        :param pulumi.Input[str] ip: One IPv4 address that you want to forward DNS queries to.
         :param pulumi.Input[str] ipv6: One IPv6 address that you want to forward DNS queries to.
         :param pulumi.Input[int] port: Port at `ip` that you want to forward DNS queries to. Default value is `53`.
         :param pulumi.Input[str] protocol: Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
@@ -825,7 +825,7 @@ class ResolverRuleTargetIpArgs:
     @pulumi.getter
     def ip(self) -> Optional[pulumi.Input[str]]:
         """
-        One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+        One IPv4 address that you want to forward DNS queries to.
         """
         return pulumi.get(self, "ip")
 

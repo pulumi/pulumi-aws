@@ -33,6 +33,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// Type of storage for the data source. Valid values: `S3`.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationWebConfiguration? WebConfiguration;
 
         [OutputConstructor]

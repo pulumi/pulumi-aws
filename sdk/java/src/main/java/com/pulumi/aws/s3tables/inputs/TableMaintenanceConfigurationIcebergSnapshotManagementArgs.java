@@ -17,7 +17,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
 
     /**
      * Settings for snapshot management.
-     * See `iceberg_snapshot_management.settings` below
+     * See `iceberg_snapshot_management.settings` below.
      * 
      */
     @Import(name="settings", required=true)
@@ -25,7 +25,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
 
     /**
      * @return Settings for snapshot management.
-     * See `iceberg_snapshot_management.settings` below
+     * See `iceberg_snapshot_management.settings` below.
      * 
      */
     public Output<TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs> settings() {
@@ -76,7 +76,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
 
         /**
          * @param settings Settings for snapshot management.
-         * See `iceberg_snapshot_management.settings` below
+         * See `iceberg_snapshot_management.settings` below.
          * 
          * @return builder
          * 
@@ -88,7 +88,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
 
         /**
          * @param settings Settings for snapshot management.
-         * See `iceberg_snapshot_management.settings` below
+         * See `iceberg_snapshot_management.settings` below.
          * 
          * @return builder
          * 

@@ -17112,7 +17112,8 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigP
 }
 
 type EndpointConfigurationDataCaptureConfig struct {
-	// The content type headers to capture. Fields are documented below.
+	// The content type headers to capture.
+	// See `captureContentTypeHeader` below.
 	CaptureContentTypeHeader *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader `pulumi:"captureContentTypeHeader"`
 	// Specifies what data to capture. Fields are documented below.
 	CaptureOptions []EndpointConfigurationDataCaptureConfigCaptureOption `pulumi:"captureOptions"`
@@ -17138,7 +17139,8 @@ type EndpointConfigurationDataCaptureConfigInput interface {
 }
 
 type EndpointConfigurationDataCaptureConfigArgs struct {
-	// The content type headers to capture. Fields are documented below.
+	// The content type headers to capture.
+	// See `captureContentTypeHeader` below.
 	CaptureContentTypeHeader EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrInput `pulumi:"captureContentTypeHeader"`
 	// Specifies what data to capture. Fields are documented below.
 	CaptureOptions EndpointConfigurationDataCaptureConfigCaptureOptionArrayInput `pulumi:"captureOptions"`
@@ -17229,7 +17231,8 @@ func (o EndpointConfigurationDataCaptureConfigOutput) ToEndpointConfigurationDat
 	}).(EndpointConfigurationDataCaptureConfigPtrOutput)
 }
 
-// The content type headers to capture. Fields are documented below.
+// The content type headers to capture.
+// See `captureContentTypeHeader` below.
 func (o EndpointConfigurationDataCaptureConfigOutput) CaptureContentTypeHeader() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
 		return v.CaptureContentTypeHeader
@@ -17287,7 +17290,8 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) Elem() EndpointConfigur
 	}).(EndpointConfigurationDataCaptureConfigOutput)
 }
 
-// The content type headers to capture. Fields are documented below.
+// The content type headers to capture.
+// See `captureContentTypeHeader` below.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) CaptureContentTypeHeader() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
 		if v == nil {
@@ -17349,8 +17353,10 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) KmsKeyId() pulumi.Strin
 
 type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader struct {
 	// The CSV content type headers to capture.
+	// One of `csvContentTypes` or `jsonContentTypes` is required.
 	CsvContentTypes []string `pulumi:"csvContentTypes"`
 	// The JSON content type headers to capture.
+	// One of `jsonContentTypes` or `csvContentTypes` is required.
 	JsonContentTypes []string `pulumi:"jsonContentTypes"`
 }
 
@@ -17367,8 +17373,10 @@ type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderInput interfa
 
 type EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs struct {
 	// The CSV content type headers to capture.
+	// One of `csvContentTypes` or `jsonContentTypes` is required.
 	CsvContentTypes pulumi.StringArrayInput `pulumi:"csvContentTypes"`
 	// The JSON content type headers to capture.
+	// One of `jsonContentTypes` or `csvContentTypes` is required.
 	JsonContentTypes pulumi.StringArrayInput `pulumi:"jsonContentTypes"`
 }
 
@@ -17450,6 +17458,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) To
 }
 
 // The CSV content type headers to capture.
+// One of `csvContentTypes` or `jsonContentTypes` is required.
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) CsvContentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
 		return v.CsvContentTypes
@@ -17457,6 +17466,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) Cs
 }
 
 // The JSON content type headers to capture.
+// One of `jsonContentTypes` or `csvContentTypes` is required.
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) JsonContentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
 		return v.JsonContentTypes
@@ -17488,6 +17498,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 }
 
 // The CSV content type headers to capture.
+// One of `csvContentTypes` or `jsonContentTypes` is required.
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) CsvContentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
 		if v == nil {
@@ -17498,6 +17509,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 }
 
 // The JSON content type headers to capture.
+// One of `jsonContentTypes` or `csvContentTypes` is required.
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) JsonContentTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) []string {
 		if v == nil {

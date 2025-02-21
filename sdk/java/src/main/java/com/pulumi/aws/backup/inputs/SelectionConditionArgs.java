@@ -19,30 +19,62 @@ public final class SelectionConditionArgs extends com.pulumi.resources.ResourceA
 
     public static final SelectionConditionArgs Empty = new SelectionConditionArgs();
 
+    /**
+     * Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching&#34;. See below for details.
+     * 
+     */
     @Import(name="stringEquals")
     private @Nullable Output<List<SelectionConditionStringEqualArgs>> stringEquals;
 
+    /**
+     * @return Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching&#34;. See below for details.
+     * 
+     */
     public Optional<Output<List<SelectionConditionStringEqualArgs>>> stringEquals() {
         return Optional.ofNullable(this.stringEquals);
     }
 
+    /**
+     * Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+     * 
+     */
     @Import(name="stringLikes")
     private @Nullable Output<List<SelectionConditionStringLikeArgs>> stringLikes;
 
+    /**
+     * @return Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+     * 
+     */
     public Optional<Output<List<SelectionConditionStringLikeArgs>>> stringLikes() {
         return Optional.ofNullable(this.stringLikes);
     }
 
+    /**
+     * Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching&#34;. See below for details.
+     * 
+     */
     @Import(name="stringNotEquals")
     private @Nullable Output<List<SelectionConditionStringNotEqualArgs>> stringNotEquals;
 
+    /**
+     * @return Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching&#34;. See below for details.
+     * 
+     */
     public Optional<Output<List<SelectionConditionStringNotEqualArgs>>> stringNotEquals() {
         return Optional.ofNullable(this.stringNotEquals);
     }
 
+    /**
+     * Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+     * 
+     */
     @Import(name="stringNotLikes")
     private @Nullable Output<List<SelectionConditionStringNotLikeArgs>> stringNotLikes;
 
+    /**
+     * @return Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+     * 
+     */
     public Optional<Output<List<SelectionConditionStringNotLikeArgs>>> stringNotLikes() {
         return Optional.ofNullable(this.stringNotLikes);
     }
@@ -74,54 +106,126 @@ public final class SelectionConditionArgs extends com.pulumi.resources.ResourceA
             $ = new SelectionConditionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param stringEquals Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching&#34;. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringEquals(@Nullable Output<List<SelectionConditionStringEqualArgs>> stringEquals) {
             $.stringEquals = stringEquals;
             return this;
         }
 
+        /**
+         * @param stringEquals Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching&#34;. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringEquals(List<SelectionConditionStringEqualArgs> stringEquals) {
             return stringEquals(Output.of(stringEquals));
         }
 
+        /**
+         * @param stringEquals Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching&#34;. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringEquals(SelectionConditionStringEqualArgs... stringEquals) {
             return stringEquals(List.of(stringEquals));
         }
 
+        /**
+         * @param stringLikes Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringLikes(@Nullable Output<List<SelectionConditionStringLikeArgs>> stringLikes) {
             $.stringLikes = stringLikes;
             return this;
         }
 
+        /**
+         * @param stringLikes Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringLikes(List<SelectionConditionStringLikeArgs> stringLikes) {
             return stringLikes(Output.of(stringLikes));
         }
 
+        /**
+         * @param stringLikes Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringLikes(SelectionConditionStringLikeArgs... stringLikes) {
             return stringLikes(List.of(stringLikes));
         }
 
+        /**
+         * @param stringNotEquals Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching&#34;. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringNotEquals(@Nullable Output<List<SelectionConditionStringNotEqualArgs>> stringNotEquals) {
             $.stringNotEquals = stringNotEquals;
             return this;
         }
 
+        /**
+         * @param stringNotEquals Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching&#34;. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringNotEquals(List<SelectionConditionStringNotEqualArgs> stringNotEquals) {
             return stringNotEquals(Output.of(stringNotEquals));
         }
 
+        /**
+         * @param stringNotEquals Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching&#34;. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringNotEquals(SelectionConditionStringNotEqualArgs... stringNotEquals) {
             return stringNotEquals(List.of(stringNotEquals));
         }
 
+        /**
+         * @param stringNotLikes Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringNotLikes(@Nullable Output<List<SelectionConditionStringNotLikeArgs>> stringNotLikes) {
             $.stringNotLikes = stringNotLikes;
             return this;
         }
 
+        /**
+         * @param stringNotLikes Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringNotLikes(List<SelectionConditionStringNotLikeArgs> stringNotLikes) {
             return stringNotLikes(Output.of(stringNotLikes));
         }
 
+        /**
+         * @param stringNotLikes Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringNotLikes(SelectionConditionStringNotLikeArgs... stringNotLikes) {
             return stringNotLikes(List.of(stringNotLikes));
         }

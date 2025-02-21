@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl {
+    /**
+     * @return Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
+     * 
+     */
     private @Nullable String url;
 
     private AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl() {}
+    /**
+     * @return Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
+     * 
+     */
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
     }

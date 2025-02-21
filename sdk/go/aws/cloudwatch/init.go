@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:cloudwatch/compositeAlarm:CompositeAlarm":
 		r = &CompositeAlarm{}
+	case "aws:cloudwatch/contributorInsightRule:ContributorInsightRule":
+		r = &ContributorInsightRule{}
+	case "aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule":
+		r = &ContributorManagedInsightRule{}
 	case "aws:cloudwatch/dashboard:Dashboard":
 		r = &Dashboard{}
 	case "aws:cloudwatch/eventApiDestination:EventApiDestination":
@@ -97,6 +101,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudwatch/compositeAlarm",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/contributorInsightRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/contributorManagedInsightRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

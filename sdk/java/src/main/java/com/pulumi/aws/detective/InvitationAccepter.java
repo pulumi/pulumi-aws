@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *         var primaryMember = new Member("primaryMember", MemberArgs.builder()
  *             .accountId("ACCOUNT ID")
  *             .emailAddress("EMAIL")
- *             .graphArn(primary.id())
+ *             .graphArn(primary.graphArn())
  *             .message("Message of the invite")
  *             .build());
  * 

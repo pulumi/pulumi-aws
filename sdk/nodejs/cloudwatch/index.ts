@@ -11,6 +11,16 @@ export type CompositeAlarm = import("./compositeAlarm").CompositeAlarm;
 export const CompositeAlarm: typeof import("./compositeAlarm").CompositeAlarm = null as any;
 utilities.lazyLoad(exports, ["CompositeAlarm"], () => require("./compositeAlarm"));
 
+export { ContributorInsightRuleArgs, ContributorInsightRuleState } from "./contributorInsightRule";
+export type ContributorInsightRule = import("./contributorInsightRule").ContributorInsightRule;
+export const ContributorInsightRule: typeof import("./contributorInsightRule").ContributorInsightRule = null as any;
+utilities.lazyLoad(exports, ["ContributorInsightRule"], () => require("./contributorInsightRule"));
+
+export { ContributorManagedInsightRuleArgs, ContributorManagedInsightRuleState } from "./contributorManagedInsightRule";
+export type ContributorManagedInsightRule = import("./contributorManagedInsightRule").ContributorManagedInsightRule;
+export const ContributorManagedInsightRule: typeof import("./contributorManagedInsightRule").ContributorManagedInsightRule = null as any;
+utilities.lazyLoad(exports, ["ContributorManagedInsightRule"], () => require("./contributorManagedInsightRule"));
+
 export { DashboardArgs, DashboardState } from "./dashboard";
 export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
@@ -61,6 +71,11 @@ export { EventTargetArgs, EventTargetState } from "./eventTarget";
 export type EventTarget = import("./eventTarget").EventTarget;
 export const EventTarget: typeof import("./eventTarget").EventTarget = null as any;
 utilities.lazyLoad(exports, ["EventTarget"], () => require("./eventTarget"));
+
+export { GetContributorManagedInsightRulesArgs, GetContributorManagedInsightRulesResult, GetContributorManagedInsightRulesOutputArgs } from "./getContributorManagedInsightRules";
+export const getContributorManagedInsightRules: typeof import("./getContributorManagedInsightRules").getContributorManagedInsightRules = null as any;
+export const getContributorManagedInsightRulesOutput: typeof import("./getContributorManagedInsightRules").getContributorManagedInsightRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getContributorManagedInsightRules","getContributorManagedInsightRulesOutput"], () => require("./getContributorManagedInsightRules"));
 
 export { GetEventBusArgs, GetEventBusResult, GetEventBusOutputArgs } from "./getEventBus";
 export const getEventBus: typeof import("./getEventBus").getEventBus = null as any;
@@ -200,6 +215,10 @@ const _module = {
         switch (type) {
             case "aws:cloudwatch/compositeAlarm:CompositeAlarm":
                 return new CompositeAlarm(name, <any>undefined, { urn })
+            case "aws:cloudwatch/contributorInsightRule:ContributorInsightRule":
+                return new ContributorInsightRule(name, <any>undefined, { urn })
+            case "aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule":
+                return new ContributorManagedInsightRule(name, <any>undefined, { urn })
             case "aws:cloudwatch/dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
             case "aws:cloudwatch/eventApiDestination:EventApiDestination":
@@ -264,6 +283,8 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/compositeAlarm", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/contributorInsightRule", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/contributorManagedInsightRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/dashboard", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventApiDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventArchive", _module)

@@ -67,14 +67,14 @@ export class TableBucket extends pulumi.CustomResource {
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * A single table bucket maintenance configuration block.
-     * See `maintenanceConfiguration` below
+     * See `maintenanceConfiguration` below.
      */
     public readonly maintenanceConfiguration!: pulumi.Output<outputs.s3tables.TableBucketMaintenanceConfiguration>;
     /**
      * Name of the table bucket.
      * Must be between 3 and 63 characters in length.
      * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules may be found in S3 Tables documentation.
+     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      *
      * The following argument is optional:
      */
@@ -129,14 +129,14 @@ export interface TableBucketState {
     createdAt?: pulumi.Input<string>;
     /**
      * A single table bucket maintenance configuration block.
-     * See `maintenanceConfiguration` below
+     * See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMaintenanceConfiguration>;
     /**
      * Name of the table bucket.
      * Must be between 3 and 63 characters in length.
      * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules may be found in S3 Tables documentation.
+     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      *
      * The following argument is optional:
      */
@@ -153,14 +153,14 @@ export interface TableBucketState {
 export interface TableBucketArgs {
     /**
      * A single table bucket maintenance configuration block.
-     * See `maintenanceConfiguration` below
+     * See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMaintenanceConfiguration>;
     /**
      * Name of the table bucket.
      * Must be between 3 and 63 characters in length.
      * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules may be found in S3 Tables documentation.
+     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      *
      * The following argument is optional:
      */

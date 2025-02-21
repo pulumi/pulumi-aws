@@ -1137,6 +1137,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("mediapackagevod")]
+        public Input<string>? Mediapackagevod { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("mediastore")]
         public Input<string>? Mediastore { get; set; }
 

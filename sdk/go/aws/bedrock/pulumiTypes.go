@@ -2629,7 +2629,8 @@ type AgentDataSourceDataSourceConfiguration struct {
 	// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
 	SharePointConfiguration *AgentDataSourceDataSourceConfigurationSharePointConfiguration `pulumi:"sharePointConfiguration"`
 	// Type of storage for the data source. Valid values: `S3`.
-	Type             string                                                  `pulumi:"type"`
+	Type string `pulumi:"type"`
+	// Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
 	WebConfiguration *AgentDataSourceDataSourceConfigurationWebConfiguration `pulumi:"webConfiguration"`
 }
 
@@ -2654,7 +2655,8 @@ type AgentDataSourceDataSourceConfigurationArgs struct {
 	// Details about the configuration of the SharePoint data source. See `sharePointDataSourceConfiguration` block for details.
 	SharePointConfiguration AgentDataSourceDataSourceConfigurationSharePointConfigurationPtrInput `pulumi:"sharePointConfiguration"`
 	// Type of storage for the data source. Valid values: `S3`.
-	Type             pulumi.StringInput                                             `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
+	// Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
 	WebConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationPtrInput `pulumi:"webConfiguration"`
 }
 
@@ -2768,6 +2770,7 @@ func (o AgentDataSourceDataSourceConfigurationOutput) Type() pulumi.StringOutput
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
 func (o AgentDataSourceDataSourceConfigurationOutput) WebConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfiguration {
 		return v.WebConfiguration
@@ -2848,6 +2851,7 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) Type() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Details about the configuration of the web data source. See `webDataSourceConfiguration` block for details.
 func (o AgentDataSourceDataSourceConfigurationPtrOutput) WebConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfiguration {
 		if v == nil {
@@ -3414,9 +3418,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter struct {
-	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 	ExclusionFilters []string `pulumi:"exclusionFilters"`
-	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 	InclusionFilters []string `pulumi:"inclusionFilters"`
 	// The supported object type or content type of the data source.
 	ObjectType string `pulumi:"objectType"`
@@ -3434,9 +3436,7 @@ type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs struct {
-	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
-	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
 	// The supported object type or content type of the data source.
 	ObjectType pulumi.StringInput `pulumi:"objectType"`
@@ -3493,14 +3493,12 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 	return o
 }
 
-// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
 		return v.ExclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
 		return v.InclusionFilters
@@ -4468,9 +4466,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter struct {
-	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 	ExclusionFilters []string `pulumi:"exclusionFilters"`
-	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 	InclusionFilters []string `pulumi:"inclusionFilters"`
 	// The supported object type or content type of the data source.
 	ObjectType string `pulumi:"objectType"`
@@ -4488,9 +4484,7 @@ type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs struct {
-	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
-	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
 	// The supported object type or content type of the data source.
 	ObjectType pulumi.StringInput `pulumi:"objectType"`
@@ -4547,14 +4541,12 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 	return o
 }
 
-// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
 		return v.ExclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
 		return v.InclusionFilters
@@ -5326,9 +5318,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter struct {
-	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 	ExclusionFilters []string `pulumi:"exclusionFilters"`
-	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 	InclusionFilters []string `pulumi:"inclusionFilters"`
 	// The supported object type or content type of the data source.
 	ObjectType string `pulumi:"objectType"`
@@ -5346,9 +5336,7 @@ type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigu
 }
 
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs struct {
-	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
-	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
 	// The supported object type or content type of the data source.
 	ObjectType pulumi.StringInput `pulumi:"objectType"`
@@ -5405,14 +5393,12 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 	return o
 }
 
-// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
 		return v.ExclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter) []string {
 		return v.InclusionFilters
@@ -5843,13 +5829,16 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationPtrOutput) SourceC
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration struct {
+	// Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
 	CrawlerLimits *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits `pulumi:"crawlerLimits"`
-	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+	// List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 	ExclusionFilters []string `pulumi:"exclusionFilters"`
-	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+	// List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 	InclusionFilters []string `pulumi:"inclusionFilters"`
-	Scope            *string  `pulumi:"scope"`
-	UserAgent        *string  `pulumi:"userAgent"`
+	// Scope of what is crawled for your URLs.
+	Scope *string `pulumi:"scope"`
+	// String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+	UserAgent *string `pulumi:"userAgent"`
 }
 
 // AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs and AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput values.
@@ -5864,13 +5853,16 @@ type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationI
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs struct {
+	// Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
 	CrawlerLimits AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrInput `pulumi:"crawlerLimits"`
-	// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+	// List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 	ExclusionFilters pulumi.StringArrayInput `pulumi:"exclusionFilters"`
-	// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+	// List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 	InclusionFilters pulumi.StringArrayInput `pulumi:"inclusionFilters"`
-	Scope            pulumi.StringPtrInput   `pulumi:"scope"`
-	UserAgent        pulumi.StringPtrInput   `pulumi:"userAgent"`
+	// Scope of what is crawled for your URLs.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+	UserAgent pulumi.StringPtrInput `pulumi:"userAgent"`
 }
 
 func (AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs) ElementType() reflect.Type {
@@ -5950,32 +5942,35 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput)
 }
 
+// Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) CrawlerLimits() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits {
 		return v.CrawlerLimits
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput)
 }
 
-// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+// List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
 		return v.ExclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+// List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
 		return v.InclusionFilters
 	}).(pulumi.StringArrayOutput)
 }
 
+// Scope of what is crawled for your URLs.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *string {
 		return v.Scope
 	}).(pulumi.StringPtrOutput)
 }
 
+// String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput) UserAgent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *string {
 		return v.UserAgent
@@ -6006,6 +6001,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationOutput)
 }
 
+// Configuration of crawl limits for the web URLs. See `crawlerLimits` block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) CrawlerLimits() AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits {
 		if v == nil {
@@ -6015,7 +6011,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput)
 }
 
-// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+// List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) ExclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
 		if v == nil {
@@ -6025,7 +6021,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+// List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) InclusionFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) []string {
 		if v == nil {
@@ -6035,6 +6031,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(pulumi.StringArrayOutput)
 }
 
+// Scope of what is crawled for your URLs.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *string {
 		if v == nil {
@@ -6044,6 +6041,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
+// String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationPtrOutput) UserAgent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration) *string {
 		if v == nil {
@@ -6054,7 +6052,9 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits struct {
-	MaxPages  *float64 `pulumi:"maxPages"`
+	// Max number of web pages crawled from your source URLs, up to 25,000 pages.
+	MaxPages *float64 `pulumi:"maxPages"`
+	// Max rate at which pages are crawled, up to 300 per minute per host.
 	RateLimit *float64 `pulumi:"rateLimit"`
 }
 
@@ -6070,7 +6070,9 @@ type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationC
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs struct {
-	MaxPages  pulumi.Float64PtrInput `pulumi:"maxPages"`
+	// Max number of web pages crawled from your source URLs, up to 25,000 pages.
+	MaxPages pulumi.Float64PtrInput `pulumi:"maxPages"`
+	// Max rate at which pages are crawled, up to 300 per minute per host.
 	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
 }
 
@@ -6151,12 +6153,14 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput)
 }
 
+// Max number of web pages crawled from your source URLs, up to 25,000 pages.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) MaxPages() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *float64 {
 		return v.MaxPages
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Max rate at which pages are crawled, up to 300 per minute per host.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) RateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *float64 {
 		return v.RateLimit
@@ -6187,6 +6191,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput)
 }
 
+// Max number of web pages crawled from your source URLs, up to 25,000 pages.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput) MaxPages() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *float64 {
 		if v == nil {
@@ -6196,6 +6201,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Max rate at which pages are crawled, up to 300 per minute per host.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *float64 {
 		if v == nil {
@@ -6206,6 +6212,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration struct {
+	// The URL configuration of your web data source. See `urlConfiguration` block for details.
 	UrlConfiguration *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration `pulumi:"urlConfiguration"`
 }
 
@@ -6221,6 +6228,7 @@ type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationIn
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs struct {
+	// The URL configuration of your web data source. See `urlConfiguration` block for details.
 	UrlConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrInput `pulumi:"urlConfiguration"`
 }
 
@@ -6301,6 +6309,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput)
 }
 
+// The URL configuration of your web data source. See `urlConfiguration` block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput) UrlConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
 		return v.UrlConfiguration
@@ -6331,6 +6340,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput)
 }
 
+// The URL configuration of your web data source. See `urlConfiguration` block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput) UrlConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
 		if v == nil {
@@ -6341,6 +6351,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration struct {
+	// List of one or more seed URLs to crawl. See `seedUrls` block for details.
 	SeedUrls []AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl `pulumi:"seedUrls"`
 }
 
@@ -6356,6 +6367,7 @@ type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUr
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs struct {
+	// List of one or more seed URLs to crawl. See `seedUrls` block for details.
 	SeedUrls AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayInput `pulumi:"seedUrls"`
 }
 
@@ -6436,6 +6448,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput)
 }
 
+// List of one or more seed URLs to crawl. See `seedUrls` block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput) SeedUrls() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration) []AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl {
 		return v.SeedUrls
@@ -6466,6 +6479,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput)
 }
 
+// List of one or more seed URLs to crawl. See `seedUrls` block for details.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput) SeedUrls() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArrayOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration) []AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl {
 		if v == nil {
@@ -6476,6 +6490,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl struct {
+	// Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
 	Url *string `pulumi:"url"`
 }
 
@@ -6491,6 +6506,7 @@ type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUr
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs struct {
+	// Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
@@ -6545,6 +6561,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 	return o
 }
 
+// Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
 func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl) *string {
 		return v.Url

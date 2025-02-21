@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const primaryMember = new aws.detective.Member("primary", {
  *     accountId: "ACCOUNT ID",
  *     emailAddress: "EMAIL",
- *     graphArn: primary.id,
+ *     graphArn: primary.graphArn,
  *     message: "Message of the invite",
  * });
  * const member = new aws.detective.InvitationAccepter("member", {graphArn: primary.graphArn}, {

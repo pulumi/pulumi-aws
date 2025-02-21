@@ -48,7 +48,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A single table bucket maintenance configuration block.
-     * See `maintenance_configuration` below
+     * See `maintenance_configuration` below.
      * 
      */
     @Import(name="maintenanceConfiguration")
@@ -56,7 +56,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A single table bucket maintenance configuration block.
-     * See `maintenance_configuration` below
+     * See `maintenance_configuration` below.
      * 
      */
     public Optional<Output<TableBucketMaintenanceConfigurationArgs>> maintenanceConfiguration() {
@@ -67,7 +67,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
      * Name of the table bucket.
      * Must be between 3 and 63 characters in length.
      * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules may be found in S3 Tables documentation.
+     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      * 
      * The following argument is optional:
      * 
@@ -79,7 +79,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
      * @return Name of the table bucket.
      * Must be between 3 and 63 characters in length.
      * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules may be found in S3 Tables documentation.
+     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      * 
      * The following argument is optional:
      * 
@@ -175,7 +175,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param maintenanceConfiguration A single table bucket maintenance configuration block.
-         * See `maintenance_configuration` below
+         * See `maintenance_configuration` below.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param maintenanceConfiguration A single table bucket maintenance configuration block.
-         * See `maintenance_configuration` below
+         * See `maintenance_configuration` below.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
          * @param name Name of the table bucket.
          * Must be between 3 and 63 characters in length.
          * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-         * A full list of bucket naming rules may be found in S3 Tables documentation.
+         * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
          * 
          * The following argument is optional:
          * 
@@ -216,7 +216,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
          * @param name Name of the table bucket.
          * Must be between 3 and 63 characters in length.
          * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-         * A full list of bucket naming rules may be found in S3 Tables documentation.
+         * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
          * 
          * The following argument is optional:
          * 
