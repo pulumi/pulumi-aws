@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Dms
     ///         MultiAz = false,
     ///         PreferredMaintenanceWindow = "sun:10:30-sun:14:30",
     ///         PubliclyAccessible = true,
-    ///         ReplicationInstanceClass = "dms.t2.micro",
+    ///         ReplicationInstanceClass = "dms.t3.micro",
     ///         ReplicationInstanceId = "test-dms-replication-instance-tf",
     ///         ReplicationSubnetGroupId = test_dms_replication_subnet_group_tf.Id,
     ///         Tags = 

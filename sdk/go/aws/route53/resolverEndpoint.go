@@ -85,9 +85,11 @@ type ResolverEndpoint struct {
 	IpAddresses ResolverEndpointIpAddressArrayOutput `pulumi:"ipAddresses"`
 	// Friendly name of the Route 53 Resolver endpoint.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	// Protocols you want to use for the Route 53 Resolver endpoint.
+	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
-	// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	// Endpoint IP type. This endpoint type is applied to all IP addresses.
+	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType pulumi.StringOutput `pulumi:"resolverEndpointType"`
 	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
@@ -151,9 +153,11 @@ type resolverEndpointState struct {
 	IpAddresses []ResolverEndpointIpAddress `pulumi:"ipAddresses"`
 	// Friendly name of the Route 53 Resolver endpoint.
 	Name *string `pulumi:"name"`
-	// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	// Protocols you want to use for the Route 53 Resolver endpoint.
+	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 	Protocols []string `pulumi:"protocols"`
-	// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	// Endpoint IP type. This endpoint type is applied to all IP addresses.
+	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType *string `pulumi:"resolverEndpointType"`
 	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -179,9 +183,11 @@ type ResolverEndpointState struct {
 	IpAddresses ResolverEndpointIpAddressArrayInput
 	// Friendly name of the Route 53 Resolver endpoint.
 	Name pulumi.StringPtrInput
-	// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	// Protocols you want to use for the Route 53 Resolver endpoint.
+	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 	Protocols pulumi.StringArrayInput
-	// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	// Endpoint IP type. This endpoint type is applied to all IP addresses.
+	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType pulumi.StringPtrInput
 	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -207,9 +213,11 @@ type resolverEndpointArgs struct {
 	IpAddresses []ResolverEndpointIpAddress `pulumi:"ipAddresses"`
 	// Friendly name of the Route 53 Resolver endpoint.
 	Name *string `pulumi:"name"`
-	// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	// Protocols you want to use for the Route 53 Resolver endpoint.
+	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 	Protocols []string `pulumi:"protocols"`
-	// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	// Endpoint IP type. This endpoint type is applied to all IP addresses.
+	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType *string `pulumi:"resolverEndpointType"`
 	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -228,9 +236,11 @@ type ResolverEndpointArgs struct {
 	IpAddresses ResolverEndpointIpAddressArrayInput
 	// Friendly name of the Route 53 Resolver endpoint.
 	Name pulumi.StringPtrInput
-	// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	// Protocols you want to use for the Route 53 Resolver endpoint.
+	// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 	Protocols pulumi.StringArrayInput
-	// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	// Endpoint IP type. This endpoint type is applied to all IP addresses.
+	// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 	ResolverEndpointType pulumi.StringPtrInput
 	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -353,12 +363,14 @@ func (o ResolverEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+// Protocols you want to use for the Route 53 Resolver endpoint.
+// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
 func (o ResolverEndpointOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+// Endpoint IP type. This endpoint type is applied to all IP addresses.
+// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
 func (o ResolverEndpointOutput) ResolverEndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.ResolverEndpointType }).(pulumi.StringOutput)
 }

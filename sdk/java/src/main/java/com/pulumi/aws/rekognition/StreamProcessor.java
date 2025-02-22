@@ -327,6 +327,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rekognition/streamProcessor:StreamProcessor")
 public class StreamProcessor extends com.pulumi.resources.CustomResource {
     /**
+     * ARN of the Stream Processor.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return ARN of the Stream Processor.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * See `data_sharing_preference`.
      * 
      */
@@ -457,14 +471,20 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.settings);
     }
     /**
-     * ARN of the Stream Processor.
+     * (**Deprecated**) ARN of the Stream Processor.
+     * Use `arn` instead.
+     * 
+     * @deprecated
+     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
     @Export(name="streamProcessorArn", refs={String.class}, tree="[0]")
     private Output<String> streamProcessorArn;
 
     /**
-     * @return ARN of the Stream Processor.
+     * @return (**Deprecated**) ARN of the Stream Processor.
+     * Use `arn` instead.
      * 
      */
     public Output<String> streamProcessorArn() {

@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterStorageConfig {
+    /**
+     * @return Configuration block with block storage configuration for the cluster. Detailed below.
+     * 
+     */
     private @Nullable ClusterStorageConfigBlockStorage blockStorage;
 
     private ClusterStorageConfig() {}
+    /**
+     * @return Configuration block with block storage configuration for the cluster. Detailed below.
+     * 
+     */
     public Optional<ClusterStorageConfigBlockStorage> blockStorage() {
         return Optional.ofNullable(this.blockStorage);
     }

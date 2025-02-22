@@ -20,14 +20,14 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
     public static final SelectionArgs Empty = new SelectionArgs();
 
     /**
-     * A list of conditions that you define to assign resources to your backup plans using tags.
+     * Condition-based filters used to specify sets of resources for a backup plan. See below for details.
      * 
      */
     @Import(name="conditions")
     private @Nullable Output<List<SelectionConditionArgs>> conditions;
 
     /**
-     * @return A list of conditions that you define to assign resources to your backup plans using tags.
+     * @return Condition-based filters used to specify sets of resources for a backup plan. See below for details.
      * 
      */
     public Optional<Output<List<SelectionConditionArgs>>> conditions() {
@@ -110,14 +110,14 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Tag-based conditions used to specify a set of resources to assign to a backup plan.
+     * Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
      * 
      */
     @Import(name="selectionTags")
     private @Nullable Output<List<SelectionSelectionTagArgs>> selectionTags;
 
     /**
-     * @return Tag-based conditions used to specify a set of resources to assign to a backup plan.
+     * @return Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
      * 
      */
     public Optional<Output<List<SelectionSelectionTagArgs>>> selectionTags() {
@@ -155,7 +155,7 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions A list of conditions that you define to assign resources to your backup plans using tags.
+         * @param conditions Condition-based filters used to specify sets of resources for a backup plan. See below for details.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions A list of conditions that you define to assign resources to your backup plans using tags.
+         * @param conditions Condition-based filters used to specify sets of resources for a backup plan. See below for details.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions A list of conditions that you define to assign resources to your backup plans using tags.
+         * @param conditions Condition-based filters used to specify sets of resources for a backup plan. See below for details.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param selectionTags Tag-based conditions used to specify a set of resources to assign to a backup plan.
+         * @param selectionTags Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param selectionTags Tag-based conditions used to specify a set of resources to assign to a backup plan.
+         * @param selectionTags Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param selectionTags Tag-based conditions used to specify a set of resources to assign to a backup plan.
+         * @param selectionTags Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
          * 
          * @return builder
          * 

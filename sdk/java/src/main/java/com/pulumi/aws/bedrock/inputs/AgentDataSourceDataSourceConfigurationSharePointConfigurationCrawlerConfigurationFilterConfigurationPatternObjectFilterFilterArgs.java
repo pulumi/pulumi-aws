@@ -17,32 +17,16 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
 
     public static final AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs Empty = new AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs();
 
-    /**
-     * A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-     * 
-     */
     @Import(name="exclusionFilters")
     private @Nullable Output<List<String>> exclusionFilters;
 
-    /**
-     * @return A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-     * 
-     */
     public Optional<Output<List<String>>> exclusionFilters() {
         return Optional.ofNullable(this.exclusionFilters);
     }
 
-    /**
-     * A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-     * 
-     */
     @Import(name="inclusionFilters")
     private @Nullable Output<List<String>> inclusionFilters;
 
-    /**
-     * @return A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-     * 
-     */
     public Optional<Output<List<String>>> inclusionFilters() {
         return Optional.ofNullable(this.inclusionFilters);
     }
@@ -88,64 +72,28 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
             $ = new AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param exclusionFilters A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusionFilters(@Nullable Output<List<String>> exclusionFilters) {
             $.exclusionFilters = exclusionFilters;
             return this;
         }
 
-        /**
-         * @param exclusionFilters A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusionFilters(List<String> exclusionFilters) {
             return exclusionFilters(Output.of(exclusionFilters));
         }
 
-        /**
-         * @param exclusionFilters A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exclusionFilters(String... exclusionFilters) {
             return exclusionFilters(List.of(exclusionFilters));
         }
 
-        /**
-         * @param inclusionFilters A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inclusionFilters(@Nullable Output<List<String>> inclusionFilters) {
             $.inclusionFilters = inclusionFilters;
             return this;
         }
 
-        /**
-         * @param inclusionFilters A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inclusionFilters(List<String> inclusionFilters) {
             return inclusionFilters(Output.of(inclusionFilters));
         }
 
-        /**
-         * @param inclusionFilters A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inclusionFilters(String... inclusionFilters) {
             return inclusionFilters(List.of(inclusionFilters));
         }

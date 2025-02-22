@@ -84,7 +84,7 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket maintenance configuration block.
-        /// See `maintenance_configuration` below
+        /// See `maintenance_configuration` below.
         /// </summary>
         [Output("maintenanceConfiguration")]
         public Output<Outputs.TableMaintenanceConfiguration> MaintenanceConfiguration { get; private set; } = null!;
@@ -111,6 +111,7 @@ namespace Pulumi.Aws.S3Tables
         /// Name of the table.
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -211,7 +212,7 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket maintenance configuration block.
-        /// See `maintenance_configuration` below
+        /// See `maintenance_configuration` below.
         /// </summary>
         [Input("maintenanceConfiguration")]
         public Input<Inputs.TableMaintenanceConfigurationArgs>? MaintenanceConfiguration { get; set; }
@@ -220,6 +221,7 @@ namespace Pulumi.Aws.S3Tables
         /// Name of the table.
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -275,7 +277,7 @@ namespace Pulumi.Aws.S3Tables
 
         /// <summary>
         /// A single table bucket maintenance configuration block.
-        /// See `maintenance_configuration` below
+        /// See `maintenance_configuration` below.
         /// </summary>
         [Input("maintenanceConfiguration")]
         public Input<Inputs.TableMaintenanceConfigurationGetArgs>? MaintenanceConfiguration { get; set; }
@@ -302,6 +304,7 @@ namespace Pulumi.Aws.S3Tables
         /// Name of the table.
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

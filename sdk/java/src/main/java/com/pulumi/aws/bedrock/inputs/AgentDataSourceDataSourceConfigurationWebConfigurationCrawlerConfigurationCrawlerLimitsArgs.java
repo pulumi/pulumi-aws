@@ -15,16 +15,32 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
 
     public static final AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs Empty = new AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs();
 
+    /**
+     * Max number of web pages crawled from your source URLs, up to 25,000 pages.
+     * 
+     */
     @Import(name="maxPages")
     private @Nullable Output<Double> maxPages;
 
+    /**
+     * @return Max number of web pages crawled from your source URLs, up to 25,000 pages.
+     * 
+     */
     public Optional<Output<Double>> maxPages() {
         return Optional.ofNullable(this.maxPages);
     }
 
+    /**
+     * Max rate at which pages are crawled, up to 300 per minute per host.
+     * 
+     */
     @Import(name="rateLimit")
     private @Nullable Output<Double> rateLimit;
 
+    /**
+     * @return Max rate at which pages are crawled, up to 300 per minute per host.
+     * 
+     */
     public Optional<Output<Double>> rateLimit() {
         return Optional.ofNullable(this.rateLimit);
     }
@@ -54,20 +70,44 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
             $ = new AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maxPages Max number of web pages crawled from your source URLs, up to 25,000 pages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxPages(@Nullable Output<Double> maxPages) {
             $.maxPages = maxPages;
             return this;
         }
 
+        /**
+         * @param maxPages Max number of web pages crawled from your source URLs, up to 25,000 pages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxPages(Double maxPages) {
             return maxPages(Output.of(maxPages));
         }
 
+        /**
+         * @param rateLimit Max rate at which pages are crawled, up to 300 per minute per host.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rateLimit(@Nullable Output<Double> rateLimit) {
             $.rateLimit = rateLimit;
             return this;
         }
 
+        /**
+         * @param rateLimit Max rate at which pages are crawled, up to 300 per minute per host.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rateLimit(Double rateLimit) {
             return rateLimit(Output.of(rateLimit));
         }

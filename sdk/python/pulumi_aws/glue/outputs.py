@@ -3154,7 +3154,9 @@ class PartitionStorageDescriptor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "bucketColumns":
+        if key == "additionalLocations":
+            suggest = "additional_locations"
+        elif key == "bucketColumns":
             suggest = "bucket_columns"
         elif key == "inputFormat":
             suggest = "input_format"
@@ -3183,6 +3185,7 @@ class PartitionStorageDescriptor(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 additional_locations: Optional[Sequence[str]] = None,
                  bucket_columns: Optional[Sequence[str]] = None,
                  columns: Optional[Sequence['outputs.PartitionStorageDescriptorColumn']] = None,
                  compressed: Optional[bool] = None,
@@ -3196,6 +3199,7 @@ class PartitionStorageDescriptor(dict):
                  sort_columns: Optional[Sequence['outputs.PartitionStorageDescriptorSortColumn']] = None,
                  stored_as_sub_directories: Optional[bool] = None):
         """
+        :param Sequence[str] additional_locations: List of locations that point to the path where a Delta table is located.
         :param Sequence[str] bucket_columns: A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
         :param Sequence['PartitionStorageDescriptorColumnArgs'] columns: A list of the Columns in the table.
         :param bool compressed: True if the data in the table is compressed, or False if not.
@@ -3209,6 +3213,8 @@ class PartitionStorageDescriptor(dict):
         :param Sequence['PartitionStorageDescriptorSortColumnArgs'] sort_columns: A list of Order objects specifying the sort order of each bucket in the table.
         :param bool stored_as_sub_directories: True if the table data is stored in subdirectories, or False if not.
         """
+        if additional_locations is not None:
+            pulumi.set(__self__, "additional_locations", additional_locations)
         if bucket_columns is not None:
             pulumi.set(__self__, "bucket_columns", bucket_columns)
         if columns is not None:
@@ -3233,6 +3239,14 @@ class PartitionStorageDescriptor(dict):
             pulumi.set(__self__, "sort_columns", sort_columns)
         if stored_as_sub_directories is not None:
             pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+
+    @property
+    @pulumi.getter(name="additionalLocations")
+    def additional_locations(self) -> Optional[Sequence[str]]:
+        """
+        List of locations that point to the path where a Delta table is located.
+        """
+        return pulumi.get(self, "additional_locations")
 
     @property
     @pulumi.getter(name="bucketColumns")

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class ClusterStorageConfigBlockStorage
     {
+        /// <summary>
+        /// Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete block storage volumes in your Amazon Web Services account.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

@@ -27,7 +27,7 @@ import (
 type InvocationLoggingConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The logging configuration values to set.
+	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrOutput `pulumi:"loggingConfig"`
 }
 
@@ -61,12 +61,12 @@ func GetInvocationLoggingConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InvocationLoggingConfiguration resources.
 type invocationLoggingConfigurationState struct {
-	// The logging configuration values to set.
+	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig *InvocationLoggingConfigurationLoggingConfig `pulumi:"loggingConfig"`
 }
 
 type InvocationLoggingConfigurationState struct {
-	// The logging configuration values to set.
+	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrInput
 }
 
@@ -75,13 +75,13 @@ func (InvocationLoggingConfigurationState) ElementType() reflect.Type {
 }
 
 type invocationLoggingConfigurationArgs struct {
-	// The logging configuration values to set.
+	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig *InvocationLoggingConfigurationLoggingConfig `pulumi:"loggingConfig"`
 }
 
 // The set of arguments for constructing a InvocationLoggingConfiguration resource.
 type InvocationLoggingConfigurationArgs struct {
-	// The logging configuration values to set.
+	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrInput
 }
 
@@ -172,7 +172,7 @@ func (o InvocationLoggingConfigurationOutput) ToInvocationLoggingConfigurationOu
 	return o
 }
 
-// The logging configuration values to set.
+// The logging configuration values to set. See `loggingConfig` Block for details.
 func (o InvocationLoggingConfigurationOutput) LoggingConfig() InvocationLoggingConfigurationLoggingConfigPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfiguration) InvocationLoggingConfigurationLoggingConfigPtrOutput {
 		return v.LoggingConfig

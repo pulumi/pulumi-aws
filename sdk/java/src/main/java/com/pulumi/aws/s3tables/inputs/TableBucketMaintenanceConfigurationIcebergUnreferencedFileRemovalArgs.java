@@ -17,7 +17,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
 
     /**
      * Settings for unreferenced file removal.
-     * See `iceberg_unreferenced_file_removal.settings` below
+     * See `iceberg_unreferenced_file_removal.settings` below.
      * 
      */
     @Import(name="settings", required=true)
@@ -25,7 +25,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
 
     /**
      * @return Settings for unreferenced file removal.
-     * See `iceberg_unreferenced_file_removal.settings` below
+     * See `iceberg_unreferenced_file_removal.settings` below.
      * 
      */
     public Output<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs> settings() {
@@ -76,7 +76,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
 
         /**
          * @param settings Settings for unreferenced file removal.
-         * See `iceberg_unreferenced_file_removal.settings` below
+         * See `iceberg_unreferenced_file_removal.settings` below.
          * 
          * @return builder
          * 
@@ -88,7 +88,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
 
         /**
          * @param settings Settings for unreferenced file removal.
-         * See `iceberg_unreferenced_file_removal.settings` below
+         * See `iceberg_unreferenced_file_removal.settings` below.
          * 
          * @return builder
          * 

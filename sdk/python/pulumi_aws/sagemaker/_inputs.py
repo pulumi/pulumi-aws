@@ -7543,7 +7543,8 @@ if not MYPY:
         """
         capture_content_type_header: NotRequired[pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgsDict']]
         """
-        The content type headers to capture. Fields are documented below.
+        The content type headers to capture.
+        See `capture_content_type_header` below.
         """
         enable_capture: NotRequired[pulumi.Input[bool]]
         """
@@ -7569,7 +7570,8 @@ class EndpointConfigurationDataCaptureConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureOptionArgs']]] capture_options: Specifies what data to capture. Fields are documented below.
         :param pulumi.Input[str] destination_s3_uri: The URL for S3 location where the captured data is stored.
         :param pulumi.Input[int] initial_sampling_percentage: Portion of data to capture. Should be between 0 and 100.
-        :param pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs'] capture_content_type_header: The content type headers to capture. Fields are documented below.
+        :param pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs'] capture_content_type_header: The content type headers to capture.
+               See `capture_content_type_header` below.
         :param pulumi.Input[bool] enable_capture: Flag to enable data capture. Defaults to `false`.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
         """
@@ -7623,7 +7625,8 @@ class EndpointConfigurationDataCaptureConfigArgs:
     @pulumi.getter(name="captureContentTypeHeader")
     def capture_content_type_header(self) -> Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs']]:
         """
-        The content type headers to capture. Fields are documented below.
+        The content type headers to capture.
+        See `capture_content_type_header` below.
         """
         return pulumi.get(self, "capture_content_type_header")
 
@@ -7661,10 +7664,12 @@ if not MYPY:
         csv_content_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         The CSV content type headers to capture.
+        One of `csv_content_types` or `json_content_types` is required.
         """
         json_content_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         The JSON content type headers to capture.
+        One of `json_content_types` or `csv_content_types` is required.
         """
 elif False:
     EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgsDict: TypeAlias = Mapping[str, Any]
@@ -7676,7 +7681,9 @@ class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs:
                  json_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] csv_content_types: The CSV content type headers to capture.
+               One of `csv_content_types` or `json_content_types` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] json_content_types: The JSON content type headers to capture.
+               One of `json_content_types` or `csv_content_types` is required.
         """
         if csv_content_types is not None:
             pulumi.set(__self__, "csv_content_types", csv_content_types)
@@ -7688,6 +7695,7 @@ class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs:
     def csv_content_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The CSV content type headers to capture.
+        One of `csv_content_types` or `json_content_types` is required.
         """
         return pulumi.get(self, "csv_content_types")
 
@@ -7700,6 +7708,7 @@ class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs:
     def json_content_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The JSON content type headers to capture.
+        One of `json_content_types` or `csv_content_types` is required.
         """
         return pulumi.get(self, "json_content_types")
 

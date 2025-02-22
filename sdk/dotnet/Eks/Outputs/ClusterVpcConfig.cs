@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Eks.Outputs
     public sealed class ClusterVpcConfig
     {
         /// <summary>
-        /// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+        /// Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
         /// </summary>
         public readonly string? ClusterSecurityGroupId;
         /// <summary>

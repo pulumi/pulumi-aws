@@ -321,6 +321,12 @@ namespace Pulumi.Aws.Rekognition
     public partial class StreamProcessor : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// ARN of the Stream Processor.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// See `data_sharing_preference`.
         /// </summary>
         [Output("dataSharingPreference")]
@@ -377,7 +383,8 @@ namespace Pulumi.Aws.Rekognition
         public Output<Outputs.StreamProcessorSettings?> Settings { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the Stream Processor.
+        /// (**Deprecated**) ARN of the Stream Processor.
+        /// Use `arn` instead.
         /// </summary>
         [Output("streamProcessorArn")]
         public Output<string> StreamProcessorArn { get; private set; } = null!;
@@ -529,6 +536,12 @@ namespace Pulumi.Aws.Rekognition
     public sealed class StreamProcessorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// ARN of the Stream Processor.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// See `data_sharing_preference`.
         /// </summary>
         [Input("dataSharingPreference")]
@@ -591,7 +604,8 @@ namespace Pulumi.Aws.Rekognition
         public Input<Inputs.StreamProcessorSettingsGetArgs>? Settings { get; set; }
 
         /// <summary>
-        /// ARN of the Stream Processor.
+        /// (**Deprecated**) ARN of the Stream Processor.
+        /// Use `arn` instead.
         /// </summary>
         [Input("streamProcessorArn")]
         public Input<string>? StreamProcessorArn { get; set; }

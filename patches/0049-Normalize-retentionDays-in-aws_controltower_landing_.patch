@@ -14,7 +14,7 @@ According to https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-la
 preferred one.
 
 diff --git a/internal/service/controltower/landing_zone.go b/internal/service/controltower/landing_zone.go
-index de5706bba98..c213c677f80 100644
+index 0e2a717f54..40b565d949 100644
 --- a/internal/service/controltower/landing_zone.go
 +++ b/internal/service/controltower/landing_zone.go
 @@ -5,8 +5,10 @@ package controltower
@@ -51,7 +51,7 @@ index de5706bba98..c213c677f80 100644
  			},
  			names.AttrVersion: {
  				Type:     schema.TypeString,
-@@ -328,3 +326,80 @@ func flattenLandingZoneDriftStatusSummary(apiObject *types.LandingZoneDriftStatu
+@@ -329,3 +327,80 @@ func flattenLandingZoneDriftStatusSummary(apiObject *types.LandingZoneDriftStatu
  
  	return tfMap
  }
@@ -134,7 +134,7 @@ index de5706bba98..c213c677f80 100644
 +}
 diff --git a/internal/service/controltower/landing_zone_internals_test.go b/internal/service/controltower/landing_zone_internals_test.go
 new file mode 100644
-index 00000000000..7c97e09ce2a
+index 0000000000..7c97e09ce2
 --- /dev/null
 +++ b/internal/service/controltower/landing_zone_internals_test.go
 @@ -0,0 +1,50 @@

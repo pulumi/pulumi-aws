@@ -21,14 +21,20 @@ class AccessLogSubscriptionArgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[str],
                  resource_identifier: pulumi.Input[str],
+                 service_network_log_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AccessLogSubscription resource.
         :param pulumi.Input[str] destination_arn: Amazon Resource Name (ARN) of the log destination.
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+               
+               The following arguments are optional:
+        :param pulumi.Input[str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "resource_identifier", resource_identifier)
+        if service_network_log_type is not None:
+            pulumi.set(__self__, "service_network_log_type", service_network_log_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -49,12 +55,26 @@ class AccessLogSubscriptionArgs:
     def resource_identifier(self) -> pulumi.Input[str]:
         """
         The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
     def resource_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_identifier", value)
+
+    @property
+    @pulumi.getter(name="serviceNetworkLogType")
+    def service_network_log_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+        """
+        return pulumi.get(self, "service_network_log_type")
+
+    @service_network_log_type.setter
+    def service_network_log_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_network_log_type", value)
 
     @property
     @pulumi.getter
@@ -73,6 +93,7 @@ class _AccessLogSubscriptionState:
                  destination_arn: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
+                 service_network_log_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -81,6 +102,9 @@ class _AccessLogSubscriptionState:
         :param pulumi.Input[str] destination_arn: Amazon Resource Name (ARN) of the log destination.
         :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the service network or service.
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+               
+               The following arguments are optional:
+        :param pulumi.Input[str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -90,6 +114,8 @@ class _AccessLogSubscriptionState:
             pulumi.set(__self__, "resource_arn", resource_arn)
         if resource_identifier is not None:
             pulumi.set(__self__, "resource_identifier", resource_identifier)
+        if service_network_log_type is not None:
+            pulumi.set(__self__, "service_network_log_type", service_network_log_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -139,12 +165,26 @@ class _AccessLogSubscriptionState:
     def resource_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
     def resource_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_identifier", value)
+
+    @property
+    @pulumi.getter(name="serviceNetworkLogType")
+    def service_network_log_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+        """
+        return pulumi.get(self, "service_network_log_type")
+
+    @service_network_log_type.setter
+    def service_network_log_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_network_log_type", value)
 
     @property
     @pulumi.getter
@@ -173,6 +213,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_arn: Optional[pulumi.Input[str]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
+                 service_network_log_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -203,6 +244,9 @@ class AccessLogSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_arn: Amazon Resource Name (ARN) of the log destination.
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+               
+               The following arguments are optional:
+        :param pulumi.Input[str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
         """
         ...
     @overload
@@ -251,6 +295,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_arn: Optional[pulumi.Input[str]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
+                 service_network_log_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -267,6 +312,7 @@ class AccessLogSubscription(pulumi.CustomResource):
             if resource_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_identifier'")
             __props__.__dict__["resource_identifier"] = resource_identifier
+            __props__.__dict__["service_network_log_type"] = service_network_log_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["resource_arn"] = None
@@ -285,6 +331,7 @@ class AccessLogSubscription(pulumi.CustomResource):
             destination_arn: Optional[pulumi.Input[str]] = None,
             resource_arn: Optional[pulumi.Input[str]] = None,
             resource_identifier: Optional[pulumi.Input[str]] = None,
+            service_network_log_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'AccessLogSubscription':
         """
@@ -298,6 +345,9 @@ class AccessLogSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] destination_arn: Amazon Resource Name (ARN) of the log destination.
         :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the service network or service.
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+               
+               The following arguments are optional:
+        :param pulumi.Input[str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -307,6 +357,7 @@ class AccessLogSubscription(pulumi.CustomResource):
         __props__.__dict__["destination_arn"] = destination_arn
         __props__.__dict__["resource_arn"] = resource_arn
         __props__.__dict__["resource_identifier"] = resource_identifier
+        __props__.__dict__["service_network_log_type"] = service_network_log_type
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return AccessLogSubscription(resource_name, opts=opts, __props__=__props__)
@@ -340,8 +391,18 @@ class AccessLogSubscription(pulumi.CustomResource):
     def resource_identifier(self) -> pulumi.Output[str]:
         """
         The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "resource_identifier")
+
+    @property
+    @pulumi.getter(name="serviceNetworkLogType")
+    def service_network_log_type(self) -> pulumi.Output[str]:
+        """
+        Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+        """
+        return pulumi.get(self, "service_network_log_type")
 
     @property
     @pulumi.getter

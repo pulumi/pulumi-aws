@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *         var exampleMember = new Member("exampleMember", MemberArgs.builder()
  *             .accountId("AWS ACCOUNT ID")
  *             .emailAddress("EMAIL")
- *             .graphArn(example.id())
+ *             .graphArn(example.graphArn())
  *             .message("Message of the invitation")
  *             .disableEmailNotification(true)
  *             .build());

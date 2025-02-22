@@ -429,6 +429,7 @@ class Endpoints(dict):
                  medialive: Optional[str] = None,
                  mediapackage: Optional[str] = None,
                  mediapackagev2: Optional[str] = None,
+                 mediapackagevod: Optional[str] = None,
                  mediastore: Optional[str] = None,
                  memorydb: Optional[str] = None,
                  mgn: Optional[str] = None,
@@ -728,6 +729,7 @@ class Endpoints(dict):
         :param str medialive: Use this to override the default service endpoint URL
         :param str mediapackage: Use this to override the default service endpoint URL
         :param str mediapackagev2: Use this to override the default service endpoint URL
+        :param str mediapackagevod: Use this to override the default service endpoint URL
         :param str mediastore: Use this to override the default service endpoint URL
         :param str memorydb: Use this to override the default service endpoint URL
         :param str mgn: Use this to override the default service endpoint URL
@@ -1214,6 +1216,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "mediapackage", mediapackage)
         if mediapackagev2 is not None:
             pulumi.set(__self__, "mediapackagev2", mediapackagev2)
+        if mediapackagevod is not None:
+            pulumi.set(__self__, "mediapackagevod", mediapackagevod)
         if mediastore is not None:
             pulumi.set(__self__, "mediastore", mediastore)
         if memorydb is not None:
@@ -2932,6 +2936,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "mediapackagev2")
+
+    @property
+    @pulumi.getter
+    def mediapackagevod(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "mediapackagevod")
 
     @property
     @pulumi.getter

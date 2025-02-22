@@ -4363,6 +4363,8 @@ class DataSourceParametersS3(dict):
         suggest = None
         if key == "manifestFileLocation":
             suggest = "manifest_file_location"
+        elif key == "roleArn":
+            suggest = "role_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataSourceParametersS3. Access the value via the '{suggest}' property getter instead.")
@@ -4376,11 +4378,15 @@ class DataSourceParametersS3(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 manifest_file_location: 'outputs.DataSourceParametersS3ManifestFileLocation'):
+                 manifest_file_location: 'outputs.DataSourceParametersS3ManifestFileLocation',
+                 role_arn: Optional[str] = None):
         """
         :param 'DataSourceParametersS3ManifestFileLocationArgs' manifest_file_location: An object containing the S3 location of the S3 manifest file.
+        :param str role_arn: Use the `role_arn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `role_arn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
         """
         pulumi.set(__self__, "manifest_file_location", manifest_file_location)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="manifestFileLocation")
@@ -4389,6 +4395,14 @@ class DataSourceParametersS3(dict):
         An object containing the S3 location of the S3 manifest file.
         """
         return pulumi.get(self, "manifest_file_location")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        """
+        Use the `role_arn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `role_arn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
+        """
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type

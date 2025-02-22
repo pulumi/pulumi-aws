@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterVpcConfig {
     /**
-     * @return Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+     * @return Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
      * 
      */
     private @Nullable String clusterSecurityGroupId;
@@ -52,7 +52,7 @@ public final class ClusterVpcConfig {
 
     private ClusterVpcConfig() {}
     /**
-     * @return Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+     * @return Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
      * 
      */
     public Optional<String> clusterSecurityGroupId() {

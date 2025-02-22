@@ -166,7 +166,7 @@ export class Selection extends pulumi.CustomResource {
     }
 
     /**
-     * A list of conditions that you define to assign resources to your backup plans using tags.
+     * Condition-based filters used to specify sets of resources for a backup plan. See below for details.
      */
     public readonly conditions!: pulumi.Output<outputs.backup.SelectionCondition[]>;
     /**
@@ -190,7 +190,7 @@ export class Selection extends pulumi.CustomResource {
      */
     public readonly resources!: pulumi.Output<string[] | undefined>;
     /**
-     * Tag-based conditions used to specify a set of resources to assign to a backup plan.
+     * Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
      */
     public readonly selectionTags!: pulumi.Output<outputs.backup.SelectionSelectionTag[] | undefined>;
 
@@ -240,7 +240,7 @@ export class Selection extends pulumi.CustomResource {
  */
 export interface SelectionState {
     /**
-     * A list of conditions that you define to assign resources to your backup plans using tags.
+     * Condition-based filters used to specify sets of resources for a backup plan. See below for details.
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.backup.SelectionCondition>[]>;
     /**
@@ -264,7 +264,7 @@ export interface SelectionState {
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Tag-based conditions used to specify a set of resources to assign to a backup plan.
+     * Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
      */
     selectionTags?: pulumi.Input<pulumi.Input<inputs.backup.SelectionSelectionTag>[]>;
 }
@@ -274,7 +274,7 @@ export interface SelectionState {
  */
 export interface SelectionArgs {
     /**
-     * A list of conditions that you define to assign resources to your backup plans using tags.
+     * Condition-based filters used to specify sets of resources for a backup plan. See below for details.
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.backup.SelectionCondition>[]>;
     /**
@@ -298,7 +298,7 @@ export interface SelectionArgs {
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Tag-based conditions used to specify a set of resources to assign to a backup plan.
+     * Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
      */
     selectionTags?: pulumi.Input<pulumi.Input<inputs.backup.SelectionSelectionTag>[]>;
 }

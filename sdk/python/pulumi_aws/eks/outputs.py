@@ -424,7 +424,7 @@ class ClusterKubernetesNetworkConfig(dict):
                * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
                
                * Between /24 and /12.
-        :param str service_ipv6_cidr: The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+        :param str service_ipv6_cidr: The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specify `ipv6` for `ip_family` when you create the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         """
         if elastic_load_balancing is not None:
             pulumi.set(__self__, "elastic_load_balancing", elastic_load_balancing)
@@ -469,7 +469,7 @@ class ClusterKubernetesNetworkConfig(dict):
     @pulumi.getter(name="serviceIpv6Cidr")
     def service_ipv6_cidr(self) -> Optional[str]:
         """
-        The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+        The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specify `ipv6` for `ip_family` when you create the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         """
         return pulumi.get(self, "service_ipv6_cidr")
 
@@ -716,12 +716,18 @@ class ClusterStorageConfig(dict):
 
     def __init__(__self__, *,
                  block_storage: Optional['outputs.ClusterStorageConfigBlockStorage'] = None):
+        """
+        :param 'ClusterStorageConfigBlockStorageArgs' block_storage: Configuration block with block storage configuration for the cluster. Detailed below.
+        """
         if block_storage is not None:
             pulumi.set(__self__, "block_storage", block_storage)
 
     @property
     @pulumi.getter(name="blockStorage")
     def block_storage(self) -> Optional['outputs.ClusterStorageConfigBlockStorage']:
+        """
+        Configuration block with block storage configuration for the cluster. Detailed below.
+        """
         return pulumi.get(self, "block_storage")
 
 
@@ -729,12 +735,18 @@ class ClusterStorageConfig(dict):
 class ClusterStorageConfigBlockStorage(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
+        """
+        :param bool enabled: Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete block storage volumes in your Amazon Web Services account.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete block storage volumes in your Amazon Web Services account.
+        """
         return pulumi.get(self, "enabled")
 
 
@@ -815,7 +827,7 @@ class ClusterVpcConfig(dict):
                  vpc_id: Optional[str] = None):
         """
         :param Sequence[str] subnet_ids: List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-        :param str cluster_security_group_id: Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+        :param str cluster_security_group_id: Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
         :param bool endpoint_private_access: Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
         :param bool endpoint_public_access: Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
         :param Sequence[str] public_access_cidrs: List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
@@ -848,7 +860,7 @@ class ClusterVpcConfig(dict):
     @pulumi.getter(name="clusterSecurityGroupId")
     def cluster_security_group_id(self) -> Optional[str]:
         """
-        Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+        Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
         """
         return pulumi.get(self, "cluster_security_group_id")
 

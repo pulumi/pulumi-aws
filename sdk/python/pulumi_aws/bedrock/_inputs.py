@@ -1396,6 +1396,9 @@ if not MYPY:
         Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
         """
         web_configuration: NotRequired[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationArgsDict']]
+        """
+        Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+        """
 elif False:
     AgentDataSourceDataSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1414,6 +1417,7 @@ class AgentDataSourceDataSourceConfigurationArgs:
         :param pulumi.Input['AgentDataSourceDataSourceConfigurationS3ConfigurationArgs'] s3_configuration: Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
         :param pulumi.Input['AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs'] salesforce_configuration: Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
         :param pulumi.Input['AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs'] share_point_configuration: Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
+        :param pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationArgs'] web_configuration: Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
         """
         pulumi.set(__self__, "type", type)
         if confluence_configuration is not None:
@@ -1490,6 +1494,9 @@ class AgentDataSourceDataSourceConfigurationArgs:
     @property
     @pulumi.getter(name="webConfiguration")
     def web_configuration(self) -> Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationArgs']]:
+        """
+        Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+        """
         return pulumi.get(self, "web_configuration")
 
     @web_configuration.setter
@@ -1661,13 +1668,7 @@ if not MYPY:
         The supported object type or content type of the data source.
         """
         exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        """
         inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-        """
 elif False:
     AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1679,8 +1680,6 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
                  inclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] object_type: The supported object type or content type of the data source.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_filters: A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_filters: A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
         """
         pulumi.set(__self__, "object_type", object_type)
         if exclusion_filters is not None:
@@ -1703,9 +1702,6 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     @property
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        """
         return pulumi.get(self, "exclusion_filters")
 
     @exclusion_filters.setter
@@ -1715,9 +1711,6 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     @property
     @pulumi.getter(name="inclusionFilters")
     def inclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-        """
         return pulumi.get(self, "inclusion_filters")
 
     @inclusion_filters.setter
@@ -2048,13 +2041,7 @@ if not MYPY:
         The supported object type or content type of the data source.
         """
         exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        """
         inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-        """
 elif False:
     AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2066,8 +2053,6 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
                  inclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] object_type: The supported object type or content type of the data source.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_filters: A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_filters: A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
         """
         pulumi.set(__self__, "object_type", object_type)
         if exclusion_filters is not None:
@@ -2090,9 +2075,6 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     @property
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        """
         return pulumi.get(self, "exclusion_filters")
 
     @exclusion_filters.setter
@@ -2102,9 +2084,6 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     @property
     @pulumi.getter(name="inclusionFilters")
     def inclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-        """
         return pulumi.get(self, "inclusion_filters")
 
     @inclusion_filters.setter
@@ -2345,13 +2324,7 @@ if not MYPY:
         The supported object type or content type of the data source.
         """
         exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        """
         inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-        """
 elif False:
     AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2363,8 +2336,6 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
                  inclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] object_type: The supported object type or content type of the data source.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_filters: A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_filters: A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
         """
         pulumi.set(__self__, "object_type", object_type)
         if exclusion_filters is not None:
@@ -2387,9 +2358,6 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     @property
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        """
         return pulumi.get(self, "exclusion_filters")
 
     @exclusion_filters.setter
@@ -2399,9 +2367,6 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     @property
     @pulumi.getter(name="inclusionFilters")
     def inclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-        """
         return pulumi.get(self, "inclusion_filters")
 
     @inclusion_filters.setter
@@ -2575,16 +2540,25 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationArgs:
 if not MYPY:
     class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgsDict(TypedDict):
         crawler_limits: NotRequired[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgsDict']]
+        """
+        Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+        """
         exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
         """
         inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
         """
         scope: NotRequired[pulumi.Input[str]]
+        """
+        Scope of what is crawled for your URLs.
+        """
         user_agent: NotRequired[pulumi.Input[str]]
+        """
+        String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+        """
 elif False:
     AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2597,8 +2571,11 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
                  scope: Optional[pulumi.Input[str]] = None,
                  user_agent: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_filters: A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_filters: A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        :param pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs'] crawler_limits: Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_filters: List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_filters: List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        :param pulumi.Input[str] scope: Scope of what is crawled for your URLs.
+        :param pulumi.Input[str] user_agent: String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
         """
         if crawler_limits is not None:
             pulumi.set(__self__, "crawler_limits", crawler_limits)
@@ -2614,6 +2591,9 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @property
     @pulumi.getter(name="crawlerLimits")
     def crawler_limits(self) -> Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs']]:
+        """
+        Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+        """
         return pulumi.get(self, "crawler_limits")
 
     @crawler_limits.setter
@@ -2624,7 +2604,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
         """
         return pulumi.get(self, "exclusion_filters")
 
@@ -2636,7 +2616,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @pulumi.getter(name="inclusionFilters")
     def inclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
         """
         return pulumi.get(self, "inclusion_filters")
 
@@ -2647,6 +2627,9 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Scope of what is crawled for your URLs.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -2656,6 +2639,9 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @property
     @pulumi.getter(name="userAgent")
     def user_agent(self) -> Optional[pulumi.Input[str]]:
+        """
+        String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+        """
         return pulumi.get(self, "user_agent")
 
     @user_agent.setter
@@ -2666,7 +2652,13 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
 if not MYPY:
     class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgsDict(TypedDict):
         max_pages: NotRequired[pulumi.Input[float]]
+        """
+        Max number of web pages crawled from your source URLs, up to 25,000 pages.
+        """
         rate_limit: NotRequired[pulumi.Input[float]]
+        """
+        Max rate at which pages are crawled, up to 300 per minute per host.
+        """
 elif False:
     AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2675,6 +2667,10 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     def __init__(__self__, *,
                  max_pages: Optional[pulumi.Input[float]] = None,
                  rate_limit: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] max_pages: Max number of web pages crawled from your source URLs, up to 25,000 pages.
+        :param pulumi.Input[float] rate_limit: Max rate at which pages are crawled, up to 300 per minute per host.
+        """
         if max_pages is not None:
             pulumi.set(__self__, "max_pages", max_pages)
         if rate_limit is not None:
@@ -2683,6 +2679,9 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @property
     @pulumi.getter(name="maxPages")
     def max_pages(self) -> Optional[pulumi.Input[float]]:
+        """
+        Max number of web pages crawled from your source URLs, up to 25,000 pages.
+        """
         return pulumi.get(self, "max_pages")
 
     @max_pages.setter
@@ -2692,6 +2691,9 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
     @property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> Optional[pulumi.Input[float]]:
+        """
+        Max rate at which pages are crawled, up to 300 per minute per host.
+        """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter
@@ -2702,6 +2704,9 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
 if not MYPY:
     class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgsDict(TypedDict):
         url_configuration: NotRequired[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgsDict']]
+        """
+        The URL configuration of your web data source. See `url_configuration` block for details.
+        """
 elif False:
     AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2709,12 +2714,18 @@ elif False:
 class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs:
     def __init__(__self__, *,
                  url_configuration: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs'] url_configuration: The URL configuration of your web data source. See `url_configuration` block for details.
+        """
         if url_configuration is not None:
             pulumi.set(__self__, "url_configuration", url_configuration)
 
     @property
     @pulumi.getter(name="urlConfiguration")
     def url_configuration(self) -> Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs']]:
+        """
+        The URL configuration of your web data source. See `url_configuration` block for details.
+        """
         return pulumi.get(self, "url_configuration")
 
     @url_configuration.setter
@@ -2725,6 +2736,9 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationA
 if not MYPY:
     class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgsDict(TypedDict):
         seed_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgsDict']]]]
+        """
+        List of one or more seed URLs to crawl. See `seed_urls` block for details.
+        """
 elif False:
     AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2732,12 +2746,18 @@ elif False:
 class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs:
     def __init__(__self__, *,
                  seed_urls: Optional[pulumi.Input[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs']]] seed_urls: List of one or more seed URLs to crawl. See `seed_urls` block for details.
+        """
         if seed_urls is not None:
             pulumi.set(__self__, "seed_urls", seed_urls)
 
     @property
     @pulumi.getter(name="seedUrls")
     def seed_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs']]]]:
+        """
+        List of one or more seed URLs to crawl. See `seed_urls` block for details.
+        """
         return pulumi.get(self, "seed_urls")
 
     @seed_urls.setter
@@ -2748,6 +2768,9 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationU
 if not MYPY:
     class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgsDict(TypedDict):
         url: NotRequired[pulumi.Input[str]]
+        """
+        Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\\s]*$`.
+        """
 elif False:
     AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2755,12 +2778,18 @@ elif False:
 class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs:
     def __init__(__self__, *,
                  url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] url: Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\\s]*$`.
+        """
         if url is not None:
             pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\\s]*$`.
+        """
         return pulumi.get(self, "url")
 
     @url.setter

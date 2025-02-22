@@ -13,34 +13,40 @@ namespace Pulumi.Aws.BedrockModel.Inputs
     public sealed class InvocationLoggingConfigurationLoggingConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// CloudWatch logging configuration.
+        /// CloudWatch logging configuration. See `cloudwatch_config` Block for details.
         /// </summary>
         [Input("cloudwatchConfig")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs>? CloudwatchConfig { get; set; }
 
         /// <summary>
-        /// Set to include embeddings data in the log delivery.
+        /// Set to include embeddings data in the log delivery. Defaults to `true`.
         /// </summary>
-        [Input("embeddingDataDeliveryEnabled", required: true)]
-        public Input<bool> EmbeddingDataDeliveryEnabled { get; set; } = null!;
+        [Input("embeddingDataDeliveryEnabled")]
+        public Input<bool>? EmbeddingDataDeliveryEnabled { get; set; }
 
         /// <summary>
-        /// Set to include image data in the log delivery.
+        /// Set to include image data in the log delivery. Defaults to `true`.
         /// </summary>
-        [Input("imageDataDeliveryEnabled", required: true)]
-        public Input<bool> ImageDataDeliveryEnabled { get; set; } = null!;
+        [Input("imageDataDeliveryEnabled")]
+        public Input<bool>? ImageDataDeliveryEnabled { get; set; }
 
         /// <summary>
-        /// S3 configuration for storing log data.
+        /// S3 configuration for storing log data. See `s3_config` Block for details.
         /// </summary>
         [Input("s3Config")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs>? S3Config { get; set; }
 
         /// <summary>
-        /// Set to include text data in the log delivery.
+        /// Set to include text data in the log delivery. Defaults to `true`.
         /// </summary>
-        [Input("textDataDeliveryEnabled", required: true)]
-        public Input<bool> TextDataDeliveryEnabled { get; set; } = null!;
+        [Input("textDataDeliveryEnabled")]
+        public Input<bool>? TextDataDeliveryEnabled { get; set; }
+
+        /// <summary>
+        /// Set to include text data in the log delivery. Defaults to `true`.
+        /// </summary>
+        [Input("videoDataDeliveryEnabled")]
+        public Input<bool>? VideoDataDeliveryEnabled { get; set; }
 
         public InvocationLoggingConfigurationLoggingConfigArgs()
         {

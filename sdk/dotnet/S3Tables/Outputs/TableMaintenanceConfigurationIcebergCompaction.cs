@@ -15,7 +15,7 @@ namespace Pulumi.Aws.S3Tables.Outputs
     {
         /// <summary>
         /// Settings for compaction.
-        /// See `iceberg_compaction.settings` below
+        /// See `iceberg_compaction.settings` below.
         /// </summary>
         public readonly Outputs.TableMaintenanceConfigurationIcebergCompactionSettings Settings;
         /// <summary>

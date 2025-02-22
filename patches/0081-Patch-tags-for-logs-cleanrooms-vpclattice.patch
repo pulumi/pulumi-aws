@@ -5,7 +5,7 @@ Subject: [PATCH] Patch tags for logs, cleanrooms, vpclattice
 
 
 diff --git a/internal/service/cleanrooms/membership.go b/internal/service/cleanrooms/membership.go
-index a72d635b530..bce2d9829fd 100644
+index a72d635b53..bce2d9829f 100644
 --- a/internal/service/cleanrooms/membership.go
 +++ b/internal/service/cleanrooms/membership.go
 @@ -115,7 +115,7 @@ func (r *resourceMembership) Schema(ctx context.Context, _ resource.SchemaReques
@@ -18,7 +18,7 @@ index a72d635b530..bce2d9829fd 100644
  				CustomType: timetypes.RFC3339Type{},
  				Computed:   true,
 diff --git a/internal/service/logs/delivery.go b/internal/service/logs/delivery.go
-index 8ab31eaf9ea..1c1c288699c 100644
+index 8ab31eaf9e..1c1c288699 100644
 --- a/internal/service/logs/delivery.go
 +++ b/internal/service/logs/delivery.go
 @@ -95,7 +95,7 @@ func (r *deliveryResource) Schema(ctx context.Context, request resource.SchemaRe
@@ -31,7 +31,7 @@ index 8ab31eaf9ea..1c1c288699c 100644
  	}
  }
 diff --git a/internal/service/logs/delivery_destination.go b/internal/service/logs/delivery_destination.go
-index 593acce875a..27eedb895c0 100644
+index 593acce875..27eedb895c 100644
 --- a/internal/service/logs/delivery_destination.go
 +++ b/internal/service/logs/delivery_destination.go
 @@ -73,7 +73,7 @@ func (r *deliveryDestinationResource) Schema(ctx context.Context, request resour
@@ -44,7 +44,7 @@ index 593acce875a..27eedb895c0 100644
  		Blocks: map[string]schema.Block{
  			"delivery_destination_configuration": schema.ListNestedBlock{
 diff --git a/internal/service/logs/delivery_source.go b/internal/service/logs/delivery_source.go
-index a051dfcd0fe..97d47e535df 100644
+index a051dfcd0f..97d47e535d 100644
 --- a/internal/service/logs/delivery_source.go
 +++ b/internal/service/logs/delivery_source.go
 @@ -83,7 +83,7 @@ func (r *deliverySourceResource) Schema(ctx context.Context, request resource.Sc
@@ -57,7 +57,7 @@ index a051dfcd0fe..97d47e535df 100644
  	}
  }
 diff --git a/internal/service/vpclattice/resource_gateway.go b/internal/service/vpclattice/resource_gateway.go
-index 1fe2a69c2a9..263af9aa7a5 100644
+index 50e42439ff..3bbf0b5387 100644
 --- a/internal/service/vpclattice/resource_gateway.go
 +++ b/internal/service/vpclattice/resource_gateway.go
 @@ -102,7 +102,7 @@ func (r *resourceGatewayResource) Schema(ctx context.Context, request resource.S

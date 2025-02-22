@@ -96,9 +96,17 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         return this.type;
     }
 
+    /**
+     * Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+     * 
+     */
     @Import(name="webConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationArgs> webConfiguration;
 
+    /**
+     * @return Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+     * 
+     */
     public Optional<Output<AgentDataSourceDataSourceConfigurationWebConfigurationArgs>> webConfiguration() {
         return Optional.ofNullable(this.webConfiguration);
     }
@@ -237,11 +245,23 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
             return type(Output.of(type));
         }
 
+        /**
+         * @param webConfiguration Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder webConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationArgs> webConfiguration) {
             $.webConfiguration = webConfiguration;
             return this;
         }
 
+        /**
+         * @param webConfiguration Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder webConfiguration(AgentDataSourceDataSourceConfigurationWebConfigurationArgs webConfiguration) {
             return webConfiguration(Output.of(webConfiguration));
         }

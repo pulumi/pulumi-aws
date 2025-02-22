@@ -141,7 +141,7 @@ public class Table extends com.pulumi.resources.CustomResource {
     }
     /**
      * A single table bucket maintenance configuration block.
-     * See `maintenance_configuration` below
+     * See `maintenance_configuration` below.
      * 
      */
     @Export(name="maintenanceConfiguration", refs={TableMaintenanceConfiguration.class}, tree="[0]")
@@ -149,7 +149,7 @@ public class Table extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A single table bucket maintenance configuration block.
-     * See `maintenance_configuration` below
+     * See `maintenance_configuration` below.
      * 
      */
     public Output<TableMaintenanceConfiguration> maintenanceConfiguration() {
@@ -201,6 +201,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * Name of the table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -210,6 +211,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * @return Name of the table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      * 
      */
     public Output<String> name() {

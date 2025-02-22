@@ -15,9 +15,17 @@ public final class ClusterStorageConfigArgs extends com.pulumi.resources.Resourc
 
     public static final ClusterStorageConfigArgs Empty = new ClusterStorageConfigArgs();
 
+    /**
+     * Configuration block with block storage configuration for the cluster. Detailed below.
+     * 
+     */
     @Import(name="blockStorage")
     private @Nullable Output<ClusterStorageConfigBlockStorageArgs> blockStorage;
 
+    /**
+     * @return Configuration block with block storage configuration for the cluster. Detailed below.
+     * 
+     */
     public Optional<Output<ClusterStorageConfigBlockStorageArgs>> blockStorage() {
         return Optional.ofNullable(this.blockStorage);
     }
@@ -46,11 +54,23 @@ public final class ClusterStorageConfigArgs extends com.pulumi.resources.Resourc
             $ = new ClusterStorageConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param blockStorage Configuration block with block storage configuration for the cluster. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockStorage(@Nullable Output<ClusterStorageConfigBlockStorageArgs> blockStorage) {
             $.blockStorage = blockStorage;
             return this;
         }
 
+        /**
+         * @param blockStorage Configuration block with block storage configuration for the cluster. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockStorage(ClusterStorageConfigBlockStorageArgs blockStorage) {
             return blockStorage(Output.of(blockStorage));
         }

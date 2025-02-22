@@ -5,7 +5,7 @@ Subject: [PATCH] Provide context to conns
 
 
 diff --git a/internal/service/ecr/credentials_data_source.go b/internal/service/ecr/credentials_data_source.go
-index b6e19a72839..9176fa0a161 100644
+index b6e19a7283..9176fa0a16 100644
 --- a/internal/service/ecr/credentials_data_source.go
 +++ b/internal/service/ecr/credentials_data_source.go
 @@ -1,6 +1,7 @@
@@ -27,7 +27,7 @@ index b6e19a72839..9176fa0a161 100644
  	registryID := d.Get("registry_id").(string)
  	log.Printf("[DEBUG] Reading ECR repository credentials %s", registryID)
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
-index 4a0ccf149dc..72f7d31d857 100644
+index 4a0ccf149d..72f7d31d85 100644
 --- a/internal/service/gamelift/matchmaking_configuration.go
 +++ b/internal/service/gamelift/matchmaking_configuration.go
 @@ -146,7 +146,7 @@ func ResourceMatchMakingConfiguration() *schema.Resource {
@@ -85,7 +85,7 @@ index 4a0ccf149dc..72f7d31d857 100644
  	_, err := conn.DeleteMatchmakingConfiguration(&gamelift.DeleteMatchmakingConfigurationInput{
  		Name: aws.String(d.Id()),
 diff --git a/internal/service/gamelift/matchmaking_rule_set.go b/internal/service/gamelift/matchmaking_rule_set.go
-index 54b86a0426a..d9f2424b7a3 100644
+index 54b86a0426..d9f2424b7a 100644
 --- a/internal/service/gamelift/matchmaking_rule_set.go
 +++ b/internal/service/gamelift/matchmaking_rule_set.go
 @@ -58,7 +58,7 @@ func ResourceMatchmakingRuleSet() *schema.Resource {
@@ -143,7 +143,7 @@ index 54b86a0426a..d9f2424b7a3 100644
  	_, err := conn.DeleteMatchmakingRuleSet(&gamelift.DeleteMatchmakingRuleSetInput{
  		Name: aws.String(d.Id()),
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index 0e1e17baa33..dc93531e67c 100644
+index 0e1e17baa3..dc93531e67 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -673,7 +673,7 @@ func ResourceBucketLegacy() *schema.Resource {

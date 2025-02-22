@@ -7,7 +7,6 @@ import com.pulumi.aws.bedrockmodel.inputs.InvocationLoggingConfigurationLoggingC
 import com.pulumi.aws.bedrockmodel.inputs.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,14 +18,14 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
     public static final InvocationLoggingConfigurationLoggingConfigArgs Empty = new InvocationLoggingConfigurationLoggingConfigArgs();
 
     /**
-     * CloudWatch logging configuration.
+     * CloudWatch logging configuration. See `cloudwatch_config` Block for details.
      * 
      */
     @Import(name="cloudwatchConfig")
     private @Nullable Output<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs> cloudwatchConfig;
 
     /**
-     * @return CloudWatch logging configuration.
+     * @return CloudWatch logging configuration. See `cloudwatch_config` Block for details.
      * 
      */
     public Optional<Output<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs>> cloudwatchConfig() {
@@ -34,44 +33,44 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
     }
 
     /**
-     * Set to include embeddings data in the log delivery.
+     * Set to include embeddings data in the log delivery. Defaults to `true`.
      * 
      */
-    @Import(name="embeddingDataDeliveryEnabled", required=true)
-    private Output<Boolean> embeddingDataDeliveryEnabled;
+    @Import(name="embeddingDataDeliveryEnabled")
+    private @Nullable Output<Boolean> embeddingDataDeliveryEnabled;
 
     /**
-     * @return Set to include embeddings data in the log delivery.
+     * @return Set to include embeddings data in the log delivery. Defaults to `true`.
      * 
      */
-    public Output<Boolean> embeddingDataDeliveryEnabled() {
-        return this.embeddingDataDeliveryEnabled;
+    public Optional<Output<Boolean>> embeddingDataDeliveryEnabled() {
+        return Optional.ofNullable(this.embeddingDataDeliveryEnabled);
     }
 
     /**
-     * Set to include image data in the log delivery.
+     * Set to include image data in the log delivery. Defaults to `true`.
      * 
      */
-    @Import(name="imageDataDeliveryEnabled", required=true)
-    private Output<Boolean> imageDataDeliveryEnabled;
+    @Import(name="imageDataDeliveryEnabled")
+    private @Nullable Output<Boolean> imageDataDeliveryEnabled;
 
     /**
-     * @return Set to include image data in the log delivery.
+     * @return Set to include image data in the log delivery. Defaults to `true`.
      * 
      */
-    public Output<Boolean> imageDataDeliveryEnabled() {
-        return this.imageDataDeliveryEnabled;
+    public Optional<Output<Boolean>> imageDataDeliveryEnabled() {
+        return Optional.ofNullable(this.imageDataDeliveryEnabled);
     }
 
     /**
-     * S3 configuration for storing log data.
+     * S3 configuration for storing log data. See `s3_config` Block for details.
      * 
      */
     @Import(name="s3Config")
     private @Nullable Output<InvocationLoggingConfigurationLoggingConfigS3ConfigArgs> s3Config;
 
     /**
-     * @return S3 configuration for storing log data.
+     * @return S3 configuration for storing log data. See `s3_config` Block for details.
      * 
      */
     public Optional<Output<InvocationLoggingConfigurationLoggingConfigS3ConfigArgs>> s3Config() {
@@ -79,18 +78,33 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
     }
 
     /**
-     * Set to include text data in the log delivery.
+     * Set to include text data in the log delivery. Defaults to `true`.
      * 
      */
-    @Import(name="textDataDeliveryEnabled", required=true)
-    private Output<Boolean> textDataDeliveryEnabled;
+    @Import(name="textDataDeliveryEnabled")
+    private @Nullable Output<Boolean> textDataDeliveryEnabled;
 
     /**
-     * @return Set to include text data in the log delivery.
+     * @return Set to include text data in the log delivery. Defaults to `true`.
      * 
      */
-    public Output<Boolean> textDataDeliveryEnabled() {
-        return this.textDataDeliveryEnabled;
+    public Optional<Output<Boolean>> textDataDeliveryEnabled() {
+        return Optional.ofNullable(this.textDataDeliveryEnabled);
+    }
+
+    /**
+     * Set to include text data in the log delivery. Defaults to `true`.
+     * 
+     */
+    @Import(name="videoDataDeliveryEnabled")
+    private @Nullable Output<Boolean> videoDataDeliveryEnabled;
+
+    /**
+     * @return Set to include text data in the log delivery. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> videoDataDeliveryEnabled() {
+        return Optional.ofNullable(this.videoDataDeliveryEnabled);
     }
 
     private InvocationLoggingConfigurationLoggingConfigArgs() {}
@@ -101,6 +115,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         this.imageDataDeliveryEnabled = $.imageDataDeliveryEnabled;
         this.s3Config = $.s3Config;
         this.textDataDeliveryEnabled = $.textDataDeliveryEnabled;
+        this.videoDataDeliveryEnabled = $.videoDataDeliveryEnabled;
     }
 
     public static Builder builder() {
@@ -122,7 +137,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param cloudwatchConfig CloudWatch logging configuration.
+         * @param cloudwatchConfig CloudWatch logging configuration. See `cloudwatch_config` Block for details.
          * 
          * @return builder
          * 
@@ -133,7 +148,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param cloudwatchConfig CloudWatch logging configuration.
+         * @param cloudwatchConfig CloudWatch logging configuration. See `cloudwatch_config` Block for details.
          * 
          * @return builder
          * 
@@ -143,18 +158,18 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param embeddingDataDeliveryEnabled Set to include embeddings data in the log delivery.
+         * @param embeddingDataDeliveryEnabled Set to include embeddings data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
          */
-        public Builder embeddingDataDeliveryEnabled(Output<Boolean> embeddingDataDeliveryEnabled) {
+        public Builder embeddingDataDeliveryEnabled(@Nullable Output<Boolean> embeddingDataDeliveryEnabled) {
             $.embeddingDataDeliveryEnabled = embeddingDataDeliveryEnabled;
             return this;
         }
 
         /**
-         * @param embeddingDataDeliveryEnabled Set to include embeddings data in the log delivery.
+         * @param embeddingDataDeliveryEnabled Set to include embeddings data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -164,18 +179,18 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param imageDataDeliveryEnabled Set to include image data in the log delivery.
+         * @param imageDataDeliveryEnabled Set to include image data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
          */
-        public Builder imageDataDeliveryEnabled(Output<Boolean> imageDataDeliveryEnabled) {
+        public Builder imageDataDeliveryEnabled(@Nullable Output<Boolean> imageDataDeliveryEnabled) {
             $.imageDataDeliveryEnabled = imageDataDeliveryEnabled;
             return this;
         }
 
         /**
-         * @param imageDataDeliveryEnabled Set to include image data in the log delivery.
+         * @param imageDataDeliveryEnabled Set to include image data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -185,7 +200,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param s3Config S3 configuration for storing log data.
+         * @param s3Config S3 configuration for storing log data. See `s3_config` Block for details.
          * 
          * @return builder
          * 
@@ -196,7 +211,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param s3Config S3 configuration for storing log data.
+         * @param s3Config S3 configuration for storing log data. See `s3_config` Block for details.
          * 
          * @return builder
          * 
@@ -206,18 +221,18 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param textDataDeliveryEnabled Set to include text data in the log delivery.
+         * @param textDataDeliveryEnabled Set to include text data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
          */
-        public Builder textDataDeliveryEnabled(Output<Boolean> textDataDeliveryEnabled) {
+        public Builder textDataDeliveryEnabled(@Nullable Output<Boolean> textDataDeliveryEnabled) {
             $.textDataDeliveryEnabled = textDataDeliveryEnabled;
             return this;
         }
 
         /**
-         * @param textDataDeliveryEnabled Set to include text data in the log delivery.
+         * @param textDataDeliveryEnabled Set to include text data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -226,16 +241,28 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
             return textDataDeliveryEnabled(Output.of(textDataDeliveryEnabled));
         }
 
+        /**
+         * @param videoDataDeliveryEnabled Set to include text data in the log delivery. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder videoDataDeliveryEnabled(@Nullable Output<Boolean> videoDataDeliveryEnabled) {
+            $.videoDataDeliveryEnabled = videoDataDeliveryEnabled;
+            return this;
+        }
+
+        /**
+         * @param videoDataDeliveryEnabled Set to include text data in the log delivery. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder videoDataDeliveryEnabled(Boolean videoDataDeliveryEnabled) {
+            return videoDataDeliveryEnabled(Output.of(videoDataDeliveryEnabled));
+        }
+
         public InvocationLoggingConfigurationLoggingConfigArgs build() {
-            if ($.embeddingDataDeliveryEnabled == null) {
-                throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfigArgs", "embeddingDataDeliveryEnabled");
-            }
-            if ($.imageDataDeliveryEnabled == null) {
-                throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfigArgs", "imageDataDeliveryEnabled");
-            }
-            if ($.textDataDeliveryEnabled == null) {
-                throw new MissingRequiredPropertyException("InvocationLoggingConfigurationLoggingConfigArgs", "textDataDeliveryEnabled");
-            }
             return $;
         }
     }

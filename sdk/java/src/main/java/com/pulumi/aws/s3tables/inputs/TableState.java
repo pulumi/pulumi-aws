@@ -80,7 +80,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A single table bucket maintenance configuration block.
-     * See `maintenance_configuration` below
+     * See `maintenance_configuration` below.
      * 
      */
     @Import(name="maintenanceConfiguration")
@@ -88,7 +88,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A single table bucket maintenance configuration block.
-     * See `maintenance_configuration` below
+     * See `maintenance_configuration` below.
      * 
      */
     public Optional<Output<TableMaintenanceConfigurationArgs>> maintenanceConfiguration() {
@@ -144,6 +144,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
      * Name of the table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      * 
      */
     @Import(name="name")
@@ -153,6 +154,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
      * @return Name of the table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      * 
      */
     public Optional<Output<String>> name() {
@@ -385,7 +387,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param maintenanceConfiguration A single table bucket maintenance configuration block.
-         * See `maintenance_configuration` below
+         * See `maintenance_configuration` below.
          * 
          * @return builder
          * 
@@ -397,7 +399,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param maintenanceConfiguration A single table bucket maintenance configuration block.
-         * See `maintenance_configuration` below
+         * See `maintenance_configuration` below.
          * 
          * @return builder
          * 
@@ -473,6 +475,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          * @param name Name of the table.
          * Must be between 1 and 255 characters in length.
          * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+         * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
          * 
          * @return builder
          * 
@@ -486,6 +489,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          * @param name Name of the table.
          * Must be between 1 and 255 characters in length.
          * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+         * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
          * 
          * @return builder
          * 

@@ -71,8 +71,14 @@ export class AccessLogSubscription extends pulumi.CustomResource {
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+     *
+     * The following arguments are optional:
      */
     public readonly resourceIdentifier!: pulumi.Output<string>;
+    /**
+     * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+     */
+    public readonly serviceNetworkLogType!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Please use `tags` instead.
@@ -96,6 +102,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
             resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["resourceIdentifier"] = state ? state.resourceIdentifier : undefined;
+            resourceInputs["serviceNetworkLogType"] = state ? state.serviceNetworkLogType : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -108,6 +115,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
             }
             resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
             resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
+            resourceInputs["serviceNetworkLogType"] = args ? args.serviceNetworkLogType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
@@ -136,8 +144,14 @@ export interface AccessLogSubscriptionState {
     resourceArn?: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+     *
+     * The following arguments are optional:
      */
     resourceIdentifier?: pulumi.Input<string>;
+    /**
+     * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+     */
+    serviceNetworkLogType?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated Please use `tags` instead.
@@ -155,7 +169,13 @@ export interface AccessLogSubscriptionArgs {
     destinationArn: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+     *
+     * The following arguments are optional:
      */
     resourceIdentifier: pulumi.Input<string>;
+    /**
+     * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+     */
+    serviceNetworkLogType?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

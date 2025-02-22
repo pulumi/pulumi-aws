@@ -37,10 +37,11 @@ class TableArgs:
                
                The following argument is optional:
         :param pulumi.Input['TableMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration block.
-               See `maintenance_configuration` below
+               See `maintenance_configuration` below.
         :param pulumi.Input[str] name: Name of the table.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+               A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "namespace", namespace)
@@ -96,7 +97,7 @@ class TableArgs:
     def maintenance_configuration(self) -> Optional[pulumi.Input['TableMaintenanceConfigurationArgs']]:
         """
         A single table bucket maintenance configuration block.
-        See `maintenance_configuration` below
+        See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
 
@@ -111,6 +112,7 @@ class TableArgs:
         Name of the table.
         Must be between 1 and 255 characters in length.
         Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         """
         return pulumi.get(self, "name")
 
@@ -145,13 +147,14 @@ class _TableState:
         :param pulumi.Input[str] format: Format of the table.
                Must be `ICEBERG`.
         :param pulumi.Input['TableMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration block.
-               See `maintenance_configuration` below
+               See `maintenance_configuration` below.
         :param pulumi.Input[str] metadata_location: Location of table metadata.
         :param pulumi.Input[str] modified_at: Date and time when the namespace was last modified.
         :param pulumi.Input[str] modified_by: Account ID of the account that last modified the namespace.
         :param pulumi.Input[str] name: Name of the table.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+               A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         :param pulumi.Input[str] namespace: Name of the namespace for this table.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -249,7 +252,7 @@ class _TableState:
     def maintenance_configuration(self) -> Optional[pulumi.Input['TableMaintenanceConfigurationArgs']]:
         """
         A single table bucket maintenance configuration block.
-        See `maintenance_configuration` below
+        See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
 
@@ -300,6 +303,7 @@ class _TableState:
         Name of the table.
         Must be between 1 and 255 characters in length.
         Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         """
         return pulumi.get(self, "name")
 
@@ -431,10 +435,11 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] format: Format of the table.
                Must be `ICEBERG`.
         :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration block.
-               See `maintenance_configuration` below
+               See `maintenance_configuration` below.
         :param pulumi.Input[str] name: Name of the table.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+               A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         :param pulumi.Input[str] namespace: Name of the namespace for this table.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -566,13 +571,14 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] format: Format of the table.
                Must be `ICEBERG`.
         :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration block.
-               See `maintenance_configuration` below
+               See `maintenance_configuration` below.
         :param pulumi.Input[str] metadata_location: Location of table metadata.
         :param pulumi.Input[str] modified_at: Date and time when the namespace was last modified.
         :param pulumi.Input[str] modified_by: Account ID of the account that last modified the namespace.
         :param pulumi.Input[str] name: Name of the table.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+               A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         :param pulumi.Input[str] namespace: Name of the namespace for this table.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -644,7 +650,7 @@ class Table(pulumi.CustomResource):
     def maintenance_configuration(self) -> pulumi.Output['outputs.TableMaintenanceConfiguration']:
         """
         A single table bucket maintenance configuration block.
-        See `maintenance_configuration` below
+        See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
 
@@ -679,6 +685,7 @@ class Table(pulumi.CustomResource):
         Name of the table.
         Must be between 1 and 255 characters in length.
         Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         """
         return pulumi.get(self, "name")
 

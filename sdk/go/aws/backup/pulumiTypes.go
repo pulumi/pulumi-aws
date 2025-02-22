@@ -2279,10 +2279,14 @@ func (o RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOut
 }
 
 type SelectionCondition struct {
-	StringEquals    []SelectionConditionStringEqual    `pulumi:"stringEquals"`
-	StringLikes     []SelectionConditionStringLike     `pulumi:"stringLikes"`
+	// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
+	StringEquals []SelectionConditionStringEqual `pulumi:"stringEquals"`
+	// Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+	StringLikes []SelectionConditionStringLike `pulumi:"stringLikes"`
+	// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
 	StringNotEquals []SelectionConditionStringNotEqual `pulumi:"stringNotEquals"`
-	StringNotLikes  []SelectionConditionStringNotLike  `pulumi:"stringNotLikes"`
+	// Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+	StringNotLikes []SelectionConditionStringNotLike `pulumi:"stringNotLikes"`
 }
 
 // SelectionConditionInput is an input type that accepts SelectionConditionArgs and SelectionConditionOutput values.
@@ -2297,10 +2301,14 @@ type SelectionConditionInput interface {
 }
 
 type SelectionConditionArgs struct {
-	StringEquals    SelectionConditionStringEqualArrayInput    `pulumi:"stringEquals"`
-	StringLikes     SelectionConditionStringLikeArrayInput     `pulumi:"stringLikes"`
+	// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
+	StringEquals SelectionConditionStringEqualArrayInput `pulumi:"stringEquals"`
+	// Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+	StringLikes SelectionConditionStringLikeArrayInput `pulumi:"stringLikes"`
+	// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
 	StringNotEquals SelectionConditionStringNotEqualArrayInput `pulumi:"stringNotEquals"`
-	StringNotLikes  SelectionConditionStringNotLikeArrayInput  `pulumi:"stringNotLikes"`
+	// Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+	StringNotLikes SelectionConditionStringNotLikeArrayInput `pulumi:"stringNotLikes"`
 }
 
 func (SelectionConditionArgs) ElementType() reflect.Type {
@@ -2354,18 +2362,22 @@ func (o SelectionConditionOutput) ToSelectionConditionOutputWithContext(ctx cont
 	return o
 }
 
+// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
 func (o SelectionConditionOutput) StringEquals() SelectionConditionStringEqualArrayOutput {
 	return o.ApplyT(func(v SelectionCondition) []SelectionConditionStringEqual { return v.StringEquals }).(SelectionConditionStringEqualArrayOutput)
 }
 
+// Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
 func (o SelectionConditionOutput) StringLikes() SelectionConditionStringLikeArrayOutput {
 	return o.ApplyT(func(v SelectionCondition) []SelectionConditionStringLike { return v.StringLikes }).(SelectionConditionStringLikeArrayOutput)
 }
 
+// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
 func (o SelectionConditionOutput) StringNotEquals() SelectionConditionStringNotEqualArrayOutput {
 	return o.ApplyT(func(v SelectionCondition) []SelectionConditionStringNotEqual { return v.StringNotEquals }).(SelectionConditionStringNotEqualArrayOutput)
 }
 
+// Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
 func (o SelectionConditionOutput) StringNotLikes() SelectionConditionStringNotLikeArrayOutput {
 	return o.ApplyT(func(v SelectionCondition) []SelectionConditionStringNotLike { return v.StringNotLikes }).(SelectionConditionStringNotLikeArrayOutput)
 }
@@ -2391,9 +2403,9 @@ func (o SelectionConditionArrayOutput) Index(i pulumi.IntInput) SelectionConditi
 }
 
 type SelectionConditionStringEqual struct {
-	// The key in a key-value pair.
+	// Key for the filter.
 	Key string `pulumi:"key"`
-	// The value in a key-value pair.
+	// Value for the filter.
 	Value string `pulumi:"value"`
 }
 
@@ -2409,9 +2421,9 @@ type SelectionConditionStringEqualInput interface {
 }
 
 type SelectionConditionStringEqualArgs struct {
-	// The key in a key-value pair.
+	// Key for the filter.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value in a key-value pair.
+	// Value for the filter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2466,12 +2478,12 @@ func (o SelectionConditionStringEqualOutput) ToSelectionConditionStringEqualOutp
 	return o
 }
 
-// The key in a key-value pair.
+// Key for the filter.
 func (o SelectionConditionStringEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringEqual) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value in a key-value pair.
+// Value for the filter.
 func (o SelectionConditionStringEqualOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringEqual) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2497,9 +2509,9 @@ func (o SelectionConditionStringEqualArrayOutput) Index(i pulumi.IntInput) Selec
 }
 
 type SelectionConditionStringLike struct {
-	// The key in a key-value pair.
+	// Key for the filter.
 	Key string `pulumi:"key"`
-	// The value in a key-value pair.
+	// Value for the filter.
 	Value string `pulumi:"value"`
 }
 
@@ -2515,9 +2527,9 @@ type SelectionConditionStringLikeInput interface {
 }
 
 type SelectionConditionStringLikeArgs struct {
-	// The key in a key-value pair.
+	// Key for the filter.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value in a key-value pair.
+	// Value for the filter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2572,12 +2584,12 @@ func (o SelectionConditionStringLikeOutput) ToSelectionConditionStringLikeOutput
 	return o
 }
 
-// The key in a key-value pair.
+// Key for the filter.
 func (o SelectionConditionStringLikeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringLike) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value in a key-value pair.
+// Value for the filter.
 func (o SelectionConditionStringLikeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringLike) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2603,9 +2615,9 @@ func (o SelectionConditionStringLikeArrayOutput) Index(i pulumi.IntInput) Select
 }
 
 type SelectionConditionStringNotEqual struct {
-	// The key in a key-value pair.
+	// Key for the filter.
 	Key string `pulumi:"key"`
-	// The value in a key-value pair.
+	// Value for the filter.
 	Value string `pulumi:"value"`
 }
 
@@ -2621,9 +2633,9 @@ type SelectionConditionStringNotEqualInput interface {
 }
 
 type SelectionConditionStringNotEqualArgs struct {
-	// The key in a key-value pair.
+	// Key for the filter.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value in a key-value pair.
+	// Value for the filter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2678,12 +2690,12 @@ func (o SelectionConditionStringNotEqualOutput) ToSelectionConditionStringNotEqu
 	return o
 }
 
-// The key in a key-value pair.
+// Key for the filter.
 func (o SelectionConditionStringNotEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotEqual) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value in a key-value pair.
+// Value for the filter.
 func (o SelectionConditionStringNotEqualOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotEqual) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2709,9 +2721,9 @@ func (o SelectionConditionStringNotEqualArrayOutput) Index(i pulumi.IntInput) Se
 }
 
 type SelectionConditionStringNotLike struct {
-	// The key in a key-value pair.
+	// Key for the filter.
 	Key string `pulumi:"key"`
-	// The value in a key-value pair.
+	// Value for the filter.
 	Value string `pulumi:"value"`
 }
 
@@ -2727,9 +2739,9 @@ type SelectionConditionStringNotLikeInput interface {
 }
 
 type SelectionConditionStringNotLikeArgs struct {
-	// The key in a key-value pair.
+	// Key for the filter.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value in a key-value pair.
+	// Value for the filter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2784,12 +2796,12 @@ func (o SelectionConditionStringNotLikeOutput) ToSelectionConditionStringNotLike
 	return o
 }
 
-// The key in a key-value pair.
+// Key for the filter.
 func (o SelectionConditionStringNotLikeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotLike) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value in a key-value pair.
+// Value for the filter.
 func (o SelectionConditionStringNotLikeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotLike) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2815,11 +2827,11 @@ func (o SelectionConditionStringNotLikeArrayOutput) Index(i pulumi.IntInput) Sel
 }
 
 type SelectionSelectionTag struct {
-	// The key in a key-value pair.
+	// Key for the filter.
 	Key string `pulumi:"key"`
-	// An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
+	// An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
 	Type string `pulumi:"type"`
-	// The value in a key-value pair.
+	// Value for the filter.
 	Value string `pulumi:"value"`
 }
 
@@ -2835,11 +2847,11 @@ type SelectionSelectionTagInput interface {
 }
 
 type SelectionSelectionTagArgs struct {
-	// The key in a key-value pair.
+	// Key for the filter.
 	Key pulumi.StringInput `pulumi:"key"`
-	// An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
+	// An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The value in a key-value pair.
+	// Value for the filter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2894,17 +2906,17 @@ func (o SelectionSelectionTagOutput) ToSelectionSelectionTagOutputWithContext(ct
 	return o
 }
 
-// The key in a key-value pair.
+// Key for the filter.
 func (o SelectionSelectionTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionSelectionTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
+// An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
 func (o SelectionSelectionTagOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionSelectionTag) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The value in a key-value pair.
+// Value for the filter.
 func (o SelectionSelectionTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionSelectionTag) string { return v.Value }).(pulumi.StringOutput)
 }

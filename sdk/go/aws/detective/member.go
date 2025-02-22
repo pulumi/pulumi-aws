@@ -35,7 +35,7 @@ import (
 //			_, err = detective.NewMember(ctx, "example", &detective.MemberArgs{
 //				AccountId:                pulumi.String("AWS ACCOUNT ID"),
 //				EmailAddress:             pulumi.String("EMAIL"),
-//				GraphArn:                 example.ID(),
+//				GraphArn:                 example.GraphArn,
 //				Message:                  pulumi.String("Message of the invitation"),
 //				DisableEmailNotification: pulumi.Bool(true),
 //			})

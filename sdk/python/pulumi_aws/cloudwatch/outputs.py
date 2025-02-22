@@ -68,6 +68,8 @@ __all__ = [
     'MetricStreamIncludeFilter',
     'MetricStreamStatisticsConfiguration',
     'MetricStreamStatisticsConfigurationIncludeMetric',
+    'GetContributorManagedInsightRulesManagedRuleResult',
+    'GetContributorManagedInsightRulesManagedRuleRuleStateResult',
     'GetEventBusesEventBusResult',
     'GetLogDataProtectionPolicyDocumentStatementResult',
     'GetLogDataProtectionPolicyDocumentStatementOperationResult',
@@ -2824,6 +2826,83 @@ class MetricStreamStatisticsConfigurationIncludeMetric(dict):
     @pulumi.getter
     def namespace(self) -> str:
         return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class GetContributorManagedInsightRulesManagedRuleResult(dict):
+    def __init__(__self__, *,
+                 resource_arn: str,
+                 rule_states: Sequence['outputs.GetContributorManagedInsightRulesManagedRuleRuleStateResult'],
+                 template_name: str):
+        """
+        :param str resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
+               
+               The following arguments are optional:
+               
+               There are no optional arguments.
+        :param Sequence['GetContributorManagedInsightRulesManagedRuleRuleStateArgs'] rule_states: Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `rule_state reference` below for details.
+        :param str template_name: Template name for the managed rule. Used to enable managed rules using `PutManagedInsightRules`.
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "rule_states", rule_states)
+        pulumi.set(__self__, "template_name", template_name)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> str:
+        """
+        ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
+
+        The following arguments are optional:
+
+        There are no optional arguments.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @property
+    @pulumi.getter(name="ruleStates")
+    def rule_states(self) -> Sequence['outputs.GetContributorManagedInsightRulesManagedRuleRuleStateResult']:
+        """
+        Describes the state of a managed rule. If the rule is enabled, it contains information about the Contributor Insights rule that contains information about the related Amazon Web Services resource. See `rule_state reference` below for details.
+        """
+        return pulumi.get(self, "rule_states")
+
+    @property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> str:
+        """
+        Template name for the managed rule. Used to enable managed rules using `PutManagedInsightRules`.
+        """
+        return pulumi.get(self, "template_name")
+
+
+@pulumi.output_type
+class GetContributorManagedInsightRulesManagedRuleRuleStateResult(dict):
+    def __init__(__self__, *,
+                 rule_name: str,
+                 state: str):
+        """
+        :param str rule_name: Name of the Contributor Insights rule that contains data for the specified Amazon Web Services resource.
+        :param str state: Indicates whether the rule is enabled or disabled.
+        """
+        pulumi.set(__self__, "rule_name", rule_name)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> str:
+        """
+        Name of the Contributor Insights rule that contains data for the specified Amazon Web Services resource.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Indicates whether the rule is enabled or disabled.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

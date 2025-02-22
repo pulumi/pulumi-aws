@@ -56,12 +56,12 @@ type TableBucket struct {
 	// Date and time when the bucket was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// A single table bucket maintenance configuration block.
-	// See `maintenanceConfiguration` below
+	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableBucketMaintenanceConfigurationOutput `pulumi:"maintenanceConfiguration"`
 	// Name of the table bucket.
 	// Must be between 3 and 63 characters in length.
 	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-	// A full list of bucket naming rules may be found in S3 Tables documentation.
+	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
 	// The following argument is optional:
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -104,12 +104,12 @@ type tableBucketState struct {
 	// Date and time when the bucket was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// A single table bucket maintenance configuration block.
-	// See `maintenanceConfiguration` below
+	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableBucketMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
 	// Name of the table bucket.
 	// Must be between 3 and 63 characters in length.
 	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-	// A full list of bucket naming rules may be found in S3 Tables documentation.
+	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
 	// The following argument is optional:
 	Name *string `pulumi:"name"`
@@ -123,12 +123,12 @@ type TableBucketState struct {
 	// Date and time when the bucket was created.
 	CreatedAt pulumi.StringPtrInput
 	// A single table bucket maintenance configuration block.
-	// See `maintenanceConfiguration` below
+	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableBucketMaintenanceConfigurationPtrInput
 	// Name of the table bucket.
 	// Must be between 3 and 63 characters in length.
 	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-	// A full list of bucket naming rules may be found in S3 Tables documentation.
+	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
 	// The following argument is optional:
 	Name pulumi.StringPtrInput
@@ -142,12 +142,12 @@ func (TableBucketState) ElementType() reflect.Type {
 
 type tableBucketArgs struct {
 	// A single table bucket maintenance configuration block.
-	// See `maintenanceConfiguration` below
+	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableBucketMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
 	// Name of the table bucket.
 	// Must be between 3 and 63 characters in length.
 	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-	// A full list of bucket naming rules may be found in S3 Tables documentation.
+	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
 	// The following argument is optional:
 	Name *string `pulumi:"name"`
@@ -156,12 +156,12 @@ type tableBucketArgs struct {
 // The set of arguments for constructing a TableBucket resource.
 type TableBucketArgs struct {
 	// A single table bucket maintenance configuration block.
-	// See `maintenanceConfiguration` below
+	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableBucketMaintenanceConfigurationPtrInput
 	// Name of the table bucket.
 	// Must be between 3 and 63 characters in length.
 	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-	// A full list of bucket naming rules may be found in S3 Tables documentation.
+	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
 	// The following argument is optional:
 	Name pulumi.StringPtrInput
@@ -265,7 +265,7 @@ func (o TableBucketOutput) CreatedAt() pulumi.StringOutput {
 }
 
 // A single table bucket maintenance configuration block.
-// See `maintenanceConfiguration` below
+// See `maintenanceConfiguration` below.
 func (o TableBucketOutput) MaintenanceConfiguration() TableBucketMaintenanceConfigurationOutput {
 	return o.ApplyT(func(v *TableBucket) TableBucketMaintenanceConfigurationOutput { return v.MaintenanceConfiguration }).(TableBucketMaintenanceConfigurationOutput)
 }
@@ -273,7 +273,7 @@ func (o TableBucketOutput) MaintenanceConfiguration() TableBucketMaintenanceConf
 // Name of the table bucket.
 // Must be between 3 and 63 characters in length.
 // Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-// A full list of bucket naming rules may be found in S3 Tables documentation.
+// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 //
 // The following argument is optional:
 func (o TableBucketOutput) Name() pulumi.StringOutput {

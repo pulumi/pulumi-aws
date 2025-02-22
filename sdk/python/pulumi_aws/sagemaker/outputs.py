@@ -6420,7 +6420,8 @@ class EndpointConfigurationDataCaptureConfig(dict):
         :param Sequence['EndpointConfigurationDataCaptureConfigCaptureOptionArgs'] capture_options: Specifies what data to capture. Fields are documented below.
         :param str destination_s3_uri: The URL for S3 location where the captured data is stored.
         :param int initial_sampling_percentage: Portion of data to capture. Should be between 0 and 100.
-        :param 'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs' capture_content_type_header: The content type headers to capture. Fields are documented below.
+        :param 'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs' capture_content_type_header: The content type headers to capture.
+               See `capture_content_type_header` below.
         :param bool enable_capture: Flag to enable data capture. Defaults to `false`.
         :param str kms_key_id: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
         """
@@ -6462,7 +6463,8 @@ class EndpointConfigurationDataCaptureConfig(dict):
     @pulumi.getter(name="captureContentTypeHeader")
     def capture_content_type_header(self) -> Optional['outputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader']:
         """
-        The content type headers to capture. Fields are documented below.
+        The content type headers to capture.
+        See `capture_content_type_header` below.
         """
         return pulumi.get(self, "capture_content_type_header")
 
@@ -6509,7 +6511,9 @@ class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader(dict):
                  json_content_types: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] csv_content_types: The CSV content type headers to capture.
+               One of `csv_content_types` or `json_content_types` is required.
         :param Sequence[str] json_content_types: The JSON content type headers to capture.
+               One of `json_content_types` or `csv_content_types` is required.
         """
         if csv_content_types is not None:
             pulumi.set(__self__, "csv_content_types", csv_content_types)
@@ -6521,6 +6525,7 @@ class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader(dict):
     def csv_content_types(self) -> Optional[Sequence[str]]:
         """
         The CSV content type headers to capture.
+        One of `csv_content_types` or `json_content_types` is required.
         """
         return pulumi.get(self, "csv_content_types")
 
@@ -6529,6 +6534,7 @@ class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader(dict):
     def json_content_types(self) -> Optional[Sequence[str]]:
         """
         The JSON content type headers to capture.
+        One of `json_content_types` or `csv_content_types` is required.
         """
         return pulumi.get(self, "json_content_types")
 

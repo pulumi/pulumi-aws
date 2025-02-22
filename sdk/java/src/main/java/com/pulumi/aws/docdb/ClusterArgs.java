@@ -274,7 +274,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
      * 
      */
     @Import(name="masterPassword")
@@ -282,7 +282,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
      * 
      */
     public Optional<Output<String>> masterPassword() {
@@ -891,7 +891,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPassword Password for the master DB user. Note that this may
-         * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+         * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
          * 
          * @return builder
          * 
@@ -903,7 +903,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPassword Password for the master DB user. Note that this may
-         * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+         * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
          * 
          * @return builder
          * 

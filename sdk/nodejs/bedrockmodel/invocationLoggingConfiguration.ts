@@ -51,7 +51,7 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The logging configuration values to set.
+     * The logging configuration values to set. See `loggingConfig` Block for details.
      */
     public readonly loggingConfig!: pulumi.Output<outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig | undefined>;
 
@@ -83,7 +83,7 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
  */
 export interface InvocationLoggingConfigurationState {
     /**
-     * The logging configuration values to set.
+     * The logging configuration values to set. See `loggingConfig` Block for details.
      */
     loggingConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
 }
@@ -93,7 +93,7 @@ export interface InvocationLoggingConfigurationState {
  */
 export interface InvocationLoggingConfigurationArgs {
     /**
-     * The logging configuration values to set.
+     * The logging configuration values to set. See `loggingConfig` Block for details.
      */
     loggingConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
 }

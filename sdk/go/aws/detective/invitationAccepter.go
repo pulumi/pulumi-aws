@@ -35,7 +35,7 @@ import (
 //			primaryMember, err := detective.NewMember(ctx, "primary", &detective.MemberArgs{
 //				AccountId:    pulumi.String("ACCOUNT ID"),
 //				EmailAddress: pulumi.String("EMAIL"),
-//				GraphArn:     primary.ID(),
+//				GraphArn:     primary.GraphArn,
 //				Message:      pulumi.String("Message of the invite"),
 //			})
 //			if err != nil {

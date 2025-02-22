@@ -305,7 +305,7 @@ class Member(pulumi.CustomResource):
         example_member = aws.detective.Member("example",
             account_id="AWS ACCOUNT ID",
             email_address="EMAIL",
-            graph_arn=example.id,
+            graph_arn=example.graph_arn,
             message="Message of the invitation",
             disable_email_notification=True)
         ```
@@ -345,7 +345,7 @@ class Member(pulumi.CustomResource):
         example_member = aws.detective.Member("example",
             account_id="AWS ACCOUNT ID",
             email_address="EMAIL",
-            graph_arn=example.id,
+            graph_arn=example.graph_arn,
             message="Message of the invitation",
             disable_email_notification=True)
         ```

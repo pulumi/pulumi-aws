@@ -19,6 +19,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> NonKeyAttributes;
+        public readonly ImmutableArray<Outputs.GetTableGlobalSecondaryIndexOnDemandThroughputResult> OnDemandThroughputs;
         public readonly string ProjectionType;
         public readonly string RangeKey;
         public readonly int ReadCapacity;
@@ -32,6 +33,8 @@ namespace Pulumi.Aws.DynamoDB.Outputs
 
             ImmutableArray<string> nonKeyAttributes,
 
+            ImmutableArray<Outputs.GetTableGlobalSecondaryIndexOnDemandThroughputResult> onDemandThroughputs,
+
             string projectionType,
 
             string rangeKey,
@@ -43,6 +46,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
             HashKey = hashKey;
             Name = name;
             NonKeyAttributes = nonKeyAttributes;
+            OnDemandThroughputs = onDemandThroughputs;
             ProjectionType = projectionType;
             RangeKey = rangeKey;
             ReadCapacity = readCapacity;

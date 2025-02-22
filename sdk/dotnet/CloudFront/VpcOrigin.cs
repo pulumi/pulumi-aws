@@ -33,7 +33,7 @@ namespace Pulumi.Aws.CloudFront
     ///     {
     ///         VpcOriginEndpointConfig = new Aws.CloudFront.Inputs.VpcOriginVpcOriginEndpointConfigArgs
     ///         {
-    ///             Name = "Example VPC Origin",
+    ///             Name = "example-vpc-origin",
     ///             Arn = @this.Arn,
     ///             HttpPort = 8080,
     ///             HttpsPort = 8443,

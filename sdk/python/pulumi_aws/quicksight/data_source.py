@@ -416,6 +416,8 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### S3 Data Source
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -429,6 +431,88 @@ class DataSource(pulumi.CustomResource):
                         "bucket": "my-bucket",
                         "key": "path/to/manifest.json",
                     },
+                },
+            },
+            type="S3")
+        ```
+
+        ### S3 Data Source with IAM Role ARN
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        current_get_region = aws.get_region()
+        example = aws.s3.BucketV2("example")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
+            bucket=example.bucket,
+            key="manifest.json",
+            content=pulumi.Output.json_dumps({
+                "fileLocations": [{
+                    "URIPrefixes": [example.id.apply(lambda id: f"https://{id}.s3-{current_get_region.name}.{current_get_partition.dns_suffix}")],
+                }],
+                "globalUploadSettings": {
+                    "format": "CSV",
+                    "delimiter": ",",
+                    "textqualifier": "\\"",
+                    "containsHeader": True,
+                },
+            }))
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "quicksight.amazonaws.com",
+                    },
+                    "Condition": {
+                        "StringEquals": {
+                            "aws:SourceAccount": current.account_id,
+                        },
+                    },
+                }],
+            }))
+        example_policy = aws.iam.Policy("example",
+            name="example",
+            description="Policy to allow QuickSight access to S3 bucket",
+            policy=pulumi.Output.json_dumps({
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Action": ["s3:GetObject"],
+                        "Effect": "Allow",
+                        "Resource": pulumi.Output.all(
+                            arn=example.arn,
+                            key=example_bucket_objectv2.key
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['arn']}/{resolved_outputs['key']}")
+        ,
+                    },
+                    {
+                        "Action": ["s3:ListBucket"],
+                        "Effect": "Allow",
+                        "Resource": example.arn,
+                    },
+                ],
+            }))
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            policy_arn=example_policy.arn,
+            role=example_role.name)
+        example_data_source = aws.quicksight.DataSource("example",
+            data_source_id="example-id",
+            name="manifest in S3",
+            parameters={
+                "s3": {
+                    "manifest_file_location": {
+                        "bucket": example.arn,
+                        "key": example_bucket_objectv2.key,
+                    },
+                    "role_arn": example_role.arn,
                 },
             },
             type="S3")
@@ -468,6 +552,8 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### S3 Data Source
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -481,6 +567,88 @@ class DataSource(pulumi.CustomResource):
                         "bucket": "my-bucket",
                         "key": "path/to/manifest.json",
                     },
+                },
+            },
+            type="S3")
+        ```
+
+        ### S3 Data Source with IAM Role ARN
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        current_get_region = aws.get_region()
+        example = aws.s3.BucketV2("example")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
+            bucket=example.bucket,
+            key="manifest.json",
+            content=pulumi.Output.json_dumps({
+                "fileLocations": [{
+                    "URIPrefixes": [example.id.apply(lambda id: f"https://{id}.s3-{current_get_region.name}.{current_get_partition.dns_suffix}")],
+                }],
+                "globalUploadSettings": {
+                    "format": "CSV",
+                    "delimiter": ",",
+                    "textqualifier": "\\"",
+                    "containsHeader": True,
+                },
+            }))
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "quicksight.amazonaws.com",
+                    },
+                    "Condition": {
+                        "StringEquals": {
+                            "aws:SourceAccount": current.account_id,
+                        },
+                    },
+                }],
+            }))
+        example_policy = aws.iam.Policy("example",
+            name="example",
+            description="Policy to allow QuickSight access to S3 bucket",
+            policy=pulumi.Output.json_dumps({
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Action": ["s3:GetObject"],
+                        "Effect": "Allow",
+                        "Resource": pulumi.Output.all(
+                            arn=example.arn,
+                            key=example_bucket_objectv2.key
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['arn']}/{resolved_outputs['key']}")
+        ,
+                    },
+                    {
+                        "Action": ["s3:ListBucket"],
+                        "Effect": "Allow",
+                        "Resource": example.arn,
+                    },
+                ],
+            }))
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            policy_arn=example_policy.arn,
+            role=example_role.name)
+        example_data_source = aws.quicksight.DataSource("example",
+            data_source_id="example-id",
+            name="manifest in S3",
+            parameters={
+                "s3": {
+                    "manifest_file_location": {
+                        "bucket": example.arn,
+                        "key": example_bucket_objectv2.key,
+                    },
+                    "role_arn": example_role.arn,
                 },
             },
             type="S3")

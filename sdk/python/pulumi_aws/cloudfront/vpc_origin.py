@@ -184,7 +184,7 @@ class VpcOrigin(pulumi.CustomResource):
         import pulumi_aws as aws
 
         alb = aws.cloudfront.VpcOrigin("alb", vpc_origin_endpoint_config={
-            "name": "Example VPC Origin",
+            "name": "example-vpc-origin",
             "arn": this["arn"],
             "http_port": 8080,
             "https_port": 8443,
@@ -240,7 +240,7 @@ class VpcOrigin(pulumi.CustomResource):
         import pulumi_aws as aws
 
         alb = aws.cloudfront.VpcOrigin("alb", vpc_origin_endpoint_config={
-            "name": "Example VPC Origin",
+            "name": "example-vpc-origin",
             "arn": this["arn"],
             "http_port": 8080,
             "https_port": 8443,

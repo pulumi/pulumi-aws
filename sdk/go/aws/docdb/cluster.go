@@ -111,7 +111,7 @@ type Cluster struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
 	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
 	// Username for the master DB user.
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
@@ -229,7 +229,7 @@ type clusterState struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
 	MasterPassword *string `pulumi:"masterPassword"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
@@ -311,7 +311,7 @@ type ClusterState struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
 	MasterPassword pulumi.StringPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
@@ -389,7 +389,7 @@ type clusterArgs struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
 	MasterPassword *string `pulumi:"masterPassword"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
@@ -458,7 +458,7 @@ type ClusterArgs struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
 	MasterPassword pulumi.StringPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
@@ -680,7 +680,7 @@ func (o ClusterOutput) KmsKeyId() pulumi.StringOutput {
 }
 
 // Password for the master DB user. Note that this may
-// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
 func (o ClusterOutput) MasterPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPassword }).(pulumi.StringPtrOutput)
 }

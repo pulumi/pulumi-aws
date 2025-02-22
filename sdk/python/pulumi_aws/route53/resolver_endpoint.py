@@ -37,8 +37,10 @@ class ResolverEndpointArgs:
                to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
         :param pulumi.Input[str] name: Friendly name of the Route 53 Resolver endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
-        :param pulumi.Input[str] resolver_endpoint_type: Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint.
+               Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
+        :param pulumi.Input[str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
+               Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "direction", direction)
@@ -108,7 +110,8 @@ class ResolverEndpointArgs:
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        Protocols you want to use for the Route 53 Resolver endpoint.
+        Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
         """
         return pulumi.get(self, "protocols")
 
@@ -120,7 +123,8 @@ class ResolverEndpointArgs:
     @pulumi.getter(name="resolverEndpointType")
     def resolver_endpoint_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        Endpoint IP type. This endpoint type is applied to all IP addresses.
+        Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         """
         return pulumi.get(self, "resolver_endpoint_type")
 
@@ -164,8 +168,10 @@ class _ResolverEndpointState:
         :param pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressArgs']]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
                to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         :param pulumi.Input[str] name: Friendly name of the Route 53 Resolver endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
-        :param pulumi.Input[str] resolver_endpoint_type: Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint.
+               Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
+        :param pulumi.Input[str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
+               Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -261,7 +267,8 @@ class _ResolverEndpointState:
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        Protocols you want to use for the Route 53 Resolver endpoint.
+        Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
         """
         return pulumi.get(self, "protocols")
 
@@ -273,7 +280,8 @@ class _ResolverEndpointState:
     @pulumi.getter(name="resolverEndpointType")
     def resolver_endpoint_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        Endpoint IP type. This endpoint type is applied to all IP addresses.
+        Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         """
         return pulumi.get(self, "resolver_endpoint_type")
 
@@ -383,8 +391,10 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict']]]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
                to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         :param pulumi.Input[str] name: Friendly name of the Route 53 Resolver endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
-        :param pulumi.Input[str] resolver_endpoint_type: Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint.
+               Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
+        :param pulumi.Input[str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
+               Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -519,8 +529,10 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressArgs', 'ResolverEndpointIpAddressArgsDict']]]] ip_addresses: Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
                to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         :param pulumi.Input[str] name: Friendly name of the Route 53 Resolver endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
-        :param pulumi.Input[str] resolver_endpoint_type: Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Protocols you want to use for the Route 53 Resolver endpoint.
+               Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
+        :param pulumi.Input[str] resolver_endpoint_type: Endpoint IP type. This endpoint type is applied to all IP addresses.
+               Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: ID of one or more security groups that you want to use to control access to this VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -588,7 +600,8 @@ class ResolverEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def protocols(self) -> pulumi.Output[Sequence[str]]:
         """
-        Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        Protocols you want to use for the Route 53 Resolver endpoint.
+        Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
         """
         return pulumi.get(self, "protocols")
 
@@ -596,7 +609,8 @@ class ResolverEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="resolverEndpointType")
     def resolver_endpoint_type(self) -> pulumi.Output[str]:
         """
-        Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        Endpoint IP type. This endpoint type is applied to all IP addresses.
+        Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         """
         return pulumi.get(self, "resolver_endpoint_type")
 

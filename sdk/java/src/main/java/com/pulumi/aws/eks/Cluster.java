@@ -270,6 +270,93 @@ import javax.annotation.Nullable;
  * ### EKS Cluster with EKS Hybrid Nodes
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.eks.Cluster;
+ * import com.pulumi.aws.eks.ClusterArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterRemoteNetworkConfigArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterRemoteNetworkConfigRemoteNodeNetworksArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterRemoteNetworkConfigRemotePodNetworksArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var cluster = new Role("cluster", RoleArgs.builder()
+ *             .name("eks-cluster-example")
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray(
+ *                             "sts:AssumeRole", 
+ *                             "sts:TagSession"
+ *                         )),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "eks.amazonaws.com")
+ *                         ))
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *         var clusterAmazonEKSClusterPolicy = new RolePolicyAttachment("clusterAmazonEKSClusterPolicy", RolePolicyAttachmentArgs.builder()
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSClusterPolicy")
+ *             .role(cluster.name())
+ *             .build());
+ * 
+ *         var example = new Cluster("example", ClusterArgs.builder()
+ *             .name("example")
+ *             .accessConfig(ClusterAccessConfigArgs.builder()
+ *                 .authenticationMode("API")
+ *                 .build())
+ *             .roleArn(cluster.arn())
+ *             .version("1.31")
+ *             .remoteNetworkConfig(ClusterRemoteNetworkConfigArgs.builder()
+ *                 .remoteNodeNetworks(ClusterRemoteNetworkConfigRemoteNodeNetworksArgs.builder()
+ *                     .cidrs("172.16.0.0/18")
+ *                     .build())
+ *                 .remotePodNetworks(ClusterRemoteNetworkConfigRemotePodNetworksArgs.builder()
+ *                     .cidrs("172.16.64.0/18")
+ *                     .build())
+ *                 .build())
+ *             .vpcConfig(ClusterVpcConfigArgs.builder()
+ *                 .endpointPrivateAccess(true)
+ *                 .endpointPublicAccess(true)
+ *                 .subnetIds(                
+ *                     az1.id(),
+ *                     az2.id(),
+ *                     az3.id())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(clusterAmazonEKSClusterPolicy)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Local EKS Cluster on AWS Outpost
@@ -381,14 +468,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:eks/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
     /**
-     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
      * 
      */
     @Export(name="accessConfig", refs={ClusterAccessConfig.class}, tree="[0]")
     private Output<ClusterAccessConfig> accessConfig;
 
     /**
-     * @return Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+     * @return Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
      * 
      */
     public Output<ClusterAccessConfig> accessConfig() {
@@ -547,14 +634,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.identities;
     }
     /**
-     * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+     * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="kubernetesNetworkConfig", refs={ClusterKubernetesNetworkConfig.class}, tree="[0]")
     private Output<ClusterKubernetesNetworkConfig> kubernetesNetworkConfig;
 
     /**
-     * @return Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+     * @return Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Output<ClusterKubernetesNetworkConfig> kubernetesNetworkConfig() {

@@ -282,14 +282,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/selection:Selection")
 public class Selection extends com.pulumi.resources.CustomResource {
     /**
-     * A list of conditions that you define to assign resources to your backup plans using tags.
+     * Condition-based filters used to specify sets of resources for a backup plan. See below for details.
      * 
      */
     @Export(name="conditions", refs={List.class,SelectionCondition.class}, tree="[0,1]")
     private Output<List<SelectionCondition>> conditions;
 
     /**
-     * @return A list of conditions that you define to assign resources to your backup plans using tags.
+     * @return Condition-based filters used to specify sets of resources for a backup plan. See below for details.
      * 
      */
     public Output<List<SelectionCondition>> conditions() {
@@ -366,14 +366,14 @@ public class Selection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resources);
     }
     /**
-     * Tag-based conditions used to specify a set of resources to assign to a backup plan.
+     * Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
      * 
      */
     @Export(name="selectionTags", refs={List.class,SelectionSelectionTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SelectionSelectionTag>> selectionTags;
 
     /**
-     * @return Tag-based conditions used to specify a set of resources to assign to a backup plan.
+     * @return Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
      * 
      */
     public Output<Optional<List<SelectionSelectionTag>>> selectionTags() {

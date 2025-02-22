@@ -110,7 +110,7 @@ import (
 //				MultiAz:                    pulumi.Bool(false),
 //				PreferredMaintenanceWindow: pulumi.String("sun:10:30-sun:14:30"),
 //				PubliclyAccessible:         pulumi.Bool(true),
-//				ReplicationInstanceClass:   pulumi.String("dms.t2.micro"),
+//				ReplicationInstanceClass:   pulumi.String("dms.t3.micro"),
 //				ReplicationInstanceId:      pulumi.String("test-dms-replication-instance-tf"),
 //				ReplicationSubnetGroupId:   pulumi.Any(test_dms_replication_subnet_group_tf.Id),
 //				Tags: pulumi.StringMap{

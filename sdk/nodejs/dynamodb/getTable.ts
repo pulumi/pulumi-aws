@@ -58,6 +58,7 @@ export interface GetTableResult {
     readonly id: string;
     readonly localSecondaryIndexes: outputs.dynamodb.GetTableLocalSecondaryIndex[];
     readonly name: string;
+    readonly onDemandThroughputs: outputs.dynamodb.GetTableOnDemandThroughput[];
     readonly pointInTimeRecovery: outputs.dynamodb.GetTablePointInTimeRecovery;
     readonly rangeKey: string;
     readonly readCapacity: number;

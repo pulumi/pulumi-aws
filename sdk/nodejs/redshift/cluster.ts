@@ -204,7 +204,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly maintenanceTrackName!: pulumi.Output<string | undefined>;
     /**
      * Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword`.
+     * Conflicts with `masterPassword` and `masterPasswordWo`.
      * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      */
     public readonly manageMasterPassword!: pulumi.Output<boolean | undefined>;
@@ -214,8 +214,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly manualSnapshotRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * Password for the master DB user.
-     * Conflicts with `manageMasterPassword`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * Note that this may show up in logs, and it will be stored in the state file.
      * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */
@@ -554,7 +554,7 @@ export interface ClusterState {
     maintenanceTrackName?: pulumi.Input<string>;
     /**
      * Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword`.
+     * Conflicts with `masterPassword` and `masterPasswordWo`.
      * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      */
     manageMasterPassword?: pulumi.Input<boolean>;
@@ -564,8 +564,8 @@ export interface ClusterState {
     manualSnapshotRetentionPeriod?: pulumi.Input<number>;
     /**
      * Password for the master DB user.
-     * Conflicts with `manageMasterPassword`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * Note that this may show up in logs, and it will be stored in the state file.
      * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */
@@ -762,7 +762,7 @@ export interface ClusterArgs {
     maintenanceTrackName?: pulumi.Input<string>;
     /**
      * Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword`.
+     * Conflicts with `masterPassword` and `masterPasswordWo`.
      * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      */
     manageMasterPassword?: pulumi.Input<boolean>;
@@ -772,8 +772,8 @@ export interface ClusterArgs {
     manualSnapshotRetentionPeriod?: pulumi.Input<number>;
     /**
      * Password for the master DB user.
-     * Conflicts with `manageMasterPassword`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
+     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * Note that this may show up in logs, and it will be stored in the state file.
      * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */

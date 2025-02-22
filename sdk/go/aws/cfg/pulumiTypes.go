@@ -1135,7 +1135,7 @@ func (o RecorderRecordingGroupRecordingStrategyArrayOutput) Index(i pulumi.IntIn
 }
 
 type RecorderRecordingMode struct {
-	// Default reecording frequency. `CONTINUOUS` or `DAILY`.
+	// Default recording frequency. `CONTINUOUS` or `DAILY`.
 	RecordingFrequency *string `pulumi:"recordingFrequency"`
 	// Recording mode overrides. Detailed below.
 	RecordingModeOverride *RecorderRecordingModeRecordingModeOverride `pulumi:"recordingModeOverride"`
@@ -1153,7 +1153,7 @@ type RecorderRecordingModeInput interface {
 }
 
 type RecorderRecordingModeArgs struct {
-	// Default reecording frequency. `CONTINUOUS` or `DAILY`.
+	// Default recording frequency. `CONTINUOUS` or `DAILY`.
 	RecordingFrequency pulumi.StringPtrInput `pulumi:"recordingFrequency"`
 	// Recording mode overrides. Detailed below.
 	RecordingModeOverride RecorderRecordingModeRecordingModeOverridePtrInput `pulumi:"recordingModeOverride"`
@@ -1236,7 +1236,7 @@ func (o RecorderRecordingModeOutput) ToRecorderRecordingModePtrOutputWithContext
 	}).(RecorderRecordingModePtrOutput)
 }
 
-// Default reecording frequency. `CONTINUOUS` or `DAILY`.
+// Default recording frequency. `CONTINUOUS` or `DAILY`.
 func (o RecorderRecordingModeOutput) RecordingFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecorderRecordingMode) *string { return v.RecordingFrequency }).(pulumi.StringPtrOutput)
 }
@@ -1272,7 +1272,7 @@ func (o RecorderRecordingModePtrOutput) Elem() RecorderRecordingModeOutput {
 	}).(RecorderRecordingModeOutput)
 }
 
-// Default reecording frequency. `CONTINUOUS` or `DAILY`.
+// Default recording frequency. `CONTINUOUS` or `DAILY`.
 func (o RecorderRecordingModePtrOutput) RecordingFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecorderRecordingMode) *string {
 		if v == nil {

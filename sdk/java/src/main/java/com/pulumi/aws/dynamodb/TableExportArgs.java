@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.dynamodb;
 
+import com.pulumi.aws.dynamodb.inputs.TableExportIncrementalExportSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -17,14 +18,14 @@ public final class TableExportArgs extends com.pulumi.resources.ResourceArgs {
     public static final TableExportArgs Empty = new TableExportArgs();
 
     /**
-     * Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+     * Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
      * 
      */
     @Import(name="exportFormat")
     private @Nullable Output<String> exportFormat;
 
     /**
-     * @return Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+     * @return Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
      * 
      */
     public Optional<Output<String>> exportFormat() {
@@ -44,6 +45,30 @@ public final class TableExportArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> exportTime() {
         return Optional.ofNullable(this.exportTime);
+    }
+
+    /**
+     * Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+     * `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+     * 
+     */
+    @Import(name="exportType")
+    private @Nullable Output<String> exportType;
+
+    /**
+     * @return Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+     * `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+     * 
+     */
+    public Optional<Output<String>> exportType() {
+        return Optional.ofNullable(this.exportType);
+    }
+
+    @Import(name="incrementalExportSpecification")
+    private @Nullable Output<TableExportIncrementalExportSpecificationArgs> incrementalExportSpecification;
+
+    public Optional<Output<TableExportIncrementalExportSpecificationArgs>> incrementalExportSpecification() {
+        return Optional.ofNullable(this.incrementalExportSpecification);
     }
 
     /**
@@ -145,6 +170,8 @@ public final class TableExportArgs extends com.pulumi.resources.ResourceArgs {
     private TableExportArgs(TableExportArgs $) {
         this.exportFormat = $.exportFormat;
         this.exportTime = $.exportTime;
+        this.exportType = $.exportType;
+        this.incrementalExportSpecification = $.incrementalExportSpecification;
         this.s3Bucket = $.s3Bucket;
         this.s3BucketOwner = $.s3BucketOwner;
         this.s3Prefix = $.s3Prefix;
@@ -172,7 +199,7 @@ public final class TableExportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exportFormat Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+         * @param exportFormat Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
          * 
          * @return builder
          * 
@@ -183,7 +210,7 @@ public final class TableExportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exportFormat Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+         * @param exportFormat Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
          * 
          * @return builder
          * 
@@ -211,6 +238,38 @@ public final class TableExportArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder exportTime(String exportTime) {
             return exportTime(Output.of(exportTime));
+        }
+
+        /**
+         * @param exportType Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+         * `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exportType(@Nullable Output<String> exportType) {
+            $.exportType = exportType;
+            return this;
+        }
+
+        /**
+         * @param exportType Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+         * `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exportType(String exportType) {
+            return exportType(Output.of(exportType));
+        }
+
+        public Builder incrementalExportSpecification(@Nullable Output<TableExportIncrementalExportSpecificationArgs> incrementalExportSpecification) {
+            $.incrementalExportSpecification = incrementalExportSpecification;
+            return this;
+        }
+
+        public Builder incrementalExportSpecification(TableExportIncrementalExportSpecificationArgs incrementalExportSpecification) {
+            return incrementalExportSpecification(Output.of(incrementalExportSpecification));
         }
 
         /**

@@ -1209,9 +1209,21 @@ class RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs:
 if not MYPY:
     class SelectionConditionArgsDict(TypedDict):
         string_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArgsDict']]]]
+        """
+        Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
+        """
         string_likes: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArgsDict']]]]
+        """
+        Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+        """
         string_not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgsDict']]]]
+        """
+        Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
+        """
         string_not_likes: NotRequired[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgsDict']]]]
+        """
+        Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+        """
 elif False:
     SelectionConditionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1222,6 +1234,12 @@ class SelectionConditionArgs:
                  string_likes: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArgs']]]] = None,
                  string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgs']]]] = None,
                  string_not_likes: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArgs']]] string_equals: Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArgs']]] string_likes: Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgs']]] string_not_equals: Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgs']]] string_not_likes: Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+        """
         if string_equals is not None:
             pulumi.set(__self__, "string_equals", string_equals)
         if string_likes is not None:
@@ -1234,6 +1252,9 @@ class SelectionConditionArgs:
     @property
     @pulumi.getter(name="stringEquals")
     def string_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArgs']]]]:
+        """
+        Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
+        """
         return pulumi.get(self, "string_equals")
 
     @string_equals.setter
@@ -1243,6 +1264,9 @@ class SelectionConditionArgs:
     @property
     @pulumi.getter(name="stringLikes")
     def string_likes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArgs']]]]:
+        """
+        Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+        """
         return pulumi.get(self, "string_likes")
 
     @string_likes.setter
@@ -1252,6 +1276,9 @@ class SelectionConditionArgs:
     @property
     @pulumi.getter(name="stringNotEquals")
     def string_not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgs']]]]:
+        """
+        Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
+        """
         return pulumi.get(self, "string_not_equals")
 
     @string_not_equals.setter
@@ -1261,6 +1288,9 @@ class SelectionConditionArgs:
     @property
     @pulumi.getter(name="stringNotLikes")
     def string_not_likes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgs']]]]:
+        """
+        Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+        """
         return pulumi.get(self, "string_not_likes")
 
     @string_not_likes.setter
@@ -1272,11 +1302,11 @@ if not MYPY:
     class SelectionConditionStringEqualArgsDict(TypedDict):
         key: pulumi.Input[str]
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         value: pulumi.Input[str]
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
 elif False:
     SelectionConditionStringEqualArgsDict: TypeAlias = Mapping[str, Any]
@@ -1287,8 +1317,8 @@ class SelectionConditionStringEqualArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The key in a key-value pair.
-        :param pulumi.Input[str] value: The value in a key-value pair.
+        :param pulumi.Input[str] key: Key for the filter.
+        :param pulumi.Input[str] value: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1297,7 +1327,7 @@ class SelectionConditionStringEqualArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         return pulumi.get(self, "key")
 
@@ -1309,7 +1339,7 @@ class SelectionConditionStringEqualArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
         return pulumi.get(self, "value")
 
@@ -1322,11 +1352,11 @@ if not MYPY:
     class SelectionConditionStringLikeArgsDict(TypedDict):
         key: pulumi.Input[str]
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         value: pulumi.Input[str]
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
 elif False:
     SelectionConditionStringLikeArgsDict: TypeAlias = Mapping[str, Any]
@@ -1337,8 +1367,8 @@ class SelectionConditionStringLikeArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The key in a key-value pair.
-        :param pulumi.Input[str] value: The value in a key-value pair.
+        :param pulumi.Input[str] key: Key for the filter.
+        :param pulumi.Input[str] value: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1347,7 +1377,7 @@ class SelectionConditionStringLikeArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         return pulumi.get(self, "key")
 
@@ -1359,7 +1389,7 @@ class SelectionConditionStringLikeArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
         return pulumi.get(self, "value")
 
@@ -1372,11 +1402,11 @@ if not MYPY:
     class SelectionConditionStringNotEqualArgsDict(TypedDict):
         key: pulumi.Input[str]
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         value: pulumi.Input[str]
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
 elif False:
     SelectionConditionStringNotEqualArgsDict: TypeAlias = Mapping[str, Any]
@@ -1387,8 +1417,8 @@ class SelectionConditionStringNotEqualArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The key in a key-value pair.
-        :param pulumi.Input[str] value: The value in a key-value pair.
+        :param pulumi.Input[str] key: Key for the filter.
+        :param pulumi.Input[str] value: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1397,7 +1427,7 @@ class SelectionConditionStringNotEqualArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         return pulumi.get(self, "key")
 
@@ -1409,7 +1439,7 @@ class SelectionConditionStringNotEqualArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
         return pulumi.get(self, "value")
 
@@ -1422,11 +1452,11 @@ if not MYPY:
     class SelectionConditionStringNotLikeArgsDict(TypedDict):
         key: pulumi.Input[str]
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         value: pulumi.Input[str]
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
 elif False:
     SelectionConditionStringNotLikeArgsDict: TypeAlias = Mapping[str, Any]
@@ -1437,8 +1467,8 @@ class SelectionConditionStringNotLikeArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The key in a key-value pair.
-        :param pulumi.Input[str] value: The value in a key-value pair.
+        :param pulumi.Input[str] key: Key for the filter.
+        :param pulumi.Input[str] value: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1447,7 +1477,7 @@ class SelectionConditionStringNotLikeArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         return pulumi.get(self, "key")
 
@@ -1459,7 +1489,7 @@ class SelectionConditionStringNotLikeArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
         return pulumi.get(self, "value")
 
@@ -1472,15 +1502,15 @@ if not MYPY:
     class SelectionSelectionTagArgsDict(TypedDict):
         key: pulumi.Input[str]
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         type: pulumi.Input[str]
         """
-        An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
+        An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
         """
         value: pulumi.Input[str]
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
 elif False:
     SelectionSelectionTagArgsDict: TypeAlias = Mapping[str, Any]
@@ -1492,9 +1522,9 @@ class SelectionSelectionTagArgs:
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The key in a key-value pair.
-        :param pulumi.Input[str] type: An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
-        :param pulumi.Input[str] value: The value in a key-value pair.
+        :param pulumi.Input[str] key: Key for the filter.
+        :param pulumi.Input[str] type: An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
+        :param pulumi.Input[str] value: Value for the filter.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "type", type)
@@ -1504,7 +1534,7 @@ class SelectionSelectionTagArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The key in a key-value pair.
+        Key for the filter.
         """
         return pulumi.get(self, "key")
 
@@ -1516,7 +1546,7 @@ class SelectionSelectionTagArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        An operation, such as `STRINGEQUALS`, that is applied to a key-value pair used to filter resources in a selection.
+        An operation, such as `STRINGEQUALS`, that is applied to the key-value pair used to filter resources in a selection.
         """
         return pulumi.get(self, "type")
 
@@ -1528,7 +1558,7 @@ class SelectionSelectionTagArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value in a key-value pair.
+        Value for the filter.
         """
         return pulumi.get(self, "value")
 

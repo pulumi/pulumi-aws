@@ -377,7 +377,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
      * 
      */
     @Export(name="masterPassword", refs={String.class}, tree="[0]")
@@ -385,7 +385,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
      * 
      */
     public Output<Optional<String>> masterPassword() {

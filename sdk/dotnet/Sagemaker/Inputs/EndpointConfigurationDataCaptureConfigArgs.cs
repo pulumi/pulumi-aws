@@ -13,7 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class EndpointConfigurationDataCaptureConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content type headers to capture. Fields are documented below.
+        /// The content type headers to capture.
+        /// See `capture_content_type_header` below.
         /// </summary>
         [Input("captureContentTypeHeader")]
         public Input<Inputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs>? CaptureContentTypeHeader { get; set; }

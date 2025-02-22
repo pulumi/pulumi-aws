@@ -1288,7 +1288,7 @@ type ClusterKubernetesNetworkConfig struct {
 	//
 	// * Between /24 and /12.
 	ServiceIpv4Cidr *string `pulumi:"serviceIpv4Cidr"`
-	// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ipFamily` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+	// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specify `ipv6` for `ipFamily` when you create the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 	ServiceIpv6Cidr *string `pulumi:"serviceIpv6Cidr"`
 }
 
@@ -1316,7 +1316,7 @@ type ClusterKubernetesNetworkConfigArgs struct {
 	//
 	// * Between /24 and /12.
 	ServiceIpv4Cidr pulumi.StringPtrInput `pulumi:"serviceIpv4Cidr"`
-	// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ipFamily` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+	// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specify `ipv6` for `ipFamily` when you create the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 	ServiceIpv6Cidr pulumi.StringPtrInput `pulumi:"serviceIpv6Cidr"`
 }
 
@@ -1420,7 +1420,7 @@ func (o ClusterKubernetesNetworkConfigOutput) ServiceIpv4Cidr() pulumi.StringPtr
 	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.ServiceIpv4Cidr }).(pulumi.StringPtrOutput)
 }
 
-// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ipFamily` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specify `ipv6` for `ipFamily` when you create the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 func (o ClusterKubernetesNetworkConfigOutput) ServiceIpv6Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.ServiceIpv6Cidr }).(pulumi.StringPtrOutput)
 }
@@ -1485,7 +1485,7 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv4Cidr() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ipFamily` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specify `ipv6` for `ipFamily` when you create the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv6Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *string {
 		if v == nil {
@@ -2417,6 +2417,7 @@ func (o ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput) Cidrs() pulumi.Str
 }
 
 type ClusterStorageConfig struct {
+	// Configuration block with block storage configuration for the cluster. Detailed below.
 	BlockStorage *ClusterStorageConfigBlockStorage `pulumi:"blockStorage"`
 }
 
@@ -2432,6 +2433,7 @@ type ClusterStorageConfigInput interface {
 }
 
 type ClusterStorageConfigArgs struct {
+	// Configuration block with block storage configuration for the cluster. Detailed below.
 	BlockStorage ClusterStorageConfigBlockStoragePtrInput `pulumi:"blockStorage"`
 }
 
@@ -2512,6 +2514,7 @@ func (o ClusterStorageConfigOutput) ToClusterStorageConfigPtrOutputWithContext(c
 	}).(ClusterStorageConfigPtrOutput)
 }
 
+// Configuration block with block storage configuration for the cluster. Detailed below.
 func (o ClusterStorageConfigOutput) BlockStorage() ClusterStorageConfigBlockStoragePtrOutput {
 	return o.ApplyT(func(v ClusterStorageConfig) *ClusterStorageConfigBlockStorage { return v.BlockStorage }).(ClusterStorageConfigBlockStoragePtrOutput)
 }
@@ -2540,6 +2543,7 @@ func (o ClusterStorageConfigPtrOutput) Elem() ClusterStorageConfigOutput {
 	}).(ClusterStorageConfigOutput)
 }
 
+// Configuration block with block storage configuration for the cluster. Detailed below.
 func (o ClusterStorageConfigPtrOutput) BlockStorage() ClusterStorageConfigBlockStoragePtrOutput {
 	return o.ApplyT(func(v *ClusterStorageConfig) *ClusterStorageConfigBlockStorage {
 		if v == nil {
@@ -2550,6 +2554,7 @@ func (o ClusterStorageConfigPtrOutput) BlockStorage() ClusterStorageConfigBlockS
 }
 
 type ClusterStorageConfigBlockStorage struct {
+	// Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete block storage volumes in your Amazon Web Services account.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -2565,6 +2570,7 @@ type ClusterStorageConfigBlockStorageInput interface {
 }
 
 type ClusterStorageConfigBlockStorageArgs struct {
+	// Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete block storage volumes in your Amazon Web Services account.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -2645,6 +2651,7 @@ func (o ClusterStorageConfigBlockStorageOutput) ToClusterStorageConfigBlockStora
 	}).(ClusterStorageConfigBlockStoragePtrOutput)
 }
 
+// Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete block storage volumes in your Amazon Web Services account.
 func (o ClusterStorageConfigBlockStorageOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterStorageConfigBlockStorage) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -2673,6 +2680,7 @@ func (o ClusterStorageConfigBlockStoragePtrOutput) Elem() ClusterStorageConfigBl
 	}).(ClusterStorageConfigBlockStorageOutput)
 }
 
+// Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete block storage volumes in your Amazon Web Services account.
 func (o ClusterStorageConfigBlockStoragePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterStorageConfigBlockStorage) *bool {
 		if v == nil {
@@ -2820,7 +2828,7 @@ func (o ClusterUpgradePolicyPtrOutput) SupportType() pulumi.StringPtrOutput {
 }
 
 type ClusterVpcConfig struct {
-	// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+	// Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 	ClusterSecurityGroupId *string `pulumi:"clusterSecurityGroupId"`
 	// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
 	EndpointPrivateAccess *bool `pulumi:"endpointPrivateAccess"`
@@ -2848,7 +2856,7 @@ type ClusterVpcConfigInput interface {
 }
 
 type ClusterVpcConfigArgs struct {
-	// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+	// Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 	ClusterSecurityGroupId pulumi.StringPtrInput `pulumi:"clusterSecurityGroupId"`
 	// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
 	EndpointPrivateAccess pulumi.BoolPtrInput `pulumi:"endpointPrivateAccess"`
@@ -2941,7 +2949,7 @@ func (o ClusterVpcConfigOutput) ToClusterVpcConfigPtrOutputWithContext(ctx conte
 	}).(ClusterVpcConfigPtrOutput)
 }
 
-// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+// Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 func (o ClusterVpcConfigOutput) ClusterSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *string { return v.ClusterSecurityGroupId }).(pulumi.StringPtrOutput)
 }
@@ -3000,7 +3008,7 @@ func (o ClusterVpcConfigPtrOutput) Elem() ClusterVpcConfigOutput {
 	}).(ClusterVpcConfigOutput)
 }
 
-// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+// Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 func (o ClusterVpcConfigPtrOutput) ClusterSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) *string {
 		if v == nil {

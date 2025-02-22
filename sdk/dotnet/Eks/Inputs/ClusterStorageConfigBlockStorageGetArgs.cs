@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class ClusterStorageConfigBlockStorageGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete block storage volumes in your Amazon Web Services account.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

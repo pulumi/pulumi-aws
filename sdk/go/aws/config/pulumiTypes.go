@@ -665,6 +665,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Mediapackagev2 *string `pulumi:"mediapackagev2"`
 	// Use this to override the default service endpoint URL
+	Mediapackagevod *string `pulumi:"mediapackagevod"`
+	// Use this to override the default service endpoint URL
 	Mediastore *string `pulumi:"mediastore"`
 	// Use this to override the default service endpoint URL
 	Memorydb *string `pulumi:"memorydb"`
@@ -1274,6 +1276,8 @@ type EndpointsArgs struct {
 	Mediapackage pulumi.StringPtrInput `pulumi:"mediapackage"`
 	// Use this to override the default service endpoint URL
 	Mediapackagev2 pulumi.StringPtrInput `pulumi:"mediapackagev2"`
+	// Use this to override the default service endpoint URL
+	Mediapackagevod pulumi.StringPtrInput `pulumi:"mediapackagevod"`
 	// Use this to override the default service endpoint URL
 	Mediastore pulumi.StringPtrInput `pulumi:"mediastore"`
 	// Use this to override the default service endpoint URL
@@ -2482,6 +2486,11 @@ func (o EndpointsOutput) Mediapackage() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Mediapackagev2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Mediapackagev2 }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Mediapackagevod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Mediapackagevod }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

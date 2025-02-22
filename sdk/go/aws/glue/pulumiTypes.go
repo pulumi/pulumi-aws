@@ -7873,6 +7873,8 @@ func (o PartitionIndexPartitionIndexPtrOutput) Keys() pulumi.StringArrayOutput {
 }
 
 type PartitionStorageDescriptor struct {
+	// List of locations that point to the path where a Delta table is located.
+	AdditionalLocations []string `pulumi:"additionalLocations"`
 	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
 	BucketColumns []string `pulumi:"bucketColumns"`
 	// A list of the Columns in the table.
@@ -7911,6 +7913,8 @@ type PartitionStorageDescriptorInput interface {
 }
 
 type PartitionStorageDescriptorArgs struct {
+	// List of locations that point to the path where a Delta table is located.
+	AdditionalLocations pulumi.StringArrayInput `pulumi:"additionalLocations"`
 	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
 	BucketColumns pulumi.StringArrayInput `pulumi:"bucketColumns"`
 	// A list of the Columns in the table.
@@ -8014,6 +8018,11 @@ func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorPtrOutputW
 	}).(PartitionStorageDescriptorPtrOutput)
 }
 
+// List of locations that point to the path where a Delta table is located.
+func (o PartitionStorageDescriptorOutput) AdditionalLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) []string { return v.AdditionalLocations }).(pulumi.StringArrayOutput)
+}
+
 // A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
 func (o PartitionStorageDescriptorOutput) BucketColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
@@ -8096,6 +8105,16 @@ func (o PartitionStorageDescriptorPtrOutput) Elem() PartitionStorageDescriptorOu
 		var ret PartitionStorageDescriptor
 		return ret
 	}).(PartitionStorageDescriptorOutput)
+}
+
+// List of locations that point to the path where a Delta table is located.
+func (o PartitionStorageDescriptorPtrOutput) AdditionalLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalLocations
+	}).(pulumi.StringArrayOutput)
 }
 
 // A list of reducer grouping columns, clustering columns, and bucketing columns in the table.

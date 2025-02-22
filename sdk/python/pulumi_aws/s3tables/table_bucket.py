@@ -26,11 +26,11 @@ class TableBucketArgs:
         """
         The set of arguments for constructing a TableBucket resource.
         :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration block.
-               See `maintenance_configuration` below
+               See `maintenance_configuration` below.
         :param pulumi.Input[str] name: Name of the table bucket.
                Must be between 3 and 63 characters in length.
                Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-               A full list of bucket naming rules may be found in S3 Tables documentation.
+               A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
                The following argument is optional:
         """
@@ -44,7 +44,7 @@ class TableBucketArgs:
     def maintenance_configuration(self) -> Optional[pulumi.Input['TableBucketMaintenanceConfigurationArgs']]:
         """
         A single table bucket maintenance configuration block.
-        See `maintenance_configuration` below
+        See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
 
@@ -59,7 +59,7 @@ class TableBucketArgs:
         Name of the table bucket.
         Must be between 3 and 63 characters in length.
         Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-        A full list of bucket naming rules may be found in S3 Tables documentation.
+        A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 
         The following argument is optional:
         """
@@ -83,11 +83,11 @@ class _TableBucketState:
         :param pulumi.Input[str] arn: ARN of the table bucket.
         :param pulumi.Input[str] created_at: Date and time when the bucket was created.
         :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration block.
-               See `maintenance_configuration` below
+               See `maintenance_configuration` below.
         :param pulumi.Input[str] name: Name of the table bucket.
                Must be between 3 and 63 characters in length.
                Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-               A full list of bucket naming rules may be found in S3 Tables documentation.
+               A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
                The following argument is optional:
         :param pulumi.Input[str] owner_account_id: Account ID of the account that owns the table bucket.
@@ -132,7 +132,7 @@ class _TableBucketState:
     def maintenance_configuration(self) -> Optional[pulumi.Input['TableBucketMaintenanceConfigurationArgs']]:
         """
         A single table bucket maintenance configuration block.
-        See `maintenance_configuration` below
+        See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
 
@@ -147,7 +147,7 @@ class _TableBucketState:
         Name of the table bucket.
         Must be between 3 and 63 characters in length.
         Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-        A full list of bucket naming rules may be found in S3 Tables documentation.
+        A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 
         The following argument is optional:
         """
@@ -203,11 +203,11 @@ class TableBucket(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration block.
-               See `maintenance_configuration` below
+               See `maintenance_configuration` below.
         :param pulumi.Input[str] name: Name of the table bucket.
                Must be between 3 and 63 characters in length.
                Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-               A full list of bucket naming rules may be found in S3 Tables documentation.
+               A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
                The following argument is optional:
         """
@@ -295,11 +295,11 @@ class TableBucket(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the table bucket.
         :param pulumi.Input[str] created_at: Date and time when the bucket was created.
         :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration block.
-               See `maintenance_configuration` below
+               See `maintenance_configuration` below.
         :param pulumi.Input[str] name: Name of the table bucket.
                Must be between 3 and 63 characters in length.
                Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-               A full list of bucket naming rules may be found in S3 Tables documentation.
+               A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
                The following argument is optional:
         :param pulumi.Input[str] owner_account_id: Account ID of the account that owns the table bucket.
@@ -336,7 +336,7 @@ class TableBucket(pulumi.CustomResource):
     def maintenance_configuration(self) -> pulumi.Output['outputs.TableBucketMaintenanceConfiguration']:
         """
         A single table bucket maintenance configuration block.
-        See `maintenance_configuration` below
+        See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
 
@@ -347,7 +347,7 @@ class TableBucket(pulumi.CustomResource):
         Name of the table bucket.
         Must be between 3 and 63 characters in length.
         Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-        A full list of bucket naming rules may be found in S3 Tables documentation.
+        A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 
         The following argument is optional:
         """

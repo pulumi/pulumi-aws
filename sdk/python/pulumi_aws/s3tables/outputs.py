@@ -49,7 +49,7 @@ class TableBucketMaintenanceConfiguration(dict):
                  iceberg_unreferenced_file_removal: 'outputs.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval'):
         """
         :param 'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs' iceberg_unreferenced_file_removal: A single Iceberg unreferenced file removal settings block.
-               See `iceberg_unreferenced_file_removal` below
+               See `iceberg_unreferenced_file_removal` below.
         """
         pulumi.set(__self__, "iceberg_unreferenced_file_removal", iceberg_unreferenced_file_removal)
 
@@ -58,7 +58,7 @@ class TableBucketMaintenanceConfiguration(dict):
     def iceberg_unreferenced_file_removal(self) -> 'outputs.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval':
         """
         A single Iceberg unreferenced file removal settings block.
-        See `iceberg_unreferenced_file_removal` below
+        See `iceberg_unreferenced_file_removal` below.
         """
         return pulumi.get(self, "iceberg_unreferenced_file_removal")
 
@@ -70,7 +70,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval(dict):
                  status: str):
         """
         :param 'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs' settings: Settings for unreferenced file removal.
-               See `iceberg_unreferenced_file_removal.settings` below
+               See `iceberg_unreferenced_file_removal.settings` below.
         :param str status: Whether the configuration is enabled.
                Valid values are `enabled` and `disabled`.
         """
@@ -82,7 +82,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval(dict):
     def settings(self) -> 'outputs.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings':
         """
         Settings for unreferenced file removal.
-        See `iceberg_unreferenced_file_removal.settings` below
+        See `iceberg_unreferenced_file_removal.settings` below.
         """
         return pulumi.get(self, "settings")
 
@@ -174,9 +174,9 @@ class TableMaintenanceConfiguration(dict):
                  iceberg_snapshot_management: 'outputs.TableMaintenanceConfigurationIcebergSnapshotManagement'):
         """
         :param 'TableMaintenanceConfigurationIcebergCompactionArgs' iceberg_compaction: A single Iceberg compaction settings block.
-               See `iceberg_compaction` below
+               See `iceberg_compaction` below.
         :param 'TableMaintenanceConfigurationIcebergSnapshotManagementArgs' iceberg_snapshot_management: A single Iceberg snapshot management settings block.
-               See `iceberg_snapshot_management` below
+               See `iceberg_snapshot_management` below.
         """
         pulumi.set(__self__, "iceberg_compaction", iceberg_compaction)
         pulumi.set(__self__, "iceberg_snapshot_management", iceberg_snapshot_management)
@@ -186,7 +186,7 @@ class TableMaintenanceConfiguration(dict):
     def iceberg_compaction(self) -> 'outputs.TableMaintenanceConfigurationIcebergCompaction':
         """
         A single Iceberg compaction settings block.
-        See `iceberg_compaction` below
+        See `iceberg_compaction` below.
         """
         return pulumi.get(self, "iceberg_compaction")
 
@@ -195,7 +195,7 @@ class TableMaintenanceConfiguration(dict):
     def iceberg_snapshot_management(self) -> 'outputs.TableMaintenanceConfigurationIcebergSnapshotManagement':
         """
         A single Iceberg snapshot management settings block.
-        See `iceberg_snapshot_management` below
+        See `iceberg_snapshot_management` below.
         """
         return pulumi.get(self, "iceberg_snapshot_management")
 
@@ -207,7 +207,7 @@ class TableMaintenanceConfigurationIcebergCompaction(dict):
                  status: str):
         """
         :param 'TableMaintenanceConfigurationIcebergCompactionSettingsArgs' settings: Settings for compaction.
-               See `iceberg_compaction.settings` below
+               See `iceberg_compaction.settings` below.
         :param str status: Whether the configuration is enabled.
                Valid values are `enabled` and `disabled`.
         """
@@ -219,7 +219,7 @@ class TableMaintenanceConfigurationIcebergCompaction(dict):
     def settings(self) -> 'outputs.TableMaintenanceConfigurationIcebergCompactionSettings':
         """
         Settings for compaction.
-        See `iceberg_compaction.settings` below
+        See `iceberg_compaction.settings` below.
         """
         return pulumi.get(self, "settings")
 
@@ -277,7 +277,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagement(dict):
                  status: str):
         """
         :param 'TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs' settings: Settings for snapshot management.
-               See `iceberg_snapshot_management.settings` below
+               See `iceberg_snapshot_management.settings` below.
         :param str status: Whether the configuration is enabled.
                Valid values are `enabled` and `disabled`.
         """
@@ -289,7 +289,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagement(dict):
     def settings(self) -> 'outputs.TableMaintenanceConfigurationIcebergSnapshotManagementSettings':
         """
         Settings for snapshot management.
-        See `iceberg_snapshot_management.settings` below
+        See `iceberg_snapshot_management.settings` below.
         """
         return pulumi.get(self, "settings")
 

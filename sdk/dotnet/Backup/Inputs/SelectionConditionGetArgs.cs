@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Backup.Inputs
     {
         [Input("stringEquals")]
         private InputList<Inputs.SelectionConditionStringEqualGetArgs>? _stringEquals;
+
+        /// <summary>
+        /// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
+        /// </summary>
         public InputList<Inputs.SelectionConditionStringEqualGetArgs> StringEquals
         {
             get => _stringEquals ?? (_stringEquals = new InputList<Inputs.SelectionConditionStringEqualGetArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.Aws.Backup.Inputs
 
         [Input("stringLikes")]
         private InputList<Inputs.SelectionConditionStringLikeGetArgs>? _stringLikes;
+
+        /// <summary>
+        /// Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
+        /// </summary>
         public InputList<Inputs.SelectionConditionStringLikeGetArgs> StringLikes
         {
             get => _stringLikes ?? (_stringLikes = new InputList<Inputs.SelectionConditionStringLikeGetArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.Aws.Backup.Inputs
 
         [Input("stringNotEquals")]
         private InputList<Inputs.SelectionConditionStringNotEqualGetArgs>? _stringNotEquals;
+
+        /// <summary>
+        /// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
+        /// </summary>
         public InputList<Inputs.SelectionConditionStringNotEqualGetArgs> StringNotEquals
         {
             get => _stringNotEquals ?? (_stringNotEquals = new InputList<Inputs.SelectionConditionStringNotEqualGetArgs>());
@@ -38,6 +50,10 @@ namespace Pulumi.Aws.Backup.Inputs
 
         [Input("stringNotLikes")]
         private InputList<Inputs.SelectionConditionStringNotLikeGetArgs>? _stringNotLikes;
+
+        /// <summary>
+        /// Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
+        /// </summary>
         public InputList<Inputs.SelectionConditionStringNotLikeGetArgs> StringNotLikes
         {
             get => _stringNotLikes ?? (_stringNotLikes = new InputList<Inputs.SelectionConditionStringNotLikeGetArgs>());

@@ -16,7 +16,7 @@ public final class TableBucketMaintenanceConfigurationArgs extends com.pulumi.re
 
     /**
      * A single Iceberg unreferenced file removal settings block.
-     * See `iceberg_unreferenced_file_removal` below
+     * See `iceberg_unreferenced_file_removal` below.
      * 
      */
     @Import(name="icebergUnreferencedFileRemoval", required=true)
@@ -24,7 +24,7 @@ public final class TableBucketMaintenanceConfigurationArgs extends com.pulumi.re
 
     /**
      * @return A single Iceberg unreferenced file removal settings block.
-     * See `iceberg_unreferenced_file_removal` below
+     * See `iceberg_unreferenced_file_removal` below.
      * 
      */
     public Output<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs> icebergUnreferencedFileRemoval() {
@@ -57,7 +57,7 @@ public final class TableBucketMaintenanceConfigurationArgs extends com.pulumi.re
 
         /**
          * @param icebergUnreferencedFileRemoval A single Iceberg unreferenced file removal settings block.
-         * See `iceberg_unreferenced_file_removal` below
+         * See `iceberg_unreferenced_file_removal` below.
          * 
          * @return builder
          * 
@@ -69,7 +69,7 @@ public final class TableBucketMaintenanceConfigurationArgs extends com.pulumi.re
 
         /**
          * @param icebergUnreferencedFileRemoval A single Iceberg unreferenced file removal settings block.
-         * See `iceberg_unreferenced_file_removal` below
+         * See `iceberg_unreferenced_file_removal` below.
          * 
          * @return builder
          * 

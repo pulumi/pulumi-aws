@@ -481,7 +481,7 @@ class RecorderRecordingMode(dict):
                  recording_frequency: Optional[str] = None,
                  recording_mode_override: Optional['outputs.RecorderRecordingModeRecordingModeOverride'] = None):
         """
-        :param str recording_frequency: Default reecording frequency. `CONTINUOUS` or `DAILY`.
+        :param str recording_frequency: Default recording frequency. `CONTINUOUS` or `DAILY`.
         :param 'RecorderRecordingModeRecordingModeOverrideArgs' recording_mode_override: Recording mode overrides. Detailed below.
         """
         if recording_frequency is not None:
@@ -493,7 +493,7 @@ class RecorderRecordingMode(dict):
     @pulumi.getter(name="recordingFrequency")
     def recording_frequency(self) -> Optional[str]:
         """
-        Default reecording frequency. `CONTINUOUS` or `DAILY`.
+        Default recording frequency. `CONTINUOUS` or `DAILY`.
         """
         return pulumi.get(self, "recording_frequency")
 

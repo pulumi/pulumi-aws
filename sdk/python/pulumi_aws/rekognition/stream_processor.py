@@ -204,6 +204,7 @@ class StreamProcessorArgs:
 @pulumi.input_type
 class _StreamProcessorState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  data_sharing_preference: Optional[pulumi.Input['StreamProcessorDataSharingPreferenceArgs']] = None,
                  input: Optional[pulumi.Input['StreamProcessorInputArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -219,6 +220,7 @@ class _StreamProcessorState:
                  timeouts: Optional[pulumi.Input['StreamProcessorTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering StreamProcessor resources.
+        :param pulumi.Input[str] arn: ARN of the Stream Processor.
         :param pulumi.Input['StreamProcessorDataSharingPreferenceArgs'] data_sharing_preference: See `data_sharing_preference`.
         :param pulumi.Input['StreamProcessorInputArgs'] input: Input video stream. See `input`.
         :param pulumi.Input[str] kms_key_id: Optional parameter for label detection stream processors.
@@ -230,10 +232,13 @@ class _StreamProcessorState:
         :param pulumi.Input['StreamProcessorSettingsArgs'] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
                
                The following arguments are optional:
-        :param pulumi.Input[str] stream_processor_arn: ARN of the Stream Processor.
+        :param pulumi.Input[str] stream_processor_arn: (**Deprecated**) ARN of the Stream Processor.
+               Use `arn` instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if data_sharing_preference is not None:
             pulumi.set(__self__, "data_sharing_preference", data_sharing_preference)
         if input is not None:
@@ -253,6 +258,9 @@ class _StreamProcessorState:
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
         if stream_processor_arn is not None:
+            warnings.warn("""Use 'arn' instead. This attribute will be removed in a future version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""stream_processor_arn is deprecated: Use 'arn' instead. This attribute will be removed in a future version of the provider.""")
+        if stream_processor_arn is not None:
             pulumi.set(__self__, "stream_processor_arn", stream_processor_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -263,6 +271,18 @@ class _StreamProcessorState:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the Stream Processor.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="dataSharingPreference")
@@ -376,9 +396,11 @@ class _StreamProcessorState:
 
     @property
     @pulumi.getter(name="streamProcessorArn")
+    @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future version of the provider.""")
     def stream_processor_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the Stream Processor.
+        (**Deprecated**) ARN of the Stream Processor.
+        Use `arn` instead.
         """
         return pulumi.get(self, "stream_processor_arn")
 
@@ -879,6 +901,7 @@ class StreamProcessor(pulumi.CustomResource):
             __props__.__dict__["settings"] = settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
+            __props__.__dict__["arn"] = None
             __props__.__dict__["stream_processor_arn"] = None
             __props__.__dict__["tags_all"] = None
         super(StreamProcessor, __self__).__init__(
@@ -891,6 +914,7 @@ class StreamProcessor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             data_sharing_preference: Optional[pulumi.Input[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']]] = None,
             input: Optional[pulumi.Input[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict']]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -911,6 +935,7 @@ class StreamProcessor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN of the Stream Processor.
         :param pulumi.Input[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']] data_sharing_preference: See `data_sharing_preference`.
         :param pulumi.Input[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict']] input: Input video stream. See `input`.
         :param pulumi.Input[str] kms_key_id: Optional parameter for label detection stream processors.
@@ -922,7 +947,8 @@ class StreamProcessor(pulumi.CustomResource):
         :param pulumi.Input[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
                
                The following arguments are optional:
-        :param pulumi.Input[str] stream_processor_arn: ARN of the Stream Processor.
+        :param pulumi.Input[str] stream_processor_arn: (**Deprecated**) ARN of the Stream Processor.
+               Use `arn` instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -930,6 +956,7 @@ class StreamProcessor(pulumi.CustomResource):
 
         __props__ = _StreamProcessorState.__new__(_StreamProcessorState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["data_sharing_preference"] = data_sharing_preference
         __props__.__dict__["input"] = input
         __props__.__dict__["kms_key_id"] = kms_key_id
@@ -944,6 +971,14 @@ class StreamProcessor(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
         return StreamProcessor(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the Stream Processor.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataSharingPreference")
@@ -1021,9 +1056,11 @@ class StreamProcessor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamProcessorArn")
+    @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future version of the provider.""")
     def stream_processor_arn(self) -> pulumi.Output[str]:
         """
-        ARN of the Stream Processor.
+        (**Deprecated**) ARN of the Stream Processor.
+        Use `arn` instead.
         """
         return pulumi.get(self, "stream_processor_arn")
 

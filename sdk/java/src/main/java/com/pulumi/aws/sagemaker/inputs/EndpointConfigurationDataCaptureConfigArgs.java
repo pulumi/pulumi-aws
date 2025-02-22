@@ -22,14 +22,16 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
     public static final EndpointConfigurationDataCaptureConfigArgs Empty = new EndpointConfigurationDataCaptureConfigArgs();
 
     /**
-     * The content type headers to capture. Fields are documented below.
+     * The content type headers to capture.
+     * See `capture_content_type_header` below.
      * 
      */
     @Import(name="captureContentTypeHeader")
     private @Nullable Output<EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs> captureContentTypeHeader;
 
     /**
-     * @return The content type headers to capture. Fields are documented below.
+     * @return The content type headers to capture.
+     * See `capture_content_type_header` below.
      * 
      */
     public Optional<Output<EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs>> captureContentTypeHeader() {
@@ -141,7 +143,8 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param captureContentTypeHeader The content type headers to capture. Fields are documented below.
+         * @param captureContentTypeHeader The content type headers to capture.
+         * See `capture_content_type_header` below.
          * 
          * @return builder
          * 
@@ -152,7 +155,8 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param captureContentTypeHeader The content type headers to capture. Fields are documented below.
+         * @param captureContentTypeHeader The content type headers to capture.
+         * See `capture_content_type_header` below.
          * 
          * @return builder
          * 

@@ -12616,6 +12616,8 @@ func (o DataSourceParametersRedshiftPtrOutput) Port() pulumi.IntPtrOutput {
 type DataSourceParametersS3 struct {
 	// An object containing the S3 location of the S3 manifest file.
 	ManifestFileLocation DataSourceParametersS3ManifestFileLocation `pulumi:"manifestFileLocation"`
+	// Use the `roleArn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `roleArn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 // DataSourceParametersS3Input is an input type that accepts DataSourceParametersS3Args and DataSourceParametersS3Output values.
@@ -12632,6 +12634,8 @@ type DataSourceParametersS3Input interface {
 type DataSourceParametersS3Args struct {
 	// An object containing the S3 location of the S3 manifest file.
 	ManifestFileLocation DataSourceParametersS3ManifestFileLocationInput `pulumi:"manifestFileLocation"`
+	// Use the `roleArn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `roleArn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 }
 
 func (DataSourceParametersS3Args) ElementType() reflect.Type {
@@ -12718,6 +12722,11 @@ func (o DataSourceParametersS3Output) ManifestFileLocation() DataSourceParameter
 	}).(DataSourceParametersS3ManifestFileLocationOutput)
 }
 
+// Use the `roleArn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `roleArn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
+func (o DataSourceParametersS3Output) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceParametersS3) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
 type DataSourceParametersS3PtrOutput struct{ *pulumi.OutputState }
 
 func (DataSourceParametersS3PtrOutput) ElementType() reflect.Type {
@@ -12750,6 +12759,16 @@ func (o DataSourceParametersS3PtrOutput) ManifestFileLocation() DataSourceParame
 		}
 		return &v.ManifestFileLocation
 	}).(DataSourceParametersS3ManifestFileLocationPtrOutput)
+}
+
+// Use the `roleArn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `roleArn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
+func (o DataSourceParametersS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceParametersS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type DataSourceParametersS3ManifestFileLocation struct {

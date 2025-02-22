@@ -112,6 +112,8 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="resourceIdentifier", refs={String.class}, tree="[0]")
     private Output<String> resourceIdentifier;
@@ -119,9 +121,25 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> resourceIdentifier() {
         return this.resourceIdentifier;
+    }
+    /**
+     * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+     * 
+     */
+    @Export(name="serviceNetworkLogType", refs={String.class}, tree="[0]")
+    private Output<String> serviceNetworkLogType;
+
+    /**
+     * @return Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+     * 
+     */
+    public Output<String> serviceNetworkLogType() {
+        return this.serviceNetworkLogType;
     }
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;

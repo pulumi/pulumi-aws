@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const alb = new aws.cloudfront.VpcOrigin("alb", {vpcOriginEndpointConfig: {
- *     name: "Example VPC Origin",
+ *     name: "example-vpc-origin",
  *     arn: _this.arn,
  *     httpPort: 8080,
  *     httpsPort: 8443,

@@ -17,14 +17,14 @@ public final class RecorderRecordingModeArgs extends com.pulumi.resources.Resour
     public static final RecorderRecordingModeArgs Empty = new RecorderRecordingModeArgs();
 
     /**
-     * Default reecording frequency. `CONTINUOUS` or `DAILY`.
+     * Default recording frequency. `CONTINUOUS` or `DAILY`.
      * 
      */
     @Import(name="recordingFrequency")
     private @Nullable Output<String> recordingFrequency;
 
     /**
-     * @return Default reecording frequency. `CONTINUOUS` or `DAILY`.
+     * @return Default recording frequency. `CONTINUOUS` or `DAILY`.
      * 
      */
     public Optional<Output<String>> recordingFrequency() {
@@ -72,7 +72,7 @@ public final class RecorderRecordingModeArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param recordingFrequency Default reecording frequency. `CONTINUOUS` or `DAILY`.
+         * @param recordingFrequency Default recording frequency. `CONTINUOUS` or `DAILY`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RecorderRecordingModeArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param recordingFrequency Default reecording frequency. `CONTINUOUS` or `DAILY`.
+         * @param recordingFrequency Default recording frequency. `CONTINUOUS` or `DAILY`.
          * 
          * @return builder
          * 

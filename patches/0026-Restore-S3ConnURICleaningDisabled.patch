@@ -6,7 +6,7 @@ Subject: [PATCH] Restore S3ConnURICleaningDisabled
 
 diff --git a/internal/conns/awsclient_extra.go b/internal/conns/awsclient_extra.go
 new file mode 100644
-index 00000000000..96c809fc475
+index 0000000000..96c809fc47
 --- /dev/null
 +++ b/internal/conns/awsclient_extra.go
 @@ -0,0 +1,22 @@

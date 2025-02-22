@@ -22,12 +22,12 @@ import * as utilities from "../utilities";
  * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
  * const exampleAmazonsesVerificationRecord = new aws.route53.Record("example_amazonses_verification_record", {
  *     zoneId: exampleAwsRoute53Zone.zoneId,
- *     name: pulumi.interpolate`_amazonses.${example.id}`,
+ *     name: pulumi.interpolate`_amazonses.${example.domain}`,
  *     type: aws.route53.RecordType.TXT,
  *     ttl: 600,
  *     records: [example.verificationToken],
  * });
- * const exampleVerification = new aws.ses.DomainIdentityVerification("example_verification", {domain: example.id}, {
+ * const exampleVerification = new aws.ses.DomainIdentityVerification("example_verification", {domain: example.domain}, {
  *     dependsOn: [exampleAmazonsesVerificationRecord],
  * });
  * ```

@@ -6,7 +6,10 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.aws.quicksight.outputs.DataSourceParametersS3ManifestFileLocation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceParametersS3 {
@@ -15,6 +18,11 @@ public final class DataSourceParametersS3 {
      * 
      */
     private DataSourceParametersS3ManifestFileLocation manifestFileLocation;
+    /**
+     * @return Use the `role_arn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `role_arn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
+     * 
+     */
+    private @Nullable String roleArn;
 
     private DataSourceParametersS3() {}
     /**
@@ -23,6 +31,13 @@ public final class DataSourceParametersS3 {
      */
     public DataSourceParametersS3ManifestFileLocation manifestFileLocation() {
         return this.manifestFileLocation;
+    }
+    /**
+     * @return Use the `role_arn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `role_arn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
+     * 
+     */
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
 
     public static Builder builder() {
@@ -35,10 +50,12 @@ public final class DataSourceParametersS3 {
     @CustomType.Builder
     public static final class Builder {
         private DataSourceParametersS3ManifestFileLocation manifestFileLocation;
+        private @Nullable String roleArn;
         public Builder() {}
         public Builder(DataSourceParametersS3 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.manifestFileLocation = defaults.manifestFileLocation;
+    	      this.roleArn = defaults.roleArn;
         }
 
         @CustomType.Setter
@@ -49,9 +66,16 @@ public final class DataSourceParametersS3 {
             this.manifestFileLocation = manifestFileLocation;
             return this;
         }
+        @CustomType.Setter
+        public Builder roleArn(@Nullable String roleArn) {
+
+            this.roleArn = roleArn;
+            return this;
+        }
         public DataSourceParametersS3 build() {
             final var _resultValue = new DataSourceParametersS3();
             _resultValue.manifestFileLocation = manifestFileLocation;
+            _resultValue.roleArn = roleArn;
             return _resultValue;
         }
     }

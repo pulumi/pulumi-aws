@@ -52,6 +52,9 @@ export class Namespace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Namespace.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+     */
     public /*out*/ readonly adminPasswordSecretArn!: pulumi.Output<string>;
     /**
      * ID of the KMS key used to encrypt the namespace's admin credentials secret.
@@ -59,7 +62,7 @@ export class Namespace extends pulumi.CustomResource {
     public readonly adminPasswordSecretKmsKeyId!: pulumi.Output<string>;
     /**
      * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword`.
+     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
     public readonly adminUserPassword!: pulumi.Output<string | undefined>;
     /**
@@ -92,7 +95,7 @@ export class Namespace extends pulumi.CustomResource {
     public readonly logExports!: pulumi.Output<string[] | undefined>;
     /**
      * Whether to use AWS SecretManager to manage namespace's admin credentials.
-     * Conflicts with `adminUserPassword`.
+     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      */
     public readonly manageAdminPassword!: pulumi.Output<boolean | undefined>;
     /**
@@ -174,6 +177,9 @@ export class Namespace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Namespace resources.
  */
 export interface NamespaceState {
+    /**
+     * Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+     */
     adminPasswordSecretArn?: pulumi.Input<string>;
     /**
      * ID of the KMS key used to encrypt the namespace's admin credentials secret.
@@ -181,7 +187,7 @@ export interface NamespaceState {
     adminPasswordSecretKmsKeyId?: pulumi.Input<string>;
     /**
      * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword`.
+     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
     adminUserPassword?: pulumi.Input<string>;
     /**
@@ -214,7 +220,7 @@ export interface NamespaceState {
     logExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to use AWS SecretManager to manage namespace's admin credentials.
-     * Conflicts with `adminUserPassword`.
+     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      */
     manageAdminPassword?: pulumi.Input<boolean>;
     /**
@@ -247,7 +253,7 @@ export interface NamespaceArgs {
     adminPasswordSecretKmsKeyId?: pulumi.Input<string>;
     /**
      * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword`.
+     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
     adminUserPassword?: pulumi.Input<string>;
     /**
@@ -276,7 +282,7 @@ export interface NamespaceArgs {
     logExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to use AWS SecretManager to manage namespace's admin credentials.
-     * Conflicts with `adminUserPassword`.
+     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      */
     manageAdminPassword?: pulumi.Input<boolean>;
     /**

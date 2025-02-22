@@ -12,15 +12,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter {
-    /**
-     * @return A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-     * 
-     */
     private @Nullable List<String> exclusionFilters;
-    /**
-     * @return A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-     * 
-     */
     private @Nullable List<String> inclusionFilters;
     /**
      * @return The supported object type or content type of the data source.
@@ -29,17 +21,9 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
     private String objectType;
 
     private AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter() {}
-    /**
-     * @return A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
-     * 
-     */
     public List<String> exclusionFilters() {
         return this.exclusionFilters == null ? List.of() : this.exclusionFilters;
     }
-    /**
-     * @return A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
-     * 
-     */
     public List<String> inclusionFilters() {
         return this.inclusionFilters == null ? List.of() : this.inclusionFilters;
     }

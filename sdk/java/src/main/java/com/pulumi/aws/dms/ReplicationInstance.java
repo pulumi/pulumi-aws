@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *             .multiAz(false)
  *             .preferredMaintenanceWindow("sun:10:30-sun:14:30")
  *             .publiclyAccessible(true)
- *             .replicationInstanceClass("dms.t2.micro")
+ *             .replicationInstanceClass("dms.t3.micro")
  *             .replicationInstanceId("test-dms-replication-instance-tf")
  *             .replicationSubnetGroupId(test_dms_replication_subnet_group_tf.id())
  *             .tags(Map.of("Name", "test"))

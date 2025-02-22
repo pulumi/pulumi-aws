@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.dynamodb.outputs;
 
+import com.pulumi.aws.dynamodb.outputs.GetTableGlobalSecondaryIndexOnDemandThroughput;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -19,6 +20,7 @@ public final class GetTableGlobalSecondaryIndex {
      */
     private String name;
     private List<String> nonKeyAttributes;
+    private List<GetTableGlobalSecondaryIndexOnDemandThroughput> onDemandThroughputs;
     private String projectionType;
     private String rangeKey;
     private Integer readCapacity;
@@ -37,6 +39,9 @@ public final class GetTableGlobalSecondaryIndex {
     }
     public List<String> nonKeyAttributes() {
         return this.nonKeyAttributes;
+    }
+    public List<GetTableGlobalSecondaryIndexOnDemandThroughput> onDemandThroughputs() {
+        return this.onDemandThroughputs;
     }
     public String projectionType() {
         return this.projectionType;
@@ -63,6 +68,7 @@ public final class GetTableGlobalSecondaryIndex {
         private String hashKey;
         private String name;
         private List<String> nonKeyAttributes;
+        private List<GetTableGlobalSecondaryIndexOnDemandThroughput> onDemandThroughputs;
         private String projectionType;
         private String rangeKey;
         private Integer readCapacity;
@@ -73,6 +79,7 @@ public final class GetTableGlobalSecondaryIndex {
     	      this.hashKey = defaults.hashKey;
     	      this.name = defaults.name;
     	      this.nonKeyAttributes = defaults.nonKeyAttributes;
+    	      this.onDemandThroughputs = defaults.onDemandThroughputs;
     	      this.projectionType = defaults.projectionType;
     	      this.rangeKey = defaults.rangeKey;
     	      this.readCapacity = defaults.readCapacity;
@@ -105,6 +112,17 @@ public final class GetTableGlobalSecondaryIndex {
         }
         public Builder nonKeyAttributes(String... nonKeyAttributes) {
             return nonKeyAttributes(List.of(nonKeyAttributes));
+        }
+        @CustomType.Setter
+        public Builder onDemandThroughputs(List<GetTableGlobalSecondaryIndexOnDemandThroughput> onDemandThroughputs) {
+            if (onDemandThroughputs == null) {
+              throw new MissingRequiredPropertyException("GetTableGlobalSecondaryIndex", "onDemandThroughputs");
+            }
+            this.onDemandThroughputs = onDemandThroughputs;
+            return this;
+        }
+        public Builder onDemandThroughputs(GetTableGlobalSecondaryIndexOnDemandThroughput... onDemandThroughputs) {
+            return onDemandThroughputs(List.of(onDemandThroughputs));
         }
         @CustomType.Setter
         public Builder projectionType(String projectionType) {
@@ -143,6 +161,7 @@ public final class GetTableGlobalSecondaryIndex {
             _resultValue.hashKey = hashKey;
             _resultValue.name = name;
             _resultValue.nonKeyAttributes = nonKeyAttributes;
+            _resultValue.onDemandThroughputs = onDemandThroughputs;
             _resultValue.projectionType = projectionType;
             _resultValue.rangeKey = rangeKey;
             _resultValue.readCapacity = readCapacity;

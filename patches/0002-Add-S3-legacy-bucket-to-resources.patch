@@ -14,7 +14,7 @@ scheme for registration: see
 https://github.com/hashicorp/terraform-provider-aws/pull/29717.
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index ae5740506d6..0c1b1e86abf 100644
+index ae5740506d..0c1b1e86ab 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -14,6 +14,8 @@ import (
@@ -39,7 +39,7 @@ index ae5740506d6..0c1b1e86abf 100644
  	provider.ConfigureContextFunc = func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
 new file mode 100644
-index 00000000000..cd2a293a73e
+index 0000000000..cd2a293a73
 --- /dev/null
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -0,0 +1,3030 @@
@@ -3075,7 +3075,7 @@ index 00000000000..cd2a293a73e
 +}
 diff --git a/internal/service/s3legacy/enum.go b/internal/service/s3legacy/enum.go
 new file mode 100644
-index 00000000000..2e9caaae188
+index 0000000000..2e9caaae18
 --- /dev/null
 +++ b/internal/service/s3legacy/enum.go
 @@ -0,0 +1,32 @@
@@ -3113,7 +3113,7 @@ index 00000000000..2e9caaae188
 +}
 diff --git a/internal/service/s3legacy/errors.go b/internal/service/s3legacy/errors.go
 new file mode 100644
-index 00000000000..af03bdf5aab
+index 0000000000..af03bdf5aa
 --- /dev/null
 +++ b/internal/service/s3legacy/errors.go
 @@ -0,0 +1,8 @@
@@ -3127,7 +3127,7 @@ index 00000000000..af03bdf5aab
 +)
 diff --git a/internal/service/s3legacy/generate.go b/internal/service/s3legacy/generate.go
 new file mode 100644
-index 00000000000..8e0b62b3dad
+index 0000000000..8e0b62b3da
 --- /dev/null
 +++ b/internal/service/s3legacy/generate.go
 @@ -0,0 +1,4 @@
@@ -3137,7 +3137,7 @@ index 00000000000..8e0b62b3dad
 +package s3legacy
 diff --git a/internal/service/s3legacy/hosted_zones.go b/internal/service/s3legacy/hosted_zones.go
 new file mode 100644
-index 00000000000..a94403b066a
+index 0000000000..a94403b066
 --- /dev/null
 +++ b/internal/service/s3legacy/hosted_zones.go
 @@ -0,0 +1,45 @@
@@ -3188,7 +3188,7 @@ index 00000000000..a94403b066a
 +}
 diff --git a/internal/service/s3legacy/object.go b/internal/service/s3legacy/object.go
 new file mode 100644
-index 00000000000..f44b435af68
+index 0000000000..f44b435af6
 --- /dev/null
 +++ b/internal/service/s3legacy/object.go
 @@ -0,0 +1,177 @@
@@ -3371,7 +3371,7 @@ index 00000000000..f44b435af68
 +}
 diff --git a/internal/service/s3legacy/retry.go b/internal/service/s3legacy/retry.go
 new file mode 100644
-index 00000000000..dcf7e397596
+index 0000000000..dcf7e39759
 --- /dev/null
 +++ b/internal/service/s3legacy/retry.go
 @@ -0,0 +1,30 @@
@@ -3407,7 +3407,7 @@ index 00000000000..dcf7e397596
 +}
 diff --git a/internal/service/s3legacy/tags.go b/internal/service/s3legacy/tags.go
 new file mode 100644
-index 00000000000..669813747ba
+index 0000000000..669813747b
 --- /dev/null
 +++ b/internal/service/s3legacy/tags.go
 @@ -0,0 +1,174 @@
@@ -3587,7 +3587,7 @@ index 00000000000..669813747ba
 +}
 diff --git a/internal/service/s3legacy/tags_gen.go b/internal/service/s3legacy/tags_gen.go
 new file mode 100644
-index 00000000000..c65bacf65d9
+index 0000000000..c65bacf65d
 --- /dev/null
 +++ b/internal/service/s3legacy/tags_gen.go
 @@ -0,0 +1,38 @@
@@ -3631,7 +3631,7 @@ index 00000000000..c65bacf65d9
 +}
 diff --git a/internal/service/s3legacy/wait.go b/internal/service/s3legacy/wait.go
 new file mode 100644
-index 00000000000..7a548d8d6db
+index 0000000000..7a548d8d6d
 --- /dev/null
 +++ b/internal/service/s3legacy/wait.go
 @@ -0,0 +1,18 @@

@@ -68,6 +68,7 @@ type LookupTableResult struct {
 	Id                    string                        `pulumi:"id"`
 	LocalSecondaryIndexes []GetTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	Name                  string                        `pulumi:"name"`
+	OnDemandThroughputs   []GetTableOnDemandThroughput  `pulumi:"onDemandThroughputs"`
 	PointInTimeRecovery   GetTablePointInTimeRecovery   `pulumi:"pointInTimeRecovery"`
 	RangeKey              string                        `pulumi:"rangeKey"`
 	ReadCapacity          int                           `pulumi:"readCapacity"`
@@ -154,6 +155,10 @@ func (o LookupTableResultOutput) LocalSecondaryIndexes() GetTableLocalSecondaryI
 
 func (o LookupTableResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) OnDemandThroughputs() GetTableOnDemandThroughputArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []GetTableOnDemandThroughput { return v.OnDemandThroughputs }).(GetTableOnDemandThroughputArrayOutput)
 }
 
 func (o LookupTableResultOutput) PointInTimeRecovery() GetTablePointInTimeRecoveryOutput {

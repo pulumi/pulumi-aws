@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Backup.Outputs
     public sealed class SelectionConditionStringEqual
     {
         /// <summary>
-        /// The key in a key-value pair.
+        /// Key for the filter.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The value in a key-value pair.
+        /// Value for the filter.
         /// </summary>
         public readonly string Value;
 

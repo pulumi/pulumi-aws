@@ -18,6 +18,7 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
 
     /**
      * The CSV content type headers to capture.
+     * One of `csv_content_types` or `json_content_types` is required.
      * 
      */
     @Import(name="csvContentTypes")
@@ -25,6 +26,7 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
 
     /**
      * @return The CSV content type headers to capture.
+     * One of `csv_content_types` or `json_content_types` is required.
      * 
      */
     public Optional<Output<List<String>>> csvContentTypes() {
@@ -33,6 +35,7 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
 
     /**
      * The JSON content type headers to capture.
+     * One of `json_content_types` or `csv_content_types` is required.
      * 
      */
     @Import(name="jsonContentTypes")
@@ -40,6 +43,7 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
 
     /**
      * @return The JSON content type headers to capture.
+     * One of `json_content_types` or `csv_content_types` is required.
      * 
      */
     public Optional<Output<List<String>>> jsonContentTypes() {
@@ -73,6 +77,7 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
 
         /**
          * @param csvContentTypes The CSV content type headers to capture.
+         * One of `csv_content_types` or `json_content_types` is required.
          * 
          * @return builder
          * 
@@ -84,6 +89,7 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
 
         /**
          * @param csvContentTypes The CSV content type headers to capture.
+         * One of `csv_content_types` or `json_content_types` is required.
          * 
          * @return builder
          * 
@@ -94,6 +100,7 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
 
         /**
          * @param csvContentTypes The CSV content type headers to capture.
+         * One of `csv_content_types` or `json_content_types` is required.
          * 
          * @return builder
          * 
@@ -104,6 +111,7 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
 
         /**
          * @param jsonContentTypes The JSON content type headers to capture.
+         * One of `json_content_types` or `csv_content_types` is required.
          * 
          * @return builder
          * 
@@ -115,6 +123,7 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
 
         /**
          * @param jsonContentTypes The JSON content type headers to capture.
+         * One of `json_content_types` or `csv_content_types` is required.
          * 
          * @return builder
          * 
@@ -125,6 +134,7 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
 
         /**
          * @param jsonContentTypes The JSON content type headers to capture.
+         * One of `json_content_types` or `csv_content_types` is required.
          * 
          * @return builder
          * 

@@ -15,7 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 type TableBucketMaintenanceConfiguration struct {
 	// A single Iceberg unreferenced file removal settings block.
-	// See `icebergUnreferencedFileRemoval` below
+	// See `icebergUnreferencedFileRemoval` below.
 	IcebergUnreferencedFileRemoval TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval `pulumi:"icebergUnreferencedFileRemoval"`
 }
 
@@ -32,7 +32,7 @@ type TableBucketMaintenanceConfigurationInput interface {
 
 type TableBucketMaintenanceConfigurationArgs struct {
 	// A single Iceberg unreferenced file removal settings block.
-	// See `icebergUnreferencedFileRemoval` below
+	// See `icebergUnreferencedFileRemoval` below.
 	IcebergUnreferencedFileRemoval TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalInput `pulumi:"icebergUnreferencedFileRemoval"`
 }
 
@@ -114,7 +114,7 @@ func (o TableBucketMaintenanceConfigurationOutput) ToTableBucketMaintenanceConfi
 }
 
 // A single Iceberg unreferenced file removal settings block.
-// See `icebergUnreferencedFileRemoval` below
+// See `icebergUnreferencedFileRemoval` below.
 func (o TableBucketMaintenanceConfigurationOutput) IcebergUnreferencedFileRemoval() TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput {
 	return o.ApplyT(func(v TableBucketMaintenanceConfiguration) TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval {
 		return v.IcebergUnreferencedFileRemoval
@@ -146,7 +146,7 @@ func (o TableBucketMaintenanceConfigurationPtrOutput) Elem() TableBucketMaintena
 }
 
 // A single Iceberg unreferenced file removal settings block.
-// See `icebergUnreferencedFileRemoval` below
+// See `icebergUnreferencedFileRemoval` below.
 func (o TableBucketMaintenanceConfigurationPtrOutput) IcebergUnreferencedFileRemoval() TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput {
 	return o.ApplyT(func(v *TableBucketMaintenanceConfiguration) *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval {
 		if v == nil {
@@ -158,7 +158,7 @@ func (o TableBucketMaintenanceConfigurationPtrOutput) IcebergUnreferencedFileRem
 
 type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval struct {
 	// Settings for unreferenced file removal.
-	// See `iceberg_unreferenced_file_removal.settings` below
+	// See `iceberg_unreferenced_file_removal.settings` below.
 	Settings TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings `pulumi:"settings"`
 	// Whether the configuration is enabled.
 	// Valid values are `enabled` and `disabled`.
@@ -178,7 +178,7 @@ type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalInput inte
 
 type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs struct {
 	// Settings for unreferenced file removal.
-	// See `iceberg_unreferenced_file_removal.settings` below
+	// See `iceberg_unreferenced_file_removal.settings` below.
 	Settings TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsInput `pulumi:"settings"`
 	// Whether the configuration is enabled.
 	// Valid values are `enabled` and `disabled`.
@@ -263,7 +263,7 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput)
 }
 
 // Settings for unreferenced file removal.
-// See `iceberg_unreferenced_file_removal.settings` below
+// See `iceberg_unreferenced_file_removal.settings` below.
 func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput) Settings() TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput {
 	return o.ApplyT(func(v TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval) TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
 		return v.Settings
@@ -301,7 +301,7 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutp
 }
 
 // Settings for unreferenced file removal.
-// See `iceberg_unreferenced_file_removal.settings` below
+// See `iceberg_unreferenced_file_removal.settings` below.
 func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput) Settings() TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput {
 	return o.ApplyT(func(v *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval) *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
 		if v == nil {
@@ -492,10 +492,10 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSetting
 
 type TableMaintenanceConfiguration struct {
 	// A single Iceberg compaction settings block.
-	// See `icebergCompaction` below
+	// See `icebergCompaction` below.
 	IcebergCompaction TableMaintenanceConfigurationIcebergCompaction `pulumi:"icebergCompaction"`
 	// A single Iceberg snapshot management settings block.
-	// See `icebergSnapshotManagement` below
+	// See `icebergSnapshotManagement` below.
 	IcebergSnapshotManagement TableMaintenanceConfigurationIcebergSnapshotManagement `pulumi:"icebergSnapshotManagement"`
 }
 
@@ -512,10 +512,10 @@ type TableMaintenanceConfigurationInput interface {
 
 type TableMaintenanceConfigurationArgs struct {
 	// A single Iceberg compaction settings block.
-	// See `icebergCompaction` below
+	// See `icebergCompaction` below.
 	IcebergCompaction TableMaintenanceConfigurationIcebergCompactionInput `pulumi:"icebergCompaction"`
 	// A single Iceberg snapshot management settings block.
-	// See `icebergSnapshotManagement` below
+	// See `icebergSnapshotManagement` below.
 	IcebergSnapshotManagement TableMaintenanceConfigurationIcebergSnapshotManagementInput `pulumi:"icebergSnapshotManagement"`
 }
 
@@ -597,7 +597,7 @@ func (o TableMaintenanceConfigurationOutput) ToTableMaintenanceConfigurationPtrO
 }
 
 // A single Iceberg compaction settings block.
-// See `icebergCompaction` below
+// See `icebergCompaction` below.
 func (o TableMaintenanceConfigurationOutput) IcebergCompaction() TableMaintenanceConfigurationIcebergCompactionOutput {
 	return o.ApplyT(func(v TableMaintenanceConfiguration) TableMaintenanceConfigurationIcebergCompaction {
 		return v.IcebergCompaction
@@ -605,7 +605,7 @@ func (o TableMaintenanceConfigurationOutput) IcebergCompaction() TableMaintenanc
 }
 
 // A single Iceberg snapshot management settings block.
-// See `icebergSnapshotManagement` below
+// See `icebergSnapshotManagement` below.
 func (o TableMaintenanceConfigurationOutput) IcebergSnapshotManagement() TableMaintenanceConfigurationIcebergSnapshotManagementOutput {
 	return o.ApplyT(func(v TableMaintenanceConfiguration) TableMaintenanceConfigurationIcebergSnapshotManagement {
 		return v.IcebergSnapshotManagement
@@ -637,7 +637,7 @@ func (o TableMaintenanceConfigurationPtrOutput) Elem() TableMaintenanceConfigura
 }
 
 // A single Iceberg compaction settings block.
-// See `icebergCompaction` below
+// See `icebergCompaction` below.
 func (o TableMaintenanceConfigurationPtrOutput) IcebergCompaction() TableMaintenanceConfigurationIcebergCompactionPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfiguration) *TableMaintenanceConfigurationIcebergCompaction {
 		if v == nil {
@@ -648,7 +648,7 @@ func (o TableMaintenanceConfigurationPtrOutput) IcebergCompaction() TableMainten
 }
 
 // A single Iceberg snapshot management settings block.
-// See `icebergSnapshotManagement` below
+// See `icebergSnapshotManagement` below.
 func (o TableMaintenanceConfigurationPtrOutput) IcebergSnapshotManagement() TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfiguration) *TableMaintenanceConfigurationIcebergSnapshotManagement {
 		if v == nil {
@@ -660,7 +660,7 @@ func (o TableMaintenanceConfigurationPtrOutput) IcebergSnapshotManagement() Tabl
 
 type TableMaintenanceConfigurationIcebergCompaction struct {
 	// Settings for compaction.
-	// See `iceberg_compaction.settings` below
+	// See `iceberg_compaction.settings` below.
 	Settings TableMaintenanceConfigurationIcebergCompactionSettings `pulumi:"settings"`
 	// Whether the configuration is enabled.
 	// Valid values are `enabled` and `disabled`.
@@ -680,7 +680,7 @@ type TableMaintenanceConfigurationIcebergCompactionInput interface {
 
 type TableMaintenanceConfigurationIcebergCompactionArgs struct {
 	// Settings for compaction.
-	// See `iceberg_compaction.settings` below
+	// See `iceberg_compaction.settings` below.
 	Settings TableMaintenanceConfigurationIcebergCompactionSettingsInput `pulumi:"settings"`
 	// Whether the configuration is enabled.
 	// Valid values are `enabled` and `disabled`.
@@ -765,7 +765,7 @@ func (o TableMaintenanceConfigurationIcebergCompactionOutput) ToTableMaintenance
 }
 
 // Settings for compaction.
-// See `iceberg_compaction.settings` below
+// See `iceberg_compaction.settings` below.
 func (o TableMaintenanceConfigurationIcebergCompactionOutput) Settings() TableMaintenanceConfigurationIcebergCompactionSettingsOutput {
 	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergCompaction) TableMaintenanceConfigurationIcebergCompactionSettings {
 		return v.Settings
@@ -803,7 +803,7 @@ func (o TableMaintenanceConfigurationIcebergCompactionPtrOutput) Elem() TableMai
 }
 
 // Settings for compaction.
-// See `iceberg_compaction.settings` below
+// See `iceberg_compaction.settings` below.
 func (o TableMaintenanceConfigurationIcebergCompactionPtrOutput) Settings() TableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergCompaction) *TableMaintenanceConfigurationIcebergCompactionSettings {
 		if v == nil {
@@ -967,7 +967,7 @@ func (o TableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput) TargetF
 
 type TableMaintenanceConfigurationIcebergSnapshotManagement struct {
 	// Settings for snapshot management.
-	// See `iceberg_snapshot_management.settings` below
+	// See `iceberg_snapshot_management.settings` below.
 	Settings TableMaintenanceConfigurationIcebergSnapshotManagementSettings `pulumi:"settings"`
 	// Whether the configuration is enabled.
 	// Valid values are `enabled` and `disabled`.
@@ -987,7 +987,7 @@ type TableMaintenanceConfigurationIcebergSnapshotManagementInput interface {
 
 type TableMaintenanceConfigurationIcebergSnapshotManagementArgs struct {
 	// Settings for snapshot management.
-	// See `iceberg_snapshot_management.settings` below
+	// See `iceberg_snapshot_management.settings` below.
 	Settings TableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput `pulumi:"settings"`
 	// Whether the configuration is enabled.
 	// Valid values are `enabled` and `disabled`.
@@ -1072,7 +1072,7 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementOutput) ToTableMai
 }
 
 // Settings for snapshot management.
-// See `iceberg_snapshot_management.settings` below
+// See `iceberg_snapshot_management.settings` below.
 func (o TableMaintenanceConfigurationIcebergSnapshotManagementOutput) Settings() TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput {
 	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergSnapshotManagement) TableMaintenanceConfigurationIcebergSnapshotManagementSettings {
 		return v.Settings
@@ -1110,7 +1110,7 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) Elem() 
 }
 
 // Settings for snapshot management.
-// See `iceberg_snapshot_management.settings` below
+// See `iceberg_snapshot_management.settings` below.
 func (o TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) Settings() TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergSnapshotManagement) *TableMaintenanceConfigurationIcebergSnapshotManagementSettings {
 		if v == nil {

@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### S3 Data Source
+//
 // ```go
 // package main
 //
@@ -37,6 +39,167 @@ import (
 //							Bucket: pulumi.String("my-bucket"),
 //							Key:    pulumi.String("path/to/manifest.json"),
 //						},
+//					},
+//				},
+//				Type: pulumi.String("S3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### S3 Data Source with IAM Role ARN
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
+//				Bucket: example.Bucket,
+//				Key:    pulumi.String("manifest.json"),
+//				Content: example.ID().ApplyT(func(id string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"fileLocations": []map[string]interface{}{
+//							map[string]interface{}{
+//								"URIPrefixes": []string{
+//									fmt.Sprintf("https://%v.s3-%v.%v", id, currentGetRegion.Name, currentGetPartition.DnsSuffix),
+//								},
+//							},
+//						},
+//						"globalUploadSettings": map[string]interface{}{
+//							"format":         "CSV",
+//							"delimiter":      ",",
+//							"textqualifier":  "\"",
+//							"containsHeader": true,
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return pulumi.String(json0), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "quicksight.amazonaws.com",
+//						},
+//						"Condition": map[string]interface{}{
+//							"StringEquals": map[string]interface{}{
+//								"aws:SourceAccount": current.AccountId,
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
+//				AssumeRolePolicy: pulumi.String(json1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("Policy to allow QuickSight access to S3 bucket"),
+//				Policy: pulumi.All(example.Arn, exampleBucketObjectv2.Key, example.Arn).ApplyT(func(_args []interface{}) (string, error) {
+//					exampleArn := _args[0].(string)
+//					key := _args[1].(string)
+//					exampleArn1 := _args[2].(string)
+//					var _zero string
+//					tmpJSON2, err := json.Marshal(map[string]interface{}{
+//						"Version": "2012-10-17",
+//						"Statement": []map[string]interface{}{
+//							map[string]interface{}{
+//								"Action": []string{
+//									"s3:GetObject",
+//								},
+//								"Effect":   "Allow",
+//								"Resource": fmt.Sprintf("%v/%v", exampleArn, key),
+//							},
+//							map[string]interface{}{
+//								"Action": []string{
+//									"s3:ListBucket",
+//								},
+//								"Effect":   "Allow",
+//								"Resource": exampleArn1,
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json2 := string(tmpJSON2)
+//					return json2, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
+//				PolicyArn: examplePolicy.Arn,
+//				Role:      exampleRole.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = quicksight.NewDataSource(ctx, "example", &quicksight.DataSourceArgs{
+//				DataSourceId: pulumi.String("example-id"),
+//				Name:         pulumi.String("manifest in S3"),
+//				Parameters: &quicksight.DataSourceParametersArgs{
+//					S3: &quicksight.DataSourceParametersS3Args{
+//						ManifestFileLocation: &quicksight.DataSourceParametersS3ManifestFileLocationArgs{
+//							Bucket: example.Arn,
+//							Key:    exampleBucketObjectv2.Key,
+//						},
+//						RoleArn: exampleRole.Arn,
 //					},
 //				},
 //				Type: pulumi.String("S3"),

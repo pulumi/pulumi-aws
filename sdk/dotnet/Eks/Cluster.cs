@@ -248,6 +248,96 @@ namespace Pulumi.Aws.Eks
     /// });
     /// ```
     /// 
+    /// ### EKS Cluster with EKS Hybrid Nodes
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new Aws.Iam.Role("cluster", new()
+    ///     {
+    ///         Name = "eks-cluster-example",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                         "sts:TagSession",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "eks.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var clusterAmazonEKSClusterPolicy = new Aws.Iam.RolePolicyAttachment("cluster_AmazonEKSClusterPolicy", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+    ///         Role = cluster.Name,
+    ///     });
+    /// 
+    ///     var example = new Aws.Eks.Cluster("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         AccessConfig = new Aws.Eks.Inputs.ClusterAccessConfigArgs
+    ///         {
+    ///             AuthenticationMode = "API",
+    ///         },
+    ///         RoleArn = cluster.Arn,
+    ///         Version = "1.31",
+    ///         RemoteNetworkConfig = new Aws.Eks.Inputs.ClusterRemoteNetworkConfigArgs
+    ///         {
+    ///             RemoteNodeNetworks = new Aws.Eks.Inputs.ClusterRemoteNetworkConfigRemoteNodeNetworksArgs
+    ///             {
+    ///                 Cidrs = new[]
+    ///                 {
+    ///                     "172.16.0.0/18",
+    ///                 },
+    ///             },
+    ///             RemotePodNetworks = new Aws.Eks.Inputs.ClusterRemoteNetworkConfigRemotePodNetworksArgs
+    ///             {
+    ///                 Cidrs = new[]
+    ///                 {
+    ///                     "172.16.64.0/18",
+    ///                 },
+    ///             },
+    ///         },
+    ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
+    ///         {
+    ///             EndpointPrivateAccess = true,
+    ///             EndpointPublicAccess = true,
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 az1.Id,
+    ///                 az2.Id,
+    ///                 az3.Id,
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             clusterAmazonEKSClusterPolicy,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Local EKS Cluster on AWS Outpost
     /// 
     /// [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
@@ -352,7 +442,7 @@ namespace Pulumi.Aws.Eks
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         /// </summary>
         [Output("accessConfig")]
         public Output<Outputs.ClusterAccessConfig> AccessConfig { get; private set; } = null!;
@@ -424,7 +514,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableArray<Outputs.ClusterIdentity>> Identities { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+        /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("kubernetesNetworkConfig")]
         public Output<Outputs.ClusterKubernetesNetworkConfig> KubernetesNetworkConfig { get; private set; } = null!;
@@ -556,7 +646,7 @@ namespace Pulumi.Aws.Eks
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         /// </summary>
         [Input("accessConfig")]
         public Input<Inputs.ClusterAccessConfigArgs>? AccessConfig { get; set; }
@@ -600,7 +690,7 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.ClusterEncryptionConfigArgs>? EncryptionConfig { get; set; }
 
         /// <summary>
-        /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+        /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("kubernetesNetworkConfig")]
         public Input<Inputs.ClusterKubernetesNetworkConfigArgs>? KubernetesNetworkConfig { get; set; }
@@ -682,7 +772,7 @@ namespace Pulumi.Aws.Eks
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         /// </summary>
         [Input("accessConfig")]
         public Input<Inputs.ClusterAccessConfigGetArgs>? AccessConfig { get; set; }
@@ -776,7 +866,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
+        /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("kubernetesNetworkConfig")]
         public Input<Inputs.ClusterKubernetesNetworkConfigGetArgs>? KubernetesNetworkConfig { get; set; }

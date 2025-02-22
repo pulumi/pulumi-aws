@@ -18,14 +18,14 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
     public static final SecretVersionArgs Empty = new SecretVersionArgs();
 
     /**
-     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
+     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
      * 
      */
     @Import(name="secretBinary")
     private @Nullable Output<String> secretBinary;
 
     /**
-     * @return Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
+     * @return Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
      * 
      */
     public Optional<Output<String>> secretBinary() {
@@ -48,14 +48,14 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
      * 
      */
     @Import(name="secretString")
     private @Nullable Output<String> secretString;
 
     /**
-     * @return Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
+     * @return Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
      * 
      */
     public Optional<Output<String>> secretString() {
@@ -109,7 +109,7 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretBinary Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
+         * @param secretBinary Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretBinary Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
+         * @param secretBinary Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretString Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
+         * @param secretString Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretString Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
+         * @param secretString Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
          * 
          * @return builder
          * 

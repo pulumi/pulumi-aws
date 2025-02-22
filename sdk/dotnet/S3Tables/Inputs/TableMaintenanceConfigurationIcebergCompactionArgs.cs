@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
     {
         /// <summary>
         /// Settings for compaction.
-        /// See `iceberg_compaction.settings` below
+        /// See `iceberg_compaction.settings` below.
         /// </summary>
         [Input("settings", required: true)]
         public Input<Inputs.TableMaintenanceConfigurationIcebergCompactionSettingsArgs> Settings { get; set; } = null!;

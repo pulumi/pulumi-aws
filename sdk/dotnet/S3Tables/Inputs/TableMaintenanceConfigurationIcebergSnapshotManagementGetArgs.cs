@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
     {
         /// <summary>
         /// Settings for snapshot management.
-        /// See `iceberg_snapshot_management.settings` below
+        /// See `iceberg_snapshot_management.settings` below.
         /// </summary>
         [Input("settings", required: true)]
         public Input<Inputs.TableMaintenanceConfigurationIcebergSnapshotManagementSettingsGetArgs> Settings { get; set; } = null!;

@@ -308,18 +308,14 @@ public class Parameter extends com.pulumi.resources.CustomResource {
         return this.type;
     }
     /**
-     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
-     * 
-     * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
-     * @return Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
-     * 
-     * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+     * @return Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
      * 
      */
     public Output<String> value() {

@@ -336,6 +336,8 @@ if typing.TYPE_CHECKING:
     polly = __polly
     import pulumi_aws.pricing as __pricing
     pricing = __pricing
+    import pulumi_aws.qbusiness as __qbusiness
+    qbusiness = __qbusiness
     import pulumi_aws.qldb as __qldb
     qldb = __qldb
     import pulumi_aws.quicksight as __quicksight
@@ -619,6 +621,7 @@ else:
     pipes = _utilities.lazy_import('pulumi_aws.pipes')
     polly = _utilities.lazy_import('pulumi_aws.polly')
     pricing = _utilities.lazy_import('pulumi_aws.pricing')
+    qbusiness = _utilities.lazy_import('pulumi_aws.qbusiness')
     qldb = _utilities.lazy_import('pulumi_aws.qldb')
     quicksight = _utilities.lazy_import('pulumi_aws.quicksight')
     ram = _utilities.lazy_import('pulumi_aws.ram')
@@ -2572,6 +2575,22 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
    "aws:cloudwatch/compositeAlarm:CompositeAlarm": "CompositeAlarm"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/contributorInsightRule",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/contributorInsightRule:ContributorInsightRule": "ContributorInsightRule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/contributorManagedInsightRule",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule": "ContributorManagedInsightRule"
   }
  },
  {
@@ -8988,6 +9007,14 @@ _utilities.register(
   "fqn": "pulumi_aws.pipes",
   "classes": {
    "aws:pipes/pipe:Pipe": "Pipe"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "qbusiness/application",
+  "fqn": "pulumi_aws.qbusiness",
+  "classes": {
+   "aws:qbusiness/application:Application": "Application"
   }
  },
  {

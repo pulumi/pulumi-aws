@@ -235,6 +235,7 @@ import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
 import * as polly from "./polly";
 import * as pricing from "./pricing";
+import * as qbusiness from "./qbusiness";
 import * as qldb from "./qldb";
 import * as quicksight from "./quicksight";
 import * as ram from "./ram";
@@ -457,6 +458,7 @@ export {
     pipes,
     polly,
     pricing,
+    qbusiness,
     qldb,
     quicksight,
     ram,

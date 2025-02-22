@@ -512,7 +512,7 @@ if not MYPY:
     class RecorderRecordingModeArgsDict(TypedDict):
         recording_frequency: NotRequired[pulumi.Input[str]]
         """
-        Default reecording frequency. `CONTINUOUS` or `DAILY`.
+        Default recording frequency. `CONTINUOUS` or `DAILY`.
         """
         recording_mode_override: NotRequired[pulumi.Input['RecorderRecordingModeRecordingModeOverrideArgsDict']]
         """
@@ -527,7 +527,7 @@ class RecorderRecordingModeArgs:
                  recording_frequency: Optional[pulumi.Input[str]] = None,
                  recording_mode_override: Optional[pulumi.Input['RecorderRecordingModeRecordingModeOverrideArgs']] = None):
         """
-        :param pulumi.Input[str] recording_frequency: Default reecording frequency. `CONTINUOUS` or `DAILY`.
+        :param pulumi.Input[str] recording_frequency: Default recording frequency. `CONTINUOUS` or `DAILY`.
         :param pulumi.Input['RecorderRecordingModeRecordingModeOverrideArgs'] recording_mode_override: Recording mode overrides. Detailed below.
         """
         if recording_frequency is not None:
@@ -539,7 +539,7 @@ class RecorderRecordingModeArgs:
     @pulumi.getter(name="recordingFrequency")
     def recording_frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        Default reecording frequency. `CONTINUOUS` or `DAILY`.
+        Default recording frequency. `CONTINUOUS` or `DAILY`.
         """
         return pulumi.get(self, "recording_frequency")
 

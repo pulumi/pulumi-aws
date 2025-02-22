@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
+        /// </summary>
         [Input("crawlerLimits")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsGetArgs>? CrawlerLimits { get; set; }
 
@@ -19,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<string>? _exclusionFilters;
 
         /// <summary>
-        /// A list of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
+        /// List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
         /// </summary>
         public InputList<string> ExclusionFilters
         {
@@ -31,7 +34,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<string>? _inclusionFilters;
 
         /// <summary>
-        /// A list of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
+        /// List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
         /// </summary>
         public InputList<string> InclusionFilters
         {
@@ -39,9 +42,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _inclusionFilters = value;
         }
 
+        /// <summary>
+        /// Scope of what is crawled for your URLs.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
+        /// <summary>
+        /// String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+        /// </summary>
         [Input("userAgent")]
         public Input<string>? UserAgent { get; set; }
 

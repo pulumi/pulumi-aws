@@ -10,7 +10,7 @@ appears in pulumi as `aws.s3.Bucket` and is likely the default version of
 the Bucket resource that users will use.
 
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index cd2a293a73e..b1dc400249c 100644
+index cd2a293a73..b1dc400249 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -572,6 +572,7 @@ func ResourceBucketLegacy() *schema.Resource {

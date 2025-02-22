@@ -432,6 +432,7 @@ var moduleMap = map[string]string{
 	"polly":                           "Polly",
 	"pricing":                         pricingMod,
 	"prometheus":                      ampMod,
+	"qbusiness":                       "Qbusiness",
 	"qldb":                            qldbMod,
 	"quicksight":                      quicksightMod,
 	"ram":                             ramMod,
@@ -6031,6 +6032,16 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attrWithSeparator(state, ",", "detectorId", "accountId", "name"), nil
+	}
+	prov.Resources["aws_cloudwatch_contributor_insight_rule"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "name"), nil
+	}
+	prov.Resources["aws_cloudwatch_contributor_managed_insight_rule"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "arn"), nil
 	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResolverRuleTargetIp {
     /**
-     * @return One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+     * @return One IPv4 address that you want to forward DNS queries to.
      * 
      */
     private @Nullable String ip;
@@ -35,7 +35,7 @@ public final class ResolverRuleTargetIp {
 
     private ResolverRuleTargetIp() {}
     /**
-     * @return One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+     * @return One IPv4 address that you want to forward DNS queries to.
      * 
      */
     public Optional<String> ip() {

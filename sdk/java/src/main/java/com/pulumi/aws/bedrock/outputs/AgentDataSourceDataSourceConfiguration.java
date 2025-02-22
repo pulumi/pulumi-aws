@@ -42,6 +42,10 @@ public final class AgentDataSourceDataSourceConfiguration {
      * 
      */
     private String type;
+    /**
+     * @return Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+     * 
+     */
     private @Nullable AgentDataSourceDataSourceConfigurationWebConfiguration webConfiguration;
 
     private AgentDataSourceDataSourceConfiguration() {}
@@ -80,6 +84,10 @@ public final class AgentDataSourceDataSourceConfiguration {
     public String type() {
         return this.type;
     }
+    /**
+     * @return Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
+     * 
+     */
     public Optional<AgentDataSourceDataSourceConfigurationWebConfiguration> webConfiguration() {
         return Optional.ofNullable(this.webConfiguration);
     }
