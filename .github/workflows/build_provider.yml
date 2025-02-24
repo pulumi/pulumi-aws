@@ -54,6 +54,27 @@ jobs:
         uses: ./.github/actions/setup-tools
         with:
           tools: pulumictl, go
+          cache-go: false
+      # Based on https://github.com/actions/cache/blob/main/examples.md#go---modules
+      - name: Get GOCACHE
+        id: gocache
+        shell: bash
+        run: |
+          echo "path=$(go env GOCACHE)" >> ${GITHUB_OUTPUT}
+      - name: Get GOMODCACHE
+        id: gomodcache
+        shell: bash
+        run: |
+          echo "path=$(go env GOMODCACHE)" >> ${GITHUB_OUTPUT}
+      - name: Go Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ steps.gocache.outputs.path }}
+            ${{ steps.gomodcache.outputs.path }}
+          key: go-provider-${{ matrix.platform.os }}-${{ matrix.platform.arch }}-${{ hashFiles('provider/go.sum') }}
+          restore-keys: |
+            go-provider-${{ matrix.platform.os }}-${{ matrix.platform.arch }}-
       - name: Prepare local workspace before restoring previously built
         run: make prepare_local_workspace
       - name: Restore prerequisites
