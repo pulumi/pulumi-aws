@@ -9,7 +9,6 @@ providerVersion: github.com/hashicorp/terraform-provider-aws/version.ProviderVer
 buildProviderPre: "VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh"
 
 toolVersions:
-  dotnet: "6.0.x"
   go: "1.23.x"
   java: "11"
   gradle: "7.6"

@@ -5,7 +5,7 @@
     "go@1.23.",
     "nodejs@20.",
     "python3@3.11.8",
-    "dotnet-sdk@6.0.",
+    "dotnet-sdk@8.0.",
     "gradle_7@7.6",
     "curl@8"
   ],
