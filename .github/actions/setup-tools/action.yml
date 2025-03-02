@@ -47,7 +47,7 @@ runs:
 
     - name: Install Pulumi CLI
       if: inputs.tools == 'all' || contains(inputs.tools, 'pulumicli')
-      uses: pulumi/actions@13b8b7177d6fb736766875dac9b78aab07bd785f # v6
+      uses: pulumi/actions@3da56e6feff8f5db8b48d3a396bc10ef1f968088 # v6
       with:
         pulumi-version: "dev"
 
