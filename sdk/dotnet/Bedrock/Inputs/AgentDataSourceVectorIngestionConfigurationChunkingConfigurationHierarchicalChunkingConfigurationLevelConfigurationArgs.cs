@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// The maximum number of tokens that a chunk can contain in this layer.
         /// </summary>
         [Input("maxTokens", required: true)]
-        public Input<double> MaxTokens { get; set; } = null!;
+        public Input<int> MaxTokens { get; set; } = null!;
 
         public AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs()
         {

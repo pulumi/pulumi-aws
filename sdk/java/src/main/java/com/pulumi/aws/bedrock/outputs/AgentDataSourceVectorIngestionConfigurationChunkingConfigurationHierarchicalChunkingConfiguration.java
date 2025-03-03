@@ -6,7 +6,7 @@ package com.pulumi.aws.bedrock.outputs;
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,7 +21,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * @return The number of tokens to repeat across chunks in the same layer.
      * 
      */
-    private Double overlapTokens;
+    private Integer overlapTokens;
 
     private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration() {}
     /**
@@ -35,7 +35,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * @return The number of tokens to repeat across chunks in the same layer.
      * 
      */
-    public Double overlapTokens() {
+    public Integer overlapTokens() {
         return this.overlapTokens;
     }
 
@@ -49,7 +49,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     @CustomType.Builder
     public static final class Builder {
         private List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations;
-        private Double overlapTokens;
+        private Integer overlapTokens;
         public Builder() {}
         public Builder(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -69,7 +69,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
             return levelConfigurations(List.of(levelConfigurations));
         }
         @CustomType.Setter
-        public Builder overlapTokens(Double overlapTokens) {
+        public Builder overlapTokens(Integer overlapTokens) {
             if (overlapTokens == null) {
               throw new MissingRequiredPropertyException("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration", "overlapTokens");
             }

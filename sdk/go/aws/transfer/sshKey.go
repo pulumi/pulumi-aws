@@ -32,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			examplePrivateKey, err := tls.NewPrivateKey(ctx, "example", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
-//				RsaBits:   pulumi.Int(4096),
+//				Algorithm: "RSA",
+//				RsaBits:   4096,
 //			})
 //			if err != nil {
 //				return err
@@ -86,14 +86,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeTrimspace, err := std.Trimspace(ctx, &std.TrimspaceArgs{
+//				Input: examplePrivateKey.PublicKeyOpenssh,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = transfer.NewSshKey(ctx, "example", &transfer.SshKeyArgs{
 //				ServerId: exampleServer.ID(),
 //				UserName: exampleUser.UserName,
-//				Body: pulumi.String(std.TrimspaceOutput(ctx, std.TrimspaceOutputArgs{
-//					Input: examplePrivateKey.PublicKeyOpenssh,
-//				}, nil).ApplyT(func(invoke std.TrimspaceResult) (*string, error) {
-//					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Body:     pulumi.String(invokeTrimspace.Result),
 //			})
 //			if err != nil {
 //				return err

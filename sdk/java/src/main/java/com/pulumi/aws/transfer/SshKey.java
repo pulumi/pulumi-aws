@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.tls.PrivateKey;
+ * import com.pulumi.tls.privateKey;
  * import com.pulumi.tls.PrivateKeyArgs;
  * import com.pulumi.aws.transfer.Server;
  * import com.pulumi.aws.transfer.ServerArgs;
@@ -89,7 +89,9 @@ import javax.annotation.Nullable;
  *         var exampleSshKey = new SshKey("exampleSshKey", SshKeyArgs.builder()
  *             .serverId(exampleServer.id())
  *             .userName(exampleUser.userName())
- *             .body(StdFunctions.trimspace().applyValue(invoke -> invoke.result()))
+ *             .body(StdFunctions.trimspace(TrimspaceArgs.builder()
+ *                 .input(examplePrivateKey.publicKeyOpenssh())
+ *                 .build()).result())
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()

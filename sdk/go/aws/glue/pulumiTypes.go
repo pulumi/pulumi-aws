@@ -1227,7 +1227,7 @@ type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergCon
 	// Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
 	Location *string `pulumi:"location"`
 	// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
-	OrphanFileRetentionPeriodInDays *float64 `pulumi:"orphanFileRetentionPeriodInDays"`
+	OrphanFileRetentionPeriodInDays *int `pulumi:"orphanFileRetentionPeriodInDays"`
 }
 
 // CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationInput is an input type that accepts CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs and CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput values.
@@ -1245,7 +1245,7 @@ type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergCon
 	// Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
-	OrphanFileRetentionPeriodInDays pulumi.Float64PtrInput `pulumi:"orphanFileRetentionPeriodInDays"`
+	OrphanFileRetentionPeriodInDays pulumi.IntPtrInput `pulumi:"orphanFileRetentionPeriodInDays"`
 }
 
 func (CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs) ElementType() reflect.Type {
@@ -1333,10 +1333,10 @@ func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIceberg
 }
 
 // The number of days that orphan files should be retained before file deletion. Defaults to `3`.
-func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) OrphanFileRetentionPeriodInDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *float64 {
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) OrphanFileRetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *int {
 		return v.OrphanFileRetentionPeriodInDays
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1374,13 +1374,13 @@ func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIceberg
 }
 
 // The number of days that orphan files should be retained before file deletion. Defaults to `3`.
-func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) OrphanFileRetentionPeriodInDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *float64 {
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) OrphanFileRetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *int {
 		if v == nil {
 			return nil
 		}
 		return v.OrphanFileRetentionPeriodInDays
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type CatalogTableOptimizerConfigurationRetentionConfiguration struct {
@@ -1526,9 +1526,9 @@ type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguratio
 	// If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
 	CleanExpiredFiles *bool `pulumi:"cleanExpiredFiles"`
 	// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
-	NumberOfSnapshotsToRetain *float64 `pulumi:"numberOfSnapshotsToRetain"`
+	NumberOfSnapshotsToRetain *int `pulumi:"numberOfSnapshotsToRetain"`
 	// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
-	SnapshotRetentionPeriodInDays *float64 `pulumi:"snapshotRetentionPeriodInDays"`
+	SnapshotRetentionPeriodInDays *int `pulumi:"snapshotRetentionPeriodInDays"`
 }
 
 // CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationInput is an input type that accepts CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs and CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput values.
@@ -1546,9 +1546,9 @@ type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguratio
 	// If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
 	CleanExpiredFiles pulumi.BoolPtrInput `pulumi:"cleanExpiredFiles"`
 	// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
-	NumberOfSnapshotsToRetain pulumi.Float64PtrInput `pulumi:"numberOfSnapshotsToRetain"`
+	NumberOfSnapshotsToRetain pulumi.IntPtrInput `pulumi:"numberOfSnapshotsToRetain"`
 	// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
-	SnapshotRetentionPeriodInDays pulumi.Float64PtrInput `pulumi:"snapshotRetentionPeriodInDays"`
+	SnapshotRetentionPeriodInDays pulumi.IntPtrInput `pulumi:"snapshotRetentionPeriodInDays"`
 }
 
 func (CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs) ElementType() reflect.Type {
@@ -1636,17 +1636,17 @@ func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigura
 }
 
 // The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
-func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) NumberOfSnapshotsToRetain() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *float64 {
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) NumberOfSnapshotsToRetain() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *int {
 		return v.NumberOfSnapshotsToRetain
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
-func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) SnapshotRetentionPeriodInDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *float64 {
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) SnapshotRetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *int {
 		return v.SnapshotRetentionPeriodInDays
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1684,23 +1684,23 @@ func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigura
 }
 
 // The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
-func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) NumberOfSnapshotsToRetain() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *float64 {
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) NumberOfSnapshotsToRetain() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *int {
 		if v == nil {
 			return nil
 		}
 		return v.NumberOfSnapshotsToRetain
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
-func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) SnapshotRetentionPeriodInDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *float64 {
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) SnapshotRetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *int {
 		if v == nil {
 			return nil
 		}
 		return v.SnapshotRetentionPeriodInDays
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type CatalogTablePartitionIndex struct {

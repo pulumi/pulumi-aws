@@ -5,7 +5,7 @@ package com.pulumi.aws.lb.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
@@ -36,13 +36,13 @@ public final class GetListenerRuleActionForwardTargetGroup extends com.pulumi.re
      * 
      */
     @Import(name="weight", required=true)
-    private Double weight;
+    private Integer weight;
 
     /**
      * @return Weight of the target group.
      * 
      */
-    public Double weight() {
+    public Integer weight() {
         return this.weight;
     }
 
@@ -89,7 +89,7 @@ public final class GetListenerRuleActionForwardTargetGroup extends com.pulumi.re
          * @return builder
          * 
          */
-        public Builder weight(Double weight) {
+        public Builder weight(Integer weight) {
             $.weight = weight;
             return this;
         }

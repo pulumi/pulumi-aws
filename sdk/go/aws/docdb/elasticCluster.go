@@ -66,7 +66,7 @@ type ElasticCluster struct {
 	// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
 	AuthType pulumi.StringOutput `pulumi:"authType"`
 	// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-	BackupRetentionPeriod pulumi.Float64Output `pulumi:"backupRetentionPeriod"`
+	BackupRetentionPeriod pulumi.IntOutput `pulumi:"backupRetentionPeriod"`
 	// The DNS address of the DocDB instance
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
@@ -155,7 +155,7 @@ type elasticClusterState struct {
 	// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
 	AuthType *string `pulumi:"authType"`
 	// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-	BackupRetentionPeriod *float64 `pulumi:"backupRetentionPeriod"`
+	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// The DNS address of the DocDB instance
 	Endpoint *string `pulumi:"endpoint"`
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
@@ -193,7 +193,7 @@ type ElasticClusterState struct {
 	// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
 	AuthType pulumi.StringPtrInput
 	// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-	BackupRetentionPeriod pulumi.Float64PtrInput
+	BackupRetentionPeriod pulumi.IntPtrInput
 	// The DNS address of the DocDB instance
 	Endpoint pulumi.StringPtrInput
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
@@ -233,7 +233,7 @@ type elasticClusterArgs struct {
 	// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
 	AuthType string `pulumi:"authType"`
 	// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-	BackupRetentionPeriod *float64 `pulumi:"backupRetentionPeriod"`
+	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the Elastic DocumentDB cluster
@@ -266,7 +266,7 @@ type ElasticClusterArgs struct {
 	// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
 	AuthType pulumi.StringInput
 	// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-	BackupRetentionPeriod pulumi.Float64PtrInput
+	BackupRetentionPeriod pulumi.IntPtrInput
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the Elastic DocumentDB cluster
@@ -398,8 +398,8 @@ func (o ElasticClusterOutput) AuthType() pulumi.StringOutput {
 }
 
 // The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-func (o ElasticClusterOutput) BackupRetentionPeriod() pulumi.Float64Output {
-	return o.ApplyT(func(v *ElasticCluster) pulumi.Float64Output { return v.BackupRetentionPeriod }).(pulumi.Float64Output)
+func (o ElasticClusterOutput) BackupRetentionPeriod() pulumi.IntOutput {
+	return o.ApplyT(func(v *ElasticCluster) pulumi.IntOutput { return v.BackupRetentionPeriod }).(pulumi.IntOutput)
 }
 
 // The DNS address of the DocDB instance

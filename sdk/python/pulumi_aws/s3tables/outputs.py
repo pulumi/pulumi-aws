@@ -118,12 +118,12 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings(
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 non_current_days: float,
-                 unreferenced_days: float):
+                 non_current_days: int,
+                 unreferenced_days: int):
         """
-        :param float non_current_days: Data objects marked for deletion are deleted after this many days.
+        :param int non_current_days: Data objects marked for deletion are deleted after this many days.
                Must be at least `1`.
-        :param float unreferenced_days: Unreferenced data objects are marked for deletion after this many days.
+        :param int unreferenced_days: Unreferenced data objects are marked for deletion after this many days.
                Must be at least `1`.
         """
         pulumi.set(__self__, "non_current_days", non_current_days)
@@ -131,7 +131,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings(
 
     @property
     @pulumi.getter(name="nonCurrentDays")
-    def non_current_days(self) -> float:
+    def non_current_days(self) -> int:
         """
         Data objects marked for deletion are deleted after this many days.
         Must be at least `1`.
@@ -140,7 +140,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings(
 
     @property
     @pulumi.getter(name="unreferencedDays")
-    def unreferenced_days(self) -> float:
+    def unreferenced_days(self) -> int:
         """
         Unreferenced data objects are marked for deletion after this many days.
         Must be at least `1`.
@@ -253,16 +253,16 @@ class TableMaintenanceConfigurationIcebergCompactionSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 target_file_size_mb: float):
+                 target_file_size_mb: int):
         """
-        :param float target_file_size_mb: Data objects smaller than this size may be combined with others to improve query performance.
+        :param int target_file_size_mb: Data objects smaller than this size may be combined with others to improve query performance.
                Must be between `64` and `512`.
         """
         pulumi.set(__self__, "target_file_size_mb", target_file_size_mb)
 
     @property
     @pulumi.getter(name="targetFileSizeMb")
-    def target_file_size_mb(self) -> float:
+    def target_file_size_mb(self) -> int:
         """
         Data objects smaller than this size may be combined with others to improve query performance.
         Must be between `64` and `512`.
@@ -325,12 +325,12 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 max_snapshot_age_hours: float,
-                 min_snapshots_to_keep: float):
+                 max_snapshot_age_hours: int,
+                 min_snapshots_to_keep: int):
         """
-        :param float max_snapshot_age_hours: Snapshots older than this will be marked for deletiion.
+        :param int max_snapshot_age_hours: Snapshots older than this will be marked for deletiion.
                Must be at least `1`.
-        :param float min_snapshots_to_keep: Minimum number of snapshots to keep.
+        :param int min_snapshots_to_keep: Minimum number of snapshots to keep.
                Must be at least `1`.
         """
         pulumi.set(__self__, "max_snapshot_age_hours", max_snapshot_age_hours)
@@ -338,7 +338,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettings(dict):
 
     @property
     @pulumi.getter(name="maxSnapshotAgeHours")
-    def max_snapshot_age_hours(self) -> float:
+    def max_snapshot_age_hours(self) -> int:
         """
         Snapshots older than this will be marked for deletiion.
         Must be at least `1`.
@@ -347,7 +347,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettings(dict):
 
     @property
     @pulumi.getter(name="minSnapshotsToKeep")
-    def min_snapshots_to_keep(self) -> float:
+    def min_snapshots_to_keep(self) -> int:
         """
         Minimum number of snapshots to keep.
         Must be at least `1`.

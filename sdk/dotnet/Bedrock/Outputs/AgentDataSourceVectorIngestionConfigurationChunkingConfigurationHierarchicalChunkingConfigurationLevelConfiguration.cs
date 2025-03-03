@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// The maximum number of tokens that a chunk can contain in this layer.
         /// </summary>
-        public readonly double MaxTokens;
+        public readonly int MaxTokens;
 
         [OutputConstructor]
-        private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration(double maxTokens)
+        private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration(int maxTokens)
         {
             MaxTokens = maxTokens;
         }

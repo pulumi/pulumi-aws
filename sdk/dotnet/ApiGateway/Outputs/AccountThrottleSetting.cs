@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ApiGateway.Outputs
         /// <summary>
         /// Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
         /// </summary>
-        public readonly double BurstLimit;
+        public readonly int BurstLimit;
         /// <summary>
         /// Number of times API Gateway allows the API to be called per second on average (RPS).
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ApiGateway.Outputs
 
         [OutputConstructor]
         private AccountThrottleSetting(
-            double burstLimit,
+            int burstLimit,
 
             double rateLimit)
         {

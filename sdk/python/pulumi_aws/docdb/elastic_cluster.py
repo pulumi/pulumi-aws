@@ -26,7 +26,7 @@ class ElasticClusterArgs:
                  auth_type: pulumi.Input[str],
                  shard_capacity: pulumi.Input[int],
                  shard_count: pulumi.Input[int],
-                 backup_retention_period: Optional[pulumi.Input[float]] = None,
+                 backup_retention_period: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
@@ -44,7 +44,7 @@ class ElasticClusterArgs:
         :param pulumi.Input[int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
                The following arguments are optional:
-        :param pulumi.Input[float] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+        :param pulumi.Input[int] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         :param pulumi.Input[str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         :param pulumi.Input[str] name: Name of the Elastic DocumentDB cluster
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
@@ -141,14 +141,14 @@ class ElasticClusterArgs:
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> Optional[pulumi.Input[float]]:
+    def backup_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
-    def backup_retention_period(self, value: Optional[pulumi.Input[float]]):
+    def backup_retention_period(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_period", value)
 
     @property
@@ -252,7 +252,7 @@ class _ElasticClusterState:
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
-                 backup_retention_period: Optional[pulumi.Input[float]] = None,
+                 backup_retention_period: Optional[pulumi.Input[int]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -271,7 +271,7 @@ class _ElasticClusterState:
         :param pulumi.Input[str] admin_user_password: Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         :param pulumi.Input[str] arn: ARN of the DocumentDB Elastic Cluster
         :param pulumi.Input[str] auth_type: Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-        :param pulumi.Input[float] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+        :param pulumi.Input[int] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         :param pulumi.Input[str] endpoint: The DNS address of the DocDB instance
         :param pulumi.Input[str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         :param pulumi.Input[str] name: Name of the Elastic DocumentDB cluster
@@ -373,14 +373,14 @@ class _ElasticClusterState:
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> Optional[pulumi.Input[float]]:
+    def backup_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         """
         return pulumi.get(self, "backup_retention_period")
 
     @backup_retention_period.setter
-    def backup_retention_period(self, value: Optional[pulumi.Input[float]]):
+    def backup_retention_period(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_period", value)
 
     @property
@@ -533,7 +533,7 @@ class ElasticCluster(pulumi.CustomResource):
                  admin_user_name: Optional[pulumi.Input[str]] = None,
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
-                 backup_retention_period: Optional[pulumi.Input[float]] = None,
+                 backup_retention_period: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
@@ -578,7 +578,7 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[str] admin_user_name: Name of the Elastic DocumentDB cluster administrator
         :param pulumi.Input[str] admin_user_password: Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         :param pulumi.Input[str] auth_type: Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-        :param pulumi.Input[float] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+        :param pulumi.Input[int] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         :param pulumi.Input[str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         :param pulumi.Input[str] name: Name of the Elastic DocumentDB cluster
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
@@ -643,7 +643,7 @@ class ElasticCluster(pulumi.CustomResource):
                  admin_user_name: Optional[pulumi.Input[str]] = None,
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
-                 backup_retention_period: Optional[pulumi.Input[float]] = None,
+                 backup_retention_period: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
@@ -706,7 +706,7 @@ class ElasticCluster(pulumi.CustomResource):
             admin_user_password: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             auth_type: Optional[pulumi.Input[str]] = None,
-            backup_retention_period: Optional[pulumi.Input[float]] = None,
+            backup_retention_period: Optional[pulumi.Input[int]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -730,7 +730,7 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[str] admin_user_password: Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         :param pulumi.Input[str] arn: ARN of the DocumentDB Elastic Cluster
         :param pulumi.Input[str] auth_type: Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-        :param pulumi.Input[float] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+        :param pulumi.Input[int] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         :param pulumi.Input[str] endpoint: The DNS address of the DocDB instance
         :param pulumi.Input[str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         :param pulumi.Input[str] name: Name of the Elastic DocumentDB cluster
@@ -801,7 +801,7 @@ class ElasticCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> pulumi.Output[float]:
+    def backup_retention_period(self) -> pulumi.Output[int]:
         """
         The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         """

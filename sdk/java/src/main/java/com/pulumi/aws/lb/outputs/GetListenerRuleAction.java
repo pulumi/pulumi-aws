@@ -10,7 +10,7 @@ import com.pulumi.aws.lb.outputs.GetListenerRuleActionForward;
 import com.pulumi.aws.lb.outputs.GetListenerRuleActionRedirect;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,7 +46,7 @@ public final class GetListenerRuleAction {
      * @return The evaluation order of the action.
      * 
      */
-    private Double order;
+    private Integer order;
     /**
      * @return An action to redirect the request.
      * Detailed below.
@@ -96,7 +96,7 @@ public final class GetListenerRuleAction {
      * @return The evaluation order of the action.
      * 
      */
-    public Double order() {
+    public Integer order() {
         return this.order;
     }
     /**
@@ -128,7 +128,7 @@ public final class GetListenerRuleAction {
         private @Nullable GetListenerRuleActionAuthenticateOidc authenticateOidc;
         private @Nullable GetListenerRuleActionFixedResponse fixedResponse;
         private @Nullable GetListenerRuleActionForward forward;
-        private Double order;
+        private Integer order;
         private @Nullable GetListenerRuleActionRedirect redirect;
         private String type;
         public Builder() {}
@@ -168,7 +168,7 @@ public final class GetListenerRuleAction {
             return this;
         }
         @CustomType.Setter
-        public Builder order(Double order) {
+        public Builder order(Integer order) {
             if (order == null) {
               throw new MissingRequiredPropertyException("GetListenerRuleAction", "order");
             }

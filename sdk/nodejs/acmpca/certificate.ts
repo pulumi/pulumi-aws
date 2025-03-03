@@ -34,12 +34,12 @@ import * as utilities from "../utilities";
  *     },
  *     permanentDeletionTimeInDays: 7,
  * });
- * const key = new tls.PrivateKey("key", {algorithm: "RSA"});
- * const csr = new tls.CertRequest("csr", {
+ * const key = new tls.index.PrivateKey("key", {algorithm: "RSA"});
+ * const csr = new tls.index.CertRequest("csr", {
  *     privateKeyPem: key.privateKeyPem,
- *     subject: {
+ *     subject: [{
  *         commonName: "example",
- *     },
+ *     }],
  * });
  * const example = new aws.acmpca.Certificate("example", {
  *     certificateAuthorityArn: exampleCertificateAuthority.arn,

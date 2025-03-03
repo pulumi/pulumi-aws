@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -61,15 +62,15 @@ public class ReservedCacheNode extends com.pulumi.resources.CustomResource {
      * Default value is `1`.
      * 
      */
-    @Export(name="cacheNodeCount", refs={Double.class}, tree="[0]")
-    private Output<Double> cacheNodeCount;
+    @Export(name="cacheNodeCount", refs={Integer.class}, tree="[0]")
+    private Output<Integer> cacheNodeCount;
 
     /**
      * @return Number of cache node instances to reserve.
      * Default value is `1`.
      * 
      */
-    public Output<Double> cacheNodeCount() {
+    public Output<Integer> cacheNodeCount() {
         return this.cacheNodeCount;
     }
     /**

@@ -5,7 +5,7 @@ package com.pulumi.aws.s3tables.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 @CustomType
@@ -15,7 +15,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettings {
      * Must be between `64` and `512`.
      * 
      */
-    private Double targetFileSizeMb;
+    private Integer targetFileSizeMb;
 
     private TableMaintenanceConfigurationIcebergCompactionSettings() {}
     /**
@@ -23,7 +23,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettings {
      * Must be between `64` and `512`.
      * 
      */
-    public Double targetFileSizeMb() {
+    public Integer targetFileSizeMb() {
         return this.targetFileSizeMb;
     }
 
@@ -36,7 +36,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettings {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Double targetFileSizeMb;
+        private Integer targetFileSizeMb;
         public Builder() {}
         public Builder(TableMaintenanceConfigurationIcebergCompactionSettings defaults) {
     	      Objects.requireNonNull(defaults);
@@ -44,7 +44,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettings {
         }
 
         @CustomType.Setter
-        public Builder targetFileSizeMb(Double targetFileSizeMb) {
+        public Builder targetFileSizeMb(Integer targetFileSizeMb) {
             if (targetFileSizeMb == null) {
               throw new MissingRequiredPropertyException("TableMaintenanceConfigurationIcebergCompactionSettings", "targetFileSizeMb");
             }

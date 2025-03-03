@@ -6053,9 +6053,9 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits struct {
 	// Max number of web pages crawled from your source URLs, up to 25,000 pages.
-	MaxPages *float64 `pulumi:"maxPages"`
+	MaxPages *int `pulumi:"maxPages"`
 	// Max rate at which pages are crawled, up to 300 per minute per host.
-	RateLimit *float64 `pulumi:"rateLimit"`
+	RateLimit *int `pulumi:"rateLimit"`
 }
 
 // AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs and AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput values.
@@ -6071,9 +6071,9 @@ type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationC
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs struct {
 	// Max number of web pages crawled from your source URLs, up to 25,000 pages.
-	MaxPages pulumi.Float64PtrInput `pulumi:"maxPages"`
+	MaxPages pulumi.IntPtrInput `pulumi:"maxPages"`
 	// Max rate at which pages are crawled, up to 300 per minute per host.
-	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
+	RateLimit pulumi.IntPtrInput `pulumi:"rateLimit"`
 }
 
 func (AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs) ElementType() reflect.Type {
@@ -6154,17 +6154,17 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 }
 
 // Max number of web pages crawled from your source URLs, up to 25,000 pages.
-func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) MaxPages() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *float64 {
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) MaxPages() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *int {
 		return v.MaxPages
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Max rate at which pages are crawled, up to 300 per minute per host.
-func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) RateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *float64 {
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsOutput) RateLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *int {
 		return v.RateLimit
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput struct{ *pulumi.OutputState }
@@ -6192,23 +6192,23 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 }
 
 // Max number of web pages crawled from your source URLs, up to 25,000 pages.
-func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput) MaxPages() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *float64 {
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput) MaxPages() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *int {
 		if v == nil {
 			return nil
 		}
 		return v.MaxPages
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Max rate at which pages are crawled, up to 300 per minute per host.
-func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *float64 {
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsPtrOutput) RateLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits) *int {
 		if v == nil {
 			return nil
 		}
 		return v.RateLimit
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration struct {
@@ -7428,7 +7428,7 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchica
 	// Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
 	LevelConfigurations []AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration `pulumi:"levelConfigurations"`
 	// The number of tokens to repeat across chunks in the same layer.
-	OverlapTokens float64 `pulumi:"overlapTokens"`
+	OverlapTokens int `pulumi:"overlapTokens"`
 }
 
 // AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs and AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput values.
@@ -7446,7 +7446,7 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchica
 	// Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
 	LevelConfigurations AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayInput `pulumi:"levelConfigurations"`
 	// The number of tokens to repeat across chunks in the same layer.
-	OverlapTokens pulumi.Float64Input `pulumi:"overlapTokens"`
+	OverlapTokens pulumi.IntInput `pulumi:"overlapTokens"`
 }
 
 func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs) ElementType() reflect.Type {
@@ -7534,10 +7534,10 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarch
 }
 
 // The number of tokens to repeat across chunks in the same layer.
-func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput) OverlapTokens() pulumi.Float64Output {
-	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) float64 {
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput) OverlapTokens() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) int {
 		return v.OverlapTokens
-	}).(pulumi.Float64Output)
+	}).(pulumi.IntOutput)
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -7575,18 +7575,18 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarch
 }
 
 // The number of tokens to repeat across chunks in the same layer.
-func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput) OverlapTokens() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) *float64 {
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput) OverlapTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.OverlapTokens
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration struct {
 	// The maximum number of tokens that a chunk can contain in this layer.
-	MaxTokens float64 `pulumi:"maxTokens"`
+	MaxTokens int `pulumi:"maxTokens"`
 }
 
 // AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs and AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput values.
@@ -7602,7 +7602,7 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchica
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs struct {
 	// The maximum number of tokens that a chunk can contain in this layer.
-	MaxTokens pulumi.Float64Input `pulumi:"maxTokens"`
+	MaxTokens pulumi.IntInput `pulumi:"maxTokens"`
 }
 
 func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs) ElementType() reflect.Type {
@@ -7657,10 +7657,10 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarch
 }
 
 // The maximum number of tokens that a chunk can contain in this layer.
-func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput) MaxTokens() pulumi.Float64Output {
-	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration) float64 {
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput) MaxTokens() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration) int {
 		return v.MaxTokens
-	}).(pulumi.Float64Output)
+	}).(pulumi.IntOutput)
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -7685,11 +7685,11 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarch
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration struct {
 	// The dissimilarity threshold for splitting chunks.
-	BreakpointPercentileThreshold float64 `pulumi:"breakpointPercentileThreshold"`
+	BreakpointPercentileThreshold int `pulumi:"breakpointPercentileThreshold"`
 	// The buffer size.
-	BufferSize float64 `pulumi:"bufferSize"`
+	BufferSize int `pulumi:"bufferSize"`
 	// The maximum number of tokens a chunk can contain.
-	MaxToken float64 `pulumi:"maxToken"`
+	MaxToken int `pulumi:"maxToken"`
 }
 
 // AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs and AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput values.
@@ -7705,11 +7705,11 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChu
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs struct {
 	// The dissimilarity threshold for splitting chunks.
-	BreakpointPercentileThreshold pulumi.Float64Input `pulumi:"breakpointPercentileThreshold"`
+	BreakpointPercentileThreshold pulumi.IntInput `pulumi:"breakpointPercentileThreshold"`
 	// The buffer size.
-	BufferSize pulumi.Float64Input `pulumi:"bufferSize"`
+	BufferSize pulumi.IntInput `pulumi:"bufferSize"`
 	// The maximum number of tokens a chunk can contain.
-	MaxToken pulumi.Float64Input `pulumi:"maxToken"`
+	MaxToken pulumi.IntInput `pulumi:"maxToken"`
 }
 
 func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs) ElementType() reflect.Type {
@@ -7790,24 +7790,24 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemantic
 }
 
 // The dissimilarity threshold for splitting chunks.
-func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) BreakpointPercentileThreshold() pulumi.Float64Output {
-	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) float64 {
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) BreakpointPercentileThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) int {
 		return v.BreakpointPercentileThreshold
-	}).(pulumi.Float64Output)
+	}).(pulumi.IntOutput)
 }
 
 // The buffer size.
-func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) BufferSize() pulumi.Float64Output {
-	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) float64 {
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) BufferSize() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) int {
 		return v.BufferSize
-	}).(pulumi.Float64Output)
+	}).(pulumi.IntOutput)
 }
 
 // The maximum number of tokens a chunk can contain.
-func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) MaxToken() pulumi.Float64Output {
-	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) float64 {
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) MaxToken() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) int {
 		return v.MaxToken
-	}).(pulumi.Float64Output)
+	}).(pulumi.IntOutput)
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -7835,33 +7835,33 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemantic
 }
 
 // The dissimilarity threshold for splitting chunks.
-func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) BreakpointPercentileThreshold() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *float64 {
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) BreakpointPercentileThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.BreakpointPercentileThreshold
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // The buffer size.
-func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) BufferSize() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *float64 {
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) BufferSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.BufferSize
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // The maximum number of tokens a chunk can contain.
-func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) MaxToken() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *float64 {
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) MaxToken() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.MaxToken
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration struct {

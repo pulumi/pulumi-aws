@@ -44,8 +44,8 @@ class GetListenerRuleResult:
         if listener_arn and not isinstance(listener_arn, str):
             raise TypeError("Expected argument 'listener_arn' to be a str")
         pulumi.set(__self__, "listener_arn", listener_arn)
-        if priority and not isinstance(priority, float):
-            raise TypeError("Expected argument 'priority' to be a float")
+        if priority and not isinstance(priority, int):
+            raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -92,7 +92,7 @@ class GetListenerRuleResult:
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> int:
         return pulumi.get(self, "priority")
 
     @property
@@ -123,7 +123,7 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
                       arn: Optional[str] = None,
                       conditions: Optional[Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']]] = None,
                       listener_arn: Optional[str] = None,
-                      priority: Optional[float] = None,
+                      priority: Optional[int] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerRuleResult:
     """
     Provides information about an AWS Elastic Load Balancing Listener Rule.
@@ -163,7 +163,7 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
            Detailed below.
     :param str listener_arn: ARN of the associated Listener.
            Either `arn` or `listener_arn` must be set.
-    :param float priority: Priority of the Listener Rule within the Listener.
+    :param int priority: Priority of the Listener Rule within the Listener.
            Must be set if `listener_arn` is set, otherwise must not be set.
     """
     __args__ = dict()
@@ -187,7 +187,7 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
                              arn: Optional[pulumi.Input[Optional[str]]] = None,
                              conditions: Optional[pulumi.Input[Optional[Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']]]]] = None,
                              listener_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                             priority: Optional[pulumi.Input[Optional[float]]] = None,
+                             priority: Optional[pulumi.Input[Optional[int]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerRuleResult]:
     """
     Provides information about an AWS Elastic Load Balancing Listener Rule.
@@ -227,7 +227,7 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
            Detailed below.
     :param str listener_arn: ARN of the associated Listener.
            Either `arn` or `listener_arn` must be set.
-    :param float priority: Priority of the Listener Rule within the Listener.
+    :param int priority: Priority of the Listener Rule within the Listener.
            Must be set if `listener_arn` is set, otherwise must not be set.
     """
     __args__ = dict()

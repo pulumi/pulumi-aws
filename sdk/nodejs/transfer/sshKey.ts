@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  * import * as tls from "@pulumi/tls";
  *
- * const examplePrivateKey = new tls.PrivateKey("example", {
+ * const examplePrivateKey = new tls.index.PrivateKey("example", {
  *     algorithm: "RSA",
  *     rsaBits: 4096,
  * });
@@ -50,9 +50,9 @@ import * as utilities from "../utilities";
  * const exampleSshKey = new aws.transfer.SshKey("example", {
  *     serverId: exampleServer.id,
  *     userName: exampleUser.userName,
- *     body: std.trimspaceOutput({
+ *     body: std.trimspace({
  *         input: examplePrivateKey.publicKeyOpenssh,
- *     }).apply(invoke => invoke.result),
+ *     }).then(invoke => invoke.result),
  * });
  * const example = aws.iam.getPolicyDocument({
  *     statements: [{

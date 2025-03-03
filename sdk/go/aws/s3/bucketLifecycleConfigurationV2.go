@@ -333,7 +333,7 @@ import (
 //						Status: pulumi.String("Enabled"),
 //						Transitions: s3.BucketLifecycleConfigurationV2RuleTransitionArray{
 //							&s3.BucketLifecycleConfigurationV2RuleTransitionArgs{
-//								Days:         pulumi.Float64(365),
+//								Days:         pulumi.Int(365),
 //								StorageClass: pulumi.String("GLACIER_IR"),
 //							},
 //						},
@@ -423,7 +423,7 @@ import (
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id: pulumi.String("log"),
 //						Expiration: &s3.BucketLifecycleConfigurationV2RuleExpirationArgs{
-//							Days: pulumi.Float64(90),
+//							Days: pulumi.Int(90),
 //						},
 //						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
 //							And: &s3.BucketLifecycleConfigurationV2RuleFilterAndArgs{
@@ -437,11 +437,11 @@ import (
 //						Status: pulumi.String("Enabled"),
 //						Transitions: s3.BucketLifecycleConfigurationV2RuleTransitionArray{
 //							&s3.BucketLifecycleConfigurationV2RuleTransitionArgs{
-//								Days:         pulumi.Float64(30),
+//								Days:         pulumi.Int(30),
 //								StorageClass: pulumi.String("STANDARD_IA"),
 //							},
 //							&s3.BucketLifecycleConfigurationV2RuleTransitionArgs{
-//								Days:         pulumi.Float64(60),
+//								Days:         pulumi.Int(60),
 //								StorageClass: pulumi.String("GLACIER"),
 //							},
 //						},
@@ -492,15 +492,15 @@ import (
 //							Prefix: pulumi.String("config/"),
 //						},
 //						NoncurrentVersionExpiration: &s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs{
-//							NoncurrentDays: pulumi.Float64(90),
+//							NoncurrentDays: pulumi.Int(90),
 //						},
 //						NoncurrentVersionTransitions: s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray{
 //							&s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{
-//								NoncurrentDays: pulumi.Float64(30),
+//								NoncurrentDays: pulumi.Int(30),
 //								StorageClass:   pulumi.String("STANDARD_IA"),
 //							},
 //							&s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{
-//								NoncurrentDays: pulumi.Float64(60),
+//								NoncurrentDays: pulumi.Int(60),
 //								StorageClass:   pulumi.String("GLACIER"),
 //							},
 //						},

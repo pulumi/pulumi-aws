@@ -6,7 +6,7 @@ package com.pulumi.aws.lb.inputs;
 import com.pulumi.aws.lb.inputs.GetListenerRuleAction;
 import com.pulumi.aws.lb.inputs.GetListenerRuleCondition;
 import com.pulumi.core.annotations.Import;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -92,14 +92,14 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
      * 
      */
     @Import(name="priority")
-    private @Nullable Double priority;
+    private @Nullable Integer priority;
 
     /**
      * @return Priority of the Listener Rule within the Listener.
      * Must be set if `listener_arn` is set, otherwise must not be set.
      * 
      */
-    public Optional<Double> priority() {
+    public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }
 
@@ -208,7 +208,7 @@ public final class GetListenerRulePlainArgs extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          */
-        public Builder priority(@Nullable Double priority) {
+        public Builder priority(@Nullable Integer priority) {
             $.priority = priority;
             return this;
         }

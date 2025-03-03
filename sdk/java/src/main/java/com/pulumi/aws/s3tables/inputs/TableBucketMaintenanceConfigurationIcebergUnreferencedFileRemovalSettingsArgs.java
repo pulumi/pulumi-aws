@@ -6,7 +6,7 @@ package com.pulumi.aws.s3tables.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 
@@ -20,14 +20,14 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
      * 
      */
     @Import(name="nonCurrentDays", required=true)
-    private Output<Double> nonCurrentDays;
+    private Output<Integer> nonCurrentDays;
 
     /**
      * @return Data objects marked for deletion are deleted after this many days.
      * Must be at least `1`.
      * 
      */
-    public Output<Double> nonCurrentDays() {
+    public Output<Integer> nonCurrentDays() {
         return this.nonCurrentDays;
     }
 
@@ -37,14 +37,14 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
      * 
      */
     @Import(name="unreferencedDays", required=true)
-    private Output<Double> unreferencedDays;
+    private Output<Integer> unreferencedDays;
 
     /**
      * @return Unreferenced data objects are marked for deletion after this many days.
      * Must be at least `1`.
      * 
      */
-    public Output<Double> unreferencedDays() {
+    public Output<Integer> unreferencedDays() {
         return this.unreferencedDays;
     }
 
@@ -80,7 +80,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
          * @return builder
          * 
          */
-        public Builder nonCurrentDays(Output<Double> nonCurrentDays) {
+        public Builder nonCurrentDays(Output<Integer> nonCurrentDays) {
             $.nonCurrentDays = nonCurrentDays;
             return this;
         }
@@ -92,7 +92,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
          * @return builder
          * 
          */
-        public Builder nonCurrentDays(Double nonCurrentDays) {
+        public Builder nonCurrentDays(Integer nonCurrentDays) {
             return nonCurrentDays(Output.of(nonCurrentDays));
         }
 
@@ -103,7 +103,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
          * @return builder
          * 
          */
-        public Builder unreferencedDays(Output<Double> unreferencedDays) {
+        public Builder unreferencedDays(Output<Integer> unreferencedDays) {
             $.unreferencedDays = unreferencedDays;
             return this;
         }
@@ -115,7 +115,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
          * @return builder
          * 
          */
-        public Builder unreferencedDays(Double unreferencedDays) {
+        public Builder unreferencedDays(Integer unreferencedDays) {
             return unreferencedDays(Output.of(unreferencedDays));
         }
 

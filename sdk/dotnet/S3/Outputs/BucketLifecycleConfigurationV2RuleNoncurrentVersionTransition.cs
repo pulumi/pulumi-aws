@@ -16,11 +16,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         /// </summary>
-        public readonly double? NewerNoncurrentVersions;
+        public readonly int? NewerNoncurrentVersions;
         /// <summary>
         /// Number of days an object is noncurrent before Amazon S3 can perform the associated action.
         /// </summary>
-        public readonly double? NoncurrentDays;
+        public readonly int? NoncurrentDays;
         /// <summary>
         /// Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
         /// </summary>
@@ -28,9 +28,9 @@ namespace Pulumi.Aws.S3.Outputs
 
         [OutputConstructor]
         private BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(
-            double? newerNoncurrentVersions,
+            int? newerNoncurrentVersions,
 
-            double? noncurrentDays,
+            int? noncurrentDays,
 
             string storageClass)
         {
