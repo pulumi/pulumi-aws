@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Glue.Outputs
         /// <summary>
         /// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
         /// </summary>
-        public readonly double? OrphanFileRetentionPeriodInDays;
+        public readonly int? OrphanFileRetentionPeriodInDays;
 
         [OutputConstructor]
         private CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration(
             string? location,
 
-            double? orphanFileRetentionPeriodInDays)
+            int? orphanFileRetentionPeriodInDays)
         {
             Location = location;
             OrphanFileRetentionPeriodInDays = orphanFileRetentionPeriodInDays;

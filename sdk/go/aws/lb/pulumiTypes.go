@@ -7208,7 +7208,7 @@ type GetListenerRuleAction struct {
 	// Detailed below.
 	Forward *GetListenerRuleActionForward `pulumi:"forward"`
 	// The evaluation order of the action.
-	Order float64 `pulumi:"order"`
+	Order int `pulumi:"order"`
 	// An action to redirect the request.
 	// Detailed below.
 	Redirect *GetListenerRuleActionRedirect `pulumi:"redirect"`
@@ -7241,7 +7241,7 @@ type GetListenerRuleActionArgs struct {
 	// Detailed below.
 	Forward GetListenerRuleActionForwardPtrInput `pulumi:"forward"`
 	// The evaluation order of the action.
-	Order pulumi.Float64Input `pulumi:"order"`
+	Order pulumi.IntInput `pulumi:"order"`
 	// An action to redirect the request.
 	// Detailed below.
 	Redirect GetListenerRuleActionRedirectPtrInput `pulumi:"redirect"`
@@ -7325,8 +7325,8 @@ func (o GetListenerRuleActionOutput) Forward() GetListenerRuleActionForwardPtrOu
 }
 
 // The evaluation order of the action.
-func (o GetListenerRuleActionOutput) Order() pulumi.Float64Output {
-	return o.ApplyT(func(v GetListenerRuleAction) float64 { return v.Order }).(pulumi.Float64Output)
+func (o GetListenerRuleActionOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerRuleAction) int { return v.Order }).(pulumi.IntOutput)
 }
 
 // An action to redirect the request.
@@ -8291,7 +8291,7 @@ func (o GetListenerRuleActionForwardPtrOutput) TargetGroups() GetListenerRuleAct
 
 type GetListenerRuleActionForwardStickiness struct {
 	// The time period, in seconds, during which requests from a client should be routed to the same target group.
-	Duration float64 `pulumi:"duration"`
+	Duration int `pulumi:"duration"`
 	// Indicates whether target group stickiness is enabled.
 	Enabled bool `pulumi:"enabled"`
 }
@@ -8309,7 +8309,7 @@ type GetListenerRuleActionForwardStickinessInput interface {
 
 type GetListenerRuleActionForwardStickinessArgs struct {
 	// The time period, in seconds, during which requests from a client should be routed to the same target group.
-	Duration pulumi.Float64Input `pulumi:"duration"`
+	Duration pulumi.IntInput `pulumi:"duration"`
 	// Indicates whether target group stickiness is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
@@ -8392,8 +8392,8 @@ func (o GetListenerRuleActionForwardStickinessOutput) ToGetListenerRuleActionFor
 }
 
 // The time period, in seconds, during which requests from a client should be routed to the same target group.
-func (o GetListenerRuleActionForwardStickinessOutput) Duration() pulumi.Float64Output {
-	return o.ApplyT(func(v GetListenerRuleActionForwardStickiness) float64 { return v.Duration }).(pulumi.Float64Output)
+func (o GetListenerRuleActionForwardStickinessOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerRuleActionForwardStickiness) int { return v.Duration }).(pulumi.IntOutput)
 }
 
 // Indicates whether target group stickiness is enabled.
@@ -8426,13 +8426,13 @@ func (o GetListenerRuleActionForwardStickinessPtrOutput) Elem() GetListenerRuleA
 }
 
 // The time period, in seconds, during which requests from a client should be routed to the same target group.
-func (o GetListenerRuleActionForwardStickinessPtrOutput) Duration() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *GetListenerRuleActionForwardStickiness) *float64 {
+func (o GetListenerRuleActionForwardStickinessPtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionForwardStickiness) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.Duration
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether target group stickiness is enabled.
@@ -8450,7 +8450,7 @@ type GetListenerRuleActionForwardTargetGroup struct {
 	// Either `arn` or `listenerArn` must be set.
 	Arn string `pulumi:"arn"`
 	// Weight of the target group.
-	Weight float64 `pulumi:"weight"`
+	Weight int `pulumi:"weight"`
 }
 
 // GetListenerRuleActionForwardTargetGroupInput is an input type that accepts GetListenerRuleActionForwardTargetGroupArgs and GetListenerRuleActionForwardTargetGroupOutput values.
@@ -8469,7 +8469,7 @@ type GetListenerRuleActionForwardTargetGroupArgs struct {
 	// Either `arn` or `listenerArn` must be set.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Weight of the target group.
-	Weight pulumi.Float64Input `pulumi:"weight"`
+	Weight pulumi.IntInput `pulumi:"weight"`
 }
 
 func (GetListenerRuleActionForwardTargetGroupArgs) ElementType() reflect.Type {
@@ -8530,8 +8530,8 @@ func (o GetListenerRuleActionForwardTargetGroupOutput) Arn() pulumi.StringOutput
 }
 
 // Weight of the target group.
-func (o GetListenerRuleActionForwardTargetGroupOutput) Weight() pulumi.Float64Output {
-	return o.ApplyT(func(v GetListenerRuleActionForwardTargetGroup) float64 { return v.Weight }).(pulumi.Float64Output)
+func (o GetListenerRuleActionForwardTargetGroupOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerRuleActionForwardTargetGroup) int { return v.Weight }).(pulumi.IntOutput)
 }
 
 type GetListenerRuleActionForwardTargetGroupArrayOutput struct{ *pulumi.OutputState }

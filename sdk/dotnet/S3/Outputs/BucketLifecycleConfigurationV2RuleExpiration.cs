@@ -20,7 +20,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
         /// </summary>
-        public readonly double? Days;
+        public readonly int? Days;
         /// <summary>
         /// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.S3.Outputs
         private BucketLifecycleConfigurationV2RuleExpiration(
             string? date,
 
-            double? days,
+            int? days,
 
             bool? expiredObjectDeleteMarker)
         {

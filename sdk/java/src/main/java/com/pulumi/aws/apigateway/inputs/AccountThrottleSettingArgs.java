@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 
@@ -19,13 +20,13 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
      * 
      */
     @Import(name="burstLimit", required=true)
-    private Output<Double> burstLimit;
+    private Output<Integer> burstLimit;
 
     /**
      * @return Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
      * 
      */
-    public Output<Double> burstLimit() {
+    public Output<Integer> burstLimit() {
         return this.burstLimit;
     }
 
@@ -75,7 +76,7 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder burstLimit(Output<Double> burstLimit) {
+        public Builder burstLimit(Output<Integer> burstLimit) {
             $.burstLimit = burstLimit;
             return this;
         }
@@ -86,7 +87,7 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder burstLimit(Double burstLimit) {
+        public Builder burstLimit(Integer burstLimit) {
             return burstLimit(Output.of(burstLimit));
         }
 

@@ -49,7 +49,7 @@ MYPY = False
 
 if not MYPY:
     class AccountThrottleSettingArgsDict(TypedDict):
-        burst_limit: pulumi.Input[float]
+        burst_limit: pulumi.Input[int]
         """
         Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
         """
@@ -63,10 +63,10 @@ elif False:
 @pulumi.input_type
 class AccountThrottleSettingArgs:
     def __init__(__self__, *,
-                 burst_limit: pulumi.Input[float],
+                 burst_limit: pulumi.Input[int],
                  rate_limit: pulumi.Input[float]):
         """
-        :param pulumi.Input[float] burst_limit: Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+        :param pulumi.Input[int] burst_limit: Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
         :param pulumi.Input[float] rate_limit: Number of times API Gateway allows the API to be called per second on average (RPS).
         """
         pulumi.set(__self__, "burst_limit", burst_limit)
@@ -74,14 +74,14 @@ class AccountThrottleSettingArgs:
 
     @property
     @pulumi.getter(name="burstLimit")
-    def burst_limit(self) -> pulumi.Input[float]:
+    def burst_limit(self) -> pulumi.Input[int]:
         """
         Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
         """
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
-    def burst_limit(self, value: pulumi.Input[float]):
+    def burst_limit(self, value: pulumi.Input[int]):
         pulumi.set(self, "burst_limit", value)
 
     @property

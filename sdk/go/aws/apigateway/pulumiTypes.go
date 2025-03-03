@@ -15,7 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 type AccountThrottleSetting struct {
 	// Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-	BurstLimit float64 `pulumi:"burstLimit"`
+	BurstLimit int `pulumi:"burstLimit"`
 	// Number of times API Gateway allows the API to be called per second on average (RPS).
 	RateLimit float64 `pulumi:"rateLimit"`
 }
@@ -33,7 +33,7 @@ type AccountThrottleSettingInput interface {
 
 type AccountThrottleSettingArgs struct {
 	// Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-	BurstLimit pulumi.Float64Input `pulumi:"burstLimit"`
+	BurstLimit pulumi.IntInput `pulumi:"burstLimit"`
 	// Number of times API Gateway allows the API to be called per second on average (RPS).
 	RateLimit pulumi.Float64Input `pulumi:"rateLimit"`
 }
@@ -90,8 +90,8 @@ func (o AccountThrottleSettingOutput) ToAccountThrottleSettingOutputWithContext(
 }
 
 // Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-func (o AccountThrottleSettingOutput) BurstLimit() pulumi.Float64Output {
-	return o.ApplyT(func(v AccountThrottleSetting) float64 { return v.BurstLimit }).(pulumi.Float64Output)
+func (o AccountThrottleSettingOutput) BurstLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v AccountThrottleSetting) int { return v.BurstLimit }).(pulumi.IntOutput)
 }
 
 // Number of times API Gateway allows the API to be called per second on average (RPS).

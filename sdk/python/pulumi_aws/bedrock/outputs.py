@@ -2160,11 +2160,11 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 max_pages: Optional[float] = None,
-                 rate_limit: Optional[float] = None):
+                 max_pages: Optional[int] = None,
+                 rate_limit: Optional[int] = None):
         """
-        :param float max_pages: Max number of web pages crawled from your source URLs, up to 25,000 pages.
-        :param float rate_limit: Max rate at which pages are crawled, up to 300 per minute per host.
+        :param int max_pages: Max number of web pages crawled from your source URLs, up to 25,000 pages.
+        :param int rate_limit: Max rate at which pages are crawled, up to 300 per minute per host.
         """
         if max_pages is not None:
             pulumi.set(__self__, "max_pages", max_pages)
@@ -2173,7 +2173,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
 
     @property
     @pulumi.getter(name="maxPages")
-    def max_pages(self) -> Optional[float]:
+    def max_pages(self) -> Optional[int]:
         """
         Max number of web pages crawled from your source URLs, up to 25,000 pages.
         """
@@ -2181,7 +2181,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
 
     @property
     @pulumi.getter(name="rateLimit")
-    def rate_limit(self) -> Optional[float]:
+    def rate_limit(self) -> Optional[int]:
         """
         Max rate at which pages are crawled, up to 300 per minute per host.
         """
@@ -2558,10 +2558,10 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
 
     def __init__(__self__, *,
                  level_configurations: Sequence['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration'],
-                 overlap_tokens: float):
+                 overlap_tokens: int):
         """
         :param Sequence['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs'] level_configurations: Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
-        :param float overlap_tokens: The number of tokens to repeat across chunks in the same layer.
+        :param int overlap_tokens: The number of tokens to repeat across chunks in the same layer.
         """
         pulumi.set(__self__, "level_configurations", level_configurations)
         pulumi.set(__self__, "overlap_tokens", overlap_tokens)
@@ -2576,7 +2576,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
 
     @property
     @pulumi.getter(name="overlapTokens")
-    def overlap_tokens(self) -> float:
+    def overlap_tokens(self) -> int:
         """
         The number of tokens to repeat across chunks in the same layer.
         """
@@ -2603,15 +2603,15 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 max_tokens: float):
+                 max_tokens: int):
         """
-        :param float max_tokens: The maximum number of tokens that a chunk can contain in this layer.
+        :param int max_tokens: The maximum number of tokens that a chunk can contain in this layer.
         """
         pulumi.set(__self__, "max_tokens", max_tokens)
 
     @property
     @pulumi.getter(name="maxTokens")
-    def max_tokens(self) -> float:
+    def max_tokens(self) -> int:
         """
         The maximum number of tokens that a chunk can contain in this layer.
         """
@@ -2642,13 +2642,13 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 breakpoint_percentile_threshold: float,
-                 buffer_size: float,
-                 max_token: float):
+                 breakpoint_percentile_threshold: int,
+                 buffer_size: int,
+                 max_token: int):
         """
-        :param float breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
-        :param float buffer_size: The buffer size.
-        :param float max_token: The maximum number of tokens a chunk can contain.
+        :param int breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
+        :param int buffer_size: The buffer size.
+        :param int max_token: The maximum number of tokens a chunk can contain.
         """
         pulumi.set(__self__, "breakpoint_percentile_threshold", breakpoint_percentile_threshold)
         pulumi.set(__self__, "buffer_size", buffer_size)
@@ -2656,7 +2656,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
 
     @property
     @pulumi.getter(name="breakpointPercentileThreshold")
-    def breakpoint_percentile_threshold(self) -> float:
+    def breakpoint_percentile_threshold(self) -> int:
         """
         The dissimilarity threshold for splitting chunks.
         """
@@ -2664,7 +2664,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
 
     @property
     @pulumi.getter(name="bufferSize")
-    def buffer_size(self) -> float:
+    def buffer_size(self) -> int:
         """
         The buffer size.
         """
@@ -2672,7 +2672,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
 
     @property
     @pulumi.getter(name="maxToken")
-    def max_token(self) -> float:
+    def max_token(self) -> int:
         """
         The maximum number of tokens a chunk can contain.
         """

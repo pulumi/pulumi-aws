@@ -6,7 +6,7 @@ package com.pulumi.aws.s3tables.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 
@@ -20,14 +20,14 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettingsArgs ex
      * 
      */
     @Import(name="targetFileSizeMb", required=true)
-    private Output<Double> targetFileSizeMb;
+    private Output<Integer> targetFileSizeMb;
 
     /**
      * @return Data objects smaller than this size may be combined with others to improve query performance.
      * Must be between `64` and `512`.
      * 
      */
-    public Output<Double> targetFileSizeMb() {
+    public Output<Integer> targetFileSizeMb() {
         return this.targetFileSizeMb;
     }
 
@@ -62,7 +62,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettingsArgs ex
          * @return builder
          * 
          */
-        public Builder targetFileSizeMb(Output<Double> targetFileSizeMb) {
+        public Builder targetFileSizeMb(Output<Integer> targetFileSizeMb) {
             $.targetFileSizeMb = targetFileSizeMb;
             return this;
         }
@@ -74,7 +74,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettingsArgs ex
          * @return builder
          * 
          */
-        public Builder targetFileSizeMb(Double targetFileSizeMb) {
+        public Builder targetFileSizeMb(Integer targetFileSizeMb) {
             return targetFileSizeMb(Output.of(targetFileSizeMb));
         }
 

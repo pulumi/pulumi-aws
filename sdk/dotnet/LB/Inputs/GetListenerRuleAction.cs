@@ -44,7 +44,7 @@ namespace Pulumi.Aws.LB.Inputs
         /// The evaluation order of the action.
         /// </summary>
         [Input("order", required: true)]
-        public double Order { get; set; }
+        public int Order { get; set; }
 
         /// <summary>
         /// An action to redirect the request.

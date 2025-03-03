@@ -61,11 +61,11 @@ class GetVpcIpamResult:
         if public_default_scope_id and not isinstance(public_default_scope_id, str):
             raise TypeError("Expected argument 'public_default_scope_id' to be a str")
         pulumi.set(__self__, "public_default_scope_id", public_default_scope_id)
-        if resource_discovery_association_count and not isinstance(resource_discovery_association_count, float):
-            raise TypeError("Expected argument 'resource_discovery_association_count' to be a float")
+        if resource_discovery_association_count and not isinstance(resource_discovery_association_count, int):
+            raise TypeError("Expected argument 'resource_discovery_association_count' to be a int")
         pulumi.set(__self__, "resource_discovery_association_count", resource_discovery_association_count)
-        if scope_count and not isinstance(scope_count, float):
-            raise TypeError("Expected argument 'scope_count' to be a float")
+        if scope_count and not isinstance(scope_count, int):
+            raise TypeError("Expected argument 'scope_count' to be a int")
         pulumi.set(__self__, "scope_count", scope_count)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
@@ -170,7 +170,7 @@ class GetVpcIpamResult:
 
     @property
     @pulumi.getter(name="resourceDiscoveryAssociationCount")
-    def resource_discovery_association_count(self) -> float:
+    def resource_discovery_association_count(self) -> int:
         """
         Number of resource discovery associations.
         """
@@ -178,7 +178,7 @@ class GetVpcIpamResult:
 
     @property
     @pulumi.getter(name="scopeCount")
-    def scope_count(self) -> float:
+    def scope_count(self) -> int:
         """
         Number of scopes on this IPAM.
         """

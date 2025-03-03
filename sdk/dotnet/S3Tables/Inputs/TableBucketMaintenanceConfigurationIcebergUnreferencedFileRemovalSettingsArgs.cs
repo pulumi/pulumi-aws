@@ -17,14 +17,14 @@ namespace Pulumi.Aws.S3Tables.Inputs
         /// Must be at least `1`.
         /// </summary>
         [Input("nonCurrentDays", required: true)]
-        public Input<double> NonCurrentDays { get; set; } = null!;
+        public Input<int> NonCurrentDays { get; set; } = null!;
 
         /// <summary>
         /// Unreferenced data objects are marked for deletion after this many days.
         /// Must be at least `1`.
         /// </summary>
         [Input("unreferencedDays", required: true)]
-        public Input<double> UnreferencedDays { get; set; } = null!;
+        public Input<int> UnreferencedDays { get; set; } = null!;
 
         public TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs()
         {

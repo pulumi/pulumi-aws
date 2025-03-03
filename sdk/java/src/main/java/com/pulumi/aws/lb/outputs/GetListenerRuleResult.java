@@ -7,7 +7,7 @@ import com.pulumi.aws.lb.outputs.GetListenerRuleAction;
 import com.pulumi.aws.lb.outputs.GetListenerRuleCondition;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +39,7 @@ public final class GetListenerRuleResult {
      */
     private String id;
     private String listenerArn;
-    private Double priority;
+    private Integer priority;
     /**
      * @return Tags assigned to the Listener Rule.
      * 
@@ -80,7 +80,7 @@ public final class GetListenerRuleResult {
     public String listenerArn() {
         return this.listenerArn;
     }
-    public Double priority() {
+    public Integer priority() {
         return this.priority;
     }
     /**
@@ -105,7 +105,7 @@ public final class GetListenerRuleResult {
         private @Nullable List<GetListenerRuleCondition> conditions;
         private String id;
         private String listenerArn;
-        private Double priority;
+        private Integer priority;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetListenerRuleResult defaults) {
@@ -162,7 +162,7 @@ public final class GetListenerRuleResult {
             return this;
         }
         @CustomType.Setter
-        public Builder priority(Double priority) {
+        public Builder priority(Integer priority) {
             if (priority == null) {
               throw new MissingRequiredPropertyException("GetListenerRuleResult", "priority");
             }

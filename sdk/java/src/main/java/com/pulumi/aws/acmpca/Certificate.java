@@ -39,11 +39,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
- * import com.pulumi.tls.PrivateKey;
+ * import com.pulumi.tls.privateKey;
  * import com.pulumi.tls.PrivateKeyArgs;
- * import com.pulumi.tls.CertRequest;
+ * import com.pulumi.tls.certRequest;
  * import com.pulumi.tls.CertRequestArgs;
- * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
  * import com.pulumi.aws.acmpca.Certificate;
  * import com.pulumi.aws.acmpca.CertificateArgs;
  * import com.pulumi.aws.acmpca.inputs.CertificateValidityArgs;
@@ -77,9 +76,7 @@ import javax.annotation.Nullable;
  * 
  *         var csr = new CertRequest("csr", CertRequestArgs.builder()
  *             .privateKeyPem(key.privateKeyPem())
- *             .subject(CertRequestSubjectArgs.builder()
- *                 .commonName("example")
- *                 .build())
+ *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example = new Certificate("example", CertificateArgs.builder()

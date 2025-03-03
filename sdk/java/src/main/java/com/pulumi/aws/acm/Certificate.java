@@ -113,11 +113,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.tls.PrivateKey;
+ * import com.pulumi.tls.privateKey;
  * import com.pulumi.tls.PrivateKeyArgs;
- * import com.pulumi.tls.SelfSignedCert;
+ * import com.pulumi.tls.selfSignedCert;
  * import com.pulumi.tls.SelfSignedCertArgs;
- * import com.pulumi.tls.inputs.SelfSignedCertSubjectArgs;
  * import com.pulumi.aws.acm.Certificate;
  * import com.pulumi.aws.acm.CertificateArgs;
  * import java.util.List;
@@ -140,10 +139,7 @@ import javax.annotation.Nullable;
  *         var exampleSelfSignedCert = new SelfSignedCert("exampleSelfSignedCert", SelfSignedCertArgs.builder()
  *             .keyAlgorithm("RSA")
  *             .privateKeyPem(example.privateKeyPem())
- *             .subject(SelfSignedCertSubjectArgs.builder()
- *                 .commonName("example.com")
- *                 .organization("ACME Examples, Inc")
- *                 .build())
+ *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .validityPeriodHours(12)
  *             .allowedUses(            
  *                 "key_encipherment",

@@ -5,7 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,12 +17,12 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
      * @return Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
-    private @Nullable Double newerNoncurrentVersions;
+    private @Nullable Integer newerNoncurrentVersions;
     /**
      * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action.
      * 
      */
-    private @Nullable Double noncurrentDays;
+    private @Nullable Integer noncurrentDays;
     /**
      * @return Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
      * 
@@ -34,14 +34,14 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
      * @return Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
-    public Optional<Double> newerNoncurrentVersions() {
+    public Optional<Integer> newerNoncurrentVersions() {
         return Optional.ofNullable(this.newerNoncurrentVersions);
     }
     /**
      * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action.
      * 
      */
-    public Optional<Double> noncurrentDays() {
+    public Optional<Integer> noncurrentDays() {
         return Optional.ofNullable(this.noncurrentDays);
     }
     /**
@@ -61,8 +61,8 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Double newerNoncurrentVersions;
-        private @Nullable Double noncurrentDays;
+        private @Nullable Integer newerNoncurrentVersions;
+        private @Nullable Integer noncurrentDays;
         private String storageClass;
         public Builder() {}
         public Builder(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition defaults) {
@@ -73,13 +73,13 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
         }
 
         @CustomType.Setter
-        public Builder newerNoncurrentVersions(@Nullable Double newerNoncurrentVersions) {
+        public Builder newerNoncurrentVersions(@Nullable Integer newerNoncurrentVersions) {
 
             this.newerNoncurrentVersions = newerNoncurrentVersions;
             return this;
         }
         @CustomType.Setter
-        public Builder noncurrentDays(@Nullable Double noncurrentDays) {
+        public Builder noncurrentDays(@Nullable Integer noncurrentDays) {
 
             this.noncurrentDays = noncurrentDays;
             return this;

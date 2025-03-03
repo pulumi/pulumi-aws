@@ -7,7 +7,7 @@ import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfiguration
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,13 +36,13 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * 
      */
     @Import(name="overlapTokens", required=true)
-    private Output<Double> overlapTokens;
+    private Output<Integer> overlapTokens;
 
     /**
      * @return The number of tokens to repeat across chunks in the same layer.
      * 
      */
-    public Output<Double> overlapTokens() {
+    public Output<Integer> overlapTokens() {
         return this.overlapTokens;
     }
 
@@ -108,7 +108,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
          * @return builder
          * 
          */
-        public Builder overlapTokens(Output<Double> overlapTokens) {
+        public Builder overlapTokens(Output<Integer> overlapTokens) {
             $.overlapTokens = overlapTokens;
             return this;
         }
@@ -119,7 +119,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
          * @return builder
          * 
          */
-        public Builder overlapTokens(Double overlapTokens) {
+        public Builder overlapTokens(Integer overlapTokens) {
             return overlapTokens(Output.of(overlapTokens));
         }
 

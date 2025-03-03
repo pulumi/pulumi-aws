@@ -1158,16 +1158,16 @@ class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 days_after_initiation: Optional[float] = None):
+                 days_after_initiation: Optional[int] = None):
         """
-        :param float days_after_initiation: Number of days after which Amazon S3 aborts an incomplete multipart upload.
+        :param int days_after_initiation: Number of days after which Amazon S3 aborts an incomplete multipart upload.
         """
         if days_after_initiation is not None:
             pulumi.set(__self__, "days_after_initiation", days_after_initiation)
 
     @property
     @pulumi.getter(name="daysAfterInitiation")
-    def days_after_initiation(self) -> Optional[float]:
+    def days_after_initiation(self) -> Optional[int]:
         """
         Number of days after which Amazon S3 aborts an incomplete multipart upload.
         """
@@ -1195,11 +1195,11 @@ class BucketLifecycleConfigurationV2RuleExpiration(dict):
 
     def __init__(__self__, *,
                  date: Optional[str] = None,
-                 days: Optional[float] = None,
+                 days: Optional[int] = None,
                  expired_object_delete_marker: Optional[bool] = None):
         """
         :param str date: Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
-        :param float days: Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+        :param int days: Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
         :param bool expired_object_delete_marker: Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
         """
         if date is not None:
@@ -1219,7 +1219,7 @@ class BucketLifecycleConfigurationV2RuleExpiration(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[float]:
+    def days(self) -> Optional[int]:
         """
         Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
         """
@@ -1447,11 +1447,11 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 newer_noncurrent_versions: Optional[float] = None,
-                 noncurrent_days: Optional[float] = None):
+                 newer_noncurrent_versions: Optional[int] = None,
+                 noncurrent_days: Optional[int] = None):
         """
-        :param float newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-        :param float noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
+        :param int newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+        :param int noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
         """
         if newer_noncurrent_versions is not None:
             pulumi.set(__self__, "newer_noncurrent_versions", newer_noncurrent_versions)
@@ -1460,7 +1460,7 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(dict):
 
     @property
     @pulumi.getter(name="newerNoncurrentVersions")
-    def newer_noncurrent_versions(self) -> Optional[float]:
+    def newer_noncurrent_versions(self) -> Optional[int]:
         """
         Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         """
@@ -1468,7 +1468,7 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(dict):
 
     @property
     @pulumi.getter(name="noncurrentDays")
-    def noncurrent_days(self) -> Optional[float]:
+    def noncurrent_days(self) -> Optional[int]:
         """
         Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
         """
@@ -1500,12 +1500,12 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(dict):
 
     def __init__(__self__, *,
                  storage_class: str,
-                 newer_noncurrent_versions: Optional[float] = None,
-                 noncurrent_days: Optional[float] = None):
+                 newer_noncurrent_versions: Optional[int] = None,
+                 noncurrent_days: Optional[int] = None):
         """
         :param str storage_class: Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
-        :param float newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-        :param float noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action.
+        :param int newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
+        :param int noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action.
         """
         pulumi.set(__self__, "storage_class", storage_class)
         if newer_noncurrent_versions is not None:
@@ -1523,7 +1523,7 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(dict):
 
     @property
     @pulumi.getter(name="newerNoncurrentVersions")
-    def newer_noncurrent_versions(self) -> Optional[float]:
+    def newer_noncurrent_versions(self) -> Optional[int]:
         """
         Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         """
@@ -1531,7 +1531,7 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(dict):
 
     @property
     @pulumi.getter(name="noncurrentDays")
-    def noncurrent_days(self) -> Optional[float]:
+    def noncurrent_days(self) -> Optional[int]:
         """
         Number of days an object is noncurrent before Amazon S3 can perform the associated action.
         """
@@ -1560,11 +1560,11 @@ class BucketLifecycleConfigurationV2RuleTransition(dict):
     def __init__(__self__, *,
                  storage_class: str,
                  date: Optional[str] = None,
-                 days: Optional[float] = None):
+                 days: Optional[int] = None):
         """
         :param str storage_class: Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
         :param str date: Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
-        :param float days: Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
+        :param int days: Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
         """
         pulumi.set(__self__, "storage_class", storage_class)
         if date is not None:
@@ -1590,7 +1590,7 @@ class BucketLifecycleConfigurationV2RuleTransition(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[float]:
+    def days(self) -> Optional[int]:
         """
         Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
         """

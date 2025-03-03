@@ -2643,7 +2643,7 @@ func (o BucketLifecycleConfigurationV2RuleArrayOutput) Index(i pulumi.IntInput) 
 
 type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload struct {
 	// Number of days after which Amazon S3 aborts an incomplete multipart upload.
-	DaysAfterInitiation *float64 `pulumi:"daysAfterInitiation"`
+	DaysAfterInitiation *int `pulumi:"daysAfterInitiation"`
 }
 
 // BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadInput is an input type that accepts BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs and BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput values.
@@ -2659,7 +2659,7 @@ type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadInput inter
 
 type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs struct {
 	// Number of days after which Amazon S3 aborts an incomplete multipart upload.
-	DaysAfterInitiation pulumi.Float64PtrInput `pulumi:"daysAfterInitiation"`
+	DaysAfterInitiation pulumi.IntPtrInput `pulumi:"daysAfterInitiation"`
 }
 
 func (BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs) ElementType() reflect.Type {
@@ -2740,10 +2740,10 @@ func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) 
 }
 
 // Number of days after which Amazon S3 aborts an incomplete multipart upload.
-func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload) *float64 {
+func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload) *int {
 		return v.DaysAfterInitiation
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput struct{ *pulumi.OutputState }
@@ -2771,20 +2771,20 @@ func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutpu
 }
 
 // Number of days after which Amazon S3 aborts an incomplete multipart upload.
-func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput) DaysAfterInitiation() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload) *float64 {
+func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload) *int {
 		if v == nil {
 			return nil
 		}
 		return v.DaysAfterInitiation
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type BucketLifecycleConfigurationV2RuleExpiration struct {
 	// Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date *string `pulumi:"date"`
 	// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
-	Days *float64 `pulumi:"days"`
+	Days *int `pulumi:"days"`
 	// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
 	ExpiredObjectDeleteMarker *bool `pulumi:"expiredObjectDeleteMarker"`
 }
@@ -2804,7 +2804,7 @@ type BucketLifecycleConfigurationV2RuleExpirationArgs struct {
 	// Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
-	Days pulumi.Float64PtrInput `pulumi:"days"`
+	Days pulumi.IntPtrInput `pulumi:"days"`
 	// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
 	ExpiredObjectDeleteMarker pulumi.BoolPtrInput `pulumi:"expiredObjectDeleteMarker"`
 }
@@ -2892,8 +2892,8 @@ func (o BucketLifecycleConfigurationV2RuleExpirationOutput) Date() pulumi.String
 }
 
 // Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
-func (o BucketLifecycleConfigurationV2RuleExpirationOutput) Days() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleExpiration) *float64 { return v.Days }).(pulumi.Float64PtrOutput)
+func (o BucketLifecycleConfigurationV2RuleExpirationOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
@@ -2936,13 +2936,13 @@ func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Date() pulumi.Str
 }
 
 // Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
-func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Days() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleExpiration) *float64 {
+func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleExpiration) *int {
 		if v == nil {
 			return nil
 		}
 		return v.Days
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
@@ -3524,9 +3524,9 @@ func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) Value() pulumi.Str
 
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration struct {
 	// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-	NewerNoncurrentVersions *float64 `pulumi:"newerNoncurrentVersions"`
+	NewerNoncurrentVersions *int `pulumi:"newerNoncurrentVersions"`
 	// Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-	NoncurrentDays *float64 `pulumi:"noncurrentDays"`
+	NoncurrentDays *int `pulumi:"noncurrentDays"`
 }
 
 // BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationInput is an input type that accepts BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs and BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput values.
@@ -3542,9 +3542,9 @@ type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationInput interfac
 
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs struct {
 	// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-	NewerNoncurrentVersions pulumi.Float64PtrInput `pulumi:"newerNoncurrentVersions"`
+	NewerNoncurrentVersions pulumi.IntPtrInput `pulumi:"newerNoncurrentVersions"`
 	// Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-	NoncurrentDays pulumi.Float64PtrInput `pulumi:"noncurrentDays"`
+	NoncurrentDays pulumi.IntPtrInput `pulumi:"noncurrentDays"`
 }
 
 func (BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs) ElementType() reflect.Type {
@@ -3625,17 +3625,15 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) ToB
 }
 
 // Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) NewerNoncurrentVersions() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *float64 {
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *int {
 		return v.NewerNoncurrentVersions
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) NoncurrentDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *float64 {
-		return v.NoncurrentDays
-	}).(pulumi.Float64PtrOutput)
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) NoncurrentDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *int { return v.NoncurrentDays }).(pulumi.IntPtrOutput)
 }
 
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput struct{ *pulumi.OutputState }
@@ -3663,30 +3661,30 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) 
 }
 
 // Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) NewerNoncurrentVersions() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *float64 {
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *int {
 		if v == nil {
 			return nil
 		}
 		return v.NewerNoncurrentVersions
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) NoncurrentDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *float64 {
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) NoncurrentDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *int {
 		if v == nil {
 			return nil
 		}
 		return v.NoncurrentDays
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition struct {
 	// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-	NewerNoncurrentVersions *float64 `pulumi:"newerNoncurrentVersions"`
+	NewerNoncurrentVersions *int `pulumi:"newerNoncurrentVersions"`
 	// Number of days an object is noncurrent before Amazon S3 can perform the associated action.
-	NoncurrentDays *float64 `pulumi:"noncurrentDays"`
+	NoncurrentDays *int `pulumi:"noncurrentDays"`
 	// Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
 	StorageClass string `pulumi:"storageClass"`
 }
@@ -3704,9 +3702,9 @@ type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionInput interfac
 
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs struct {
 	// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-	NewerNoncurrentVersions pulumi.Float64PtrInput `pulumi:"newerNoncurrentVersions"`
+	NewerNoncurrentVersions pulumi.IntPtrInput `pulumi:"newerNoncurrentVersions"`
 	// Number of days an object is noncurrent before Amazon S3 can perform the associated action.
-	NoncurrentDays pulumi.Float64PtrInput `pulumi:"noncurrentDays"`
+	NoncurrentDays pulumi.IntPtrInput `pulumi:"noncurrentDays"`
 	// Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
@@ -3763,17 +3761,15 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) ToB
 }
 
 // Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) NewerNoncurrentVersions() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition) *float64 {
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition) *int {
 		return v.NewerNoncurrentVersions
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Number of days an object is noncurrent before Amazon S3 can perform the associated action.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) NoncurrentDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition) *float64 {
-		return v.NoncurrentDays
-	}).(pulumi.Float64PtrOutput)
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) NoncurrentDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition) *int { return v.NoncurrentDays }).(pulumi.IntPtrOutput)
 }
 
 // Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
@@ -3805,7 +3801,7 @@ type BucketLifecycleConfigurationV2RuleTransition struct {
 	// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date *string `pulumi:"date"`
 	// Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
-	Days *float64 `pulumi:"days"`
+	Days *int `pulumi:"days"`
 	// Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
 	StorageClass string `pulumi:"storageClass"`
 }
@@ -3825,7 +3821,7 @@ type BucketLifecycleConfigurationV2RuleTransitionArgs struct {
 	// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
-	Days pulumi.Float64PtrInput `pulumi:"days"`
+	Days pulumi.IntPtrInput `pulumi:"days"`
 	// Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
@@ -3887,8 +3883,8 @@ func (o BucketLifecycleConfigurationV2RuleTransitionOutput) Date() pulumi.String
 }
 
 // Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
-func (o BucketLifecycleConfigurationV2RuleTransitionOutput) Days() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleTransition) *float64 { return v.Days }).(pulumi.Float64PtrOutput)
+func (o BucketLifecycleConfigurationV2RuleTransitionOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
 // Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.

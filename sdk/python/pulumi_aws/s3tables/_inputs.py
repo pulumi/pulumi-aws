@@ -127,12 +127,12 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs:
 
 if not MYPY:
     class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgsDict(TypedDict):
-        non_current_days: pulumi.Input[float]
+        non_current_days: pulumi.Input[int]
         """
         Data objects marked for deletion are deleted after this many days.
         Must be at least `1`.
         """
-        unreferenced_days: pulumi.Input[float]
+        unreferenced_days: pulumi.Input[int]
         """
         Unreferenced data objects are marked for deletion after this many days.
         Must be at least `1`.
@@ -143,12 +143,12 @@ elif False:
 @pulumi.input_type
 class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs:
     def __init__(__self__, *,
-                 non_current_days: pulumi.Input[float],
-                 unreferenced_days: pulumi.Input[float]):
+                 non_current_days: pulumi.Input[int],
+                 unreferenced_days: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] non_current_days: Data objects marked for deletion are deleted after this many days.
+        :param pulumi.Input[int] non_current_days: Data objects marked for deletion are deleted after this many days.
                Must be at least `1`.
-        :param pulumi.Input[float] unreferenced_days: Unreferenced data objects are marked for deletion after this many days.
+        :param pulumi.Input[int] unreferenced_days: Unreferenced data objects are marked for deletion after this many days.
                Must be at least `1`.
         """
         pulumi.set(__self__, "non_current_days", non_current_days)
@@ -156,7 +156,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsA
 
     @property
     @pulumi.getter(name="nonCurrentDays")
-    def non_current_days(self) -> pulumi.Input[float]:
+    def non_current_days(self) -> pulumi.Input[int]:
         """
         Data objects marked for deletion are deleted after this many days.
         Must be at least `1`.
@@ -164,12 +164,12 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsA
         return pulumi.get(self, "non_current_days")
 
     @non_current_days.setter
-    def non_current_days(self, value: pulumi.Input[float]):
+    def non_current_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "non_current_days", value)
 
     @property
     @pulumi.getter(name="unreferencedDays")
-    def unreferenced_days(self) -> pulumi.Input[float]:
+    def unreferenced_days(self) -> pulumi.Input[int]:
         """
         Unreferenced data objects are marked for deletion after this many days.
         Must be at least `1`.
@@ -177,7 +177,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsA
         return pulumi.get(self, "unreferenced_days")
 
     @unreferenced_days.setter
-    def unreferenced_days(self, value: pulumi.Input[float]):
+    def unreferenced_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "unreferenced_days", value)
 
 
@@ -295,7 +295,7 @@ class TableMaintenanceConfigurationIcebergCompactionArgs:
 
 if not MYPY:
     class TableMaintenanceConfigurationIcebergCompactionSettingsArgsDict(TypedDict):
-        target_file_size_mb: pulumi.Input[float]
+        target_file_size_mb: pulumi.Input[int]
         """
         Data objects smaller than this size may be combined with others to improve query performance.
         Must be between `64` and `512`.
@@ -306,16 +306,16 @@ elif False:
 @pulumi.input_type
 class TableMaintenanceConfigurationIcebergCompactionSettingsArgs:
     def __init__(__self__, *,
-                 target_file_size_mb: pulumi.Input[float]):
+                 target_file_size_mb: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] target_file_size_mb: Data objects smaller than this size may be combined with others to improve query performance.
+        :param pulumi.Input[int] target_file_size_mb: Data objects smaller than this size may be combined with others to improve query performance.
                Must be between `64` and `512`.
         """
         pulumi.set(__self__, "target_file_size_mb", target_file_size_mb)
 
     @property
     @pulumi.getter(name="targetFileSizeMb")
-    def target_file_size_mb(self) -> pulumi.Input[float]:
+    def target_file_size_mb(self) -> pulumi.Input[int]:
         """
         Data objects smaller than this size may be combined with others to improve query performance.
         Must be between `64` and `512`.
@@ -323,7 +323,7 @@ class TableMaintenanceConfigurationIcebergCompactionSettingsArgs:
         return pulumi.get(self, "target_file_size_mb")
 
     @target_file_size_mb.setter
-    def target_file_size_mb(self, value: pulumi.Input[float]):
+    def target_file_size_mb(self, value: pulumi.Input[int]):
         pulumi.set(self, "target_file_size_mb", value)
 
 
@@ -385,12 +385,12 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementArgs:
 
 if not MYPY:
     class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgsDict(TypedDict):
-        max_snapshot_age_hours: pulumi.Input[float]
+        max_snapshot_age_hours: pulumi.Input[int]
         """
         Snapshots older than this will be marked for deletiion.
         Must be at least `1`.
         """
-        min_snapshots_to_keep: pulumi.Input[float]
+        min_snapshots_to_keep: pulumi.Input[int]
         """
         Minimum number of snapshots to keep.
         Must be at least `1`.
@@ -401,12 +401,12 @@ elif False:
 @pulumi.input_type
 class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
     def __init__(__self__, *,
-                 max_snapshot_age_hours: pulumi.Input[float],
-                 min_snapshots_to_keep: pulumi.Input[float]):
+                 max_snapshot_age_hours: pulumi.Input[int],
+                 min_snapshots_to_keep: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] max_snapshot_age_hours: Snapshots older than this will be marked for deletiion.
+        :param pulumi.Input[int] max_snapshot_age_hours: Snapshots older than this will be marked for deletiion.
                Must be at least `1`.
-        :param pulumi.Input[float] min_snapshots_to_keep: Minimum number of snapshots to keep.
+        :param pulumi.Input[int] min_snapshots_to_keep: Minimum number of snapshots to keep.
                Must be at least `1`.
         """
         pulumi.set(__self__, "max_snapshot_age_hours", max_snapshot_age_hours)
@@ -414,7 +414,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
 
     @property
     @pulumi.getter(name="maxSnapshotAgeHours")
-    def max_snapshot_age_hours(self) -> pulumi.Input[float]:
+    def max_snapshot_age_hours(self) -> pulumi.Input[int]:
         """
         Snapshots older than this will be marked for deletiion.
         Must be at least `1`.
@@ -422,12 +422,12 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
         return pulumi.get(self, "max_snapshot_age_hours")
 
     @max_snapshot_age_hours.setter
-    def max_snapshot_age_hours(self, value: pulumi.Input[float]):
+    def max_snapshot_age_hours(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_snapshot_age_hours", value)
 
     @property
     @pulumi.getter(name="minSnapshotsToKeep")
-    def min_snapshots_to_keep(self) -> pulumi.Input[float]:
+    def min_snapshots_to_keep(self) -> pulumi.Input[int]:
         """
         Minimum number of snapshots to keep.
         Must be at least `1`.
@@ -435,7 +435,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
         return pulumi.get(self, "min_snapshots_to_keep")
 
     @min_snapshots_to_keep.setter
-    def min_snapshots_to_keep(self, value: pulumi.Input[float]):
+    def min_snapshots_to_keep(self, value: pulumi.Input[int]):
         pulumi.set(self, "min_snapshots_to_keep", value)
 
 

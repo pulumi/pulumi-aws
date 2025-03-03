@@ -11,7 +11,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -135,14 +134,14 @@ public class ElasticCluster extends com.pulumi.resources.CustomResource {
      * The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
      * 
      */
-    @Export(name="backupRetentionPeriod", refs={Double.class}, tree="[0]")
-    private Output<Double> backupRetentionPeriod;
+    @Export(name="backupRetentionPeriod", refs={Integer.class}, tree="[0]")
+    private Output<Integer> backupRetentionPeriod;
 
     /**
      * @return The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
      * 
      */
-    public Output<Double> backupRetentionPeriod() {
+    public Output<Integer> backupRetentionPeriod() {
         return this.backupRetentionPeriod;
     }
     /**

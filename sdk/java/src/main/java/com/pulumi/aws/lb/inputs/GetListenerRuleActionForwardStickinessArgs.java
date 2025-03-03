@@ -7,7 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 
@@ -20,13 +20,13 @@ public final class GetListenerRuleActionForwardStickinessArgs extends com.pulumi
      * 
      */
     @Import(name="duration", required=true)
-    private Output<Double> duration;
+    private Output<Integer> duration;
 
     /**
      * @return The time period, in seconds, during which requests from a client should be routed to the same target group.
      * 
      */
-    public Output<Double> duration() {
+    public Output<Integer> duration() {
         return this.duration;
     }
 
@@ -76,7 +76,7 @@ public final class GetListenerRuleActionForwardStickinessArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder duration(Output<Double> duration) {
+        public Builder duration(Output<Integer> duration) {
             $.duration = duration;
             return this;
         }
@@ -87,7 +87,7 @@ public final class GetListenerRuleActionForwardStickinessArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder duration(Double duration) {
+        public Builder duration(Integer duration) {
             return duration(Output.of(duration));
         }
 

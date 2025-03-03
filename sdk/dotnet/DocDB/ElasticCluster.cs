@@ -76,7 +76,7 @@ namespace Pulumi.Aws.DocDB
         /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         /// </summary>
         [Output("backupRetentionPeriod")]
-        public Output<double> BackupRetentionPeriod { get; private set; } = null!;
+        public Output<int> BackupRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
         /// The DNS address of the DocDB instance
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.DocDB
         /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         /// </summary>
         [Input("backupRetentionPeriod")]
-        public Input<double>? BackupRetentionPeriod { get; set; }
+        public Input<int>? BackupRetentionPeriod { get; set; }
 
         /// <summary>
         /// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.DocDB
         /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         /// </summary>
         [Input("backupRetentionPeriod")]
-        public Input<double>? BackupRetentionPeriod { get; set; }
+        public Input<int>? BackupRetentionPeriod { get; set; }
 
         /// <summary>
         /// The DNS address of the DocDB instance

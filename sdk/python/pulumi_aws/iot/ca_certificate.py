@@ -366,41 +366,41 @@ class CaCertificate(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_tls as tls
 
-        ca_private_key = tls.PrivateKey("ca", algorithm="RSA")
-        ca = tls.SelfSignedCert("ca",
+        ca_private_key = tls.index.PrivateKey("ca", algorithm=RSA)
+        ca = tls.index.SelfSignedCert("ca",
             private_key_pem=ca_private_key.private_key_pem,
-            subject={
-                "common_name": "example.com",
-                "organization": "ACME Examples, Inc",
-            },
+            subject=[{
+                commonName: example.com,
+                organization: ACME Examples, Inc,
+            }],
             validity_period_hours=12,
             allowed_uses=[
-                "key_encipherment",
-                "digital_signature",
-                "server_auth",
+                key_encipherment,
+                digital_signature,
+                server_auth,
             ],
             is_ca_certificate=True)
-        verification_private_key = tls.PrivateKey("verification", algorithm="RSA")
+        verification_private_key = tls.index.PrivateKey("verification", algorithm=RSA)
         example = aws.iot.get_registration_code()
-        verification = tls.CertRequest("verification",
+        verification = tls.index.CertRequest("verification",
             private_key_pem=verification_private_key.private_key_pem,
-            subject={
-                "common_name": example.registration_code,
-            })
-        verification_locally_signed_cert = tls.LocallySignedCert("verification",
+            subject=[{
+                commonName: example.registration_code,
+            }])
+        verification_locally_signed_cert = tls.index.LocallySignedCert("verification",
             cert_request_pem=verification.cert_request_pem,
             ca_private_key_pem=ca_private_key.private_key_pem,
             ca_cert_pem=ca.cert_pem,
             validity_period_hours=12,
             allowed_uses=[
-                "key_encipherment",
-                "digital_signature",
-                "server_auth",
+                key_encipherment,
+                digital_signature,
+                server_auth,
             ])
         example_ca_certificate = aws.iot.CaCertificate("example",
             active=True,
-            ca_certificate_pem=ca.cert_pem,
-            verification_certificate_pem=verification_locally_signed_cert.cert_pem,
+            ca_certificate_pem=ca["certPem"],
+            verification_certificate_pem=verification_locally_signed_cert["certPem"],
             allow_auto_registration=True)
         ```
 
@@ -431,41 +431,41 @@ class CaCertificate(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_tls as tls
 
-        ca_private_key = tls.PrivateKey("ca", algorithm="RSA")
-        ca = tls.SelfSignedCert("ca",
+        ca_private_key = tls.index.PrivateKey("ca", algorithm=RSA)
+        ca = tls.index.SelfSignedCert("ca",
             private_key_pem=ca_private_key.private_key_pem,
-            subject={
-                "common_name": "example.com",
-                "organization": "ACME Examples, Inc",
-            },
+            subject=[{
+                commonName: example.com,
+                organization: ACME Examples, Inc,
+            }],
             validity_period_hours=12,
             allowed_uses=[
-                "key_encipherment",
-                "digital_signature",
-                "server_auth",
+                key_encipherment,
+                digital_signature,
+                server_auth,
             ],
             is_ca_certificate=True)
-        verification_private_key = tls.PrivateKey("verification", algorithm="RSA")
+        verification_private_key = tls.index.PrivateKey("verification", algorithm=RSA)
         example = aws.iot.get_registration_code()
-        verification = tls.CertRequest("verification",
+        verification = tls.index.CertRequest("verification",
             private_key_pem=verification_private_key.private_key_pem,
-            subject={
-                "common_name": example.registration_code,
-            })
-        verification_locally_signed_cert = tls.LocallySignedCert("verification",
+            subject=[{
+                commonName: example.registration_code,
+            }])
+        verification_locally_signed_cert = tls.index.LocallySignedCert("verification",
             cert_request_pem=verification.cert_request_pem,
             ca_private_key_pem=ca_private_key.private_key_pem,
             ca_cert_pem=ca.cert_pem,
             validity_period_hours=12,
             allowed_uses=[
-                "key_encipherment",
-                "digital_signature",
-                "server_auth",
+                key_encipherment,
+                digital_signature,
+                server_auth,
             ])
         example_ca_certificate = aws.iot.CaCertificate("example",
             active=True,
-            ca_certificate_pem=ca.cert_pem,
-            verification_certificate_pem=verification_locally_signed_cert.cert_pem,
+            ca_certificate_pem=ca["certPem"],
+            verification_certificate_pem=verification_locally_signed_cert["certPem"],
             allow_auto_registration=True)
         ```
 

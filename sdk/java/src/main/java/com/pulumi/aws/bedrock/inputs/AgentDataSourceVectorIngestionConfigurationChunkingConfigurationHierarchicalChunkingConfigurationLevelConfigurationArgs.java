@@ -6,7 +6,7 @@ package com.pulumi.aws.bedrock.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 
@@ -19,13 +19,13 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * 
      */
     @Import(name="maxTokens", required=true)
-    private Output<Double> maxTokens;
+    private Output<Integer> maxTokens;
 
     /**
      * @return The maximum number of tokens that a chunk can contain in this layer.
      * 
      */
-    public Output<Double> maxTokens() {
+    public Output<Integer> maxTokens() {
         return this.maxTokens;
     }
 
@@ -59,7 +59,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
          * @return builder
          * 
          */
-        public Builder maxTokens(Output<Double> maxTokens) {
+        public Builder maxTokens(Output<Integer> maxTokens) {
             $.maxTokens = maxTokens;
             return this;
         }
@@ -70,7 +70,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
          * @return builder
          * 
          */
-        public Builder maxTokens(Double maxTokens) {
+        public Builder maxTokens(Integer maxTokens) {
             return maxTokens(Output.of(maxTokens));
         }
 

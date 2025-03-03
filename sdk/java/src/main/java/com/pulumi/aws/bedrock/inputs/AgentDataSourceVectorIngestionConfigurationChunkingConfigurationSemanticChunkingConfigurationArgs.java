@@ -6,7 +6,7 @@ package com.pulumi.aws.bedrock.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 
@@ -19,13 +19,13 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * 
      */
     @Import(name="breakpointPercentileThreshold", required=true)
-    private Output<Double> breakpointPercentileThreshold;
+    private Output<Integer> breakpointPercentileThreshold;
 
     /**
      * @return The dissimilarity threshold for splitting chunks.
      * 
      */
-    public Output<Double> breakpointPercentileThreshold() {
+    public Output<Integer> breakpointPercentileThreshold() {
         return this.breakpointPercentileThreshold;
     }
 
@@ -34,13 +34,13 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * 
      */
     @Import(name="bufferSize", required=true)
-    private Output<Double> bufferSize;
+    private Output<Integer> bufferSize;
 
     /**
      * @return The buffer size.
      * 
      */
-    public Output<Double> bufferSize() {
+    public Output<Integer> bufferSize() {
         return this.bufferSize;
     }
 
@@ -49,13 +49,13 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * 
      */
     @Import(name="maxToken", required=true)
-    private Output<Double> maxToken;
+    private Output<Integer> maxToken;
 
     /**
      * @return The maximum number of tokens a chunk can contain.
      * 
      */
-    public Output<Double> maxToken() {
+    public Output<Integer> maxToken() {
         return this.maxToken;
     }
 
@@ -91,7 +91,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
          * @return builder
          * 
          */
-        public Builder breakpointPercentileThreshold(Output<Double> breakpointPercentileThreshold) {
+        public Builder breakpointPercentileThreshold(Output<Integer> breakpointPercentileThreshold) {
             $.breakpointPercentileThreshold = breakpointPercentileThreshold;
             return this;
         }
@@ -102,7 +102,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
          * @return builder
          * 
          */
-        public Builder breakpointPercentileThreshold(Double breakpointPercentileThreshold) {
+        public Builder breakpointPercentileThreshold(Integer breakpointPercentileThreshold) {
             return breakpointPercentileThreshold(Output.of(breakpointPercentileThreshold));
         }
 
@@ -112,7 +112,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
          * @return builder
          * 
          */
-        public Builder bufferSize(Output<Double> bufferSize) {
+        public Builder bufferSize(Output<Integer> bufferSize) {
             $.bufferSize = bufferSize;
             return this;
         }
@@ -123,7 +123,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
          * @return builder
          * 
          */
-        public Builder bufferSize(Double bufferSize) {
+        public Builder bufferSize(Integer bufferSize) {
             return bufferSize(Output.of(bufferSize));
         }
 
@@ -133,7 +133,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
          * @return builder
          * 
          */
-        public Builder maxToken(Output<Double> maxToken) {
+        public Builder maxToken(Output<Integer> maxToken) {
             $.maxToken = maxToken;
             return this;
         }
@@ -144,7 +144,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
          * @return builder
          * 
          */
-        public Builder maxToken(Double maxToken) {
+        public Builder maxToken(Integer maxToken) {
             return maxToken(Output.of(maxToken));
         }
 

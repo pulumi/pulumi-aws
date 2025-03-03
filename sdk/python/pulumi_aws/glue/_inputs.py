@@ -571,7 +571,7 @@ if not MYPY:
         """
         Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
         """
-        orphan_file_retention_period_in_days: NotRequired[pulumi.Input[float]]
+        orphan_file_retention_period_in_days: NotRequired[pulumi.Input[int]]
         """
         The number of days that orphan files should be retained before file deletion. Defaults to `3`.
         """
@@ -582,10 +582,10 @@ elif False:
 class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
-                 orphan_file_retention_period_in_days: Optional[pulumi.Input[float]] = None):
+                 orphan_file_retention_period_in_days: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] location: Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
-        :param pulumi.Input[float] orphan_file_retention_period_in_days: The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+        :param pulumi.Input[int] orphan_file_retention_period_in_days: The number of days that orphan files should be retained before file deletion. Defaults to `3`.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -606,14 +606,14 @@ class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergCo
 
     @property
     @pulumi.getter(name="orphanFileRetentionPeriodInDays")
-    def orphan_file_retention_period_in_days(self) -> Optional[pulumi.Input[float]]:
+    def orphan_file_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days that orphan files should be retained before file deletion. Defaults to `3`.
         """
         return pulumi.get(self, "orphan_file_retention_period_in_days")
 
     @orphan_file_retention_period_in_days.setter
-    def orphan_file_retention_period_in_days(self, value: Optional[pulumi.Input[float]]):
+    def orphan_file_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "orphan_file_retention_period_in_days", value)
 
 
@@ -655,11 +655,11 @@ if not MYPY:
         """
         If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
         """
-        number_of_snapshots_to_retain: NotRequired[pulumi.Input[float]]
+        number_of_snapshots_to_retain: NotRequired[pulumi.Input[int]]
         """
         The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
         """
-        snapshot_retention_period_in_days: NotRequired[pulumi.Input[float]]
+        snapshot_retention_period_in_days: NotRequired[pulumi.Input[int]]
         """
         The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
         """
@@ -670,12 +670,12 @@ elif False:
 class CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs:
     def __init__(__self__, *,
                  clean_expired_files: Optional[pulumi.Input[bool]] = None,
-                 number_of_snapshots_to_retain: Optional[pulumi.Input[float]] = None,
-                 snapshot_retention_period_in_days: Optional[pulumi.Input[float]] = None):
+                 number_of_snapshots_to_retain: Optional[pulumi.Input[int]] = None,
+                 snapshot_retention_period_in_days: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] clean_expired_files: If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
-        :param pulumi.Input[float] number_of_snapshots_to_retain: The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
-        :param pulumi.Input[float] snapshot_retention_period_in_days: The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+        :param pulumi.Input[int] number_of_snapshots_to_retain: The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+        :param pulumi.Input[int] snapshot_retention_period_in_days: The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
         """
         if clean_expired_files is not None:
             pulumi.set(__self__, "clean_expired_files", clean_expired_files)
@@ -698,26 +698,26 @@ class CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurati
 
     @property
     @pulumi.getter(name="numberOfSnapshotsToRetain")
-    def number_of_snapshots_to_retain(self) -> Optional[pulumi.Input[float]]:
+    def number_of_snapshots_to_retain(self) -> Optional[pulumi.Input[int]]:
         """
         The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
         """
         return pulumi.get(self, "number_of_snapshots_to_retain")
 
     @number_of_snapshots_to_retain.setter
-    def number_of_snapshots_to_retain(self, value: Optional[pulumi.Input[float]]):
+    def number_of_snapshots_to_retain(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_snapshots_to_retain", value)
 
     @property
     @pulumi.getter(name="snapshotRetentionPeriodInDays")
-    def snapshot_retention_period_in_days(self) -> Optional[pulumi.Input[float]]:
+    def snapshot_retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
         """
         return pulumi.get(self, "snapshot_retention_period_in_days")
 
     @snapshot_retention_period_in_days.setter
-    def snapshot_retention_period_in_days(self, value: Optional[pulumi.Input[float]]):
+    def snapshot_retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "snapshot_retention_period_in_days", value)
 
 

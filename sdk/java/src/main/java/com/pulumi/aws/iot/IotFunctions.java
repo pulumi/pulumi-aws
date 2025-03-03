@@ -402,11 +402,10 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.certRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -429,9 +428,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
-     *                 .build())
+     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -458,11 +455,10 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.certRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -485,9 +481,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
-     *                 .build())
+     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -514,11 +508,10 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.certRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -541,9 +534,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
-     *                 .build())
+     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -570,11 +561,10 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.certRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -597,9 +587,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
-     *                 .build())
+     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -626,11 +614,10 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.certRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -653,9 +640,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
-     *                 .build())
+     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -682,11 +667,10 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.certRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -709,9 +693,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
-     *                 .build())
+     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -738,11 +720,10 @@ public final class IotFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.tls.PrivateKey;
+     * import com.pulumi.tls.privateKey;
      * import com.pulumi.tls.PrivateKeyArgs;
-     * import com.pulumi.tls.CertRequest;
+     * import com.pulumi.tls.certRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -765,9 +746,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
-     *                 .build())
+     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }

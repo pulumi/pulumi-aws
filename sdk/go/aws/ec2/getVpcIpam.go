@@ -81,9 +81,9 @@ type LookupVpcIpamResult struct {
 	// ID of the default public scope.
 	PublicDefaultScopeId string `pulumi:"publicDefaultScopeId"`
 	// Number of resource discovery associations.
-	ResourceDiscoveryAssociationCount float64 `pulumi:"resourceDiscoveryAssociationCount"`
+	ResourceDiscoveryAssociationCount int `pulumi:"resourceDiscoveryAssociationCount"`
 	// Number of scopes on this IPAM.
-	ScopeCount float64 `pulumi:"scopeCount"`
+	ScopeCount int `pulumi:"scopeCount"`
 	// Current state of the IPAM.
 	State string `pulumi:"state"`
 	// State message of the IPAM.
@@ -184,13 +184,13 @@ func (o LookupVpcIpamResultOutput) PublicDefaultScopeId() pulumi.StringOutput {
 }
 
 // Number of resource discovery associations.
-func (o LookupVpcIpamResultOutput) ResourceDiscoveryAssociationCount() pulumi.Float64Output {
-	return o.ApplyT(func(v LookupVpcIpamResult) float64 { return v.ResourceDiscoveryAssociationCount }).(pulumi.Float64Output)
+func (o LookupVpcIpamResultOutput) ResourceDiscoveryAssociationCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupVpcIpamResult) int { return v.ResourceDiscoveryAssociationCount }).(pulumi.IntOutput)
 }
 
 // Number of scopes on this IPAM.
-func (o LookupVpcIpamResultOutput) ScopeCount() pulumi.Float64Output {
-	return o.ApplyT(func(v LookupVpcIpamResult) float64 { return v.ScopeCount }).(pulumi.Float64Output)
+func (o LookupVpcIpamResultOutput) ScopeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupVpcIpamResult) int { return v.ScopeCount }).(pulumi.IntOutput)
 }
 
 // Current state of the IPAM.

@@ -5,7 +5,7 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,13 +20,13 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
      * 
      */
     @Import(name="maxPages")
-    private @Nullable Output<Double> maxPages;
+    private @Nullable Output<Integer> maxPages;
 
     /**
      * @return Max number of web pages crawled from your source URLs, up to 25,000 pages.
      * 
      */
-    public Optional<Output<Double>> maxPages() {
+    public Optional<Output<Integer>> maxPages() {
         return Optional.ofNullable(this.maxPages);
     }
 
@@ -35,13 +35,13 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
      * 
      */
     @Import(name="rateLimit")
-    private @Nullable Output<Double> rateLimit;
+    private @Nullable Output<Integer> rateLimit;
 
     /**
      * @return Max rate at which pages are crawled, up to 300 per minute per host.
      * 
      */
-    public Optional<Output<Double>> rateLimit() {
+    public Optional<Output<Integer>> rateLimit() {
         return Optional.ofNullable(this.rateLimit);
     }
 
@@ -76,7 +76,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
          * @return builder
          * 
          */
-        public Builder maxPages(@Nullable Output<Double> maxPages) {
+        public Builder maxPages(@Nullable Output<Integer> maxPages) {
             $.maxPages = maxPages;
             return this;
         }
@@ -87,7 +87,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
          * @return builder
          * 
          */
-        public Builder maxPages(Double maxPages) {
+        public Builder maxPages(Integer maxPages) {
             return maxPages(Output.of(maxPages));
         }
 
@@ -97,7 +97,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
          * @return builder
          * 
          */
-        public Builder rateLimit(@Nullable Output<Double> rateLimit) {
+        public Builder rateLimit(@Nullable Output<Integer> rateLimit) {
             $.rateLimit = rateLimit;
             return this;
         }
@@ -108,7 +108,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
          * @return builder
          * 
          */
-        public Builder rateLimit(Double rateLimit) {
+        public Builder rateLimit(Integer rateLimit) {
             return rateLimit(Output.of(rateLimit));
         }
 

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.LB.Inputs
         /// Weight of the target group.
         /// </summary>
         [Input("weight", required: true)]
-        public double Weight { get; set; }
+        public int Weight { get; set; }
 
         public GetListenerRuleActionForwardTargetGroupArgs()
         {

@@ -23709,8 +23709,8 @@ class GetVpcIpamsIpamResult(dict):
                  owner_id: str,
                  private_default_scope_id: str,
                  public_default_scope_id: str,
-                 resource_discovery_association_count: float,
-                 scope_count: float,
+                 resource_discovery_association_count: int,
+                 scope_count: int,
                  state: str,
                  state_message: str,
                  tier: str):
@@ -23726,8 +23726,8 @@ class GetVpcIpamsIpamResult(dict):
         :param str owner_id: ID of the account that owns this IPAM.
         :param str private_default_scope_id: ID of the default private scope.
         :param str public_default_scope_id: ID of the default public scope.
-        :param float resource_discovery_association_count: Number of resource discovery associations.
-        :param float scope_count: Number of scopes on this IPAM.
+        :param int resource_discovery_association_count: Number of resource discovery associations.
+        :param int scope_count: Number of scopes on this IPAM.
         :param str state: Current state of the IPAM.
         :param str state_message: State message of the IPAM.
         :param str tier: IPAM Tier.
@@ -23839,7 +23839,7 @@ class GetVpcIpamsIpamResult(dict):
 
     @property
     @pulumi.getter(name="resourceDiscoveryAssociationCount")
-    def resource_discovery_association_count(self) -> float:
+    def resource_discovery_association_count(self) -> int:
         """
         Number of resource discovery associations.
         """
@@ -23847,7 +23847,7 @@ class GetVpcIpamsIpamResult(dict):
 
     @property
     @pulumi.getter(name="scopeCount")
-    def scope_count(self) -> float:
+    def scope_count(self) -> int:
         """
         Number of scopes on this IPAM.
         """

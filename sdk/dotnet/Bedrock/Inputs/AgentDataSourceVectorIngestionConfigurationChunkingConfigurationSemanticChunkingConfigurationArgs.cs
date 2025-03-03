@@ -16,19 +16,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// The dissimilarity threshold for splitting chunks.
         /// </summary>
         [Input("breakpointPercentileThreshold", required: true)]
-        public Input<double> BreakpointPercentileThreshold { get; set; } = null!;
+        public Input<int> BreakpointPercentileThreshold { get; set; } = null!;
 
         /// <summary>
         /// The buffer size.
         /// </summary>
         [Input("bufferSize", required: true)]
-        public Input<double> BufferSize { get; set; } = null!;
+        public Input<int> BufferSize { get; set; } = null!;
 
         /// <summary>
         /// The maximum number of tokens a chunk can contain.
         /// </summary>
         [Input("maxToken", required: true)]
-        public Input<double> MaxToken { get; set; } = null!;
+        public Input<int> MaxToken { get; set; } = null!;
 
         public AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs()
         {

@@ -4,7 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,26 +15,26 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
      * @return Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
-    private @Nullable Double newerNoncurrentVersions;
+    private @Nullable Integer newerNoncurrentVersions;
     /**
      * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
      * 
      */
-    private @Nullable Double noncurrentDays;
+    private @Nullable Integer noncurrentDays;
 
     private BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration() {}
     /**
      * @return Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
-    public Optional<Double> newerNoncurrentVersions() {
+    public Optional<Integer> newerNoncurrentVersions() {
         return Optional.ofNullable(this.newerNoncurrentVersions);
     }
     /**
      * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
      * 
      */
-    public Optional<Double> noncurrentDays() {
+    public Optional<Integer> noncurrentDays() {
         return Optional.ofNullable(this.noncurrentDays);
     }
 
@@ -47,8 +47,8 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Double newerNoncurrentVersions;
-        private @Nullable Double noncurrentDays;
+        private @Nullable Integer newerNoncurrentVersions;
+        private @Nullable Integer noncurrentDays;
         public Builder() {}
         public Builder(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,13 +57,13 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
         }
 
         @CustomType.Setter
-        public Builder newerNoncurrentVersions(@Nullable Double newerNoncurrentVersions) {
+        public Builder newerNoncurrentVersions(@Nullable Integer newerNoncurrentVersions) {
 
             this.newerNoncurrentVersions = newerNoncurrentVersions;
             return this;
         }
         @CustomType.Setter
-        public Builder noncurrentDays(@Nullable Double noncurrentDays) {
+        public Builder noncurrentDays(@Nullable Integer noncurrentDays) {
 
             this.noncurrentDays = noncurrentDays;
             return this;
