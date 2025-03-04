@@ -6,10 +6,10 @@ Subject: [PATCH] Patch tags ComputedOnly for appfabric, networkmonitor,
 
 
 diff --git a/internal/service/appfabric/ingestion.go b/internal/service/appfabric/ingestion.go
-index cbded936df..d97f172b51 100644
+index 1105abeaec..365d8275f8 100644
 --- a/internal/service/appfabric/ingestion.go
 +++ b/internal/service/appfabric/ingestion.go
-@@ -81,7 +81,7 @@ func (r *ingestionResource) Schema(ctx context.Context, request resource.SchemaR
+@@ -77,7 +77,7 @@ func (r *ingestionResource) Schema(ctx context.Context, request resource.SchemaR
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -19,10 +19,10 @@ index cbded936df..d97f172b51 100644
  				Required: true,
  				Validators: []validator.String{
 diff --git a/internal/service/appfabric/ingestion_destination.go b/internal/service/appfabric/ingestion_destination.go
-index ae5d87c720..861bc692d3 100644
+index 8d52e9bf6e..97df3a2c79 100644
 --- a/internal/service/appfabric/ingestion_destination.go
 +++ b/internal/service/appfabric/ingestion_destination.go
-@@ -85,7 +85,7 @@ func (r *ingestionDestinationResource) Schema(ctx context.Context, request resou
+@@ -81,7 +81,7 @@ func (r *ingestionDestinationResource) Schema(ctx context.Context, request resou
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -32,10 +32,10 @@ index ae5d87c720..861bc692d3 100644
  		Blocks: map[string]schema.Block{
  			"destination_configuration": schema.ListNestedBlock{
 diff --git a/internal/service/networkfirewall/tls_inspection_configuration.go b/internal/service/networkfirewall/tls_inspection_configuration.go
-index 182d9491bc..1e5d4c7866 100644
+index 0139e9aeae..d32c36b22a 100644
 --- a/internal/service/networkfirewall/tls_inspection_configuration.go
 +++ b/internal/service/networkfirewall/tls_inspection_configuration.go
-@@ -118,7 +118,7 @@ func (r *tlsInspectionConfigurationResource) Schema(ctx context.Context, request
+@@ -114,7 +114,7 @@ func (r *tlsInspectionConfigurationResource) Schema(ctx context.Context, request
  				},
  			},
  			names.AttrTags:                    tftags.TagsAttribute(),
@@ -45,10 +45,10 @@ index 182d9491bc..1e5d4c7866 100644
  			"update_token": schema.StringAttribute{
  				Computed: true,
 diff --git a/internal/service/networkmonitor/monitor.go b/internal/service/networkmonitor/monitor.go
-index 83bf8577da..fba50e09bc 100644
+index dcb38d12f9..fa0a8baa0c 100644
 --- a/internal/service/networkmonitor/monitor.go
 +++ b/internal/service/networkmonitor/monitor.go
-@@ -74,7 +74,7 @@ func (r *monitorResource) Schema(ctx context.Context, request resource.SchemaReq
+@@ -70,7 +70,7 @@ func (r *monitorResource) Schema(ctx context.Context, request resource.SchemaReq
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -58,10 +58,10 @@ index 83bf8577da..fba50e09bc 100644
  	}
  }
 diff --git a/internal/service/networkmonitor/probe.go b/internal/service/networkmonitor/probe.go
-index 8fefba9ca3..598cca0f80 100644
+index 95348fd3d6..3d89474900 100644
 --- a/internal/service/networkmonitor/probe.go
 +++ b/internal/service/networkmonitor/probe.go
-@@ -109,7 +109,7 @@ func (r *probeResource) Schema(ctx context.Context, request resource.SchemaReque
+@@ -105,7 +105,7 @@ func (r *probeResource) Schema(ctx context.Context, request resource.SchemaReque
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
