@@ -42,7 +42,7 @@ new file mode 100644
 index 0000000000..cd2a293a73
 --- /dev/null
 +++ b/internal/service/s3legacy/bucket_legacy.go
-@@ -0,0 +1,3030 @@
+@@ -0,0 +1,3028 @@
 +package s3legacy
 +
 +import (
@@ -710,8 +710,6 @@ index 0000000000..cd2a293a73
 +			"tags":     tftags.TagsSchema(),
 +			"tags_all": tftags.TagsSchemaTrulyComputed(),
 +		},
-+
-+		CustomizeDiff: verify.SetTagsDiff,
 +	}
 +}
 +
