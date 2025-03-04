@@ -6,10 +6,10 @@ Subject: [PATCH] Run scripts/patch_computed_only.sh to patch
 
 
 diff --git a/internal/service/docdbelastic/cluster.go b/internal/service/docdbelastic/cluster.go
-index 15d1bba2f2..d2b30946e8 100644
+index 6e2ee93589..54f8bf1f44 100644
 --- a/internal/service/docdbelastic/cluster.go
 +++ b/internal/service/docdbelastic/cluster.go
-@@ -143,7 +143,7 @@ func (r *resourceCluster) Schema(ctx context.Context, _ resource.SchemaRequest,
+@@ -147,7 +147,7 @@ func (r *resourceCluster) Schema(ctx context.Context, _ resource.SchemaRequest,
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -19,10 +19,10 @@ index 15d1bba2f2..d2b30946e8 100644
  				CustomType: fwtypes.SetOfStringType,
  				Optional:   true,
 diff --git a/internal/service/eks/pod_identity_association.go b/internal/service/eks/pod_identity_association.go
-index 945a5505ba..4e90f485af 100644
+index 4e3b7c1743..4c0515d7e0 100644
 --- a/internal/service/eks/pod_identity_association.go
 +++ b/internal/service/eks/pod_identity_association.go
-@@ -101,7 +101,7 @@ func (r *podIdentityAssociationResource) Schema(ctx context.Context, req resourc
+@@ -105,7 +105,7 @@ func (r *podIdentityAssociationResource) Schema(ctx context.Context, req resourc
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -32,10 +32,10 @@ index 945a5505ba..4e90f485af 100644
  	}
  }
 diff --git a/internal/service/s3control/access_grant.go b/internal/service/s3control/access_grant.go
-index 6eba3daf2e..939f3b39f5 100644
+index 061835462d..06a7c62e48 100644
 --- a/internal/service/s3control/access_grant.go
 +++ b/internal/service/s3control/access_grant.go
-@@ -98,7 +98,7 @@ func (r *accessGrantResource) Schema(ctx context.Context, request resource.Schem
+@@ -102,7 +102,7 @@ func (r *accessGrantResource) Schema(ctx context.Context, request resource.Schem
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -45,10 +45,10 @@ index 6eba3daf2e..939f3b39f5 100644
  		Blocks: map[string]schema.Block{
  			"access_grants_location_configuration": schema.ListNestedBlock{
 diff --git a/internal/service/s3control/access_grants_instance.go b/internal/service/s3control/access_grants_instance.go
-index a6a876349f..c805ae855e 100644
+index 422fec7297..e6964845f5 100644
 --- a/internal/service/s3control/access_grants_instance.go
 +++ b/internal/service/s3control/access_grants_instance.go
-@@ -78,7 +78,7 @@ func (r *accessGrantsInstanceResource) Schema(ctx context.Context, request resou
+@@ -82,7 +82,7 @@ func (r *accessGrantsInstanceResource) Schema(ctx context.Context, request resou
  				Optional:   true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -58,10 +58,10 @@ index a6a876349f..c805ae855e 100644
  	}
  }
 diff --git a/internal/service/s3control/access_grants_location.go b/internal/service/s3control/access_grants_location.go
-index 248afbac42..707c95eb3e 100644
+index 5b54e6d743..a2f356290a 100644
 --- a/internal/service/s3control/access_grants_location.go
 +++ b/internal/service/s3control/access_grants_location.go
-@@ -79,7 +79,7 @@ func (r *accessGrantsLocationResource) Schema(ctx context.Context, request resou
+@@ -83,7 +83,7 @@ func (r *accessGrantsLocationResource) Schema(ctx context.Context, request resou
  			},
  			names.AttrID:      framework.IDAttribute(),
  			names.AttrTags:    tftags.TagsAttribute(),

@@ -5,7 +5,7 @@ Subject: [PATCH] Remove ephemeral resources
 
 
 diff --git a/internal/service/docdb/cluster.go b/internal/service/docdb/cluster.go
-index 18a68dc755..2829510891 100644
+index f41827f444..9226307438 100644
 --- a/internal/service/docdb/cluster.go
 +++ b/internal/service/docdb/cluster.go
 @@ -15,7 +15,6 @@ import (
@@ -16,7 +16,7 @@ index 18a68dc755..2829510891 100644
  	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-@@ -187,22 +186,9 @@ func resourceCluster() *schema.Resource {
+@@ -191,21 +190,9 @@ func resourceCluster() *schema.Resource {
  				ValidateFunc: verify.ValidARN,
  			},
  			"master_password": {
@@ -30,7 +30,6 @@ index 18a68dc755..2829510891 100644
 -				Optional:      true,
 -				WriteOnly:     true,
 -				ConflictsWith: []string{"master_password"},
--				RequiredWith:  []string{"master_password_wo_version"},
 -			},
 -			"master_password_wo_version": {
 -				Type:         schema.TypeInt,
@@ -42,7 +41,7 @@ index 18a68dc755..2829510891 100644
  			},
  			"master_username": {
  				Type:     schema.TypeString,
-@@ -344,13 +330,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -349,13 +336,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  		ApplyImmediately: aws.Bool(true),
  	}
  
@@ -56,7 +55,7 @@ index 18a68dc755..2829510891 100644
  	if _, ok := d.GetOk("snapshot_identifier"); ok {
  		input := &docdb.RestoreDBClusterFromSnapshotInput{
  			DBClusterIdentifier: aws.String(identifier),
-@@ -395,11 +374,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -400,11 +380,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  			requiresModifyDbCluster = true
  		}
  
@@ -68,7 +67,7 @@ index 18a68dc755..2829510891 100644
  		if v, ok := d.GetOk(names.AttrPort); ok {
  			input.Port = aws.Int32(int32(v.(int)))
  		}
-@@ -488,8 +462,8 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -493,8 +468,8 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  	} else {
  		// Secondary DocDB clusters part of a global cluster will not supply the master_password
  		if _, ok := d.GetOk("global_cluster_identifier"); !ok {
@@ -79,7 +78,7 @@ index 18a68dc755..2829510891 100644
  			}
  		}
  
-@@ -540,14 +514,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -545,14 +520,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  			input.KmsKeyId = aws.String(v.(string))
  		}
  
@@ -94,7 +93,7 @@ index 18a68dc755..2829510891 100644
  		if v, ok := d.GetOk(names.AttrPort); ok {
  			input.Port = aws.Int32(int32(v.(int)))
  		}
-@@ -704,18 +670,6 @@ func resourceClusterUpdate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -709,18 +676,6 @@ func resourceClusterUpdate(ctx context.Context, d *schema.ResourceData, meta int
  			input.MasterUserPassword = aws.String(d.Get("master_password").(string))
  		}
  
@@ -138,7 +137,7 @@ index 5b77bc91bc..8d37d35b94 100644
  	if needsModify {
  		log.Printf("[DEBUG] %s: Updating Green environment", operation)
 diff --git a/internal/service/rds/cluster.go b/internal/service/rds/cluster.go
-index ffe9276633..dc0104fa25 100644
+index 82d64a53a1..c8c4f7e17e 100644
 --- a/internal/service/rds/cluster.go
 +++ b/internal/service/rds/cluster.go
 @@ -16,7 +16,6 @@ import (
@@ -149,7 +148,7 @@ index ffe9276633..dc0104fa25 100644
  	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/customdiff"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
-@@ -324,7 +323,7 @@ func resourceCluster() *schema.Resource {
+@@ -308,7 +307,7 @@ func resourceCluster() *schema.Resource {
  			"manage_master_user_password": {
  				Type:          schema.TypeBool,
  				Optional:      true,
@@ -158,7 +157,7 @@ index ffe9276633..dc0104fa25 100644
  			},
  			"master_user_secret": {
  				Type:     schema.TypeList,
-@@ -353,23 +352,9 @@ func resourceCluster() *schema.Resource {
+@@ -337,22 +336,9 @@ func resourceCluster() *schema.Resource {
  				ValidateFunc: verify.ValidKMSKeyID,
  			},
  			"master_password": {
@@ -173,7 +172,6 @@ index ffe9276633..dc0104fa25 100644
 -				Sensitive:     true,
 -				WriteOnly:     true,
 -				ConflictsWith: []string{"manage_master_user_password", "master_password"},
--				RequiredWith:  []string{"master_password_wo_version"},
 -			},
 -			"master_password_wo_version": {
 -				Type:         schema.TypeInt,
@@ -185,7 +183,7 @@ index ffe9276633..dc0104fa25 100644
  			},
  			"master_username": {
  				Type:     schema.TypeString,
-@@ -704,13 +689,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -688,13 +674,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  		create.WithDefaultPrefix("tf-"),
  	).Generate()
  
@@ -199,7 +197,7 @@ index ffe9276633..dc0104fa25 100644
  	// Some API calls (e.g. RestoreDBClusterFromSnapshot do not support all
  	// parameters to correctly apply all settings in one pass. For missing
  	// parameters or unsupported configurations, we may need to call
-@@ -794,11 +772,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -775,11 +754,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  			requiresModifyDbCluster = true
  		}
  
@@ -211,7 +209,7 @@ index ffe9276633..dc0104fa25 100644
  		if v, ok := d.GetOk("master_user_secret_kms_key_id"); ok {
  			modifyDbClusterInput.MasterUserSecretKmsKeyId = aws.String(v.(string))
  			requiresModifyDbCluster = true
-@@ -947,10 +920,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -928,10 +902,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  			input.MasterUserPassword = aws.String(v.(string))
  		}
  
@@ -222,7 +220,7 @@ index ffe9276633..dc0104fa25 100644
  		if v, ok := d.GetOk("network_type"); ok {
  			input.NetworkType = aws.String(v.(string))
  		}
-@@ -1061,11 +1030,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -1042,11 +1012,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  			requiresModifyDbCluster = true
  		}
  
@@ -234,7 +232,7 @@ index ffe9276633..dc0104fa25 100644
  		if v, ok := d.GetOk("master_user_secret_kms_key_id"); ok {
  			modifyDbClusterInput.MasterUserSecretKmsKeyId = aws.String(v.(string))
  			requiresModifyDbCluster = true
-@@ -1267,10 +1231,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -1237,10 +1202,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  			input.MasterUserPassword = aws.String(v.(string))
  		}
  
@@ -245,7 +243,7 @@ index ffe9276633..dc0104fa25 100644
  		if v, ok := d.GetOk("master_user_secret_kms_key_id"); ok {
  			input.MasterUserSecretKmsKeyId = aws.String(v.(string))
  		}
-@@ -1677,18 +1637,6 @@ func resourceClusterUpdate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -1641,18 +1602,6 @@ func resourceClusterUpdate(ctx context.Context, d *schema.ResourceData, meta int
  			}
  		}
  
@@ -265,10 +263,10 @@ index ffe9276633..dc0104fa25 100644
  			if v, ok := d.GetOk("master_user_secret_kms_key_id"); ok {
  				input.MasterUserSecretKmsKeyId = aws.String(v.(string))
 diff --git a/internal/service/rds/instance.go b/internal/service/rds/instance.go
-index e78746f6f1..c4c165820e 100644
+index cc9b4727b4..63856c495f 100644
 --- a/internal/service/rds/instance.go
 +++ b/internal/service/rds/instance.go
-@@ -416,7 +416,7 @@ func resourceInstance() *schema.Resource {
+@@ -420,7 +420,7 @@ func resourceInstance() *schema.Resource {
  			"manage_master_user_password": {
  				Type:          schema.TypeBool,
  				Optional:      true,
@@ -277,7 +275,7 @@ index e78746f6f1..c4c165820e 100644
  			},
  			"master_user_secret": {
  				Type:     schema.TypeList,
-@@ -494,23 +494,9 @@ func resourceInstance() *schema.Resource {
+@@ -498,22 +498,9 @@ func resourceInstance() *schema.Resource {
  				Computed: true,
  			},
  			names.AttrPassword: {
@@ -292,7 +290,6 @@ index e78746f6f1..c4c165820e 100644
 -				WriteOnly:     true,
 -				Sensitive:     true,
 -				ConflictsWith: []string{"manage_master_user_password", names.AttrPassword},
--				RequiredWith:  []string{"password_wo_version"},
 -			},
 -			"password_wo_version": {
 -				Type:         schema.TypeInt,
@@ -304,7 +301,7 @@ index e78746f6f1..c4c165820e 100644
  			},
  			"performance_insights_enabled": {
  				Type:     schema.TypeBool,
-@@ -782,13 +768,6 @@ func resourceInstanceCreate(ctx context.Context, d *schema.ResourceData, meta in
+@@ -786,13 +773,6 @@ func resourceInstanceCreate(ctx context.Context, d *schema.ResourceData, meta in
  		}
  	}
  
@@ -318,7 +315,7 @@ index e78746f6f1..c4c165820e 100644
  	if v, ok := d.GetOk("replicate_source_db"); ok {
  		sourceDBInstanceID := v.(string)
  		input := &rds.CreateDBInstanceReadReplicaInput{
-@@ -1021,10 +1000,6 @@ func resourceInstanceCreate(ctx context.Context, d *schema.ResourceData, meta in
+@@ -1025,10 +1005,6 @@ func resourceInstanceCreate(ctx context.Context, d *schema.ResourceData, meta in
  			requiresModifyDbInstance = true
  		}
  
@@ -329,7 +326,7 @@ index e78746f6f1..c4c165820e 100644
  	} else if v, ok := d.GetOk("s3_import"); ok {
  		if _, ok := d.GetOk(names.AttrAllocatedStorage); !ok {
  			diags = sdkdiag.AppendErrorf(diags, `"allocated_storage": required field is not set`)
-@@ -1138,10 +1113,6 @@ func resourceInstanceCreate(ctx context.Context, d *schema.ResourceData, meta in
+@@ -1142,10 +1118,6 @@ func resourceInstanceCreate(ctx context.Context, d *schema.ResourceData, meta in
  			input.MasterUserPassword = aws.String(v.(string))
  		}
  
@@ -340,7 +337,7 @@ index e78746f6f1..c4c165820e 100644
  		if v, ok := d.GetOk("performance_insights_enabled"); ok {
  			input.EnablePerformanceInsights = aws.Bool(v.(bool))
  		}
-@@ -1385,11 +1356,6 @@ func resourceInstanceCreate(ctx context.Context, d *schema.ResourceData, meta in
+@@ -1389,11 +1361,6 @@ func resourceInstanceCreate(ctx context.Context, d *schema.ResourceData, meta in
  			requiresModifyDbInstance = true
  		}
  
@@ -352,7 +349,7 @@ index e78746f6f1..c4c165820e 100644
  		if v, ok := d.GetOk("performance_insights_enabled"); ok {
  			modifyDbInstanceInput.EnablePerformanceInsights = aws.Bool(v.(bool))
  			requiresModifyDbInstance = true
-@@ -1616,11 +1582,6 @@ func resourceInstanceCreate(ctx context.Context, d *schema.ResourceData, meta in
+@@ -1620,11 +1587,6 @@ func resourceInstanceCreate(ctx context.Context, d *schema.ResourceData, meta in
  			requiresModifyDbInstance = true
  		}
  
@@ -364,7 +361,7 @@ index e78746f6f1..c4c165820e 100644
  		if v, ok := d.GetOk(names.AttrPort); ok {
  			input.Port = aws.Int32(int32(v.(int)))
  		}
-@@ -1817,10 +1778,6 @@ func resourceInstanceCreate(ctx context.Context, d *schema.ResourceData, meta in
+@@ -1821,10 +1783,6 @@ func resourceInstanceCreate(ctx context.Context, d *schema.ResourceData, meta in
  			input.MasterUserPassword = aws.String(v.(string))
  		}
  
@@ -375,7 +372,7 @@ index e78746f6f1..c4c165820e 100644
  		if v, ok := d.GetOk(names.AttrParameterGroupName); ok {
  			input.DBParameterGroupName = aws.String(v.(string))
  		}
-@@ -2449,8 +2406,7 @@ func dbInstanceCreateReadReplica(ctx context.Context, conn *rds.Client, input *r
+@@ -2453,8 +2411,7 @@ func dbInstanceCreateReadReplica(ctx context.Context, conn *rds.Client, input *r
  	return outputRaw.(*rds.CreateDBInstanceReadReplicaOutput), nil
  }
  
@@ -385,7 +382,7 @@ index e78746f6f1..c4c165820e 100644
  	needsModify := false
  
  	if d.HasChanges(names.AttrAllocatedStorage, names.AttrIOPS) {
-@@ -2625,18 +2581,6 @@ func dbInstancePopulateModify(input *rds.ModifyDBInstanceInput, d *schema.Resour
+@@ -2629,18 +2586,6 @@ func dbInstancePopulateModify(input *rds.ModifyDBInstanceInput, d *schema.Resour
  		}
  	}
  
@@ -404,7 +401,7 @@ index e78746f6f1..c4c165820e 100644
  	if d.HasChanges("performance_insights_enabled", "performance_insights_kms_key_id", "performance_insights_retention_period") {
  		needsModify = true
  		input.EnablePerformanceInsights = aws.Bool(d.Get("performance_insights_enabled").(bool))
-@@ -2701,7 +2645,7 @@ func dbInstancePopulateModify(input *rds.ModifyDBInstanceInput, d *schema.Resour
+@@ -2705,7 +2650,7 @@ func dbInstancePopulateModify(input *rds.ModifyDBInstanceInput, d *schema.Resour
  		}
  	}
  
@@ -414,7 +411,7 @@ index e78746f6f1..c4c165820e 100644
  
  func dbInstanceModify(ctx context.Context, conn *rds.Client, resourceID string, input *rds.ModifyDBInstanceInput, timeout time.Duration) error {
 diff --git a/internal/service/redshift/cluster.go b/internal/service/redshift/cluster.go
-index 92bc901c79..620a4f478d 100644
+index ce935c71af..75dabbf8f4 100644
 --- a/internal/service/redshift/cluster.go
 +++ b/internal/service/redshift/cluster.go
 @@ -16,7 +16,6 @@ import (
@@ -425,7 +422,7 @@ index 92bc901c79..620a4f478d 100644
  	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/customdiff"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-@@ -268,7 +267,7 @@ func resourceCluster() *schema.Resource {
+@@ -272,7 +271,7 @@ func resourceCluster() *schema.Resource {
  			"manage_master_password": {
  				Type:          schema.TypeBool,
  				Optional:      true,
@@ -434,7 +431,7 @@ index 92bc901c79..620a4f478d 100644
  			},
  			"manual_snapshot_retention_period": {
  				Type:         schema.TypeInt,
-@@ -287,27 +286,7 @@ func resourceCluster() *schema.Resource {
+@@ -291,26 +290,7 @@ func resourceCluster() *schema.Resource {
  					validation.StringMatch(regexache.MustCompile(`^.*[0-9].*`), "must contain at least one number"),
  					validation.StringMatch(regexache.MustCompile(`^[^\@\/'" ]*$`), "cannot contain [/@\"' ]"),
  				),
@@ -453,7 +450,6 @@ index 92bc901c79..620a4f478d 100644
 -					validation.StringMatch(regexache.MustCompile(`^[^\@\/'" ]*$`), "cannot contain [/@\"' ]"),
 -				),
 -				ConflictsWith: []string{"manage_master_password", "master_password"},
--				RequiredWith:  []string{"master_password_wo_version"},
 -			},
 -			"master_password_wo_version": {
 -				Type:         schema.TypeInt,
@@ -463,7 +459,7 @@ index 92bc901c79..620a4f478d 100644
  			},
  			"master_password_secret_arn": {
  				Type:     schema.TypeString,
-@@ -474,13 +453,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -479,13 +459,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  		Tags:                             getTagsIn(ctx),
  	}
  
@@ -477,7 +473,7 @@ index 92bc901c79..620a4f478d 100644
  	if v, ok := d.GetOk("aqua_configuration_status"); ok {
  		inputR.AquaConfigurationStatus = awstypes.AquaConfigurationStatus(v.(string))
  		inputC.AquaConfigurationStatus = awstypes.AquaConfigurationStatus(v.(string))
-@@ -517,7 +489,7 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -522,7 +495,7 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  	}
  
  	if v, ok := d.GetOk(names.AttrEncrypted); ok {
@@ -486,7 +482,7 @@ index 92bc901c79..620a4f478d 100644
  		inputR.Encrypted = aws.Bool(v.(bool))
  	}
  
-@@ -555,10 +527,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -560,10 +533,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  		inputC.MasterUserPassword = aws.String(v.(string))
  	}
  
@@ -497,7 +493,7 @@ index 92bc901c79..620a4f478d 100644
  	if v, ok := d.GetOk("master_password_secret_kms_key_id"); ok {
  		inputR.MasterPasswordSecretKmsKeyId = aws.String(v.(string))
  		inputC.MasterPasswordSecretKmsKeyId = aws.String(v.(string))
-@@ -609,7 +577,7 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -614,7 +583,7 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
  
  		d.SetId(aws.ToString(output.Cluster.ClusterIdentifier))
  	} else {
@@ -506,7 +502,7 @@ index 92bc901c79..620a4f478d 100644
  			if _, ok := d.GetOk("manage_master_password"); !ok {
  				return sdkdiag.AppendErrorf(diags, `provider.aws: aws_redshift_cluster: %s: one of "manage_master_password" or "master_password" is required`, d.Get(names.AttrClusterIdentifier).(string))
  			}
-@@ -838,18 +806,6 @@ func resourceClusterUpdate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -843,18 +812,6 @@ func resourceClusterUpdate(ctx context.Context, d *schema.ResourceData, meta int
  			input.MasterUserPassword = aws.String(d.Get("master_password").(string))
  		}
  
@@ -526,7 +522,7 @@ index 92bc901c79..620a4f478d 100644
  			input.MasterPasswordSecretKmsKeyId = aws.String(d.Get("master_password_secret_kms_key_id").(string))
  		}
 diff --git a/internal/service/redshiftserverless/namespace.go b/internal/service/redshiftserverless/namespace.go
-index 45cb36632a..d3c2c71065 100644
+index 388f3ae376..841b21b0ec 100644
 --- a/internal/service/redshiftserverless/namespace.go
 +++ b/internal/service/redshiftserverless/namespace.go
 @@ -14,7 +14,6 @@ import (
@@ -537,7 +533,7 @@ index 45cb36632a..d3c2c71065 100644
  	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-@@ -57,19 +56,7 @@ func resourceNamespace() *schema.Resource {
+@@ -62,18 +61,7 @@ func resourceNamespace() *schema.Resource {
  				Type:          schema.TypeString,
  				Optional:      true,
  				Sensitive:     true,
@@ -548,7 +544,6 @@ index 45cb36632a..d3c2c71065 100644
 -				Optional:      true,
 -				WriteOnly:     true,
 -				ConflictsWith: []string{"admin_user_password", "manage_admin_password"},
--				RequiredWith:  []string{"admin_user_password_wo_version"},
 -			},
 -			"admin_user_password_wo_version": {
 -				Type:         schema.TypeInt,
@@ -558,7 +553,7 @@ index 45cb36632a..d3c2c71065 100644
  			},
  			"admin_username": {
  				Type:      schema.TypeString,
-@@ -118,7 +105,7 @@ func resourceNamespace() *schema.Resource {
+@@ -122,7 +110,7 @@ func resourceNamespace() *schema.Resource {
  			"manage_admin_password": {
  				Type:          schema.TypeBool,
  				Optional:      true,
@@ -567,7 +562,7 @@ index 45cb36632a..d3c2c71065 100644
  			},
  			"namespace_id": {
  				Type:     schema.TypeString,
-@@ -145,12 +132,6 @@ func resourceNamespaceCreate(ctx context.Context, d *schema.ResourceData, meta i
+@@ -151,12 +139,6 @@ func resourceNamespaceCreate(ctx context.Context, d *schema.ResourceData, meta i
  		Tags:          getTagsIn(ctx),
  	}
  
@@ -580,7 +575,7 @@ index 45cb36632a..d3c2c71065 100644
  	if v, ok := d.GetOk("admin_password_secret_kms_key_id"); ok {
  		input.AdminPasswordSecretKmsKeyId = aws.String(v.(string))
  	}
-@@ -159,10 +140,6 @@ func resourceNamespaceCreate(ctx context.Context, d *schema.ResourceData, meta i
+@@ -165,10 +147,6 @@ func resourceNamespaceCreate(ctx context.Context, d *schema.ResourceData, meta i
  		input.AdminUserPassword = aws.String(v.(string))
  	}
  
@@ -591,7 +586,7 @@ index 45cb36632a..d3c2c71065 100644
  	if v, ok := d.GetOk("admin_username"); ok {
  		input.AdminUsername = aws.String(v.(string))
  	}
-@@ -246,22 +223,8 @@ func resourceNamespaceUpdate(ctx context.Context, d *schema.ResourceData, meta i
+@@ -252,22 +230,8 @@ func resourceNamespaceUpdate(ctx context.Context, d *schema.ResourceData, meta i
  			input.AdminPasswordSecretKmsKeyId = aws.String(d.Get("admin_password_secret_kms_key_id").(string))
  		}
  
@@ -616,7 +611,7 @@ index 45cb36632a..d3c2c71065 100644
  
  		if d.HasChange("default_iam_role_arn") {
 diff --git a/internal/service/secretsmanager/secret_version.go b/internal/service/secretsmanager/secret_version.go
-index 6ded7ef7b2..b6ec344a65 100644
+index d6f5aa5cc2..275fa3e667 100644
 --- a/internal/service/secretsmanager/secret_version.go
 +++ b/internal/service/secretsmanager/secret_version.go
 @@ -12,7 +12,6 @@ import (
@@ -627,7 +622,7 @@ index 6ded7ef7b2..b6ec344a65 100644
  	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/id"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
-@@ -41,10 +40,7 @@ func resourceSecretVersion() *schema.Resource {
+@@ -42,10 +41,7 @@ func resourceSecretVersion() *schema.Resource {
  		DeleteWithoutTimeout: resourceSecretVersionDelete,
  
  		Importer: &schema.ResourceImporter{
@@ -638,8 +633,8 @@ index 6ded7ef7b2..b6ec344a65 100644
 +			StateContext: schema.ImportStatePassthroughContext,
  		},
  
- 		Schema: map[string]*schema.Schema{
-@@ -52,10 +48,6 @@ func resourceSecretVersion() *schema.Resource {
+ 		ValidateRawResourceConfigFuncs: []schema.ValidateRawResourceConfigFunc{
+@@ -57,10 +53,6 @@ func resourceSecretVersion() *schema.Resource {
  				Type:     schema.TypeString,
  				Computed: true,
  			},
@@ -650,7 +645,7 @@ index 6ded7ef7b2..b6ec344a65 100644
  			"secret_id": {
  				Type:     schema.TypeString,
  				Required: true,
-@@ -66,7 +58,7 @@ func resourceSecretVersion() *schema.Resource {
+@@ -71,7 +63,7 @@ func resourceSecretVersion() *schema.Resource {
  				Optional:      true,
  				ForceNew:      true,
  				Sensitive:     true,
@@ -659,7 +654,7 @@ index 6ded7ef7b2..b6ec344a65 100644
  				ValidateFunc:  verify.ValidBase64String,
  			},
  			"secret_string": {
-@@ -74,21 +66,7 @@ func resourceSecretVersion() *schema.Resource {
+@@ -79,20 +71,7 @@ func resourceSecretVersion() *schema.Resource {
  				Optional:      true,
  				ForceNew:      true,
  				Sensitive:     true,
@@ -671,7 +666,6 @@ index 6ded7ef7b2..b6ec344a65 100644
 -				WriteOnly:     true,
 -				Sensitive:     true,
 -				ConflictsWith: []string{"secret_binary", "secret_string"},
--				RequiredWith:  []string{"secret_string_wo_version"},
 -			},
 -			"secret_string_wo_version": {
 -				Type:         schema.TypeInt,
@@ -682,7 +676,7 @@ index 6ded7ef7b2..b6ec344a65 100644
  			},
  			"version_id": {
  				Type:     schema.TypeString,
-@@ -120,22 +98,10 @@ func resourceSecretVersionCreate(ctx context.Context, d *schema.ResourceData, me
+@@ -124,22 +103,10 @@ func resourceSecretVersionCreate(ctx context.Context, d *schema.ResourceData, me
  		if err != nil {
  			return sdkdiag.AppendFromErr(diags, err)
  		}
@@ -706,7 +700,7 @@ index 6ded7ef7b2..b6ec344a65 100644
  	if v, ok := d.GetOk("version_stages"); ok && v.(*schema.Set).Len() > 0 {
  		input.VersionStages = flex.ExpandStringValueSet(v.(*schema.Set))
  	}
-@@ -188,23 +154,6 @@ func resourceSecretVersionRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -192,23 +159,6 @@ func resourceSecretVersionRead(ctx context.Context, d *schema.ResourceData, meta
  	d.Set("version_id", output.VersionId)
  	d.Set("version_stages", output.VersionStages)
  
@@ -731,7 +725,7 @@ index 6ded7ef7b2..b6ec344a65 100644
  }
  
 diff --git a/internal/service/ssm/parameter.go b/internal/service/ssm/parameter.go
-index b5fccc0112..645cfee9ac 100644
+index 1a37dd6a69..8fb7d03914 100644
 --- a/internal/service/ssm/parameter.go
 +++ b/internal/service/ssm/parameter.go
 @@ -12,7 +12,6 @@ import (
@@ -749,8 +743,8 @@ index b5fccc0112..645cfee9ac 100644
 -	"github.com/hashicorp/terraform-provider-aws/internal/flex"
  	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
  	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
- 	"github.com/hashicorp/terraform-provider-aws/names"
-@@ -31,7 +29,6 @@ import (
+ 	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+@@ -32,7 +30,6 @@ import (
  // @SDKResource("aws_ssm_parameter", name="Parameter")
  // @Tags(identifierAttribute="id", resourceType="Parameter")
  // @Testing(existsType="github.com/aws/aws-sdk-go-v2/service/ssm/types;awstypes;awstypes.Parameter")
@@ -758,7 +752,7 @@ index b5fccc0112..645cfee9ac 100644
  func resourceParameter() *schema.Resource {
  	return &schema.Resource{
  		CreateWithoutTimeout: resourceParameterCreate,
-@@ -40,10 +37,7 @@ func resourceParameter() *schema.Resource {
+@@ -41,10 +38,7 @@ func resourceParameter() *schema.Resource {
  		DeleteWithoutTimeout: resourceParameterDelete,
  
  		Importer: &schema.ResourceImporter{
@@ -769,8 +763,8 @@ index b5fccc0112..645cfee9ac 100644
 +			StateContext: schema.ImportStatePassthroughContext,
  		},
  
- 		Schema: map[string]*schema.Schema{
-@@ -73,15 +67,10 @@ func resourceParameter() *schema.Resource {
+ 		ValidateRawResourceConfigFuncs: []schema.ValidateRawResourceConfigFunc{
+@@ -77,15 +71,10 @@ func resourceParameter() *schema.Resource {
  				Optional:     true,
  				ValidateFunc: validation.StringLenBetween(0, 1024),
  			},
@@ -789,7 +783,7 @@ index b5fccc0112..645cfee9ac 100644
  			},
  			names.AttrKeyID: {
  				Type:     schema.TypeString,
-@@ -121,24 +110,10 @@ func resourceParameter() *schema.Resource {
+@@ -125,24 +114,10 @@ func resourceParameter() *schema.Resource {
  				ValidateDiagFunc: enum.Validate[awstypes.ParameterType](),
  			},
  			names.AttrValue: {
@@ -818,18 +812,17 @@ index b5fccc0112..645cfee9ac 100644
  			},
  			names.AttrVersion: {
  				Type:     schema.TypeInt,
-@@ -161,9 +136,7 @@ func resourceParameter() *schema.Resource {
+@@ -165,9 +140,6 @@ func resourceParameter() *schema.Resource {
  			customdiff.ComputedIf("insecure_value", func(_ context.Context, diff *schema.ResourceDiff, meta interface{}) bool {
  				return diff.HasChange(names.AttrValue)
  			}),
 -			customdiff.ComputedIf("has_value_wo", func(_ context.Context, diff *schema.ResourceDiff, meta interface{}) bool {
 -				return diff.HasChange("value_wo_version")
 -			}),
-+			verify.SetTagsDiff,
+ 			verify.SetTagsDiff,
  		),
  	}
- }
-@@ -179,16 +152,6 @@ func resourceParameterCreate(ctx context.Context, d *schema.ResourceData, meta i
+@@ -184,16 +156,6 @@ func resourceParameterCreate(ctx context.Context, d *schema.ResourceData, meta i
  		value = v
  	}
  
@@ -846,7 +839,7 @@ index b5fccc0112..645cfee9ac 100644
  	input := &ssm.PutParameterInput{
  		AllowedPattern: aws.String(d.Get("allowed_pattern").(string)),
  		Name:           aws.String(name),
-@@ -284,31 +247,12 @@ func resourceParameterRead(ctx context.Context, d *schema.ResourceData, meta int
+@@ -289,31 +251,12 @@ func resourceParameterRead(ctx context.Context, d *schema.ResourceData, meta int
  	d.Set(names.AttrType, param.Type)
  	d.Set(names.AttrVersion, param.Version)
  
@@ -878,7 +871,7 @@ index b5fccc0112..645cfee9ac 100644
  	if param.Type == awstypes.ParameterTypeSecureString && d.Get("insecure_value").(string) != "" {
  		return sdkdiag.AppendErrorf(diags, "invalid configuration, cannot set type = %s and insecure_value", param.Type)
  	}
-@@ -345,18 +289,6 @@ func resourceParameterUpdate(ctx context.Context, d *schema.ResourceData, meta i
+@@ -350,18 +293,6 @@ func resourceParameterUpdate(ctx context.Context, d *schema.ResourceData, meta i
  			value = v
  		}
  

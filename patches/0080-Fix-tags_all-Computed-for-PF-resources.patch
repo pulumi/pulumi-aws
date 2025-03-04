@@ -5,10 +5,10 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/apigateway/domain_name_access_association.go b/internal/service/apigateway/domain_name_access_association.go
-index b846a7e19b..62293d1324 100644
+index 48be618218..3eb7901e74 100644
 --- a/internal/service/apigateway/domain_name_access_association.go
 +++ b/internal/service/apigateway/domain_name_access_association.go
-@@ -71,7 +71,7 @@ func (r *domainNameAccessAssociationResource) Schema(ctx context.Context, reques
+@@ -75,7 +75,7 @@ func (r *domainNameAccessAssociationResource) Schema(ctx context.Context, reques
  			},
  			names.AttrID:      framework.IDAttributeDeprecatedWithAlternate(path.Root(names.AttrARN)),
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -18,10 +18,10 @@ index b846a7e19b..62293d1324 100644
  	}
  }
 diff --git a/internal/service/cloudfront/vpc_origin.go b/internal/service/cloudfront/vpc_origin.go
-index a12541ddcd..b84bd2c977 100644
+index c5ccae5b51..b3eb73bb75 100644
 --- a/internal/service/cloudfront/vpc_origin.go
 +++ b/internal/service/cloudfront/vpc_origin.go
-@@ -56,7 +56,7 @@ func (r *vpcOriginResource) Schema(ctx context.Context, request resource.SchemaR
+@@ -60,7 +60,7 @@ func (r *vpcOriginResource) Schema(ctx context.Context, request resource.SchemaR
  				Computed: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -31,10 +31,10 @@ index a12541ddcd..b84bd2c977 100644
  		Blocks: map[string]schema.Block{
  			"vpc_origin_endpoint_config": schema.ListNestedBlock{
 diff --git a/internal/service/memorydb/multi_region_cluster.go b/internal/service/memorydb/multi_region_cluster.go
-index 04e7b46c0c..7c03852175 100644
+index 42b0fc1d42..e3b5b68ca0 100644
 --- a/internal/service/memorydb/multi_region_cluster.go
 +++ b/internal/service/memorydb/multi_region_cluster.go
-@@ -122,7 +122,7 @@ func (r *multiRegionClusterResource) Schema(ctx context.Context, request resourc
+@@ -126,7 +126,7 @@ func (r *multiRegionClusterResource) Schema(ctx context.Context, request resourc
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -44,10 +44,10 @@ index 04e7b46c0c..7c03852175 100644
  				Optional: true,
  				Computed: true,
 diff --git a/internal/service/networkmanager/dx_gateway_attachment.go b/internal/service/networkmanager/dx_gateway_attachment.go
-index 1cfeae0d5a..1ed763be52 100644
+index b22748f2d9..d6ab20cd05 100644
 --- a/internal/service/networkmanager/dx_gateway_attachment.go
 +++ b/internal/service/networkmanager/dx_gateway_attachment.go
-@@ -107,7 +107,7 @@ func (r *directConnectGatewayAttachmentResource) Schema(ctx context.Context, req
+@@ -111,7 +111,7 @@ func (r *directConnectGatewayAttachmentResource) Schema(ctx context.Context, req
  				Computed: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -57,10 +57,10 @@ index 1cfeae0d5a..1ed763be52 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/rds/cluster_snapshot_copy.go b/internal/service/rds/cluster_snapshot_copy.go
-index 56f4b062eb..95defdd7f8 100644
+index f9044db1ed..db79f0c198 100644
 --- a/internal/service/rds/cluster_snapshot_copy.go
 +++ b/internal/service/rds/cluster_snapshot_copy.go
-@@ -142,7 +142,7 @@ func (r *resourceClusterSnapshotCopy) Schema(ctx context.Context, req resource.S
+@@ -146,7 +146,7 @@ func (r *resourceClusterSnapshotCopy) Schema(ctx context.Context, req resource.S
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

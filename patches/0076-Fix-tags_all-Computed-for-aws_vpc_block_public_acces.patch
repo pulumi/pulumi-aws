@@ -6,10 +6,10 @@ Subject: [PATCH] Fix tags_all Computed for
 
 
 diff --git a/internal/service/ec2/vpc_block_public_access_exclusion.go b/internal/service/ec2/vpc_block_public_access_exclusion.go
-index 0dde8cfc90..56c79690c3 100644
+index cb828701ab..b05fb21336 100644
 --- a/internal/service/ec2/vpc_block_public_access_exclusion.go
 +++ b/internal/service/ec2/vpc_block_public_access_exclusion.go
-@@ -67,7 +67,7 @@ func (r *vpcBlockPublicAccessExclusionResource) Schema(ctx context.Context, requ
+@@ -71,7 +71,7 @@ func (r *vpcBlockPublicAccessExclusionResource) Schema(ctx context.Context, requ
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

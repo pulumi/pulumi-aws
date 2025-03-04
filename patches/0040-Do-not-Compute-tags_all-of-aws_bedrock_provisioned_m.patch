@@ -6,10 +6,10 @@ Subject: [PATCH] Do not Compute tags_all of
 
 
 diff --git a/internal/service/bedrock/provisioned_model_throughput.go b/internal/service/bedrock/provisioned_model_throughput.go
-index 9784013729..658a2fee5d 100644
+index 23675c40ac..d98002c080 100644
 --- a/internal/service/bedrock/provisioned_model_throughput.go
 +++ b/internal/service/bedrock/provisioned_model_throughput.go
-@@ -82,7 +82,7 @@ func (r *resourceProvisionedModelThroughput) Schema(ctx context.Context, request
+@@ -86,7 +86,7 @@ func (r *resourceProvisionedModelThroughput) Schema(ctx context.Context, request
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

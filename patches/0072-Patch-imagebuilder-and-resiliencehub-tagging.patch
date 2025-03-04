@@ -5,10 +5,10 @@ Subject: [PATCH] Patch imagebuilder and resiliencehub tagging
 
 
 diff --git a/internal/service/imagebuilder/lifecycle_policy.go b/internal/service/imagebuilder/lifecycle_policy.go
-index 00d0567a29..0b4142a476 100644
+index 16a7ab6edc..62062edd9a 100644
 --- a/internal/service/imagebuilder/lifecycle_policy.go
 +++ b/internal/service/imagebuilder/lifecycle_policy.go
-@@ -85,7 +85,7 @@ func (r *lifecyclePolicyResource) Schema(ctx context.Context, request resource.S
+@@ -89,7 +89,7 @@ func (r *lifecyclePolicyResource) Schema(ctx context.Context, request resource.S
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -18,10 +18,10 @@ index 00d0567a29..0b4142a476 100644
  		Blocks: map[string]schema.Block{
  			"policy_detail": schema.SetNestedBlock{
 diff --git a/internal/service/resiliencehub/resiliency_policy.go b/internal/service/resiliencehub/resiliency_policy.go
-index cccdd2a608..8313d71791 100644
+index 9f349c81ff..4feca02f5e 100644
 --- a/internal/service/resiliencehub/resiliency_policy.go
 +++ b/internal/service/resiliencehub/resiliency_policy.go
-@@ -126,7 +126,7 @@ func (r *resourceResiliencyPolicy) Schema(ctx context.Context, req resource.Sche
+@@ -130,7 +130,7 @@ func (r *resourceResiliencyPolicy) Schema(ctx context.Context, req resource.Sche
  				Computed:    true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

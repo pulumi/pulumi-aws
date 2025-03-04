@@ -6,10 +6,10 @@ Subject: [PATCH] Patch tags for rekognition, route53domains, timestreamquery,
 
 
 diff --git a/internal/service/rekognition/project.go b/internal/service/rekognition/project.go
-index 11c4a9e6e1..69c24bb6f7 100644
+index 4c94547e2f..7fae3e37d7 100644
 --- a/internal/service/rekognition/project.go
 +++ b/internal/service/rekognition/project.go
-@@ -77,7 +77,7 @@ func (r *resourceProject) Schema(ctx context.Context, req resource.SchemaRequest
+@@ -81,7 +81,7 @@ func (r *resourceProject) Schema(ctx context.Context, req resource.SchemaRequest
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -19,10 +19,10 @@ index 11c4a9e6e1..69c24bb6f7 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/route53domains/domain.go b/internal/service/route53domains/domain.go
-index 6cac27d9d3..03ad926e56 100644
+index 98708eda12..292fefb210 100644
 --- a/internal/service/route53domains/domain.go
 +++ b/internal/service/route53domains/domain.go
-@@ -145,7 +145,7 @@ func (r *domainResource) Schema(ctx context.Context, request resource.SchemaRequ
+@@ -149,7 +149,7 @@ func (r *domainResource) Schema(ctx context.Context, request resource.SchemaRequ
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -32,10 +32,10 @@ index 6cac27d9d3..03ad926e56 100644
  				Optional: true,
  				Computed: true,
 diff --git a/internal/service/timestreamquery/scheduled_query.go b/internal/service/timestreamquery/scheduled_query.go
-index d12fcf4a94..4b06bb1f6f 100644
+index 5c1b69bb1b..6adcc05130 100644
 --- a/internal/service/timestreamquery/scheduled_query.go
 +++ b/internal/service/timestreamquery/scheduled_query.go
-@@ -87,7 +87,7 @@ func (r *resourceScheduledQuery) Schema(ctx context.Context, req resource.Schema
+@@ -91,7 +91,7 @@ func (r *resourceScheduledQuery) Schema(ctx context.Context, req resource.Schema
  				Computed:   true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -45,10 +45,10 @@ index d12fcf4a94..4b06bb1f6f 100644
  		Blocks: map[string]schema.Block{
  			"error_report_configuration": schema.ListNestedBlock{
 diff --git a/internal/service/vpclattice/resource_configuration.go b/internal/service/vpclattice/resource_configuration.go
-index e6df49b908..657a4a9a40 100644
+index abbbefdd0e..529904a5d9 100644
 --- a/internal/service/vpclattice/resource_configuration.go
 +++ b/internal/service/vpclattice/resource_configuration.go
-@@ -122,7 +122,7 @@ func (r *resourceConfigurationResource) Schema(ctx context.Context, request reso
+@@ -126,7 +126,7 @@ func (r *resourceConfigurationResource) Schema(ctx context.Context, request reso
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -58,10 +58,10 @@ index e6df49b908..657a4a9a40 100644
  				CustomType: typeType,
  				Optional:   true,
 diff --git a/internal/service/vpclattice/service_network_resource_association.go b/internal/service/vpclattice/service_network_resource_association.go
-index cc0350249e..b3085633d3 100644
+index b2a1111843..b9d75ef918 100644
 --- a/internal/service/vpclattice/service_network_resource_association.go
 +++ b/internal/service/vpclattice/service_network_resource_association.go
-@@ -70,7 +70,7 @@ func (r *serviceNetworkResourceAssociationResource) Schema(ctx context.Context,
+@@ -74,7 +74,7 @@ func (r *serviceNetworkResourceAssociationResource) Schema(ctx context.Context,
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
