@@ -214,31 +214,6 @@ index d3ac9ee4b6..11b174389e 100644
  		},
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
-diff --git a/internal/verify/diff.go b/internal/verify/diff.go
-index 0a6e41dae4..e30e9fd533 100644
---- a/internal/verify/diff.go
-+++ b/internal/verify/diff.go
-@@ -7,7 +7,19 @@ import (
- 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
- )
- 
--// Find JSON diff functions in the json.go file.
-+// SuppressEquivalentRoundedTime returns a difference suppression function that compares
-+// two time value with the specified layout rounded to the specified duration.
-+func SuppressEquivalentRoundedTime(layout string, d time.Duration) schema.SchemaDiffSuppressFunc {
-+	return func(k, old, new string, _ *schema.ResourceData) bool {
-+		if old, err := time.Parse(layout, old); err == nil {
-+			if new, err := time.Parse(layout, new); err == nil {
-+				return old.Round(d).Equal(new.Round(d))
-+			}
-+		}
-+
-+		return false
-+	}
-+}
- 
- // SuppressMissingOptionalConfigurationBlock handles configuration block attributes in the following scenario:
- //   - The resource schema includes an optional configuration block with defaults
 diff --git a/shim/shim.go b/shim/shim.go
 index 2af7c06925..ce64074bfd 100644
 --- a/shim/shim.go
