@@ -6,7 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -37,13 +37,13 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs extends com.
      * 
      */
     @Import(name="days")
-    private @Nullable Output<Double> days;
+    private @Nullable Output<Integer> days;
 
     /**
      * @return Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
      * 
      */
-    public Optional<Output<Double>> days() {
+    public Optional<Output<Integer>> days() {
         return Optional.ofNullable(this.days);
     }
 
@@ -115,7 +115,7 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs extends com.
          * @return builder
          * 
          */
-        public Builder days(@Nullable Output<Double> days) {
+        public Builder days(@Nullable Output<Integer> days) {
             $.days = days;
             return this;
         }
@@ -126,7 +126,7 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs extends com.
          * @return builder
          * 
          */
-        public Builder days(Double days) {
+        public Builder days(Integer days) {
             return days(Output.of(days));
         }
 

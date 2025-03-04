@@ -5,7 +5,7 @@ package com.pulumi.aws.s3tables.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 @CustomType
@@ -15,13 +15,13 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
      * Must be at least `1`.
      * 
      */
-    private Double maxSnapshotAgeHours;
+    private Integer maxSnapshotAgeHours;
     /**
      * @return Minimum number of snapshots to keep.
      * Must be at least `1`.
      * 
      */
-    private Double minSnapshotsToKeep;
+    private Integer minSnapshotsToKeep;
 
     private TableMaintenanceConfigurationIcebergSnapshotManagementSettings() {}
     /**
@@ -29,7 +29,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
      * Must be at least `1`.
      * 
      */
-    public Double maxSnapshotAgeHours() {
+    public Integer maxSnapshotAgeHours() {
         return this.maxSnapshotAgeHours;
     }
     /**
@@ -37,7 +37,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
      * Must be at least `1`.
      * 
      */
-    public Double minSnapshotsToKeep() {
+    public Integer minSnapshotsToKeep() {
         return this.minSnapshotsToKeep;
     }
 
@@ -50,8 +50,8 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
     }
     @CustomType.Builder
     public static final class Builder {
-        private Double maxSnapshotAgeHours;
-        private Double minSnapshotsToKeep;
+        private Integer maxSnapshotAgeHours;
+        private Integer minSnapshotsToKeep;
         public Builder() {}
         public Builder(TableMaintenanceConfigurationIcebergSnapshotManagementSettings defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,7 +60,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
         }
 
         @CustomType.Setter
-        public Builder maxSnapshotAgeHours(Double maxSnapshotAgeHours) {
+        public Builder maxSnapshotAgeHours(Integer maxSnapshotAgeHours) {
             if (maxSnapshotAgeHours == null) {
               throw new MissingRequiredPropertyException("TableMaintenanceConfigurationIcebergSnapshotManagementSettings", "maxSnapshotAgeHours");
             }
@@ -68,7 +68,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
             return this;
         }
         @CustomType.Setter
-        public Builder minSnapshotsToKeep(Double minSnapshotsToKeep) {
+        public Builder minSnapshotsToKeep(Integer minSnapshotsToKeep) {
             if (minSnapshotsToKeep == null) {
               throw new MissingRequiredPropertyException("TableMaintenanceConfigurationIcebergSnapshotManagementSettings", "minSnapshotsToKeep");
             }

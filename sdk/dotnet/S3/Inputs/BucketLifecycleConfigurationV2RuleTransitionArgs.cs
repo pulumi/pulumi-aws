@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3.Inputs
         /// Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
         /// </summary>
         [Input("days")]
-        public Input<double>? Days { get; set; }
+        public Input<int>? Days { get; set; }
 
         /// <summary>
         /// Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.

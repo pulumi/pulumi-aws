@@ -2844,7 +2844,7 @@ class GetListenerMutualAuthenticationResult(dict):
 @pulumi.output_type
 class GetListenerRuleActionResult(dict):
     def __init__(__self__, *,
-                 order: float,
+                 order: int,
                  type: str,
                  authenticate_cognito: Optional['outputs.GetListenerRuleActionAuthenticateCognitoResult'] = None,
                  authenticate_oidc: Optional['outputs.GetListenerRuleActionAuthenticateOidcResult'] = None,
@@ -2852,7 +2852,7 @@ class GetListenerRuleActionResult(dict):
                  forward: Optional['outputs.GetListenerRuleActionForwardResult'] = None,
                  redirect: Optional['outputs.GetListenerRuleActionRedirectResult'] = None):
         """
-        :param float order: The evaluation order of the action.
+        :param int order: The evaluation order of the action.
         :param str type: The type of the action, indicates which sub-block will be populated.
         :param 'GetListenerRuleActionAuthenticateCognitoArgs' authenticate_cognito: An action to authenticate using Amazon Cognito.
                Detailed below.
@@ -2880,7 +2880,7 @@ class GetListenerRuleActionResult(dict):
 
     @property
     @pulumi.getter
-    def order(self) -> float:
+    def order(self) -> int:
         """
         The evaluation order of the action.
         """
@@ -3234,10 +3234,10 @@ class GetListenerRuleActionForwardResult(dict):
 @pulumi.output_type
 class GetListenerRuleActionForwardStickinessResult(dict):
     def __init__(__self__, *,
-                 duration: float,
+                 duration: int,
                  enabled: bool):
         """
-        :param float duration: The time period, in seconds, during which requests from a client should be routed to the same target group.
+        :param int duration: The time period, in seconds, during which requests from a client should be routed to the same target group.
         :param bool enabled: Indicates whether target group stickiness is enabled.
         """
         pulumi.set(__self__, "duration", duration)
@@ -3245,7 +3245,7 @@ class GetListenerRuleActionForwardStickinessResult(dict):
 
     @property
     @pulumi.getter
-    def duration(self) -> float:
+    def duration(self) -> int:
         """
         The time period, in seconds, during which requests from a client should be routed to the same target group.
         """
@@ -3264,11 +3264,11 @@ class GetListenerRuleActionForwardStickinessResult(dict):
 class GetListenerRuleActionForwardTargetGroupResult(dict):
     def __init__(__self__, *,
                  arn: str,
-                 weight: float):
+                 weight: int):
         """
         :param str arn: ARN of the Listener Rule.
                Either `arn` or `listener_arn` must be set.
-        :param float weight: Weight of the target group.
+        :param int weight: Weight of the target group.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "weight", weight)
@@ -3284,7 +3284,7 @@ class GetListenerRuleActionForwardTargetGroupResult(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> float:
+    def weight(self) -> int:
         """
         Weight of the target group.
         """

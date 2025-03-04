@@ -38,7 +38,7 @@ namespace Pulumi.Aws.ElastiCache
         /// Default value is `1`.
         /// </summary>
         [Output("cacheNodeCount")]
-        public Output<double> CacheNodeCount { get; private set; } = null!;
+        public Output<int> CacheNodeCount { get; private set; } = null!;
 
         /// <summary>
         /// Node type for the reserved cache nodes.
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.ElastiCache
         /// Default value is `1`.
         /// </summary>
         [Input("cacheNodeCount")]
-        public Input<double>? CacheNodeCount { get; set; }
+        public Input<int>? CacheNodeCount { get; set; }
 
         /// <summary>
         /// ID of the reserved cache node offering to purchase.
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.ElastiCache
         /// Default value is `1`.
         /// </summary>
         [Input("cacheNodeCount")]
-        public Input<double>? CacheNodeCount { get; set; }
+        public Input<int>? CacheNodeCount { get; set; }
 
         /// <summary>
         /// Node type for the reserved cache nodes.

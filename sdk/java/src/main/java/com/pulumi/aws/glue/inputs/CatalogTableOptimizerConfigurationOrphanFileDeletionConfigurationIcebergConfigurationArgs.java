@@ -5,7 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -36,13 +36,13 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
      * 
      */
     @Import(name="orphanFileRetentionPeriodInDays")
-    private @Nullable Output<Double> orphanFileRetentionPeriodInDays;
+    private @Nullable Output<Integer> orphanFileRetentionPeriodInDays;
 
     /**
      * @return The number of days that orphan files should be retained before file deletion. Defaults to `3`.
      * 
      */
-    public Optional<Output<Double>> orphanFileRetentionPeriodInDays() {
+    public Optional<Output<Integer>> orphanFileRetentionPeriodInDays() {
         return Optional.ofNullable(this.orphanFileRetentionPeriodInDays);
     }
 
@@ -98,7 +98,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
          * @return builder
          * 
          */
-        public Builder orphanFileRetentionPeriodInDays(@Nullable Output<Double> orphanFileRetentionPeriodInDays) {
+        public Builder orphanFileRetentionPeriodInDays(@Nullable Output<Integer> orphanFileRetentionPeriodInDays) {
             $.orphanFileRetentionPeriodInDays = orphanFileRetentionPeriodInDays;
             return this;
         }
@@ -109,7 +109,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
          * @return builder
          * 
          */
-        public Builder orphanFileRetentionPeriodInDays(Double orphanFileRetentionPeriodInDays) {
+        public Builder orphanFileRetentionPeriodInDays(Integer orphanFileRetentionPeriodInDays) {
             return orphanFileRetentionPeriodInDays(Output.of(orphanFileRetentionPeriodInDays));
         }
 

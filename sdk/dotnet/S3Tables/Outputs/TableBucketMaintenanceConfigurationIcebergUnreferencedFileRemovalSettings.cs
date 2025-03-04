@@ -17,18 +17,18 @@ namespace Pulumi.Aws.S3Tables.Outputs
         /// Data objects marked for deletion are deleted after this many days.
         /// Must be at least `1`.
         /// </summary>
-        public readonly double NonCurrentDays;
+        public readonly int NonCurrentDays;
         /// <summary>
         /// Unreferenced data objects are marked for deletion after this many days.
         /// Must be at least `1`.
         /// </summary>
-        public readonly double UnreferencedDays;
+        public readonly int UnreferencedDays;
 
         [OutputConstructor]
         private TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings(
-            double nonCurrentDays,
+            int nonCurrentDays,
 
-            double unreferencedDays)
+            int unreferencedDays)
         {
             NonCurrentDays = nonCurrentDays;
             UnreferencedDays = unreferencedDays;

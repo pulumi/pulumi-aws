@@ -11,7 +11,7 @@ import com.pulumi.aws.lb.inputs.GetListenerRuleActionRedirectArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -95,13 +95,13 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
      * 
      */
     @Import(name="order", required=true)
-    private Output<Double> order;
+    private Output<Integer> order;
 
     /**
      * @return The evaluation order of the action.
      * 
      */
-    public Output<Double> order() {
+    public Output<Integer> order() {
         return this.order;
     }
 
@@ -265,7 +265,7 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder order(Output<Double> order) {
+        public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
@@ -276,7 +276,7 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder order(Double order) {
+        public Builder order(Integer order) {
             return order(Output.of(order));
         }
 

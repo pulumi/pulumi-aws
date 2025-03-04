@@ -71,14 +71,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as tls from "@pulumi/tls";
  *
- * const example = new tls.PrivateKey("example", {algorithm: "RSA"});
- * const exampleSelfSignedCert = new tls.SelfSignedCert("example", {
+ * const example = new tls.index.PrivateKey("example", {algorithm: "RSA"});
+ * const exampleSelfSignedCert = new tls.index.SelfSignedCert("example", {
  *     keyAlgorithm: "RSA",
  *     privateKeyPem: example.privateKeyPem,
- *     subject: {
+ *     subject: [{
  *         commonName: "example.com",
  *         organization: "ACME Examples, Inc",
- *     },
+ *     }],
  *     validityPeriodHours: 12,
  *     allowedUses: [
  *         "key_encipherment",

@@ -72,8 +72,8 @@ import (
 //					Enabled: pulumi.Bool(true),
 //					RetentionConfiguration: &glue.CatalogTableOptimizerConfigurationRetentionConfigurationArgs{
 //						IcebergConfiguration: &glue.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs{
-//							SnapshotRetentionPeriodInDays: pulumi.Float64(7),
-//							NumberOfSnapshotsToRetain:     pulumi.Float64(3),
+//							SnapshotRetentionPeriodInDays: pulumi.Int(7),
+//							NumberOfSnapshotsToRetain:     pulumi.Int(3),
 //							CleanExpiredFiles:             pulumi.Bool(true),
 //						},
 //					},
@@ -112,7 +112,7 @@ import (
 //					Enabled: pulumi.Bool(true),
 //					OrphanFileDeletionConfiguration: &glue.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs{
 //						IcebergConfiguration: &glue.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs{
-//							OrphanFileRetentionPeriodInDays: pulumi.Float64(7),
+//							OrphanFileRetentionPeriodInDays: pulumi.Int(7),
 //							Location:                        pulumi.String("s3://example-bucket/example_table/"),
 //						},
 //					},

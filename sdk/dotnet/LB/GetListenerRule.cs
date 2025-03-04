@@ -210,7 +210,7 @@ namespace Pulumi.Aws.LB
         /// Must be set if `listener_arn` is set, otherwise must not be set.
         /// </summary>
         [Input("priority")]
-        public double? Priority { get; set; }
+        public int? Priority { get; set; }
 
         public GetListenerRuleArgs()
         {
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.LB
         /// Must be set if `listener_arn` is set, otherwise must not be set.
         /// </summary>
         [Input("priority")]
-        public Input<double>? Priority { get; set; }
+        public Input<int>? Priority { get; set; }
 
         public GetListenerRuleInvokeArgs()
         {
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.LB
         /// </summary>
         public readonly string Id;
         public readonly string ListenerArn;
-        public readonly double Priority;
+        public readonly int Priority;
         /// <summary>
         /// Tags assigned to the Listener Rule.
         /// </summary>
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.LB
 
             string listenerArn,
 
-            double priority,
+            int priority,
 
             ImmutableDictionary<string, string> tags)
         {

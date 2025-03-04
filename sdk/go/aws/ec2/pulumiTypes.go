@@ -58231,9 +58231,9 @@ type GetVpcIpamsIpam struct {
 	// ID of the default public scope.
 	PublicDefaultScopeId string `pulumi:"publicDefaultScopeId"`
 	// Number of resource discovery associations.
-	ResourceDiscoveryAssociationCount float64 `pulumi:"resourceDiscoveryAssociationCount"`
+	ResourceDiscoveryAssociationCount int `pulumi:"resourceDiscoveryAssociationCount"`
 	// Number of scopes on this IPAM.
-	ScopeCount float64 `pulumi:"scopeCount"`
+	ScopeCount int `pulumi:"scopeCount"`
 	// Current state of the IPAM.
 	State string `pulumi:"state"`
 	// State message of the IPAM.
@@ -58277,9 +58277,9 @@ type GetVpcIpamsIpamArgs struct {
 	// ID of the default public scope.
 	PublicDefaultScopeId pulumi.StringInput `pulumi:"publicDefaultScopeId"`
 	// Number of resource discovery associations.
-	ResourceDiscoveryAssociationCount pulumi.Float64Input `pulumi:"resourceDiscoveryAssociationCount"`
+	ResourceDiscoveryAssociationCount pulumi.IntInput `pulumi:"resourceDiscoveryAssociationCount"`
 	// Number of scopes on this IPAM.
-	ScopeCount pulumi.Float64Input `pulumi:"scopeCount"`
+	ScopeCount pulumi.IntInput `pulumi:"scopeCount"`
 	// Current state of the IPAM.
 	State pulumi.StringInput `pulumi:"state"`
 	// State message of the IPAM.
@@ -58395,13 +58395,13 @@ func (o GetVpcIpamsIpamOutput) PublicDefaultScopeId() pulumi.StringOutput {
 }
 
 // Number of resource discovery associations.
-func (o GetVpcIpamsIpamOutput) ResourceDiscoveryAssociationCount() pulumi.Float64Output {
-	return o.ApplyT(func(v GetVpcIpamsIpam) float64 { return v.ResourceDiscoveryAssociationCount }).(pulumi.Float64Output)
+func (o GetVpcIpamsIpamOutput) ResourceDiscoveryAssociationCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) int { return v.ResourceDiscoveryAssociationCount }).(pulumi.IntOutput)
 }
 
 // Number of scopes on this IPAM.
-func (o GetVpcIpamsIpamOutput) ScopeCount() pulumi.Float64Output {
-	return o.ApplyT(func(v GetVpcIpamsIpam) float64 { return v.ScopeCount }).(pulumi.Float64Output)
+func (o GetVpcIpamsIpamOutput) ScopeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVpcIpamsIpam) int { return v.ScopeCount }).(pulumi.IntOutput)
 }
 
 // Current state of the IPAM.

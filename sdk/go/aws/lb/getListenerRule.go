@@ -64,7 +64,7 @@ import (
 //			lbRulePriority := cfg.RequireFloat64("lbRulePriority")
 //			_, err := lb.LookupListenerRule(ctx, &lb.LookupListenerRuleArgs{
 //				ListenerArn: pulumi.StringRef(lbListenerArn),
-//				Priority:    pulumi.Float64Ref(lbRulePriority),
+//				Priority:    pulumi.IntRef(lbRulePriority),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -100,7 +100,7 @@ type LookupListenerRuleArgs struct {
 	ListenerArn *string `pulumi:"listenerArn"`
 	// Priority of the Listener Rule within the Listener.
 	// Must be set if `listenerArn` is set, otherwise must not be set.
-	Priority *float64 `pulumi:"priority"`
+	Priority *int `pulumi:"priority"`
 }
 
 // A collection of values returned by getListenerRule.
@@ -114,9 +114,9 @@ type LookupListenerRuleResult struct {
 	// Detailed below.
 	Conditions []GetListenerRuleCondition `pulumi:"conditions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string  `pulumi:"id"`
-	ListenerArn string  `pulumi:"listenerArn"`
-	Priority    float64 `pulumi:"priority"`
+	Id          string `pulumi:"id"`
+	ListenerArn string `pulumi:"listenerArn"`
+	Priority    int    `pulumi:"priority"`
 	// Tags assigned to the Listener Rule.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -146,7 +146,7 @@ type LookupListenerRuleOutputArgs struct {
 	ListenerArn pulumi.StringPtrInput `pulumi:"listenerArn"`
 	// Priority of the Listener Rule within the Listener.
 	// Must be set if `listenerArn` is set, otherwise must not be set.
-	Priority pulumi.Float64PtrInput `pulumi:"priority"`
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
 }
 
 func (LookupListenerRuleOutputArgs) ElementType() reflect.Type {
@@ -194,8 +194,8 @@ func (o LookupListenerRuleResultOutput) ListenerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) string { return v.ListenerArn }).(pulumi.StringOutput)
 }
 
-func (o LookupListenerRuleResultOutput) Priority() pulumi.Float64Output {
-	return o.ApplyT(func(v LookupListenerRuleResult) float64 { return v.Priority }).(pulumi.Float64Output)
+func (o LookupListenerRuleResultOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupListenerRuleResult) int { return v.Priority }).(pulumi.IntOutput)
 }
 
 // Tags assigned to the Listener Rule.

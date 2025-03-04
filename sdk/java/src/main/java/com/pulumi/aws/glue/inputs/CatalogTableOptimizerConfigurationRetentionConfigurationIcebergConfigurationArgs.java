@@ -6,7 +6,7 @@ package com.pulumi.aws.glue.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -36,13 +36,13 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
      * 
      */
     @Import(name="numberOfSnapshotsToRetain")
-    private @Nullable Output<Double> numberOfSnapshotsToRetain;
+    private @Nullable Output<Integer> numberOfSnapshotsToRetain;
 
     /**
      * @return The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
      * 
      */
-    public Optional<Output<Double>> numberOfSnapshotsToRetain() {
+    public Optional<Output<Integer>> numberOfSnapshotsToRetain() {
         return Optional.ofNullable(this.numberOfSnapshotsToRetain);
     }
 
@@ -51,13 +51,13 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
      * 
      */
     @Import(name="snapshotRetentionPeriodInDays")
-    private @Nullable Output<Double> snapshotRetentionPeriodInDays;
+    private @Nullable Output<Integer> snapshotRetentionPeriodInDays;
 
     /**
      * @return The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
      * 
      */
-    public Optional<Output<Double>> snapshotRetentionPeriodInDays() {
+    public Optional<Output<Integer>> snapshotRetentionPeriodInDays() {
         return Optional.ofNullable(this.snapshotRetentionPeriodInDays);
     }
 
@@ -114,7 +114,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
          * @return builder
          * 
          */
-        public Builder numberOfSnapshotsToRetain(@Nullable Output<Double> numberOfSnapshotsToRetain) {
+        public Builder numberOfSnapshotsToRetain(@Nullable Output<Integer> numberOfSnapshotsToRetain) {
             $.numberOfSnapshotsToRetain = numberOfSnapshotsToRetain;
             return this;
         }
@@ -125,7 +125,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
          * @return builder
          * 
          */
-        public Builder numberOfSnapshotsToRetain(Double numberOfSnapshotsToRetain) {
+        public Builder numberOfSnapshotsToRetain(Integer numberOfSnapshotsToRetain) {
             return numberOfSnapshotsToRetain(Output.of(numberOfSnapshotsToRetain));
         }
 
@@ -135,7 +135,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
          * @return builder
          * 
          */
-        public Builder snapshotRetentionPeriodInDays(@Nullable Output<Double> snapshotRetentionPeriodInDays) {
+        public Builder snapshotRetentionPeriodInDays(@Nullable Output<Integer> snapshotRetentionPeriodInDays) {
             $.snapshotRetentionPeriodInDays = snapshotRetentionPeriodInDays;
             return this;
         }
@@ -146,7 +146,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
          * @return builder
          * 
          */
-        public Builder snapshotRetentionPeriodInDays(Double snapshotRetentionPeriodInDays) {
+        public Builder snapshotRetentionPeriodInDays(Integer snapshotRetentionPeriodInDays) {
             return snapshotRetentionPeriodInDays(Output.of(snapshotRetentionPeriodInDays));
         }
 

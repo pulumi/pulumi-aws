@@ -16,10 +16,10 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Number of days after which Amazon S3 aborts an incomplete multipart upload.
         /// </summary>
-        public readonly double? DaysAfterInitiation;
+        public readonly int? DaysAfterInitiation;
 
         [OutputConstructor]
-        private BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload(double? daysAfterInitiation)
+        private BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload(int? daysAfterInitiation)
         {
             DaysAfterInitiation = daysAfterInitiation;
         }

@@ -7,7 +7,6 @@ import com.pulumi.aws.docdb.inputs.ElasticClusterTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -71,13 +70,13 @@ public final class ElasticClusterArgs extends com.pulumi.resources.ResourceArgs 
      * 
      */
     @Import(name="backupRetentionPeriod")
-    private @Nullable Output<Double> backupRetentionPeriod;
+    private @Nullable Output<Integer> backupRetentionPeriod;
 
     /**
      * @return The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
      * 
      */
-    public Optional<Output<Double>> backupRetentionPeriod() {
+    public Optional<Output<Integer>> backupRetentionPeriod() {
         return Optional.ofNullable(this.backupRetentionPeriod);
     }
 
@@ -333,7 +332,7 @@ public final class ElasticClusterArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder backupRetentionPeriod(@Nullable Output<Double> backupRetentionPeriod) {
+        public Builder backupRetentionPeriod(@Nullable Output<Integer> backupRetentionPeriod) {
             $.backupRetentionPeriod = backupRetentionPeriod;
             return this;
         }
@@ -344,7 +343,7 @@ public final class ElasticClusterArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder backupRetentionPeriod(Double backupRetentionPeriod) {
+        public Builder backupRetentionPeriod(Integer backupRetentionPeriod) {
             return backupRetentionPeriod(Output.of(backupRetentionPeriod));
         }
 
