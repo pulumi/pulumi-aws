@@ -6043,6 +6043,26 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	) (resource.ID, error) {
 		return attr(state, "arn"), nil
 	}
+	prov.Resources["aws_quicksight_role_membership"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "role", "memberName"), nil
+	}
+	prov.Resources["aws_xray_resource_policy"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "policyName"), nil
+	}
+	prov.Resources["aws_macie2_organization_configuration"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "autoEnable"), nil
+	}
+	prov.Resources["aws_rds_shard_group"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "arn"), nil
+	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
 		"aws_cloudwatch_log_index_policy":                {"logGroupName"},
