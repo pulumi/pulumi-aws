@@ -39,7 +39,7 @@ index 19c9cd7190..3ad50b93e8 100644
  	provider.ConfigureContextFunc = func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
 new file mode 100644
-index 0000000000..cd2a293a73
+index 0000000000..1c19c2a4c1
 --- /dev/null
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -0,0 +1,3028 @@

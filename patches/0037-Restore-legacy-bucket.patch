@@ -116,7 +116,7 @@ index 0000000000..4278d1e70a
 +	return conn, nil
 +}
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index 1da08293c4..76ce85df25 100644
+index 630b32660e..4a54a18209 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -19,7 +19,6 @@ import (
@@ -136,7 +136,7 @@ index 1da08293c4..76ce85df25 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/verify"
  )
  
-@@ -1393,7 +1392,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -1391,7 +1390,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	}
  
  	if inContext, ok := tftags.FromContext(ctx); ok {
