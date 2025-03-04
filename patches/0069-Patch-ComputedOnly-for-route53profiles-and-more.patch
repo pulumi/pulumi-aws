@@ -5,10 +5,10 @@ Subject: [PATCH] Patch ComputedOnly for route53profiles and more
 
 
 diff --git a/internal/service/backup/restore_testing_plan.go b/internal/service/backup/restore_testing_plan.go
-index 78ca6fff6a..52863de797 100644
+index e19d23122a..550c9fa3da 100644
 --- a/internal/service/backup/restore_testing_plan.go
 +++ b/internal/service/backup/restore_testing_plan.go
-@@ -89,7 +89,7 @@ func (r *restoreTestingPlanResource) Schema(ctx context.Context, request resourc
+@@ -85,7 +85,7 @@ func (r *restoreTestingPlanResource) Schema(ctx context.Context, request resourc
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -18,10 +18,10 @@ index 78ca6fff6a..52863de797 100644
  		Blocks: map[string]schema.Block{
  			"recovery_point_selection": schema.ListNestedBlock{
 diff --git a/internal/service/pinpointsmsvoicev2/configuration_set.go b/internal/service/pinpointsmsvoicev2/configuration_set.go
-index b4bd9f9d39..61334ec528 100644
+index b1bd5bcd79..2a7e5669b7 100644
 --- a/internal/service/pinpointsmsvoicev2/configuration_set.go
 +++ b/internal/service/pinpointsmsvoicev2/configuration_set.go
-@@ -75,7 +75,7 @@ func (r *configurationSetResource) Schema(ctx context.Context, request resource.
+@@ -71,7 +71,7 @@ func (r *configurationSetResource) Schema(ctx context.Context, request resource.
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -31,10 +31,10 @@ index b4bd9f9d39..61334ec528 100644
  	}
  }
 diff --git a/internal/service/route53profiles/association.go b/internal/service/route53profiles/association.go
-index ed90c77ffa..748ef5cbf8 100644
+index de1a8c940b..ca347ab4ad 100644
 --- a/internal/service/route53profiles/association.go
 +++ b/internal/service/route53profiles/association.go
-@@ -113,7 +113,7 @@ func (r *resourceAssociation) Schema(ctx context.Context, req resource.SchemaReq
+@@ -109,7 +109,7 @@ func (r *resourceAssociation) Schema(ctx context.Context, req resource.SchemaReq
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -44,10 +44,10 @@ index ed90c77ffa..748ef5cbf8 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/route53profiles/profile.go b/internal/service/route53profiles/profile.go
-index b65485fd1b..529f1589f8 100644
+index 693cd38cb2..089da8f033 100644
 --- a/internal/service/route53profiles/profile.go
 +++ b/internal/service/route53profiles/profile.go
-@@ -94,7 +94,7 @@ func (r *resourceProfile) Schema(ctx context.Context, req resource.SchemaRequest
+@@ -90,7 +90,7 @@ func (r *resourceProfile) Schema(ctx context.Context, req resource.SchemaRequest
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

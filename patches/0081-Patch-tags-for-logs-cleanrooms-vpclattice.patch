@@ -5,10 +5,10 @@ Subject: [PATCH] Patch tags for logs, cleanrooms, vpclattice
 
 
 diff --git a/internal/service/cleanrooms/membership.go b/internal/service/cleanrooms/membership.go
-index a72d635b53..bce2d9829f 100644
+index ee4f03039e..991000a637 100644
 --- a/internal/service/cleanrooms/membership.go
 +++ b/internal/service/cleanrooms/membership.go
-@@ -115,7 +115,7 @@ func (r *resourceMembership) Schema(ctx context.Context, _ resource.SchemaReques
+@@ -111,7 +111,7 @@ func (r *resourceMembership) Schema(ctx context.Context, _ resource.SchemaReques
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -18,12 +18,12 @@ index a72d635b53..bce2d9829f 100644
  				CustomType: timetypes.RFC3339Type{},
  				Computed:   true,
 diff --git a/internal/service/logs/delivery.go b/internal/service/logs/delivery.go
-index 8ab31eaf9e..1c1c288699 100644
+index d749138f74..24b91ea5ea 100644
 --- a/internal/service/logs/delivery.go
 +++ b/internal/service/logs/delivery.go
-@@ -95,7 +95,7 @@ func (r *deliveryResource) Schema(ctx context.Context, request resource.SchemaRe
+@@ -93,7 +93,7 @@ func (r *deliveryResource) Schema(ctx context.Context, request resource.SchemaRe
  			},
- 			"s3_delivery_configuration": framework.ResourceOptionalComputedListOfObjectsAttribute[s3DeliveryConfigurationModel](ctx, 1, listplanmodifier.UseStateForUnknown()),
+ 			"s3_delivery_configuration": framework.ResourceOptionalComputedListOfObjectsAttribute[s3DeliveryConfigurationModel](ctx, 1, s3DeliveryConfigurationListOptions, listplanmodifier.UseStateForUnknown()),
  			names.AttrTags:              tftags.TagsAttribute(),
 -			names.AttrTagsAll:           tftags.TagsAttributeComputedOnly(),
 +			names.AttrTagsAll: tftags.TagsAttribute(),
@@ -31,10 +31,10 @@ index 8ab31eaf9e..1c1c288699 100644
  	}
  }
 diff --git a/internal/service/logs/delivery_destination.go b/internal/service/logs/delivery_destination.go
-index 593acce875..27eedb895c 100644
+index 5eb2035058..e48697cc2f 100644
 --- a/internal/service/logs/delivery_destination.go
 +++ b/internal/service/logs/delivery_destination.go
-@@ -73,7 +73,7 @@ func (r *deliveryDestinationResource) Schema(ctx context.Context, request resour
+@@ -69,7 +69,7 @@ func (r *deliveryDestinationResource) Schema(ctx context.Context, request resour
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -44,7 +44,7 @@ index 593acce875..27eedb895c 100644
  		Blocks: map[string]schema.Block{
  			"delivery_destination_configuration": schema.ListNestedBlock{
 diff --git a/internal/service/logs/delivery_source.go b/internal/service/logs/delivery_source.go
-index a051dfcd0f..97d47e535d 100644
+index 3b172ef95a..16b9173d00 100644
 --- a/internal/service/logs/delivery_source.go
 +++ b/internal/service/logs/delivery_source.go
 @@ -83,7 +83,7 @@ func (r *deliverySourceResource) Schema(ctx context.Context, request resource.Sc
@@ -57,10 +57,10 @@ index a051dfcd0f..97d47e535d 100644
  	}
  }
 diff --git a/internal/service/vpclattice/resource_gateway.go b/internal/service/vpclattice/resource_gateway.go
-index 50e42439ff..3bbf0b5387 100644
+index f5c0174c72..38f775fb8f 100644
 --- a/internal/service/vpclattice/resource_gateway.go
 +++ b/internal/service/vpclattice/resource_gateway.go
-@@ -102,7 +102,7 @@ func (r *resourceGatewayResource) Schema(ctx context.Context, request resource.S
+@@ -98,7 +98,7 @@ func (r *resourceGatewayResource) Schema(ctx context.Context, request resource.S
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

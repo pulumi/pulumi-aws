@@ -5,7 +5,7 @@ Subject: [PATCH] Restore legacy bucket
 
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 8e45a8a381..95f9b0a7f6 100644
+index e2052ffe8a..4f7e3b5a37 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -17,7 +17,6 @@ import (
