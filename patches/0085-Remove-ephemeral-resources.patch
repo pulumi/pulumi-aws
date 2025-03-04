@@ -818,14 +818,13 @@ index b5fccc0112..645cfee9ac 100644
  			},
  			names.AttrVersion: {
  				Type:     schema.TypeInt,
-@@ -161,9 +136,7 @@ func resourceParameter() *schema.Resource {
+@@ -161,9 +136,6 @@ func resourceParameter() *schema.Resource {
  			customdiff.ComputedIf("insecure_value", func(_ context.Context, diff *schema.ResourceDiff, meta interface{}) bool {
  				return diff.HasChange(names.AttrValue)
  			}),
 -			customdiff.ComputedIf("has_value_wo", func(_ context.Context, diff *schema.ResourceDiff, meta interface{}) bool {
 -				return diff.HasChange("value_wo_version")
 -			}),
-+			verify.SetTagsDiff,
  		),
  	}
  }
