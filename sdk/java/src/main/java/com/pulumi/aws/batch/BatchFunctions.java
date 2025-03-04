@@ -20,7 +20,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class BatchFunctions {
@@ -151,49 +150,6 @@ public final class BatchFunctions {
      * 
      */
     public static Output<GetComputeEnvironmentResult> getComputeEnvironment(GetComputeEnvironmentArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", TypeShape.of(GetComputeEnvironmentResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * The Batch Compute Environment data source allows access to details of a specific
-     * compute environment within AWS Batch.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.batch.BatchFunctions;
-     * import com.pulumi.aws.batch.inputs.GetComputeEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
-     *             .computeEnvironmentName("batch-mongo-production")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetComputeEnvironmentResult> getComputeEnvironment(GetComputeEnvironmentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", TypeShape.of(GetComputeEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -716,86 +672,6 @@ public final class BatchFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetJobDefinitionResult> getJobDefinition(GetJobDefinitionArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:batch/getJobDefinition:getJobDefinition", TypeShape.of(GetJobDefinitionResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS Batch Job Definition.
-     * 
-     * ## Example Usage
-     * 
-     * ### Lookup via Arn
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.batch.BatchFunctions;
-     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var arn = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .arn("arn:aws:batch:us-east-1:012345678910:job-definition/example")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * ### Lookup via Name
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.batch.BatchFunctions;
-     * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var name = BatchFunctions.getJobDefinition(GetJobDefinitionArgs.builder()
-     *             .name("example")
-     *             .revision(2)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetJobDefinitionResult> getJobDefinitionPlain(GetJobDefinitionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:batch/getJobDefinition:getJobDefinition", TypeShape.of(GetJobDefinitionResult.class), args, Utilities.withVersion(options));
     }
@@ -968,49 +844,6 @@ public final class BatchFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetJobQueueResult> getJobQueue(GetJobQueueArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:batch/getJobQueue:getJobQueue", TypeShape.of(GetJobQueueResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * The Batch Job Queue data source allows access to details of a specific
-     * job queue within AWS Batch.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.batch.BatchFunctions;
-     * import com.pulumi.aws.batch.inputs.GetJobQueueArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test-queue = BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
-     *             .name("tf-test-batch-job-queue")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetJobQueueResult> getJobQueuePlain(GetJobQueuePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:batch/getJobQueue:getJobQueue", TypeShape.of(GetJobQueueResult.class), args, Utilities.withVersion(options));
     }
@@ -1138,48 +971,6 @@ public final class BatchFunctions {
      * 
      */
     public static Output<GetSchedulingPolicyResult> getSchedulingPolicy(GetSchedulingPolicyArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:batch/getSchedulingPolicy:getSchedulingPolicy", TypeShape.of(GetSchedulingPolicyResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.batch.BatchFunctions;
-     * import com.pulumi.aws.batch.inputs.GetSchedulingPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
-     *             .arn("arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetSchedulingPolicyResult> getSchedulingPolicy(GetSchedulingPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:batch/getSchedulingPolicy:getSchedulingPolicy", TypeShape.of(GetSchedulingPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**

@@ -14,7 +14,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class SyntheticsFunctions {
@@ -339,87 +338,6 @@ public final class SyntheticsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetRuntimeVersionResult> getRuntimeVersion(GetRuntimeVersionArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:synthetics/getRuntimeVersion:getRuntimeVersion", TypeShape.of(GetRuntimeVersionResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS CloudWatch Synthetics Runtime Version.
-     * 
-     * ## Example Usage
-     * 
-     * ### Latest Runtime Version
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.synthetics.SyntheticsFunctions;
-     * import com.pulumi.aws.synthetics.inputs.GetRuntimeVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SyntheticsFunctions.getRuntimeVersion(GetRuntimeVersionArgs.builder()
-     *             .prefix("syn-nodejs-puppeteer")
-     *             .latest(true)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * ### Specific Runtime Version
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.synthetics.SyntheticsFunctions;
-     * import com.pulumi.aws.synthetics.inputs.GetRuntimeVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SyntheticsFunctions.getRuntimeVersion(GetRuntimeVersionArgs.builder()
-     *             .prefix("syn-nodejs-puppeteer")
-     *             .version("9.0")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetRuntimeVersionResult> getRuntimeVersionPlain(GetRuntimeVersionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:synthetics/getRuntimeVersion:getRuntimeVersion", TypeShape.of(GetRuntimeVersionResult.class), args, Utilities.withVersion(options));
     }
@@ -631,48 +549,6 @@ public final class SyntheticsFunctions {
      * 
      */
     public static Output<GetRuntimeVersionsResult> getRuntimeVersions(GetRuntimeVersionsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:synthetics/getRuntimeVersions:getRuntimeVersions", TypeShape.of(GetRuntimeVersionsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS CloudWatch Synthetics Runtime Versions.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.synthetics.SyntheticsFunctions;
-     * import com.pulumi.aws.synthetics.inputs.GetRuntimeVersionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SyntheticsFunctions.getRuntimeVersions();
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetRuntimeVersionsResult> getRuntimeVersions(GetRuntimeVersionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:synthetics/getRuntimeVersions:getRuntimeVersions", TypeShape.of(GetRuntimeVersionsResult.class), args, Utilities.withVersion(options));
     }
     /**

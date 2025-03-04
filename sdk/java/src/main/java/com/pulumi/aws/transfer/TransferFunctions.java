@@ -14,7 +14,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class TransferFunctions {
@@ -37,13 +36,6 @@ public final class TransferFunctions {
      * 
      */
     public static Output<GetConnectorResult> getConnector(GetConnectorArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:transfer/getConnector:getConnector", TypeShape.of(GetConnectorResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS Transfer Family Connector.
-     * 
-     */
-    public static Output<GetConnectorResult> getConnector(GetConnectorArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:transfer/getConnector:getConnector", TypeShape.of(GetConnectorResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -180,49 +172,6 @@ public final class TransferFunctions {
      * 
      */
     public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:transfer/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get the ARN of an AWS Transfer Server for use in other
-     * resources.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.transfer.TransferFunctions;
-     * import com.pulumi.aws.transfer.inputs.GetServerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = TransferFunctions.getServer(GetServerArgs.builder()
-     *             .serverId("s-1234567")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetServerResult> getServer(GetServerArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:transfer/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
     }
     /**

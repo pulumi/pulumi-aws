@@ -23,7 +23,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class KendraFunctions {
@@ -154,49 +153,6 @@ public final class KendraFunctions {
      * 
      */
     public static Output<GetExperienceResult> getExperience(GetExperienceArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:kendra/getExperience:getExperience", TypeShape.of(GetExperienceResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific Amazon Kendra Experience.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kendra.KendraFunctions;
-     * import com.pulumi.aws.kendra.inputs.GetExperienceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KendraFunctions.getExperience(GetExperienceArgs.builder()
-     *             .experienceId("87654321-1234-4321-4321-321987654321")
-     *             .indexId("12345678-1234-1234-1234-123456789123")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetExperienceResult> getExperience(GetExperienceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:kendra/getExperience:getExperience", TypeShape.of(GetExperienceResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -411,49 +367,6 @@ public final class KendraFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetFaqResult> getFaq(GetFaqArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:kendra/getFaq:getFaq", TypeShape.of(GetFaqResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific Amazon Kendra Faq.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kendra.KendraFunctions;
-     * import com.pulumi.aws.kendra.inputs.GetFaqArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = KendraFunctions.getFaq(GetFaqArgs.builder()
-     *             .faqId("87654321-1234-4321-4321-321987654321")
-     *             .indexId("12345678-1234-1234-1234-123456789123")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetFaqResult> getFaqPlain(GetFaqPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:kendra/getFaq:getFaq", TypeShape.of(GetFaqResult.class), args, Utilities.withVersion(options));
     }
@@ -581,48 +494,6 @@ public final class KendraFunctions {
      * 
      */
     public static Output<GetIndexResult> getIndex(GetIndexArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:kendra/getIndex:getIndex", TypeShape.of(GetIndexResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific Amazon Kendra Index.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kendra.KendraFunctions;
-     * import com.pulumi.aws.kendra.inputs.GetIndexArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KendraFunctions.getIndex(GetIndexArgs.builder()
-     *             .id("12345678-1234-1234-1234-123456789123")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetIndexResult> getIndex(GetIndexArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:kendra/getIndex:getIndex", TypeShape.of(GetIndexResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -836,49 +707,6 @@ public final class KendraFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetQuerySuggestionsBlockListResult> getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", TypeShape.of(GetQuerySuggestionsBlockListResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kendra.KendraFunctions;
-     * import com.pulumi.aws.kendra.inputs.GetQuerySuggestionsBlockListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
-     *             .indexId("12345678-1234-1234-1234-123456789123")
-     *             .querySuggestionsBlockListId("87654321-1234-4321-4321-321987654321")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetQuerySuggestionsBlockListResult> getQuerySuggestionsBlockListPlain(GetQuerySuggestionsBlockListPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", TypeShape.of(GetQuerySuggestionsBlockListResult.class), args, Utilities.withVersion(options));
     }
@@ -1009,49 +837,6 @@ public final class KendraFunctions {
      * 
      */
     public static Output<GetThesaurusResult> getThesaurus(GetThesaurusArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:kendra/getThesaurus:getThesaurus", TypeShape.of(GetThesaurusResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific Amazon Kendra Thesaurus.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kendra.KendraFunctions;
-     * import com.pulumi.aws.kendra.inputs.GetThesaurusArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
-     *             .indexId("12345678-1234-1234-1234-123456789123")
-     *             .thesaurusId("87654321-1234-4321-4321-321987654321")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetThesaurusResult> getThesaurus(GetThesaurusArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:kendra/getThesaurus:getThesaurus", TypeShape.of(GetThesaurusResult.class), args, Utilities.withVersion(options));
     }
     /**

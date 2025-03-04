@@ -21,7 +21,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -150,48 +149,6 @@ public final class DirectconnectFunctions {
      * 
      */
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:directconnect/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Retrieve information about a Direct Connect Connection.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
-     * import com.pulumi.aws.directconnect.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name("tf-dx-connection")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:directconnect/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -401,48 +358,6 @@ public final class DirectconnectFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetGatewayResult> getGateway(GetGatewayArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:directconnect/getGateway:getGateway", TypeShape.of(GetGatewayResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Retrieve information about a Direct Connect Gateway.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
-     * import com.pulumi.aws.directconnect.inputs.GetGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name("example")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:directconnect/getGateway:getGateway", TypeShape.of(GetGatewayResult.class), args, Utilities.withVersion(options));
     }
@@ -579,51 +494,6 @@ public final class DirectconnectFunctions {
      * 
      */
     public static Output<GetLocationResult> getLocation(GetLocationArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:directconnect/getLocation:getLocation", TypeShape.of(GetLocationResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
-     * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
-     * 
-     * &gt; **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
-     * import com.pulumi.aws.directconnect.inputs.GetLocationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DirectconnectFunctions.getLocation(GetLocationArgs.builder()
-     *             .locationCode("CS32A-24FL")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetLocationResult> getLocation(GetLocationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:directconnect/getLocation:getLocation", TypeShape.of(GetLocationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -920,48 +790,6 @@ public final class DirectconnectFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetLocationsResult> getLocations(InvokeArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:directconnect/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-     * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
-     * 
-     * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var available = DirectconnectFunctions.getLocations();
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:directconnect/getLocations:getLocations", TypeShape.of(GetLocationsResult.class), args, Utilities.withVersion(options));
     }
@@ -1098,51 +926,6 @@ public final class DirectconnectFunctions {
      * 
      */
     public static Output<GetRouterConfigurationResult> getRouterConfiguration(GetRouterConfigurationArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:directconnect/getRouterConfiguration:getRouterConfiguration", TypeShape.of(GetRouterConfigurationResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
-     * import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
-     *             .virtualInterfaceId("dxvif-abcde123")
-     *             .routerTypeIdentifier("CiscoSystemsInc-2900SeriesRouters-IOS124")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetRouterConfigurationResult> getRouterConfiguration(GetRouterConfigurationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:directconnect/getRouterConfiguration:getRouterConfiguration", TypeShape.of(GetRouterConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**

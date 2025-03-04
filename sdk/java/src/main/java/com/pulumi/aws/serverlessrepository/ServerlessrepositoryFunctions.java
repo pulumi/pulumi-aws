@@ -11,7 +11,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ServerlessrepositoryFunctions {
@@ -166,57 +165,6 @@ public final class ServerlessrepositoryFunctions {
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:serverlessrepository/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.serverlessrepository.ServerlessrepositoryFunctions;
-     * import com.pulumi.aws.serverlessrepository.inputs.GetApplicationArgs;
-     * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
-     * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationId("arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
-     *             .build());
-     * 
-     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()
-     *             .name("Example")
-     *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
-     *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
-     *             .capabilities(example.applyValue(getApplicationResult -> getApplicationResult.requiredCapabilities()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:serverlessrepository/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
     }
     /**

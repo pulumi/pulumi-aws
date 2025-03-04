@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Quicksight
     /// <summary>
     /// Resource for managing an AWS QuickSight Account Subscription.
     /// 
+    /// &gt; Due to the absence of the `admin_group`, `author_group`, and `reader_group` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -133,7 +135,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> NotificationEmail { get; private set; } = null!;
 
         /// <summary>
-        /// Reader group associated with your Active Direcrtory.
+        /// Reader group associated with your Active Directory.
         /// </summary>
         [Output("readerGroups")]
         public Output<ImmutableArray<string>> ReaderGroups { get; private set; } = null!;
@@ -292,7 +294,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _readerGroups;
 
         /// <summary>
-        /// Reader group associated with your Active Direcrtory.
+        /// Reader group associated with your Active Directory.
         /// </summary>
         public InputList<string> ReaderGroups
         {
@@ -422,7 +424,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _readerGroups;
 
         /// <summary>
-        /// Reader group associated with your Active Direcrtory.
+        /// Reader group associated with your Active Directory.
         /// </summary>
         public InputList<string> ReaderGroups
         {

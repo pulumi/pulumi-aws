@@ -35,6 +35,7 @@ import (
 //				PortRanges: pulumi.StringArray{
 //					pulumi.String("80"),
 //				},
+//				Protocol: pulumi.String("TCP"),
 //				ResourceConfigurationDefinition: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionArgs{
 //					DnsResource: &vpclattice.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs{
 //						DomainName:    pulumi.String("example.com"),

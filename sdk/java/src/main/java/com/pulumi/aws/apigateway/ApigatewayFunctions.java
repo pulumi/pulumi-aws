@@ -35,7 +35,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ApigatewayFunctions {
@@ -166,49 +165,6 @@ public final class ApigatewayFunctions {
      * 
      */
     public static Output<GetAuthorizerResult> getAuthorizer(GetAuthorizerArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:apigateway/getAuthorizer:getAuthorizer", TypeShape.of(GetAuthorizerResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific API Gateway Authorizer.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetAuthorizerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
-     *             .restApiId(exampleAwsApiGatewayRestApi.id())
-     *             .authorizerId(exampleAwsApiGatewayAuthorizers.ids()[0])
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetAuthorizerResult> getAuthorizer(GetAuthorizerArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:apigateway/getAuthorizer:getAuthorizer", TypeShape.of(GetAuthorizerResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -419,48 +375,6 @@ public final class ApigatewayFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetAuthorizersResult> getAuthorizers(GetAuthorizersArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:apigateway/getAuthorizers:getAuthorizers", TypeShape.of(GetAuthorizersResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about multiple API Gateway Authorizers.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetAuthorizersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
-     *             .restApiId(exampleAwsApiGatewayRestApi.id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetAuthorizersResult> getAuthorizersPlain(GetAuthorizersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:apigateway/getAuthorizers:getAuthorizers", TypeShape.of(GetAuthorizersResult.class), args, Utilities.withVersion(options));
     }
@@ -588,48 +502,6 @@ public final class ApigatewayFunctions {
      * 
      */
     public static Output<GetDomainNameResult> getDomainName(GetDomainNameArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:apigateway/getDomainName:getDomainName", TypeShape.of(GetDomainNameResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get the custom domain name for use with AWS API Gateway.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetDomainNameArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApigatewayFunctions.getDomainName(GetDomainNameArgs.builder()
-     *             .domainName("api.example.com")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetDomainNameResult> getDomainName(GetDomainNameArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:apigateway/getDomainName:getDomainName", TypeShape.of(GetDomainNameResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -839,48 +711,6 @@ public final class ApigatewayFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetExportResult> getExport(GetExportArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:apigateway/getExport:getExport", TypeShape.of(GetExportResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApigatewayFunctions.getExport(GetExportArgs.builder()
-     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
-     *             .stageName(exampleAwsApiGatewayStage.stageName())
-     *             .exportType("oas30")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetExportResult> getExportPlain(GetExportPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:apigateway/getExport:getExport", TypeShape.of(GetExportResult.class), args, Utilities.withVersion(options));
     }
@@ -1011,49 +841,6 @@ public final class ApigatewayFunctions {
      * 
      */
     public static Output<GetKeyResult> getKey(GetKeyArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:apigateway/getKey:getKey", TypeShape.of(GetKeyResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get the name and value of a pre-existing API Key, for
-     * example to supply credentials for a dependency microservice.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var myApiKey = ApigatewayFunctions.getKey(GetKeyArgs.builder()
-     *             .id("ru3mpjgse6")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetKeyResult> getKey(GetKeyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:apigateway/getKey:getKey", TypeShape.of(GetKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1292,55 +1079,6 @@ public final class ApigatewayFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetResourceResult> getResource(GetResourceArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:apigateway/getResource:getResource", TypeShape.of(GetResourceResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get the id of a Resource in API Gateway.
-     * To fetch the Resource, you must provide the REST API id as well as the full path.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetRestApiArgs;
-     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var myRestApi = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
-     *             .name("my-rest-api")
-     *             .build());
-     * 
-     *         final var myResource = ApigatewayFunctions.getResource(GetResourceArgs.builder()
-     *             .restApiId(myRestApi.applyValue(getRestApiResult -> getRestApiResult.id()))
-     *             .path("/endpoint/path")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetResourceResult> getResourcePlain(GetResourcePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:apigateway/getResource:getResource", TypeShape.of(GetResourceResult.class), args, Utilities.withVersion(options));
     }
@@ -1477,51 +1215,6 @@ public final class ApigatewayFunctions {
      * 
      */
     public static Output<GetRestApiResult> getRestApi(GetRestApiArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:apigateway/getRestApi:getRestApi", TypeShape.of(GetRestApiResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get the id and root_resource_id of a REST API in
-     * API Gateway. To fetch the REST API you must provide a name to match against.
-     * As there is no unique name constraint on REST APIs this data source will
-     * error if there is more than one match.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetRestApiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var myRestApi = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
-     *             .name("my-rest-api")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetRestApiResult> getRestApi(GetRestApiArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:apigateway/getRestApi:getRestApi", TypeShape.of(GetRestApiResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1758,54 +1451,6 @@ public final class ApigatewayFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSdkResult> getSdk(GetSdkArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:apigateway/getSdk:getSdk", TypeShape.of(GetSdkResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetSdkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ApigatewayFunctions.getSdk(GetSdkArgs.builder()
-     *             .restApiId(exampleAwsApiGatewayStage.restApiId())
-     *             .stageName(exampleAwsApiGatewayStage.stageName())
-     *             .sdkType("android")
-     *             .parameters(Map.ofEntries(
-     *                 Map.entry("groupId", "example"),
-     *                 Map.entry("artifactId", "example"),
-     *                 Map.entry("artifactVersion", "example"),
-     *                 Map.entry("invokerPackage", "example")
-     *             ))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetSdkResult> getSdkPlain(GetSdkPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:apigateway/getSdk:getSdk", TypeShape.of(GetSdkResult.class), args, Utilities.withVersion(options));
     }
@@ -1942,51 +1587,6 @@ public final class ApigatewayFunctions {
      * 
      */
     public static Output<GetVpcLinkResult> getVpcLink(GetVpcLinkArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:apigateway/getVpcLink:getVpcLink", TypeShape.of(GetVpcLinkResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get the id of a VPC Link in
-     * API Gateway. To fetch the VPC Link you must provide a name to match against.
-     * As there is no unique name constraint on API Gateway VPC Links this data source will
-     * error if there is more than one match.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
-     * import com.pulumi.aws.apigateway.inputs.GetVpcLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var myApiGatewayVpcLink = ApigatewayFunctions.getVpcLink(GetVpcLinkArgs.builder()
-     *             .name("my-vpc-link")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetVpcLinkResult> getVpcLink(GetVpcLinkArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:apigateway/getVpcLink:getVpcLink", TypeShape.of(GetVpcLinkResult.class), args, Utilities.withVersion(options));
     }
     /**

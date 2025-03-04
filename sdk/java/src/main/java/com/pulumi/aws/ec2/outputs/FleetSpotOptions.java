@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.FleetSpotOptionsMaintenanceStrategies;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -33,6 +34,26 @@ public final class FleetSpotOptions {
      * 
      */
     private @Nullable FleetSpotOptionsMaintenanceStrategies maintenanceStrategies;
+    /**
+     * @return The maximum amount per hour for Spot Instances that you&#39;re willing to pay.
+     * 
+     */
+    private @Nullable String maxTotalPrice;
+    /**
+     * @return The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+     * 
+     */
+    private @Nullable Integer minTargetCapacity;
+    /**
+     * @return Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+     * 
+     */
+    private @Nullable Boolean singleAvailabilityZone;
+    /**
+     * @return Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+     * 
+     */
+    private @Nullable Boolean singleInstanceType;
 
     private FleetSpotOptions() {}
     /**
@@ -63,6 +84,34 @@ public final class FleetSpotOptions {
     public Optional<FleetSpotOptionsMaintenanceStrategies> maintenanceStrategies() {
         return Optional.ofNullable(this.maintenanceStrategies);
     }
+    /**
+     * @return The maximum amount per hour for Spot Instances that you&#39;re willing to pay.
+     * 
+     */
+    public Optional<String> maxTotalPrice() {
+        return Optional.ofNullable(this.maxTotalPrice);
+    }
+    /**
+     * @return The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+     * 
+     */
+    public Optional<Integer> minTargetCapacity() {
+        return Optional.ofNullable(this.minTargetCapacity);
+    }
+    /**
+     * @return Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+     * 
+     */
+    public Optional<Boolean> singleAvailabilityZone() {
+        return Optional.ofNullable(this.singleAvailabilityZone);
+    }
+    /**
+     * @return Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+     * 
+     */
+    public Optional<Boolean> singleInstanceType() {
+        return Optional.ofNullable(this.singleInstanceType);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -77,6 +126,10 @@ public final class FleetSpotOptions {
         private @Nullable String instanceInterruptionBehavior;
         private @Nullable Integer instancePoolsToUseCount;
         private @Nullable FleetSpotOptionsMaintenanceStrategies maintenanceStrategies;
+        private @Nullable String maxTotalPrice;
+        private @Nullable Integer minTargetCapacity;
+        private @Nullable Boolean singleAvailabilityZone;
+        private @Nullable Boolean singleInstanceType;
         public Builder() {}
         public Builder(FleetSpotOptions defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,6 +137,10 @@ public final class FleetSpotOptions {
     	      this.instanceInterruptionBehavior = defaults.instanceInterruptionBehavior;
     	      this.instancePoolsToUseCount = defaults.instancePoolsToUseCount;
     	      this.maintenanceStrategies = defaults.maintenanceStrategies;
+    	      this.maxTotalPrice = defaults.maxTotalPrice;
+    	      this.minTargetCapacity = defaults.minTargetCapacity;
+    	      this.singleAvailabilityZone = defaults.singleAvailabilityZone;
+    	      this.singleInstanceType = defaults.singleInstanceType;
         }
 
         @CustomType.Setter
@@ -110,12 +167,40 @@ public final class FleetSpotOptions {
             this.maintenanceStrategies = maintenanceStrategies;
             return this;
         }
+        @CustomType.Setter
+        public Builder maxTotalPrice(@Nullable String maxTotalPrice) {
+
+            this.maxTotalPrice = maxTotalPrice;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder minTargetCapacity(@Nullable Integer minTargetCapacity) {
+
+            this.minTargetCapacity = minTargetCapacity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder singleAvailabilityZone(@Nullable Boolean singleAvailabilityZone) {
+
+            this.singleAvailabilityZone = singleAvailabilityZone;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder singleInstanceType(@Nullable Boolean singleInstanceType) {
+
+            this.singleInstanceType = singleInstanceType;
+            return this;
+        }
         public FleetSpotOptions build() {
             final var _resultValue = new FleetSpotOptions();
             _resultValue.allocationStrategy = allocationStrategy;
             _resultValue.instanceInterruptionBehavior = instanceInterruptionBehavior;
             _resultValue.instancePoolsToUseCount = instancePoolsToUseCount;
             _resultValue.maintenanceStrategies = maintenanceStrategies;
+            _resultValue.maxTotalPrice = maxTotalPrice;
+            _resultValue.minTargetCapacity = minTargetCapacity;
+            _resultValue.singleAvailabilityZone = singleAvailabilityZone;
+            _resultValue.singleInstanceType = singleInstanceType;
             return _resultValue;
         }
     }

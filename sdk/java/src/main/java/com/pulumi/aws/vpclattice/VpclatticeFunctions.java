@@ -23,7 +23,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class VpclatticeFunctions {
@@ -157,50 +156,6 @@ public final class VpclatticeFunctions {
      * 
      */
     public static Output<GetAuthPolicyResult> getAuthPolicy(GetAuthPolicyArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:vpclattice/getAuthPolicy:getAuthPolicy", TypeShape.of(GetAuthPolicyResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS VPC Lattice Auth Policy.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
-     * import com.pulumi.aws.vpclattice.inputs.GetAuthPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = VpclatticeFunctions.getAuthPolicy(GetAuthPolicyArgs.builder()
-     *             .resourceIdentifier(testAwsVpclatticeAuthPolicy.resourceIdentifier())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetAuthPolicyResult> getAuthPolicy(GetAuthPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:vpclattice/getAuthPolicy:getAuthPolicy", TypeShape.of(GetAuthPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -412,48 +367,6 @@ public final class VpclatticeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetListenerResult> getListener(GetListenerArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:vpclattice/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS VPC Lattice Listener.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
-     * import com.pulumi.aws.vpclattice.inputs.GetListenerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getListener();
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:vpclattice/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
     }
@@ -587,50 +500,6 @@ public final class VpclatticeFunctions {
      * 
      */
     public static Output<GetResourcePolicyResult> getResourcePolicy(GetResourcePolicyArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:vpclattice/getResourcePolicy:getResourcePolicy", TypeShape.of(GetResourcePolicyResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS VPC Lattice Resource Policy.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
-     * import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
-     *             .resourceArn(exampleAwsVpclatticeServiceNetwork.arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetResourcePolicyResult> getResourcePolicy(GetResourcePolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:vpclattice/getResourcePolicy:getResourcePolicy", TypeShape.of(GetResourcePolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -938,50 +807,6 @@ public final class VpclatticeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:vpclattice/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS VPC Lattice Service.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
-     * import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
-     *             .name("example")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:vpclattice/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
     }
@@ -1115,50 +940,6 @@ public final class VpclatticeFunctions {
      * 
      */
     public static Output<GetServiceNetworkResult> getServiceNetwork(GetServiceNetworkArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:vpclattice/getServiceNetwork:getServiceNetwork", TypeShape.of(GetServiceNetworkResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS VPC Lattice Service Network.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
-     * import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getServiceNetwork(GetServiceNetworkArgs.builder()
-     *             .serviceNetworkIdentifier("snsa-01112223334445556")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetServiceNetworkResult> getServiceNetwork(GetServiceNetworkArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:vpclattice/getServiceNetwork:getServiceNetwork", TypeShape.of(GetServiceNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**

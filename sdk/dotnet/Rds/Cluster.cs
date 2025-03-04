@@ -10,21 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
-    /// Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Aurora.html) or a [RDS Multi-AZ DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `aws.rds.ClusterInstance` resource. To manage non-Aurora DB instances (e.g., MySQL, PostgreSQL, SQL Server, etc.), see the `aws.rds.Instance` resource.
-    /// 
-    /// For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
-    /// 
-    /// Changes to an RDS Cluster can occur when you manually change a parameter, such as `port`, and are reflected in the next maintenance window. Because of this, this provider may report a difference in its planning phase because a modification has not yet taken place. You can use the `apply_immediately` flag to instruct the service to apply the change immediately (see documentation below).
-    /// 
-    /// &gt; **Note:** Multi-AZ DB clusters are supported only for the MySQL and PostgreSQL DB engines.
-    /// 
-    /// &gt; **Note:** `ca_certificate_identifier` is only supported for Multi-AZ DB clusters.
-    /// 
-    /// &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html) for more information.
-    /// 
-    /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-    /// **NOTE on RDS Clusters and RDS Cluster Role Associations:** Pulumi provides both a standalone RDS Cluster Role Association - (an association between an RDS Cluster and a single IAM Role) and an RDS Cluster resource with `iam_roles` attributes. Use one resource or the other to associate IAM Roles and RDS Clusters. Not doing so will cause a conflict of associations and will result in the association being overwritten.
-    /// 
     /// ## Example Usage
     /// 
     /// ### Aurora MySQL 2.x (MySQL 5.7)
@@ -381,10 +366,22 @@ namespace Pulumi.Aws.Rds
         public Output<string> ClusterResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
+        /// </summary>
+        [Output("clusterScalabilityType")]
+        public Output<string> ClusterScalabilityType { get; private set; } = null!;
+
+        /// <summary>
         /// Copy all Cluster `tags` to snapshots. Default is `false`.
         /// </summary>
         [Output("copyTagsToSnapshot")]
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
+
+        /// <summary>
+        /// The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
+        /// </summary>
+        [Output("databaseInsightsMode")]
+        public Output<string> DatabaseInsightsMode { get; private set; } = null!;
 
         /// <summary>
         /// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
@@ -492,7 +489,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> EngineLifecycleSupport { get; private set; } = null!;
 
         /// <summary>
-        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`""`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Output("engineMode")]
         public Output<string?> EngineMode { get; private set; } = null!;
@@ -843,10 +840,22 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
+        /// Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
+        /// </summary>
+        [Input("clusterScalabilityType")]
+        public Input<string>? ClusterScalabilityType { get; set; }
+
+        /// <summary>
         /// Copy all Cluster `tags` to snapshots. Default is `false`.
         /// </summary>
         [Input("copyTagsToSnapshot")]
         public Input<bool>? CopyTagsToSnapshot { get; set; }
+
+        /// <summary>
+        /// The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
+        /// </summary>
+        [Input("databaseInsightsMode")]
+        public Input<string>? DatabaseInsightsMode { get; set; }
 
         /// <summary>
         /// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
@@ -954,7 +963,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? EngineLifecycleSupport { get; set; }
 
         /// <summary>
-        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`""`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Input("engineMode")]
         public InputUnion<string, Pulumi.Aws.Rds.EngineMode>? EngineMode { get; set; }
@@ -1278,10 +1287,22 @@ namespace Pulumi.Aws.Rds
         public Input<string>? ClusterResourceId { get; set; }
 
         /// <summary>
+        /// Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
+        /// </summary>
+        [Input("clusterScalabilityType")]
+        public Input<string>? ClusterScalabilityType { get; set; }
+
+        /// <summary>
         /// Copy all Cluster `tags` to snapshots. Default is `false`.
         /// </summary>
         [Input("copyTagsToSnapshot")]
         public Input<bool>? CopyTagsToSnapshot { get; set; }
+
+        /// <summary>
+        /// The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
+        /// </summary>
+        [Input("databaseInsightsMode")]
+        public Input<string>? DatabaseInsightsMode { get; set; }
 
         /// <summary>
         /// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
@@ -1395,7 +1416,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? EngineLifecycleSupport { get; set; }
 
         /// <summary>
-        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`""`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Input("engineMode")]
         public InputUnion<string, Pulumi.Aws.Rds.EngineMode>? EngineMode { get; set; }

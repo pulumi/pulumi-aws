@@ -14,7 +14,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class SignerFunctions {
@@ -183,48 +182,6 @@ public final class SignerFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSigningJobResult> getSigningJob(GetSigningJobArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:signer/getSigningJob:getSigningJob", TypeShape.of(GetSigningJobResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides information about a Signer Signing Job.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.signer.SignerFunctions;
-     * import com.pulumi.aws.signer.inputs.GetSigningJobArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var buildSigningJob = SignerFunctions.getSigningJob(GetSigningJobArgs.builder()
-     *             .jobId("9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetSigningJobResult> getSigningJobPlain(GetSigningJobPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:signer/getSigningJob:getSigningJob", TypeShape.of(GetSigningJobResult.class), args, Utilities.withVersion(options));
     }
@@ -352,48 +309,6 @@ public final class SignerFunctions {
      * 
      */
     public static Output<GetSigningProfileResult> getSigningProfile(GetSigningProfileArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:signer/getSigningProfile:getSigningProfile", TypeShape.of(GetSigningProfileResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides information about a Signer Signing Profile.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.signer.SignerFunctions;
-     * import com.pulumi.aws.signer.inputs.GetSigningProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var productionSigningProfile = SignerFunctions.getSigningProfile(GetSigningProfileArgs.builder()
-     *             .name("prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetSigningProfileResult> getSigningProfile(GetSigningProfileArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:signer/getSigningProfile:getSigningProfile", TypeShape.of(GetSigningProfileResult.class), args, Utilities.withVersion(options));
     }
     /**

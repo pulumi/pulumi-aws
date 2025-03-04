@@ -11,7 +11,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class CurFunctions {
@@ -151,52 +150,6 @@ public final class CurFunctions {
      * 
      */
     public static Output<GetReportDefinitionResult> getReportDefinition(GetReportDefinitionArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:cur/getReportDefinition:getReportDefinition", TypeShape.of(GetReportDefinitionResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get information on an AWS Cost and Usage Report Definition.
-     * 
-     * &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
-     * 
-     * &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cur.CurFunctions;
-     * import com.pulumi.aws.cur.inputs.GetReportDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var reportDefinition = CurFunctions.getReportDefinition(GetReportDefinitionArgs.builder()
-     *             .reportName("example")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetReportDefinitionResult> getReportDefinition(GetReportDefinitionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:cur/getReportDefinition:getReportDefinition", TypeShape.of(GetReportDefinitionResult.class), args, Utilities.withVersion(options));
     }
     /**

@@ -29,7 +29,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class KmsFunctions {
@@ -163,50 +162,6 @@ public final class KmsFunctions {
      * 
      */
     public static Output<GetAliasResult> getAlias(GetAliasArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:kms/getAlias:getAlias", TypeShape.of(GetAliasResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get the ARN of a KMS key alias.
-     * By using this data source, you can reference key alias
-     * without having to hard code the ARN as input.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
-     *             .name("alias/aws/s3")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetAliasResult> getAlias(GetAliasArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getAlias:getAlias", TypeShape.of(GetAliasResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -425,64 +380,6 @@ public final class KmsFunctions {
      * 
      */
     public static Output<GetCipherTextResult> getCipherText(GetCipherTextArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:kms/getCipherText:getCipherText", TypeShape.of(GetCipherTextResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
-     * by using an AWS KMS customer master key. The value returned by this data source
-     * changes every apply. For a stable ciphertext value, see the `aws.kms.Ciphertext`
-     * resource.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.Key;
-     * import com.pulumi.aws.kms.KeyArgs;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()
-     *             .description("oauth config")
-     *             .isEnabled(true)
-     *             .build());
-     * 
-     *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
-     *             .keyId(oauthConfig.keyId())
-     *             .plaintext("""
-     * {
-     *   "client_id": "e587dbae22222f55da22",
-     *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
-     * }
-     *             """)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetCipherTextResult> getCipherText(GetCipherTextArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getCipherText:getCipherText", TypeShape.of(GetCipherTextResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -804,50 +701,6 @@ public final class KmsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetCustomKeyStoreResult> getCustomKeyStore(GetCustomKeyStoreArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:kms/getCustomKeyStore:getCustomKeyStore", TypeShape.of(GetCustomKeyStoreResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get the metadata KMS custom key store.
-     * By using this data source, you can reference KMS custom key store
-     * without having to hard code the ID as input.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName("my_cloudhsm")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetCustomKeyStoreResult> getCustomKeyStorePlain(GetCustomKeyStorePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:kms/getCustomKeyStore:getCustomKeyStore", TypeShape.of(GetCustomKeyStoreResult.class), args, Utilities.withVersion(options));
     }
@@ -1020,63 +873,6 @@ public final class KmsFunctions {
      * 
      */
     public static Output<GetKeyResult> getKey(GetKeyArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:kms/getKey:getKey", TypeShape.of(GetKeyResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get detailed information about
-     * the specified KMS Key with flexible key id input.
-     * This can be useful to reference key alias
-     * without having to hard code the ARN as input.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId("alias/my-key")
-     *             .build());
-     * 
-     *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId("1234abcd-12ab-34cd-56ef-1234567890ab")
-     *             .build());
-     * 
-     *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId("arn:aws:kms:us-east-1:111122223333:alias/my-key")
-     *             .build());
-     * 
-     *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetKeyResult> getKey(GetKeyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getKey:getKey", TypeShape.of(GetKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1349,60 +1145,6 @@ public final class KmsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetPublicKeyResult> getPublicKey(GetPublicKeyArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:kms/getPublicKey:getPublicKey", TypeShape.of(GetPublicKeyResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId("alias/my-key")
-     *             .build());
-     * 
-     *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId("1234abcd-12ab-34cd-56ef-1234567890ab")
-     *             .build());
-     * 
-     *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId("arn:aws:kms:us-east-1:111122223333:alias/my-key")
-     *             .build());
-     * 
-     *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId("arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetPublicKeyResult> getPublicKeyPlain(GetPublicKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:kms/getPublicKey:getPublicKey", TypeShape.of(GetPublicKeyResult.class), args, Utilities.withVersion(options));
     }
@@ -1413,9 +1155,6 @@ public final class KmsFunctions {
         return getSecretPlain(args, InvokeOptions.Empty);
     }
     public static Output<GetSecretResult> getSecret(GetSecretArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:kms/getSecret:getSecret", TypeShape.of(GetSecretResult.class), args, Utilities.withVersion(options));
-    }
-    public static Output<GetSecretResult> getSecret(GetSecretArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getSecret:getSecret", TypeShape.of(GetSecretResult.class), args, Utilities.withVersion(options));
     }
     public static CompletableFuture<GetSecretResult> getSecretPlain(GetSecretPlainArgs args, InvokeOptions options) {
@@ -1467,22 +1206,6 @@ public final class KmsFunctions {
      * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:kms/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Decrypt multiple secrets from data encrypted with the AWS KMS service.
-     * 
-     * ## Example Usage
-     * 
-     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI kms encrypt](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
-     * 
-     * &gt; If you have a newline character at the end of your file, it will be decrypted with this newline character intact. For most use cases this is undesirable and leads to incorrect passwords or invalid values, as well as possible changes in the plan. Be sure to use `echo -n` if necessary.
-     * If you are using asymmetric keys ensure you are using the right encryption algorithm when you encrypt and decrypt else you will get IncorrectKeyException during the decrypt phase.
-     * 
-     * That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly.
-     * 
-     */
-    public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**

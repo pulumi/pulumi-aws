@@ -24,43 +24,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an RDS instance resource.  A DB instance is an isolated database
- * environment in the cloud.  A DB instance can contain multiple user-created
- * databases.
- * 
- * Changes to a DB instance can occur when you manually change a parameter, such as
- * `allocated_storage`, and are reflected in the next maintenance window. Because
- * of this, this provider may report a difference in its planning phase because a
- * modification has not yet taken place. You can use the `apply_immediately` flag
- * to instruct the service to apply the change immediately (see documentation
- * below).
- * 
- * When upgrading the major version of an engine, `allow_major_version_upgrade` must be set to `true`.
- * 
- * &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
- * See the AWS Docs on [RDS Instance Maintenance][instance-maintenance] for more information.
- * 
- * &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
- * Read more about sensitive data instate.
- * 
- * ## RDS Instance Class Types
- * 
- * Amazon RDS supports instance classes for the following use cases: General-purpose, Memory-optimized, Burstable Performance, and Optimized-reads.
- * For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
- * 
- * ## Low-Downtime Updates
- * 
- * By default, RDS applies updates to DB Instances in-place, which can lead to service interruptions.
- * Low-downtime updates minimize service interruptions by performing the updates with an [RDS Blue/Green deployment][blue-green] and switching over the instances when complete.
- * 
- * Low-downtime updates are only available for DB Instances using MySQL, MariaDB and PostgreSQL,
- * as other engines are not supported by RDS Blue/Green deployments.
- * They cannot be used with DB Instances with replicas.
- * 
- * Backups must be enabled to use low-downtime updates.
- * 
- * Enable low-downtime updates by setting `blue_green_update.enabled` to `true`.
- * 
  * ## Example Usage
  * 
  * ### Basic Usage

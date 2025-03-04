@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS QuickSight Account Subscription.
  * 
+ * &gt; Due to the absence of the `admin_group`, `author_group`, and `reader_group` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -278,14 +280,14 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
         return this.notificationEmail;
     }
     /**
-     * Reader group associated with your Active Direcrtory.
+     * Reader group associated with your Active Directory.
      * 
      */
     @Export(name="readerGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> readerGroups;
 
     /**
-     * @return Reader group associated with your Active Direcrtory.
+     * @return Reader group associated with your Active Directory.
      * 
      */
     public Output<Optional<List<String>>> readerGroups() {

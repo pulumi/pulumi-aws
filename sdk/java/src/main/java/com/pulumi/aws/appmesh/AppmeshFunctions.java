@@ -29,7 +29,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class AppmeshFunctions {
@@ -163,50 +162,6 @@ public final class AppmeshFunctions {
      * 
      */
     public static Output<GetGatewayRouteResult> getGatewayRoute(GetGatewayRouteArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:appmesh/getGatewayRoute:getGatewayRoute", TypeShape.of(GetGatewayRouteResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetGatewayRouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = AppmeshFunctions.getGatewayRoute(GetGatewayRouteArgs.builder()
-     *             .name("test-route")
-     *             .meshName("test-mesh")
-     *             .virtualGatewayName("test-gateway")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetGatewayRouteResult> getGatewayRoute(GetGatewayRouteArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:appmesh/getGatewayRoute:getGatewayRoute", TypeShape.of(GetGatewayRouteResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -570,86 +525,6 @@ public final class AppmeshFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetMeshResult> getMesh(GetMeshArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:appmesh/getMesh:getMesh", TypeShape.of(GetMeshResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
-     *             .name("simpleapp")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
-     * 
-     *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
-     *             .name("simpleapp")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetMeshResult> getMeshPlain(GetMeshPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:appmesh/getMesh:getMesh", TypeShape.of(GetMeshResult.class), args, Utilities.withVersion(options));
     }
@@ -783,50 +658,6 @@ public final class AppmeshFunctions {
      * 
      */
     public static Output<GetRouteResult> getRoute(GetRouteArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:appmesh/getRoute:getRoute", TypeShape.of(GetRouteResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name("test-route")
-     *             .meshName("test-mesh")
-     *             .virtualRouterName("test-router")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetRouteResult> getRoute(GetRouteArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:appmesh/getRoute:getRoute", TypeShape.of(GetRouteResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1206,90 +1037,6 @@ public final class AppmeshFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetVirtualGatewayResult> getVirtualGateway(GetVirtualGatewayArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:appmesh/getVirtualGateway:getVirtualGateway", TypeShape.of(GetVirtualGatewayResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS App Mesh Virtual Gateway.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .meshName("mesh-gateway")
-     *             .name("example-mesh")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
-     * 
-     *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .name("example.mesh.local")
-     *             .meshName("example-mesh")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetVirtualGatewayResult> getVirtualGatewayPlain(GetVirtualGatewayPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:appmesh/getVirtualGateway:getVirtualGateway", TypeShape.of(GetVirtualGatewayResult.class), args, Utilities.withVersion(options));
     }
@@ -1462,49 +1209,6 @@ public final class AppmeshFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetVirtualNodeResult> getVirtualNode(GetVirtualNodeArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:appmesh/getVirtualNode:getVirtualNode", TypeShape.of(GetVirtualNodeResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS App Mesh Virtual Node.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualNodeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = AppmeshFunctions.getVirtualNode(GetVirtualNodeArgs.builder()
-     *             .name("serviceBv1")
-     *             .meshName("example-mesh")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetVirtualNodeResult> getVirtualNodePlain(GetVirtualNodePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:appmesh/getVirtualNode:getVirtualNode", TypeShape.of(GetVirtualNodeResult.class), args, Utilities.withVersion(options));
     }
@@ -1635,49 +1339,6 @@ public final class AppmeshFunctions {
      * 
      */
     public static Output<GetVirtualRouterResult> getVirtualRouter(GetVirtualRouterArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:appmesh/getVirtualRouter:getVirtualRouter", TypeShape.of(GetVirtualRouterResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualRouterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = AppmeshFunctions.getVirtualRouter(GetVirtualRouterArgs.builder()
-     *             .name("example-router-name")
-     *             .meshName("example-mesh-name")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetVirtualRouterResult> getVirtualRouter(GetVirtualRouterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:appmesh/getVirtualRouter:getVirtualRouter", TypeShape.of(GetVirtualRouterResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1967,88 +1628,6 @@ public final class AppmeshFunctions {
      * 
      */
     public static Output<GetVirtualServiceResult> getVirtualService(GetVirtualServiceArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:appmesh/getVirtualService:getVirtualService", TypeShape.of(GetVirtualServiceResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name("example.mesh.local")
-     *             .meshName("example-mesh")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
-     * import com.pulumi.aws.appmesh.AppmeshFunctions;
-     * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
-     * 
-     *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name("example.mesh.local")
-     *             .meshName("example-mesh")
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetVirtualServiceResult> getVirtualService(GetVirtualServiceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:appmesh/getVirtualService:getVirtualService", TypeShape.of(GetVirtualServiceResult.class), args, Utilities.withVersion(options));
     }
     /**

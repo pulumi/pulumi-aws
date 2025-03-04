@@ -246,14 +246,14 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Reader group associated with your Active Direcrtory.
+     * Reader group associated with your Active Directory.
      * 
      */
     @Import(name="readerGroups")
     private @Nullable Output<List<String>> readerGroups;
 
     /**
-     * @return Reader group associated with your Active Direcrtory.
+     * @return Reader group associated with your Active Directory.
      * 
      */
     public Optional<Output<List<String>>> readerGroups() {
@@ -655,7 +655,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param readerGroups Reader group associated with your Active Direcrtory.
+         * @param readerGroups Reader group associated with your Active Directory.
          * 
          * @return builder
          * 
@@ -666,7 +666,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param readerGroups Reader group associated with your Active Direcrtory.
+         * @param readerGroups Reader group associated with your Active Directory.
          * 
          * @return builder
          * 
@@ -676,7 +676,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param readerGroups Reader group associated with your Active Direcrtory.
+         * @param readerGroups Reader group associated with your Active Directory.
          * 
          * @return builder
          * 

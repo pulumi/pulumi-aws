@@ -26,7 +26,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ElasticacheFunctions {
@@ -195,48 +194,6 @@ public final class ElasticacheFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:elasticache/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get information about an ElastiCache Cluster
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var myCluster = ElasticacheFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterId("my-cluster-id")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:elasticache/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
@@ -364,48 +321,6 @@ public final class ElasticacheFunctions {
      * 
      */
     public static Output<GetReplicationGroupResult> getReplicationGroup(GetReplicationGroupArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", TypeShape.of(GetReplicationGroupResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get information about an ElastiCache Replication Group.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetReplicationGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var bar = ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
-     *             .replicationGroupId("example")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetReplicationGroupResult> getReplicationGroup(GetReplicationGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", TypeShape.of(GetReplicationGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -627,51 +542,6 @@ public final class ElasticacheFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetReservedCacheNodeOfferingResult> getReservedCacheNodeOffering(GetReservedCacheNodeOfferingArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering", TypeShape.of(GetReservedCacheNodeOfferingResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Information about a single ElastiCache Reserved Cache Node Offering.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ElasticacheFunctions.getReservedCacheNodeOffering(GetReservedCacheNodeOfferingArgs.builder()
-     *             .cacheNodeType("cache.t4g.small")
-     *             .duration("P1Y")
-     *             .offeringType("No Upfront")
-     *             .productDescription("redis")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetReservedCacheNodeOfferingResult> getReservedCacheNodeOfferingPlain(GetReservedCacheNodeOfferingPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering", TypeShape.of(GetReservedCacheNodeOfferingResult.class), args, Utilities.withVersion(options));
     }
@@ -799,48 +669,6 @@ public final class ElasticacheFunctions {
      * 
      */
     public static Output<GetServerlessCacheResult> getServerlessCache(GetServerlessCacheArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:elasticache/getServerlessCache:getServerlessCache", TypeShape.of(GetServerlessCacheResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get information about an ElastiCache Serverless Cache.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetServerlessCacheArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ElasticacheFunctions.getServerlessCache(GetServerlessCacheArgs.builder()
-     *             .name("example")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetServerlessCacheResult> getServerlessCache(GetServerlessCacheArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:elasticache/getServerlessCache:getServerlessCache", TypeShape.of(GetServerlessCacheResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1050,48 +878,6 @@ public final class ElasticacheFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:elasticache/getSubnetGroup:getSubnetGroup", TypeShape.of(GetSubnetGroupResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides information about a ElastiCache Subnet Group.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ElasticacheFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name("my-subnet-group")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetSubnetGroupResult> getSubnetGroupPlain(GetSubnetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:elasticache/getSubnetGroup:getSubnetGroup", TypeShape.of(GetSubnetGroupResult.class), args, Utilities.withVersion(options));
     }
@@ -1219,48 +1005,6 @@ public final class ElasticacheFunctions {
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:elasticache/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get information about an ElastiCache User.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
-     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var bar = ElasticacheFunctions.getUser(GetUserArgs.builder()
-     *             .userId("example")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:elasticache/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**

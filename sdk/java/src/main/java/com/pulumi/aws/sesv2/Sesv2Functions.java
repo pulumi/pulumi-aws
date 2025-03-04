@@ -20,7 +20,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class Sesv2Functions {
@@ -154,50 +153,6 @@ public final class Sesv2Functions {
      * 
      */
     public static Output<GetConfigurationSetResult> getConfigurationSet(GetConfigurationSetArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:sesv2/getConfigurationSet:getConfigurationSet", TypeShape.of(GetConfigurationSetResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.sesv2.Sesv2Functions;
-     * import com.pulumi.aws.sesv2.inputs.GetConfigurationSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Sesv2Functions.getConfigurationSet(GetConfigurationSetArgs.builder()
-     *             .configurationSetName("example")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetConfigurationSetResult> getConfigurationSet(GetConfigurationSetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:sesv2/getConfigurationSet:getConfigurationSet", TypeShape.of(GetConfigurationSetResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -417,50 +372,6 @@ public final class Sesv2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDedicatedIpPoolResult> getDedicatedIpPool(GetDedicatedIpPoolArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", TypeShape.of(GetDedicatedIpPoolResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.sesv2.Sesv2Functions;
-     * import com.pulumi.aws.sesv2.inputs.GetDedicatedIpPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Sesv2Functions.getDedicatedIpPool(GetDedicatedIpPoolArgs.builder()
-     *             .poolName("my-pool")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetDedicatedIpPoolResult> getDedicatedIpPoolPlain(GetDedicatedIpPoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", TypeShape.of(GetDedicatedIpPoolResult.class), args, Utilities.withVersion(options));
     }
@@ -594,50 +505,6 @@ public final class Sesv2Functions {
      * 
      */
     public static Output<GetEmailIdentityResult> getEmailIdentity(GetEmailIdentityArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:sesv2/getEmailIdentity:getEmailIdentity", TypeShape.of(GetEmailIdentityResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.sesv2.Sesv2Functions;
-     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .emailIdentity("example.com")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetEmailIdentityResult> getEmailIdentity(GetEmailIdentityArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:sesv2/getEmailIdentity:getEmailIdentity", TypeShape.of(GetEmailIdentityResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -829,55 +696,6 @@ public final class Sesv2Functions {
      * 
      */
     public static Output<GetEmailIdentityMailFromAttributesResult> getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", TypeShape.of(GetEmailIdentityMailFromAttributesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.sesv2.Sesv2Functions;
-     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
-     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityMailFromAttributesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .emailIdentity("example.com")
-     *             .build());
-     * 
-     *         final var exampleGetEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
-     *             .emailIdentity(example.applyValue(getEmailIdentityResult -> getEmailIdentityResult.emailIdentity()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetEmailIdentityMailFromAttributesResult> getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", TypeShape.of(GetEmailIdentityMailFromAttributesResult.class), args, Utilities.withVersion(options));
     }
     /**

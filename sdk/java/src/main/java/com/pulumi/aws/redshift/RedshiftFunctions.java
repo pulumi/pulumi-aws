@@ -29,7 +29,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class RedshiftFunctions {
@@ -298,73 +297,6 @@ public final class RedshiftFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:redshift/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific redshift cluster.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
-     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
-     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterIdentifier("example-cluster")
-     *             .build());
-     * 
-     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
-     *             .name("kinesis-firehose-example-stream")
-     *             .destination("redshift")
-     *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
-     *                 .roleArn(firehoseRole.arn())
-     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.applyValue(getClusterResult -> getClusterResult.endpoint()),example.applyValue(getClusterResult -> getClusterResult.databaseName())))
-     *                 .username("exampleuser")
-     *                 .password("Exampl3Pass")
-     *                 .dataTableName("example-table")
-     *                 .copyOptions("delimiter '|'")
-     *                 .dataTableColumns("example-col")
-     *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
-     *                     .roleArn(firehoseRole.arn())
-     *                     .bucketArn(bucket.arn())
-     *                     .bufferSize(10)
-     *                     .bufferInterval(400)
-     *                     .compressionFormat("GZIP")
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshift/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
@@ -495,49 +427,6 @@ public final class RedshiftFunctions {
      * 
      */
     public static Output<GetClusterCredentialsResult> getClusterCredentials(GetClusterCredentialsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:redshift/getClusterCredentials:getClusterCredentials", TypeShape.of(GetClusterCredentialsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides redshift cluster temporary credentials.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
-     *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
-     *             .dbUser(exampleAwsRedshiftCluster.masterUsername())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetClusterCredentialsResult> getClusterCredentials(GetClusterCredentialsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:redshift/getClusterCredentials:getClusterCredentials", TypeShape.of(GetClusterCredentialsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -791,48 +680,6 @@ public final class RedshiftFunctions {
      * 
      */
     public static Output<GetDataSharesResult> getDataShares(GetDataSharesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:redshift/getDataShares:getDataShares", TypeShape.of(GetDataSharesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing AWS Redshift Data Shares.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getDataShares();
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetDataSharesResult> getDataShares(GetDataSharesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:redshift/getDataShares:getDataShares", TypeShape.of(GetDataSharesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1144,51 +991,6 @@ public final class RedshiftFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetOrderableClusterResult> getOrderableCluster(GetOrderableClusterArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:redshift/getOrderableCluster:getOrderableCluster", TypeShape.of(GetOrderableClusterResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Information about Redshift Orderable Clusters and valid parameter combinations.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
-     *             .clusterType("multi-node")
-     *             .preferredNodeTypes(            
-     *                 "dc2.large",
-     *                 "ds2.xlarge")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetOrderableClusterResult> getOrderableClusterPlain(GetOrderableClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshift/getOrderableCluster:getOrderableCluster", TypeShape.of(GetOrderableClusterResult.class), args, Utilities.withVersion(options));
     }
@@ -1322,50 +1124,6 @@ public final class RedshiftFunctions {
      * 
      */
     public static Output<GetProducerDataSharesResult> getProducerDataShares(GetProducerDataSharesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:redshift/getProducerDataShares:getProducerDataShares", TypeShape.of(GetProducerDataSharesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing AWS Redshift Producer Data Shares.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetProducerDataSharesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getProducerDataShares(GetProducerDataSharesArgs.builder()
-     *             .producerArn("")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetProducerDataSharesResult> getProducerDataShares(GetProducerDataSharesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:redshift/getProducerDataShares:getProducerDataShares", TypeShape.of(GetProducerDataSharesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1913,90 +1671,6 @@ public final class RedshiftFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:redshift/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-     * in a given region for the purpose of allowing Redshift to store audit data in S3.
-     * 
-     * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-     * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = RedshiftFunctions.getServiceAccount();
-     * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
-     *             .bucket("tf-redshift-logging-test-bucket")
-     *             .forceDestroy(true)
-     *             .build());
-     * 
-     *         final var allowAuditLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid("Put bucket policy needed for audit logging")
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
-     *                         .build())
-     *                     .actions("s3:PutObject")
-     *                     .resources(bucket.arn().applyValue(arn -> String.format("%s/*", arn)))
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .sid("Get bucket policy needed for audit logging")
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
-     *                         .build())
-     *                     .actions("s3:GetBucketAcl")
-     *                     .resources(bucketAwsS3Bucket.arn())
-     *                     .build())
-     *             .build());
-     * 
-     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
-     *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshift/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
     }
@@ -2124,48 +1798,6 @@ public final class RedshiftFunctions {
      * 
      */
     public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:redshift/getSubnetGroup:getSubnetGroup", TypeShape.of(GetSubnetGroupResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific redshift subnet group.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshift.RedshiftFunctions;
-     * import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
-     *             .name(exampleAwsRedshiftSubnetGroup.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:redshift/getSubnetGroup:getSubnetGroup", TypeShape.of(GetSubnetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**

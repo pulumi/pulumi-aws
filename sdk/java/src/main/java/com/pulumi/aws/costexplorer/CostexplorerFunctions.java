@@ -14,7 +14,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class CostexplorerFunctions {
@@ -142,48 +141,6 @@ public final class CostexplorerFunctions {
      * 
      */
     public static Output<GetCostCategoryResult> getCostCategory(GetCostCategoryArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:costexplorer/getCostCategory:getCostCategory", TypeShape.of(GetCostCategoryResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific CostExplorer Cost Category.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.costexplorer.CostexplorerFunctions;
-     * import com.pulumi.aws.costexplorer.inputs.GetCostCategoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CostexplorerFunctions.getCostCategory(GetCostCategoryArgs.builder()
-     *             .costCategoryArn("costCategoryARN")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetCostCategoryResult> getCostCategory(GetCostCategoryArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:costexplorer/getCostCategory:getCostCategory", TypeShape.of(GetCostCategoryResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -364,52 +321,6 @@ public final class CostexplorerFunctions {
      * 
      */
     public static Output<GetTagsResult> getTags(GetTagsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:costexplorer/getTags:getTags", TypeShape.of(GetTagsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides the available cost allocation tag keys and tag values for a specified period.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.costexplorer.CostexplorerFunctions;
-     * import com.pulumi.aws.costexplorer.inputs.GetTagsArgs;
-     * import com.pulumi.aws.costexplorer.inputs.GetTagsTimePeriodArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
-     *             .timePeriod(GetTagsTimePeriodArgs.builder()
-     *                 .start("2021-01-01")
-     *                 .end("2022-12-01")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetTagsResult> getTags(GetTagsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:costexplorer/getTags:getTags", TypeShape.of(GetTagsResult.class), args, Utilities.withVersion(options));
     }
     /**

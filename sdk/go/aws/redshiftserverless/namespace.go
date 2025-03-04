@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a new Amazon Redshift Serverless Namespace.
-//
 // ## Example Usage
 //
 // ```go

@@ -48,14 +48,14 @@ public final class DirectoryBucketState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Data redundancy. Valid values: `SingleAvailabilityZone`.
+     * Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
      * 
      */
     @Import(name="dataRedundancy")
     private @Nullable Output<String> dataRedundancy;
 
     /**
-     * @return Data redundancy. Valid values: `SingleAvailabilityZone`.
+     * @return Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
      * 
      */
     public Optional<Output<String>> dataRedundancy() {
@@ -179,7 +179,7 @@ public final class DirectoryBucketState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dataRedundancy Data redundancy. Valid values: `SingleAvailabilityZone`.
+         * @param dataRedundancy Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class DirectoryBucketState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dataRedundancy Data redundancy. Valid values: `SingleAvailabilityZone`.
+         * @param dataRedundancy Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
          * 
          * @return builder
          * 

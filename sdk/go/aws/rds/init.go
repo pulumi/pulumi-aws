@@ -71,6 +71,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReservedInstance{}
 	case "aws:rds/roleAssociation:RoleAssociation":
 		r = &RoleAssociation{}
+	case "aws:rds/shardGroup:ShardGroup":
+		r = &ShardGroup{}
 	case "aws:rds/snapshot:Snapshot":
 		r = &Snapshot{}
 	case "aws:rds/snapshotCopy:SnapshotCopy":
@@ -213,6 +215,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rds/roleAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rds/shardGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

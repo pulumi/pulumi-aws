@@ -23,7 +23,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class FsxFunctions {
@@ -157,50 +156,6 @@ public final class FsxFunctions {
      * 
      */
     public static Output<GetOntapFileSystemResult> getOntapFileSystem(GetOntapFileSystemArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:fsx/getOntapFileSystem:getOntapFileSystem", TypeShape.of(GetOntapFileSystemResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Retrieve information on FSx ONTAP File System.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.fsx.FsxFunctions;
-     * import com.pulumi.aws.fsx.inputs.GetOntapFileSystemArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = FsxFunctions.getOntapFileSystem(GetOntapFileSystemArgs.builder()
-     *             .id("fs-12345678")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetOntapFileSystemResult> getOntapFileSystem(GetOntapFileSystemArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:fsx/getOntapFileSystem:getOntapFileSystem", TypeShape.of(GetOntapFileSystemResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -736,88 +691,6 @@ public final class FsxFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetOntapStorageVirtualMachineResult> getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", TypeShape.of(GetOntapStorageVirtualMachineResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.fsx.FsxFunctions;
-     * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
-     *             .id("svm-12345678")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * ### Filter Example
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.fsx.FsxFunctions;
-     * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
-     *             .filters(GetOntapStorageVirtualMachineFilterArgs.builder()
-     *                 .name("file-system-id")
-     *                 .values("fs-12345678")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetOntapStorageVirtualMachineResult> getOntapStorageVirtualMachinePlain(GetOntapStorageVirtualMachinePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", TypeShape.of(GetOntapStorageVirtualMachineResult.class), args, Utilities.withVersion(options));
     }
@@ -1054,53 +927,6 @@ public final class FsxFunctions {
      * 
      */
     public static Output<GetOntapStorageVirtualMachinesResult> getOntapStorageVirtualMachines(GetOntapStorageVirtualMachinesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", TypeShape.of(GetOntapStorageVirtualMachinesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.fsx.FsxFunctions;
-     * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachinesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = FsxFunctions.getOntapStorageVirtualMachines(GetOntapStorageVirtualMachinesArgs.builder()
-     *             .filters(GetOntapStorageVirtualMachinesFilterArgs.builder()
-     *                 .name("file-system-id")
-     *                 .values("fs-12345678")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetOntapStorageVirtualMachinesResult> getOntapStorageVirtualMachines(GetOntapStorageVirtualMachinesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", TypeShape.of(GetOntapStorageVirtualMachinesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1435,54 +1261,6 @@ public final class FsxFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetOpenZfsSnapshotResult> getOpenZfsSnapshot(GetOpenZfsSnapshotArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", TypeShape.of(GetOpenZfsSnapshotResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
-     * 
-     * ## Example Usage
-     * 
-     * ### Root volume Example
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.fsx.FsxFunctions;
-     * import com.pulumi.aws.fsx.inputs.GetOpenZfsSnapshotArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
-     *             .mostRecent(true)
-     *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
-     *                 .name("volume-id")
-     *                 .values("fsvol-073a32b6098a73feb")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetOpenZfsSnapshotResult> getOpenZfsSnapshotPlain(GetOpenZfsSnapshotPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", TypeShape.of(GetOpenZfsSnapshotResult.class), args, Utilities.withVersion(options));
     }
@@ -1616,50 +1394,6 @@ public final class FsxFunctions {
      * 
      */
     public static Output<GetWindowsFileSystemResult> getWindowsFileSystem(GetWindowsFileSystemArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", TypeShape.of(GetWindowsFileSystemResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Retrieve information on FSx Windows File System.
-     * 
-     * ## Example Usage
-     * 
-     * ### Root volume Example
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.fsx.FsxFunctions;
-     * import com.pulumi.aws.fsx.inputs.GetWindowsFileSystemArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = FsxFunctions.getWindowsFileSystem(GetWindowsFileSystemArgs.builder()
-     *             .id("fs-12345678")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetWindowsFileSystemResult> getWindowsFileSystem(GetWindowsFileSystemArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", TypeShape.of(GetWindowsFileSystemResult.class), args, Utilities.withVersion(options));
     }
     /**

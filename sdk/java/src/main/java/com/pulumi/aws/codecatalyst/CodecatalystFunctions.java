@@ -11,7 +11,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class CodecatalystFunctions {
@@ -151,52 +150,6 @@ public final class CodecatalystFunctions {
      * 
      */
     public static Output<GetDevEnvironmentResult> getDevEnvironment(GetDevEnvironmentArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:codecatalyst/getDevEnvironment:getDevEnvironment", TypeShape.of(GetDevEnvironmentResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS CodeCatalyst Dev Environment.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecatalyst.CodecatalystFunctions;
-     * import com.pulumi.aws.codecatalyst.inputs.GetDevEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
-     *             .spaceName("myspace")
-     *             .projectName("myproject")
-     *             .envId(exampleAwsCodecatalystDevEnvironment.id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetDevEnvironmentResult> getDevEnvironment(GetDevEnvironmentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:codecatalyst/getDevEnvironment:getDevEnvironment", TypeShape.of(GetDevEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**

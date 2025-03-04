@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Member{}
 	case "aws:macie2/organizationAdminAccount:OrganizationAdminAccount":
 		r = &OrganizationAdminAccount{}
+	case "aws:macie2/organizationConfiguration:OrganizationConfiguration":
+		r = &OrganizationConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -74,6 +76,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"macie2/organizationAdminAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"macie2/organizationConfiguration",
 		&module{version},
 	)
 }

@@ -15,7 +15,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -251,45 +250,6 @@ public final class AmpFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDefaultScraperConfigurationResult> getDefaultScraperConfiguration(InvokeArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", TypeShape.of(GetDefaultScraperConfigurationResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.amp.AmpFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetDefaultScraperConfigurationResult> getDefaultScraperConfigurationPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", TypeShape.of(GetDefaultScraperConfigurationResult.class), args, Utilities.withVersion(options));
     }
@@ -423,50 +383,6 @@ public final class AmpFunctions {
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:amp/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides an Amazon Managed Prometheus workspace data source.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic configuration
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.amp.AmpFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId("ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:amp/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -901,84 +817,6 @@ public final class AmpFunctions {
      * 
      */
     public static Output<GetWorkspacesResult> getWorkspaces(GetWorkspacesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:amp/getWorkspaces:getWorkspaces", TypeShape.of(GetWorkspacesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
-     * 
-     * ## Example Usage
-     * 
-     * The following example returns all of the workspaces in a region:
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.amp.AmpFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspaces();
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * The following example filters the workspaces by alias. Only the workspaces with
-     * aliases that begin with the value of `alias_prefix` will be returned:
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.amp.AmpFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
-     *             .aliasPrefix("example")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetWorkspacesResult> getWorkspaces(GetWorkspacesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:amp/getWorkspaces:getWorkspaces", TypeShape.of(GetWorkspacesResult.class), args, Utilities.withVersion(options));
     }
     /**

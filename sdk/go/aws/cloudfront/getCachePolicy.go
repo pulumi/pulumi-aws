@@ -43,7 +43,7 @@ import (
 //
 // ### AWS-Managed Policies
 //
-// AWS managed cache policy names are prefixed with `Managed-`:
+// AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
 //
 // ```go
 // package main
@@ -59,6 +59,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.LookupCachePolicy(ctx, &cloudfront.LookupCachePolicyArgs{
 //				Name: pulumi.StringRef("Managed-CachingOptimized"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudfront.LookupCachePolicy(ctx, &cloudfront.LookupCachePolicyArgs{
+//				Name: pulumi.StringRef("UseOriginCacheControlHeaders"),
 //			}, nil)
 //			if err != nil {
 //				return err

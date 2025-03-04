@@ -14,7 +14,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class DevopsguruFunctions {
@@ -191,50 +190,6 @@ public final class DevopsguruFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetNotificationChannelResult> getNotificationChannel(GetNotificationChannelArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:devopsguru/getNotificationChannel:getNotificationChannel", TypeShape.of(GetNotificationChannelResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS DevOps Guru Notification Channel.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.devopsguru.DevopsguruFunctions;
-     * import com.pulumi.aws.devopsguru.inputs.GetNotificationChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DevopsguruFunctions.getNotificationChannel(GetNotificationChannelArgs.builder()
-     *             .id("channel-1234")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetNotificationChannelResult> getNotificationChannelPlain(GetNotificationChannelPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:devopsguru/getNotificationChannel:getNotificationChannel", TypeShape.of(GetNotificationChannelResult.class), args, Utilities.withVersion(options));
     }
@@ -368,50 +323,6 @@ public final class DevopsguruFunctions {
      * 
      */
     public static Output<GetResourceCollectionResult> getResourceCollection(GetResourceCollectionArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:devopsguru/getResourceCollection:getResourceCollection", TypeShape.of(GetResourceCollectionResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS DevOps Guru Resource Collection.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.devopsguru.DevopsguruFunctions;
-     * import com.pulumi.aws.devopsguru.inputs.GetResourceCollectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DevopsguruFunctions.getResourceCollection(GetResourceCollectionArgs.builder()
-     *             .type("AWS_SERVICE")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetResourceCollectionResult> getResourceCollection(GetResourceCollectionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:devopsguru/getResourceCollection:getResourceCollection", TypeShape.of(GetResourceCollectionResult.class), args, Utilities.withVersion(options));
     }
     /**

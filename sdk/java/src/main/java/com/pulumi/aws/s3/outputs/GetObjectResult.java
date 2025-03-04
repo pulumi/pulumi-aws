@@ -46,6 +46,11 @@ public final class GetObjectResult {
      * 
      */
     private String checksumCrc32c;
+    /**
+     * @return The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * 
+     */
+    private String checksumCrc64nvme;
     private @Nullable String checksumMode;
     /**
      * @return The base64-encoded, 160-bit SHA-1 digest of the object.
@@ -205,6 +210,13 @@ public final class GetObjectResult {
      */
     public String checksumCrc32c() {
         return this.checksumCrc32c;
+    }
+    /**
+     * @return The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * 
+     */
+    public String checksumCrc64nvme() {
+        return this.checksumCrc64nvme;
     }
     public Optional<String> checksumMode() {
         return Optional.ofNullable(this.checksumMode);
@@ -386,6 +398,7 @@ public final class GetObjectResult {
         private String cacheControl;
         private String checksumCrc32;
         private String checksumCrc32c;
+        private String checksumCrc64nvme;
         private @Nullable String checksumMode;
         private String checksumSha1;
         private String checksumSha256;
@@ -421,6 +434,7 @@ public final class GetObjectResult {
     	      this.cacheControl = defaults.cacheControl;
     	      this.checksumCrc32 = defaults.checksumCrc32;
     	      this.checksumCrc32c = defaults.checksumCrc32c;
+    	      this.checksumCrc64nvme = defaults.checksumCrc64nvme;
     	      this.checksumMode = defaults.checksumMode;
     	      this.checksumSha1 = defaults.checksumSha1;
     	      this.checksumSha256 = defaults.checksumSha256;
@@ -502,6 +516,14 @@ public final class GetObjectResult {
               throw new MissingRequiredPropertyException("GetObjectResult", "checksumCrc32c");
             }
             this.checksumCrc32c = checksumCrc32c;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder checksumCrc64nvme(String checksumCrc64nvme) {
+            if (checksumCrc64nvme == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "checksumCrc64nvme");
+            }
+            this.checksumCrc64nvme = checksumCrc64nvme;
             return this;
         }
         @CustomType.Setter
@@ -709,6 +731,7 @@ public final class GetObjectResult {
             _resultValue.cacheControl = cacheControl;
             _resultValue.checksumCrc32 = checksumCrc32;
             _resultValue.checksumCrc32c = checksumCrc32c;
+            _resultValue.checksumCrc64nvme = checksumCrc64nvme;
             _resultValue.checksumMode = checksumMode;
             _resultValue.checksumSha1 = checksumSha1;
             _resultValue.checksumSha256 = checksumSha256;

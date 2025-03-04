@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudwatch.inputs;
 
+import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentConfigurationArgs;
 import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -17,6 +18,13 @@ import javax.annotation.Nullable;
 public final class GetLogDataProtectionPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLogDataProtectionPolicyDocumentArgs Empty = new GetLogDataProtectionPolicyDocumentArgs();
+
+    @Import(name="configuration")
+    private @Nullable Output<GetLogDataProtectionPolicyDocumentConfigurationArgs> configuration;
+
+    public Optional<Output<GetLogDataProtectionPolicyDocumentConfigurationArgs>> configuration() {
+        return Optional.ofNullable(this.configuration);
+    }
 
     @Import(name="description")
     private @Nullable Output<String> description;
@@ -73,6 +81,7 @@ public final class GetLogDataProtectionPolicyDocumentArgs extends com.pulumi.res
     private GetLogDataProtectionPolicyDocumentArgs() {}
 
     private GetLogDataProtectionPolicyDocumentArgs(GetLogDataProtectionPolicyDocumentArgs $) {
+        this.configuration = $.configuration;
         this.description = $.description;
         this.name = $.name;
         this.statements = $.statements;
@@ -95,6 +104,15 @@ public final class GetLogDataProtectionPolicyDocumentArgs extends com.pulumi.res
 
         public Builder(GetLogDataProtectionPolicyDocumentArgs defaults) {
             $ = new GetLogDataProtectionPolicyDocumentArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder configuration(@Nullable Output<GetLogDataProtectionPolicyDocumentConfigurationArgs> configuration) {
+            $.configuration = configuration;
+            return this;
+        }
+
+        public Builder configuration(GetLogDataProtectionPolicyDocumentConfigurationArgs configuration) {
+            return configuration(Output.of(configuration));
         }
 
         public Builder description(@Nullable Output<String> description) {

@@ -11,7 +11,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ShieldFunctions {
@@ -408,85 +407,6 @@ public final class ShieldFunctions {
      * 
      */
     public static Output<GetProtectionResult> getProtection(GetProtectionArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:shield/getProtection:getProtection", TypeShape.of(GetProtectionResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS Shield Protection.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.shield.ShieldFunctions;
-     * import com.pulumi.aws.shield.inputs.GetProtectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ShieldFunctions.getProtection(GetProtectionArgs.builder()
-     *             .protectionId("abc123")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * ### By Resource ARN
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.shield.ShieldFunctions;
-     * import com.pulumi.aws.shield.inputs.GetProtectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ShieldFunctions.getProtection(GetProtectionArgs.builder()
-     *             .resourceArn("arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetProtectionResult> getProtection(GetProtectionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:shield/getProtection:getProtection", TypeShape.of(GetProtectionResult.class), args, Utilities.withVersion(options));
     }
     /**

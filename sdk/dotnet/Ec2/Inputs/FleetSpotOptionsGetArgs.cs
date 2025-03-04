@@ -36,6 +36,30 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("maintenanceStrategies")]
         public Input<Inputs.FleetSpotOptionsMaintenanceStrategiesGetArgs>? MaintenanceStrategies { get; set; }
 
+        /// <summary>
+        /// The maximum amount per hour for Spot Instances that you're willing to pay.
+        /// </summary>
+        [Input("maxTotalPrice")]
+        public Input<string>? MaxTotalPrice { get; set; }
+
+        /// <summary>
+        /// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+        /// </summary>
+        [Input("minTargetCapacity")]
+        public Input<int>? MinTargetCapacity { get; set; }
+
+        /// <summary>
+        /// Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+        /// </summary>
+        [Input("singleAvailabilityZone")]
+        public Input<bool>? SingleAvailabilityZone { get; set; }
+
+        /// <summary>
+        /// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+        /// </summary>
+        [Input("singleInstanceType")]
+        public Input<bool>? SingleInstanceType { get; set; }
+
         public FleetSpotOptionsGetArgs()
         {
         }

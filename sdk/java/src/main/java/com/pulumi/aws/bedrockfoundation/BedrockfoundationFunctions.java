@@ -14,7 +14,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class BedrockfoundationFunctions {
@@ -157,53 +156,6 @@ public final class BedrockfoundationFunctions {
      * 
      */
     public static Output<GetModelResult> getModel(GetModelArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:bedrockfoundation/getModel:getModel", TypeShape.of(GetModelResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing an AWS Bedrock Foundation Model.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
-     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
-     * 
-     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.applyValue(getModelsResult -> getModelsResult.modelSummaries()[0].modelId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetModelResult> getModel(GetModelArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:bedrockfoundation/getModel:getModel", TypeShape.of(GetModelResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -636,83 +588,6 @@ public final class BedrockfoundationFunctions {
      * 
      */
     public static Output<GetModelsResult> getModels(GetModelsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:bedrockfoundation/getModels:getModels", TypeShape.of(GetModelsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source for managing AWS Bedrock Foundation Models.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
-     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     * ### Filter by Inference Type
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
-     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
-     *             .byInferenceType("ON_DEMAND")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetModelsResult> getModels(GetModelsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:bedrockfoundation/getModels:getModels", TypeShape.of(GetModelsResult.class), args, Utilities.withVersion(options));
     }
     /**

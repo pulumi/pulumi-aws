@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudwatch.outputs;
 
+import com.pulumi.aws.cloudwatch.outputs.GetLogDataProtectionPolicyDocumentConfiguration;
 import com.pulumi.aws.cloudwatch.outputs.GetLogDataProtectionPolicyDocumentStatement;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -14,6 +15,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLogDataProtectionPolicyDocumentResult {
+    private @Nullable GetLogDataProtectionPolicyDocumentConfiguration configuration;
     private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -30,6 +32,9 @@ public final class GetLogDataProtectionPolicyDocumentResult {
     private @Nullable String version;
 
     private GetLogDataProtectionPolicyDocumentResult() {}
+    public Optional<GetLogDataProtectionPolicyDocumentConfiguration> configuration() {
+        return Optional.ofNullable(this.configuration);
+    }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
@@ -66,6 +71,7 @@ public final class GetLogDataProtectionPolicyDocumentResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable GetLogDataProtectionPolicyDocumentConfiguration configuration;
         private @Nullable String description;
         private String id;
         private String json;
@@ -75,6 +81,7 @@ public final class GetLogDataProtectionPolicyDocumentResult {
         public Builder() {}
         public Builder(GetLogDataProtectionPolicyDocumentResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.configuration = defaults.configuration;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.json = defaults.json;
@@ -83,6 +90,12 @@ public final class GetLogDataProtectionPolicyDocumentResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
+        public Builder configuration(@Nullable GetLogDataProtectionPolicyDocumentConfiguration configuration) {
+
+            this.configuration = configuration;
+            return this;
+        }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
 
@@ -132,6 +145,7 @@ public final class GetLogDataProtectionPolicyDocumentResult {
         }
         public GetLogDataProtectionPolicyDocumentResult build() {
             final var _resultValue = new GetLogDataProtectionPolicyDocumentResult();
+            _resultValue.configuration = configuration;
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.json = json;

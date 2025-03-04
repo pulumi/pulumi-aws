@@ -38,6 +38,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? DeviceIndex;
         /// <summary>
+        /// Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+        /// </summary>
+        public readonly Outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecification? EnaSrdSpecification;
+        /// <summary>
         /// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
         /// </summary>
         public readonly string? InterfaceType;
@@ -112,6 +116,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int? deviceIndex,
 
+            Outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecification? enaSrdSpecification,
+
             string? interfaceType,
 
             int? ipv4AddressCount,
@@ -148,6 +154,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             DeleteOnTermination = deleteOnTermination;
             Description = description;
             DeviceIndex = deviceIndex;
+            EnaSrdSpecification = enaSrdSpecification;
             InterfaceType = interfaceType;
             Ipv4AddressCount = ipv4AddressCount;
             Ipv4Addresses = ipv4Addresses;

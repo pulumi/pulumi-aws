@@ -20,7 +20,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class LexFunctions {
@@ -151,49 +150,6 @@ public final class LexFunctions {
      * 
      */
     public static Output<GetBotResult> getBot(GetBotArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:lex/getBot:getBot", TypeShape.of(GetBotResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific Amazon Lex Bot.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lex.LexFunctions;
-     * import com.pulumi.aws.lex.inputs.GetBotArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var orderFlowersBot = LexFunctions.getBot(GetBotArgs.builder()
-     *             .name("OrderFlowers")
-     *             .version("$LATEST")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetBotResult> getBot(GetBotArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:lex/getBot:getBot", TypeShape.of(GetBotResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -408,49 +364,6 @@ public final class LexFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetBotAliasResult> getBotAlias(GetBotAliasArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:lex/getBotAlias:getBotAlias", TypeShape.of(GetBotAliasResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific Amazon Lex Bot Alias.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lex.LexFunctions;
-     * import com.pulumi.aws.lex.inputs.GetBotAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var orderFlowersProd = LexFunctions.getBotAlias(GetBotAliasArgs.builder()
-     *             .botName("OrderFlowers")
-     *             .name("OrderFlowersProd")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetBotAliasResult> getBotAliasPlain(GetBotAliasPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:lex/getBotAlias:getBotAlias", TypeShape.of(GetBotAliasResult.class), args, Utilities.withVersion(options));
     }
@@ -623,49 +536,6 @@ public final class LexFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetIntentResult> getIntent(GetIntentArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:lex/getIntent:getIntent", TypeShape.of(GetIntentResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific Amazon Lex Intent.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lex.LexFunctions;
-     * import com.pulumi.aws.lex.inputs.GetIntentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var orderFlowers = LexFunctions.getIntent(GetIntentArgs.builder()
-     *             .name("OrderFlowers")
-     *             .version("$LATEST")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetIntentResult> getIntentPlain(GetIntentPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:lex/getIntent:getIntent", TypeShape.of(GetIntentResult.class), args, Utilities.withVersion(options));
     }
@@ -796,49 +666,6 @@ public final class LexFunctions {
      * 
      */
     public static Output<GetSlotTypeResult> getSlotType(GetSlotTypeArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:lex/getSlotType:getSlotType", TypeShape.of(GetSlotTypeResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Provides details about a specific Amazon Lex Slot Type.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lex.LexFunctions;
-     * import com.pulumi.aws.lex.inputs.GetSlotTypeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var flowerTypes = LexFunctions.getSlotType(GetSlotTypeArgs.builder()
-     *             .name("FlowerTypes")
-     *             .version("1")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetSlotTypeResult> getSlotType(GetSlotTypeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:lex/getSlotType:getSlotType", TypeShape.of(GetSlotTypeResult.class), args, Utilities.withVersion(options));
     }
     /**

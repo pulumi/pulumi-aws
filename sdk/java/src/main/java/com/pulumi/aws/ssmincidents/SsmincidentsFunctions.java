@@ -14,7 +14,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class SsmincidentsFunctions {
@@ -279,50 +278,6 @@ public final class SsmincidentsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetReplicationSetResult> getReplicationSet(GetReplicationSetArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:ssmincidents/getReplicationSet:getReplicationSet", TypeShape.of(GetReplicationSetResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * &gt; **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.
-     * 
-     * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
-     * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetReplicationSetResult> getReplicationSetPlain(GetReplicationSetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ssmincidents/getReplicationSet:getReplicationSet", TypeShape.of(GetReplicationSetResult.class), args, Utilities.withVersion(options));
     }
@@ -366,20 +321,6 @@ public final class SsmincidentsFunctions {
      * 
      */
     public static Output<GetResponsePlanResult> getResponsePlan(GetResponsePlanArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:ssmincidents/getResponsePlan:getResponsePlan", TypeShape.of(GetResponsePlanResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
-     * 
-     * ## Example Usage
-     * 
-     * ### Basic Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetResponsePlanResult> getResponsePlan(GetResponsePlanArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ssmincidents/getResponsePlan:getResponsePlan", TypeShape.of(GetResponsePlanResult.class), args, Utilities.withVersion(options));
     }
     /**

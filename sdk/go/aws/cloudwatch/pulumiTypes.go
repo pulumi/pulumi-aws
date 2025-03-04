@@ -8224,6 +8224,251 @@ func (o GetEventBusesEventBusArrayOutput) Index(i pulumi.IntInput) GetEventBuses
 	}).(GetEventBusesEventBusOutput)
 }
 
+type GetLogDataProtectionPolicyDocumentConfiguration struct {
+	// Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
+	CustomDataIdentifiers []GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier `pulumi:"customDataIdentifiers"`
+}
+
+// GetLogDataProtectionPolicyDocumentConfigurationInput is an input type that accepts GetLogDataProtectionPolicyDocumentConfigurationArgs and GetLogDataProtectionPolicyDocumentConfigurationOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentConfigurationInput` via:
+//
+//	GetLogDataProtectionPolicyDocumentConfigurationArgs{...}
+type GetLogDataProtectionPolicyDocumentConfigurationInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentConfigurationOutput() GetLogDataProtectionPolicyDocumentConfigurationOutput
+	ToGetLogDataProtectionPolicyDocumentConfigurationOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentConfigurationOutput
+}
+
+type GetLogDataProtectionPolicyDocumentConfigurationArgs struct {
+	// Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
+	CustomDataIdentifiers GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayInput `pulumi:"customDataIdentifiers"`
+}
+
+func (GetLogDataProtectionPolicyDocumentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentConfiguration)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentConfigurationArgs) ToGetLogDataProtectionPolicyDocumentConfigurationOutput() GetLogDataProtectionPolicyDocumentConfigurationOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentConfigurationArgs) ToGetLogDataProtectionPolicyDocumentConfigurationOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentConfigurationOutput)
+}
+
+func (i GetLogDataProtectionPolicyDocumentConfigurationArgs) ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutput() GetLogDataProtectionPolicyDocumentConfigurationPtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentConfigurationArgs) ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentConfigurationOutput).ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutputWithContext(ctx)
+}
+
+// GetLogDataProtectionPolicyDocumentConfigurationPtrInput is an input type that accepts GetLogDataProtectionPolicyDocumentConfigurationArgs, GetLogDataProtectionPolicyDocumentConfigurationPtr and GetLogDataProtectionPolicyDocumentConfigurationPtrOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentConfigurationPtrInput` via:
+//
+//	        GetLogDataProtectionPolicyDocumentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetLogDataProtectionPolicyDocumentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutput() GetLogDataProtectionPolicyDocumentConfigurationPtrOutput
+	ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentConfigurationPtrOutput
+}
+
+type getLogDataProtectionPolicyDocumentConfigurationPtrType GetLogDataProtectionPolicyDocumentConfigurationArgs
+
+func GetLogDataProtectionPolicyDocumentConfigurationPtr(v *GetLogDataProtectionPolicyDocumentConfigurationArgs) GetLogDataProtectionPolicyDocumentConfigurationPtrInput {
+	return (*getLogDataProtectionPolicyDocumentConfigurationPtrType)(v)
+}
+
+func (*getLogDataProtectionPolicyDocumentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentConfiguration)(nil)).Elem()
+}
+
+func (i *getLogDataProtectionPolicyDocumentConfigurationPtrType) ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutput() GetLogDataProtectionPolicyDocumentConfigurationPtrOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *getLogDataProtectionPolicyDocumentConfigurationPtrType) ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentConfigurationPtrOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentConfiguration)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentConfigurationOutput) ToGetLogDataProtectionPolicyDocumentConfigurationOutput() GetLogDataProtectionPolicyDocumentConfigurationOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentConfigurationOutput) ToGetLogDataProtectionPolicyDocumentConfigurationOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentConfigurationOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentConfigurationOutput) ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutput() GetLogDataProtectionPolicyDocumentConfigurationPtrOutput {
+	return o.ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GetLogDataProtectionPolicyDocumentConfigurationOutput) ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLogDataProtectionPolicyDocumentConfiguration) *GetLogDataProtectionPolicyDocumentConfiguration {
+		return &v
+	}).(GetLogDataProtectionPolicyDocumentConfigurationPtrOutput)
+}
+
+// Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
+func (o GetLogDataProtectionPolicyDocumentConfigurationOutput) CustomDataIdentifiers() GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentConfiguration) []GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier {
+		return v.CustomDataIdentifiers
+	}).(GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLogDataProtectionPolicyDocumentConfiguration)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentConfigurationPtrOutput) ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutput() GetLogDataProtectionPolicyDocumentConfigurationPtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentConfigurationPtrOutput) ToGetLogDataProtectionPolicyDocumentConfigurationPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentConfigurationPtrOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentConfigurationPtrOutput) Elem() GetLogDataProtectionPolicyDocumentConfigurationOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentConfiguration) GetLogDataProtectionPolicyDocumentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GetLogDataProtectionPolicyDocumentConfiguration
+		return ret
+	}).(GetLogDataProtectionPolicyDocumentConfigurationOutput)
+}
+
+// Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
+func (o GetLogDataProtectionPolicyDocumentConfigurationPtrOutput) CustomDataIdentifiers() GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput {
+	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentConfiguration) []GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.CustomDataIdentifiers
+	}).(GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier struct {
+	// Name of the custom data idenfitier
+	Name string `pulumi:"name"`
+	// Regular expression to match sensitive data
+	Regex string `pulumi:"regex"`
+}
+
+// GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierInput is an input type that accepts GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs and GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierInput` via:
+//
+//	GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs{...}
+type GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput() GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput
+	ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput
+}
+
+type GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs struct {
+	// Name of the custom data idenfitier
+	Name pulumi.StringInput `pulumi:"name"`
+	// Regular expression to match sensitive data
+	Regex pulumi.StringInput `pulumi:"regex"`
+}
+
+func (GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs) ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput() GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs) ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput)
+}
+
+// GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayInput is an input type that accepts GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArray and GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput values.
+// You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayInput` via:
+//
+//	GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArray{ GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs{...} }
+type GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayInput interface {
+	pulumi.Input
+
+	ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput() GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput
+	ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutputWithContext(context.Context) GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput
+}
+
+type GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArray []GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierInput
+
+func (GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier)(nil)).Elem()
+}
+
+func (i GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArray) ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput() GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput {
+	return i.ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutputWithContext(context.Background())
+}
+
+func (i GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArray) ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput) ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput() GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput) ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput {
+	return o
+}
+
+// Name of the custom data idenfitier
+func (o GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Regular expression to match sensitive data
+func (o GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+type GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier)(nil)).Elem()
+}
+
+func (o GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput) ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput() GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput) ToGetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput {
+	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput) Index(i pulumi.IntInput) GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier {
+		return vs[0].([]GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier)[vs[1].(int)]
+	}).(GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput)
+}
+
 type GetLogDataProtectionPolicyDocumentStatement struct {
 	// Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
 	DataIdentifiers []string `pulumi:"dataIdentifiers"`
@@ -9517,6 +9762,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleRuleStateArrayInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleRuleStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusesEventBusInput)(nil)).Elem(), GetEventBusesEventBusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusesEventBusArrayInput)(nil)).Elem(), GetEventBusesEventBusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentConfigurationInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentConfigurationPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementArrayInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationArgs{})
@@ -9644,6 +9893,10 @@ func init() {
 	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleRuleStateArrayOutput{})
 	pulumi.RegisterOutputType(GetEventBusesEventBusOutput{})
 	pulumi.RegisterOutputType(GetEventBusesEventBusArrayOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentConfigurationOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput{})
+	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOutput{})
 	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementArrayOutput{})
 	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationOutput{})

@@ -124,14 +124,14 @@ public final class CustomDataIdentifierArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -337,7 +337,7 @@ public final class CustomDataIdentifierArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class CustomDataIdentifierArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

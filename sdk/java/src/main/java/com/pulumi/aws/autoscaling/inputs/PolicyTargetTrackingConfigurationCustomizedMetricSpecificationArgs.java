@@ -7,6 +7,7 @@ import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationCustom
 import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,6 +80,21 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     }
 
     /**
+     * The period of the metric in seconds.
+     * 
+     */
+    @Import(name="period")
+    private @Nullable Output<Integer> period;
+
+    /**
+     * @return The period of the metric in seconds.
+     * 
+     */
+    public Optional<Output<Integer>> period() {
+        return Optional.ofNullable(this.period);
+    }
+
+    /**
      * Statistic of the metric.
      * 
      */
@@ -115,6 +131,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         this.metricName = $.metricName;
         this.metrics = $.metrics;
         this.namespace = $.namespace;
+        this.period = $.period;
         this.statistic = $.statistic;
         this.unit = $.unit;
     }
@@ -239,6 +256,27 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
          */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
+        }
+
+        /**
+         * @param period The period of the metric in seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder period(@Nullable Output<Integer> period) {
+            $.period = period;
+            return this;
+        }
+
+        /**
+         * @param period The period of the metric in seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder period(Integer period) {
+            return period(Output.of(period));
         }
 
         /**

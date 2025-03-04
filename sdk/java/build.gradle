@@ -5,7 +5,7 @@ plugins {
     id("signing")
     id("java-library")
     id("maven-publish")
-    id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
+    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
 }
 
 group = "com.pulumi"
@@ -44,7 +44,7 @@ repositories {
 dependencies {
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("com.google.code.gson:gson:2.8.9")
-    implementation("com.pulumi:pulumi:1.5.0")
+    implementation("com.pulumi:pulumi:0.15.0")
 }
 
 task sourcesJar(type: Jar) {
@@ -65,13 +65,11 @@ def genPulumiResources = tasks.register('genPulumiResources') {
         def outDir = file("$resourcesDir/$subDir")
         outDir.mkdirs()
         new File(outDir, "version.txt").text = resolvedVersion
-        def builder = new groovy.json.JsonBuilder()
-        builder {
-            resource true
-            name "aws"
-            version resolvedVersion
-        }
-        def infoJson = builder.toPrettyString()
+        def info = new Object()
+        info.metaClass.resource = true
+        info.metaClass.name = "aws"
+        info.metaClass.version = resolvedVersion
+        def infoJson = new groovy.json.JsonBuilder(info).toPrettyString()
         new File(outDir, "plugin.json").text = infoJson
     }
 }

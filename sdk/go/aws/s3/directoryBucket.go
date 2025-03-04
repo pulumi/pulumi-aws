@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Availability Zone
+//
 // ```go
 // package main
 //
@@ -43,6 +45,36 @@ import (
 //
 // ```
 //
+// ### Dedicated Local Zone
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewDirectoryBucket(ctx, "example_local_zone", &s3.DirectoryBucketArgs{
+//				Bucket: pulumi.String("example--usw2-xxx-lz1--x-s3"),
+//				Location: &s3.DirectoryBucketLocationArgs{
+//					Name: pulumi.String("usw2-xxx-lz1"),
+//					Type: pulumi.String("LocalZone"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import S3 bucket using `bucket`. For example:
@@ -57,7 +89,7 @@ type DirectoryBucket struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Data redundancy. Valid values: `SingleAvailabilityZone`.
+	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy pulumi.StringOutput `pulumi:"dataRedundancy"`
 	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy pulumi.BoolOutput `pulumi:"forceDestroy"`
@@ -104,7 +136,7 @@ type directoryBucketState struct {
 	Arn *string `pulumi:"arn"`
 	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
 	Bucket *string `pulumi:"bucket"`
-	// Data redundancy. Valid values: `SingleAvailabilityZone`.
+	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy *string `pulumi:"dataRedundancy"`
 	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
@@ -119,7 +151,7 @@ type DirectoryBucketState struct {
 	Arn pulumi.StringPtrInput
 	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
 	Bucket pulumi.StringPtrInput
-	// Data redundancy. Valid values: `SingleAvailabilityZone`.
+	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy pulumi.StringPtrInput
 	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy pulumi.BoolPtrInput
@@ -136,7 +168,7 @@ func (DirectoryBucketState) ElementType() reflect.Type {
 type directoryBucketArgs struct {
 	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
 	Bucket string `pulumi:"bucket"`
-	// Data redundancy. Valid values: `SingleAvailabilityZone`.
+	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy *string `pulumi:"dataRedundancy"`
 	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
@@ -150,7 +182,7 @@ type directoryBucketArgs struct {
 type DirectoryBucketArgs struct {
 	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
 	Bucket pulumi.StringInput
-	// Data redundancy. Valid values: `SingleAvailabilityZone`.
+	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy pulumi.StringPtrInput
 	// Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy pulumi.BoolPtrInput
@@ -257,7 +289,7 @@ func (o DirectoryBucketOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Data redundancy. Valid values: `SingleAvailabilityZone`.
+// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 func (o DirectoryBucketOutput) DataRedundancy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.DataRedundancy }).(pulumi.StringOutput)
 }

@@ -105,7 +105,7 @@ namespace Pulumi.Aws.S3
         public Output<string> CacheControl { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+        /// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
         /// </summary>
         [Output("checksumAlgorithm")]
         public Output<string?> ChecksumAlgorithm { get; private set; } = null!;
@@ -121,6 +121,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("checksumCrc32c")]
         public Output<string> ChecksumCrc32c { get; private set; } = null!;
+
+        /// <summary>
+        /// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+        /// </summary>
+        [Output("checksumCrc64nvme")]
+        public Output<string> ChecksumCrc64nvme { get; private set; } = null!;
 
         /// <summary>
         /// The base64-encoded, 160-bit SHA-1 digest of the object.
@@ -460,7 +466,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? CacheControl { get; set; }
 
         /// <summary>
-        /// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+        /// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
         /// </summary>
         [Input("checksumAlgorithm")]
         public Input<string>? ChecksumAlgorithm { get; set; }
@@ -768,7 +774,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? CacheControl { get; set; }
 
         /// <summary>
-        /// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+        /// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
         /// </summary>
         [Input("checksumAlgorithm")]
         public Input<string>? ChecksumAlgorithm { get; set; }
@@ -784,6 +790,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("checksumCrc32c")]
         public Input<string>? ChecksumCrc32c { get; set; }
+
+        /// <summary>
+        /// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+        /// </summary>
+        [Input("checksumCrc64nvme")]
+        public Input<string>? ChecksumCrc64nvme { get; set; }
 
         /// <summary>
         /// The base64-encoded, 160-bit SHA-1 digest of the object.

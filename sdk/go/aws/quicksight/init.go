@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Namespace{}
 	case "aws:quicksight/refreshSchedule:RefreshSchedule":
 		r = &RefreshSchedule{}
+	case "aws:quicksight/roleMembership:RoleMembership":
+		r = &RoleMembership{}
 	case "aws:quicksight/template:Template":
 		r = &Template{}
 	case "aws:quicksight/templateAlias:TemplateAlias":
@@ -133,6 +135,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"quicksight/refreshSchedule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/roleMembership",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
