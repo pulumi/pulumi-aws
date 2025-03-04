@@ -6,7 +6,7 @@ package com.pulumi.aws.lb.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 @CustomType
@@ -15,7 +15,7 @@ public final class GetListenerRuleActionForwardStickiness {
      * @return The time period, in seconds, during which requests from a client should be routed to the same target group.
      * 
      */
-    private Double duration;
+    private Integer duration;
     /**
      * @return Indicates whether target group stickiness is enabled.
      * 
@@ -27,7 +27,7 @@ public final class GetListenerRuleActionForwardStickiness {
      * @return The time period, in seconds, during which requests from a client should be routed to the same target group.
      * 
      */
-    public Double duration() {
+    public Integer duration() {
         return this.duration;
     }
     /**
@@ -47,7 +47,7 @@ public final class GetListenerRuleActionForwardStickiness {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Double duration;
+        private Integer duration;
         private Boolean enabled;
         public Builder() {}
         public Builder(GetListenerRuleActionForwardStickiness defaults) {
@@ -57,7 +57,7 @@ public final class GetListenerRuleActionForwardStickiness {
         }
 
         @CustomType.Setter
-        public Builder duration(Double duration) {
+        public Builder duration(Integer duration) {
             if (duration == null) {
               throw new MissingRequiredPropertyException("GetListenerRuleActionForwardStickiness", "duration");
             }

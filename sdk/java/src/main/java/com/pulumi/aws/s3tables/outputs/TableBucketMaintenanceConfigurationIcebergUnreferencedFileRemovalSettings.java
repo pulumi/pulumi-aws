@@ -5,7 +5,7 @@ package com.pulumi.aws.s3tables.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 @CustomType
@@ -15,13 +15,13 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
      * Must be at least `1`.
      * 
      */
-    private Double nonCurrentDays;
+    private Integer nonCurrentDays;
     /**
      * @return Unreferenced data objects are marked for deletion after this many days.
      * Must be at least `1`.
      * 
      */
-    private Double unreferencedDays;
+    private Integer unreferencedDays;
 
     private TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings() {}
     /**
@@ -29,7 +29,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
      * Must be at least `1`.
      * 
      */
-    public Double nonCurrentDays() {
+    public Integer nonCurrentDays() {
         return this.nonCurrentDays;
     }
     /**
@@ -37,7 +37,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
      * Must be at least `1`.
      * 
      */
-    public Double unreferencedDays() {
+    public Integer unreferencedDays() {
         return this.unreferencedDays;
     }
 
@@ -50,8 +50,8 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
     }
     @CustomType.Builder
     public static final class Builder {
-        private Double nonCurrentDays;
-        private Double unreferencedDays;
+        private Integer nonCurrentDays;
+        private Integer unreferencedDays;
         public Builder() {}
         public Builder(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings defaults) {
     	      Objects.requireNonNull(defaults);
@@ -60,7 +60,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
         }
 
         @CustomType.Setter
-        public Builder nonCurrentDays(Double nonCurrentDays) {
+        public Builder nonCurrentDays(Integer nonCurrentDays) {
             if (nonCurrentDays == null) {
               throw new MissingRequiredPropertyException("TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings", "nonCurrentDays");
             }
@@ -68,7 +68,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
             return this;
         }
         @CustomType.Setter
-        public Builder unreferencedDays(Double unreferencedDays) {
+        public Builder unreferencedDays(Integer unreferencedDays) {
             if (unreferencedDays == null) {
               throw new MissingRequiredPropertyException("TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings", "unreferencedDays");
             }

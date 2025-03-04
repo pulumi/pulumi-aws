@@ -3281,7 +3281,7 @@ class TargetGroupTargetHealthStateArgs:
 
 if not MYPY:
     class GetListenerRuleActionArgsDict(TypedDict):
-        order: float
+        order: int
         """
         The evaluation order of the action.
         """
@@ -3320,7 +3320,7 @@ elif False:
 @pulumi.input_type
 class GetListenerRuleActionArgs:
     def __init__(__self__, *,
-                 order: float,
+                 order: int,
                  type: str,
                  authenticate_cognito: Optional['GetListenerRuleActionAuthenticateCognitoArgs'] = None,
                  authenticate_oidc: Optional['GetListenerRuleActionAuthenticateOidcArgs'] = None,
@@ -3328,7 +3328,7 @@ class GetListenerRuleActionArgs:
                  forward: Optional['GetListenerRuleActionForwardArgs'] = None,
                  redirect: Optional['GetListenerRuleActionRedirectArgs'] = None):
         """
-        :param float order: The evaluation order of the action.
+        :param int order: The evaluation order of the action.
         :param str type: The type of the action, indicates which sub-block will be populated.
         :param 'GetListenerRuleActionAuthenticateCognitoArgs' authenticate_cognito: An action to authenticate using Amazon Cognito.
                Detailed below.
@@ -3356,14 +3356,14 @@ class GetListenerRuleActionArgs:
 
     @property
     @pulumi.getter
-    def order(self) -> float:
+    def order(self) -> int:
         """
         The evaluation order of the action.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: float):
+    def order(self, value: int):
         pulumi.set(self, "order", value)
 
     @property
@@ -3945,7 +3945,7 @@ class GetListenerRuleActionForwardArgs:
 
 if not MYPY:
     class GetListenerRuleActionForwardStickinessArgsDict(TypedDict):
-        duration: float
+        duration: int
         """
         The time period, in seconds, during which requests from a client should be routed to the same target group.
         """
@@ -3959,10 +3959,10 @@ elif False:
 @pulumi.input_type
 class GetListenerRuleActionForwardStickinessArgs:
     def __init__(__self__, *,
-                 duration: float,
+                 duration: int,
                  enabled: bool):
         """
-        :param float duration: The time period, in seconds, during which requests from a client should be routed to the same target group.
+        :param int duration: The time period, in seconds, during which requests from a client should be routed to the same target group.
         :param bool enabled: Indicates whether target group stickiness is enabled.
         """
         pulumi.set(__self__, "duration", duration)
@@ -3970,14 +3970,14 @@ class GetListenerRuleActionForwardStickinessArgs:
 
     @property
     @pulumi.getter
-    def duration(self) -> float:
+    def duration(self) -> int:
         """
         The time period, in seconds, during which requests from a client should be routed to the same target group.
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: float):
+    def duration(self, value: int):
         pulumi.set(self, "duration", value)
 
     @property
@@ -4000,7 +4000,7 @@ if not MYPY:
         ARN of the Listener Rule.
         Either `arn` or `listener_arn` must be set.
         """
-        weight: float
+        weight: int
         """
         Weight of the target group.
         """
@@ -4011,11 +4011,11 @@ elif False:
 class GetListenerRuleActionForwardTargetGroupArgs:
     def __init__(__self__, *,
                  arn: str,
-                 weight: float):
+                 weight: int):
         """
         :param str arn: ARN of the Listener Rule.
                Either `arn` or `listener_arn` must be set.
-        :param float weight: Weight of the target group.
+        :param int weight: Weight of the target group.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "weight", weight)
@@ -4035,14 +4035,14 @@ class GetListenerRuleActionForwardTargetGroupArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> float:
+    def weight(self) -> int:
         """
         Weight of the target group.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: float):
+    def weight(self, value: int):
         pulumi.set(self, "weight", value)
 
 

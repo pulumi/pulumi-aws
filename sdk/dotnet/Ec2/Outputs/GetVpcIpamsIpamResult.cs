@@ -60,11 +60,11 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// Number of resource discovery associations.
         /// </summary>
-        public readonly double ResourceDiscoveryAssociationCount;
+        public readonly int ResourceDiscoveryAssociationCount;
         /// <summary>
         /// Number of scopes on this IPAM.
         /// </summary>
-        public readonly double ScopeCount;
+        public readonly int ScopeCount;
         /// <summary>
         /// Current state of the IPAM.
         /// </summary>
@@ -102,9 +102,9 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string publicDefaultScopeId,
 
-            double resourceDiscoveryAssociationCount,
+            int resourceDiscoveryAssociationCount,
 
-            double scopeCount,
+            int scopeCount,
 
             string state,
 

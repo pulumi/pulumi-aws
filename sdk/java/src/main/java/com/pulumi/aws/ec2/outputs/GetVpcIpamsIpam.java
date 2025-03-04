@@ -7,7 +7,7 @@ import com.pulumi.aws.ec2.outputs.GetVpcIpamsIpamOperatingRegion;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,12 +73,12 @@ public final class GetVpcIpamsIpam {
      * @return Number of resource discovery associations.
      * 
      */
-    private Double resourceDiscoveryAssociationCount;
+    private Integer resourceDiscoveryAssociationCount;
     /**
      * @return Number of scopes on this IPAM.
      * 
      */
-    private Double scopeCount;
+    private Integer scopeCount;
     /**
      * @return Current state of the IPAM.
      * 
@@ -177,14 +177,14 @@ public final class GetVpcIpamsIpam {
      * @return Number of resource discovery associations.
      * 
      */
-    public Double resourceDiscoveryAssociationCount() {
+    public Integer resourceDiscoveryAssociationCount() {
         return this.resourceDiscoveryAssociationCount;
     }
     /**
      * @return Number of scopes on this IPAM.
      * 
      */
-    public Double scopeCount() {
+    public Integer scopeCount() {
         return this.scopeCount;
     }
     /**
@@ -229,8 +229,8 @@ public final class GetVpcIpamsIpam {
         private String ownerId;
         private String privateDefaultScopeId;
         private String publicDefaultScopeId;
-        private Double resourceDiscoveryAssociationCount;
-        private Double scopeCount;
+        private Integer resourceDiscoveryAssociationCount;
+        private Integer scopeCount;
         private String state;
         private String stateMessage;
         private String tier;
@@ -347,7 +347,7 @@ public final class GetVpcIpamsIpam {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceDiscoveryAssociationCount(Double resourceDiscoveryAssociationCount) {
+        public Builder resourceDiscoveryAssociationCount(Integer resourceDiscoveryAssociationCount) {
             if (resourceDiscoveryAssociationCount == null) {
               throw new MissingRequiredPropertyException("GetVpcIpamsIpam", "resourceDiscoveryAssociationCount");
             }
@@ -355,7 +355,7 @@ public final class GetVpcIpamsIpam {
             return this;
         }
         @CustomType.Setter
-        public Builder scopeCount(Double scopeCount) {
+        public Builder scopeCount(Integer scopeCount) {
             if (scopeCount == null) {
               throw new MissingRequiredPropertyException("GetVpcIpamsIpam", "scopeCount");
             }

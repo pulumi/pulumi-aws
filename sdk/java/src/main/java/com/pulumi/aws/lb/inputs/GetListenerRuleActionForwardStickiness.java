@@ -6,7 +6,7 @@ package com.pulumi.aws.lb.inputs;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 
@@ -19,13 +19,13 @@ public final class GetListenerRuleActionForwardStickiness extends com.pulumi.res
      * 
      */
     @Import(name="duration", required=true)
-    private Double duration;
+    private Integer duration;
 
     /**
      * @return The time period, in seconds, during which requests from a client should be routed to the same target group.
      * 
      */
-    public Double duration() {
+    public Integer duration() {
         return this.duration;
     }
 
@@ -75,7 +75,7 @@ public final class GetListenerRuleActionForwardStickiness extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder duration(Double duration) {
+        public Builder duration(Integer duration) {
             $.duration = duration;
             return this;
         }

@@ -17,10 +17,10 @@ namespace Pulumi.Aws.S3Tables.Outputs
         /// Data objects smaller than this size may be combined with others to improve query performance.
         /// Must be between `64` and `512`.
         /// </summary>
-        public readonly double TargetFileSizeMb;
+        public readonly int TargetFileSizeMb;
 
         [OutputConstructor]
-        private TableMaintenanceConfigurationIcebergCompactionSettings(double targetFileSizeMb)
+        private TableMaintenanceConfigurationIcebergCompactionSettings(int targetFileSizeMb)
         {
             TargetFileSizeMb = targetFileSizeMb;
         }

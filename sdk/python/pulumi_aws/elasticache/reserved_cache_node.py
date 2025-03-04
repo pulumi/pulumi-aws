@@ -22,7 +22,7 @@ __all__ = ['ReservedCacheNodeArgs', 'ReservedCacheNode']
 class ReservedCacheNodeArgs:
     def __init__(__self__, *,
                  reserved_cache_nodes_offering_id: pulumi.Input[str],
-                 cache_node_count: Optional[pulumi.Input[float]] = None,
+                 cache_node_count: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['ReservedCacheNodeTimeoutsArgs']] = None):
         """
@@ -31,7 +31,7 @@ class ReservedCacheNodeArgs:
                To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
                
                The following arguments are optional:
-        :param pulumi.Input[float] cache_node_count: Number of cache node instances to reserve.
+        :param pulumi.Input[int] cache_node_count: Number of cache node instances to reserve.
                Default value is `1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -60,7 +60,7 @@ class ReservedCacheNodeArgs:
 
     @property
     @pulumi.getter(name="cacheNodeCount")
-    def cache_node_count(self) -> Optional[pulumi.Input[float]]:
+    def cache_node_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of cache node instances to reserve.
         Default value is `1`.
@@ -68,7 +68,7 @@ class ReservedCacheNodeArgs:
         return pulumi.get(self, "cache_node_count")
 
     @cache_node_count.setter
-    def cache_node_count(self, value: Optional[pulumi.Input[float]]):
+    def cache_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cache_node_count", value)
 
     @property
@@ -97,7 +97,7 @@ class ReservedCacheNodeArgs:
 class _ReservedCacheNodeState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 cache_node_count: Optional[pulumi.Input[float]] = None,
+                 cache_node_count: Optional[pulumi.Input[int]] = None,
                  cache_node_type: Optional[pulumi.Input[str]] = None,
                  duration: Optional[pulumi.Input[str]] = None,
                  fixed_price: Optional[pulumi.Input[float]] = None,
@@ -114,7 +114,7 @@ class _ReservedCacheNodeState:
         """
         Input properties used for looking up and filtering ReservedCacheNode resources.
         :param pulumi.Input[str] arn: ARN for the reserved cache node.
-        :param pulumi.Input[float] cache_node_count: Number of cache node instances to reserve.
+        :param pulumi.Input[int] cache_node_count: Number of cache node instances to reserve.
                Default value is `1`.
         :param pulumi.Input[str] cache_node_type: Node type for the reserved cache nodes.
         :param pulumi.Input[str] duration: Duration of the reservation as an RFC3339 duration.
@@ -180,7 +180,7 @@ class _ReservedCacheNodeState:
 
     @property
     @pulumi.getter(name="cacheNodeCount")
-    def cache_node_count(self) -> Optional[pulumi.Input[float]]:
+    def cache_node_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of cache node instances to reserve.
         Default value is `1`.
@@ -188,7 +188,7 @@ class _ReservedCacheNodeState:
         return pulumi.get(self, "cache_node_count")
 
     @cache_node_count.setter
-    def cache_node_count(self, value: Optional[pulumi.Input[float]]):
+    def cache_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cache_node_count", value)
 
     @property
@@ -354,7 +354,7 @@ class ReservedCacheNode(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_node_count: Optional[pulumi.Input[float]] = None,
+                 cache_node_count: Optional[pulumi.Input[int]] = None,
                  reserved_cache_nodes_offering_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
@@ -376,7 +376,7 @@ class ReservedCacheNode(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] cache_node_count: Number of cache node instances to reserve.
+        :param pulumi.Input[int] cache_node_count: Number of cache node instances to reserve.
                Default value is `1`.
         :param pulumi.Input[str] reserved_cache_nodes_offering_id: ID of the reserved cache node offering to purchase.
                To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
@@ -420,7 +420,7 @@ class ReservedCacheNode(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_node_count: Optional[pulumi.Input[float]] = None,
+                 cache_node_count: Optional[pulumi.Input[int]] = None,
                  reserved_cache_nodes_offering_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
@@ -461,7 +461,7 @@ class ReservedCacheNode(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            cache_node_count: Optional[pulumi.Input[float]] = None,
+            cache_node_count: Optional[pulumi.Input[int]] = None,
             cache_node_type: Optional[pulumi.Input[str]] = None,
             duration: Optional[pulumi.Input[str]] = None,
             fixed_price: Optional[pulumi.Input[float]] = None,
@@ -483,7 +483,7 @@ class ReservedCacheNode(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN for the reserved cache node.
-        :param pulumi.Input[float] cache_node_count: Number of cache node instances to reserve.
+        :param pulumi.Input[int] cache_node_count: Number of cache node instances to reserve.
                Default value is `1`.
         :param pulumi.Input[str] cache_node_type: Node type for the reserved cache nodes.
         :param pulumi.Input[str] duration: Duration of the reservation as an RFC3339 duration.
@@ -532,7 +532,7 @@ class ReservedCacheNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheNodeCount")
-    def cache_node_count(self) -> pulumi.Output[float]:
+    def cache_node_count(self) -> pulumi.Output[int]:
         """
         Number of cache node instances to reserve.
         Default value is `1`.

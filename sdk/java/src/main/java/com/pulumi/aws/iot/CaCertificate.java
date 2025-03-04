@@ -33,16 +33,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.tls.PrivateKey;
+ * import com.pulumi.tls.privateKey;
  * import com.pulumi.tls.PrivateKeyArgs;
- * import com.pulumi.tls.SelfSignedCert;
+ * import com.pulumi.tls.selfSignedCert;
  * import com.pulumi.tls.SelfSignedCertArgs;
- * import com.pulumi.tls.inputs.SelfSignedCertSubjectArgs;
  * import com.pulumi.aws.iot.IotFunctions;
- * import com.pulumi.tls.CertRequest;
+ * import com.pulumi.tls.certRequest;
  * import com.pulumi.tls.CertRequestArgs;
- * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
- * import com.pulumi.tls.LocallySignedCert;
+ * import com.pulumi.tls.locallySignedCert;
  * import com.pulumi.tls.LocallySignedCertArgs;
  * import com.pulumi.aws.iot.CaCertificate;
  * import com.pulumi.aws.iot.CaCertificateArgs;
@@ -65,10 +63,7 @@ import javax.annotation.Nullable;
  * 
  *         var ca = new SelfSignedCert("ca", SelfSignedCertArgs.builder()
  *             .privateKeyPem(caPrivateKey.privateKeyPem())
- *             .subject(SelfSignedCertSubjectArgs.builder()
- *                 .commonName("example.com")
- *                 .organization("ACME Examples, Inc")
- *                 .build())
+ *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .validityPeriodHours(12)
  *             .allowedUses(            
  *                 "key_encipherment",
@@ -85,9 +80,7 @@ import javax.annotation.Nullable;
  * 
  *         var verification = new CertRequest("verification", CertRequestArgs.builder()
  *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
- *             .subject(CertRequestSubjectArgs.builder()
- *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
- *                 .build())
+ *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var verificationLocallySignedCert = new LocallySignedCert("verificationLocallySignedCert", LocallySignedCertArgs.builder()

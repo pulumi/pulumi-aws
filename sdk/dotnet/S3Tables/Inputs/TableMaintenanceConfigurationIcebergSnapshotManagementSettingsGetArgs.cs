@@ -17,14 +17,14 @@ namespace Pulumi.Aws.S3Tables.Inputs
         /// Must be at least `1`.
         /// </summary>
         [Input("maxSnapshotAgeHours", required: true)]
-        public Input<double> MaxSnapshotAgeHours { get; set; } = null!;
+        public Input<int> MaxSnapshotAgeHours { get; set; } = null!;
 
         /// <summary>
         /// Minimum number of snapshots to keep.
         /// Must be at least `1`.
         /// </summary>
         [Input("minSnapshotsToKeep", required: true)]
-        public Input<double> MinSnapshotsToKeep { get; set; } = null!;
+        public Input<int> MinSnapshotsToKeep { get; set; } = null!;
 
         public TableMaintenanceConfigurationIcebergSnapshotManagementSettingsGetArgs()
         {

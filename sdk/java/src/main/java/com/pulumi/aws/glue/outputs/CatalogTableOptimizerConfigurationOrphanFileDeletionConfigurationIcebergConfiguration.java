@@ -4,7 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,7 +21,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
      * @return The number of days that orphan files should be retained before file deletion. Defaults to `3`.
      * 
      */
-    private @Nullable Double orphanFileRetentionPeriodInDays;
+    private @Nullable Integer orphanFileRetentionPeriodInDays;
 
     private CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration() {}
     /**
@@ -35,7 +35,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
      * @return The number of days that orphan files should be retained before file deletion. Defaults to `3`.
      * 
      */
-    public Optional<Double> orphanFileRetentionPeriodInDays() {
+    public Optional<Integer> orphanFileRetentionPeriodInDays() {
         return Optional.ofNullable(this.orphanFileRetentionPeriodInDays);
     }
 
@@ -49,7 +49,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String location;
-        private @Nullable Double orphanFileRetentionPeriodInDays;
+        private @Nullable Integer orphanFileRetentionPeriodInDays;
         public Builder() {}
         public Builder(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,7 +64,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
             return this;
         }
         @CustomType.Setter
-        public Builder orphanFileRetentionPeriodInDays(@Nullable Double orphanFileRetentionPeriodInDays) {
+        public Builder orphanFileRetentionPeriodInDays(@Nullable Integer orphanFileRetentionPeriodInDays) {
 
             this.orphanFileRetentionPeriodInDays = orphanFileRetentionPeriodInDays;
             return this;

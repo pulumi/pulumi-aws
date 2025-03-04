@@ -16,13 +16,13 @@ namespace Pulumi.Aws.S3.Inputs
         /// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         /// </summary>
         [Input("newerNoncurrentVersions")]
-        public Input<double>? NewerNoncurrentVersions { get; set; }
+        public Input<int>? NewerNoncurrentVersions { get; set; }
 
         /// <summary>
         /// Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
         /// </summary>
         [Input("noncurrentDays")]
-        public Input<double>? NoncurrentDays { get; set; }
+        public Input<int>? NoncurrentDays { get; set; }
 
         public BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs()
         {

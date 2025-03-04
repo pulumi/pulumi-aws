@@ -5,7 +5,7 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 @CustomType
@@ -14,38 +14,38 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * @return The dissimilarity threshold for splitting chunks.
      * 
      */
-    private Double breakpointPercentileThreshold;
+    private Integer breakpointPercentileThreshold;
     /**
      * @return The buffer size.
      * 
      */
-    private Double bufferSize;
+    private Integer bufferSize;
     /**
      * @return The maximum number of tokens a chunk can contain.
      * 
      */
-    private Double maxToken;
+    private Integer maxToken;
 
     private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration() {}
     /**
      * @return The dissimilarity threshold for splitting chunks.
      * 
      */
-    public Double breakpointPercentileThreshold() {
+    public Integer breakpointPercentileThreshold() {
         return this.breakpointPercentileThreshold;
     }
     /**
      * @return The buffer size.
      * 
      */
-    public Double bufferSize() {
+    public Integer bufferSize() {
         return this.bufferSize;
     }
     /**
      * @return The maximum number of tokens a chunk can contain.
      * 
      */
-    public Double maxToken() {
+    public Integer maxToken() {
         return this.maxToken;
     }
 
@@ -58,9 +58,9 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     }
     @CustomType.Builder
     public static final class Builder {
-        private Double breakpointPercentileThreshold;
-        private Double bufferSize;
-        private Double maxToken;
+        private Integer breakpointPercentileThreshold;
+        private Integer bufferSize;
+        private Integer maxToken;
         public Builder() {}
         public Builder(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -70,7 +70,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         @CustomType.Setter
-        public Builder breakpointPercentileThreshold(Double breakpointPercentileThreshold) {
+        public Builder breakpointPercentileThreshold(Integer breakpointPercentileThreshold) {
             if (breakpointPercentileThreshold == null) {
               throw new MissingRequiredPropertyException("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration", "breakpointPercentileThreshold");
             }
@@ -78,7 +78,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
             return this;
         }
         @CustomType.Setter
-        public Builder bufferSize(Double bufferSize) {
+        public Builder bufferSize(Integer bufferSize) {
             if (bufferSize == null) {
               throw new MissingRequiredPropertyException("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration", "bufferSize");
             }
@@ -86,7 +86,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
             return this;
         }
         @CustomType.Setter
-        public Builder maxToken(Double maxToken) {
+        public Builder maxToken(Integer maxToken) {
             if (maxToken == null) {
               throw new MissingRequiredPropertyException("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration", "maxToken");
             }

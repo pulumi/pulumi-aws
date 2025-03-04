@@ -16,7 +16,7 @@ namespace Pulumi.Aws.LB.Inputs
         /// The time period, in seconds, during which requests from a client should be routed to the same target group.
         /// </summary>
         [Input("duration", required: true)]
-        public double Duration { get; set; }
+        public int Duration { get; set; }
 
         /// <summary>
         /// Indicates whether target group stickiness is enabled.

@@ -36,7 +36,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// <summary>
         /// The evaluation order of the action.
         /// </summary>
-        public readonly double Order;
+        public readonly int Order;
         /// <summary>
         /// An action to redirect the request.
         /// Detailed below.
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.LB.Outputs
 
             Outputs.GetListenerRuleActionForwardResult? forward,
 
-            double order,
+            int order,
 
             Outputs.GetListenerRuleActionRedirectResult? redirect,
 

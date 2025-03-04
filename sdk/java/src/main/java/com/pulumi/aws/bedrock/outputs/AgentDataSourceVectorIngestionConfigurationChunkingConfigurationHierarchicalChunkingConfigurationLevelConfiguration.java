@@ -5,7 +5,7 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 @CustomType
@@ -14,14 +14,14 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * @return The maximum number of tokens that a chunk can contain in this layer.
      * 
      */
-    private Double maxTokens;
+    private Integer maxTokens;
 
     private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration() {}
     /**
      * @return The maximum number of tokens that a chunk can contain in this layer.
      * 
      */
-    public Double maxTokens() {
+    public Integer maxTokens() {
         return this.maxTokens;
     }
 
@@ -34,7 +34,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     }
     @CustomType.Builder
     public static final class Builder {
-        private Double maxTokens;
+        private Integer maxTokens;
         public Builder() {}
         public Builder(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,7 +42,7 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         }
 
         @CustomType.Setter
-        public Builder maxTokens(Double maxTokens) {
+        public Builder maxTokens(Integer maxTokens) {
             if (maxTokens == null) {
               throw new MissingRequiredPropertyException("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration", "maxTokens");
             }

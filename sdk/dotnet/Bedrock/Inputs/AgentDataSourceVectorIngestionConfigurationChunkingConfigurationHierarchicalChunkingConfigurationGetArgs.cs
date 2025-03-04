@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// The number of tokens to repeat across chunks in the same layer.
         /// </summary>
         [Input("overlapTokens", required: true)]
-        public Input<double> OverlapTokens { get; set; } = null!;
+        public Input<int> OverlapTokens { get; set; } = null!;
 
         public AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationGetArgs()
         {

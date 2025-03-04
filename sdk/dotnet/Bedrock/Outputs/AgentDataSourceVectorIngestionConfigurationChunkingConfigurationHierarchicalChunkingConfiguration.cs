@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// The number of tokens to repeat across chunks in the same layer.
         /// </summary>
-        public readonly double OverlapTokens;
+        public readonly int OverlapTokens;
 
         [OutputConstructor]
         private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration(
             ImmutableArray<Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations,
 
-            double overlapTokens)
+            int overlapTokens)
         {
             LevelConfigurations = levelConfigurations;
             OverlapTokens = overlapTokens;

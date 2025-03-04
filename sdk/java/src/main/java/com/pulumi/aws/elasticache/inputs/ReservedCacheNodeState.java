@@ -8,6 +8,7 @@ import com.pulumi.aws.elasticache.inputs.ReservedCacheNodeTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -41,14 +42,14 @@ public final class ReservedCacheNodeState extends com.pulumi.resources.ResourceA
      * 
      */
     @Import(name="cacheNodeCount")
-    private @Nullable Output<Double> cacheNodeCount;
+    private @Nullable Output<Integer> cacheNodeCount;
 
     /**
      * @return Number of cache node instances to reserve.
      * Default value is `1`.
      * 
      */
-    public Optional<Output<Double>> cacheNodeCount() {
+    public Optional<Output<Integer>> cacheNodeCount() {
         return Optional.ofNullable(this.cacheNodeCount);
     }
 
@@ -319,7 +320,7 @@ public final class ReservedCacheNodeState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder cacheNodeCount(@Nullable Output<Double> cacheNodeCount) {
+        public Builder cacheNodeCount(@Nullable Output<Integer> cacheNodeCount) {
             $.cacheNodeCount = cacheNodeCount;
             return this;
         }
@@ -331,7 +332,7 @@ public final class ReservedCacheNodeState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder cacheNodeCount(Double cacheNodeCount) {
+        public Builder cacheNodeCount(Integer cacheNodeCount) {
             return cacheNodeCount(Output.of(cacheNodeCount));
         }
 

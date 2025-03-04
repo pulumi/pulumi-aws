@@ -6,7 +6,7 @@ package com.pulumi.aws.s3tables.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 
@@ -20,14 +20,14 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
      * 
      */
     @Import(name="maxSnapshotAgeHours", required=true)
-    private Output<Double> maxSnapshotAgeHours;
+    private Output<Integer> maxSnapshotAgeHours;
 
     /**
      * @return Snapshots older than this will be marked for deletiion.
      * Must be at least `1`.
      * 
      */
-    public Output<Double> maxSnapshotAgeHours() {
+    public Output<Integer> maxSnapshotAgeHours() {
         return this.maxSnapshotAgeHours;
     }
 
@@ -37,14 +37,14 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
      * 
      */
     @Import(name="minSnapshotsToKeep", required=true)
-    private Output<Double> minSnapshotsToKeep;
+    private Output<Integer> minSnapshotsToKeep;
 
     /**
      * @return Minimum number of snapshots to keep.
      * Must be at least `1`.
      * 
      */
-    public Output<Double> minSnapshotsToKeep() {
+    public Output<Integer> minSnapshotsToKeep() {
         return this.minSnapshotsToKeep;
     }
 
@@ -80,7 +80,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
          * @return builder
          * 
          */
-        public Builder maxSnapshotAgeHours(Output<Double> maxSnapshotAgeHours) {
+        public Builder maxSnapshotAgeHours(Output<Integer> maxSnapshotAgeHours) {
             $.maxSnapshotAgeHours = maxSnapshotAgeHours;
             return this;
         }
@@ -92,7 +92,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
          * @return builder
          * 
          */
-        public Builder maxSnapshotAgeHours(Double maxSnapshotAgeHours) {
+        public Builder maxSnapshotAgeHours(Integer maxSnapshotAgeHours) {
             return maxSnapshotAgeHours(Output.of(maxSnapshotAgeHours));
         }
 
@@ -103,7 +103,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
          * @return builder
          * 
          */
-        public Builder minSnapshotsToKeep(Output<Double> minSnapshotsToKeep) {
+        public Builder minSnapshotsToKeep(Output<Integer> minSnapshotsToKeep) {
             $.minSnapshotsToKeep = minSnapshotsToKeep;
             return this;
         }
@@ -115,7 +115,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
          * @return builder
          * 
          */
-        public Builder minSnapshotsToKeep(Double minSnapshotsToKeep) {
+        public Builder minSnapshotsToKeep(Integer minSnapshotsToKeep) {
             return minSnapshotsToKeep(Output.of(minSnapshotsToKeep));
         }
 

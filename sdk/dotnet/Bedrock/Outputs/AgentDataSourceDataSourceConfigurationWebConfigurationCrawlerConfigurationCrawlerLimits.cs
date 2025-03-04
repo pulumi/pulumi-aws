@@ -16,17 +16,17 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Max number of web pages crawled from your source URLs, up to 25,000 pages.
         /// </summary>
-        public readonly double? MaxPages;
+        public readonly int? MaxPages;
         /// <summary>
         /// Max rate at which pages are crawled, up to 300 per minute per host.
         /// </summary>
-        public readonly double? RateLimit;
+        public readonly int? RateLimit;
 
         [OutputConstructor]
         private AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits(
-            double? maxPages,
+            int? maxPages,
 
-            double? rateLimit)
+            int? rateLimit)
         {
             MaxPages = maxPages;
             RateLimit = rateLimit;

@@ -5,7 +5,7 @@ package com.pulumi.aws.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
@@ -21,7 +21,7 @@ public final class GetListenerRuleActionForwardTargetGroup {
      * @return Weight of the target group.
      * 
      */
-    private Double weight;
+    private Integer weight;
 
     private GetListenerRuleActionForwardTargetGroup() {}
     /**
@@ -36,7 +36,7 @@ public final class GetListenerRuleActionForwardTargetGroup {
      * @return Weight of the target group.
      * 
      */
-    public Double weight() {
+    public Integer weight() {
         return this.weight;
     }
 
@@ -50,7 +50,7 @@ public final class GetListenerRuleActionForwardTargetGroup {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private Double weight;
+        private Integer weight;
         public Builder() {}
         public Builder(GetListenerRuleActionForwardTargetGroup defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,7 +67,7 @@ public final class GetListenerRuleActionForwardTargetGroup {
             return this;
         }
         @CustomType.Setter
-        public Builder weight(Double weight) {
+        public Builder weight(Integer weight) {
             if (weight == null) {
               throw new MissingRequiredPropertyException("GetListenerRuleActionForwardTargetGroup", "weight");
             }

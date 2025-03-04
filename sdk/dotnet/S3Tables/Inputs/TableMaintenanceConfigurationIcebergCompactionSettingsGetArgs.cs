@@ -17,7 +17,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
         /// Must be between `64` and `512`.
         /// </summary>
         [Input("targetFileSizeMb", required: true)]
-        public Input<double> TargetFileSizeMb { get; set; } = null!;
+        public Input<int> TargetFileSizeMb { get; set; } = null!;
 
         public TableMaintenanceConfigurationIcebergCompactionSettingsGetArgs()
         {

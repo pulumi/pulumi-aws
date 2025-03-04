@@ -33,16 +33,18 @@ import (
 //				return err
 //			}
 //			verification, err := tls.NewPrivateKey(ctx, "verification", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
+//				Algorithm: "RSA",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
-//				KeyAlgorithm:  pulumi.String("RSA"),
+//				KeyAlgorithm:  "RSA",
 //				PrivateKeyPem: verification.PrivateKeyPem,
-//				Subject: &tls.CertRequestSubjectArgs{
-//					CommonName: pulumi.String(example.RegistrationCode),
+//				Subject: []map[string]interface{}{
+//					map[string]interface{}{
+//						"commonName": example.RegistrationCode,
+//					},
 //				},
 //			})
 //			if err != nil {

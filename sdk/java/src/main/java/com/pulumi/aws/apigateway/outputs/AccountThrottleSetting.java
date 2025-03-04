@@ -6,6 +6,7 @@ package com.pulumi.aws.apigateway.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 
 @CustomType
@@ -14,7 +15,7 @@ public final class AccountThrottleSetting {
      * @return Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
      * 
      */
-    private Double burstLimit;
+    private Integer burstLimit;
     /**
      * @return Number of times API Gateway allows the API to be called per second on average (RPS).
      * 
@@ -26,7 +27,7 @@ public final class AccountThrottleSetting {
      * @return Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
      * 
      */
-    public Double burstLimit() {
+    public Integer burstLimit() {
         return this.burstLimit;
     }
     /**
@@ -46,7 +47,7 @@ public final class AccountThrottleSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Double burstLimit;
+        private Integer burstLimit;
         private Double rateLimit;
         public Builder() {}
         public Builder(AccountThrottleSetting defaults) {
@@ -56,7 +57,7 @@ public final class AccountThrottleSetting {
         }
 
         @CustomType.Setter
-        public Builder burstLimit(Double burstLimit) {
+        public Builder burstLimit(Integer burstLimit) {
             if (burstLimit == null) {
               throw new MissingRequiredPropertyException("AccountThrottleSetting", "burstLimit");
             }

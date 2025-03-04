@@ -6,7 +6,7 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,13 +22,13 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
      * 
      */
     @Import(name="newerNoncurrentVersions")
-    private @Nullable Output<Double> newerNoncurrentVersions;
+    private @Nullable Output<Integer> newerNoncurrentVersions;
 
     /**
      * @return Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
-    public Optional<Output<Double>> newerNoncurrentVersions() {
+    public Optional<Output<Integer>> newerNoncurrentVersions() {
         return Optional.ofNullable(this.newerNoncurrentVersions);
     }
 
@@ -37,13 +37,13 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
      * 
      */
     @Import(name="noncurrentDays")
-    private @Nullable Output<Double> noncurrentDays;
+    private @Nullable Output<Integer> noncurrentDays;
 
     /**
      * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action.
      * 
      */
-    public Optional<Output<Double>> noncurrentDays() {
+    public Optional<Output<Integer>> noncurrentDays() {
         return Optional.ofNullable(this.noncurrentDays);
     }
 
@@ -94,7 +94,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
          * @return builder
          * 
          */
-        public Builder newerNoncurrentVersions(@Nullable Output<Double> newerNoncurrentVersions) {
+        public Builder newerNoncurrentVersions(@Nullable Output<Integer> newerNoncurrentVersions) {
             $.newerNoncurrentVersions = newerNoncurrentVersions;
             return this;
         }
@@ -105,7 +105,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
          * @return builder
          * 
          */
-        public Builder newerNoncurrentVersions(Double newerNoncurrentVersions) {
+        public Builder newerNoncurrentVersions(Integer newerNoncurrentVersions) {
             return newerNoncurrentVersions(Output.of(newerNoncurrentVersions));
         }
 
@@ -115,7 +115,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
          * @return builder
          * 
          */
-        public Builder noncurrentDays(@Nullable Output<Double> noncurrentDays) {
+        public Builder noncurrentDays(@Nullable Output<Integer> noncurrentDays) {
             $.noncurrentDays = noncurrentDays;
             return this;
         }
@@ -126,7 +126,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
          * @return builder
          * 
          */
-        public Builder noncurrentDays(Double noncurrentDays) {
+        public Builder noncurrentDays(Integer noncurrentDays) {
             return noncurrentDays(Output.of(noncurrentDays));
         }
 

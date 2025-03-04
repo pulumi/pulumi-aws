@@ -5,7 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,7 +22,7 @@ public final class BucketLifecycleConfigurationV2RuleExpiration {
      * @return Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
      * 
      */
-    private @Nullable Double days;
+    private @Nullable Integer days;
     /**
      * @return Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
      * 
@@ -41,7 +41,7 @@ public final class BucketLifecycleConfigurationV2RuleExpiration {
      * @return Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
      * 
      */
-    public Optional<Double> days() {
+    public Optional<Integer> days() {
         return Optional.ofNullable(this.days);
     }
     /**
@@ -62,7 +62,7 @@ public final class BucketLifecycleConfigurationV2RuleExpiration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String date;
-        private @Nullable Double days;
+        private @Nullable Integer days;
         private @Nullable Boolean expiredObjectDeleteMarker;
         public Builder() {}
         public Builder(BucketLifecycleConfigurationV2RuleExpiration defaults) {
@@ -79,7 +79,7 @@ public final class BucketLifecycleConfigurationV2RuleExpiration {
             return this;
         }
         @CustomType.Setter
-        public Builder days(@Nullable Double days) {
+        public Builder days(@Nullable Integer days) {
 
             this.days = days;
             return this;

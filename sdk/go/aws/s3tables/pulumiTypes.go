@@ -325,10 +325,10 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutp
 type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings struct {
 	// Data objects marked for deletion are deleted after this many days.
 	// Must be at least `1`.
-	NonCurrentDays float64 `pulumi:"nonCurrentDays"`
+	NonCurrentDays int `pulumi:"nonCurrentDays"`
 	// Unreferenced data objects are marked for deletion after this many days.
 	// Must be at least `1`.
-	UnreferencedDays float64 `pulumi:"unreferencedDays"`
+	UnreferencedDays int `pulumi:"unreferencedDays"`
 }
 
 // TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsInput is an input type that accepts TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs and TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput values.
@@ -345,10 +345,10 @@ type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsIn
 type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs struct {
 	// Data objects marked for deletion are deleted after this many days.
 	// Must be at least `1`.
-	NonCurrentDays pulumi.Float64Input `pulumi:"nonCurrentDays"`
+	NonCurrentDays pulumi.IntInput `pulumi:"nonCurrentDays"`
 	// Unreferenced data objects are marked for deletion after this many days.
 	// Must be at least `1`.
-	UnreferencedDays pulumi.Float64Input `pulumi:"unreferencedDays"`
+	UnreferencedDays pulumi.IntInput `pulumi:"unreferencedDays"`
 }
 
 func (TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs) ElementType() reflect.Type {
@@ -430,18 +430,18 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSetting
 
 // Data objects marked for deletion are deleted after this many days.
 // Must be at least `1`.
-func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) NonCurrentDays() pulumi.Float64Output {
-	return o.ApplyT(func(v TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) float64 {
+func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) NonCurrentDays() pulumi.IntOutput {
+	return o.ApplyT(func(v TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) int {
 		return v.NonCurrentDays
-	}).(pulumi.Float64Output)
+	}).(pulumi.IntOutput)
 }
 
 // Unreferenced data objects are marked for deletion after this many days.
 // Must be at least `1`.
-func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) UnreferencedDays() pulumi.Float64Output {
-	return o.ApplyT(func(v TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) float64 {
+func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) UnreferencedDays() pulumi.IntOutput {
+	return o.ApplyT(func(v TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) int {
 		return v.UnreferencedDays
-	}).(pulumi.Float64Output)
+	}).(pulumi.IntOutput)
 }
 
 type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -470,24 +470,24 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSetting
 
 // Data objects marked for deletion are deleted after this many days.
 // Must be at least `1`.
-func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput) NonCurrentDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) *float64 {
+func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput) NonCurrentDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.NonCurrentDays
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Unreferenced data objects are marked for deletion after this many days.
 // Must be at least `1`.
-func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput) UnreferencedDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) *float64 {
+func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput) UnreferencedDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.UnreferencedDays
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type TableMaintenanceConfiguration struct {
@@ -827,7 +827,7 @@ func (o TableMaintenanceConfigurationIcebergCompactionPtrOutput) Status() pulumi
 type TableMaintenanceConfigurationIcebergCompactionSettings struct {
 	// Data objects smaller than this size may be combined with others to improve query performance.
 	// Must be between `64` and `512`.
-	TargetFileSizeMb float64 `pulumi:"targetFileSizeMb"`
+	TargetFileSizeMb int `pulumi:"targetFileSizeMb"`
 }
 
 // TableMaintenanceConfigurationIcebergCompactionSettingsInput is an input type that accepts TableMaintenanceConfigurationIcebergCompactionSettingsArgs and TableMaintenanceConfigurationIcebergCompactionSettingsOutput values.
@@ -844,7 +844,7 @@ type TableMaintenanceConfigurationIcebergCompactionSettingsInput interface {
 type TableMaintenanceConfigurationIcebergCompactionSettingsArgs struct {
 	// Data objects smaller than this size may be combined with others to improve query performance.
 	// Must be between `64` and `512`.
-	TargetFileSizeMb pulumi.Float64Input `pulumi:"targetFileSizeMb"`
+	TargetFileSizeMb pulumi.IntInput `pulumi:"targetFileSizeMb"`
 }
 
 func (TableMaintenanceConfigurationIcebergCompactionSettingsArgs) ElementType() reflect.Type {
@@ -926,8 +926,8 @@ func (o TableMaintenanceConfigurationIcebergCompactionSettingsOutput) ToTableMai
 
 // Data objects smaller than this size may be combined with others to improve query performance.
 // Must be between `64` and `512`.
-func (o TableMaintenanceConfigurationIcebergCompactionSettingsOutput) TargetFileSizeMb() pulumi.Float64Output {
-	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergCompactionSettings) float64 { return v.TargetFileSizeMb }).(pulumi.Float64Output)
+func (o TableMaintenanceConfigurationIcebergCompactionSettingsOutput) TargetFileSizeMb() pulumi.IntOutput {
+	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergCompactionSettings) int { return v.TargetFileSizeMb }).(pulumi.IntOutput)
 }
 
 type TableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -956,13 +956,13 @@ func (o TableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput) Elem() 
 
 // Data objects smaller than this size may be combined with others to improve query performance.
 // Must be between `64` and `512`.
-func (o TableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput) TargetFileSizeMb() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergCompactionSettings) *float64 {
+func (o TableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput) TargetFileSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergCompactionSettings) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.TargetFileSizeMb
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type TableMaintenanceConfigurationIcebergSnapshotManagement struct {
@@ -1134,10 +1134,10 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) Status(
 type TableMaintenanceConfigurationIcebergSnapshotManagementSettings struct {
 	// Snapshots older than this will be marked for deletiion.
 	// Must be at least `1`.
-	MaxSnapshotAgeHours float64 `pulumi:"maxSnapshotAgeHours"`
+	MaxSnapshotAgeHours int `pulumi:"maxSnapshotAgeHours"`
 	// Minimum number of snapshots to keep.
 	// Must be at least `1`.
-	MinSnapshotsToKeep float64 `pulumi:"minSnapshotsToKeep"`
+	MinSnapshotsToKeep int `pulumi:"minSnapshotsToKeep"`
 }
 
 // TableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput is an input type that accepts TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs and TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput values.
@@ -1154,10 +1154,10 @@ type TableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput interfa
 type TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs struct {
 	// Snapshots older than this will be marked for deletiion.
 	// Must be at least `1`.
-	MaxSnapshotAgeHours pulumi.Float64Input `pulumi:"maxSnapshotAgeHours"`
+	MaxSnapshotAgeHours pulumi.IntInput `pulumi:"maxSnapshotAgeHours"`
 	// Minimum number of snapshots to keep.
 	// Must be at least `1`.
-	MinSnapshotsToKeep pulumi.Float64Input `pulumi:"minSnapshotsToKeep"`
+	MinSnapshotsToKeep pulumi.IntInput `pulumi:"minSnapshotsToKeep"`
 }
 
 func (TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs) ElementType() reflect.Type {
@@ -1239,18 +1239,18 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) To
 
 // Snapshots older than this will be marked for deletiion.
 // Must be at least `1`.
-func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) MaxSnapshotAgeHours() pulumi.Float64Output {
-	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergSnapshotManagementSettings) float64 {
+func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) MaxSnapshotAgeHours() pulumi.IntOutput {
+	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergSnapshotManagementSettings) int {
 		return v.MaxSnapshotAgeHours
-	}).(pulumi.Float64Output)
+	}).(pulumi.IntOutput)
 }
 
 // Minimum number of snapshots to keep.
 // Must be at least `1`.
-func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) MinSnapshotsToKeep() pulumi.Float64Output {
-	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergSnapshotManagementSettings) float64 {
+func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) MinSnapshotsToKeep() pulumi.IntOutput {
+	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergSnapshotManagementSettings) int {
 		return v.MinSnapshotsToKeep
-	}).(pulumi.Float64Output)
+	}).(pulumi.IntOutput)
 }
 
 type TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -1279,24 +1279,24 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
 
 // Snapshots older than this will be marked for deletiion.
 // Must be at least `1`.
-func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) MaxSnapshotAgeHours() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergSnapshotManagementSettings) *float64 {
+func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) MaxSnapshotAgeHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergSnapshotManagementSettings) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.MaxSnapshotAgeHours
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // Minimum number of snapshots to keep.
 // Must be at least `1`.
-func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) MinSnapshotsToKeep() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergSnapshotManagementSettings) *float64 {
+func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) MinSnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergSnapshotManagementSettings) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.MinSnapshotsToKeep
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 func init() {

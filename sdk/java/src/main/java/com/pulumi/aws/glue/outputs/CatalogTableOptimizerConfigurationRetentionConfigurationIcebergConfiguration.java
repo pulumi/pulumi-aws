@@ -5,7 +5,7 @@ package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,12 +21,12 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
      * @return The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
      * 
      */
-    private @Nullable Double numberOfSnapshotsToRetain;
+    private @Nullable Integer numberOfSnapshotsToRetain;
     /**
      * @return The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
      * 
      */
-    private @Nullable Double snapshotRetentionPeriodInDays;
+    private @Nullable Integer snapshotRetentionPeriodInDays;
 
     private CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration() {}
     /**
@@ -40,14 +40,14 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
      * @return The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
      * 
      */
-    public Optional<Double> numberOfSnapshotsToRetain() {
+    public Optional<Integer> numberOfSnapshotsToRetain() {
         return Optional.ofNullable(this.numberOfSnapshotsToRetain);
     }
     /**
      * @return The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
      * 
      */
-    public Optional<Double> snapshotRetentionPeriodInDays() {
+    public Optional<Integer> snapshotRetentionPeriodInDays() {
         return Optional.ofNullable(this.snapshotRetentionPeriodInDays);
     }
 
@@ -61,8 +61,8 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean cleanExpiredFiles;
-        private @Nullable Double numberOfSnapshotsToRetain;
-        private @Nullable Double snapshotRetentionPeriodInDays;
+        private @Nullable Integer numberOfSnapshotsToRetain;
+        private @Nullable Integer snapshotRetentionPeriodInDays;
         public Builder() {}
         public Builder(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -78,13 +78,13 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
             return this;
         }
         @CustomType.Setter
-        public Builder numberOfSnapshotsToRetain(@Nullable Double numberOfSnapshotsToRetain) {
+        public Builder numberOfSnapshotsToRetain(@Nullable Integer numberOfSnapshotsToRetain) {
 
             this.numberOfSnapshotsToRetain = numberOfSnapshotsToRetain;
             return this;
         }
         @CustomType.Setter
-        public Builder snapshotRetentionPeriodInDays(@Nullable Double snapshotRetentionPeriodInDays) {
+        public Builder snapshotRetentionPeriodInDays(@Nullable Integer snapshotRetentionPeriodInDays) {
 
             this.snapshotRetentionPeriodInDays = snapshotRetentionPeriodInDays;
             return this;

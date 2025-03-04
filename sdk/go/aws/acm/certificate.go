@@ -100,23 +100,25 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := tls.NewPrivateKey(ctx, "example", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
+//				Algorithm: "RSA",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "example", &tls.SelfSignedCertArgs{
-//				KeyAlgorithm:  pulumi.String("RSA"),
+//				KeyAlgorithm:  "RSA",
 //				PrivateKeyPem: example.PrivateKeyPem,
-//				Subject: &tls.SelfSignedCertSubjectArgs{
-//					CommonName:   pulumi.String("example.com"),
-//					Organization: pulumi.String("ACME Examples, Inc"),
+//				Subject: []map[string]interface{}{
+//					map[string]interface{}{
+//						"commonName":   "example.com",
+//						"organization": "ACME Examples, Inc",
+//					},
 //				},
-//				ValidityPeriodHours: pulumi.Int(12),
-//				AllowedUses: pulumi.StringArray{
-//					pulumi.String("key_encipherment"),
-//					pulumi.String("digital_signature"),
-//					pulumi.String("server_auth"),
+//				ValidityPeriodHours: 12,
+//				AllowedUses: []string{
+//					"key_encipherment",
+//					"digital_signature",
+//					"server_auth",
 //				},
 //			})
 //			if err != nil {

@@ -21,13 +21,13 @@ namespace Pulumi.Aws.LB.Outputs
         /// <summary>
         /// Weight of the target group.
         /// </summary>
-        public readonly double Weight;
+        public readonly int Weight;
 
         [OutputConstructor]
         private GetListenerRuleActionForwardTargetGroupResult(
             string arn,
 
-            double weight)
+            int weight)
         {
             Arn = arn;
             Weight = weight;

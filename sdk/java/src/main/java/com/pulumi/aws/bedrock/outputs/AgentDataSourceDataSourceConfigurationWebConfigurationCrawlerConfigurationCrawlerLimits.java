@@ -4,7 +4,7 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,26 +15,26 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
      * @return Max number of web pages crawled from your source URLs, up to 25,000 pages.
      * 
      */
-    private @Nullable Double maxPages;
+    private @Nullable Integer maxPages;
     /**
      * @return Max rate at which pages are crawled, up to 300 per minute per host.
      * 
      */
-    private @Nullable Double rateLimit;
+    private @Nullable Integer rateLimit;
 
     private AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits() {}
     /**
      * @return Max number of web pages crawled from your source URLs, up to 25,000 pages.
      * 
      */
-    public Optional<Double> maxPages() {
+    public Optional<Integer> maxPages() {
         return Optional.ofNullable(this.maxPages);
     }
     /**
      * @return Max rate at which pages are crawled, up to 300 per minute per host.
      * 
      */
-    public Optional<Double> rateLimit() {
+    public Optional<Integer> rateLimit() {
         return Optional.ofNullable(this.rateLimit);
     }
 
@@ -47,8 +47,8 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Double maxPages;
-        private @Nullable Double rateLimit;
+        private @Nullable Integer maxPages;
+        private @Nullable Integer rateLimit;
         public Builder() {}
         public Builder(AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,13 +57,13 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         }
 
         @CustomType.Setter
-        public Builder maxPages(@Nullable Double maxPages) {
+        public Builder maxPages(@Nullable Integer maxPages) {
 
             this.maxPages = maxPages;
             return this;
         }
         @CustomType.Setter
-        public Builder rateLimit(@Nullable Double rateLimit) {
+        public Builder rateLimit(@Nullable Integer rateLimit) {
 
             this.rateLimit = rateLimit;
             return this;

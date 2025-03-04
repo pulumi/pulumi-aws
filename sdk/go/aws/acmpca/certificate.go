@@ -50,15 +50,17 @@ import (
 //				return err
 //			}
 //			key, err := tls.NewPrivateKey(ctx, "key", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
+//				Algorithm: "RSA",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			csr, err := tls.NewCertRequest(ctx, "csr", &tls.CertRequestArgs{
 //				PrivateKeyPem: key.PrivateKeyPem,
-//				Subject: &tls.CertRequestSubjectArgs{
-//					CommonName: pulumi.String("example"),
+//				Subject: []map[string]interface{}{
+//					map[string]interface{}{
+//						"commonName": "example",
+//					},
 //				},
 //			})
 //			if err != nil {

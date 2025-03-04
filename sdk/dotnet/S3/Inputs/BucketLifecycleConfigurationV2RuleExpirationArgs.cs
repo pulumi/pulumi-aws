@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3.Inputs
         /// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
         /// </summary>
         [Input("days")]
-        public Input<double>? Days { get; set; }
+        public Input<int>? Days { get; set; }
 
         /// <summary>
         /// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.

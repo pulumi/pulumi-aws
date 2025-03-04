@@ -2651,11 +2651,11 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
 
 if not MYPY:
     class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgsDict(TypedDict):
-        max_pages: NotRequired[pulumi.Input[float]]
+        max_pages: NotRequired[pulumi.Input[int]]
         """
         Max number of web pages crawled from your source URLs, up to 25,000 pages.
         """
-        rate_limit: NotRequired[pulumi.Input[float]]
+        rate_limit: NotRequired[pulumi.Input[int]]
         """
         Max rate at which pages are crawled, up to 300 per minute per host.
         """
@@ -2665,11 +2665,11 @@ elif False:
 @pulumi.input_type
 class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs:
     def __init__(__self__, *,
-                 max_pages: Optional[pulumi.Input[float]] = None,
-                 rate_limit: Optional[pulumi.Input[float]] = None):
+                 max_pages: Optional[pulumi.Input[int]] = None,
+                 rate_limit: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] max_pages: Max number of web pages crawled from your source URLs, up to 25,000 pages.
-        :param pulumi.Input[float] rate_limit: Max rate at which pages are crawled, up to 300 per minute per host.
+        :param pulumi.Input[int] max_pages: Max number of web pages crawled from your source URLs, up to 25,000 pages.
+        :param pulumi.Input[int] rate_limit: Max rate at which pages are crawled, up to 300 per minute per host.
         """
         if max_pages is not None:
             pulumi.set(__self__, "max_pages", max_pages)
@@ -2678,26 +2678,26 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
 
     @property
     @pulumi.getter(name="maxPages")
-    def max_pages(self) -> Optional[pulumi.Input[float]]:
+    def max_pages(self) -> Optional[pulumi.Input[int]]:
         """
         Max number of web pages crawled from your source URLs, up to 25,000 pages.
         """
         return pulumi.get(self, "max_pages")
 
     @max_pages.setter
-    def max_pages(self, value: Optional[pulumi.Input[float]]):
+    def max_pages(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_pages", value)
 
     @property
     @pulumi.getter(name="rateLimit")
-    def rate_limit(self) -> Optional[pulumi.Input[float]]:
+    def rate_limit(self) -> Optional[pulumi.Input[int]]:
         """
         Max rate at which pages are crawled, up to 300 per minute per host.
         """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter
-    def rate_limit(self, value: Optional[pulumi.Input[float]]):
+    def rate_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "rate_limit", value)
 
 
@@ -3100,7 +3100,7 @@ if not MYPY:
         """
         Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
         """
-        overlap_tokens: pulumi.Input[float]
+        overlap_tokens: pulumi.Input[int]
         """
         The number of tokens to repeat across chunks in the same layer.
         """
@@ -3111,10 +3111,10 @@ elif False:
 class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs:
     def __init__(__self__, *,
                  level_configurations: pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]],
-                 overlap_tokens: pulumi.Input[float]):
+                 overlap_tokens: pulumi.Input[int]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]] level_configurations: Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
-        :param pulumi.Input[float] overlap_tokens: The number of tokens to repeat across chunks in the same layer.
+        :param pulumi.Input[int] overlap_tokens: The number of tokens to repeat across chunks in the same layer.
         """
         pulumi.set(__self__, "level_configurations", level_configurations)
         pulumi.set(__self__, "overlap_tokens", overlap_tokens)
@@ -3133,20 +3133,20 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
 
     @property
     @pulumi.getter(name="overlapTokens")
-    def overlap_tokens(self) -> pulumi.Input[float]:
+    def overlap_tokens(self) -> pulumi.Input[int]:
         """
         The number of tokens to repeat across chunks in the same layer.
         """
         return pulumi.get(self, "overlap_tokens")
 
     @overlap_tokens.setter
-    def overlap_tokens(self, value: pulumi.Input[float]):
+    def overlap_tokens(self, value: pulumi.Input[int]):
         pulumi.set(self, "overlap_tokens", value)
 
 
 if not MYPY:
     class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgsDict(TypedDict):
-        max_tokens: pulumi.Input[float]
+        max_tokens: pulumi.Input[int]
         """
         The maximum number of tokens that a chunk can contain in this layer.
         """
@@ -3156,36 +3156,36 @@ elif False:
 @pulumi.input_type
 class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs:
     def __init__(__self__, *,
-                 max_tokens: pulumi.Input[float]):
+                 max_tokens: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] max_tokens: The maximum number of tokens that a chunk can contain in this layer.
+        :param pulumi.Input[int] max_tokens: The maximum number of tokens that a chunk can contain in this layer.
         """
         pulumi.set(__self__, "max_tokens", max_tokens)
 
     @property
     @pulumi.getter(name="maxTokens")
-    def max_tokens(self) -> pulumi.Input[float]:
+    def max_tokens(self) -> pulumi.Input[int]:
         """
         The maximum number of tokens that a chunk can contain in this layer.
         """
         return pulumi.get(self, "max_tokens")
 
     @max_tokens.setter
-    def max_tokens(self, value: pulumi.Input[float]):
+    def max_tokens(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_tokens", value)
 
 
 if not MYPY:
     class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgsDict(TypedDict):
-        breakpoint_percentile_threshold: pulumi.Input[float]
+        breakpoint_percentile_threshold: pulumi.Input[int]
         """
         The dissimilarity threshold for splitting chunks.
         """
-        buffer_size: pulumi.Input[float]
+        buffer_size: pulumi.Input[int]
         """
         The buffer size.
         """
-        max_token: pulumi.Input[float]
+        max_token: pulumi.Input[int]
         """
         The maximum number of tokens a chunk can contain.
         """
@@ -3195,13 +3195,13 @@ elif False:
 @pulumi.input_type
 class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs:
     def __init__(__self__, *,
-                 breakpoint_percentile_threshold: pulumi.Input[float],
-                 buffer_size: pulumi.Input[float],
-                 max_token: pulumi.Input[float]):
+                 breakpoint_percentile_threshold: pulumi.Input[int],
+                 buffer_size: pulumi.Input[int],
+                 max_token: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
-        :param pulumi.Input[float] buffer_size: The buffer size.
-        :param pulumi.Input[float] max_token: The maximum number of tokens a chunk can contain.
+        :param pulumi.Input[int] breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
+        :param pulumi.Input[int] buffer_size: The buffer size.
+        :param pulumi.Input[int] max_token: The maximum number of tokens a chunk can contain.
         """
         pulumi.set(__self__, "breakpoint_percentile_threshold", breakpoint_percentile_threshold)
         pulumi.set(__self__, "buffer_size", buffer_size)
@@ -3209,38 +3209,38 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
 
     @property
     @pulumi.getter(name="breakpointPercentileThreshold")
-    def breakpoint_percentile_threshold(self) -> pulumi.Input[float]:
+    def breakpoint_percentile_threshold(self) -> pulumi.Input[int]:
         """
         The dissimilarity threshold for splitting chunks.
         """
         return pulumi.get(self, "breakpoint_percentile_threshold")
 
     @breakpoint_percentile_threshold.setter
-    def breakpoint_percentile_threshold(self, value: pulumi.Input[float]):
+    def breakpoint_percentile_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "breakpoint_percentile_threshold", value)
 
     @property
     @pulumi.getter(name="bufferSize")
-    def buffer_size(self) -> pulumi.Input[float]:
+    def buffer_size(self) -> pulumi.Input[int]:
         """
         The buffer size.
         """
         return pulumi.get(self, "buffer_size")
 
     @buffer_size.setter
-    def buffer_size(self, value: pulumi.Input[float]):
+    def buffer_size(self, value: pulumi.Input[int]):
         pulumi.set(self, "buffer_size", value)
 
     @property
     @pulumi.getter(name="maxToken")
-    def max_token(self) -> pulumi.Input[float]:
+    def max_token(self) -> pulumi.Input[int]:
         """
         The maximum number of tokens a chunk can contain.
         """
         return pulumi.get(self, "max_token")
 
     @max_token.setter
-    def max_token(self, value: pulumi.Input[float]):
+    def max_token(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_token", value)
 
 

@@ -30,30 +30,32 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			caPrivateKey, err := tls.NewPrivateKey(ctx, "ca", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
+//				Algorithm: "RSA",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			ca, err := tls.NewSelfSignedCert(ctx, "ca", &tls.SelfSignedCertArgs{
 //				PrivateKeyPem: caPrivateKey.PrivateKeyPem,
-//				Subject: &tls.SelfSignedCertSubjectArgs{
-//					CommonName:   pulumi.String("example.com"),
-//					Organization: pulumi.String("ACME Examples, Inc"),
+//				Subject: []map[string]interface{}{
+//					map[string]interface{}{
+//						"commonName":   "example.com",
+//						"organization": "ACME Examples, Inc",
+//					},
 //				},
-//				ValidityPeriodHours: pulumi.Int(12),
-//				AllowedUses: pulumi.StringArray{
-//					pulumi.String("key_encipherment"),
-//					pulumi.String("digital_signature"),
-//					pulumi.String("server_auth"),
+//				ValidityPeriodHours: 12,
+//				AllowedUses: []string{
+//					"key_encipherment",
+//					"digital_signature",
+//					"server_auth",
 //				},
-//				IsCaCertificate: pulumi.Bool(true),
+//				IsCaCertificate: true,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			verificationPrivateKey, err := tls.NewPrivateKey(ctx, "verification", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
+//				Algorithm: "RSA",
 //			})
 //			if err != nil {
 //				return err
@@ -64,8 +66,10 @@ import (
 //			}
 //			verification, err := tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
 //				PrivateKeyPem: verificationPrivateKey.PrivateKeyPem,
-//				Subject: &tls.CertRequestSubjectArgs{
-//					CommonName: pulumi.String(example.RegistrationCode),
+//				Subject: []map[string]interface{}{
+//					map[string]interface{}{
+//						"commonName": example.RegistrationCode,
+//					},
 //				},
 //			})
 //			if err != nil {
@@ -75,11 +79,11 @@ import (
 //				CertRequestPem:      verification.CertRequestPem,
 //				CaPrivateKeyPem:     caPrivateKey.PrivateKeyPem,
 //				CaCertPem:           ca.CertPem,
-//				ValidityPeriodHours: pulumi.Int(12),
-//				AllowedUses: pulumi.StringArray{
-//					pulumi.String("key_encipherment"),
-//					pulumi.String("digital_signature"),
-//					pulumi.String("server_auth"),
+//				ValidityPeriodHours: 12,
+//				AllowedUses: []string{
+//					"key_encipherment",
+//					"digital_signature",
+//					"server_auth",
 //				},
 //			})
 //			if err != nil {

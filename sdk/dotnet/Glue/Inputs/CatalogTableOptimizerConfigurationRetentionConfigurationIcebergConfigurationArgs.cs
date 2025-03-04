@@ -22,13 +22,13 @@ namespace Pulumi.Aws.Glue.Inputs
         /// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
         /// </summary>
         [Input("numberOfSnapshotsToRetain")]
-        public Input<double>? NumberOfSnapshotsToRetain { get; set; }
+        public Input<int>? NumberOfSnapshotsToRetain { get; set; }
 
         /// <summary>
         /// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
         /// </summary>
         [Input("snapshotRetentionPeriodInDays")]
-        public Input<double>? SnapshotRetentionPeriodInDays { get; set; }
+        public Input<int>? SnapshotRetentionPeriodInDays { get; set; }
 
         public CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs()
         {
