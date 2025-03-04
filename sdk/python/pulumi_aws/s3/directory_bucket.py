@@ -29,7 +29,7 @@ class DirectoryBucketArgs:
         """
         The set of arguments for constructing a DirectoryBucket resource.
         :param pulumi.Input[str] bucket: Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
-        :param pulumi.Input[str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`.
+        :param pulumi.Input[str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         :param pulumi.Input[bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input['DirectoryBucketLocationArgs'] location: Bucket location. See Location below for more details.
         :param pulumi.Input[str] type: Bucket type. Valid values: `Directory`.
@@ -60,7 +60,7 @@ class DirectoryBucketArgs:
     @pulumi.getter(name="dataRedundancy")
     def data_redundancy(self) -> Optional[pulumi.Input[str]]:
         """
-        Data redundancy. Valid values: `SingleAvailabilityZone`.
+        Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         """
         return pulumi.get(self, "data_redundancy")
 
@@ -118,7 +118,7 @@ class _DirectoryBucketState:
         Input properties used for looking up and filtering DirectoryBucket resources.
         :param pulumi.Input[str] arn: ARN of the bucket.
         :param pulumi.Input[str] bucket: Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
-        :param pulumi.Input[str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`.
+        :param pulumi.Input[str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         :param pulumi.Input[bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input['DirectoryBucketLocationArgs'] location: Bucket location. See Location below for more details.
         :param pulumi.Input[str] type: Bucket type. Valid values: `Directory`.
@@ -164,7 +164,7 @@ class _DirectoryBucketState:
     @pulumi.getter(name="dataRedundancy")
     def data_redundancy(self) -> Optional[pulumi.Input[str]]:
         """
-        Data redundancy. Valid values: `SingleAvailabilityZone`.
+        Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         """
         return pulumi.get(self, "data_redundancy")
 
@@ -225,6 +225,8 @@ class DirectoryBucket(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Availability Zone
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,6 +235,20 @@ class DirectoryBucket(pulumi.CustomResource):
             bucket="example--usw2-az1--x-s3",
             location={
                 "name": "usw2-az1",
+            })
+        ```
+
+        ### Dedicated Local Zone
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_local_zone = aws.s3.DirectoryBucket("example_local_zone",
+            bucket="example--usw2-xxx-lz1--x-s3",
+            location={
+                "name": "usw2-xxx-lz1",
+                "type": "LocalZone",
             })
         ```
 
@@ -247,7 +263,7 @@ class DirectoryBucket(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
-        :param pulumi.Input[str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`.
+        :param pulumi.Input[str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         :param pulumi.Input[bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']] location: Bucket location. See Location below for more details.
         :param pulumi.Input[str] type: Bucket type. Valid values: `Directory`.
@@ -263,6 +279,8 @@ class DirectoryBucket(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Availability Zone
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,6 +289,20 @@ class DirectoryBucket(pulumi.CustomResource):
             bucket="example--usw2-az1--x-s3",
             location={
                 "name": "usw2-az1",
+            })
+        ```
+
+        ### Dedicated Local Zone
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_local_zone = aws.s3.DirectoryBucket("example_local_zone",
+            bucket="example--usw2-xxx-lz1--x-s3",
+            location={
+                "name": "usw2-xxx-lz1",
+                "type": "LocalZone",
             })
         ```
 
@@ -344,7 +376,7 @@ class DirectoryBucket(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the bucket.
         :param pulumi.Input[str] bucket: Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
-        :param pulumi.Input[str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`.
+        :param pulumi.Input[str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         :param pulumi.Input[bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         :param pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']] location: Bucket location. See Location below for more details.
         :param pulumi.Input[str] type: Bucket type. Valid values: `Directory`.
@@ -381,7 +413,7 @@ class DirectoryBucket(pulumi.CustomResource):
     @pulumi.getter(name="dataRedundancy")
     def data_redundancy(self) -> pulumi.Output[str]:
         """
-        Data redundancy. Valid values: `SingleAvailabilityZone`.
+        Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         """
         return pulumi.get(self, "data_redundancy")
 

@@ -53,7 +53,7 @@ class AccountSubscriptionArgs:
         :param pulumi.Input[str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
         :param pulumi.Input[str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Direcrtory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Directory.
         :param pulumi.Input[str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -259,7 +259,7 @@ class AccountSubscriptionArgs:
     @pulumi.getter(name="readerGroups")
     def reader_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Reader group associated with your Active Direcrtory.
+        Reader group associated with your Active Directory.
         """
         return pulumi.get(self, "reader_groups")
 
@@ -319,7 +319,7 @@ class _AccountSubscriptionState:
         :param pulumi.Input[str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Direcrtory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Directory.
         :param pulumi.Input[str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         """
         if account_name is not None:
@@ -543,7 +543,7 @@ class _AccountSubscriptionState:
     @pulumi.getter(name="readerGroups")
     def reader_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Reader group associated with your Active Direcrtory.
+        Reader group associated with your Active Directory.
         """
         return pulumi.get(self, "reader_groups")
 
@@ -589,6 +589,8 @@ class AccountSubscription(pulumi.CustomResource):
         """
         Resource for managing an AWS QuickSight Account Subscription.
 
+        > Due to the absence of the `admin_group`, `author_group`, and `reader_group` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
+
         ## Example Usage
 
         ```python
@@ -624,7 +626,7 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Direcrtory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Directory.
         :param pulumi.Input[str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         """
         ...
@@ -635,6 +637,8 @@ class AccountSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS QuickSight Account Subscription.
+
+        > Due to the absence of the `admin_group`, `author_group`, and `reader_group` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
 
         ## Example Usage
 
@@ -769,7 +773,7 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Direcrtory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Directory.
         :param pulumi.Input[str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -921,7 +925,7 @@ class AccountSubscription(pulumi.CustomResource):
     @pulumi.getter(name="readerGroups")
     def reader_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Reader group associated with your Active Direcrtory.
+        Reader group associated with your Active Directory.
         """
         return pulumi.get(self, "reader_groups")
 

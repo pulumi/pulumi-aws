@@ -15,6 +15,11 @@ export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
 utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
+export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
 export { SamplingRuleArgs, SamplingRuleState } from "./samplingRule";
 export type SamplingRule = import("./samplingRule").SamplingRule;
 export const SamplingRule: typeof import("./samplingRule").SamplingRule = null as any;
@@ -29,6 +34,8 @@ const _module = {
                 return new EncryptionConfig(name, <any>undefined, { urn })
             case "aws:xray/group:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "aws:xray/resourcePolicy:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws:xray/samplingRule:SamplingRule":
                 return new SamplingRule(name, <any>undefined, { urn })
             default:
@@ -38,4 +45,5 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "xray/encryptionConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "xray/group", _module)
+pulumi.runtime.registerResourceModule("aws", "xray/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "xray/samplingRule", _module)

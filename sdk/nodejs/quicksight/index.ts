@@ -100,6 +100,11 @@ export type RefreshSchedule = import("./refreshSchedule").RefreshSchedule;
 export const RefreshSchedule: typeof import("./refreshSchedule").RefreshSchedule = null as any;
 utilities.lazyLoad(exports, ["RefreshSchedule"], () => require("./refreshSchedule"));
 
+export { RoleMembershipArgs, RoleMembershipState } from "./roleMembership";
+export type RoleMembership = import("./roleMembership").RoleMembership;
+export const RoleMembership: typeof import("./roleMembership").RoleMembership = null as any;
+utilities.lazyLoad(exports, ["RoleMembership"], () => require("./roleMembership"));
+
 export { TemplateArgs, TemplateState } from "./template";
 export type Template = import("./template").Template;
 export const Template: typeof import("./template").Template = null as any;
@@ -156,6 +161,8 @@ const _module = {
                 return new Namespace(name, <any>undefined, { urn })
             case "aws:quicksight/refreshSchedule:RefreshSchedule":
                 return new RefreshSchedule(name, <any>undefined, { urn })
+            case "aws:quicksight/roleMembership:RoleMembership":
+                return new RoleMembership(name, <any>undefined, { urn })
             case "aws:quicksight/template:Template":
                 return new Template(name, <any>undefined, { urn })
             case "aws:quicksight/templateAlias:TemplateAlias":
@@ -184,6 +191,7 @@ pulumi.runtime.registerResourceModule("aws", "quicksight/iamPolicyAssignment", _
 pulumi.runtime.registerResourceModule("aws", "quicksight/ingestion", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/namespace", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/refreshSchedule", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/roleMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/template", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/templateAlias", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/theme", _module)

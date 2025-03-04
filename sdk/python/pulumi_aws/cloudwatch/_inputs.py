@@ -119,6 +119,10 @@ __all__ = [
     'MetricStreamStatisticsConfigurationArgsDict',
     'MetricStreamStatisticsConfigurationIncludeMetricArgs',
     'MetricStreamStatisticsConfigurationIncludeMetricArgsDict',
+    'GetLogDataProtectionPolicyDocumentConfigurationArgs',
+    'GetLogDataProtectionPolicyDocumentConfigurationArgsDict',
+    'GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs',
+    'GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgsDict',
     'GetLogDataProtectionPolicyDocumentStatementArgs',
     'GetLogDataProtectionPolicyDocumentStatementArgsDict',
     'GetLogDataProtectionPolicyDocumentStatementOperationArgs',
@@ -3488,6 +3492,88 @@ class MetricStreamStatisticsConfigurationIncludeMetricArgs:
     @namespace.setter
     def namespace(self, value: pulumi.Input[str]):
         pulumi.set(self, "namespace", value)
+
+
+if not MYPY:
+    class GetLogDataProtectionPolicyDocumentConfigurationArgsDict(TypedDict):
+        custom_data_identifiers: NotRequired[Sequence['GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgsDict']]
+        """
+        Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
+        """
+elif False:
+    GetLogDataProtectionPolicyDocumentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetLogDataProtectionPolicyDocumentConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_data_identifiers: Optional[Sequence['GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs']] = None):
+        """
+        :param Sequence['GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs'] custom_data_identifiers: Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
+        """
+        if custom_data_identifiers is not None:
+            pulumi.set(__self__, "custom_data_identifiers", custom_data_identifiers)
+
+    @property
+    @pulumi.getter(name="customDataIdentifiers")
+    def custom_data_identifiers(self) -> Optional[Sequence['GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs']]:
+        """
+        Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
+        """
+        return pulumi.get(self, "custom_data_identifiers")
+
+    @custom_data_identifiers.setter
+    def custom_data_identifiers(self, value: Optional[Sequence['GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs']]):
+        pulumi.set(self, "custom_data_identifiers", value)
+
+
+if not MYPY:
+    class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgsDict(TypedDict):
+        name: str
+        """
+        Name of the custom data idenfitier
+        """
+        regex: str
+        """
+        Regular expression to match sensitive data
+        """
+elif False:
+    GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 regex: str):
+        """
+        :param str name: Name of the custom data idenfitier
+        :param str regex: Regular expression to match sensitive data
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regex", regex)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the custom data idenfitier
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> str:
+        """
+        Regular expression to match sensitive data
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: str):
+        pulumi.set(self, "regex", value)
 
 
 if not MYPY:

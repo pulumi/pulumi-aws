@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .encryption_config import *
 from .group import *
+from .resource_policy import *
 from .sampling_rule import *
 from ._inputs import *
 from . import outputs

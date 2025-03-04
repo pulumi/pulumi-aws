@@ -1101,17 +1101,6 @@ class Cluster(pulumi.CustomResource):
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a DocumentDB Cluster.
-
-        Changes to a DocumentDB Cluster can occur when you manually change a
-        parameter, such as `port`, and are reflected in the next maintenance
-        window. Because of this, this provider may report a difference in its planning
-        phase because a modification has not yet taken place. You can use the
-        `apply_immediately` flag to instruct the service to apply the change immediately
-        (see documentation below).
-
-        > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
-
         ## Example Usage
 
         ```python
@@ -1183,17 +1172,6 @@ class Cluster(pulumi.CustomResource):
                  args: Optional[ClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a DocumentDB Cluster.
-
-        Changes to a DocumentDB Cluster can occur when you manually change a
-        parameter, such as `port`, and are reflected in the next maintenance
-        window. Because of this, this provider may report a difference in its planning
-        phase because a modification has not yet taken place. You can use the
-        `apply_immediately` flag to instruct the service to apply the change immediately
-        (see documentation below).
-
-        > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
-
         ## Example Usage
 
         ```python

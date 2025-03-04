@@ -8,17 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Manages a DocumentDB Cluster.
- *
- * Changes to a DocumentDB Cluster can occur when you manually change a
- * parameter, such as `port`, and are reflected in the next maintenance
- * window. Because of this, this provider may report a difference in its planning
- * phase because a modification has not yet taken place. You can use the
- * `applyImmediately` flag to instruct the service to apply the change immediately
- * (see documentation below).
- *
- * > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
- *
  * ## Example Usage
  *
  * ```typescript

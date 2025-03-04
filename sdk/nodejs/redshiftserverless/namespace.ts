@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates a new Amazon Redshift Serverless Namespace.
- *
  * ## Example Usage
  *
  * ```typescript

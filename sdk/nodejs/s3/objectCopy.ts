@@ -95,7 +95,7 @@ export class ObjectCopy extends pulumi.CustomResource {
      */
     public readonly cacheControl!: pulumi.Output<string>;
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      */
     public readonly checksumAlgorithm!: pulumi.Output<string | undefined>;
     /**
@@ -106,6 +106,10 @@ export class ObjectCopy extends pulumi.CustomResource {
      * The base64-encoded, 32-bit CRC32C checksum of the object.
      */
     public /*out*/ readonly checksumCrc32c!: pulumi.Output<string>;
+    /**
+     * The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     */
+    public /*out*/ readonly checksumCrc64nvme!: pulumi.Output<string>;
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.
      */
@@ -305,6 +309,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["checksumAlgorithm"] = state ? state.checksumAlgorithm : undefined;
             resourceInputs["checksumCrc32"] = state ? state.checksumCrc32 : undefined;
             resourceInputs["checksumCrc32c"] = state ? state.checksumCrc32c : undefined;
+            resourceInputs["checksumCrc64nvme"] = state ? state.checksumCrc64nvme : undefined;
             resourceInputs["checksumSha1"] = state ? state.checksumSha1 : undefined;
             resourceInputs["checksumSha256"] = state ? state.checksumSha256 : undefined;
             resourceInputs["contentDisposition"] = state ? state.contentDisposition : undefined;
@@ -403,6 +408,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["checksumCrc32"] = undefined /*out*/;
             resourceInputs["checksumCrc32c"] = undefined /*out*/;
+            resourceInputs["checksumCrc64nvme"] = undefined /*out*/;
             resourceInputs["checksumSha1"] = undefined /*out*/;
             resourceInputs["checksumSha256"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -442,7 +448,7 @@ export interface ObjectCopyState {
      */
     cacheControl?: pulumi.Input<string>;
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      */
     checksumAlgorithm?: pulumi.Input<string>;
     /**
@@ -453,6 +459,10 @@ export interface ObjectCopyState {
      * The base64-encoded, 32-bit CRC32C checksum of the object.
      */
     checksumCrc32c?: pulumi.Input<string>;
+    /**
+     * The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     */
+    checksumCrc64nvme?: pulumi.Input<string>;
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.
      */
@@ -650,7 +660,7 @@ export interface ObjectCopyArgs {
      */
     cacheControl?: pulumi.Input<string>;
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      */
     checksumAlgorithm?: pulumi.Input<string>;
     /**

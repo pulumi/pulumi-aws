@@ -3117,6 +3117,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
                  metric_name: Optional[str] = None,
                  metrics: Optional[Sequence['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric']] = None,
                  namespace: Optional[str] = None,
+                 period: Optional[int] = None,
                  statistic: Optional[str] = None,
                  unit: Optional[str] = None):
         """
@@ -3124,6 +3125,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
         :param str metric_name: Name of the metric.
         :param Sequence['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs'] metrics: Metrics to include, as a metric data query.
         :param str namespace: Namespace of the metric.
+        :param int period: The period of the metric in seconds.
         :param str statistic: Statistic of the metric.
         :param str unit: Unit of the metric.
         """
@@ -3135,6 +3137,8 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
             pulumi.set(__self__, "metrics", metrics)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
         if statistic is not None:
             pulumi.set(__self__, "statistic", statistic)
         if unit is not None:
@@ -3171,6 +3175,14 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
         Namespace of the metric.
         """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[int]:
+        """
+        The period of the metric in seconds.
+        """
+        return pulumi.get(self, "period")
 
     @property
     @pulumi.getter

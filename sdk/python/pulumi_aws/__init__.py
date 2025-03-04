@@ -7987,6 +7987,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "macie2/organizationConfiguration",
+  "fqn": "pulumi_aws.macie2",
+  "classes": {
+   "aws:macie2/organizationConfiguration:OrganizationConfiguration": "OrganizationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "mediaconvert/queue",
   "fqn": "pulumi_aws.mediaconvert",
   "classes": {
@@ -8287,6 +8295,14 @@ _utilities.register(
   "fqn": "pulumi_aws.neptune",
   "classes": {
    "aws:neptune/globalCluster:GlobalCluster": "GlobalCluster"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "neptune/graphGraph",
+  "fqn": "pulumi_aws.neptune",
+  "classes": {
+   "aws:neptune/graphGraph:GraphGraph": "GraphGraph"
   }
  },
  {
@@ -9139,6 +9155,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "quicksight/roleMembership",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/roleMembership:RoleMembership": "RoleMembership"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "quicksight/template",
   "fqn": "pulumi_aws.quicksight",
   "classes": {
@@ -9423,6 +9447,14 @@ _utilities.register(
   "fqn": "pulumi_aws.rds",
   "classes": {
    "aws:rds/roleAssociation:RoleAssociation": "RoleAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rds/shardGroup",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/shardGroup:ShardGroup": "ShardGroup"
   }
  },
  {
@@ -12599,6 +12631,14 @@ _utilities.register(
   "fqn": "pulumi_aws.xray",
   "classes": {
    "aws:xray/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "xray/resourcePolicy",
+  "fqn": "pulumi_aws.xray",
+  "classes": {
+   "aws:xray/resourcePolicy:ResourcePolicy": "ResourcePolicy"
   }
  },
  {

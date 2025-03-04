@@ -4071,6 +4071,10 @@ if not MYPY:
         """
         Namespace of the metric.
         """
+        period: NotRequired[pulumi.Input[int]]
+        """
+        The period of the metric in seconds.
+        """
         statistic: NotRequired[pulumi.Input[str]]
         """
         Statistic of the metric.
@@ -4089,6 +4093,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs:
                  metric_name: Optional[pulumi.Input[str]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs']]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
+                 period: Optional[pulumi.Input[int]] = None,
                  statistic: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
@@ -4096,6 +4101,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs:
         :param pulumi.Input[str] metric_name: Name of the metric.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs']]] metrics: Metrics to include, as a metric data query.
         :param pulumi.Input[str] namespace: Namespace of the metric.
+        :param pulumi.Input[int] period: The period of the metric in seconds.
         :param pulumi.Input[str] statistic: Statistic of the metric.
         :param pulumi.Input[str] unit: Unit of the metric.
         """
@@ -4107,6 +4113,8 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs:
             pulumi.set(__self__, "metrics", metrics)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
         if statistic is not None:
             pulumi.set(__self__, "statistic", statistic)
         if unit is not None:
@@ -4159,6 +4167,18 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs:
     @namespace.setter
     def namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The period of the metric in seconds.
+        """
+        return pulumi.get(self, "period")
+
+    @period.setter
+    def period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period", value)
 
     @property
     @pulumi.getter

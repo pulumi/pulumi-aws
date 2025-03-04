@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Availability Zone
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +22,21 @@ import * as utilities from "../utilities";
  *     bucket: "example--usw2-az1--x-s3",
  *     location: {
  *         name: "usw2-az1",
+ *     },
+ * });
+ * ```
+ *
+ * ### Dedicated Local Zone
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLocalZone = new aws.s3.DirectoryBucket("example_local_zone", {
+ *     bucket: "example--usw2-xxx-lz1--x-s3",
+ *     location: {
+ *         name: "usw2-xxx-lz1",
+ *         type: "LocalZone",
  *     },
  * });
  * ```
@@ -69,7 +86,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * Data redundancy. Valid values: `SingleAvailabilityZone`.
+     * Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
      */
     public readonly dataRedundancy!: pulumi.Output<string>;
     /**
@@ -134,7 +151,7 @@ export interface DirectoryBucketState {
      */
     bucket?: pulumi.Input<string>;
     /**
-     * Data redundancy. Valid values: `SingleAvailabilityZone`.
+     * Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
      */
     dataRedundancy?: pulumi.Input<string>;
     /**
@@ -160,7 +177,7 @@ export interface DirectoryBucketArgs {
      */
     bucket: pulumi.Input<string>;
     /**
-     * Data redundancy. Valid values: `SingleAvailabilityZone`.
+     * Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
      */
     dataRedundancy?: pulumi.Input<string>;
     /**

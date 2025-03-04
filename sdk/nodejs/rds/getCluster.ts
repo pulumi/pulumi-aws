@@ -54,6 +54,8 @@ export interface GetClusterResult {
     readonly clusterIdentifier: string;
     readonly clusterMembers: string[];
     readonly clusterResourceId: string;
+    readonly clusterScalabilityType: string;
+    readonly databaseInsightsMode: string;
     readonly databaseName: string;
     readonly dbClusterParameterGroupName: string;
     readonly dbSubnetGroupName: string;

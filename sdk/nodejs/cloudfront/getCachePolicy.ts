@@ -25,14 +25,17 @@ import * as utilities from "../utilities";
  *
  * ### AWS-Managed Policies
  *
- * AWS managed cache policy names are prefixed with `Managed-`:
+ * AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.cloudfront.getCachePolicy({
+ * const example1 = aws.cloudfront.getCachePolicy({
  *     name: "Managed-CachingOptimized",
+ * });
+ * const example2 = aws.cloudfront.getCachePolicy({
+ *     name: "UseOriginCacheControlHeaders",
  * });
  * ```
  */
@@ -108,14 +111,17 @@ export interface GetCachePolicyResult {
  *
  * ### AWS-Managed Policies
  *
- * AWS managed cache policy names are prefixed with `Managed-`:
+ * AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.cloudfront.getCachePolicy({
+ * const example1 = aws.cloudfront.getCachePolicy({
  *     name: "Managed-CachingOptimized",
+ * });
+ * const example2 = aws.cloudfront.getCachePolicy({
+ *     name: "UseOriginCacheControlHeaders",
  * });
  * ```
  */

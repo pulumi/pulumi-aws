@@ -147,13 +147,14 @@ def get_cache_policy(id: Optional[str] = None,
 
     ### AWS-Managed Policies
 
-    AWS managed cache policy names are prefixed with `Managed-`:
+    AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.cloudfront.get_cache_policy(name="Managed-CachingOptimized")
+    example1 = aws.cloudfront.get_cache_policy(name="Managed-CachingOptimized")
+    example2 = aws.cloudfront.get_cache_policy(name="UseOriginCacheControlHeaders")
     ```
 
 
@@ -194,13 +195,14 @@ def get_cache_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ### AWS-Managed Policies
 
-    AWS managed cache policy names are prefixed with `Managed-`:
+    AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.cloudfront.get_cache_policy(name="Managed-CachingOptimized")
+    example1 = aws.cloudfront.get_cache_policy(name="Managed-CachingOptimized")
+    example2 = aws.cloudfront.get_cache_policy(name="UseOriginCacheControlHeaders")
     ```
 
 

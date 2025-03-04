@@ -421,6 +421,7 @@ class ResourceConfiguration(pulumi.CustomResource):
             name="Example",
             resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
             port_ranges=["80"],
+            protocol="TCP",
             resource_configuration_definition={
                 "dns_resource": {
                     "domain_name": "example.com",
@@ -513,6 +514,7 @@ class ResourceConfiguration(pulumi.CustomResource):
             name="Example",
             resource_gateway_identifier=example_aws_vpclattice_resource_gateway["id"],
             port_ranges=["80"],
+            protocol="TCP",
             resource_configuration_definition={
                 "dns_resource": {
                     "domain_name": "example.com",

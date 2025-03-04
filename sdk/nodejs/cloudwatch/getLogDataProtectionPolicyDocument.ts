@@ -66,6 +66,7 @@ import * as utilities from "../utilities";
 export function getLogDataProtectionPolicyDocument(args: GetLogDataProtectionPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDataProtectionPolicyDocumentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", {
+        "configuration": args.configuration,
         "description": args.description,
         "name": args.name,
         "statements": args.statements,
@@ -77,6 +78,7 @@ export function getLogDataProtectionPolicyDocument(args: GetLogDataProtectionPol
  * A collection of arguments for invoking getLogDataProtectionPolicyDocument.
  */
 export interface GetLogDataProtectionPolicyDocumentArgs {
+    configuration?: inputs.cloudwatch.GetLogDataProtectionPolicyDocumentConfiguration;
     description?: string;
     /**
      * The name of the data protection policy document.
@@ -97,6 +99,7 @@ export interface GetLogDataProtectionPolicyDocumentArgs {
  * A collection of values returned by getLogDataProtectionPolicyDocument.
  */
 export interface GetLogDataProtectionPolicyDocumentResult {
+    readonly configuration?: outputs.cloudwatch.GetLogDataProtectionPolicyDocumentConfiguration;
     readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -169,6 +172,7 @@ export interface GetLogDataProtectionPolicyDocumentResult {
 export function getLogDataProtectionPolicyDocumentOutput(args: GetLogDataProtectionPolicyDocumentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogDataProtectionPolicyDocumentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", {
+        "configuration": args.configuration,
         "description": args.description,
         "name": args.name,
         "statements": args.statements,
@@ -180,6 +184,7 @@ export function getLogDataProtectionPolicyDocumentOutput(args: GetLogDataProtect
  * A collection of arguments for invoking getLogDataProtectionPolicyDocument.
  */
 export interface GetLogDataProtectionPolicyDocumentOutputArgs {
+    configuration?: pulumi.Input<inputs.cloudwatch.GetLogDataProtectionPolicyDocumentConfigurationArgs>;
     description?: pulumi.Input<string>;
     /**
      * The name of the data protection policy document.

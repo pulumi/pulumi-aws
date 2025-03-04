@@ -99,6 +99,8 @@ __all__ = [
     'LaunchTemplateMonitoring',
     'LaunchTemplateNetworkInterface',
     'LaunchTemplateNetworkInterfaceConnectionTrackingSpecification',
+    'LaunchTemplateNetworkInterfaceEnaSrdSpecification',
+    'LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification',
     'LaunchTemplatePlacement',
     'LaunchTemplatePrivateDnsNameOptions',
     'LaunchTemplateTagSpecification',
@@ -3025,6 +3027,14 @@ class FleetSpotOptions(dict):
             suggest = "instance_pools_to_use_count"
         elif key == "maintenanceStrategies":
             suggest = "maintenance_strategies"
+        elif key == "maxTotalPrice":
+            suggest = "max_total_price"
+        elif key == "minTargetCapacity":
+            suggest = "min_target_capacity"
+        elif key == "singleAvailabilityZone":
+            suggest = "single_availability_zone"
+        elif key == "singleInstanceType":
+            suggest = "single_instance_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FleetSpotOptions. Access the value via the '{suggest}' property getter instead.")
@@ -3041,12 +3051,20 @@ class FleetSpotOptions(dict):
                  allocation_strategy: Optional[str] = None,
                  instance_interruption_behavior: Optional[str] = None,
                  instance_pools_to_use_count: Optional[int] = None,
-                 maintenance_strategies: Optional['outputs.FleetSpotOptionsMaintenanceStrategies'] = None):
+                 maintenance_strategies: Optional['outputs.FleetSpotOptionsMaintenanceStrategies'] = None,
+                 max_total_price: Optional[str] = None,
+                 min_target_capacity: Optional[int] = None,
+                 single_availability_zone: Optional[bool] = None,
+                 single_instance_type: Optional[bool] = None):
         """
         :param str allocation_strategy: How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
         :param str instance_interruption_behavior: Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
         :param int instance_pools_to_use_count: Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
         :param 'FleetSpotOptionsMaintenanceStrategiesArgs' maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        :param str max_total_price: The maximum amount per hour for Spot Instances that you're willing to pay.
+        :param int min_target_capacity: The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+        :param bool single_availability_zone: Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+        :param bool single_instance_type: Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
         """
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
@@ -3056,6 +3074,14 @@ class FleetSpotOptions(dict):
             pulumi.set(__self__, "instance_pools_to_use_count", instance_pools_to_use_count)
         if maintenance_strategies is not None:
             pulumi.set(__self__, "maintenance_strategies", maintenance_strategies)
+        if max_total_price is not None:
+            pulumi.set(__self__, "max_total_price", max_total_price)
+        if min_target_capacity is not None:
+            pulumi.set(__self__, "min_target_capacity", min_target_capacity)
+        if single_availability_zone is not None:
+            pulumi.set(__self__, "single_availability_zone", single_availability_zone)
+        if single_instance_type is not None:
+            pulumi.set(__self__, "single_instance_type", single_instance_type)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -3088,6 +3114,38 @@ class FleetSpotOptions(dict):
         Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         """
         return pulumi.get(self, "maintenance_strategies")
+
+    @property
+    @pulumi.getter(name="maxTotalPrice")
+    def max_total_price(self) -> Optional[str]:
+        """
+        The maximum amount per hour for Spot Instances that you're willing to pay.
+        """
+        return pulumi.get(self, "max_total_price")
+
+    @property
+    @pulumi.getter(name="minTargetCapacity")
+    def min_target_capacity(self) -> Optional[int]:
+        """
+        The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+        """
+        return pulumi.get(self, "min_target_capacity")
+
+    @property
+    @pulumi.getter(name="singleAvailabilityZone")
+    def single_availability_zone(self) -> Optional[bool]:
+        """
+        Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+        """
+        return pulumi.get(self, "single_availability_zone")
+
+    @property
+    @pulumi.getter(name="singleInstanceType")
+    def single_instance_type(self) -> Optional[bool]:
+        """
+        Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+        """
+        return pulumi.get(self, "single_instance_type")
 
 
 @pulumi.output_type
@@ -6344,6 +6402,8 @@ class LaunchTemplateNetworkInterface(dict):
             suggest = "delete_on_termination"
         elif key == "deviceIndex":
             suggest = "device_index"
+        elif key == "enaSrdSpecification":
+            suggest = "ena_srd_specification"
         elif key == "interfaceType":
             suggest = "interface_type"
         elif key == "ipv4AddressCount":
@@ -6393,6 +6453,7 @@ class LaunchTemplateNetworkInterface(dict):
                  delete_on_termination: Optional[str] = None,
                  description: Optional[str] = None,
                  device_index: Optional[int] = None,
+                 ena_srd_specification: Optional['outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecification'] = None,
                  interface_type: Optional[str] = None,
                  ipv4_address_count: Optional[int] = None,
                  ipv4_addresses: Optional[Sequence[str]] = None,
@@ -6415,6 +6476,7 @@ class LaunchTemplateNetworkInterface(dict):
         :param str delete_on_termination: Whether the network interface should be destroyed on instance termination.
         :param str description: Description of the network interface.
         :param int device_index: The integer index of the network interface attachment.
+        :param 'LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs' ena_srd_specification: Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
         :param str interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
         :param int ipv4_address_count: The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
         :param Sequence[str] ipv4_addresses: One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
@@ -6443,6 +6505,8 @@ class LaunchTemplateNetworkInterface(dict):
             pulumi.set(__self__, "description", description)
         if device_index is not None:
             pulumi.set(__self__, "device_index", device_index)
+        if ena_srd_specification is not None:
+            pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
         if interface_type is not None:
             pulumi.set(__self__, "interface_type", interface_type)
         if ipv4_address_count is not None:
@@ -6521,6 +6585,14 @@ class LaunchTemplateNetworkInterface(dict):
         The integer index of the network interface attachment.
         """
         return pulumi.get(self, "device_index")
+
+    @property
+    @pulumi.getter(name="enaSrdSpecification")
+    def ena_srd_specification(self) -> Optional['outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecification']:
+        """
+        Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+        """
+        return pulumi.get(self, "ena_srd_specification")
 
     @property
     @pulumi.getter(name="interfaceType")
@@ -6705,6 +6777,96 @@ class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification(dict):
         Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
         """
         return pulumi.get(self, "udp_timeout")
+
+
+@pulumi.output_type
+class LaunchTemplateNetworkInterfaceEnaSrdSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enaSrdEnabled":
+            suggest = "ena_srd_enabled"
+        elif key == "enaSrdUdpSpecification":
+            suggest = "ena_srd_udp_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateNetworkInterfaceEnaSrdSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateNetworkInterfaceEnaSrdSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateNetworkInterfaceEnaSrdSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ena_srd_enabled: Optional[bool] = None,
+                 ena_srd_udp_specification: Optional['outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification'] = None):
+        """
+        :param bool ena_srd_enabled: Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
+        :param 'LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs' ena_srd_udp_specification: Configuration for ENA Express UDP optimization. See details below.
+        """
+        if ena_srd_enabled is not None:
+            pulumi.set(__self__, "ena_srd_enabled", ena_srd_enabled)
+        if ena_srd_udp_specification is not None:
+            pulumi.set(__self__, "ena_srd_udp_specification", ena_srd_udp_specification)
+
+    @property
+    @pulumi.getter(name="enaSrdEnabled")
+    def ena_srd_enabled(self) -> Optional[bool]:
+        """
+        Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
+        """
+        return pulumi.get(self, "ena_srd_enabled")
+
+    @property
+    @pulumi.getter(name="enaSrdUdpSpecification")
+    def ena_srd_udp_specification(self) -> Optional['outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification']:
+        """
+        Configuration for ENA Express UDP optimization. See details below.
+        """
+        return pulumi.get(self, "ena_srd_udp_specification")
+
+
+@pulumi.output_type
+class LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enaSrdUdpEnabled":
+            suggest = "ena_srd_udp_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ena_srd_udp_enabled: Optional[bool] = None):
+        """
+        :param bool ena_srd_udp_enabled: Whether to enable UDP traffic optimization through ENA Express. Requires `ena_srd_enabled` to be `true`.
+               
+               NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
+        """
+        if ena_srd_udp_enabled is not None:
+            pulumi.set(__self__, "ena_srd_udp_enabled", ena_srd_udp_enabled)
+
+    @property
+    @pulumi.getter(name="enaSrdUdpEnabled")
+    def ena_srd_udp_enabled(self) -> Optional[bool]:
+        """
+        Whether to enable UDP traffic optimization through ENA Express. Requires `ena_srd_enabled` to be `true`.
+
+        NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
+        """
+        return pulumi.get(self, "ena_srd_udp_enabled")
 
 
 @pulumi.output_type

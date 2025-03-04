@@ -26,7 +26,7 @@ class GetObjectResult:
     """
     A collection of values returned by getObject.
     """
-    def __init__(__self__, arn=None, body=None, bucket=None, bucket_key_enabled=None, cache_control=None, checksum_crc32=None, checksum_crc32c=None, checksum_mode=None, checksum_sha1=None, checksum_sha256=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
+    def __init__(__self__, arn=None, body=None, bucket=None, bucket_key_enabled=None, cache_control=None, checksum_crc32=None, checksum_crc32c=None, checksum_crc64nvme=None, checksum_mode=None, checksum_sha1=None, checksum_sha256=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +48,9 @@ class GetObjectResult:
         if checksum_crc32c and not isinstance(checksum_crc32c, str):
             raise TypeError("Expected argument 'checksum_crc32c' to be a str")
         pulumi.set(__self__, "checksum_crc32c", checksum_crc32c)
+        if checksum_crc64nvme and not isinstance(checksum_crc64nvme, str):
+            raise TypeError("Expected argument 'checksum_crc64nvme' to be a str")
+        pulumi.set(__self__, "checksum_crc64nvme", checksum_crc64nvme)
         if checksum_mode and not isinstance(checksum_mode, str):
             raise TypeError("Expected argument 'checksum_mode' to be a str")
         pulumi.set(__self__, "checksum_mode", checksum_mode)
@@ -176,6 +179,14 @@ class GetObjectResult:
         The base64-encoded, 32-bit CRC32C checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32c")
+
+    @property
+    @pulumi.getter(name="checksumCrc64nvme")
+    def checksum_crc64nvme(self) -> str:
+        """
+        The base64-encoded, 64-bit CRC64NVME checksum of the object.
+        """
+        return pulumi.get(self, "checksum_crc64nvme")
 
     @property
     @pulumi.getter(name="checksumMode")
@@ -382,6 +393,7 @@ class AwaitableGetObjectResult(GetObjectResult):
             cache_control=self.cache_control,
             checksum_crc32=self.checksum_crc32,
             checksum_crc32c=self.checksum_crc32c,
+            checksum_crc64nvme=self.checksum_crc64nvme,
             checksum_mode=self.checksum_mode,
             checksum_sha1=self.checksum_sha1,
             checksum_sha256=self.checksum_sha256,
@@ -432,6 +444,7 @@ def get_object(bucket: Optional[str] = None,
     * `application/xml`
     * `application/atom+xml`
     * `application/x-sql`
+    * `application/yaml`
 
     This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favor of metadata.
 
@@ -498,6 +511,7 @@ def get_object(bucket: Optional[str] = None,
         cache_control=pulumi.get(__ret__, 'cache_control'),
         checksum_crc32=pulumi.get(__ret__, 'checksum_crc32'),
         checksum_crc32c=pulumi.get(__ret__, 'checksum_crc32c'),
+        checksum_crc64nvme=pulumi.get(__ret__, 'checksum_crc64nvme'),
         checksum_mode=pulumi.get(__ret__, 'checksum_mode'),
         checksum_sha1=pulumi.get(__ret__, 'checksum_sha1'),
         checksum_sha256=pulumi.get(__ret__, 'checksum_sha256'),
@@ -546,6 +560,7 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
     * `application/xml`
     * `application/atom+xml`
     * `application/x-sql`
+    * `application/yaml`
 
     This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favor of metadata.
 
@@ -611,6 +626,7 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
         cache_control=pulumi.get(__response__, 'cache_control'),
         checksum_crc32=pulumi.get(__response__, 'checksum_crc32'),
         checksum_crc32c=pulumi.get(__response__, 'checksum_crc32c'),
+        checksum_crc64nvme=pulumi.get(__response__, 'checksum_crc64nvme'),
         checksum_mode=pulumi.get(__response__, 'checksum_mode'),
         checksum_sha1=pulumi.get(__response__, 'checksum_sha1'),
         checksum_sha256=pulumi.get(__response__, 'checksum_sha256'),

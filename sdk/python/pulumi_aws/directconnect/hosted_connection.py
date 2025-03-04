@@ -26,7 +26,7 @@ class HostedConnectionArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a HostedConnection resource.
-        :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         :param pulumi.Input[str] connection_id: The ID of the interconnect or LAG.
         :param pulumi.Input[str] owner_account_id: The ID of the AWS account of the customer for the connection.
         :param pulumi.Input[int] vlan: The dedicated VLAN provisioned to the hosted connection.
@@ -43,7 +43,7 @@ class HostedConnectionArgs:
     @pulumi.getter
     def bandwidth(self) -> pulumi.Input[str]:
         """
-        The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         """
         return pulumi.get(self, "bandwidth")
 
@@ -121,7 +121,7 @@ class _HostedConnectionState:
         """
         Input properties used for looking up and filtering HostedConnection resources.
         :param pulumi.Input[str] aws_device: The Direct Connect endpoint on which the physical connection terminates.
-        :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         :param pulumi.Input[str] connection_id: The ID of the interconnect or LAG.
         :param pulumi.Input[str] has_logical_redundancy: Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         :param pulumi.Input[bool] jumbo_frame_capable: Boolean value representing if jumbo frames have been enabled for this connection.
@@ -183,7 +183,7 @@ class _HostedConnectionState:
     @pulumi.getter
     def bandwidth(self) -> Optional[pulumi.Input[str]]:
         """
-        The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         """
         return pulumi.get(self, "bandwidth")
 
@@ -378,7 +378,7 @@ class HostedConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         :param pulumi.Input[str] connection_id: The ID of the interconnect or LAG.
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[str] owner_account_id: The ID of the AWS account of the customer for the connection.
@@ -492,7 +492,7 @@ class HostedConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_device: The Direct Connect endpoint on which the physical connection terminates.
-        :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         :param pulumi.Input[str] connection_id: The ID of the interconnect or LAG.
         :param pulumi.Input[str] has_logical_redundancy: Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         :param pulumi.Input[bool] jumbo_frame_capable: Boolean value representing if jumbo frames have been enabled for this connection.
@@ -540,7 +540,7 @@ class HostedConnection(pulumi.CustomResource):
     @pulumi.getter
     def bandwidth(self) -> pulumi.Output[str]:
         """
-        The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         """
         return pulumi.get(self, "bandwidth")
 
