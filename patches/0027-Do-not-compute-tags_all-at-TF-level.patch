@@ -5,78 +5,26 @@ Subject: [PATCH] Do not compute tags_all at TF level
 
 
 diff --git a/internal/framework/resource_with_configure.go b/internal/framework/resource_with_configure.go
-index b83274d46e..28336bc295 100644
+index 6ece15b4f4..89844a1233 100644
 --- a/internal/framework/resource_with_configure.go
 +++ b/internal/framework/resource_with_configure.go
-@@ -6,6 +6,8 @@ package framework
- import (
- 	"context"
+@@ -30,6 +30,11 @@ func (r *ResourceWithConfigure) Configure(_ context.Context, request resource.Co
  
-+	"github.com/hashicorp/terraform-plugin-framework/attr"
-+	"github.com/hashicorp/terraform-plugin-framework/path"
- 	"github.com/hashicorp/terraform-plugin-framework/resource"
- 	"github.com/hashicorp/terraform-provider-aws/internal/conns"
- )
-@@ -29,3 +31,54 @@ func (r *ResourceWithConfigure) Configure(_ context.Context, request resource.Co
- 		r.meta = v
- 	}
- }
-+
-+// SetTagsAll calculates the new value for the `tags_all` attribute.
-+func (r *ResourceWithConfigure) SetTagsAll(ctx context.Context, request resource.ModifyPlanRequest, response *resource.ModifyPlanResponse) {
+ // SetTagsAll calculates the new value for the `tags_all` attribute.
+ func (r *ResourceWithConfigure) SetTagsAll(ctx context.Context, request resource.ModifyPlanRequest, response *resource.ModifyPlanResponse) {
 +	// Skip SetTagsAll in Pulumi because it is handled at Pulumi provider level.
 +	if 1+1 == 2 {
 +		return
 +	}
 +
-+	// If the entire plan is null, the resource is planned for destruction.
-+	if request.Plan.Raw.IsNull() {
-+		return
-+	}
-+
-+	defaultTagsConfig := r.Meta().DefaultTagsConfig(ctx)
-+	ignoreTagsConfig := r.Meta().IgnoreTagsConfig(ctx)
-+
-+	var planTags tftags.Map
-+
-+	response.Diagnostics.Append(request.Plan.GetAttribute(ctx, path.Root(names.AttrTags), &planTags)...)
-+
-+	if response.Diagnostics.HasError() {
-+		return
-+	}
-+
-+	if !planTags.IsUnknown() {
-+		if !mapHasUnknownElements(planTags) {
-+			resourceTags := tftags.New(ctx, planTags)
-+			allTags := defaultTagsConfig.MergeTags(resourceTags).IgnoreConfig(ignoreTagsConfig)
-+
-+			response.Diagnostics.Append(response.Plan.SetAttribute(ctx, path.Root(names.AttrTagsAll), flex.FlattenFrameworkStringValueMapLegacy(ctx, allTags.Map()))...)
-+		} else {
-+			response.Diagnostics.Append(response.Plan.SetAttribute(ctx, path.Root(names.AttrTagsAll), tftags.Unknown)...)
-+		}
-+	} else {
-+		response.Diagnostics.Append(response.Plan.SetAttribute(ctx, path.Root(names.AttrTagsAll), tftags.Unknown)...)
-+	}
-+}
-+
-+type mapValueElementsable interface {
-+	Elements() map[string]attr.Value
-+}
-+
-+func mapHasUnknownElements(m mapValueElementsable) bool {
-+	for _, v := range m.Elements() {
-+		if v.IsUnknown() {
-+			return true
-+		}
-+	}
-+
-+	return false
-+}
+ 	// If the entire plan is null, the resource is planned for destruction.
+ 	if request.Plan.Raw.IsNull() {
+ 		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 4605783c71..c06189571b 100644
+index b94702c6e1..7068bc7a63 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -418,8 +418,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -445,8 +445,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  					continue
  				}
  				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {
@@ -88,10 +36,10 @@ index 4605783c71..c06189571b 100644
  					}
  				} else {
 diff --git a/internal/service/appconfig/environment.go b/internal/service/appconfig/environment.go
-index d75d8c6d3d..0b20755675 100644
+index 23d078f15a..a92046e029 100644
 --- a/internal/service/appconfig/environment.go
 +++ b/internal/service/appconfig/environment.go
-@@ -93,7 +93,7 @@ func (r *resourceEnvironment) Schema(ctx context.Context, request resource.Schem
+@@ -97,7 +97,7 @@ func (r *resourceEnvironment) Schema(ctx context.Context, request resource.Schem
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -101,10 +49,10 @@ index d75d8c6d3d..0b20755675 100644
  		Blocks: map[string]schema.Block{
  			"monitor": schema.SetNestedBlock{
 diff --git a/internal/service/auditmanager/assessment.go b/internal/service/auditmanager/assessment.go
-index d7100e8193..e8139a048a 100644
+index ff75a96aa5..e1b9071672 100644
 --- a/internal/service/auditmanager/assessment.go
 +++ b/internal/service/auditmanager/assessment.go
-@@ -91,7 +91,7 @@ func (r *resourceAssessment) Schema(ctx context.Context, req resource.SchemaRequ
+@@ -95,7 +95,7 @@ func (r *resourceAssessment) Schema(ctx context.Context, req resource.SchemaRequ
  				Computed: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -114,10 +62,10 @@ index d7100e8193..e8139a048a 100644
  		Blocks: map[string]schema.Block{
  			"assessment_reports_destination": schema.ListNestedBlock{
 diff --git a/internal/service/auditmanager/control.go b/internal/service/auditmanager/control.go
-index a92da515fe..5aca63a43e 100644
+index 1e8dee5071..415f7fee72 100644
 --- a/internal/service/auditmanager/control.go
 +++ b/internal/service/auditmanager/control.go
-@@ -63,7 +63,7 @@ func (r *resourceControl) Schema(ctx context.Context, req resource.SchemaRequest
+@@ -67,7 +67,7 @@ func (r *resourceControl) Schema(ctx context.Context, req resource.SchemaRequest
  				Required: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -127,10 +75,10 @@ index a92da515fe..5aca63a43e 100644
  				Optional: true,
  			},
 diff --git a/internal/service/auditmanager/framework.go b/internal/service/auditmanager/framework.go
-index 0e92b05365..08051ccf5e 100644
+index cf3de94d80..4d1861ec21 100644
 --- a/internal/service/auditmanager/framework.go
 +++ b/internal/service/auditmanager/framework.go
-@@ -65,7 +65,7 @@ func (r *resourceFramework) Schema(ctx context.Context, req resource.SchemaReque
+@@ -69,7 +69,7 @@ func (r *resourceFramework) Schema(ctx context.Context, req resource.SchemaReque
  				Required: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -140,10 +88,10 @@ index 0e92b05365..08051ccf5e 100644
  		Blocks: map[string]schema.Block{
  			"control_sets": schema.SetNestedBlock{
 diff --git a/internal/service/batch/job_queue.go b/internal/service/batch/job_queue.go
-index 40c55e34c0..8c33ef5789 100644
+index 4c54acd904..1b5738f598 100644
 --- a/internal/service/batch/job_queue.go
 +++ b/internal/service/batch/job_queue.go
-@@ -93,7 +93,7 @@ func (r *jobQueueResource) Schema(ctx context.Context, request resource.SchemaRe
+@@ -97,7 +97,7 @@ func (r *jobQueueResource) Schema(ctx context.Context, request resource.SchemaRe
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -166,10 +114,10 @@ index 3d442ce442..d4c8454958 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/ec2/ec2_instance_connect_endpoint.go b/internal/service/ec2/ec2_instance_connect_endpoint.go
-index c18a27c103..caf5b73210 100644
+index 2bb0e5bdd3..9baea67bbb 100644
 --- a/internal/service/ec2/ec2_instance_connect_endpoint.go
 +++ b/internal/service/ec2/ec2_instance_connect_endpoint.go
-@@ -114,7 +114,7 @@ func (r *instanceConnectEndpointResource) Schema(ctx context.Context, req resour
+@@ -118,7 +118,7 @@ func (r *instanceConnectEndpointResource) Schema(ctx context.Context, req resour
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -179,10 +127,10 @@ index c18a27c103..caf5b73210 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/ec2/vpc_security_group_ingress_rule.go b/internal/service/ec2/vpc_security_group_ingress_rule.go
-index 0572498f92..a1c1120c81 100644
+index 7999d03cfe..4a561a80f0 100644
 --- a/internal/service/ec2/vpc_security_group_ingress_rule.go
 +++ b/internal/service/ec2/vpc_security_group_ingress_rule.go
-@@ -225,7 +225,7 @@ func (r *securityGroupRuleResource) Schema(ctx context.Context, request resource
+@@ -229,7 +229,7 @@ func (r *securityGroupRuleResource) Schema(ctx context.Context, request resource
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -192,10 +140,10 @@ index 0572498f92..a1c1120c81 100644
  				Optional: true,
  				Validators: []validator.Int64{
 diff --git a/internal/service/lexv2models/bot.go b/internal/service/lexv2models/bot.go
-index 493b68226c..76174a57df 100644
+index 6df78b45d4..b919a76587 100644
 --- a/internal/service/lexv2models/bot.go
 +++ b/internal/service/lexv2models/bot.go
-@@ -78,7 +78,7 @@ func (r *resourceBot) Schema(ctx context.Context, req resource.SchemaRequest, re
+@@ -82,7 +82,7 @@ func (r *resourceBot) Schema(ctx context.Context, req resource.SchemaRequest, re
  				Required:   true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -205,10 +153,10 @@ index 493b68226c..76174a57df 100644
  				ElementType: types.StringType,
  				Optional:    true,
 diff --git a/internal/service/opensearchserverless/collection.go b/internal/service/opensearchserverless/collection.go
-index c4b62eb593..a1c9435dd0 100644
+index 6903b3ade4..b15d94f975 100644
 --- a/internal/service/opensearchserverless/collection.go
 +++ b/internal/service/opensearchserverless/collection.go
-@@ -120,7 +120,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ
+@@ -124,7 +124,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -218,10 +166,10 @@ index c4b62eb593..a1c9435dd0 100644
  				Optional: true,
  				Computed: true,
 diff --git a/internal/service/quicksight/namespace.go b/internal/service/quicksight/namespace.go
-index eac53176f3..893ce5ca09 100644
+index 404f657e01..ceb29112cf 100644
 --- a/internal/service/quicksight/namespace.go
 +++ b/internal/service/quicksight/namespace.go
-@@ -94,7 +94,7 @@ func (r *namespaceResource) Schema(ctx context.Context, req resource.SchemaReque
+@@ -98,7 +98,7 @@ func (r *namespaceResource) Schema(ctx context.Context, req resource.SchemaReque
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -231,10 +179,10 @@ index eac53176f3..893ce5ca09 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/quicksight/vpc_connection.go b/internal/service/quicksight/vpc_connection.go
-index 6e53dad549..3e63f6e32b 100644
+index 8607c6dc0d..eb2e74d1d6 100644
 --- a/internal/service/quicksight/vpc_connection.go
 +++ b/internal/service/quicksight/vpc_connection.go
-@@ -137,7 +137,7 @@ func (r *vpcConnectionResource) Schema(ctx context.Context, req resource.SchemaR
+@@ -141,7 +141,7 @@ func (r *vpcConnectionResource) Schema(ctx context.Context, req resource.SchemaR
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -244,10 +192,10 @@ index 6e53dad549..3e63f6e32b 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/resourceexplorer2/index.go b/internal/service/resourceexplorer2/index.go
-index 0ca2e2ab5c..2744af76b0 100644
+index e02aa6a5e3..ba5f3d30a5 100644
 --- a/internal/service/resourceexplorer2/index.go
 +++ b/internal/service/resourceexplorer2/index.go
-@@ -54,7 +54,7 @@ func (r *indexResource) Schema(ctx context.Context, request resource.SchemaReque
+@@ -58,7 +58,7 @@ func (r *indexResource) Schema(ctx context.Context, request resource.SchemaReque
  			names.AttrARN:     framework.ARNAttributeComputedOnly(),
  			names.AttrID:      framework.IDAttribute(),
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -257,10 +205,10 @@ index 0ca2e2ab5c..2744af76b0 100644
  				CustomType: fwtypes.StringEnumType[awstypes.IndexType](),
  				Required:   true,
 diff --git a/internal/service/resourceexplorer2/view.go b/internal/service/resourceexplorer2/view.go
-index 1e493d9533..978f73b660 100644
+index 3f65cc8e80..6191e940a5 100644
 --- a/internal/service/resourceexplorer2/view.go
 +++ b/internal/service/resourceexplorer2/view.go
-@@ -77,7 +77,7 @@ func (r *viewResource) Schema(ctx context.Context, request resource.SchemaReques
+@@ -81,7 +81,7 @@ func (r *viewResource) Schema(ctx context.Context, request resource.SchemaReques
  				Computed: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -270,10 +218,10 @@ index 1e493d9533..978f73b660 100644
  		Blocks: map[string]schema.Block{
  			"filters": schema.ListNestedBlock{
 diff --git a/internal/service/workspaces/connection_alias.go b/internal/service/workspaces/connection_alias.go
-index d3ac9ee4b6..11b174389e 100644
+index 7d479c7326..a240cdb83a 100644
 --- a/internal/service/workspaces/connection_alias.go
 +++ b/internal/service/workspaces/connection_alias.go
-@@ -71,7 +71,7 @@ func (r *connectionAliasResource) Schema(ctx context.Context, request resource.S
+@@ -75,7 +75,7 @@ func (r *connectionAliasResource) Schema(ctx context.Context, request resource.S
  				Description: "The current state of the connection alias.",
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -283,16 +231,11 @@ index d3ac9ee4b6..11b174389e 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/verify/diff.go b/internal/verify/diff.go
-index 0a6e41dae4..5e4aeb3c69 100644
+index afffb80b4a..b5b38de78a 100644
 --- a/internal/verify/diff.go
 +++ b/internal/verify/diff.go
-@@ -4,10 +4,24 @@
- package verify
- 
- import (
-+	"time"
-+
- 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+@@ -13,7 +13,19 @@ import (
+ 	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
  )
  
 -// Find JSON diff functions in the json.go file.
@@ -310,8 +253,8 @@ index 0a6e41dae4..5e4aeb3c69 100644
 +	}
 +}
  
- // SuppressMissingOptionalConfigurationBlock handles configuration block attributes in the following scenario:
- //   - The resource schema includes an optional configuration block with defaults
+ // SetTagsDiff sets the new plan difference with the result of
+ // merging resource tags on to those defined at the provider-level;
 diff --git a/shim/shim.go b/shim/shim.go
 index 2af7c06925..ce64074bfd 100644
 --- a/shim/shim.go
