@@ -509,6 +509,10 @@
     {
       "old": "if omitted, Terraform will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.",
       "new": "if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified."
+    },
+    {
+      "old": "-> **Note:** Write-Only argument `password_wo` is available to use in place of `password`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
+      "new": "-> **Note:** Write-Only argument `password_wo` is available to use in place of `password`. Write-Only arguments are supported in HashiCorp TODO 1.11.0 and later. Learn more.\n"
     }
   ],
   "db_option_group.html.markdown": [
@@ -565,6 +569,10 @@
     {
       "old": "* `cluster_identifier` - (Optional, Forces new resources) The cluster identifier. If omitted, Terraform will assign a random, unique identifier.",
       "new": "* `cluster_identifier` - (Optional, Forces new resources) The cluster identifier. If omitted, the provider will assign a random, unique identifier."
+    },
+    {
+      "old": "-> **Note:** Write-Only argument `master_password_wo` is available to use in place of `master_password`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
+      "new": "-> **Note:** Write-Only argument `master_password_wo` is available to use in place of `master_password`. Write-Only arguments are supported in HashiCorp TODO 1.11.0 and later. Learn more.\n"
     }
   ],
   "docdb_cluster_instance.html.markdown": [
@@ -1673,6 +1681,10 @@
     {
       "old": "* `replication_source_identifier` - (Optional) ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent Terraform from showing differences for this argument instead of configuring this value.\n",
       "new": "* `replication_source_identifier` - (Optional) ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.\n"
+    },
+    {
+      "old": "-> **Note:** Write-Only argument `master_password_wo` is available to use in place of `master_password`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
+      "new": "-> **Note:** Write-Only argument `master_password_wo` is available to use in place of `master_password`. Write-Only arguments are supported in HashiCorp TODO 1.11.0 and later. Learn more.\n"
     }
   ],
   "rds_cluster_activity_stream.html.markdown": [
@@ -2117,6 +2129,10 @@
     {
       "old": "~> **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise Terraform will show a perpetual difference.",
       "new": "~> **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference."
+    },
+    {
+      "old": "-> **Note:** Write-Only argument `secret_string_wo` is available to use in place of `secret_string`. Write-Only argumentss are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
+      "new": "-> **Note:** Write-Only argument `secret_string_wo` is available to use in place of `secret_string`. Write-Only argumentss are supported in HashiCorp TODO 1.11.0 and later. Learn more.\n"
     }
   ],
   "security_group.html.markdown": [
@@ -2277,6 +2293,10 @@
     {
       "old": "* `value_wo` - (Optional, Write-Only, exactly one of `value`, `value_wo` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.\n",
       "new": "* `value_wo` - (Optional, Write-Only, exactly one of `value`, `value_wo` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.\n"
+    },
+    {
+      "old": "-> **Note:** Write-Only argument `value_wo` is available to use in place of `value`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
+      "new": "-> **Note:** Write-Only argument `value_wo` is available to use in place of `value`. Write-Only arguments are supported in HashiCorp TODO 1.11.0 and later. Learn more.\n"
     }
   ],
   "ssmcontacts_contact.html.markdown": [
