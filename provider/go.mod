@@ -2,6 +2,11 @@ module github.com/pulumi/pulumi-aws/provider/v6
 
 go 1.23.5
 
+// Disable experimental post-quantum key exchange mechanism X25519Kyber768Draft00
+// This was causing errors with AWS Network Firewall
+// https://github.com/pulumi/pulumi-aws/issues/4582
+godebug tlskyber=0
+
 require (
 	github.com/aws/aws-sdk-go-v2/config v1.29.7
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.29
