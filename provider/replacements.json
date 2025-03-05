@@ -512,7 +512,7 @@
     },
     {
       "old": "-> **Note:** Write-Only argument `password_wo` is available to use in place of `password`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
-      "new": "-> **Note:** Write-Only argument `password_wo` is available to use in place of `password`. Write-Only arguments are supported in HashiCorp TODO 1.11.0 and later. Learn more.\n"
+      "new": ""
     }
   ],
   "db_option_group.html.markdown": [
@@ -572,7 +572,7 @@
     },
     {
       "old": "-> **Note:** Write-Only argument `master_password_wo` is available to use in place of `master_password`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
-      "new": "-> **Note:** Write-Only argument `master_password_wo` is available to use in place of `master_password`. Write-Only arguments are supported in HashiCorp TODO 1.11.0 and later. Learn more.\n"
+      "new": ""
     }
   ],
   "docdb_cluster_instance.html.markdown": [
@@ -1684,7 +1684,7 @@
     },
     {
       "old": "-> **Note:** Write-Only argument `master_password_wo` is available to use in place of `master_password`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
-      "new": "-> **Note:** Write-Only argument `master_password_wo` is available to use in place of `master_password`. Write-Only arguments are supported in HashiCorp TODO 1.11.0 and later. Learn more.\n"
+      "new": ""
     }
   ],
   "rds_cluster_activity_stream.html.markdown": [
@@ -2132,7 +2132,7 @@
     },
     {
       "old": "-> **Note:** Write-Only argument `secret_string_wo` is available to use in place of `secret_string`. Write-Only argumentss are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
-      "new": "-> **Note:** Write-Only argument `secret_string_wo` is available to use in place of `secret_string`. Write-Only argumentss are supported in HashiCorp TODO 1.11.0 and later. Learn more.\n"
+      "new": ""
     }
   ],
   "security_group.html.markdown": [
@@ -2296,7 +2296,7 @@
     },
     {
       "old": "-> **Note:** Write-Only argument `value_wo` is available to use in place of `value`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
-      "new": "-> **Note:** Write-Only argument `value_wo` is available to use in place of `value`. Write-Only arguments are supported in HashiCorp TODO 1.11.0 and later. Learn more.\n"
+      "new": ""
     }
   ],
   "ssmcontacts_contact.html.markdown": [
