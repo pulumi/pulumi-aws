@@ -20,6 +20,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class AppconfigFunctions {
@@ -200,6 +201,51 @@ public final class AppconfigFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetConfigurationProfileResult> getConfigurationProfile(GetConfigurationProfileArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:appconfig/getConfigurationProfile:getConfigurationProfile", TypeShape.of(GetConfigurationProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides access to an AppConfig Configuration Profile.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appconfig.AppconfigFunctions;
+     * import com.pulumi.aws.appconfig.inputs.GetConfigurationProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppconfigFunctions.getConfigurationProfile(GetConfigurationProfileArgs.builder()
+     *             .applicationId("b5d5gpj")
+     *             .configurationProfileId("qrbb1c1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetConfigurationProfileResult> getConfigurationProfilePlain(GetConfigurationProfilePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:appconfig/getConfigurationProfile:getConfigurationProfile", TypeShape.of(GetConfigurationProfileResult.class), args, Utilities.withVersion(options));
     }
@@ -246,6 +292,21 @@ public final class AppconfigFunctions {
      * 
      */
     public static Output<GetConfigurationProfilesResult> getConfigurationProfiles(GetConfigurationProfilesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", TypeShape.of(GetConfigurationProfilesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
+     * Profile IDs to another resource.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetConfigurationProfilesResult> getConfigurationProfiles(GetConfigurationProfilesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", TypeShape.of(GetConfigurationProfilesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -440,6 +501,51 @@ public final class AppconfigFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:appconfig/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides access to an AppConfig Environment.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appconfig.AppconfigFunctions;
+     * import com.pulumi.aws.appconfig.inputs.GetEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppconfigFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .applicationId("b5d5gpj")
+     *             .environmentId("qrbb1c1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:appconfig/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
     }
@@ -576,6 +682,51 @@ public final class AppconfigFunctions {
      * 
      */
     public static Output<GetEnvironmentsResult> getEnvironments(GetEnvironmentsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:appconfig/getEnvironments:getEnvironments", TypeShape.of(GetEnvironmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
+     * resource.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appconfig.AppconfigFunctions;
+     * import com.pulumi.aws.appconfig.inputs.GetEnvironmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppconfigFunctions.getEnvironments(GetEnvironmentsArgs.builder()
+     *             .applicationId("a1d3rpe")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEnvironmentsResult> getEnvironments(GetEnvironmentsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:appconfig/getEnvironments:getEnvironments", TypeShape.of(GetEnvironmentsResult.class), args, Utilities.withVersion(options));
     }
     /**

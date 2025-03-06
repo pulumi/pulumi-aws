@@ -26,6 +26,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class QuicksightFunctions {
@@ -171,6 +172,54 @@ public final class QuicksightFunctions {
      */
     @Deprecated /* aws.quicksight/getanalysis.getAnalysis has been deprecated in favor of aws.quicksight/getquicksightanalysis.getQuicksightAnalysis */
     public static Output<GetAnalysisResult> getAnalysis(GetAnalysisArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:quicksight/getAnalysis:getAnalysis", TypeShape.of(GetAnalysisResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS QuickSight Analysis.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetQuicksightAnalysisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightAnalysis(GetQuicksightAnalysisArgs.builder()
+     *             .analysisId("example-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * @deprecated
+     * aws.quicksight/getanalysis.getAnalysis has been deprecated in favor of aws.quicksight/getquicksightanalysis.getQuicksightAnalysis
+     * 
+     */
+    @Deprecated /* aws.quicksight/getanalysis.getAnalysis has been deprecated in favor of aws.quicksight/getquicksightanalysis.getQuicksightAnalysis */
+    public static Output<GetAnalysisResult> getAnalysis(GetAnalysisArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:quicksight/getAnalysis:getAnalysis", TypeShape.of(GetAnalysisResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -394,6 +443,50 @@ public final class QuicksightFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetDataSetResult> getDataSet(GetDataSetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:quicksight/getDataSet:getDataSet", TypeShape.of(GetDataSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing a QuickSight Data Set.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetDataSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getDataSet(GetDataSetArgs.builder()
+     *             .dataSetId("example-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetDataSetResult> getDataSetPlain(GetDataSetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:quicksight/getDataSet:getDataSet", TypeShape.of(GetDataSetResult.class), args, Utilities.withVersion(options));
     }
@@ -527,6 +620,50 @@ public final class QuicksightFunctions {
      * 
      */
     public static Output<GetQuicksightAnalysisResult> getQuicksightAnalysis(GetQuicksightAnalysisArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", TypeShape.of(GetQuicksightAnalysisResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS QuickSight Analysis.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetQuicksightAnalysisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightAnalysis(GetQuicksightAnalysisArgs.builder()
+     *             .analysisId("example-id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetQuicksightAnalysisResult> getQuicksightAnalysis(GetQuicksightAnalysisArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", TypeShape.of(GetQuicksightAnalysisResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -709,6 +846,52 @@ public final class QuicksightFunctions {
      * 
      */
     public static Output<GetQuicksightGroupResult> getQuicksightGroup(GetQuicksightGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:quicksight/getQuicksightGroup:getQuicksightGroup", TypeShape.of(GetQuicksightGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight group. By using this data source, you can reference QuickSight group
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
+     *             .groupName("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetQuicksightGroupResult> getQuicksightGroup(GetQuicksightGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:quicksight/getQuicksightGroup:getQuicksightGroup", TypeShape.of(GetQuicksightGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -938,6 +1121,52 @@ public final class QuicksightFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetQuicksightUserResult> getQuicksightUser(GetQuicksightUserArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:quicksight/getQuicksightUser:getQuicksightUser", TypeShape.of(GetQuicksightUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight user. By using this data source, you can reference QuickSight user
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
+     *             .userName("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetQuicksightUserResult> getQuicksightUserPlain(GetQuicksightUserPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:quicksight/getQuicksightUser:getQuicksightUser", TypeShape.of(GetQuicksightUserResult.class), args, Utilities.withVersion(options));
     }
@@ -1071,6 +1300,50 @@ public final class QuicksightFunctions {
      * 
      */
     public static Output<GetThemeResult> getTheme(GetThemeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:quicksight/getTheme:getTheme", TypeShape.of(GetThemeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS QuickSight Theme.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetThemeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getTheme(GetThemeArgs.builder()
+     *             .themeId("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetThemeResult> getTheme(GetThemeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:quicksight/getTheme:getTheme", TypeShape.of(GetThemeResult.class), args, Utilities.withVersion(options));
     }
     /**

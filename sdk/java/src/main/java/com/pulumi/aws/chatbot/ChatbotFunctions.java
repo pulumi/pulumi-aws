@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ChatbotFunctions {
@@ -144,6 +145,50 @@ public final class ChatbotFunctions {
      * 
      */
     public static Output<GetSlackWorkspaceResult> getSlackWorkspace(GetSlackWorkspaceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:chatbot/getSlackWorkspace:getSlackWorkspace", TypeShape.of(GetSlackWorkspaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Chatbot Slack Workspace.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.chatbot.ChatbotFunctions;
+     * import com.pulumi.aws.chatbot.inputs.GetSlackWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ChatbotFunctions.getSlackWorkspace(GetSlackWorkspaceArgs.builder()
+     *             .slackTeamName("abc")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSlackWorkspaceResult> getSlackWorkspace(GetSlackWorkspaceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:chatbot/getSlackWorkspace:getSlackWorkspace", TypeShape.of(GetSlackWorkspaceResult.class), args, Utilities.withVersion(options));
     }
     /**

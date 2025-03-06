@@ -35,6 +35,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ServicecatalogFunctions {
@@ -168,6 +169,50 @@ public final class ServicecatalogFunctions {
      * 
      */
     public static Output<GetAppregistryApplicationResult> getAppregistryApplication(GetAppregistryApplicationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", TypeShape.of(GetAppregistryApplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Service Catalog AppRegistry Application.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryApplication(GetAppregistryApplicationArgs.builder()
+     *             .id("application-1234")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAppregistryApplicationResult> getAppregistryApplication(GetAppregistryApplicationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", TypeShape.of(GetAppregistryApplicationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -475,6 +520,50 @@ public final class ServicecatalogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAppregistryAttributeGroupResult> getAppregistryAttributeGroup(GetAppregistryAttributeGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getAppregistryAttributeGroup:getAppregistryAttributeGroup", TypeShape.of(GetAppregistryAttributeGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Service Catalog AppRegistry Attribute Group.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryAttributeGroup(GetAppregistryAttributeGroupArgs.builder()
+     *             .name("example_attribute_group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAppregistryAttributeGroupResult> getAppregistryAttributeGroupPlain(GetAppregistryAttributeGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:servicecatalog/getAppregistryAttributeGroup:getAppregistryAttributeGroup", TypeShape.of(GetAppregistryAttributeGroupResult.class), args, Utilities.withVersion(options));
     }
@@ -739,6 +828,50 @@ public final class ServicecatalogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAppregistryAttributeGroupAssociationsResult> getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations", TypeShape.of(GetAppregistryAttributeGroupAssociationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs.builder()
+     *             .id("12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAppregistryAttributeGroupAssociationsResult> getAppregistryAttributeGroupAssociationsPlain(GetAppregistryAttributeGroupAssociationsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations", TypeShape.of(GetAppregistryAttributeGroupAssociationsResult.class), args, Utilities.withVersion(options));
     }
@@ -875,6 +1008,51 @@ public final class ServicecatalogFunctions {
      * 
      */
     public static Output<GetConstraintResult> getConstraint(GetConstraintArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getConstraint:getConstraint", TypeShape.of(GetConstraintResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information on a Service Catalog Constraint.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetConstraintArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
+     *             .acceptLanguage("en")
+     *             .id("cons-hrvy0335")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetConstraintResult> getConstraint(GetConstraintArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:servicecatalog/getConstraint:getConstraint", TypeShape.of(GetConstraintResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1095,6 +1273,50 @@ public final class ServicecatalogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetLaunchPathsResult> getLaunchPaths(GetLaunchPathsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getLaunchPaths:getLaunchPaths", TypeShape.of(GetLaunchPathsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetLaunchPathsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
+     *             .productId("prod-yakog5pdriver")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetLaunchPathsResult> getLaunchPathsPlain(GetLaunchPathsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:servicecatalog/getLaunchPaths:getLaunchPaths", TypeShape.of(GetLaunchPathsResult.class), args, Utilities.withVersion(options));
     }
@@ -1222,6 +1444,48 @@ public final class ServicecatalogFunctions {
      * 
      */
     public static Output<GetPortfolioResult> getPortfolio(GetPortfolioArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getPortfolio:getPortfolio", TypeShape.of(GetPortfolioResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information for a Service Catalog Portfolio.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetPortfolioArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var portfolio = ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
+     *             .id("port-07052002")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPortfolioResult> getPortfolio(GetPortfolioArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:servicecatalog/getPortfolio:getPortfolio", TypeShape.of(GetPortfolioResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1396,6 +1660,50 @@ public final class ServicecatalogFunctions {
      * 
      */
     public static Output<GetPortfolioConstraintsResult> getPortfolioConstraints(GetPortfolioConstraintsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", TypeShape.of(GetPortfolioConstraintsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information on Service Catalog Portfolio Constraints.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetPortfolioConstraintsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
+     *             .portfolioId("port-3lli3b3an")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPortfolioConstraintsResult> getPortfolioConstraints(GetPortfolioConstraintsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", TypeShape.of(GetPortfolioConstraintsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1623,6 +1931,52 @@ public final class ServicecatalogFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetProductResult> getProduct(GetProductArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getProduct:getProduct", TypeShape.of(GetProductResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about a Service Catalog product.
+     * 
+     * &gt; **NOTE:** A &#34;provisioning artifact&#34; is also known as a &#34;version,&#34; and a &#34;distributor&#34; is also known as a &#34;vendor.&#34;
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetProductArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getProduct(GetProductArgs.builder()
+     *             .id("prod-dnigbtea24ste")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:servicecatalog/getProduct:getProduct", TypeShape.of(GetProductResult.class), args, Utilities.withVersion(options));
     }
@@ -1756,6 +2110,50 @@ public final class ServicecatalogFunctions {
      * 
      */
     public static Output<GetProvisioningArtifactsResult> getProvisioningArtifacts(GetProvisioningArtifactsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", TypeShape.of(GetProvisioningArtifactsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists the provisioning artifacts for the specified product.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetProvisioningArtifactsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getProvisioningArtifacts(GetProvisioningArtifactsArgs.builder()
+     *             .productId("prod-yakog5pdriver")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetProvisioningArtifactsResult> getProvisioningArtifacts(GetProvisioningArtifactsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", TypeShape.of(GetProvisioningArtifactsResult.class), args, Utilities.withVersion(options));
     }
     /**

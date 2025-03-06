@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class EmrcontainersFunctions {
@@ -144,6 +145,50 @@ public final class EmrcontainersFunctions {
      * 
      */
     public static Output<GetVirtualClusterResult> getVirtualCluster(GetVirtualClusterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:emrcontainers/getVirtualCluster:getVirtualCluster", TypeShape.of(GetVirtualClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emrcontainers.EmrcontainersFunctions;
+     * import com.pulumi.aws.emrcontainers.inputs.GetVirtualClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EmrcontainersFunctions.getVirtualCluster(GetVirtualClusterArgs.builder()
+     *             .virtualClusterId("example id")
+     *             .build());
+     * 
+     *         ctx.export("name", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.name()));
+     *         ctx.export("arn", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.arn()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVirtualClusterResult> getVirtualCluster(GetVirtualClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:emrcontainers/getVirtualCluster:getVirtualCluster", TypeShape.of(GetVirtualClusterResult.class), args, Utilities.withVersion(options));
     }
     /**

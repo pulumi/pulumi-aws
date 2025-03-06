@@ -23,6 +23,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class GlueFunctions {
@@ -153,6 +154,49 @@ public final class GlueFunctions {
      * 
      */
     public static Output<GetCatalogTableResult> getCatalogTable(GetCatalogTableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:glue/getCatalogTable:getCatalogTable", TypeShape.of(GetCatalogTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source can be used to fetch information about an AWS Glue Data Catalog Table.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetCatalogTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getCatalogTable(GetCatalogTableArgs.builder()
+     *             .name("MyCatalogTable")
+     *             .databaseName("MyCatalogDatabase")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCatalogTableResult> getCatalogTable(GetCatalogTableArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:glue/getCatalogTable:getCatalogTable", TypeShape.of(GetCatalogTableResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -363,6 +407,48 @@ public final class GlueFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:glue/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source can be used to fetch information about a specific Glue Connection.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getConnection(GetConnectionArgs.builder()
+     *             .id("123456789123:connection")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:glue/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }
@@ -490,6 +576,48 @@ public final class GlueFunctions {
      * 
      */
     public static Output<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", TypeShape.of(GetDataCatalogEncryptionSettingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
+     *             .id("123456789123")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", TypeShape.of(GetDataCatalogEncryptionSettingsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -664,6 +792,50 @@ public final class GlueFunctions {
      * 
      */
     public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:glue/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Glue Registry.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:glue/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1413,6 +1585,241 @@ public final class GlueFunctions {
      * 
      */
     public static Output<GetScriptResult> getScript(GetScriptArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:glue/getScript:getScript", TypeShape.of(GetScriptResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
+     * 
+     * ## Example Usage
+     * 
+     * ### Generate Python Script
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
+     *             .language("PYTHON")
+     *             .dagEdges(            
+     *                 GetScriptDagEdgeArgs.builder()
+     *                     .source("datasource0")
+     *                     .target("applymapping1")
+     *                     .build(),
+     *                 GetScriptDagEdgeArgs.builder()
+     *                     .source("applymapping1")
+     *                     .target("selectfields2")
+     *                     .build(),
+     *                 GetScriptDagEdgeArgs.builder()
+     *                     .source("selectfields2")
+     *                     .target("resolvechoice3")
+     *                     .build(),
+     *                 GetScriptDagEdgeArgs.builder()
+     *                     .source("resolvechoice3")
+     *                     .target("datasink4")
+     *                     .build())
+     *             .dagNodes(            
+     *                 GetScriptDagNodeArgs.builder()
+     *                     .id("datasource0")
+     *                     .nodeType("DataSource")
+     *                     .args(                    
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", source.name()))
+     *                             .build(),
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
+     *                             .build())
+     *                     .build(),
+     *                 GetScriptDagNodeArgs.builder()
+     *                     .id("applymapping1")
+     *                     .nodeType("ApplyMapping")
+     *                     .args(GetScriptDagNodeArgArgs.builder()
+     *                         .name("mapping")
+     *                         .value("[(\"column1\", \"string\", \"column1\", \"string\")]")
+     *                         .build())
+     *                     .build(),
+     *                 GetScriptDagNodeArgs.builder()
+     *                     .id("selectfields2")
+     *                     .nodeType("SelectFields")
+     *                     .args(GetScriptDagNodeArgArgs.builder()
+     *                         .name("paths")
+     *                         .value("[\"column1\"]")
+     *                         .build())
+     *                     .build(),
+     *                 GetScriptDagNodeArgs.builder()
+     *                     .id("resolvechoice3")
+     *                     .nodeType("ResolveChoice")
+     *                     .args(                    
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("choice")
+     *                             .value("\"MATCH_CATALOG\"")
+     *                             .build(),
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .build(),
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .build())
+     *                     .build(),
+     *                 GetScriptDagNodeArgs.builder()
+     *                     .id("datasink4")
+     *                     .nodeType("DataSink")
+     *                     .args(                    
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .build(),
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .build())
+     *                     .build())
+     *             .build());
+     * 
+     *         ctx.export("pythonScript", example.applyValue(getScriptResult -> getScriptResult.pythonScript()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Generate Scala Code
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
+     *             .language("SCALA")
+     *             .dagEdges(            
+     *                 GetScriptDagEdgeArgs.builder()
+     *                     .source("datasource0")
+     *                     .target("applymapping1")
+     *                     .build(),
+     *                 GetScriptDagEdgeArgs.builder()
+     *                     .source("applymapping1")
+     *                     .target("selectfields2")
+     *                     .build(),
+     *                 GetScriptDagEdgeArgs.builder()
+     *                     .source("selectfields2")
+     *                     .target("resolvechoice3")
+     *                     .build(),
+     *                 GetScriptDagEdgeArgs.builder()
+     *                     .source("resolvechoice3")
+     *                     .target("datasink4")
+     *                     .build())
+     *             .dagNodes(            
+     *                 GetScriptDagNodeArgs.builder()
+     *                     .id("datasource0")
+     *                     .nodeType("DataSource")
+     *                     .args(                    
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", source.name()))
+     *                             .build(),
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", sourceAwsGlueCatalogTable.name()))
+     *                             .build())
+     *                     .build(),
+     *                 GetScriptDagNodeArgs.builder()
+     *                     .id("applymapping1")
+     *                     .nodeType("ApplyMapping")
+     *                     .args(GetScriptDagNodeArgArgs.builder()
+     *                         .name("mappings")
+     *                         .value("[(\"column1\", \"string\", \"column1\", \"string\")]")
+     *                         .build())
+     *                     .build(),
+     *                 GetScriptDagNodeArgs.builder()
+     *                     .id("selectfields2")
+     *                     .nodeType("SelectFields")
+     *                     .args(GetScriptDagNodeArgArgs.builder()
+     *                         .name("paths")
+     *                         .value("[\"column1\"]")
+     *                         .build())
+     *                     .build(),
+     *                 GetScriptDagNodeArgs.builder()
+     *                     .id("resolvechoice3")
+     *                     .nodeType("ResolveChoice")
+     *                     .args(                    
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("choice")
+     *                             .value("\"MATCH_CATALOG\"")
+     *                             .build(),
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .build(),
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .build())
+     *                     .build(),
+     *                 GetScriptDagNodeArgs.builder()
+     *                     .id("datasink4")
+     *                     .nodeType("DataSink")
+     *                     .args(                    
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("database")
+     *                             .value(String.format("\"%s\"", destination.name()))
+     *                             .build(),
+     *                         GetScriptDagNodeArgArgs.builder()
+     *                             .name("table_name")
+     *                             .value(String.format("\"%s\"", destinationAwsGlueCatalogTable.name()))
+     *                             .build())
+     *                     .build())
+     *             .build());
+     * 
+     *         ctx.export("scalaCode", example.applyValue(getScriptResult -> getScriptResult.scalaCode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetScriptResult> getScript(GetScriptArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:glue/getScript:getScript", TypeShape.of(GetScriptResult.class), args, Utilities.withVersion(options));
     }
     /**

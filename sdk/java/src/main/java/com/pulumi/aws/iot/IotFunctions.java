@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -331,6 +332,59 @@ public final class IotFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:iot/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Returns a unique endpoint specific to the AWS account making the call.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getEndpoint();
+     * 
+     *         var agent = new Pod("agent", PodArgs.builder()
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name("my-device")
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:iot/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
     }
@@ -597,6 +651,59 @@ public final class IotFunctions {
      * 
      */
     public static Output<GetRegistrationCodeResult> getRegistrationCode(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:iot/getRegistrationCode:getRegistrationCode", TypeShape.of(GetRegistrationCodeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets a registration code used to register a CA certificate with AWS IoT.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iot.IotFunctions;
+     * import com.pulumi.tls.privateKey;
+     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.certRequest;
+     * import com.pulumi.tls.CertRequestArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IotFunctions.getRegistrationCode();
+     * 
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
+     *             .algorithm("RSA")
+     *             .build());
+     * 
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
+     *             .keyAlgorithm("RSA")
+     *             .privateKeyPem(verification.privateKeyPem())
+     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRegistrationCodeResult> getRegistrationCode(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:iot/getRegistrationCode:getRegistrationCode", TypeShape.of(GetRegistrationCodeResult.class), args, Utilities.withVersion(options));
     }
     /**
