@@ -6048,7 +6048,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_quicksight_role_membership"].ComputeID = func(
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
-		return attrWithSeparator(state, "role", "memberName"), nil
+		return attrWithSeparator(state, ",", "awsAccountId", "namespace", "role", "memberName"), nil
 	}
 	prov.Resources["aws_xray_resource_policy"].ComputeID = func(
 		ctx context.Context, state resource.PropertyMap,
@@ -6063,7 +6063,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_rds_shard_group"].ComputeID = func(
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
-		return attr(state, "arn"), nil
+		return attr(state, "dbShardGroupIdentifier"), nil
 	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
