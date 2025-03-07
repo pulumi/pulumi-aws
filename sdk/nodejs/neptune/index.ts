@@ -50,11 +50,6 @@ export type GlobalCluster = import("./globalCluster").GlobalCluster;
 export const GlobalCluster: typeof import("./globalCluster").GlobalCluster = null as any;
 utilities.lazyLoad(exports, ["GlobalCluster"], () => require("./globalCluster"));
 
-export { GraphGraphArgs, GraphGraphState } from "./graphGraph";
-export type GraphGraph = import("./graphGraph").GraphGraph;
-export const GraphGraph: typeof import("./graphGraph").GraphGraph = null as any;
-utilities.lazyLoad(exports, ["GraphGraph"], () => require("./graphGraph"));
-
 export { ParameterGroupArgs, ParameterGroupState } from "./parameterGroup";
 export type ParameterGroup = import("./parameterGroup").ParameterGroup;
 export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
@@ -84,8 +79,6 @@ const _module = {
                 return new EventSubscription(name, <any>undefined, { urn })
             case "aws:neptune/globalCluster:GlobalCluster":
                 return new GlobalCluster(name, <any>undefined, { urn })
-            case "aws:neptune/graphGraph:GraphGraph":
-                return new GraphGraph(name, <any>undefined, { urn })
             case "aws:neptune/parameterGroup:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
             case "aws:neptune/subnetGroup:SubnetGroup":
@@ -102,6 +95,5 @@ pulumi.runtime.registerResourceModule("aws", "neptune/clusterParameterGroup", _m
 pulumi.runtime.registerResourceModule("aws", "neptune/clusterSnapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "neptune/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "neptune/globalCluster", _module)
-pulumi.runtime.registerResourceModule("aws", "neptune/graphGraph", _module)
 pulumi.runtime.registerResourceModule("aws", "neptune/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "neptune/subnetGroup", _module)

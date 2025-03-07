@@ -308,6 +308,8 @@ if typing.TYPE_CHECKING:
     mwaa = __mwaa
     import pulumi_aws.neptune as __neptune
     neptune = __neptune
+    import pulumi_aws.neptunegraph as __neptunegraph
+    neptunegraph = __neptunegraph
     import pulumi_aws.networkfirewall as __networkfirewall
     networkfirewall = __networkfirewall
     import pulumi_aws.networkmanager as __networkmanager
@@ -607,6 +609,7 @@ else:
     mskconnect = _utilities.lazy_import('pulumi_aws.mskconnect')
     mwaa = _utilities.lazy_import('pulumi_aws.mwaa')
     neptune = _utilities.lazy_import('pulumi_aws.neptune')
+    neptunegraph = _utilities.lazy_import('pulumi_aws.neptunegraph')
     networkfirewall = _utilities.lazy_import('pulumi_aws.networkfirewall')
     networkmanager = _utilities.lazy_import('pulumi_aws.networkmanager')
     networkmonitor = _utilities.lazy_import('pulumi_aws.networkmonitor')
@@ -8299,14 +8302,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "neptune/graphGraph",
-  "fqn": "pulumi_aws.neptune",
-  "classes": {
-   "aws:neptune/graphGraph:GraphGraph": "GraphGraph"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "neptune/parameterGroup",
   "fqn": "pulumi_aws.neptune",
   "classes": {
@@ -8319,6 +8314,14 @@ _utilities.register(
   "fqn": "pulumi_aws.neptune",
   "classes": {
    "aws:neptune/subnetGroup:SubnetGroup": "SubnetGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "neptunegraph/graph",
+  "fqn": "pulumi_aws.neptunegraph",
+  "classes": {
+   "aws:neptunegraph/graph:Graph": "Graph"
   }
  },
  {

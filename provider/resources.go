@@ -189,6 +189,7 @@ const (
 	mskConnectMod               = "MskConnect"               // MSK Connect
 	mwaaMod                     = "Mwaa"                     // Managed Workflows for Apache Airflow
 	neptuneMod                  = "Neptune"                  // Neptune
+	neptuneGraphMod             = "NeptuneGraph"             // Neptune Graph
 	networkFirewallMod          = "NetworkFirewall"          // Network Firewall
 	networkManagerMod           = "NetworkManager"           // Network Manager
 	networkMonitorMod           = "NetworkMonitor"           // Network Monitor
@@ -417,6 +418,7 @@ var moduleMap = map[string]string{
 	"mskconnect":                      mskConnectMod,
 	"mwaa":                            mwaaMod,
 	"neptune":                         neptuneMod,
+	"neptunegraph":                    neptuneGraphMod,
 	"networkfirewall":                 networkFirewallMod,
 	"networkmanager":                  networkManagerMod,
 	"networkmonitor":                  networkMonitorMod,

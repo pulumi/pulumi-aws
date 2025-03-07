@@ -18,8 +18,6 @@ __all__ = [
     'ClusterParameterGroupParameter',
     'ClusterServerlessV2ScalingConfiguration',
     'GlobalClusterGlobalClusterMember',
-    'GraphGraphTimeouts',
-    'GraphGraphVectorSearchConfiguration',
     'ParameterGroupParameter',
 ]
 
@@ -179,85 +177,6 @@ class GlobalClusterGlobalClusterMember(dict):
         Whether the member is the primary DB Cluster.
         """
         return pulumi.get(self, "is_writer")
-
-
-@pulumi.output_type
-class GraphGraphTimeouts(dict):
-    def __init__(__self__, *,
-                 create: Optional[str] = None,
-                 delete: Optional[str] = None,
-                 update: Optional[str] = None):
-        """
-        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        if create is not None:
-            pulumi.set(__self__, "create", create)
-        if delete is not None:
-            pulumi.set(__self__, "delete", delete)
-        if update is not None:
-            pulumi.set(__self__, "update", update)
-
-    @property
-    @pulumi.getter
-    def create(self) -> Optional[str]:
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        return pulumi.get(self, "create")
-
-    @property
-    @pulumi.getter
-    def delete(self) -> Optional[str]:
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        return pulumi.get(self, "delete")
-
-    @property
-    @pulumi.getter
-    def update(self) -> Optional[str]:
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        return pulumi.get(self, "update")
-
-
-@pulumi.output_type
-class GraphGraphVectorSearchConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vectorSearchDimension":
-            suggest = "vector_search_dimension"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GraphGraphVectorSearchConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GraphGraphVectorSearchConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GraphGraphVectorSearchConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 vector_search_dimension: Optional[int] = None):
-        """
-        :param int vector_search_dimension: Specifies the number of dimensions for vector embeddings.  Value must be between 1 and 65,535.
-        """
-        if vector_search_dimension is not None:
-            pulumi.set(__self__, "vector_search_dimension", vector_search_dimension)
-
-    @property
-    @pulumi.getter(name="vectorSearchDimension")
-    def vector_search_dimension(self) -> Optional[int]:
-        """
-        Specifies the number of dimensions for vector embeddings.  Value must be between 1 and 65,535.
-        """
-        return pulumi.get(self, "vector_search_dimension")
 
 
 @pulumi.output_type
