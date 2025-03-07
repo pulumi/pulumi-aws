@@ -307,9 +307,17 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
     /**
+     * Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
+     */
+    public readonly clusterScalabilityType!: pulumi.Output<string>;
+    /**
      * Copy all Cluster `tags` to snapshots. Default is `false`.
      */
     public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
+    /**
+     * The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
+     */
+    public readonly databaseInsightsMode!: pulumi.Output<string>;
     /**
      * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      */
@@ -382,7 +390,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engineLifecycleSupport!: pulumi.Output<string>;
     /**
-     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`""`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     public readonly engineMode!: pulumi.Output<string | undefined>;
     /**
@@ -560,7 +568,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterIdentifierPrefix"] = state ? state.clusterIdentifierPrefix : undefined;
             resourceInputs["clusterMembers"] = state ? state.clusterMembers : undefined;
             resourceInputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
+            resourceInputs["clusterScalabilityType"] = state ? state.clusterScalabilityType : undefined;
             resourceInputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
+            resourceInputs["databaseInsightsMode"] = state ? state.databaseInsightsMode : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["dbClusterInstanceClass"] = state ? state.dbClusterInstanceClass : undefined;
             resourceInputs["dbClusterParameterGroupName"] = state ? state.dbClusterParameterGroupName : undefined;
@@ -631,7 +641,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["clusterIdentifierPrefix"] = args ? args.clusterIdentifierPrefix : undefined;
             resourceInputs["clusterMembers"] = args ? args.clusterMembers : undefined;
+            resourceInputs["clusterScalabilityType"] = args ? args.clusterScalabilityType : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
+            resourceInputs["databaseInsightsMode"] = args ? args.databaseInsightsMode : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["dbClusterInstanceClass"] = args ? args.dbClusterInstanceClass : undefined;
             resourceInputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
@@ -758,9 +770,17 @@ export interface ClusterState {
      */
     clusterResourceId?: pulumi.Input<string>;
     /**
+     * Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
+     */
+    clusterScalabilityType?: pulumi.Input<string>;
+    /**
      * Copy all Cluster `tags` to snapshots. Default is `false`.
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
+    /**
+     * The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
+     */
+    databaseInsightsMode?: pulumi.Input<string>;
     /**
      * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      */
@@ -833,7 +853,7 @@ export interface ClusterState {
      */
     engineLifecycleSupport?: pulumi.Input<string>;
     /**
-     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`""`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
     /**
@@ -1034,9 +1054,17 @@ export interface ClusterArgs {
      */
     clusterMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
+     */
+    clusterScalabilityType?: pulumi.Input<string>;
+    /**
      * Copy all Cluster `tags` to snapshots. Default is `false`.
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
+    /**
+     * The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
+     */
+    databaseInsightsMode?: pulumi.Input<string>;
     /**
      * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      */
@@ -1105,7 +1133,7 @@ export interface ClusterArgs {
      */
     engineLifecycleSupport?: pulumi.Input<string>;
     /**
-     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`""`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
     /**

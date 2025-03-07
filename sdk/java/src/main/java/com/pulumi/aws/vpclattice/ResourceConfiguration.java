@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  *             .name("Example")
  *             .resourceGatewayIdentifier(exampleAwsVpclatticeResourceGateway.id())
  *             .portRanges("80")
+ *             .protocol("TCP")
  *             .resourceConfigurationDefinition(ResourceConfigurationResourceConfigurationDefinitionArgs.builder()
  *                 .dnsResource(ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs.builder()
  *                     .domainName("example.com")

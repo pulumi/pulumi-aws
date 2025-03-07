@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudwatch.inputs;
 
+import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentConfiguration;
 import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentStatement;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -16,6 +17,13 @@ import javax.annotation.Nullable;
 public final class GetLogDataProtectionPolicyDocumentPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLogDataProtectionPolicyDocumentPlainArgs Empty = new GetLogDataProtectionPolicyDocumentPlainArgs();
+
+    @Import(name="configuration")
+    private @Nullable GetLogDataProtectionPolicyDocumentConfiguration configuration;
+
+    public Optional<GetLogDataProtectionPolicyDocumentConfiguration> configuration() {
+        return Optional.ofNullable(this.configuration);
+    }
 
     @Import(name="description")
     private @Nullable String description;
@@ -72,6 +80,7 @@ public final class GetLogDataProtectionPolicyDocumentPlainArgs extends com.pulum
     private GetLogDataProtectionPolicyDocumentPlainArgs() {}
 
     private GetLogDataProtectionPolicyDocumentPlainArgs(GetLogDataProtectionPolicyDocumentPlainArgs $) {
+        this.configuration = $.configuration;
         this.description = $.description;
         this.name = $.name;
         this.statements = $.statements;
@@ -94,6 +103,11 @@ public final class GetLogDataProtectionPolicyDocumentPlainArgs extends com.pulum
 
         public Builder(GetLogDataProtectionPolicyDocumentPlainArgs defaults) {
             $ = new GetLogDataProtectionPolicyDocumentPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder configuration(@Nullable GetLogDataProtectionPolicyDocumentConfiguration configuration) {
+            $.configuration = configuration;
+            return this;
         }
 
         public Builder description(@Nullable String description) {

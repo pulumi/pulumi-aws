@@ -189,6 +189,7 @@ const (
 	mskConnectMod               = "MskConnect"               // MSK Connect
 	mwaaMod                     = "Mwaa"                     // Managed Workflows for Apache Airflow
 	neptuneMod                  = "Neptune"                  // Neptune
+	neptuneGraphMod             = "NeptuneGraph"             // Neptune Graph
 	networkFirewallMod          = "NetworkFirewall"          // Network Firewall
 	networkManagerMod           = "NetworkManager"           // Network Manager
 	networkMonitorMod           = "NetworkMonitor"           // Network Monitor
@@ -417,6 +418,7 @@ var moduleMap = map[string]string{
 	"mskconnect":                      mskConnectMod,
 	"mwaa":                            mwaaMod,
 	"neptune":                         neptuneMod,
+	"neptunegraph":                    neptuneGraphMod,
 	"networkfirewall":                 networkFirewallMod,
 	"networkmanager":                  networkManagerMod,
 	"networkmonitor":                  networkMonitorMod,
@@ -6042,6 +6044,26 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attr(state, "arn"), nil
+	}
+	prov.Resources["aws_quicksight_role_membership"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, ",", "awsAccountId", "namespace", "role", "memberName"), nil
+	}
+	prov.Resources["aws_xray_resource_policy"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "policyName"), nil
+	}
+	prov.Resources["aws_macie2_organization_configuration"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "autoEnable"), nil
+	}
+	prov.Resources["aws_rds_shard_group"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "dbShardGroupIdentifier"), nil
 	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{

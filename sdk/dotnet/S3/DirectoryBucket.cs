@@ -14,6 +14,8 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// 
+    /// ### Availability Zone
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,6 +30,29 @@ namespace Pulumi.Aws.S3
     ///         Location = new Aws.S3.Inputs.DirectoryBucketLocationArgs
     ///         {
     ///             Name = "usw2-az1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Dedicated Local Zone
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleLocalZone = new Aws.S3.DirectoryBucket("example_local_zone", new()
+    ///     {
+    ///         Bucket = "example--usw2-xxx-lz1--x-s3",
+    ///         Location = new Aws.S3.Inputs.DirectoryBucketLocationArgs
+    ///         {
+    ///             Name = "usw2-xxx-lz1",
+    ///             Type = "LocalZone",
     ///         },
     ///     });
     /// 
@@ -58,7 +83,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Data redundancy. Valid values: `SingleAvailabilityZone`.
+        /// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         /// </summary>
         [Output("dataRedundancy")]
         public Output<string> DataRedundancy { get; private set; } = null!;
@@ -134,7 +159,7 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Data redundancy. Valid values: `SingleAvailabilityZone`.
+        /// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         /// </summary>
         [Input("dataRedundancy")]
         public Input<string>? DataRedundancy { get; set; }
@@ -178,7 +203,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// Data redundancy. Valid values: `SingleAvailabilityZone`.
+        /// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
         /// </summary>
         [Input("dataRedundancy")]
         public Input<string>? DataRedundancy { get; set; }

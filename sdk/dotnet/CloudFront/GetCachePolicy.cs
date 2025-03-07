@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ### AWS-Managed Policies
         /// 
-        /// AWS managed cache policy names are prefixed with `Managed-`:
+        /// AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -46,9 +46,14 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.CloudFront.GetCachePolicy.Invoke(new()
+        ///     var example1 = Aws.CloudFront.GetCachePolicy.Invoke(new()
         ///     {
         ///         Name = "Managed-CachingOptimized",
+        ///     });
+        /// 
+        ///     var example2 = Aws.CloudFront.GetCachePolicy.Invoke(new()
+        ///     {
+        ///         Name = "UseOriginCacheControlHeaders",
         ///     });
         /// 
         /// });
@@ -82,7 +87,7 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ### AWS-Managed Policies
         /// 
-        /// AWS managed cache policy names are prefixed with `Managed-`:
+        /// AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -92,9 +97,14 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.CloudFront.GetCachePolicy.Invoke(new()
+        ///     var example1 = Aws.CloudFront.GetCachePolicy.Invoke(new()
         ///     {
         ///         Name = "Managed-CachingOptimized",
+        ///     });
+        /// 
+        ///     var example2 = Aws.CloudFront.GetCachePolicy.Invoke(new()
+        ///     {
+        ///         Name = "UseOriginCacheControlHeaders",
         ///     });
         /// 
         /// });
@@ -128,7 +138,7 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ### AWS-Managed Policies
         /// 
-        /// AWS managed cache policy names are prefixed with `Managed-`:
+        /// AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -138,9 +148,14 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.CloudFront.GetCachePolicy.Invoke(new()
+        ///     var example1 = Aws.CloudFront.GetCachePolicy.Invoke(new()
         ///     {
         ///         Name = "Managed-CachingOptimized",
+        ///     });
+        /// 
+        ///     var example2 = Aws.CloudFront.GetCachePolicy.Invoke(new()
+        ///     {
+        ///         Name = "UseOriginCacheControlHeaders",
         ///     });
         /// 
         /// });

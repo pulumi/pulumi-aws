@@ -29,6 +29,22 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         /// </summary>
         public readonly Outputs.FleetSpotOptionsMaintenanceStrategies? MaintenanceStrategies;
+        /// <summary>
+        /// The maximum amount per hour for Spot Instances that you're willing to pay.
+        /// </summary>
+        public readonly string? MaxTotalPrice;
+        /// <summary>
+        /// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+        /// </summary>
+        public readonly int? MinTargetCapacity;
+        /// <summary>
+        /// Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+        /// </summary>
+        public readonly bool? SingleAvailabilityZone;
+        /// <summary>
+        /// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+        /// </summary>
+        public readonly bool? SingleInstanceType;
 
         [OutputConstructor]
         private FleetSpotOptions(
@@ -38,12 +54,24 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int? instancePoolsToUseCount,
 
-            Outputs.FleetSpotOptionsMaintenanceStrategies? maintenanceStrategies)
+            Outputs.FleetSpotOptionsMaintenanceStrategies? maintenanceStrategies,
+
+            string? maxTotalPrice,
+
+            int? minTargetCapacity,
+
+            bool? singleAvailabilityZone,
+
+            bool? singleInstanceType)
         {
             AllocationStrategy = allocationStrategy;
             InstanceInterruptionBehavior = instanceInterruptionBehavior;
             InstancePoolsToUseCount = instancePoolsToUseCount;
             MaintenanceStrategies = maintenanceStrategies;
+            MaxTotalPrice = maxTotalPrice;
+            MinTargetCapacity = minTargetCapacity;
+            SingleAvailabilityZone = singleAvailabilityZone;
+            SingleInstanceType = singleInstanceType;
         }
     }
 }

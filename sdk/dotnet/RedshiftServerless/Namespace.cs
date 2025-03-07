@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedshiftServerless
 {
     /// <summary>
-    /// Creates a new Amazon Redshift Serverless Namespace.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

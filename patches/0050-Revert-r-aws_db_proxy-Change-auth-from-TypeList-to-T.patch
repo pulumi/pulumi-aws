@@ -10,7 +10,7 @@ Beyond a mechanical revert, during v5.74.0 release resolution there were some co
 resolved in favor of upstream.
 
 diff --git a/internal/service/rds/proxy.go b/internal/service/rds/proxy.go
-index 008ebc180f..c326774548 100644
+index d2d41676c1..8492711d7c 100644
 --- a/internal/service/rds/proxy.go
 +++ b/internal/service/rds/proxy.go
 @@ -19,7 +19,6 @@ import (
@@ -38,7 +38,7 @@ index 008ebc180f..c326774548 100644
  			},
  			"debug_logging": {
  				Type:     schema.TypeBool,
-@@ -149,7 +147,7 @@ func resourceProxyCreate(ctx context.Context, d *schema.ResourceData, meta inter
+@@ -147,7 +145,7 @@ func resourceProxyCreate(ctx context.Context, d *schema.ResourceData, meta inter
  
  	name := d.Get(names.AttrName).(string)
  	input := &rds.CreateDBProxyInput{
@@ -47,7 +47,7 @@ index 008ebc180f..c326774548 100644
  		DBProxyName:  aws.String(name),
  		EngineFamily: types.EngineFamily(d.Get("engine_family").(string)),
  		RoleArn:      aws.String(d.Get(names.AttrRoleARN).(string)),
-@@ -226,7 +224,7 @@ func resourceProxyUpdate(ctx context.Context, d *schema.ResourceData, meta inter
+@@ -224,7 +222,7 @@ func resourceProxyUpdate(ctx context.Context, d *schema.ResourceData, meta inter
  	if d.HasChangesExcept(names.AttrTags, names.AttrTagsAll) {
  		oName, nName := d.GetChange(names.AttrName)
  		input := &rds.ModifyDBProxyInput{

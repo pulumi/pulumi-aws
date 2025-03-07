@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.aws.ec2.inputs.LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs;
+import com.pulumi.aws.ec2.inputs.LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -106,6 +107,21 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
      */
     public Optional<Output<Integer>> deviceIndex() {
         return Optional.ofNullable(this.deviceIndex);
+    }
+
+    /**
+     * Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+     * 
+     */
+    @Import(name="enaSrdSpecification")
+    private @Nullable Output<LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs> enaSrdSpecification;
+
+    /**
+     * @return Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+     * 
+     */
+    public Optional<Output<LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs>> enaSrdSpecification() {
+        return Optional.ofNullable(this.enaSrdSpecification);
     }
 
     /**
@@ -342,6 +358,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         this.deleteOnTermination = $.deleteOnTermination;
         this.description = $.description;
         this.deviceIndex = $.deviceIndex;
+        this.enaSrdSpecification = $.enaSrdSpecification;
         this.interfaceType = $.interfaceType;
         this.ipv4AddressCount = $.ipv4AddressCount;
         this.ipv4Addresses = $.ipv4Addresses;
@@ -501,6 +518,27 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
          */
         public Builder deviceIndex(Integer deviceIndex) {
             return deviceIndex(Output.of(deviceIndex));
+        }
+
+        /**
+         * @param enaSrdSpecification Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enaSrdSpecification(@Nullable Output<LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs> enaSrdSpecification) {
+            $.enaSrdSpecification = enaSrdSpecification;
+            return this;
+        }
+
+        /**
+         * @param enaSrdSpecification Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enaSrdSpecification(LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs enaSrdSpecification) {
+            return enaSrdSpecification(Output.of(enaSrdSpecification));
         }
 
         /**

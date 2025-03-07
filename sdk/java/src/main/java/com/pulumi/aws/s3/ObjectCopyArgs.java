@@ -74,14 +74,14 @@ public final class ObjectCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      * 
      */
     @Import(name="checksumAlgorithm")
     private @Nullable Output<String> checksumAlgorithm;
 
     /**
-     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      * 
      */
     public Optional<Output<String>> checksumAlgorithm() {
@@ -745,7 +745,7 @@ public final class ObjectCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
          * 
          * @return builder
          * 
@@ -756,7 +756,7 @@ public final class ObjectCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
          * 
          * @return builder
          * 

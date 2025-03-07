@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling.outputs;
 import com.pulumi.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric;
 import com.pulumi.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -34,6 +35,11 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
      * 
      */
     private @Nullable String namespace;
+    /**
+     * @return The period of the metric in seconds.
+     * 
+     */
+    private @Nullable Integer period;
     /**
      * @return Statistic of the metric.
      * 
@@ -75,6 +81,13 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         return Optional.ofNullable(this.namespace);
     }
     /**
+     * @return The period of the metric in seconds.
+     * 
+     */
+    public Optional<Integer> period() {
+        return Optional.ofNullable(this.period);
+    }
+    /**
      * @return Statistic of the metric.
      * 
      */
@@ -102,6 +115,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         private @Nullable String metricName;
         private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric> metrics;
         private @Nullable String namespace;
+        private @Nullable Integer period;
         private @Nullable String statistic;
         private @Nullable String unit;
         public Builder() {}
@@ -111,6 +125,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     	      this.metricName = defaults.metricName;
     	      this.metrics = defaults.metrics;
     	      this.namespace = defaults.namespace;
+    	      this.period = defaults.period;
     	      this.statistic = defaults.statistic;
     	      this.unit = defaults.unit;
         }
@@ -146,6 +161,12 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
             return this;
         }
         @CustomType.Setter
+        public Builder period(@Nullable Integer period) {
+
+            this.period = period;
+            return this;
+        }
+        @CustomType.Setter
         public Builder statistic(@Nullable String statistic) {
 
             this.statistic = statistic;
@@ -163,6 +184,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
             _resultValue.metricName = metricName;
             _resultValue.metrics = metrics;
             _resultValue.namespace = namespace;
+            _resultValue.period = period;
             _resultValue.statistic = statistic;
             _resultValue.unit = unit;
             return _resultValue;

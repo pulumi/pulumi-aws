@@ -27,6 +27,7 @@ namespace Pulumi.Aws.S3
         /// * `application/xml`
         /// * `application/atom+xml`
         /// * `application/x-sql`
+        /// * `application/yaml`
         /// 
         /// This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favor of metadata.
         /// 
@@ -111,6 +112,7 @@ namespace Pulumi.Aws.S3
         /// * `application/xml`
         /// * `application/atom+xml`
         /// * `application/x-sql`
+        /// * `application/yaml`
         /// 
         /// This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favor of metadata.
         /// 
@@ -195,6 +197,7 @@ namespace Pulumi.Aws.S3
         /// * `application/xml`
         /// * `application/atom+xml`
         /// * `application/x-sql`
+        /// * `application/yaml`
         /// 
         /// This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favor of metadata.
         /// 
@@ -388,6 +391,10 @@ namespace Pulumi.Aws.S3
         /// The base64-encoded, 32-bit CRC32C checksum of the object.
         /// </summary>
         public readonly string ChecksumCrc32c;
+        /// <summary>
+        /// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+        /// </summary>
+        public readonly string ChecksumCrc64nvme;
         public readonly string? ChecksumMode;
         /// <summary>
         /// The base64-encoded, 160-bit SHA-1 digest of the object.
@@ -496,6 +503,8 @@ namespace Pulumi.Aws.S3
 
             string checksumCrc32c,
 
+            string checksumCrc64nvme,
+
             string? checksumMode,
 
             string checksumSha1,
@@ -553,6 +562,7 @@ namespace Pulumi.Aws.S3
             CacheControl = cacheControl;
             ChecksumCrc32 = checksumCrc32;
             ChecksumCrc32c = checksumCrc32c;
+            ChecksumCrc64nvme = checksumCrc64nvme;
             ChecksumMode = checksumMode;
             ChecksumSha1 = checksumSha1;
             ChecksumSha256 = checksumSha256;

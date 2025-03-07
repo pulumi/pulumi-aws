@@ -8484,6 +8484,8 @@ type PolicyTargetTrackingConfigurationCustomizedMetricSpecification struct {
 	Metrics []PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric `pulumi:"metrics"`
 	// Namespace of the metric.
 	Namespace *string `pulumi:"namespace"`
+	// The period of the metric in seconds.
+	Period *int `pulumi:"period"`
 	// Statistic of the metric.
 	Statistic *string `pulumi:"statistic"`
 	// Unit of the metric.
@@ -8510,6 +8512,8 @@ type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs struct {
 	Metrics PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayInput `pulumi:"metrics"`
 	// Namespace of the metric.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// The period of the metric in seconds.
+	Period pulumi.IntPtrInput `pulumi:"period"`
 	// Statistic of the metric.
 	Statistic pulumi.StringPtrInput `pulumi:"statistic"`
 	// Unit of the metric.
@@ -8617,6 +8621,11 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) Na
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
+// The period of the metric in seconds.
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) Period() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *int { return v.Period }).(pulumi.IntPtrOutput)
+}
+
 // Statistic of the metric.
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) Statistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *string { return v.Statistic }).(pulumi.StringPtrOutput)
@@ -8689,6 +8698,16 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 		}
 		return v.Namespace
 	}).(pulumi.StringPtrOutput)
+}
+
+// The period of the metric in seconds.
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput) Period() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Period
+	}).(pulumi.IntPtrOutput)
 }
 
 // Statistic of the metric.

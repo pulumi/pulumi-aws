@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Availability Zone
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -49,6 +51,46 @@ import javax.annotation.Nullable;
  *             .bucket("example--usw2-az1--x-s3")
  *             .location(DirectoryBucketLocationArgs.builder()
  *                 .name("usw2-az1")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Dedicated Local Zone
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.DirectoryBucket;
+ * import com.pulumi.aws.s3.DirectoryBucketArgs;
+ * import com.pulumi.aws.s3.inputs.DirectoryBucketLocationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleLocalZone = new DirectoryBucket("exampleLocalZone", DirectoryBucketArgs.builder()
+ *             .bucket("example--usw2-xxx-lz1--x-s3")
+ *             .location(DirectoryBucketLocationArgs.builder()
+ *                 .name("usw2-xxx-lz1")
+ *                 .type("LocalZone")
  *                 .build())
  *             .build());
  * 
@@ -98,14 +140,14 @@ public class DirectoryBucket extends com.pulumi.resources.CustomResource {
         return this.bucket;
     }
     /**
-     * Data redundancy. Valid values: `SingleAvailabilityZone`.
+     * Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
      * 
      */
     @Export(name="dataRedundancy", refs={String.class}, tree="[0]")
     private Output<String> dataRedundancy;
 
     /**
-     * @return Data redundancy. Valid values: `SingleAvailabilityZone`.
+     * @return Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
      * 
      */
     public Output<String> dataRedundancy() {

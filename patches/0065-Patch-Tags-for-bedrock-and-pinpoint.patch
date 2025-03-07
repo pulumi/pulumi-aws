@@ -5,10 +5,10 @@ Subject: [PATCH] Patch Tags for bedrock and pinpoint
 
 
 diff --git a/internal/service/bedrock/guardrail.go b/internal/service/bedrock/guardrail.go
-index 7d83ca812a..a9abb0d2ee 100644
+index a3c38b35ba..12d4f74f5e 100644
 --- a/internal/service/bedrock/guardrail.go
 +++ b/internal/service/bedrock/guardrail.go
-@@ -122,7 +122,7 @@ func (r *resourceGuardrail) Schema(ctx context.Context, req resource.SchemaReque
+@@ -118,7 +118,7 @@ func (r *resourceGuardrail) Schema(ctx context.Context, req resource.SchemaReque
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -18,10 +18,10 @@ index 7d83ca812a..a9abb0d2ee 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/pinpoint/email_template.go b/internal/service/pinpoint/email_template.go
-index e20b0d1c10..dd70f5a417 100644
+index 41e80a3a8c..2c2e6548d1 100644
 --- a/internal/service/pinpoint/email_template.go
 +++ b/internal/service/pinpoint/email_template.go
-@@ -63,7 +63,7 @@ func (r *resourceEmailTemplate) Schema(ctx context.Context, req resource.SchemaR
+@@ -59,7 +59,7 @@ func (r *resourceEmailTemplate) Schema(ctx context.Context, req resource.SchemaR
  				Required: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

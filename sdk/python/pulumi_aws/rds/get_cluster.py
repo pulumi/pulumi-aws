@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, db_system_id=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, id=None, kms_key_id=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, cluster_scalability_type=None, database_insights_mode=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, db_system_id=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, id=None, kms_key_id=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,12 @@ class GetClusterResult:
         if cluster_resource_id and not isinstance(cluster_resource_id, str):
             raise TypeError("Expected argument 'cluster_resource_id' to be a str")
         pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        if cluster_scalability_type and not isinstance(cluster_scalability_type, str):
+            raise TypeError("Expected argument 'cluster_scalability_type' to be a str")
+        pulumi.set(__self__, "cluster_scalability_type", cluster_scalability_type)
+        if database_insights_mode and not isinstance(database_insights_mode, str):
+            raise TypeError("Expected argument 'database_insights_mode' to be a str")
+        pulumi.set(__self__, "database_insights_mode", database_insights_mode)
         if database_name and not isinstance(database_name, str):
             raise TypeError("Expected argument 'database_name' to be a str")
         pulumi.set(__self__, "database_name", database_name)
@@ -168,6 +174,16 @@ class GetClusterResult:
     @pulumi.getter(name="clusterResourceId")
     def cluster_resource_id(self) -> str:
         return pulumi.get(self, "cluster_resource_id")
+
+    @property
+    @pulumi.getter(name="clusterScalabilityType")
+    def cluster_scalability_type(self) -> str:
+        return pulumi.get(self, "cluster_scalability_type")
+
+    @property
+    @pulumi.getter(name="databaseInsightsMode")
+    def database_insights_mode(self) -> str:
+        return pulumi.get(self, "database_insights_mode")
 
     @property
     @pulumi.getter(name="databaseName")
@@ -329,6 +345,8 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_identifier=self.cluster_identifier,
             cluster_members=self.cluster_members,
             cluster_resource_id=self.cluster_resource_id,
+            cluster_scalability_type=self.cluster_scalability_type,
+            database_insights_mode=self.database_insights_mode,
             database_name=self.database_name,
             db_cluster_parameter_group_name=self.db_cluster_parameter_group_name,
             db_subnet_group_name=self.db_subnet_group_name,
@@ -392,6 +410,8 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         cluster_identifier=pulumi.get(__ret__, 'cluster_identifier'),
         cluster_members=pulumi.get(__ret__, 'cluster_members'),
         cluster_resource_id=pulumi.get(__ret__, 'cluster_resource_id'),
+        cluster_scalability_type=pulumi.get(__ret__, 'cluster_scalability_type'),
+        database_insights_mode=pulumi.get(__ret__, 'database_insights_mode'),
         database_name=pulumi.get(__ret__, 'database_name'),
         db_cluster_parameter_group_name=pulumi.get(__ret__, 'db_cluster_parameter_group_name'),
         db_subnet_group_name=pulumi.get(__ret__, 'db_subnet_group_name'),
@@ -452,6 +472,8 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
         cluster_identifier=pulumi.get(__response__, 'cluster_identifier'),
         cluster_members=pulumi.get(__response__, 'cluster_members'),
         cluster_resource_id=pulumi.get(__response__, 'cluster_resource_id'),
+        cluster_scalability_type=pulumi.get(__response__, 'cluster_scalability_type'),
+        database_insights_mode=pulumi.get(__response__, 'database_insights_mode'),
         database_name=pulumi.get(__response__, 'database_name'),
         db_cluster_parameter_group_name=pulumi.get(__response__, 'db_cluster_parameter_group_name'),
         db_subnet_group_name=pulumi.get(__response__, 'db_subnet_group_name'),

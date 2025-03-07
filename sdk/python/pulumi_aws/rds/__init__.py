@@ -46,6 +46,7 @@ from .proxy_endpoint import *
 from .proxy_target import *
 from .reserved_instance import *
 from .role_association import *
+from .shard_group import *
 from .snapshot import *
 from .snapshot_copy import *
 from .subnet_group import *

@@ -258,6 +258,9 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetLogDataProtectionPolicyDocumentArgs : global::Pulumi.InvokeArgs
     {
+        [Input("configuration")]
+        public Inputs.GetLogDataProtectionPolicyDocumentConfigurationArgs? Configuration { get; set; }
+
         [Input("description")]
         public string? Description { get; set; }
 
@@ -294,6 +297,9 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetLogDataProtectionPolicyDocumentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("configuration")]
+        public Input<Inputs.GetLogDataProtectionPolicyDocumentConfigurationInputArgs>? Configuration { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -332,6 +338,7 @@ namespace Pulumi.Aws.CloudWatch
     [OutputType]
     public sealed class GetLogDataProtectionPolicyDocumentResult
     {
+        public readonly Outputs.GetLogDataProtectionPolicyDocumentConfigurationResult? Configuration;
         public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -347,6 +354,8 @@ namespace Pulumi.Aws.CloudWatch
 
         [OutputConstructor]
         private GetLogDataProtectionPolicyDocumentResult(
+            Outputs.GetLogDataProtectionPolicyDocumentConfigurationResult? configuration,
+
             string? description,
 
             string id,
@@ -359,6 +368,7 @@ namespace Pulumi.Aws.CloudWatch
 
             string? version)
         {
+            Configuration = configuration;
             Description = description;
             Id = id;
             Json = json;

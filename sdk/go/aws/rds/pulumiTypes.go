@@ -3489,6 +3489,181 @@ func (o ReservedInstanceRecurringChargeArrayOutput) Index(i pulumi.IntInput) Res
 	}).(ReservedInstanceRecurringChargeOutput)
 }
 
+type ShardGroupTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ShardGroupTimeoutsInput is an input type that accepts ShardGroupTimeoutsArgs and ShardGroupTimeoutsOutput values.
+// You can construct a concrete instance of `ShardGroupTimeoutsInput` via:
+//
+//	ShardGroupTimeoutsArgs{...}
+type ShardGroupTimeoutsInput interface {
+	pulumi.Input
+
+	ToShardGroupTimeoutsOutput() ShardGroupTimeoutsOutput
+	ToShardGroupTimeoutsOutputWithContext(context.Context) ShardGroupTimeoutsOutput
+}
+
+type ShardGroupTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ShardGroupTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShardGroupTimeouts)(nil)).Elem()
+}
+
+func (i ShardGroupTimeoutsArgs) ToShardGroupTimeoutsOutput() ShardGroupTimeoutsOutput {
+	return i.ToShardGroupTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ShardGroupTimeoutsArgs) ToShardGroupTimeoutsOutputWithContext(ctx context.Context) ShardGroupTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShardGroupTimeoutsOutput)
+}
+
+func (i ShardGroupTimeoutsArgs) ToShardGroupTimeoutsPtrOutput() ShardGroupTimeoutsPtrOutput {
+	return i.ToShardGroupTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ShardGroupTimeoutsArgs) ToShardGroupTimeoutsPtrOutputWithContext(ctx context.Context) ShardGroupTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShardGroupTimeoutsOutput).ToShardGroupTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ShardGroupTimeoutsPtrInput is an input type that accepts ShardGroupTimeoutsArgs, ShardGroupTimeoutsPtr and ShardGroupTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ShardGroupTimeoutsPtrInput` via:
+//
+//	        ShardGroupTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ShardGroupTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToShardGroupTimeoutsPtrOutput() ShardGroupTimeoutsPtrOutput
+	ToShardGroupTimeoutsPtrOutputWithContext(context.Context) ShardGroupTimeoutsPtrOutput
+}
+
+type shardGroupTimeoutsPtrType ShardGroupTimeoutsArgs
+
+func ShardGroupTimeoutsPtr(v *ShardGroupTimeoutsArgs) ShardGroupTimeoutsPtrInput {
+	return (*shardGroupTimeoutsPtrType)(v)
+}
+
+func (*shardGroupTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ShardGroupTimeouts)(nil)).Elem()
+}
+
+func (i *shardGroupTimeoutsPtrType) ToShardGroupTimeoutsPtrOutput() ShardGroupTimeoutsPtrOutput {
+	return i.ToShardGroupTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *shardGroupTimeoutsPtrType) ToShardGroupTimeoutsPtrOutputWithContext(ctx context.Context) ShardGroupTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShardGroupTimeoutsPtrOutput)
+}
+
+type ShardGroupTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ShardGroupTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShardGroupTimeouts)(nil)).Elem()
+}
+
+func (o ShardGroupTimeoutsOutput) ToShardGroupTimeoutsOutput() ShardGroupTimeoutsOutput {
+	return o
+}
+
+func (o ShardGroupTimeoutsOutput) ToShardGroupTimeoutsOutputWithContext(ctx context.Context) ShardGroupTimeoutsOutput {
+	return o
+}
+
+func (o ShardGroupTimeoutsOutput) ToShardGroupTimeoutsPtrOutput() ShardGroupTimeoutsPtrOutput {
+	return o.ToShardGroupTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ShardGroupTimeoutsOutput) ToShardGroupTimeoutsPtrOutputWithContext(ctx context.Context) ShardGroupTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShardGroupTimeouts) *ShardGroupTimeouts {
+		return &v
+	}).(ShardGroupTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ShardGroupTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShardGroupTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ShardGroupTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShardGroupTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ShardGroupTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShardGroupTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ShardGroupTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ShardGroupTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ShardGroupTimeouts)(nil)).Elem()
+}
+
+func (o ShardGroupTimeoutsPtrOutput) ToShardGroupTimeoutsPtrOutput() ShardGroupTimeoutsPtrOutput {
+	return o
+}
+
+func (o ShardGroupTimeoutsPtrOutput) ToShardGroupTimeoutsPtrOutputWithContext(ctx context.Context) ShardGroupTimeoutsPtrOutput {
+	return o
+}
+
+func (o ShardGroupTimeoutsPtrOutput) Elem() ShardGroupTimeoutsOutput {
+	return o.ApplyT(func(v *ShardGroupTimeouts) ShardGroupTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ShardGroupTimeouts
+		return ret
+	}).(ShardGroupTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ShardGroupTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShardGroupTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ShardGroupTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShardGroupTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ShardGroupTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShardGroupTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetClusterMasterUserSecret struct {
 	KmsKeyId     string `pulumi:"kmsKeyId"`
 	SecretArn    string `pulumi:"secretArn"`
@@ -4191,6 +4366,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyDefaultTargetGroupConnectionPoolConfigPtrInput)(nil)).Elem(), ProxyDefaultTargetGroupConnectionPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReservedInstanceRecurringChargeInput)(nil)).Elem(), ReservedInstanceRecurringChargeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReservedInstanceRecurringChargeArrayInput)(nil)).Elem(), ReservedInstanceRecurringChargeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ShardGroupTimeoutsInput)(nil)).Elem(), ShardGroupTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ShardGroupTimeoutsPtrInput)(nil)).Elem(), ShardGroupTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterMasterUserSecretInput)(nil)).Elem(), GetClusterMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterMasterUserSecretArrayInput)(nil)).Elem(), GetClusterMasterUserSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClustersFilterInput)(nil)).Elem(), GetClustersFilterArgs{})
@@ -4247,6 +4424,8 @@ func init() {
 	pulumi.RegisterOutputType(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReservedInstanceRecurringChargeOutput{})
 	pulumi.RegisterOutputType(ReservedInstanceRecurringChargeArrayOutput{})
+	pulumi.RegisterOutputType(ShardGroupTimeoutsOutput{})
+	pulumi.RegisterOutputType(ShardGroupTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterMasterUserSecretOutput{})
 	pulumi.RegisterOutputType(GetClusterMasterUserSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetClustersFilterOutput{})

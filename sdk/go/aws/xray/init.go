@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EncryptionConfig{}
 	case "aws:xray/group:Group":
 		r = &Group{}
+	case "aws:xray/resourcePolicy:ResourcePolicy":
+		r = &ResourcePolicy{}
 	case "aws:xray/samplingRule:SamplingRule":
 		r = &SamplingRule{}
 	default:
@@ -48,6 +50,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"xray/group",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"xray/resourcePolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

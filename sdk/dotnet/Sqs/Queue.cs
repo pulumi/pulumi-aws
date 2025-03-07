@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// !&gt; AWS will hang indefinitely, leading to a `timeout while waiting` error, when creating or updating an `aws.sqs.Queue` with an associated `aws.sqs.QueuePolicy` if `Version = "2012-10-17"` is not explicitly set in the policy.
     /// 
+    /// !&gt; AWS will hang indefinitely and trigger a `timeout while waiting` error when creating or updating an `aws.sqs.Queue` if `kms_data_key_reuse_period_seconds` is set to a non-default value, `sqs_managed_sse_enabled` is `false` (explicitly or by default), and `kms_master_key_id` is not set.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

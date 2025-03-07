@@ -6,10 +6,10 @@ Subject: [PATCH] Fix tags_all Computed for
 
 
 diff --git a/internal/service/backup/logically_air_gapped_vault.go b/internal/service/backup/logically_air_gapped_vault.go
-index d58da08766..fe735837ae 100644
+index 531512391c..7ce65f862e 100644
 --- a/internal/service/backup/logically_air_gapped_vault.go
 +++ b/internal/service/backup/logically_air_gapped_vault.go
-@@ -88,7 +88,7 @@ func (r *logicallyAirGappedVaultResource) Schema(ctx context.Context, request re
+@@ -84,7 +84,7 @@ func (r *logicallyAirGappedVaultResource) Schema(ctx context.Context, request re
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

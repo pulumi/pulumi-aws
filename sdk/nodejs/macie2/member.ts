@@ -103,10 +103,12 @@ export class Member extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string>;
     /**
-     * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
@@ -216,10 +218,12 @@ export interface MemberState {
      */
     status?: pulumi.Input<string>;
     /**
-     * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -258,7 +262,7 @@ export interface MemberArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

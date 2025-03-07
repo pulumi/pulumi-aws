@@ -98,12 +98,14 @@ type ObjectCopy struct {
 	BucketKeyEnabled pulumi.BoolOutput   `pulumi:"bucketKeyEnabled"`
 	// Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl pulumi.StringOutput `pulumi:"cacheControl"`
-	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
 	ChecksumAlgorithm pulumi.StringPtrOutput `pulumi:"checksumAlgorithm"`
 	// The base64-encoded, 32-bit CRC32 checksum of the object.
 	ChecksumCrc32 pulumi.StringOutput `pulumi:"checksumCrc32"`
 	// The base64-encoded, 32-bit CRC32C checksum of the object.
 	ChecksumCrc32c pulumi.StringOutput `pulumi:"checksumCrc32c"`
+	// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+	ChecksumCrc64nvme pulumi.StringOutput `pulumi:"checksumCrc64nvme"`
 	// The base64-encoded, 160-bit SHA-1 digest of the object.
 	ChecksumSha1 pulumi.StringOutput `pulumi:"checksumSha1"`
 	// The base64-encoded, 256-bit SHA-256 digest of the object.
@@ -264,12 +266,14 @@ type objectCopyState struct {
 	BucketKeyEnabled *bool   `pulumi:"bucketKeyEnabled"`
 	// Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl *string `pulumi:"cacheControl"`
-	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
 	ChecksumAlgorithm *string `pulumi:"checksumAlgorithm"`
 	// The base64-encoded, 32-bit CRC32 checksum of the object.
 	ChecksumCrc32 *string `pulumi:"checksumCrc32"`
 	// The base64-encoded, 32-bit CRC32C checksum of the object.
 	ChecksumCrc32c *string `pulumi:"checksumCrc32c"`
+	// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+	ChecksumCrc64nvme *string `pulumi:"checksumCrc64nvme"`
 	// The base64-encoded, 160-bit SHA-1 digest of the object.
 	ChecksumSha1 *string `pulumi:"checksumSha1"`
 	// The base64-encoded, 256-bit SHA-256 digest of the object.
@@ -373,12 +377,14 @@ type ObjectCopyState struct {
 	BucketKeyEnabled pulumi.BoolPtrInput
 	// Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl pulumi.StringPtrInput
-	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
 	ChecksumAlgorithm pulumi.StringPtrInput
 	// The base64-encoded, 32-bit CRC32 checksum of the object.
 	ChecksumCrc32 pulumi.StringPtrInput
 	// The base64-encoded, 32-bit CRC32C checksum of the object.
 	ChecksumCrc32c pulumi.StringPtrInput
+	// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+	ChecksumCrc64nvme pulumi.StringPtrInput
 	// The base64-encoded, 160-bit SHA-1 digest of the object.
 	ChecksumSha1 pulumi.StringPtrInput
 	// The base64-encoded, 256-bit SHA-256 digest of the object.
@@ -484,7 +490,7 @@ type objectCopyArgs struct {
 	BucketKeyEnabled *bool  `pulumi:"bucketKeyEnabled"`
 	// Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl *string `pulumi:"cacheControl"`
-	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
 	ChecksumAlgorithm *string `pulumi:"checksumAlgorithm"`
 	// Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
 	ContentDisposition *string `pulumi:"contentDisposition"`
@@ -568,7 +574,7 @@ type ObjectCopyArgs struct {
 	BucketKeyEnabled pulumi.BoolPtrInput
 	// Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl pulumi.StringPtrInput
-	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
 	ChecksumAlgorithm pulumi.StringPtrInput
 	// Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
 	ContentDisposition pulumi.StringPtrInput
@@ -754,7 +760,7 @@ func (o ObjectCopyOutput) CacheControl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.CacheControl }).(pulumi.StringOutput)
 }
 
-// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
 func (o ObjectCopyOutput) ChecksumAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.ChecksumAlgorithm }).(pulumi.StringPtrOutput)
 }
@@ -767,6 +773,11 @@ func (o ObjectCopyOutput) ChecksumCrc32() pulumi.StringOutput {
 // The base64-encoded, 32-bit CRC32C checksum of the object.
 func (o ObjectCopyOutput) ChecksumCrc32c() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ChecksumCrc32c }).(pulumi.StringOutput)
+}
+
+// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+func (o ObjectCopyOutput) ChecksumCrc64nvme() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.ChecksumCrc64nvme }).(pulumi.StringOutput)
 }
 
 // The base64-encoded, 160-bit SHA-1 digest of the object.

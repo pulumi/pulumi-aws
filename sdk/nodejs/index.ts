@@ -221,6 +221,7 @@ import * as msk from "./msk";
 import * as mskconnect from "./mskconnect";
 import * as mwaa from "./mwaa";
 import * as neptune from "./neptune";
+import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as networkmonitor from "./networkmonitor";
@@ -444,6 +445,7 @@ export {
     mskconnect,
     mwaa,
     neptune,
+    neptunegraph,
     networkfirewall,
     networkmanager,
     networkmonitor,

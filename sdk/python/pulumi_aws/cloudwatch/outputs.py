@@ -71,6 +71,8 @@ __all__ = [
     'GetContributorManagedInsightRulesManagedRuleResult',
     'GetContributorManagedInsightRulesManagedRuleRuleStateResult',
     'GetEventBusesEventBusResult',
+    'GetLogDataProtectionPolicyDocumentConfigurationResult',
+    'GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult',
     'GetLogDataProtectionPolicyDocumentStatementResult',
     'GetLogDataProtectionPolicyDocumentStatementOperationResult',
     'GetLogDataProtectionPolicyDocumentStatementOperationAuditResult',
@@ -2976,6 +2978,54 @@ class GetEventBusesEventBusResult(dict):
         The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
         """
         return pulumi.get(self, "policy")
+
+
+@pulumi.output_type
+class GetLogDataProtectionPolicyDocumentConfigurationResult(dict):
+    def __init__(__self__, *,
+                 custom_data_identifiers: Optional[Sequence['outputs.GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult']] = None):
+        """
+        :param Sequence['GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs'] custom_data_identifiers: Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
+        """
+        if custom_data_identifiers is not None:
+            pulumi.set(__self__, "custom_data_identifiers", custom_data_identifiers)
+
+    @property
+    @pulumi.getter(name="customDataIdentifiers")
+    def custom_data_identifiers(self) -> Optional[Sequence['outputs.GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult']]:
+        """
+        Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
+        """
+        return pulumi.get(self, "custom_data_identifiers")
+
+
+@pulumi.output_type
+class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 regex: str):
+        """
+        :param str name: Name of the custom data idenfitier
+        :param str regex: Regular expression to match sensitive data
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regex", regex)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the custom data idenfitier
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> str:
+        """
+        Regular expression to match sensitive data
+        """
+        return pulumi.get(self, "regex")
 
 
 @pulumi.output_type

@@ -49,6 +49,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? DeviceIndex { get; set; }
 
         /// <summary>
+        /// Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+        /// </summary>
+        [Input("enaSrdSpecification")]
+        public Input<Inputs.LaunchTemplateNetworkInterfaceEnaSrdSpecificationGetArgs>? EnaSrdSpecification { get; set; }
+
+        /// <summary>
         /// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
         /// </summary>
         [Input("interfaceType")]

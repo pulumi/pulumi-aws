@@ -634,6 +634,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterResourceId;
     }
     /**
+     * Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
+     * 
+     */
+    @Export(name="clusterScalabilityType", refs={String.class}, tree="[0]")
+    private Output<String> clusterScalabilityType;
+
+    /**
+     * @return Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
+     * 
+     */
+    public Output<String> clusterScalabilityType() {
+        return this.clusterScalabilityType;
+    }
+    /**
      * Copy all Cluster `tags` to snapshots. Default is `false`.
      * 
      */
@@ -646,6 +660,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> copyTagsToSnapshot() {
         return Codegen.optional(this.copyTagsToSnapshot);
+    }
+    /**
+     * The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
+     * 
+     */
+    @Export(name="databaseInsightsMode", refs={String.class}, tree="[0]")
+    private Output<String> databaseInsightsMode;
+
+    /**
+     * @return The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
+     * 
+     */
+    public Output<String> databaseInsightsMode() {
+        return this.databaseInsightsMode;
     }
     /**
      * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
@@ -892,14 +920,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.engineLifecycleSupport;
     }
     /**
-     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`&#34;&#34;`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      * 
      */
     @Export(name="engineMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engineMode;
 
     /**
-     * @return Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * @return Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`&#34;&#34;`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      * 
      */
     public Output<Optional<String>> engineMode() {

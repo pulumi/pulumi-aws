@@ -65,6 +65,8 @@ type LookupClusterResult struct {
 	ClusterIdentifier                string   `pulumi:"clusterIdentifier"`
 	ClusterMembers                   []string `pulumi:"clusterMembers"`
 	ClusterResourceId                string   `pulumi:"clusterResourceId"`
+	ClusterScalabilityType           string   `pulumi:"clusterScalabilityType"`
+	DatabaseInsightsMode             string   `pulumi:"databaseInsightsMode"`
 	DatabaseName                     string   `pulumi:"databaseName"`
 	DbClusterParameterGroupName      string   `pulumi:"dbClusterParameterGroupName"`
 	DbSubnetGroupName                string   `pulumi:"dbSubnetGroupName"`
@@ -159,6 +161,14 @@ func (o LookupClusterResultOutput) ClusterMembers() pulumi.StringArrayOutput {
 
 func (o LookupClusterResultOutput) ClusterResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterResourceId }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) ClusterScalabilityType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterScalabilityType }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) DatabaseInsightsMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.DatabaseInsightsMode }).(pulumi.StringOutput)
 }
 
 func (o LookupClusterResultOutput) DatabaseName() pulumi.StringOutput {

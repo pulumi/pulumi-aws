@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.LaunchTemplateNetworkInterfaceConnectionTrackingSpecification;
+import com.pulumi.aws.ec2.outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecification;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -44,6 +45,11 @@ public final class LaunchTemplateNetworkInterface {
      * 
      */
     private @Nullable Integer deviceIndex;
+    /**
+     * @return Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+     * 
+     */
+    private @Nullable LaunchTemplateNetworkInterfaceEnaSrdSpecification enaSrdSpecification;
     /**
      * @return The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
      * 
@@ -162,6 +168,13 @@ public final class LaunchTemplateNetworkInterface {
      */
     public Optional<Integer> deviceIndex() {
         return Optional.ofNullable(this.deviceIndex);
+    }
+    /**
+     * @return Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+     * 
+     */
+    public Optional<LaunchTemplateNetworkInterfaceEnaSrdSpecification> enaSrdSpecification() {
+        return Optional.ofNullable(this.enaSrdSpecification);
     }
     /**
      * @return The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
@@ -284,6 +297,7 @@ public final class LaunchTemplateNetworkInterface {
         private @Nullable String deleteOnTermination;
         private @Nullable String description;
         private @Nullable Integer deviceIndex;
+        private @Nullable LaunchTemplateNetworkInterfaceEnaSrdSpecification enaSrdSpecification;
         private @Nullable String interfaceType;
         private @Nullable Integer ipv4AddressCount;
         private @Nullable List<String> ipv4Addresses;
@@ -308,6 +322,7 @@ public final class LaunchTemplateNetworkInterface {
     	      this.deleteOnTermination = defaults.deleteOnTermination;
     	      this.description = defaults.description;
     	      this.deviceIndex = defaults.deviceIndex;
+    	      this.enaSrdSpecification = defaults.enaSrdSpecification;
     	      this.interfaceType = defaults.interfaceType;
     	      this.ipv4AddressCount = defaults.ipv4AddressCount;
     	      this.ipv4Addresses = defaults.ipv4Addresses;
@@ -359,6 +374,12 @@ public final class LaunchTemplateNetworkInterface {
         public Builder deviceIndex(@Nullable Integer deviceIndex) {
 
             this.deviceIndex = deviceIndex;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enaSrdSpecification(@Nullable LaunchTemplateNetworkInterfaceEnaSrdSpecification enaSrdSpecification) {
+
+            this.enaSrdSpecification = enaSrdSpecification;
             return this;
         }
         @CustomType.Setter
@@ -474,6 +495,7 @@ public final class LaunchTemplateNetworkInterface {
             _resultValue.deleteOnTermination = deleteOnTermination;
             _resultValue.description = description;
             _resultValue.deviceIndex = deviceIndex;
+            _resultValue.enaSrdSpecification = enaSrdSpecification;
             _resultValue.interfaceType = interfaceType;
             _resultValue.ipv4AddressCount = ipv4AddressCount;
             _resultValue.ipv4Addresses = ipv4Addresses;

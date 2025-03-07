@@ -26,6 +26,7 @@ import (
 // * `application/xml`
 // * `application/atom+xml`
 // * `application/x-sql`
+// * `application/yaml`
 //
 // This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favor of metadata.
 //
@@ -150,8 +151,10 @@ type GetObjectResult struct {
 	// The base64-encoded, 32-bit CRC32 checksum of the object.
 	ChecksumCrc32 string `pulumi:"checksumCrc32"`
 	// The base64-encoded, 32-bit CRC32C checksum of the object.
-	ChecksumCrc32c string  `pulumi:"checksumCrc32c"`
-	ChecksumMode   *string `pulumi:"checksumMode"`
+	ChecksumCrc32c string `pulumi:"checksumCrc32c"`
+	// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+	ChecksumCrc64nvme string  `pulumi:"checksumCrc64nvme"`
+	ChecksumMode      *string `pulumi:"checksumMode"`
 	// The base64-encoded, 160-bit SHA-1 digest of the object.
 	ChecksumSha1 string `pulumi:"checksumSha1"`
 	// The base64-encoded, 256-bit SHA-256 digest of the object.
@@ -275,6 +278,11 @@ func (o GetObjectResultOutput) ChecksumCrc32() pulumi.StringOutput {
 // The base64-encoded, 32-bit CRC32C checksum of the object.
 func (o GetObjectResultOutput) ChecksumCrc32c() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.ChecksumCrc32c }).(pulumi.StringOutput)
+}
+
+// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+func (o GetObjectResultOutput) ChecksumCrc64nvme() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectResult) string { return v.ChecksumCrc64nvme }).(pulumi.StringOutput)
 }
 
 func (o GetObjectResultOutput) ChecksumMode() pulumi.StringPtrOutput {

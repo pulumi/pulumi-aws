@@ -14,6 +14,8 @@ import (
 
 // Resource for managing an AWS QuickSight Account Subscription.
 //
+// > Due to the absence of the `adminGroup`, `authorGroup`, and `readerGroup` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
+//
 // ## Example Usage
 //
 // ```go
@@ -81,7 +83,7 @@ type AccountSubscription struct {
 	//
 	// The following arguments are optional:
 	NotificationEmail pulumi.StringOutput `pulumi:"notificationEmail"`
-	// Reader group associated with your Active Direcrtory.
+	// Reader group associated with your Active Directory.
 	ReaderGroups pulumi.StringArrayOutput `pulumi:"readerGroups"`
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm pulumi.StringPtrOutput `pulumi:"realm"`
@@ -161,7 +163,7 @@ type accountSubscriptionState struct {
 	//
 	// The following arguments are optional:
 	NotificationEmail *string `pulumi:"notificationEmail"`
-	// Reader group associated with your Active Direcrtory.
+	// Reader group associated with your Active Directory.
 	ReaderGroups []string `pulumi:"readerGroups"`
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm *string `pulumi:"realm"`
@@ -200,7 +202,7 @@ type AccountSubscriptionState struct {
 	//
 	// The following arguments are optional:
 	NotificationEmail pulumi.StringPtrInput
-	// Reader group associated with your Active Direcrtory.
+	// Reader group associated with your Active Directory.
 	ReaderGroups pulumi.StringArrayInput
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm pulumi.StringPtrInput
@@ -241,7 +243,7 @@ type accountSubscriptionArgs struct {
 	//
 	// The following arguments are optional:
 	NotificationEmail string `pulumi:"notificationEmail"`
-	// Reader group associated with your Active Direcrtory.
+	// Reader group associated with your Active Directory.
 	ReaderGroups []string `pulumi:"readerGroups"`
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm *string `pulumi:"realm"`
@@ -279,7 +281,7 @@ type AccountSubscriptionArgs struct {
 	//
 	// The following arguments are optional:
 	NotificationEmail pulumi.StringInput
-	// Reader group associated with your Active Direcrtory.
+	// Reader group associated with your Active Directory.
 	ReaderGroups pulumi.StringArrayInput
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm pulumi.StringPtrInput
@@ -449,7 +451,7 @@ func (o AccountSubscriptionOutput) NotificationEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringOutput { return v.NotificationEmail }).(pulumi.StringOutput)
 }
 
-// Reader group associated with your Active Direcrtory.
+// Reader group associated with your Active Directory.
 func (o AccountSubscriptionOutput) ReaderGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringArrayOutput { return v.ReaderGroups }).(pulumi.StringArrayOutput)
 }

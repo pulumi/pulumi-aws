@@ -477,8 +477,6 @@ class Namespace(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Creates a new Amazon Redshift Serverless Namespace.
-
         ## Example Usage
 
         ```python
@@ -519,8 +517,6 @@ class Namespace(pulumi.CustomResource):
                  args: NamespaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a new Amazon Redshift Serverless Namespace.
-
         ## Example Usage
 
         ```python

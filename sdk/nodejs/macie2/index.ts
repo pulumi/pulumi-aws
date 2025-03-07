@@ -35,6 +35,11 @@ export type OrganizationAdminAccount = import("./organizationAdminAccount").Orga
 export const OrganizationAdminAccount: typeof import("./organizationAdminAccount").OrganizationAdminAccount = null as any;
 utilities.lazyLoad(exports, ["OrganizationAdminAccount"], () => require("./organizationAdminAccount"));
 
+export { OrganizationConfigurationArgs, OrganizationConfigurationState } from "./organizationConfiguration";
+export type OrganizationConfiguration = import("./organizationConfiguration").OrganizationConfiguration;
+export const OrganizationConfiguration: typeof import("./organizationConfiguration").OrganizationConfiguration = null as any;
+utilities.lazyLoad(exports, ["OrganizationConfiguration"], () => require("./organizationConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -52,6 +57,8 @@ const _module = {
                 return new Member(name, <any>undefined, { urn })
             case "aws:macie2/organizationAdminAccount:OrganizationAdminAccount":
                 return new OrganizationAdminAccount(name, <any>undefined, { urn })
+            case "aws:macie2/organizationConfiguration:OrganizationConfiguration":
+                return new OrganizationConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -63,3 +70,4 @@ pulumi.runtime.registerResourceModule("aws", "macie2/classificationJob", _module
 pulumi.runtime.registerResourceModule("aws", "macie2/invitationAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "macie2/member", _module)
 pulumi.runtime.registerResourceModule("aws", "macie2/organizationAdminAccount", _module)
+pulumi.runtime.registerResourceModule("aws", "macie2/organizationConfiguration", _module)

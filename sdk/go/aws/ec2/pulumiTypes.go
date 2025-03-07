@@ -5139,6 +5139,14 @@ type FleetSpotOptions struct {
 	InstancePoolsToUseCount *int `pulumi:"instancePoolsToUseCount"`
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
 	MaintenanceStrategies *FleetSpotOptionsMaintenanceStrategies `pulumi:"maintenanceStrategies"`
+	// The maximum amount per hour for Spot Instances that you're willing to pay.
+	MaxTotalPrice *string `pulumi:"maxTotalPrice"`
+	// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+	MinTargetCapacity *int `pulumi:"minTargetCapacity"`
+	// Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+	SingleAvailabilityZone *bool `pulumi:"singleAvailabilityZone"`
+	// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+	SingleInstanceType *bool `pulumi:"singleInstanceType"`
 }
 
 // FleetSpotOptionsInput is an input type that accepts FleetSpotOptionsArgs and FleetSpotOptionsOutput values.
@@ -5161,6 +5169,14 @@ type FleetSpotOptionsArgs struct {
 	InstancePoolsToUseCount pulumi.IntPtrInput `pulumi:"instancePoolsToUseCount"`
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
 	MaintenanceStrategies FleetSpotOptionsMaintenanceStrategiesPtrInput `pulumi:"maintenanceStrategies"`
+	// The maximum amount per hour for Spot Instances that you're willing to pay.
+	MaxTotalPrice pulumi.StringPtrInput `pulumi:"maxTotalPrice"`
+	// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+	MinTargetCapacity pulumi.IntPtrInput `pulumi:"minTargetCapacity"`
+	// Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+	SingleAvailabilityZone pulumi.BoolPtrInput `pulumi:"singleAvailabilityZone"`
+	// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+	SingleInstanceType pulumi.BoolPtrInput `pulumi:"singleInstanceType"`
 }
 
 func (FleetSpotOptionsArgs) ElementType() reflect.Type {
@@ -5260,6 +5276,26 @@ func (o FleetSpotOptionsOutput) MaintenanceStrategies() FleetSpotOptionsMaintena
 	return o.ApplyT(func(v FleetSpotOptions) *FleetSpotOptionsMaintenanceStrategies { return v.MaintenanceStrategies }).(FleetSpotOptionsMaintenanceStrategiesPtrOutput)
 }
 
+// The maximum amount per hour for Spot Instances that you're willing to pay.
+func (o FleetSpotOptionsOutput) MaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetSpotOptions) *string { return v.MaxTotalPrice }).(pulumi.StringPtrOutput)
+}
+
+// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+func (o FleetSpotOptionsOutput) MinTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetSpotOptions) *int { return v.MinTargetCapacity }).(pulumi.IntPtrOutput)
+}
+
+// Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+func (o FleetSpotOptionsOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FleetSpotOptions) *bool { return v.SingleAvailabilityZone }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+func (o FleetSpotOptionsOutput) SingleInstanceType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FleetSpotOptions) *bool { return v.SingleInstanceType }).(pulumi.BoolPtrOutput)
+}
+
 type FleetSpotOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (FleetSpotOptionsPtrOutput) ElementType() reflect.Type {
@@ -5322,6 +5358,46 @@ func (o FleetSpotOptionsPtrOutput) MaintenanceStrategies() FleetSpotOptionsMaint
 		}
 		return v.MaintenanceStrategies
 	}).(FleetSpotOptionsMaintenanceStrategiesPtrOutput)
+}
+
+// The maximum amount per hour for Spot Instances that you're willing to pay.
+func (o FleetSpotOptionsPtrOutput) MaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTotalPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+func (o FleetSpotOptionsPtrOutput) MinTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetSpotOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinTargetCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+func (o FleetSpotOptionsPtrOutput) SingleAvailabilityZone() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FleetSpotOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SingleAvailabilityZone
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+func (o FleetSpotOptionsPtrOutput) SingleInstanceType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FleetSpotOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SingleInstanceType
+	}).(pulumi.BoolPtrOutput)
 }
 
 type FleetSpotOptionsMaintenanceStrategies struct {
@@ -14037,6 +14113,8 @@ type LaunchTemplateNetworkInterface struct {
 	Description *string `pulumi:"description"`
 	// The integer index of the network interface attachment.
 	DeviceIndex *int `pulumi:"deviceIndex"`
+	// Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+	EnaSrdSpecification *LaunchTemplateNetworkInterfaceEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
 	InterfaceType *string `pulumi:"interfaceType"`
 	// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
@@ -14093,6 +14171,8 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The integer index of the network interface attachment.
 	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	// Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+	EnaSrdSpecification LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrInput `pulumi:"enaSrdSpecification"`
 	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
 	InterfaceType pulumi.StringPtrInput `pulumi:"interfaceType"`
 	// The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4Addresses`
@@ -14206,6 +14286,13 @@ func (o LaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringPtrOutp
 // The integer index of the network interface attachment.
 func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
+}
+
+// Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+func (o LaunchTemplateNetworkInterfaceOutput) EnaSrdSpecification() LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *LaunchTemplateNetworkInterfaceEnaSrdSpecification {
+		return v.EnaSrdSpecification
+	}).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput)
 }
 
 // The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
@@ -14478,6 +14565,311 @@ func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput) 
 		}
 		return v.UdpTimeout
 	}).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateNetworkInterfaceEnaSrdSpecification struct {
+	// Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
+	EnaSrdEnabled *bool `pulumi:"enaSrdEnabled"`
+	// Configuration for ENA Express UDP optimization. See details below.
+	EnaSrdUdpSpecification *LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification `pulumi:"enaSrdUdpSpecification"`
+}
+
+// LaunchTemplateNetworkInterfaceEnaSrdSpecificationInput is an input type that accepts LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs and LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceEnaSrdSpecificationInput` via:
+//
+//	LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs{...}
+type LaunchTemplateNetworkInterfaceEnaSrdSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput
+	ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput
+}
+
+type LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs struct {
+	// Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
+	EnaSrdEnabled pulumi.BoolPtrInput `pulumi:"enaSrdEnabled"`
+	// Configuration for ENA Express UDP optimization. See details below.
+	EnaSrdUdpSpecification LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput `pulumi:"enaSrdUdpSpecification"`
+}
+
+func (LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkInterfaceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput {
+	return i.ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput)
+}
+
+func (i LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return i.ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput).ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrInput is an input type that accepts LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs, LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtr and LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrInput` via:
+//
+//	        LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput
+	ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput
+}
+
+type launchTemplateNetworkInterfaceEnaSrdSpecificationPtrType LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs
+
+func LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtr(v *LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs) LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrInput {
+	return (*launchTemplateNetworkInterfaceEnaSrdSpecificationPtrType)(v)
+}
+
+func (*launchTemplateNetworkInterfaceEnaSrdSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkInterfaceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (i *launchTemplateNetworkInterfaceEnaSrdSpecificationPtrType) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return i.ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateNetworkInterfaceEnaSrdSpecificationPtrType) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput)
+}
+
+type LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkInterfaceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return o.ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateNetworkInterfaceEnaSrdSpecification) *LaunchTemplateNetworkInterfaceEnaSrdSpecification {
+		return &v
+	}).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput)
+}
+
+// Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterfaceEnaSrdSpecification) *bool { return v.EnaSrdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration for ENA Express UDP optimization. See details below.
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput) EnaSrdUdpSpecification() LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterfaceEnaSrdSpecification) *LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification {
+		return v.EnaSrdUdpSpecification
+	}).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput)
+}
+
+type LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkInterfaceEnaSrdSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput) Elem() LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceEnaSrdSpecification) LaunchTemplateNetworkInterfaceEnaSrdSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateNetworkInterfaceEnaSrdSpecification
+		return ret
+	}).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput)
+}
+
+// Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceEnaSrdSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configuration for ENA Express UDP optimization. See details below.
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput) EnaSrdUdpSpecification() LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceEnaSrdSpecification) *LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdUdpSpecification
+	}).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput)
+}
+
+type LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification struct {
+	// Whether to enable UDP traffic optimization through ENA Express. Requires `enaSrdEnabled` to be `true`.
+	//
+	// NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
+	EnaSrdUdpEnabled *bool `pulumi:"enaSrdUdpEnabled"`
+}
+
+// LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput is an input type that accepts LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs and LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput` via:
+//
+//	LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{...}
+type LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput
+	ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput
+}
+
+type LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs struct {
+	// Whether to enable UDP traffic optimization through ENA Express. Requires `enaSrdEnabled` to be `true`.
+	//
+	// NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
+	EnaSrdUdpEnabled pulumi.BoolPtrInput `pulumi:"enaSrdUdpEnabled"`
+}
+
+func (LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return i.ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput)
+}
+
+func (i LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return i.ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput).ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput is an input type that accepts LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs, LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtr and LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput` via:
+//
+//	        LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput
+	ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput
+}
+
+type launchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrType LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs
+
+func LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtr(v *LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs) LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput {
+	return (*launchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrType)(v)
+}
+
+func (*launchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (i *launchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrType) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return i.ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrType) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput)
+}
+
+type LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return o.ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification) *LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification {
+		return &v
+	}).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput)
+}
+
+// Whether to enable UDP traffic optimization through ENA Express. Requires `enaSrdEnabled` to be `true`.
+//
+// NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput) EnaSrdUdpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification) *bool {
+		return v.EnaSrdUdpEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput() LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput) ToLaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput) Elem() LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification) LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification
+		return ret
+	}).(LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput)
+}
+
+// Whether to enable UDP traffic optimization through ENA Express. Requires `enaSrdEnabled` to be `true`.
+//
+// NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
+func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput) EnaSrdUdpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdUdpEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type LaunchTemplatePlacement struct {
@@ -59528,6 +59920,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceArrayInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceEnaSrdSpecificationInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementPtrInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateDnsNameOptionsInput)(nil)).Elem(), LaunchTemplatePrivateDnsNameOptionsArgs{})
@@ -60403,6 +60799,10 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceEnaSrdSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePlacementOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePlacementPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePrivateDnsNameOptionsOutput{})

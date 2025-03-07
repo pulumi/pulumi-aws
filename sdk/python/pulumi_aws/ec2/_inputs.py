@@ -180,6 +180,10 @@ __all__ = [
     'LaunchTemplateNetworkInterfaceArgsDict',
     'LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs',
     'LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgsDict',
+    'LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs',
+    'LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgsDict',
+    'LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs',
+    'LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgsDict',
     'LaunchTemplatePlacementArgs',
     'LaunchTemplatePlacementArgsDict',
     'LaunchTemplatePrivateDnsNameOptionsArgs',
@@ -4077,6 +4081,22 @@ if not MYPY:
         """
         Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         """
+        max_total_price: NotRequired[pulumi.Input[str]]
+        """
+        The maximum amount per hour for Spot Instances that you're willing to pay.
+        """
+        min_target_capacity: NotRequired[pulumi.Input[int]]
+        """
+        The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+        """
+        single_availability_zone: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+        """
+        single_instance_type: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+        """
 elif False:
     FleetSpotOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4086,12 +4106,20 @@ class FleetSpotOptionsArgs:
                  allocation_strategy: Optional[pulumi.Input[str]] = None,
                  instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
                  instance_pools_to_use_count: Optional[pulumi.Input[int]] = None,
-                 maintenance_strategies: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgs']] = None):
+                 maintenance_strategies: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgs']] = None,
+                 max_total_price: Optional[pulumi.Input[str]] = None,
+                 min_target_capacity: Optional[pulumi.Input[int]] = None,
+                 single_availability_zone: Optional[pulumi.Input[bool]] = None,
+                 single_instance_type: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] allocation_strategy: How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
         :param pulumi.Input[str] instance_interruption_behavior: Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
         :param pulumi.Input[int] instance_pools_to_use_count: Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
         :param pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgs'] maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        :param pulumi.Input[str] max_total_price: The maximum amount per hour for Spot Instances that you're willing to pay.
+        :param pulumi.Input[int] min_target_capacity: The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+        :param pulumi.Input[bool] single_availability_zone: Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+        :param pulumi.Input[bool] single_instance_type: Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
         """
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
@@ -4101,6 +4129,14 @@ class FleetSpotOptionsArgs:
             pulumi.set(__self__, "instance_pools_to_use_count", instance_pools_to_use_count)
         if maintenance_strategies is not None:
             pulumi.set(__self__, "maintenance_strategies", maintenance_strategies)
+        if max_total_price is not None:
+            pulumi.set(__self__, "max_total_price", max_total_price)
+        if min_target_capacity is not None:
+            pulumi.set(__self__, "min_target_capacity", min_target_capacity)
+        if single_availability_zone is not None:
+            pulumi.set(__self__, "single_availability_zone", single_availability_zone)
+        if single_instance_type is not None:
+            pulumi.set(__self__, "single_instance_type", single_instance_type)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -4149,6 +4185,54 @@ class FleetSpotOptionsArgs:
     @maintenance_strategies.setter
     def maintenance_strategies(self, value: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgs']]):
         pulumi.set(self, "maintenance_strategies", value)
+
+    @property
+    @pulumi.getter(name="maxTotalPrice")
+    def max_total_price(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum amount per hour for Spot Instances that you're willing to pay.
+        """
+        return pulumi.get(self, "max_total_price")
+
+    @max_total_price.setter
+    def max_total_price(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_total_price", value)
+
+    @property
+    @pulumi.getter(name="minTargetCapacity")
+    def min_target_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+        """
+        return pulumi.get(self, "min_target_capacity")
+
+    @min_target_capacity.setter
+    def min_target_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_target_capacity", value)
+
+    @property
+    @pulumi.getter(name="singleAvailabilityZone")
+    def single_availability_zone(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+        """
+        return pulumi.get(self, "single_availability_zone")
+
+    @single_availability_zone.setter
+    def single_availability_zone(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "single_availability_zone", value)
+
+    @property
+    @pulumi.getter(name="singleInstanceType")
+    def single_instance_type(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
+        """
+        return pulumi.get(self, "single_instance_type")
+
+    @single_instance_type.setter
+    def single_instance_type(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "single_instance_type", value)
 
 
 if not MYPY:
@@ -8329,6 +8413,10 @@ if not MYPY:
         """
         The integer index of the network interface attachment.
         """
+        ena_srd_specification: NotRequired[pulumi.Input['LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgsDict']]
+        """
+        Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+        """
         interface_type: NotRequired[pulumi.Input[str]]
         """
         The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
@@ -8401,6 +8489,7 @@ class LaunchTemplateNetworkInterfaceArgs:
                  delete_on_termination: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_index: Optional[pulumi.Input[int]] = None,
+                 ena_srd_specification: Optional[pulumi.Input['LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs']] = None,
                  interface_type: Optional[pulumi.Input[str]] = None,
                  ipv4_address_count: Optional[pulumi.Input[int]] = None,
                  ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -8423,6 +8512,7 @@ class LaunchTemplateNetworkInterfaceArgs:
         :param pulumi.Input[str] delete_on_termination: Whether the network interface should be destroyed on instance termination.
         :param pulumi.Input[str] description: Description of the network interface.
         :param pulumi.Input[int] device_index: The integer index of the network interface attachment.
+        :param pulumi.Input['LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs'] ena_srd_specification: Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
         :param pulumi.Input[str] interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
         :param pulumi.Input[int] ipv4_address_count: The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv4_addresses: One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
@@ -8451,6 +8541,8 @@ class LaunchTemplateNetworkInterfaceArgs:
             pulumi.set(__self__, "description", description)
         if device_index is not None:
             pulumi.set(__self__, "device_index", device_index)
+        if ena_srd_specification is not None:
+            pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
         if interface_type is not None:
             pulumi.set(__self__, "interface_type", interface_type)
         if ipv4_address_count is not None:
@@ -8553,6 +8645,18 @@ class LaunchTemplateNetworkInterfaceArgs:
     @device_index.setter
     def device_index(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "device_index", value)
+
+    @property
+    @pulumi.getter(name="enaSrdSpecification")
+    def ena_srd_specification(self) -> Optional[pulumi.Input['LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs']]:
+        """
+        Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
+        """
+        return pulumi.get(self, "ena_srd_specification")
+
+    @ena_srd_specification.setter
+    def ena_srd_specification(self, value: Optional[pulumi.Input['LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs']]):
+        pulumi.set(self, "ena_srd_specification", value)
 
     @property
     @pulumi.getter(name="interfaceType")
@@ -8805,6 +8909,96 @@ class LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs:
     @udp_timeout.setter
     def udp_timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "udp_timeout", value)
+
+
+if not MYPY:
+    class LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgsDict(TypedDict):
+        ena_srd_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
+        """
+        ena_srd_udp_specification: NotRequired[pulumi.Input['LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgsDict']]
+        """
+        Configuration for ENA Express UDP optimization. See details below.
+        """
+elif False:
+    LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs:
+    def __init__(__self__, *,
+                 ena_srd_enabled: Optional[pulumi.Input[bool]] = None,
+                 ena_srd_udp_specification: Optional[pulumi.Input['LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs']] = None):
+        """
+        :param pulumi.Input[bool] ena_srd_enabled: Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
+        :param pulumi.Input['LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs'] ena_srd_udp_specification: Configuration for ENA Express UDP optimization. See details below.
+        """
+        if ena_srd_enabled is not None:
+            pulumi.set(__self__, "ena_srd_enabled", ena_srd_enabled)
+        if ena_srd_udp_specification is not None:
+            pulumi.set(__self__, "ena_srd_udp_specification", ena_srd_udp_specification)
+
+    @property
+    @pulumi.getter(name="enaSrdEnabled")
+    def ena_srd_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
+        """
+        return pulumi.get(self, "ena_srd_enabled")
+
+    @ena_srd_enabled.setter
+    def ena_srd_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ena_srd_enabled", value)
+
+    @property
+    @pulumi.getter(name="enaSrdUdpSpecification")
+    def ena_srd_udp_specification(self) -> Optional[pulumi.Input['LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs']]:
+        """
+        Configuration for ENA Express UDP optimization. See details below.
+        """
+        return pulumi.get(self, "ena_srd_udp_specification")
+
+    @ena_srd_udp_specification.setter
+    def ena_srd_udp_specification(self, value: Optional[pulumi.Input['LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs']]):
+        pulumi.set(self, "ena_srd_udp_specification", value)
+
+
+if not MYPY:
+    class LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgsDict(TypedDict):
+        ena_srd_udp_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable UDP traffic optimization through ENA Express. Requires `ena_srd_enabled` to be `true`.
+
+        NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
+        """
+elif False:
+    LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs:
+    def __init__(__self__, *,
+                 ena_srd_udp_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] ena_srd_udp_enabled: Whether to enable UDP traffic optimization through ENA Express. Requires `ena_srd_enabled` to be `true`.
+               
+               NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
+        """
+        if ena_srd_udp_enabled is not None:
+            pulumi.set(__self__, "ena_srd_udp_enabled", ena_srd_udp_enabled)
+
+    @property
+    @pulumi.getter(name="enaSrdUdpEnabled")
+    def ena_srd_udp_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable UDP traffic optimization through ENA Express. Requires `ena_srd_enabled` to be `true`.
+
+        NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
+        """
+        return pulumi.get(self, "ena_srd_udp_enabled")
+
+    @ena_srd_udp_enabled.setter
+    def ena_srd_udp_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ena_srd_udp_enabled", value)
 
 
 if not MYPY:

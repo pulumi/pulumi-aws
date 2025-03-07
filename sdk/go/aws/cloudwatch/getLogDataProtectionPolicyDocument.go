@@ -95,7 +95,8 @@ func GetLogDataProtectionPolicyDocument(ctx *pulumi.Context, args *GetLogDataPro
 
 // A collection of arguments for invoking getLogDataProtectionPolicyDocument.
 type GetLogDataProtectionPolicyDocumentArgs struct {
-	Description *string `pulumi:"description"`
+	Configuration *GetLogDataProtectionPolicyDocumentConfiguration `pulumi:"configuration"`
+	Description   *string                                          `pulumi:"description"`
 	// The name of the data protection policy document.
 	Name string `pulumi:"name"`
 	// Configures the data protection policy.
@@ -109,7 +110,8 @@ type GetLogDataProtectionPolicyDocumentArgs struct {
 
 // A collection of values returned by getLogDataProtectionPolicyDocument.
 type GetLogDataProtectionPolicyDocumentResult struct {
-	Description *string `pulumi:"description"`
+	Configuration *GetLogDataProtectionPolicyDocumentConfiguration `pulumi:"configuration"`
+	Description   *string                                          `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Standard JSON policy document rendered based on the arguments above.
@@ -130,7 +132,8 @@ func GetLogDataProtectionPolicyDocumentOutput(ctx *pulumi.Context, args GetLogDa
 
 // A collection of arguments for invoking getLogDataProtectionPolicyDocument.
 type GetLogDataProtectionPolicyDocumentOutputArgs struct {
-	Description pulumi.StringPtrInput `pulumi:"description"`
+	Configuration GetLogDataProtectionPolicyDocumentConfigurationPtrInput `pulumi:"configuration"`
+	Description   pulumi.StringPtrInput                                   `pulumi:"description"`
 	// The name of the data protection policy document.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Configures the data protection policy.
@@ -159,6 +162,12 @@ func (o GetLogDataProtectionPolicyDocumentResultOutput) ToGetLogDataProtectionPo
 
 func (o GetLogDataProtectionPolicyDocumentResultOutput) ToGetLogDataProtectionPolicyDocumentResultOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentResultOutput {
 	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentResultOutput) Configuration() GetLogDataProtectionPolicyDocumentConfigurationPtrOutput {
+	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentResult) *GetLogDataProtectionPolicyDocumentConfiguration {
+		return v.Configuration
+	}).(GetLogDataProtectionPolicyDocumentConfigurationPtrOutput)
 }
 
 func (o GetLogDataProtectionPolicyDocumentResultOutput) Description() pulumi.StringPtrOutput {

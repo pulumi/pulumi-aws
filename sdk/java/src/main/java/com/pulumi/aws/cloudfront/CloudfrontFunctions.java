@@ -84,7 +84,7 @@ public final class CloudfrontFunctions {
      * 
      * ### AWS-Managed Policies
      * 
-     * AWS managed cache policy names are prefixed with `Managed-`:
+     * AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -109,8 +109,12 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example1 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name("Managed-CachingOptimized")
+     *             .build());
+     * 
+     *         final var example2 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name("UseOriginCacheControlHeaders")
      *             .build());
      * 
      *     }
@@ -165,7 +169,7 @@ public final class CloudfrontFunctions {
      * 
      * ### AWS-Managed Policies
      * 
-     * AWS managed cache policy names are prefixed with `Managed-`:
+     * AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -190,8 +194,12 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example1 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name("Managed-CachingOptimized")
+     *             .build());
+     * 
+     *         final var example2 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name("UseOriginCacheControlHeaders")
      *             .build());
      * 
      *     }
@@ -246,7 +254,7 @@ public final class CloudfrontFunctions {
      * 
      * ### AWS-Managed Policies
      * 
-     * AWS managed cache policy names are prefixed with `Managed-`:
+     * AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -271,8 +279,12 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example1 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name("Managed-CachingOptimized")
+     *             .build());
+     * 
+     *         final var example2 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name("UseOriginCacheControlHeaders")
      *             .build());
      * 
      *     }
@@ -327,7 +339,7 @@ public final class CloudfrontFunctions {
      * 
      * ### AWS-Managed Policies
      * 
-     * AWS managed cache policy names are prefixed with `Managed-`:
+     * AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -352,8 +364,12 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example1 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name("Managed-CachingOptimized")
+     *             .build());
+     * 
+     *         final var example2 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name("UseOriginCacheControlHeaders")
      *             .build());
      * 
      *     }
@@ -408,7 +424,7 @@ public final class CloudfrontFunctions {
      * 
      * ### AWS-Managed Policies
      * 
-     * AWS managed cache policy names are prefixed with `Managed-`:
+     * AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -433,8 +449,12 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example1 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name("Managed-CachingOptimized")
+     *             .build());
+     * 
+     *         final var example2 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name("UseOriginCacheControlHeaders")
      *             .build());
      * 
      *     }
@@ -489,7 +509,7 @@ public final class CloudfrontFunctions {
      * 
      * ### AWS-Managed Policies
      * 
-     * AWS managed cache policy names are prefixed with `Managed-`:
+     * AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -514,8 +534,12 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example1 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name("Managed-CachingOptimized")
+     *             .build());
+     * 
+     *         final var example2 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name("UseOriginCacheControlHeaders")
      *             .build());
      * 
      *     }
@@ -570,7 +594,7 @@ public final class CloudfrontFunctions {
      * 
      * ### AWS-Managed Policies
      * 
-     * AWS managed cache policy names are prefixed with `Managed-`:
+     * AWS managed cache policy names are prefixed with `Managed-`, except for `UseOriginCacheControlHeaders` and `UseOriginCacheControlHeaders-QueryStrings`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -595,8 +619,12 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example1 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name("Managed-CachingOptimized")
+     *             .build());
+     * 
+     *         final var example2 = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *             .name("UseOriginCacheControlHeaders")
      *             .build());
      * 
      *     }

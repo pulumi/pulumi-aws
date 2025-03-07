@@ -14,7 +14,7 @@ scheme for registration: see
 https://github.com/hashicorp/terraform-provider-aws/pull/29717.
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index ae5740506d..0c1b1e86ab 100644
+index 19c9cd7190..3ad50b93e8 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -14,6 +14,8 @@ import (
@@ -39,10 +39,10 @@ index ae5740506d..0c1b1e86ab 100644
  	provider.ConfigureContextFunc = func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
 new file mode 100644
-index 0000000000..cd2a293a73
+index 0000000000..1c19c2a4c1
 --- /dev/null
 +++ b/internal/service/s3legacy/bucket_legacy.go
-@@ -0,0 +1,3030 @@
+@@ -0,0 +1,3028 @@
 +package s3legacy
 +
 +import (
@@ -710,8 +710,6 @@ index 0000000000..cd2a293a73
 +			"tags":     tftags.TagsSchema(),
 +			"tags_all": tftags.TagsSchemaTrulyComputed(),
 +		},
-+
-+		CustomizeDiff: verify.SetTagsDiff,
 +	}
 +}
 +

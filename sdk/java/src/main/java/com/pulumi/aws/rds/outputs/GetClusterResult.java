@@ -22,6 +22,8 @@ public final class GetClusterResult {
     private String clusterIdentifier;
     private List<String> clusterMembers;
     private String clusterResourceId;
+    private String clusterScalabilityType;
+    private String databaseInsightsMode;
     private String databaseName;
     private String dbClusterParameterGroupName;
     private String dbSubnetGroupName;
@@ -80,6 +82,12 @@ public final class GetClusterResult {
     }
     public String clusterResourceId() {
         return this.clusterResourceId;
+    }
+    public String clusterScalabilityType() {
+        return this.clusterScalabilityType;
+    }
+    public String databaseInsightsMode() {
+        return this.databaseInsightsMode;
     }
     public String databaseName() {
         return this.databaseName;
@@ -190,6 +198,8 @@ public final class GetClusterResult {
         private String clusterIdentifier;
         private List<String> clusterMembers;
         private String clusterResourceId;
+        private String clusterScalabilityType;
+        private String databaseInsightsMode;
         private String databaseName;
         private String dbClusterParameterGroupName;
         private String dbSubnetGroupName;
@@ -228,6 +238,8 @@ public final class GetClusterResult {
     	      this.clusterIdentifier = defaults.clusterIdentifier;
     	      this.clusterMembers = defaults.clusterMembers;
     	      this.clusterResourceId = defaults.clusterResourceId;
+    	      this.clusterScalabilityType = defaults.clusterScalabilityType;
+    	      this.databaseInsightsMode = defaults.databaseInsightsMode;
     	      this.databaseName = defaults.databaseName;
     	      this.dbClusterParameterGroupName = defaults.dbClusterParameterGroupName;
     	      this.dbSubnetGroupName = defaults.dbSubnetGroupName;
@@ -318,6 +330,22 @@ public final class GetClusterResult {
               throw new MissingRequiredPropertyException("GetClusterResult", "clusterResourceId");
             }
             this.clusterResourceId = clusterResourceId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clusterScalabilityType(String clusterScalabilityType) {
+            if (clusterScalabilityType == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "clusterScalabilityType");
+            }
+            this.clusterScalabilityType = clusterScalabilityType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder databaseInsightsMode(String databaseInsightsMode) {
+            if (databaseInsightsMode == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "databaseInsightsMode");
+            }
+            this.databaseInsightsMode = databaseInsightsMode;
             return this;
         }
         @CustomType.Setter
@@ -565,6 +593,8 @@ public final class GetClusterResult {
             _resultValue.clusterIdentifier = clusterIdentifier;
             _resultValue.clusterMembers = clusterMembers;
             _resultValue.clusterResourceId = clusterResourceId;
+            _resultValue.clusterScalabilityType = clusterScalabilityType;
+            _resultValue.databaseInsightsMode = databaseInsightsMode;
             _resultValue.databaseName = databaseName;
             _resultValue.dbClusterParameterGroupName = dbClusterParameterGroupName;
             _resultValue.dbSubnetGroupName = dbSubnetGroupName;

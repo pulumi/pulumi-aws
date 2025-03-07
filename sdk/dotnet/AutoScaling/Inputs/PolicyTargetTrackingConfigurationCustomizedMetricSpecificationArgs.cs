@@ -49,6 +49,12 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<string>? Namespace { get; set; }
 
         /// <summary>
+        /// The period of the metric in seconds.
+        /// </summary>
+        [Input("period")]
+        public Input<int>? Period { get; set; }
+
+        /// <summary>
         /// Statistic of the metric.
         /// </summary>
         [Input("statistic")]

@@ -178,14 +178,14 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
         return this.cacheControl;
     }
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      * 
      */
     @Export(name="checksumAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> checksumAlgorithm;
 
     /**
-     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      * 
      */
     public Output<Optional<String>> checksumAlgorithm() {
@@ -218,6 +218,20 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> checksumCrc32c() {
         return this.checksumCrc32c;
+    }
+    /**
+     * The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * 
+     */
+    @Export(name="checksumCrc64nvme", refs={String.class}, tree="[0]")
+    private Output<String> checksumCrc64nvme;
+
+    /**
+     * @return The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * 
+     */
+    public Output<String> checksumCrc64nvme() {
+        return this.checksumCrc64nvme;
     }
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.

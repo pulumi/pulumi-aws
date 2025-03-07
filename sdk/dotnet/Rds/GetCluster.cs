@@ -148,6 +148,8 @@ namespace Pulumi.Aws.Rds
         public readonly string ClusterIdentifier;
         public readonly ImmutableArray<string> ClusterMembers;
         public readonly string ClusterResourceId;
+        public readonly string ClusterScalabilityType;
+        public readonly string DatabaseInsightsMode;
         public readonly string DatabaseName;
         public readonly string DbClusterParameterGroupName;
         public readonly string DbSubnetGroupName;
@@ -198,6 +200,10 @@ namespace Pulumi.Aws.Rds
             ImmutableArray<string> clusterMembers,
 
             string clusterResourceId,
+
+            string clusterScalabilityType,
+
+            string databaseInsightsMode,
 
             string databaseName,
 
@@ -262,6 +268,8 @@ namespace Pulumi.Aws.Rds
             ClusterIdentifier = clusterIdentifier;
             ClusterMembers = clusterMembers;
             ClusterResourceId = clusterResourceId;
+            ClusterScalabilityType = clusterScalabilityType;
+            DatabaseInsightsMode = databaseInsightsMode;
             DatabaseName = databaseName;
             DbClusterParameterGroupName = dbClusterParameterGroupName;
             DbSubnetGroupName = dbSubnetGroupName;

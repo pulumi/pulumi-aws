@@ -84,8 +84,10 @@ type FindingsFilter struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position pulumi.IntOutput `pulumi:"position"`
-	// A map of key-value pairs that specifies the tags to associate with the filter.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -140,8 +142,10 @@ type findingsFilterState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position *int `pulumi:"position"`
-	// A map of key-value pairs that specifies the tags to associate with the filter.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -161,8 +165,10 @@ type FindingsFilterState struct {
 	NamePrefix pulumi.StringPtrInput
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position pulumi.IntPtrInput
-	// A map of key-value pairs that specifies the tags to associate with the filter.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
@@ -184,7 +190,7 @@ type findingsFilterArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position *int `pulumi:"position"`
-	// A map of key-value pairs that specifies the tags to associate with the filter.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -202,7 +208,7 @@ type FindingsFilterArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position pulumi.IntPtrInput
-	// A map of key-value pairs that specifies the tags to associate with the filter.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -328,11 +334,13 @@ func (o FindingsFilterOutput) Position() pulumi.IntOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.IntOutput { return v.Position }).(pulumi.IntOutput)
 }
 
-// A map of key-value pairs that specifies the tags to associate with the filter.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FindingsFilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
 // Deprecated: Please use `tags` instead.
 func (o FindingsFilterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)

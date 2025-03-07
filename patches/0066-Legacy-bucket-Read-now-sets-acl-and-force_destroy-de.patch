@@ -5,7 +5,7 @@ Subject: [PATCH] Legacy bucket Read now sets acl and force_destroy defaults
 
 
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index 2fed6dc3e3..2e2ffe77b0 100644
+index 86020c9ba2..a3d039d7c3 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -34,6 +34,10 @@ import (
@@ -28,7 +28,7 @@ index 2fed6dc3e3..2e2ffe77b0 100644
  				Optional:      true,
  				ConflictsWith: []string{"grant"},
  				ValidateFunc:  validation.StringInSlice(BucketCannedACL_Values(), false),
-@@ -942,7 +946,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -940,7 +944,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	}
  
  	//Read the Grant ACL. Reset if `acl` (canned ACL) is set.
@@ -37,7 +37,7 @@ index 2fed6dc3e3..2e2ffe77b0 100644
  		if err := d.Set("grant", nil); err != nil {
  			return diag.Errorf("error resetting grant %s", err)
  		}
-@@ -1402,6 +1406,18 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -1400,6 +1404,18 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	}.String()
  	d.Set("arn", arn)
  

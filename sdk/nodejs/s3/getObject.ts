@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  * * `application/xml`
  * * `application/atom+xml`
  * * `application/x-sql`
+ * * `application/yaml`
  *
  * This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favor of metadata.
  *
@@ -135,6 +136,10 @@ export interface GetObjectResult {
      * The base64-encoded, 32-bit CRC32C checksum of the object.
      */
     readonly checksumCrc32c: string;
+    /**
+     * The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     */
+    readonly checksumCrc64nvme: string;
     readonly checksumMode?: string;
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.
@@ -243,6 +248,7 @@ export interface GetObjectResult {
  * * `application/xml`
  * * `application/atom+xml`
  * * `application/x-sql`
+ * * `application/yaml`
  *
  * This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favor of metadata.
  *

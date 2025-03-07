@@ -95,14 +95,14 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      * 
      */
     @Import(name="checksumAlgorithm")
     private @Nullable Output<String> checksumAlgorithm;
 
     /**
-     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      * 
      */
     public Optional<Output<String>> checksumAlgorithm() {
@@ -137,6 +137,21 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> checksumCrc32c() {
         return Optional.ofNullable(this.checksumCrc32c);
+    }
+
+    /**
+     * The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * 
+     */
+    @Import(name="checksumCrc64nvme")
+    private @Nullable Output<String> checksumCrc64nvme;
+
+    /**
+     * @return The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * 
+     */
+    public Optional<Output<String>> checksumCrc64nvme() {
+        return Optional.ofNullable(this.checksumCrc64nvme);
     }
 
     /**
@@ -545,6 +560,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         this.checksumAlgorithm = $.checksumAlgorithm;
         this.checksumCrc32 = $.checksumCrc32;
         this.checksumCrc32c = $.checksumCrc32c;
+        this.checksumCrc64nvme = $.checksumCrc64nvme;
         this.checksumSha1 = $.checksumSha1;
         this.checksumSha256 = $.checksumSha256;
         this.content = $.content;
@@ -696,7 +712,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
          * 
          * @return builder
          * 
@@ -707,7 +723,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
          * 
          * @return builder
          * 
@@ -756,6 +772,27 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
          */
         public Builder checksumCrc32c(String checksumCrc32c) {
             return checksumCrc32c(Output.of(checksumCrc32c));
+        }
+
+        /**
+         * @param checksumCrc64nvme The base64-encoded, 64-bit CRC64NVME checksum of the object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumCrc64nvme(@Nullable Output<String> checksumCrc64nvme) {
+            $.checksumCrc64nvme = checksumCrc64nvme;
+            return this;
+        }
+
+        /**
+         * @param checksumCrc64nvme The base64-encoded, 64-bit CRC64NVME checksum of the object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumCrc64nvme(String checksumCrc64nvme) {
+            return checksumCrc64nvme(Output.of(checksumCrc64nvme));
         }
 
         /**

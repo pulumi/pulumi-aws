@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *     name: "Example",
  *     resourceGatewayIdentifier: exampleAwsVpclatticeResourceGateway.id,
  *     portRanges: ["80"],
+ *     protocol: "TCP",
  *     resourceConfigurationDefinition: {
  *         dnsResource: {
  *             domainName: "example.com",

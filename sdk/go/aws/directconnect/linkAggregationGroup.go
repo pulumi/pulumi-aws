@@ -59,7 +59,7 @@ type LinkAggregationGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of an existing dedicated connection to migrate to the LAG.
 	ConnectionId pulumi.StringPtrOutput `pulumi:"connectionId"`
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+	// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
 	ConnectionsBandwidth pulumi.StringOutput `pulumi:"connectionsBandwidth"`
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
@@ -123,7 +123,7 @@ type linkAggregationGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// The ID of an existing dedicated connection to migrate to the LAG.
 	ConnectionId *string `pulumi:"connectionId"`
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+	// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
 	ConnectionsBandwidth *string `pulumi:"connectionsBandwidth"`
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
@@ -152,7 +152,7 @@ type LinkAggregationGroupState struct {
 	Arn pulumi.StringPtrInput
 	// The ID of an existing dedicated connection to migrate to the LAG.
 	ConnectionId pulumi.StringPtrInput
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+	// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
 	ConnectionsBandwidth pulumi.StringPtrInput
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
 	ForceDestroy pulumi.BoolPtrInput
@@ -183,7 +183,7 @@ func (LinkAggregationGroupState) ElementType() reflect.Type {
 type linkAggregationGroupArgs struct {
 	// The ID of an existing dedicated connection to migrate to the LAG.
 	ConnectionId *string `pulumi:"connectionId"`
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+	// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
 	ConnectionsBandwidth string `pulumi:"connectionsBandwidth"`
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
@@ -201,7 +201,7 @@ type linkAggregationGroupArgs struct {
 type LinkAggregationGroupArgs struct {
 	// The ID of an existing dedicated connection to migrate to the LAG.
 	ConnectionId pulumi.StringPtrInput
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+	// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
 	ConnectionsBandwidth pulumi.StringInput
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
 	ForceDestroy pulumi.BoolPtrInput
@@ -312,7 +312,7 @@ func (o LinkAggregationGroupOutput) ConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringPtrOutput { return v.ConnectionId }).(pulumi.StringPtrOutput)
 }
 
-// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
 func (o LinkAggregationGroupOutput) ConnectionsBandwidth() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringOutput { return v.ConnectionsBandwidth }).(pulumi.StringOutput)
 }

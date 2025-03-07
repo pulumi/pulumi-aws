@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS QuickSight Account Subscription.
  *
+ * > Due to the absence of the `adminGroup`, `authorGroup`, and `readerGroup` fields in the [`DescribeAccountSettings`](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSettings.html) API response, changes made to these groups post-subscription will not be detected by this resource.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -116,7 +118,7 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     public readonly notificationEmail!: pulumi.Output<string>;
     /**
-     * Reader group associated with your Active Direcrtory.
+     * Reader group associated with your Active Directory.
      */
     public readonly readerGroups!: pulumi.Output<string[] | undefined>;
     /**
@@ -258,7 +260,7 @@ export interface AccountSubscriptionState {
      */
     notificationEmail?: pulumi.Input<string>;
     /**
-     * Reader group associated with your Active Direcrtory.
+     * Reader group associated with your Active Directory.
      */
     readerGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -330,7 +332,7 @@ export interface AccountSubscriptionArgs {
      */
     notificationEmail: pulumi.Input<string>;
     /**
-     * Reader group associated with your Active Direcrtory.
+     * Reader group associated with your Active Directory.
      */
     readerGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**

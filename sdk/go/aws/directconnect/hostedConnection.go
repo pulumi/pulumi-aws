@@ -48,7 +48,7 @@ type HostedConnection struct {
 
 	// The Direct Connect endpoint on which the physical connection terminates.
 	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
-	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
 	Bandwidth pulumi.StringOutput `pulumi:"bandwidth"`
 	// The ID of the interconnect or LAG.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
@@ -122,7 +122,7 @@ func GetHostedConnection(ctx *pulumi.Context,
 type hostedConnectionState struct {
 	// The Direct Connect endpoint on which the physical connection terminates.
 	AwsDevice *string `pulumi:"awsDevice"`
-	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
 	Bandwidth *string `pulumi:"bandwidth"`
 	// The ID of the interconnect or LAG.
 	ConnectionId *string `pulumi:"connectionId"`
@@ -155,7 +155,7 @@ type hostedConnectionState struct {
 type HostedConnectionState struct {
 	// The Direct Connect endpoint on which the physical connection terminates.
 	AwsDevice pulumi.StringPtrInput
-	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
 	Bandwidth pulumi.StringPtrInput
 	// The ID of the interconnect or LAG.
 	ConnectionId pulumi.StringPtrInput
@@ -190,7 +190,7 @@ func (HostedConnectionState) ElementType() reflect.Type {
 }
 
 type hostedConnectionArgs struct {
-	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
 	Bandwidth string `pulumi:"bandwidth"`
 	// The ID of the interconnect or LAG.
 	ConnectionId string `pulumi:"connectionId"`
@@ -204,7 +204,7 @@ type hostedConnectionArgs struct {
 
 // The set of arguments for constructing a HostedConnection resource.
 type HostedConnectionArgs struct {
-	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+	// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
 	Bandwidth pulumi.StringInput
 	// The ID of the interconnect or LAG.
 	ConnectionId pulumi.StringInput
@@ -308,7 +308,7 @@ func (o HostedConnectionOutput) AwsDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
 }
 
-// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
 func (o HostedConnectionOutput) Bandwidth() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.Bandwidth }).(pulumi.StringOutput)
 }

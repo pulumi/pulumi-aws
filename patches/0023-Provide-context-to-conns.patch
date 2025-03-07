@@ -143,10 +143,10 @@ index 54b86a0426..d9f2424b7a 100644
  	_, err := conn.DeleteMatchmakingRuleSet(&gamelift.DeleteMatchmakingRuleSetInput{
  		Name: aws.String(d.Id()),
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index 0e1e17baa3..dc93531e67 100644
+index 06cf973ae0..aea104bf56 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
-@@ -673,7 +673,7 @@ func ResourceBucketLegacy() *schema.Resource {
+@@ -671,7 +671,7 @@ func ResourceBucketLegacy() *schema.Resource {
  }
  
  func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -155,7 +155,7 @@ index 0e1e17baa3..dc93531e67 100644
  
  	// Get the bucket and acl
  	var bucket string
-@@ -746,7 +746,7 @@ func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, met
+@@ -744,7 +744,7 @@ func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, met
  }
  
  func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -164,7 +164,7 @@ index 0e1e17baa3..dc93531e67 100644
  
  	if d.HasChange("tags_all") {
  		o, n := d.GetChange("tags_all")
-@@ -854,7 +854,7 @@ func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, met
+@@ -852,7 +852,7 @@ func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, met
  }
  
  func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -173,7 +173,7 @@ index 0e1e17baa3..dc93531e67 100644
  	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
  	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
  
-@@ -1365,7 +1365,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -1363,7 +1363,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	}
  
  	// Add website_endpoint as an attribute
@@ -182,7 +182,7 @@ index 0e1e17baa3..dc93531e67 100644
  	if err != nil {
  		return diag.FromErr(err)
  	}
-@@ -1415,7 +1415,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -1413,7 +1413,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  }
  
  func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -191,7 +191,7 @@ index 0e1e17baa3..dc93531e67 100644
  
  	log.Printf("[DEBUG] S3 Delete Bucket: %s", d.Id())
  	_, err := conn.DeleteBucket(&s3.DeleteBucketInput{
-@@ -1431,7 +1431,7 @@ func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, met
+@@ -1429,7 +1429,7 @@ func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, met
  			// Use a S3 service client that can handle multiple slashes in URIs.
  			// While aws_s3_bucket_object resources cannot create these object
  			// keys, other AWS services and applications using the S3 Bucket can.
@@ -200,7 +200,7 @@ index 0e1e17baa3..dc93531e67 100644
  
  			// bucket may have things delete them
  			log.Printf("[DEBUG] S3 Bucket attempting to forceDestroy %+v", err)
-@@ -1753,7 +1753,7 @@ func resourceBucketLegacyWebsiteDelete(conn *s3.S3, d *schema.ResourceData) erro
+@@ -1751,7 +1751,7 @@ func resourceBucketLegacyWebsiteDelete(conn *s3.S3, d *schema.ResourceData) erro
  	return nil
  }
  
@@ -209,7 +209,7 @@ index 0e1e17baa3..dc93531e67 100644
  	// If the bucket doesn't have a website configuration, return an empty
  	// endpoint
  	if _, ok := d.GetOk("website"); !ok {
-@@ -1765,7 +1765,7 @@ func websiteLegacyEndpoint(client *conns.AWSClient, d *schema.ResourceData) (*S3
+@@ -1763,7 +1763,7 @@ func websiteLegacyEndpoint(client *conns.AWSClient, d *schema.ResourceData) (*S3
  	// Lookup the region for this bucket
  
  	locationResponse, err := retryOnAWSCode(s3.ErrCodeNoSuchBucket, func() (interface{}, error) {

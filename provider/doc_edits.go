@@ -29,7 +29,6 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 		fixUpCloudFrontPublicKey,
 		fixUpEcsServiceName,
 		fixUpBucketReplicationConfig,
-		fixUpVpclatticeResourceconfigurationExample,
 		// This fixes up strings such as:
 		//
 		//	name        = "terraform-kinesis-firehose-os",
@@ -228,39 +227,6 @@ var fixUpBucketReplicationConfig = tfbridge.DocsEdit{
 			// Hard error to ensure we keep this content up to date
 			return nil, fmt.Errorf("could not find NOTE snippets in upstream %s, "+
 				"please verify replace content in doc_edits.go: %s", path, string(noteBytes))
-		}
-		return content, nil
-	},
-}
-
-var fixUpVpclatticeResourceconfigurationExample = tfbridge.DocsEdit{
-	Path: "vpclattice_resource_configuration.html.markdown",
-	Edit: func(path string, content []byte) ([]byte, error) {
-		fromBytes := []byte(`port_ranges = ["80"]
-
-  resource_configuration_definition {
-    ip_resource {
-      ip_address = "10.0.0.1"
-    }
-  }`)
-		toBytes := []byte(`port_ranges = ["80"]
-
-  protocol="TCP"
-  resource_configuration_definition {
-    ip_resource {
-      ip_address = "10.0.0.1"
-    }
-  }`)
-		if bytes.Contains(content, fromBytes) {
-			content = bytes.ReplaceAll(
-				content,
-				fromBytes,
-				toBytes)
-		} else {
-			// Hard error to ensure we keep this content up to date
-			return nil, fmt.Errorf("could not find text in upstream %s, "+
-				"please verify replace content in doc_edits.go: %s", path, string(fromBytes),
-			)
 		}
 		return content, nil
 	},

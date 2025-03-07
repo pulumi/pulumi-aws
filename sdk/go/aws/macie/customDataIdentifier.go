@@ -83,8 +83,10 @@ type CustomDataIdentifier struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex pulumi.StringPtrOutput `pulumi:"regex"`
-	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -137,8 +139,10 @@ type customDataIdentifierState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex *string `pulumi:"regex"`
-	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -162,8 +166,10 @@ type CustomDataIdentifierState struct {
 	NamePrefix pulumi.StringPtrInput
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex pulumi.StringPtrInput
-	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
@@ -187,7 +193,7 @@ type customDataIdentifierArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex *string `pulumi:"regex"`
-	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -207,7 +213,7 @@ type CustomDataIdentifierArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex pulumi.StringPtrInput
-	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -343,11 +349,13 @@ func (o CustomDataIdentifierOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringPtrOutput { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CustomDataIdentifierOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
 // Deprecated: Please use `tags` instead.
 func (o CustomDataIdentifierOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)

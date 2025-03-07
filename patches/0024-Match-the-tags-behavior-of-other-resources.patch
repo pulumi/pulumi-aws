@@ -5,7 +5,7 @@ Subject: [PATCH] Match the "tags" behavior of other resources
 
 
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index dc93531e67..1da08293c4 100644
+index aea104bf56..630b32660e 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -31,6 +31,7 @@ import (
@@ -16,7 +16,7 @@ index dc93531e67..1da08293c4 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/verify"
  )
  
-@@ -855,8 +856,6 @@ func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, met
+@@ -853,8 +854,6 @@ func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, met
  
  func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
  	conn := meta.(*conns.AWSClient).S3Conn(ctx)
@@ -25,7 +25,7 @@ index dc93531e67..1da08293c4 100644
  
  	input := &s3.HeadBucketInput{
  		Bucket: aws.String(d.Id()),
-@@ -1393,15 +1392,8 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -1391,15 +1390,8 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		return diag.Errorf("error listing tags for S3 Bucket (%s): unable to convert tags", d.Id())
  	}
  

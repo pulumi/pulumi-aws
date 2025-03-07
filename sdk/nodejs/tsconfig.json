@@ -1464,6 +1464,7 @@
         "macie2/invitationAccepter.ts",
         "macie2/member.ts",
         "macie2/organizationAdminAccount.ts",
+        "macie2/organizationConfiguration.ts",
         "mediaconvert/getQueue.ts",
         "mediaconvert/index.ts",
         "mediaconvert/queue.ts",
@@ -1537,6 +1538,8 @@
         "neptune/index.ts",
         "neptune/parameterGroup.ts",
         "neptune/subnetGroup.ts",
+        "neptunegraph/graph.ts",
+        "neptunegraph/index.ts",
         "networkfirewall/firewall.ts",
         "networkfirewall/firewallPolicy.ts",
         "networkfirewall/getFirewall.ts",
@@ -1713,6 +1716,7 @@
         "quicksight/ingestion.ts",
         "quicksight/namespace.ts",
         "quicksight/refreshSchedule.ts",
+        "quicksight/roleMembership.ts",
         "quicksight/template.ts",
         "quicksight/templateAlias.ts",
         "quicksight/theme.ts",
@@ -1771,6 +1775,7 @@
         "rds/proxyTarget.ts",
         "rds/reservedInstance.ts",
         "rds/roleAssociation.ts",
+        "rds/shardGroup.ts",
         "rds/snapshot.ts",
         "rds/snapshotCopy.ts",
         "rds/storageType.ts",
@@ -2384,6 +2389,7 @@
         "xray/encryptionConfig.ts",
         "xray/group.ts",
         "xray/index.ts",
+        "xray/resourcePolicy.ts",
         "xray/samplingRule.ts"
     ]
 }

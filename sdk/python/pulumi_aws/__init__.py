@@ -308,6 +308,8 @@ if typing.TYPE_CHECKING:
     mwaa = __mwaa
     import pulumi_aws.neptune as __neptune
     neptune = __neptune
+    import pulumi_aws.neptunegraph as __neptunegraph
+    neptunegraph = __neptunegraph
     import pulumi_aws.networkfirewall as __networkfirewall
     networkfirewall = __networkfirewall
     import pulumi_aws.networkmanager as __networkmanager
@@ -607,6 +609,7 @@ else:
     mskconnect = _utilities.lazy_import('pulumi_aws.mskconnect')
     mwaa = _utilities.lazy_import('pulumi_aws.mwaa')
     neptune = _utilities.lazy_import('pulumi_aws.neptune')
+    neptunegraph = _utilities.lazy_import('pulumi_aws.neptunegraph')
     networkfirewall = _utilities.lazy_import('pulumi_aws.networkfirewall')
     networkmanager = _utilities.lazy_import('pulumi_aws.networkmanager')
     networkmonitor = _utilities.lazy_import('pulumi_aws.networkmonitor')
@@ -7987,6 +7990,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "macie2/organizationConfiguration",
+  "fqn": "pulumi_aws.macie2",
+  "classes": {
+   "aws:macie2/organizationConfiguration:OrganizationConfiguration": "OrganizationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "mediaconvert/queue",
   "fqn": "pulumi_aws.mediaconvert",
   "classes": {
@@ -8303,6 +8314,14 @@ _utilities.register(
   "fqn": "pulumi_aws.neptune",
   "classes": {
    "aws:neptune/subnetGroup:SubnetGroup": "SubnetGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "neptunegraph/graph",
+  "fqn": "pulumi_aws.neptunegraph",
+  "classes": {
+   "aws:neptunegraph/graph:Graph": "Graph"
   }
  },
  {
@@ -9139,6 +9158,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "quicksight/roleMembership",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/roleMembership:RoleMembership": "RoleMembership"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "quicksight/template",
   "fqn": "pulumi_aws.quicksight",
   "classes": {
@@ -9423,6 +9450,14 @@ _utilities.register(
   "fqn": "pulumi_aws.rds",
   "classes": {
    "aws:rds/roleAssociation:RoleAssociation": "RoleAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rds/shardGroup",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/shardGroup:ShardGroup": "ShardGroup"
   }
  },
  {
@@ -12599,6 +12634,14 @@ _utilities.register(
   "fqn": "pulumi_aws.xray",
   "classes": {
    "aws:xray/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "xray/resourcePolicy",
+  "fqn": "pulumi_aws.xray",
+  "classes": {
+   "aws:xray/resourcePolicy:ResourcePolicy": "ResourcePolicy"
   }
  },
  {

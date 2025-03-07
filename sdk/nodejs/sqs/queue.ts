@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  *
  * !> AWS will hang indefinitely, leading to a `timeout while waiting` error, when creating or updating an `aws.sqs.Queue` with an associated `aws.sqs.QueuePolicy` if `Version = "2012-10-17"` is not explicitly set in the policy.
  *
+ * !> AWS will hang indefinitely and trigger a `timeout while waiting` error when creating or updating an `aws.sqs.Queue` if `kmsDataKeyReusePeriodSeconds` is set to a non-default value, `sqsManagedSseEnabled` is `false` (explicitly or by default), and `kmsMasterKeyId` is not set.
+ *
  * ## Example Usage
  *
  * ```typescript

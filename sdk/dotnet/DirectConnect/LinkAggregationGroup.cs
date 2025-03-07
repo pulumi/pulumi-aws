@@ -59,7 +59,7 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string?> ConnectionId { get; private set; } = null!;
 
         /// <summary>
-        /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+        /// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
         /// </summary>
         [Output("connectionsBandwidth")]
         public Output<string> ConnectionsBandwidth { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? ConnectionId { get; set; }
 
         /// <summary>
-        /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+        /// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
         /// </summary>
         [Input("connectionsBandwidth", required: true)]
         public Input<string> ConnectionsBandwidth { get; set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? ConnectionId { get; set; }
 
         /// <summary>
-        /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+        /// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
         /// </summary>
         [Input("connectionsBandwidth")]
         public Input<string>? ConnectionsBandwidth { get; set; }
