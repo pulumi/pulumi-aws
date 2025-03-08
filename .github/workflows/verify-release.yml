@@ -26,11 +26,6 @@ on:
         description: "The version of the provider to verify"
         required: true
         type: string
-      enableMacRunner:
-        description: "Enable the macos-latest runner in addition to ubuntu-latest and windows-latest. Defaults to 'false'."
-        required: false
-        type: boolean
-        default: false
       skipGoSdk:
         description: "Skip the Go SDK verification. Defaults to 'false'. This is used when we're not publishing a Go SDK on the default branch build."
         required: false
@@ -67,11 +62,7 @@ jobs:
     name: verify-release
     strategy:
       matrix:
-        # We always run on Linux and Windows, and optionally on MacOS. This is because MacOS runners have limited availability.
-        # Expression expands to ["ubuntu-latest","windows-latest"] or ["ubuntu-latest","windows-latest","macos-latest"]
-        # GitHub expressions don't have 'if' statements, so we use a ternary operator to conditionally include the MacOS runner suffix.
-        # See the docs for a similar example to this: https://docs.github.com/en/actions/learn-github-actions/expressions#fromjson
-        runner: ${{ fromJSON(format('["ubuntu-latest","windows-latest"{0}]', inputs.enableMacRunner && ',"macos-latest"' || '')) }}
+        runner: ["ubuntu-latest", "windows-latest", "macos-latest"]
     runs-on: ${{ matrix.runner }}
     permissions:
       contents: 'read'

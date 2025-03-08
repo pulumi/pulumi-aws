@@ -57,6 +57,12 @@ jobs:
     secrets: inherit
     with:
       version: ${{ needs.prerequisites.outputs.version }}
+      matrix: |
+        {
+          "platform": [
+            {"os": "linux", "arch": "amd64"},
+          ]
+        }
 
   build_sdk:
     if: github.event_name == 'repository_dispatch' ||
