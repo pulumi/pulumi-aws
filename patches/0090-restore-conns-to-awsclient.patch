@@ -1,0 +1,32 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: corymhall <43035978+corymhall@users.noreply.github.com>
+Date: Mon, 10 Mar 2025 15:57:46 -0400
+Subject: [PATCH] restore conns to awsclient
+
+`conns` was removed upstream because sdkv1 is no longer used. We have
+patches that still use sdkv1 so this is still needed.
+
+diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
+index 2b6de1c8cc..224e49fc00 100644
+--- a/internal/conns/awsclient.go
++++ b/internal/conns/awsclient.go
+@@ -30,6 +30,7 @@ type AWSClient struct {
+ 	accountID                 string
+ 	awsConfig                 *aws.Config
+ 	clients                   map[string]any
++	conns                     map[string]any
+ 	defaultTagsConfig         *tftags.DefaultConfig
+ 	endpoints                 map[string]string // From provider configuration.
+ 	httpClient                *http.Client
+diff --git a/internal/conns/config.go b/internal/conns/config.go
+index 9db7b383b2..2f807a732e 100644
+--- a/internal/conns/config.go
++++ b/internal/conns/config.go
+@@ -216,6 +216,7 @@ func (c *Config) ConfigureProvider(ctx context.Context, client *AWSClient) (*AWS
+ 	// Used for lazy-loading AWS API clients.
+ 	client.awsConfig = &cfg
+ 	client.clients = make(map[string]any, 0)
++	client.conns = make(map[string]any, 0)
+ 	client.endpoints = c.Endpoints
+ 	client.logger = logger
+ 	client.s3UsePathStyle = c.S3UsePathStyle

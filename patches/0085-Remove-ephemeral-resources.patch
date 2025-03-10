@@ -414,7 +414,7 @@ index e78746f6f1..c4c165820e 100644
  
  func dbInstanceModify(ctx context.Context, conn *rds.Client, resourceID string, input *rds.ModifyDBInstanceInput, timeout time.Duration) error {
 diff --git a/internal/service/redshift/cluster.go b/internal/service/redshift/cluster.go
-index 92bc901c79..620a4f478d 100644
+index 5105adf126..a2c81bec8f 100644
 --- a/internal/service/redshift/cluster.go
 +++ b/internal/service/redshift/cluster.go
 @@ -16,7 +16,6 @@ import (
@@ -731,7 +731,7 @@ index 6ded7ef7b2..b6ec344a65 100644
  }
  
 diff --git a/internal/service/ssm/parameter.go b/internal/service/ssm/parameter.go
-index b5fccc0112..2f711a2a35 100644
+index 9c4666ea58..cd2dd706a5 100644
 --- a/internal/service/ssm/parameter.go
 +++ b/internal/service/ssm/parameter.go
 @@ -12,7 +12,6 @@ import (

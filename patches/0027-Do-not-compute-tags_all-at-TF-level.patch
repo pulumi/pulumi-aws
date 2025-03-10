@@ -5,10 +5,10 @@ Subject: [PATCH] Do not compute tags_all at TF level
 
 
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 4605783c71..c06189571b 100644
+index ba02c7346f..625c5ca7d1 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -418,8 +418,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -422,8 +422,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  					continue
  				}
  				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {

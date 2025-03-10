@@ -4,11 +4,11 @@ Date: Wed, 5 Mar 2025 19:26:55 +0200
 Subject: [PATCH] patch tagsAll diff wrapper
 
 
-diff --git a/internal/provider/wrap.go b/internal/provider/wrap.go
-index b2bdcc45c9..d3b4a52334 100644
---- a/internal/provider/wrap.go
-+++ b/internal/provider/wrap.go
-@@ -153,6 +153,10 @@ func (w *wrappedResource) stateUpgrade(f schema.StateUpgradeFunc) schema.StateUp
+diff --git a/internal/provider/tags_interceptor.go b/internal/provider/tags_interceptor.go
+index 796b68c2b5..9977aceb07 100644
+--- a/internal/provider/tags_interceptor.go
++++ b/internal/provider/tags_interceptor.go
+@@ -265,6 +265,10 @@ func (r tagsInterceptor) getIdentifier(d schemaResourceData) string {
  
  // setTagsAll is a CustomizeDiff function that calculates the new value for the `tags_all` attribute.
  func setTagsAll(ctx context.Context, d *schema.ResourceDiff, meta interface{}) error {

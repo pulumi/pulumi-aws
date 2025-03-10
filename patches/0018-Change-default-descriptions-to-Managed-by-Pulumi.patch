@@ -31,10 +31,10 @@ index f3e5480366..f348cb1e8e 100644
  			"expires": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/cloudfront/origin_access_control.go b/internal/service/cloudfront/origin_access_control.go
-index 3be91ca669..c406d9a83f 100644
+index d09fe1f1bb..49cbcf8377 100644
 --- a/internal/service/cloudfront/origin_access_control.go
 +++ b/internal/service/cloudfront/origin_access_control.go
-@@ -38,7 +38,7 @@ func resourceOriginAccessControl() *schema.Resource {
+@@ -42,7 +42,7 @@ func resourceOriginAccessControl() *schema.Resource {
  			names.AttrDescription: {
  				Type:         schema.TypeString,
  				Optional:     true,
@@ -309,10 +309,10 @@ index c3170d4965..f13dada174 100644
  		HostedZoneId: aws.String(zoneID),
  	}
 diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
-index f44f0b5190..6a5a76267a 100644
+index b9b6d12eb5..298937cd14 100644
 --- a/internal/service/route53/zone.go
 +++ b/internal/service/route53/zone.go
-@@ -51,7 +51,7 @@ func resourceZone() *schema.Resource {
+@@ -50,7 +50,7 @@ func resourceZone() *schema.Resource {
  			names.AttrComment: {
  				Type:         schema.TypeString,
  				Optional:     true,

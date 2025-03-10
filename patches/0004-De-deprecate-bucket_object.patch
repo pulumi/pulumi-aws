@@ -5,14 +5,14 @@ Subject: [PATCH] De-deprecate bucket_object
 
 
 diff --git a/internal/service/s3/bucket_object.go b/internal/service/s3/bucket_object.go
-index 6ebd16412c..53794a2d43 100644
+index 85729aea89..53794a2d43 100644
 --- a/internal/service/s3/bucket_object.go
 +++ b/internal/service/s3/bucket_object.go
 @@ -66,7 +66,7 @@ func resourceBucketObject() *schema.Resource {
  				Computed: true,
  			},
  			names.AttrBucket: {
--				Deprecated:   "Use the aws_s3_object resource instead",
+-				Deprecated:   "bucket is deprecated. Use the aws_s3_object resource instead.",
 +				// FORK: Stack72 removed the deprecation warning as it was misleading for Pulumi users
  				Type:         schema.TypeString,
  				Required:     true,
@@ -21,7 +21,7 @@ index 6ebd16412c..53794a2d43 100644
  				Default:  false,
  			},
  			names.AttrKey: {
--				Deprecated:   "Use the aws_s3_object resource instead",
+-				Deprecated:   "key is deprecated. Use the aws_s3_object resource instead.",
 +				// FORK: Stack72 removed the deprecation warning as it was misleading for Pulumi users
  				Type:         schema.TypeString,
  				Required:     true,
