@@ -17,6 +17,19 @@ index f797ba7013..fee74d9e3c 100644
  		},
  		Blocks: map[string]schema.Block{
  			"model_source": schema.ListNestedBlock{
+diff --git a/internal/service/drs/replication_configuration_template.go b/internal/service/drs/replication_configuration_template.go
+index c3f407f845..6d68b9719b 100644
+--- a/internal/service/drs/replication_configuration_template.go
++++ b/internal/service/drs/replication_configuration_template.go
+@@ -99,7 +99,7 @@ func (r *replicationConfigurationTemplateResource) Schema(ctx context.Context, r
+ 
+ 			"staging_area_tags": tftags.TagsAttributeRequired(),
+ 			names.AttrTags:      tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll:   tftags.TagsAttribute(),
+ 
+ 			"use_dedicated_replication_server": schema.BoolAttribute{
+ 				Required: true,
 diff --git a/internal/service/logs/anomaly_detector.go b/internal/service/logs/anomaly_detector.go
 index d69e4e44c8..d1a6eae711 100644
 --- a/internal/service/logs/anomaly_detector.go
