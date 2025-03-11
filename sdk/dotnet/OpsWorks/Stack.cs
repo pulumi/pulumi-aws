@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
+    /// Provides an OpsWorks stack resource.
+    /// 
+    /// !&gt; **ALERT:** AWS no longer supports OpsWorks Stacks. All related resources will be removed from the AWS Provider in the next major version.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

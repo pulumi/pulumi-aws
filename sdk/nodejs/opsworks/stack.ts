@@ -8,6 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an OpsWorks stack resource.
+ *
+ * !> **ALERT:** AWS no longer supports OpsWorks Stacks. All related resources will be removed from the AWS Provider in the next major version.
+ *
  * ## Example Usage
  *
  * ```typescript

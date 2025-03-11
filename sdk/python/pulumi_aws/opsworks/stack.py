@@ -824,6 +824,10 @@ class Stack(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an OpsWorks stack resource.
+
+        !> **ALERT:** AWS no longer supports OpsWorks Stacks. All related resources will be removed from the AWS Provider in the next major version.
+
         ## Example Usage
 
         ```python
@@ -890,6 +894,10 @@ class Stack(pulumi.CustomResource):
                  args: StackArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an OpsWorks stack resource.
+
+        !> **ALERT:** AWS no longer supports OpsWorks Stacks. All related resources will be removed from the AWS Provider in the next major version.
+
         ## Example Usage
 
         ```python
