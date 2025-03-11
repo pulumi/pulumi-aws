@@ -28,18 +28,18 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
      */
     private @Nullable String builtInLifecycleConfigArn;
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
      * 
      */
     private @Nullable List<UserProfileUserSettingsJupyterLabAppSettingsCodeRepository> codeRepositories;
     private @Nullable List<UserProfileUserSettingsJupyterLabAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     private @Nullable UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec;
     /**
-     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
      * 
      */
     private @Nullable UserProfileUserSettingsJupyterLabAppSettingsEmrSettings emrSettings;
@@ -65,7 +65,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
         return Optional.ofNullable(this.builtInLifecycleConfigArn);
     }
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
      * 
      */
     public List<UserProfileUserSettingsJupyterLabAppSettingsCodeRepository> codeRepositories() {
@@ -75,14 +75,14 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     public Optional<UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
     /**
-     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
      * 
      */
     public Optional<UserProfileUserSettingsJupyterLabAppSettingsEmrSettings> emrSettings() {

@@ -50,6 +50,12 @@ namespace Pulumi.Aws.CloudFront
     public partial class OriginAccessControl : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Origin Access Control ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         /// </summary>
         [Output("description")]
@@ -169,6 +175,12 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class OriginAccessControlState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Origin Access Control ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         /// </summary>

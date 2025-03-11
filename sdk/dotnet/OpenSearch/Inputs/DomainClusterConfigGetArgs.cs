@@ -54,6 +54,18 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         [Input("multiAzWithStandbyEnabled")]
         public Input<bool>? MultiAzWithStandbyEnabled { get; set; }
 
+        [Input("nodeOptions")]
+        private InputList<Inputs.DomainClusterConfigNodeOptionGetArgs>? _nodeOptions;
+
+        /// <summary>
+        /// List of node options for the domain.
+        /// </summary>
+        public InputList<Inputs.DomainClusterConfigNodeOptionGetArgs> NodeOptions
+        {
+            get => _nodeOptions ?? (_nodeOptions = new InputList<Inputs.DomainClusterConfigNodeOptionGetArgs>());
+            set => _nodeOptions = value;
+        }
+
         /// <summary>
         /// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         /// </summary>

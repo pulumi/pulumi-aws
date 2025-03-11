@@ -597,7 +597,7 @@ type CoreNetwork struct {
 	BasePolicyDocument pulumi.StringPtrOutput `pulumi:"basePolicyDocument"`
 	// The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	//
-	// Deprecated: Use the basePolicyRegions argument instead. This argument will be removed in the next major version of the provider.
+	// Deprecated: base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
 	BasePolicyRegion pulumi.StringPtrOutput `pulumi:"basePolicyRegion"`
 	// A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	BasePolicyRegions pulumi.StringArrayOutput `pulumi:"basePolicyRegions"`
@@ -662,7 +662,7 @@ type coreNetworkState struct {
 	BasePolicyDocument *string `pulumi:"basePolicyDocument"`
 	// The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	//
-	// Deprecated: Use the basePolicyRegions argument instead. This argument will be removed in the next major version of the provider.
+	// Deprecated: base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
 	BasePolicyRegion *string `pulumi:"basePolicyRegion"`
 	// A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	BasePolicyRegions []string `pulumi:"basePolicyRegions"`
@@ -695,7 +695,7 @@ type CoreNetworkState struct {
 	BasePolicyDocument pulumi.StringPtrInput
 	// The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	//
-	// Deprecated: Use the basePolicyRegions argument instead. This argument will be removed in the next major version of the provider.
+	// Deprecated: base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
 	BasePolicyRegion pulumi.StringPtrInput
 	// A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	BasePolicyRegions pulumi.StringArrayInput
@@ -730,7 +730,7 @@ type coreNetworkArgs struct {
 	BasePolicyDocument *string `pulumi:"basePolicyDocument"`
 	// The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	//
-	// Deprecated: Use the basePolicyRegions argument instead. This argument will be removed in the next major version of the provider.
+	// Deprecated: base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
 	BasePolicyRegion *string `pulumi:"basePolicyRegion"`
 	// A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	BasePolicyRegions []string `pulumi:"basePolicyRegions"`
@@ -750,7 +750,7 @@ type CoreNetworkArgs struct {
 	BasePolicyDocument pulumi.StringPtrInput
 	// The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	//
-	// Deprecated: Use the basePolicyRegions argument instead. This argument will be removed in the next major version of the provider.
+	// Deprecated: base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
 	BasePolicyRegion pulumi.StringPtrInput
 	// A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	BasePolicyRegions pulumi.StringArrayInput
@@ -863,7 +863,7 @@ func (o CoreNetworkOutput) BasePolicyDocument() pulumi.StringPtrOutput {
 
 // The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 //
-// Deprecated: Use the basePolicyRegions argument instead. This argument will be removed in the next major version of the provider.
+// Deprecated: base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
 func (o CoreNetworkOutput) BasePolicyRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CoreNetwork) pulumi.StringPtrOutput { return v.BasePolicyRegion }).(pulumi.StringPtrOutput)
 }

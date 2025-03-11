@@ -146,6 +146,12 @@ namespace Pulumi.Aws.CloudFront
     public partial class ContinuousDeploymentPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The continuous deployment policy ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Whether this continuous deployment policy is enabled.
         /// </summary>
         [Output("enabled")]
@@ -247,6 +253,12 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class ContinuousDeploymentPolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The continuous deployment policy ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Whether this continuous deployment policy is enabled.
         /// </summary>

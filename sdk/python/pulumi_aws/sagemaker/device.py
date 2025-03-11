@@ -25,7 +25,7 @@ class DeviceArgs:
                  device_fleet_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a Device resource.
-        :param pulumi.Input['DeviceDeviceArgs'] device: The device to register with SageMaker Edge Manager. See Device details below.
+        :param pulumi.Input['DeviceDeviceArgs'] device: The device to register with SageMaker AI Edge Manager. See Device details below.
         :param pulumi.Input[str] device_fleet_name: The name of the Device Fleet.
         """
         pulumi.set(__self__, "device", device)
@@ -35,7 +35,7 @@ class DeviceArgs:
     @pulumi.getter
     def device(self) -> pulumi.Input['DeviceDeviceArgs']:
         """
-        The device to register with SageMaker Edge Manager. See Device details below.
+        The device to register with SageMaker AI Edge Manager. See Device details below.
         """
         return pulumi.get(self, "device")
 
@@ -66,7 +66,7 @@ class _DeviceState:
         """
         Input properties used for looking up and filtering Device resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Device.
-        :param pulumi.Input['DeviceDeviceArgs'] device: The device to register with SageMaker Edge Manager. See Device details below.
+        :param pulumi.Input['DeviceDeviceArgs'] device: The device to register with SageMaker AI Edge Manager. See Device details below.
         :param pulumi.Input[str] device_fleet_name: The name of the Device Fleet.
         """
         if agent_version is not None:
@@ -103,7 +103,7 @@ class _DeviceState:
     @pulumi.getter
     def device(self) -> Optional[pulumi.Input['DeviceDeviceArgs']]:
         """
-        The device to register with SageMaker Edge Manager. See Device details below.
+        The device to register with SageMaker AI Edge Manager. See Device details below.
         """
         return pulumi.get(self, "device")
 
@@ -133,7 +133,7 @@ class Device(pulumi.CustomResource):
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Device resource.
+        Provides a SageMaker AI Device resource.
 
         ## Example Usage
 
@@ -152,7 +152,7 @@ class Device(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For example:
+        Using `pulumi import`, import SageMaker AI Devices using the `device-fleet-name/device-name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
@@ -160,7 +160,7 @@ class Device(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeviceDeviceArgs', 'DeviceDeviceArgsDict']] device: The device to register with SageMaker Edge Manager. See Device details below.
+        :param pulumi.Input[Union['DeviceDeviceArgs', 'DeviceDeviceArgsDict']] device: The device to register with SageMaker AI Edge Manager. See Device details below.
         :param pulumi.Input[str] device_fleet_name: The name of the Device Fleet.
         """
         ...
@@ -170,7 +170,7 @@ class Device(pulumi.CustomResource):
                  args: DeviceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Device resource.
+        Provides a SageMaker AI Device resource.
 
         ## Example Usage
 
@@ -189,7 +189,7 @@ class Device(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For example:
+        Using `pulumi import`, import SageMaker AI Devices using the `device-fleet-name/device-name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
@@ -251,7 +251,7 @@ class Device(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Device.
-        :param pulumi.Input[Union['DeviceDeviceArgs', 'DeviceDeviceArgsDict']] device: The device to register with SageMaker Edge Manager. See Device details below.
+        :param pulumi.Input[Union['DeviceDeviceArgs', 'DeviceDeviceArgsDict']] device: The device to register with SageMaker AI Edge Manager. See Device details below.
         :param pulumi.Input[str] device_fleet_name: The name of the Device Fleet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -281,7 +281,7 @@ class Device(pulumi.CustomResource):
     @pulumi.getter
     def device(self) -> pulumi.Output['outputs.DeviceDevice']:
         """
-        The device to register with SageMaker Edge Manager. See Device details below.
+        The device to register with SageMaker AI Edge Manager. See Device details below.
         """
         return pulumi.get(self, "device")
 

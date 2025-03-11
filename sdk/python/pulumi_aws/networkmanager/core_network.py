@@ -67,8 +67,8 @@ class CoreNetworkArgs:
         if base_policy_document is not None:
             pulumi.set(__self__, "base_policy_document", base_policy_document)
         if base_policy_region is not None:
-            warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
+            warnings.warn("""base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""base_policy_region is deprecated: base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.""")
         if base_policy_region is not None:
             pulumi.set(__self__, "base_policy_region", base_policy_region)
         if base_policy_regions is not None:
@@ -106,7 +106,7 @@ class CoreNetworkArgs:
 
     @property
     @pulumi.getter(name="basePolicyRegion")
-    @_utilities.deprecated("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
+    @_utilities.deprecated("""base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.""")
     def base_policy_region(self) -> Optional[pulumi.Input[str]]:
         """
         The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
@@ -253,8 +253,8 @@ class _CoreNetworkState:
         if base_policy_document is not None:
             pulumi.set(__self__, "base_policy_document", base_policy_document)
         if base_policy_region is not None:
-            warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
+            warnings.warn("""base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""base_policy_region is deprecated: base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.""")
         if base_policy_region is not None:
             pulumi.set(__self__, "base_policy_region", base_policy_region)
         if base_policy_regions is not None:
@@ -307,7 +307,7 @@ class _CoreNetworkState:
 
     @property
     @pulumi.getter(name="basePolicyRegion")
-    @_utilities.deprecated("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
+    @_utilities.deprecated("""base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.""")
     def base_policy_region(self) -> Optional[pulumi.Input[str]]:
         """
         The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
@@ -1225,7 +1225,7 @@ class CoreNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="basePolicyRegion")
-    @_utilities.deprecated("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
+    @_utilities.deprecated("""base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.""")
     def base_policy_region(self) -> pulumi.Output[Optional[str]]:
         """
         The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.

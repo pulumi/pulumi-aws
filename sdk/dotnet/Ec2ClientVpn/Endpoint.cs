@@ -101,6 +101,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        /// </summary>
+        [Output("disconnectOnSessionTimeout")]
+        public Output<bool> DisconnectOnSessionTimeout { get; private set; } = null!;
+
+        /// <summary>
         /// The DNS name to be used by clients when establishing their VPN session.
         /// </summary>
         [Output("dnsName")]
@@ -266,6 +272,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        /// </summary>
+        [Input("disconnectOnSessionTimeout")]
+        public Input<bool>? DisconnectOnSessionTimeout { get; set; }
+
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
 
@@ -399,6 +411,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        /// </summary>
+        [Input("disconnectOnSessionTimeout")]
+        public Input<bool>? DisconnectOnSessionTimeout { get; set; }
 
         /// <summary>
         /// The DNS name to be used by clients when establishing their VPN session.

@@ -18,6 +18,21 @@ public final class FieldLevelEncryptionConfigState extends com.pulumi.resources.
     public static final FieldLevelEncryptionConfigState Empty = new FieldLevelEncryptionConfigState();
 
     /**
+     * The Field Level Encryption Config ARN.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The Field Level Encryption Config ARN.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
      * 
      */
@@ -95,6 +110,7 @@ public final class FieldLevelEncryptionConfigState extends com.pulumi.resources.
     private FieldLevelEncryptionConfigState() {}
 
     private FieldLevelEncryptionConfigState(FieldLevelEncryptionConfigState $) {
+        this.arn = $.arn;
         this.callerReference = $.callerReference;
         this.comment = $.comment;
         this.contentTypeProfileConfig = $.contentTypeProfileConfig;
@@ -118,6 +134,27 @@ public final class FieldLevelEncryptionConfigState extends com.pulumi.resources.
 
         public Builder(FieldLevelEncryptionConfigState defaults) {
             $ = new FieldLevelEncryptionConfigState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The Field Level Encryption Config ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The Field Level Encryption Config ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

@@ -762,6 +762,8 @@ type PipelineVpcOptions struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of subnet IDs associated with the VPC endpoint.
 	SubnetIds []string `pulumi:"subnetIds"`
+	// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+	VpcEndpointManagement *string `pulumi:"vpcEndpointManagement"`
 }
 
 // PipelineVpcOptionsInput is an input type that accepts PipelineVpcOptionsArgs and PipelineVpcOptionsOutput values.
@@ -780,6 +782,8 @@ type PipelineVpcOptionsArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// A list of subnet IDs associated with the VPC endpoint.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+	VpcEndpointManagement pulumi.StringPtrInput `pulumi:"vpcEndpointManagement"`
 }
 
 func (PipelineVpcOptionsArgs) ElementType() reflect.Type {
@@ -869,6 +873,11 @@ func (o PipelineVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+func (o PipelineVpcOptionsOutput) VpcEndpointManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineVpcOptions) *string { return v.VpcEndpointManagement }).(pulumi.StringPtrOutput)
+}
+
 type PipelineVpcOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (PipelineVpcOptionsPtrOutput) ElementType() reflect.Type {
@@ -911,6 +920,16 @@ func (o PipelineVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 		}
 		return v.SubnetIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+func (o PipelineVpcOptionsPtrOutput) VpcEndpointManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineVpcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointManagement
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

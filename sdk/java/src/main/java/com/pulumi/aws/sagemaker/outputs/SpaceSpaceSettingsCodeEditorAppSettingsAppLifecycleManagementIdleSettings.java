@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
     /**
-     * @return The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+     * @return The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
      * 
      */
     private @Nullable Integer idleTimeoutInMinutes;
 
     private SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings() {}
     /**
-     * @return The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+     * @return The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
      * 
      */
     public Optional<Integer> idleTimeoutInMinutes() {

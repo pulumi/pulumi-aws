@@ -72,8 +72,8 @@ class EipArgs:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vpc is not None:
-            warnings.warn("""use domain attribute instead""", DeprecationWarning)
-            pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
+            warnings.warn("""vpc is deprecated. Use domain instead.""", DeprecationWarning)
+            pulumi.log.warn("""vpc is deprecated: vpc is deprecated. Use domain instead.""")
         if vpc is not None:
             pulumi.set(__self__, "vpc", vpc)
 
@@ -200,7 +200,7 @@ class EipArgs:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""use domain attribute instead""")
+    @_utilities.deprecated("""vpc is deprecated. Use domain instead.""")
     def vpc(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -320,8 +320,8 @@ class _EipState:
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc is not None:
-            warnings.warn("""use domain attribute instead""", DeprecationWarning)
-            pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
+            warnings.warn("""vpc is deprecated. Use domain instead.""", DeprecationWarning)
+            pulumi.log.warn("""vpc is deprecated: vpc is deprecated. Use domain instead.""")
         if vpc is not None:
             pulumi.set(__self__, "vpc", vpc)
 
@@ -578,7 +578,7 @@ class _EipState:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""use domain attribute instead""")
+    @_utilities.deprecated("""vpc is deprecated. Use domain instead.""")
     def vpc(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -1160,7 +1160,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""use domain attribute instead""")
+    @_utilities.deprecated("""vpc is deprecated. Use domain instead.""")
     def vpc(self) -> pulumi.Output[bool]:
         """
         Boolean if the EIP is in a VPC or not. Use `domain` instead.

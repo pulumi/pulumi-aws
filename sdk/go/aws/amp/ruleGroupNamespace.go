@@ -63,11 +63,19 @@ import (
 type RuleGroupNamespace struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the rule group namespace.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 	Data pulumi.StringOutput `pulumi:"data"`
-	// The name of the rule group namespace
+	// The name of the rule group namespace.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// ID of the prometheus workspace the rule group namespace should be linked to
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// ID of the prometheus workspace the rule group namespace should be linked to.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -107,20 +115,36 @@ func GetRuleGroupNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleGroupNamespace resources.
 type ruleGroupNamespaceState struct {
+	// The ARN of the rule group namespace.
+	Arn *string `pulumi:"arn"`
 	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 	Data *string `pulumi:"data"`
-	// The name of the rule group namespace
+	// The name of the rule group namespace.
 	Name *string `pulumi:"name"`
-	// ID of the prometheus workspace the rule group namespace should be linked to
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// ID of the prometheus workspace the rule group namespace should be linked to.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type RuleGroupNamespaceState struct {
+	// The ARN of the rule group namespace.
+	Arn pulumi.StringPtrInput
 	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 	Data pulumi.StringPtrInput
-	// The name of the rule group namespace
+	// The name of the rule group namespace.
 	Name pulumi.StringPtrInput
-	// ID of the prometheus workspace the rule group namespace should be linked to
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
+	// ID of the prometheus workspace the rule group namespace should be linked to.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -131,9 +155,11 @@ func (RuleGroupNamespaceState) ElementType() reflect.Type {
 type ruleGroupNamespaceArgs struct {
 	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 	Data string `pulumi:"data"`
-	// The name of the rule group namespace
+	// The name of the rule group namespace.
 	Name *string `pulumi:"name"`
-	// ID of the prometheus workspace the rule group namespace should be linked to
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// ID of the prometheus workspace the rule group namespace should be linked to.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -141,9 +167,11 @@ type ruleGroupNamespaceArgs struct {
 type RuleGroupNamespaceArgs struct {
 	// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 	Data pulumi.StringInput
-	// The name of the rule group namespace
+	// The name of the rule group namespace.
 	Name pulumi.StringPtrInput
-	// ID of the prometheus workspace the rule group namespace should be linked to
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// ID of the prometheus workspace the rule group namespace should be linked to.
 	WorkspaceId pulumi.StringInput
 }
 
@@ -234,17 +262,34 @@ func (o RuleGroupNamespaceOutput) ToRuleGroupNamespaceOutputWithContext(ctx cont
 	return o
 }
 
+// The ARN of the rule group namespace.
+func (o RuleGroupNamespaceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
 // the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
 func (o RuleGroupNamespaceOutput) Data() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringOutput { return v.Data }).(pulumi.StringOutput)
 }
 
-// The name of the rule group namespace
+// The name of the rule group namespace.
 func (o RuleGroupNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// ID of the prometheus workspace the rule group namespace should be linked to
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o RuleGroupNamespaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o RuleGroupNamespaceOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// ID of the prometheus workspace the rule group namespace should be linked to.
 func (o RuleGroupNamespaceOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroupNamespace) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

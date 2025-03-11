@@ -167,8 +167,6 @@ class RdsDbInstance(pulumi.CustomResource):
                  stack_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks RDS DB Instance resource.
-
         ## Example Usage
 
         ```python
@@ -196,8 +194,6 @@ class RdsDbInstance(pulumi.CustomResource):
                  args: RdsDbInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks RDS DB Instance resource.
-
         ## Example Usage
 
         ```python

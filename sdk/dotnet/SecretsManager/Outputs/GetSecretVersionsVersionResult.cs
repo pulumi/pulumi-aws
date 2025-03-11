@@ -13,6 +13,9 @@ namespace Pulumi.Aws.SecretsManager.Outputs
     [OutputType]
     public sealed class GetSecretVersionsVersionResult
     {
+        /// <summary>
+        /// Date and time this version of the secret was created.
+        /// </summary>
         public readonly string CreatedTime;
         /// <summary>
         /// Date that this version of the secret was last accessed.
@@ -22,6 +25,9 @@ namespace Pulumi.Aws.SecretsManager.Outputs
         /// Unique version identifier of this version of the secret.
         /// </summary>
         public readonly string VersionId;
+        /// <summary>
+        /// List of staging labels attached to the version.
+        /// </summary>
         public readonly ImmutableArray<string> VersionStages;
 
         [OutputConstructor]

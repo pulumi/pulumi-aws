@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:dataexchange/dataSet:DataSet":
 		r = &DataSet{}
+	case "aws:dataexchange/eventAction:EventAction":
+		r = &EventAction{}
 	case "aws:dataexchange/revision:Revision":
 		r = &Revision{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dataexchange/dataSet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dataexchange/eventAction",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -211,6 +211,10 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetCachePolicyResult
     {
         /// <summary>
+        /// The cache policy ARN.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// Comment to describe the cache policy.
         /// </summary>
         public readonly string Comment;
@@ -239,6 +243,8 @@ namespace Pulumi.Aws.CloudFront
 
         [OutputConstructor]
         private GetCachePolicyResult(
+            string arn,
+
             string comment,
 
             int defaultTtl,
@@ -255,6 +261,7 @@ namespace Pulumi.Aws.CloudFront
 
             ImmutableArray<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult> parametersInCacheKeyAndForwardedToOrigins)
         {
+            Arn = arn;
             Comment = comment;
             DefaultTtl = defaultTtl;
             Etag = etag;

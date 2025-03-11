@@ -1110,14 +1110,14 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.runCommandTargets);
     }
     /**
-     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
      * 
      */
     @Export(name="sagemakerPipelineTarget", refs={EventTargetSagemakerPipelineTarget.class}, tree="[0]")
     private Output</* @Nullable */ EventTargetSagemakerPipelineTarget> sagemakerPipelineTarget;
 
     /**
-     * @return Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * @return Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
      * 
      */
     public Output<Optional<EventTargetSagemakerPipelineTarget>> sagemakerPipelineTarget() {

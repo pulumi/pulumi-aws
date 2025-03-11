@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a lifecycle configuration for SageMaker Notebook Instances.
+ * Provides a lifecycle configuration for SageMaker AI Notebook Instances.
  *
  * ## Example Usage
  *
@@ -72,11 +72,11 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+     * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
      */
     public readonly onCreate!: pulumi.Output<string | undefined>;
     /**
-     * A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+     * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
      */
     public readonly onStart!: pulumi.Output<string | undefined>;
 
@@ -122,11 +122,11 @@ export interface NotebookInstanceLifecycleConfigurationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+     * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
      */
     onCreate?: pulumi.Input<string>;
     /**
-     * A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+     * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
      */
     onStart?: pulumi.Input<string>;
 }
@@ -140,11 +140,11 @@ export interface NotebookInstanceLifecycleConfigurationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+     * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
      */
     onCreate?: pulumi.Input<string>;
     /**
-     * A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+     * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
      */
     onStart?: pulumi.Input<string>;
 }

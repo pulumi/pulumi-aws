@@ -18,18 +18,39 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineStageAction> Actions;
         /// <summary>
+        /// The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+        /// </summary>
+        public readonly Outputs.PipelineStageBeforeEntry? BeforeEntry;
+        /// <summary>
         /// The name of the stage.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+        /// </summary>
+        public readonly Outputs.PipelineStageOnFailure? OnFailure;
+        /// <summary>
+        /// The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+        /// </summary>
+        public readonly Outputs.PipelineStageOnSuccess? OnSuccess;
 
         [OutputConstructor]
         private PipelineStage(
             ImmutableArray<Outputs.PipelineStageAction> actions,
 
-            string name)
+            Outputs.PipelineStageBeforeEntry? beforeEntry,
+
+            string name,
+
+            Outputs.PipelineStageOnFailure? onFailure,
+
+            Outputs.PipelineStageOnSuccess? onSuccess)
         {
             Actions = actions;
+            BeforeEntry = beforeEntry;
             Name = name;
+            OnFailure = onFailure;
+            OnSuccess = onSuccess;
         }
     }
 }

@@ -32,14 +32,14 @@ public final class UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemCon
     }
 
     /**
-     * The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+     * The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
      * 
      */
     @Import(name="fileSystemPath")
     private @Nullable Output<String> fileSystemPath;
 
     /**
-     * @return The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+     * @return The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
      * 
      */
     public Optional<Output<String>> fileSystemPath() {
@@ -93,7 +93,7 @@ public final class UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemCon
         }
 
         /**
-         * @param fileSystemPath The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+         * @param fileSystemPath The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemCon
         }
 
         /**
-         * @param fileSystemPath The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+         * @param fileSystemPath The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
          * 
          * @return builder
          * 

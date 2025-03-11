@@ -21,7 +21,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker Feature Group resource.
+ * Provides a SageMaker AI Feature Group resource.
  * 
  * ## Example Usage
  * 

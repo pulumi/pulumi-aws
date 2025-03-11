@@ -59,7 +59,7 @@ type LookupServiceArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
-	// Deprecated: this attribute has been deprecated
+	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -84,7 +84,7 @@ type LookupServiceResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
-	// Deprecated: this attribute has been deprecated
+	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -107,7 +107,7 @@ type LookupServiceOutputArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
-	// Deprecated: this attribute has been deprecated
+	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
 	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 }
 
@@ -176,7 +176,7 @@ func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 
 // (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 //
-// Deprecated: this attribute has been deprecated
+// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
 func (o LookupServiceResultOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
 }

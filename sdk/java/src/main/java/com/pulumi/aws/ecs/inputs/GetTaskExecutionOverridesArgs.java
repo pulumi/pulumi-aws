@@ -64,16 +64,24 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Elastic Inference accelerator override for the task. See below.
+     * **DEPRECATED** Elastic Inference accelerator override for the task. See below.
+     * 
+     * @deprecated
+     * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
      * 
      */
+    @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
     @Import(name="inferenceAcceleratorOverrides")
     private @Nullable Output<List<GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs>> inferenceAcceleratorOverrides;
 
     /**
-     * @return Elastic Inference accelerator override for the task. See below.
+     * @return **DEPRECATED** Elastic Inference accelerator override for the task. See below.
+     * 
+     * @deprecated
+     * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
      * 
      */
+    @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
     public Optional<Output<List<GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs>>> inferenceAcceleratorOverrides() {
         return Optional.ofNullable(this.inferenceAcceleratorOverrides);
     }
@@ -211,32 +219,44 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param inferenceAcceleratorOverrides Elastic Inference accelerator override for the task. See below.
+         * @param inferenceAcceleratorOverrides **DEPRECATED** Elastic Inference accelerator override for the task. See below.
          * 
          * @return builder
          * 
+         * @deprecated
+         * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
+         * 
          */
+        @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
         public Builder inferenceAcceleratorOverrides(@Nullable Output<List<GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs>> inferenceAcceleratorOverrides) {
             $.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
             return this;
         }
 
         /**
-         * @param inferenceAcceleratorOverrides Elastic Inference accelerator override for the task. See below.
+         * @param inferenceAcceleratorOverrides **DEPRECATED** Elastic Inference accelerator override for the task. See below.
          * 
          * @return builder
          * 
+         * @deprecated
+         * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
+         * 
          */
+        @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
         public Builder inferenceAcceleratorOverrides(List<GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs> inferenceAcceleratorOverrides) {
             return inferenceAcceleratorOverrides(Output.of(inferenceAcceleratorOverrides));
         }
 
         /**
-         * @param inferenceAcceleratorOverrides Elastic Inference accelerator override for the task. See below.
+         * @param inferenceAcceleratorOverrides **DEPRECATED** Elastic Inference accelerator override for the task. See below.
          * 
          * @return builder
          * 
+         * @deprecated
+         * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
+         * 
          */
+        @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
         public Builder inferenceAcceleratorOverrides(GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs... inferenceAcceleratorOverrides) {
             return inferenceAcceleratorOverrides(List.of(inferenceAcceleratorOverrides));
         }

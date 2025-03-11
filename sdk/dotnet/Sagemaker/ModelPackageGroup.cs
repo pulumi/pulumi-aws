@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker Model Package Group resource.
+    /// Provides a SageMaker AI Model Package Group resource.
     /// 
     /// ## Example Usage
     /// 
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
+    /// Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo

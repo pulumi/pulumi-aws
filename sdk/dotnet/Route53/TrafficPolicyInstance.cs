@@ -46,6 +46,12 @@ namespace Pulumi.Aws.Route53
     public partial class TrafficPolicyInstance : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN) of the traffic policy instance.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
         /// </summary>
         [Output("hostedZoneId")]
@@ -159,6 +165,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class TrafficPolicyInstanceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the traffic policy instance.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
         /// </summary>

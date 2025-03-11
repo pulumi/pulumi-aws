@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDomainSettingsRStudioServerProDomainSettings {
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
      * 
      */
     private @Nullable DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec defaultResourceSpec;
@@ -36,7 +36,7 @@ public final class DomainDomainSettingsRStudioServerProDomainSettings {
 
     private DomainDomainSettingsRStudioServerProDomainSettings() {}
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
      * 
      */
     public Optional<DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec> defaultResourceSpec() {

@@ -107,7 +107,7 @@ export class EventRule extends pulumi.CustomResource {
      * Defaults to `true`.
      * Conflicts with `state`.
      *
-     * @deprecated Use "state" instead
+     * @deprecated is_enabled is deprecated. Use state instead.
      */
     public readonly isEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -225,7 +225,7 @@ export interface EventRuleState {
      * Defaults to `true`.
      * Conflicts with `state`.
      *
-     * @deprecated Use "state" instead
+     * @deprecated is_enabled is deprecated. Use state instead.
      */
     isEnabled?: pulumi.Input<boolean>;
     /**
@@ -293,7 +293,7 @@ export interface EventRuleArgs {
      * Defaults to `true`.
      * Conflicts with `state`.
      *
-     * @deprecated Use "state" instead
+     * @deprecated is_enabled is deprecated. Use state instead.
      */
     isEnabled?: pulumi.Input<boolean>;
     /**

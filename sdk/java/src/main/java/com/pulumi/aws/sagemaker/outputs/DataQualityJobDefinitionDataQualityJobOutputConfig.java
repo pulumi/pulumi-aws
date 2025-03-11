@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataQualityJobDefinitionDataQualityJobOutputConfig {
     /**
-     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -26,7 +26,7 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfig {
 
     private DataQualityJobDefinitionDataQualityJobOutputConfig() {}
     /**
-     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      * 
      */
     public Optional<String> kmsKeyId() {

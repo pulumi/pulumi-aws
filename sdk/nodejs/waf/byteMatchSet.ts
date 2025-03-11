@@ -67,6 +67,10 @@ export class ByteMatchSet extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the byte match set.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Specifies the bytes (typically a string that corresponds
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
@@ -90,12 +94,14 @@ export class ByteMatchSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ByteMatchSetState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["byteMatchTuples"] = state ? state.byteMatchTuples : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ByteMatchSetArgs | undefined;
             resourceInputs["byteMatchTuples"] = args ? args.byteMatchTuples : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ByteMatchSet.__pulumiType, name, resourceInputs, opts);
@@ -106,6 +112,10 @@ export class ByteMatchSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ByteMatchSet resources.
  */
 export interface ByteMatchSetState {
+    /**
+     * Amazon Resource Name (ARN) of the byte match set.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Specifies the bytes (typically a string that corresponds
      * with ASCII characters) that you want to search for in web requests,

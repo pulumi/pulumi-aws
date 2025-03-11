@@ -76,6 +76,12 @@ namespace Pulumi.Aws.CloudFront
     public partial class OriginRequestPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The origin request policy ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Comment to describe the origin request policy.
         /// </summary>
         [Output("comment")]
@@ -195,6 +201,12 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class OriginRequestPolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The origin request policy ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Comment to describe the origin request policy.
         /// </summary>

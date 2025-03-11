@@ -8,8 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides an OpsWorks Ganglia layer resource.
- *
  * ## Example Usage
  *
  * ```typescript

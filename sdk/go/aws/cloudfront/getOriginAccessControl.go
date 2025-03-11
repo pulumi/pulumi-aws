@@ -58,6 +58,8 @@ type LookupOriginAccessControlArgs struct {
 
 // A collection of values returned by getOriginAccessControl.
 type LookupOriginAccessControlResult struct {
+	// The origin access control ARN.
+	Arn string `pulumi:"arn"`
 	// A description of the origin access control.
 	Description string `pulumi:"description"`
 	// Current version of the origin access control's information. For example: `E2QWRUHAPOMQZL`.
@@ -105,6 +107,11 @@ func (o LookupOriginAccessControlResultOutput) ToLookupOriginAccessControlResult
 
 func (o LookupOriginAccessControlResultOutput) ToLookupOriginAccessControlResultOutputWithContext(ctx context.Context) LookupOriginAccessControlResultOutput {
 	return o
+}
+
+// The origin access control ARN.
+func (o LookupOriginAccessControlResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOriginAccessControlResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // A description of the origin access control.

@@ -72,6 +72,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/originAccessControl:OriginAccessControl")
 public class OriginAccessControl extends com.pulumi.resources.CustomResource {
     /**
+     * The Origin Access Control ARN.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The Origin Access Control ARN.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
      * 
      */

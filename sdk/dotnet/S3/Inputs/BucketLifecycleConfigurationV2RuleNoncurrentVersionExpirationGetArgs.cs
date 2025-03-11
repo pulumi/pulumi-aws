@@ -21,8 +21,8 @@ namespace Pulumi.Aws.S3.Inputs
         /// <summary>
         /// Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
         /// </summary>
-        [Input("noncurrentDays")]
-        public Input<int>? NoncurrentDays { get; set; }
+        [Input("noncurrentDays", required: true)]
+        public Input<int> NoncurrentDays { get; set; } = null!;
 
         public BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationGetArgs()
         {

@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker Pipeline resource.
+ * Provides a SageMaker AI Pipeline resource.
  * 
  * ## Example Usage
  * 
@@ -125,14 +125,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.pipelineDefinition);
     }
     /**
-     * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+     * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
      * 
      */
     @Export(name="pipelineDefinitionS3Location", refs={PipelinePipelineDefinitionS3Location.class}, tree="[0]")
     private Output</* @Nullable */ PipelinePipelineDefinitionS3Location> pipelineDefinitionS3Location;
 
     /**
-     * @return The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+     * @return The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
      * 
      */
     public Output<Optional<PipelinePipelineDefinitionS3Location>> pipelineDefinitionS3Location() {

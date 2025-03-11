@@ -184,6 +184,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
+     * Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+     * 
+     */
+    @Export(name="disconnectOnSessionTimeout", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> disconnectOnSessionTimeout;
+
+    /**
+     * @return Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+     * 
+     */
+    public Output<Boolean> disconnectOnSessionTimeout() {
+        return this.disconnectOnSessionTimeout;
+    }
+    /**
      * The DNS name to be used by clients when establishing their VPN session.
      * 
      */

@@ -21,6 +21,21 @@ public final class ResponseHeadersPolicyState extends com.pulumi.resources.Resou
     public static final ResponseHeadersPolicyState Empty = new ResponseHeadersPolicyState();
 
     /**
+     * The response headers policy ARN.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The response headers policy ARN.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
      */
@@ -143,6 +158,7 @@ public final class ResponseHeadersPolicyState extends com.pulumi.resources.Resou
     private ResponseHeadersPolicyState() {}
 
     private ResponseHeadersPolicyState(ResponseHeadersPolicyState $) {
+        this.arn = $.arn;
         this.comment = $.comment;
         this.corsConfig = $.corsConfig;
         this.customHeadersConfig = $.customHeadersConfig;
@@ -169,6 +185,27 @@ public final class ResponseHeadersPolicyState extends com.pulumi.resources.Resou
 
         public Builder(ResponseHeadersPolicyState defaults) {
             $ = new ResponseHeadersPolicyState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The response headers policy ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The response headers policy ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

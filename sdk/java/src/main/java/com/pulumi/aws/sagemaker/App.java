@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker App resource.
+ * Provides a SageMaker AI App resource.
  * 
  * ## Example Usage
  * 
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SageMaker Apps using the `id`. For example:
+ * Using `pulumi import`, import SageMaker AI Apps using the `id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
@@ -127,14 +127,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.domainId;
     }
     /**
-     * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+     * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
      * 
      */
     @Export(name="resourceSpec", refs={AppResourceSpec.class}, tree="[0]")
     private Output<AppResourceSpec> resourceSpec;
 
     /**
-     * @return The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+     * @return The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
      * 
      */
     public Output<AppResourceSpec> resourceSpec() {

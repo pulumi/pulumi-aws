@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker User Profile resource.
+// Provides a SageMaker AI User Profile resource.
 //
 // ## Example Usage
 //
@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SageMaker User Profiles using the `arn`. For example:
+// Using `pulumi import`, import SageMaker AI User Profiles using the `arn`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name

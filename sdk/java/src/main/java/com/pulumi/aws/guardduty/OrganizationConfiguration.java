@@ -101,10 +101,10 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
      * *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      * 
      * @deprecated
-     * Use auto_enable_organization_members instead
+     * auto_enable is deprecated. Use auto_enable_organization_members instead.
      * 
      */
-    @Deprecated /* Use auto_enable_organization_members instead */
+    @Deprecated /* auto_enable is deprecated. Use auto_enable_organization_members instead. */
     @Export(name="autoEnable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoEnable;
 

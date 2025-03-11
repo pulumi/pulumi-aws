@@ -16,7 +16,7 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfig {
      */
     private String destinationS3Uri;
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
      * 
      */
     private String kmsKeyId;
@@ -30,7 +30,7 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfig {
         return this.destinationS3Uri;
     }
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
      * 
      */
     public String kmsKeyId() {

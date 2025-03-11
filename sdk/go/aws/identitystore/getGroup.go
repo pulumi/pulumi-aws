@@ -66,7 +66,7 @@ type LookupGroupArgs struct {
 	AlternateIdentifier *GetGroupAlternateIdentifier `pulumi:"alternateIdentifier"`
 	// Configuration block for filtering by a unique attribute of the group. Detailed below.
 	//
-	// Deprecated: Use the alternateIdentifier attribute instead.
+	// Deprecated: filter is deprecated. Use alternateIdentifier instead.
 	Filter *GetGroupFilter `pulumi:"filter"`
 	// The identifier for a group in the Identity Store.
 	//
@@ -87,7 +87,7 @@ type LookupGroupResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// List of identifiers issued to this resource by an external identity provider.
 	ExternalIds []GetGroupExternalId `pulumi:"externalIds"`
-	// Deprecated: Use the alternateIdentifier attribute instead.
+	// Deprecated: filter is deprecated. Use alternateIdentifier instead.
 	Filter  *GetGroupFilter `pulumi:"filter"`
 	GroupId string          `pulumi:"groupId"`
 	// The provider-assigned unique ID for this managed resource.
@@ -110,7 +110,7 @@ type LookupGroupOutputArgs struct {
 	AlternateIdentifier GetGroupAlternateIdentifierPtrInput `pulumi:"alternateIdentifier"`
 	// Configuration block for filtering by a unique attribute of the group. Detailed below.
 	//
-	// Deprecated: Use the alternateIdentifier attribute instead.
+	// Deprecated: filter is deprecated. Use alternateIdentifier instead.
 	Filter GetGroupFilterPtrInput `pulumi:"filter"`
 	// The identifier for a group in the Identity Store.
 	//
@@ -160,7 +160,7 @@ func (o LookupGroupResultOutput) ExternalIds() GetGroupExternalIdArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []GetGroupExternalId { return v.ExternalIds }).(GetGroupExternalIdArrayOutput)
 }
 
-// Deprecated: Use the alternateIdentifier attribute instead.
+// Deprecated: filter is deprecated. Use alternateIdentifier instead.
 func (o LookupGroupResultOutput) Filter() GetGroupFilterPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *GetGroupFilter { return v.Filter }).(GetGroupFilterPtrOutput)
 }

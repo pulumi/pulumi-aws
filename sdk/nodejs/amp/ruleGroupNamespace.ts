@@ -63,15 +63,29 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the rule group namespace.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
      */
     public readonly data!: pulumi.Output<string>;
     /**
-     * The name of the rule group namespace
+     * The name of the rule group namespace.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * ID of the prometheus workspace the rule group namespace should be linked to
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * ID of the prometheus workspace the rule group namespace should be linked to.
      */
     public readonly workspaceId!: pulumi.Output<string>;
 
@@ -88,8 +102,11 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleGroupNamespaceState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["data"] = state ? state.data : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as RuleGroupNamespaceArgs | undefined;
@@ -101,7 +118,10 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
             }
             resourceInputs["data"] = args ? args.data : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RuleGroupNamespace.__pulumiType, name, resourceInputs, opts);
@@ -113,15 +133,29 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
  */
 export interface RuleGroupNamespaceState {
     /**
+     * The ARN of the rule group namespace.
+     */
+    arn?: pulumi.Input<string>;
+    /**
      * the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
      */
     data?: pulumi.Input<string>;
     /**
-     * The name of the rule group namespace
+     * The name of the rule group namespace.
      */
     name?: pulumi.Input<string>;
     /**
-     * ID of the prometheus workspace the rule group namespace should be linked to
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * ID of the prometheus workspace the rule group namespace should be linked to.
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -135,11 +169,15 @@ export interface RuleGroupNamespaceArgs {
      */
     data: pulumi.Input<string>;
     /**
-     * The name of the rule group namespace
+     * The name of the rule group namespace.
      */
     name?: pulumi.Input<string>;
     /**
-     * ID of the prometheus workspace the rule group namespace should be linked to
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * ID of the prometheus workspace the rule group namespace should be linked to.
      */
     workspaceId: pulumi.Input<string>;
 }

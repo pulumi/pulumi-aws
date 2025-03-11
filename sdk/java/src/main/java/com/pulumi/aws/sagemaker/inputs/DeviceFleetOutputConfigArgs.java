@@ -17,14 +17,14 @@ public final class DeviceFleetOutputConfigArgs extends com.pulumi.resources.Reso
     public static final DeviceFleetOutputConfigArgs Empty = new DeviceFleetOutputConfigArgs();
 
     /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don&#39;t provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role&#39;s account.
+     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don&#39;t provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role&#39;s account.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don&#39;t provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role&#39;s account.
+     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don&#39;t provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role&#39;s account.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -72,7 +72,7 @@ public final class DeviceFleetOutputConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don&#39;t provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role&#39;s account.
+         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don&#39;t provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role&#39;s account.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DeviceFleetOutputConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don&#39;t provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role&#39;s account.
+         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don&#39;t provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role&#39;s account.
          * 
          * @return builder
          * 

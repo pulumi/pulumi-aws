@@ -347,7 +347,7 @@ export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.In
  */
 export interface GetPolicyDocumentArgs {
     /**
-     * @deprecated Not used
+     * @deprecated override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      */
     overrideJson?: string;
     /**
@@ -359,7 +359,7 @@ export interface GetPolicyDocumentArgs {
      */
     policyId?: string;
     /**
-     * @deprecated Not used
+     * @deprecated source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      */
     sourceJson?: string;
     /**
@@ -393,13 +393,13 @@ export interface GetPolicyDocumentResult {
      */
     readonly minifiedJson: string;
     /**
-     * @deprecated Not used
+     * @deprecated override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      */
     readonly overrideJson?: string;
     readonly overridePolicyDocuments?: string[];
     readonly policyId?: string;
     /**
-     * @deprecated Not used
+     * @deprecated source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      */
     readonly sourceJson?: string;
     readonly sourcePolicyDocuments?: string[];
@@ -746,7 +746,7 @@ export function getPolicyDocumentOutput(args?: GetPolicyDocumentOutputArgs, opts
  */
 export interface GetPolicyDocumentOutputArgs {
     /**
-     * @deprecated Not used
+     * @deprecated override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      */
     overrideJson?: pulumi.Input<string>;
     /**
@@ -758,7 +758,7 @@ export interface GetPolicyDocumentOutputArgs {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * @deprecated Not used
+     * @deprecated source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      */
     sourceJson?: pulumi.Input<string>;
     /**

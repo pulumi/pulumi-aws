@@ -8,8 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides an OpsWorks stack resource.
- *
  * ## Example Usage
  *
  * ```typescript

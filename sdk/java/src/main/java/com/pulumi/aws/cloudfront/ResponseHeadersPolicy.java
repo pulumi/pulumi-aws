@@ -195,6 +195,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy")
 public class ResponseHeadersPolicy extends com.pulumi.resources.CustomResource {
     /**
+     * The response headers policy ARN.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The response headers policy ARN.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
      */

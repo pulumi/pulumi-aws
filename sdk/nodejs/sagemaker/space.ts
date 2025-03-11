@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker Space resource.
+ * Provides a SageMaker AI Space resource.
  *
  * ## Example Usage
  *
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import SageMaker Spaces using the `id`. For example:
+ * Using `pulumi import`, import SageMaker AI Spaces using the `id`. For example:
  *
  * ```sh
  * $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
@@ -77,7 +77,7 @@ export class Space extends pulumi.CustomResource {
      */
     public readonly ownershipSettings!: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
     /**
-     * The name of the space that appears in the SageMaker Studio UI.
+     * The name of the space that appears in the SageMaker AI Studio UI.
      */
     public readonly spaceDisplayName!: pulumi.Output<string | undefined>;
     /**
@@ -177,7 +177,7 @@ export interface SpaceState {
      */
     ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
     /**
-     * The name of the space that appears in the SageMaker Studio UI.
+     * The name of the space that appears in the SageMaker AI Studio UI.
      */
     spaceDisplayName?: pulumi.Input<string>;
     /**
@@ -221,7 +221,7 @@ export interface SpaceArgs {
      */
     ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
     /**
-     * The name of the space that appears in the SageMaker Studio UI.
+     * The name of the space that appears in the SageMaker AI Studio UI.
      */
     spaceDisplayName?: pulumi.Input<string>;
     /**

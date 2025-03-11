@@ -12,13 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker App Image Config resource.
+// Provides a SageMaker AI App Image Config resource.
 //
 // ## Example Usage
 //
 // ## Import
 //
-// Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
+// Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
@@ -34,7 +34,7 @@ type AppImageConfig struct {
 	CodeEditorAppImageConfig AppImageConfigCodeEditorAppImageConfigPtrOutput `pulumi:"codeEditorAppImageConfig"`
 	// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
 	JupyterLabImageConfig AppImageConfigJupyterLabImageConfigPtrOutput `pulumi:"jupyterLabImageConfig"`
-	// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+	// The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrOutput `pulumi:"kernelGatewayImageConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -85,7 +85,7 @@ type appImageConfigState struct {
 	CodeEditorAppImageConfig *AppImageConfigCodeEditorAppImageConfig `pulumi:"codeEditorAppImageConfig"`
 	// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
 	JupyterLabImageConfig *AppImageConfigJupyterLabImageConfig `pulumi:"jupyterLabImageConfig"`
-	// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+	// The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
 	KernelGatewayImageConfig *AppImageConfigKernelGatewayImageConfig `pulumi:"kernelGatewayImageConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -104,7 +104,7 @@ type AppImageConfigState struct {
 	CodeEditorAppImageConfig AppImageConfigCodeEditorAppImageConfigPtrInput
 	// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
 	JupyterLabImageConfig AppImageConfigJupyterLabImageConfigPtrInput
-	// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+	// The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -125,7 +125,7 @@ type appImageConfigArgs struct {
 	CodeEditorAppImageConfig *AppImageConfigCodeEditorAppImageConfig `pulumi:"codeEditorAppImageConfig"`
 	// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
 	JupyterLabImageConfig *AppImageConfigJupyterLabImageConfig `pulumi:"jupyterLabImageConfig"`
-	// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+	// The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
 	KernelGatewayImageConfig *AppImageConfigKernelGatewayImageConfig `pulumi:"kernelGatewayImageConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -139,7 +139,7 @@ type AppImageConfigArgs struct {
 	CodeEditorAppImageConfig AppImageConfigCodeEditorAppImageConfigPtrInput
 	// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
 	JupyterLabImageConfig AppImageConfigJupyterLabImageConfigPtrInput
-	// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+	// The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -254,7 +254,7 @@ func (o AppImageConfigOutput) JupyterLabImageConfig() AppImageConfigJupyterLabIm
 	return o.ApplyT(func(v *AppImageConfig) AppImageConfigJupyterLabImageConfigPtrOutput { return v.JupyterLabImageConfig }).(AppImageConfigJupyterLabImageConfigPtrOutput)
 }
 
-// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+// The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
 func (o AppImageConfigOutput) KernelGatewayImageConfig() AppImageConfigKernelGatewayImageConfigPtrOutput {
 	return o.ApplyT(func(v *AppImageConfig) AppImageConfigKernelGatewayImageConfigPtrOutput {
 		return v.KernelGatewayImageConfig

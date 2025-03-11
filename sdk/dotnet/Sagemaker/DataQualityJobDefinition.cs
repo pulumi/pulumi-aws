@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker data quality job definition resource.
+    /// Provides a SageMaker AI data quality job definition resource.
     /// 
     /// ## Example Usage
     /// 
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.DataQualityJobDefinitionNetworkConfig?> NetworkConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.DataQualityJobDefinitionNetworkConfigArgs>? NetworkConfig { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.DataQualityJobDefinitionNetworkConfigGetArgs>? NetworkConfig { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

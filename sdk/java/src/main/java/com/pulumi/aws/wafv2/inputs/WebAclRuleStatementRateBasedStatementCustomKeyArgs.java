@@ -8,6 +8,8 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKe
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyIpArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs;
@@ -99,6 +101,36 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyArgs extends co
     }
 
     /**
+     * Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    @Import(name="ja3Fingerprint")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs> ja3Fingerprint;
+
+    /**
+     * @return Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs>> ja3Fingerprint() {
+        return Optional.ofNullable(this.ja3Fingerprint);
+    }
+
+    /**
+     * Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    @Import(name="ja4Fingerprint")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs> ja4Fingerprint;
+
+    /**
+     * @return Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs>> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
+    }
+
+    /**
      * Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
      * 
      */
@@ -166,6 +198,8 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyArgs extends co
         this.header = $.header;
         this.httpMethod = $.httpMethod;
         this.ip = $.ip;
+        this.ja3Fingerprint = $.ja3Fingerprint;
+        this.ja4Fingerprint = $.ja4Fingerprint;
         this.labelNamespace = $.labelNamespace;
         this.queryArgument = $.queryArgument;
         this.queryString = $.queryString;
@@ -293,6 +327,48 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyArgs extends co
          */
         public Builder ip(WebAclRuleStatementRateBasedStatementCustomKeyIpArgs ip) {
             return ip(Output.of(ip));
+        }
+
+        /**
+         * @param ja3Fingerprint Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja3Fingerprint(@Nullable Output<WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs> ja3Fingerprint) {
+            $.ja3Fingerprint = ja3Fingerprint;
+            return this;
+        }
+
+        /**
+         * @param ja3Fingerprint Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja3Fingerprint(WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs ja3Fingerprint) {
+            return ja3Fingerprint(Output.of(ja3Fingerprint));
+        }
+
+        /**
+         * @param ja4Fingerprint Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja4Fingerprint(@Nullable Output<WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs> ja4Fingerprint) {
+            $.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+
+        /**
+         * @param ja4Fingerprint Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja4Fingerprint(WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs ja4Fingerprint) {
+            return ja4Fingerprint(Output.of(ja4Fingerprint));
         }
 
         /**

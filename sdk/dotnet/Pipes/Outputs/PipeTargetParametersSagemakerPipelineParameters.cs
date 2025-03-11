@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeTargetParametersSagemakerPipelineParameters
     {
         /// <summary>
-        /// List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+        /// List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeTargetParametersSagemakerPipelineParametersPipelineParameter> PipelineParameters;
 

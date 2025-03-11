@@ -136,7 +136,7 @@ if not MYPY:
         """
         sagemaker_pipeline_parameters: NotRequired[pulumi.Input['ScheduleTargetSagemakerPipelineParametersArgsDict']]
         """
-        Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+        Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
         """
         sqs_parameters: NotRequired[pulumi.Input['ScheduleTargetSqsParametersArgsDict']]
         """
@@ -169,7 +169,7 @@ class ScheduleTargetArgs:
         :param pulumi.Input[str] input: Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
         :param pulumi.Input['ScheduleTargetKinesisParametersArgs'] kinesis_parameters: Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
         :param pulumi.Input['ScheduleTargetRetryPolicyArgs'] retry_policy: Information about the retry policy settings. Detailed below.
-        :param pulumi.Input['ScheduleTargetSagemakerPipelineParametersArgs'] sagemaker_pipeline_parameters: Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+        :param pulumi.Input['ScheduleTargetSagemakerPipelineParametersArgs'] sagemaker_pipeline_parameters: Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
         :param pulumi.Input['ScheduleTargetSqsParametersArgs'] sqs_parameters: The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
         """
         pulumi.set(__self__, "arn", arn)
@@ -293,7 +293,7 @@ class ScheduleTargetArgs:
     @pulumi.getter(name="sagemakerPipelineParameters")
     def sagemaker_pipeline_parameters(self) -> Optional[pulumi.Input['ScheduleTargetSagemakerPipelineParametersArgs']]:
         """
-        Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+        Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
         """
         return pulumi.get(self, "sagemaker_pipeline_parameters")
 
@@ -1023,7 +1023,7 @@ if not MYPY:
     class ScheduleTargetSagemakerPipelineParametersArgsDict(TypedDict):
         pipeline_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgsDict']]]]
         """
-        Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+        Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
         """
 elif False:
     ScheduleTargetSagemakerPipelineParametersArgsDict: TypeAlias = Mapping[str, Any]
@@ -1033,7 +1033,7 @@ class ScheduleTargetSagemakerPipelineParametersArgs:
     def __init__(__self__, *,
                  pipeline_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]] pipeline_parameters: Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]] pipeline_parameters: Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
         """
         if pipeline_parameters is not None:
             pulumi.set(__self__, "pipeline_parameters", pipeline_parameters)
@@ -1042,7 +1042,7 @@ class ScheduleTargetSagemakerPipelineParametersArgs:
     @pulumi.getter(name="pipelineParameters")
     def pipeline_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]]]:
         """
-        Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+        Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
         """
         return pulumi.get(self, "pipeline_parameters")
 
@@ -1055,11 +1055,11 @@ if not MYPY:
     class ScheduleTargetSagemakerPipelineParametersPipelineParameterArgsDict(TypedDict):
         name: pulumi.Input[str]
         """
-        Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         value: pulumi.Input[str]
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
 elif False:
     ScheduleTargetSagemakerPipelineParametersPipelineParameterArgsDict: TypeAlias = Mapping[str, Any]
@@ -1070,8 +1070,8 @@ class ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs:
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Name of parameter to start execution of a SageMaker Model Building Pipeline.
-        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        :param pulumi.Input[str] name: Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
+        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1080,7 +1080,7 @@ class ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         return pulumi.get(self, "name")
 
@@ -1092,7 +1092,7 @@ class ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         return pulumi.get(self, "value")
 

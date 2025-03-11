@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string ObjectKey;
         /// <summary>
-        /// Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+        /// Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
         /// </summary>
         public readonly string? VersionId;
 

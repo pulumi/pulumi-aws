@@ -36,6 +36,12 @@ namespace Pulumi.Aws.OpenSearchIngest.Inputs
             set => _subnetIds = value;
         }
 
+        /// <summary>
+        /// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+        /// </summary>
+        [Input("vpcEndpointManagement")]
+        public Input<string>? VpcEndpointManagement { get; set; }
+
         public PipelineVpcOptionsGetArgs()
         {
         }

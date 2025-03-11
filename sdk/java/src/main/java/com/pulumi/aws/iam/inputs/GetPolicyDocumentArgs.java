@@ -19,19 +19,19 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
 
     /**
      * @deprecated
-     * Not used
+     * override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* Not used */
+    @Deprecated /* override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
     @Import(name="overrideJson")
     private @Nullable Output<String> overrideJson;
 
     /**
      * @deprecated
-     * Not used
+     * override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* Not used */
+    @Deprecated /* override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
     public Optional<Output<String>> overrideJson() {
         return Optional.ofNullable(this.overrideJson);
     }
@@ -68,19 +68,19 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
 
     /**
      * @deprecated
-     * Not used
+     * source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* Not used */
+    @Deprecated /* source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
     @Import(name="sourceJson")
     private @Nullable Output<String> sourceJson;
 
     /**
      * @deprecated
-     * Not used
+     * source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* Not used */
+    @Deprecated /* source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
     public Optional<Output<String>> sourceJson() {
         return Optional.ofNullable(this.sourceJson);
     }
@@ -164,10 +164,10 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          * @deprecated
-         * Not used
+         * override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
          * 
          */
-        @Deprecated /* Not used */
+        @Deprecated /* override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
         public Builder overrideJson(@Nullable Output<String> overrideJson) {
             $.overrideJson = overrideJson;
             return this;
@@ -177,10 +177,10 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          * @deprecated
-         * Not used
+         * override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
          * 
          */
-        @Deprecated /* Not used */
+        @Deprecated /* override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
         public Builder overrideJson(String overrideJson) {
             return overrideJson(Output.of(overrideJson));
         }
@@ -241,10 +241,10 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          * @deprecated
-         * Not used
+         * source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
          * 
          */
-        @Deprecated /* Not used */
+        @Deprecated /* source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
         public Builder sourceJson(@Nullable Output<String> sourceJson) {
             $.sourceJson = sourceJson;
             return this;
@@ -254,10 +254,10 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
          * @return builder
          * 
          * @deprecated
-         * Not used
+         * source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
          * 
          */
-        @Deprecated /* Not used */
+        @Deprecated /* source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
         public Builder sourceJson(String sourceJson) {
             return sourceJson(Output.of(sourceJson));
         }

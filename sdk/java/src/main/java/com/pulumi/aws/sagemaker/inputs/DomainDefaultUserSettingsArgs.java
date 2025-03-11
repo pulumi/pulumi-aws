@@ -76,14 +76,14 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+     * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
      * 
      */
     @Import(name="customFileSystemConfigs")
     private @Nullable Output<List<DomainDefaultUserSettingsCustomFileSystemConfigArgs>> customFileSystemConfigs;
 
     /**
-     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
      * 
      */
     public Optional<Output<List<DomainDefaultUserSettingsCustomFileSystemConfigArgs>>> customFileSystemConfigs() {
@@ -405,7 +405,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
          * 
          * @return builder
          * 

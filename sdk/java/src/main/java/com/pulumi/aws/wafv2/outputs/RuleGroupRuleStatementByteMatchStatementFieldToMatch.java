@@ -9,6 +9,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementFiel
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString;
@@ -48,7 +49,16 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatch {
      * 
      */
     private @Nullable List<RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader> headers;
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
     private @Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -116,8 +126,19 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatch {
     public List<RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
     public Optional<RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
+    }
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
     }
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
@@ -177,6 +198,7 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatch {
         private @Nullable List<RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader> headers;
         private @Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+        private @Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
         private @Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody jsonBody;
         private @Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchMethod method;
         private @Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString queryString;
@@ -192,6 +214,7 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatch {
     	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
+    	      this.ja4Fingerprint = defaults.ja4Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -243,6 +266,12 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatch {
             return this;
         }
         @CustomType.Setter
+        public Builder ja4Fingerprint(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint ja4Fingerprint) {
+
+            this.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder jsonBody(@Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody jsonBody) {
 
             this.jsonBody = jsonBody;
@@ -286,6 +315,7 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatch {
             _resultValue.headerOrders = headerOrders;
             _resultValue.headers = headers;
             _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.ja4Fingerprint = ja4Fingerprint;
             _resultValue.jsonBody = jsonBody;
             _resultValue.method = method;
             _resultValue.queryString = queryString;

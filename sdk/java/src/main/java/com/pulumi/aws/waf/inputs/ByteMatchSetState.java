@@ -18,6 +18,21 @@ public final class ByteMatchSetState extends com.pulumi.resources.ResourceArgs {
     public static final ByteMatchSetState Empty = new ByteMatchSetState();
 
     /**
+     * Amazon Resource Name (ARN) of the byte match set.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the byte match set.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Specifies the bytes (typically a string that corresponds
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
@@ -54,6 +69,7 @@ public final class ByteMatchSetState extends com.pulumi.resources.ResourceArgs {
     private ByteMatchSetState() {}
 
     private ByteMatchSetState(ByteMatchSetState $) {
+        this.arn = $.arn;
         this.byteMatchTuples = $.byteMatchTuples;
         this.name = $.name;
     }
@@ -74,6 +90,27 @@ public final class ByteMatchSetState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ByteMatchSetState defaults) {
             $ = new ByteMatchSetState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) of the byte match set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) of the byte match set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

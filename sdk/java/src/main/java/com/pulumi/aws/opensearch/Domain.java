@@ -774,10 +774,10 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
      * 
      * @deprecated
-     * use &#39;dashboard_endpoint&#39; attribute instead
+     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
      * 
      */
-    @Deprecated /* use 'dashboard_endpoint' attribute instead */
+    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
     @Export(name="kibanaEndpoint", refs={String.class}, tree="[0]")
     private Output<String> kibanaEndpoint;
 

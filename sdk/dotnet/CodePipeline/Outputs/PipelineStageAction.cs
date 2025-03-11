@@ -57,6 +57,9 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         /// The order in which actions are run.
         /// </summary>
         public readonly int? RunOrder;
+        /// <summary>
+        /// The action timeout for the rule.
+        /// </summary>
         public readonly int? TimeoutInMinutes;
         /// <summary>
         /// A string that identifies the action type.

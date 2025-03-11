@@ -126,7 +126,7 @@ class GetUserResult:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""Use the alternate_identifier attribute instead.""")
+    @_utilities.deprecated("""filter is deprecated. Use alternate_identifier instead.""")
     def filter(self) -> Optional['outputs.GetUserFilterResult']:
         return pulumi.get(self, "filter")
 

@@ -54,6 +54,11 @@ public final class GetConnectionResult {
      */
     private String providerName;
     /**
+     * @return State of the connection.
+     * 
+     */
+    private String state;
+    /**
      * @return Map of tags for the resource.
      * 
      */
@@ -125,6 +130,13 @@ public final class GetConnectionResult {
         return this.providerName;
     }
     /**
+     * @return State of the connection.
+     * 
+     */
+    public String state() {
+        return this.state;
+    }
+    /**
      * @return Map of tags for the resource.
      * 
      */
@@ -157,6 +169,7 @@ public final class GetConnectionResult {
         private String ownerAccountId;
         private String partnerName;
         private String providerName;
+        private String state;
         private Map<String,String> tags;
         private Integer vlanId;
         public Builder() {}
@@ -171,6 +184,7 @@ public final class GetConnectionResult {
     	      this.ownerAccountId = defaults.ownerAccountId;
     	      this.partnerName = defaults.partnerName;
     	      this.providerName = defaults.providerName;
+    	      this.state = defaults.state;
     	      this.tags = defaults.tags;
     	      this.vlanId = defaults.vlanId;
         }
@@ -248,6 +262,14 @@ public final class GetConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder state(String state) {
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "state");
+            }
+            this.state = state;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetConnectionResult", "tags");
@@ -274,6 +296,7 @@ public final class GetConnectionResult {
             _resultValue.ownerAccountId = ownerAccountId;
             _resultValue.partnerName = partnerName;
             _resultValue.providerName = providerName;
+            _resultValue.state = state;
             _resultValue.tags = tags;
             _resultValue.vlanId = vlanId;
             return _resultValue;

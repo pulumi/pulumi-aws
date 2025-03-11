@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker Notebook Instance resource.
+    /// Provides a SageMaker AI Notebook Instance resource.
     /// 
     /// ## Example Usage
     /// 
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
+    /// Using `pulumi import`, import SageMaker AI Notebook Instances using the `name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> DefaultCodeRepository { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+        /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
         /// </summary>
         [Output("directInternetAccess")]
         public Output<string?> DirectInternetAccess { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> InstanceType { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
+        /// The network interface ID that Amazon SageMaker AI created at the time of creating the instance. Only available when setting `subnet_id`.
         /// </summary>
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> PlatformIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+        /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -256,6 +256,7 @@ namespace Pulumi.Aws.Sagemaker
         /// <summary>
         /// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
         /// </summary>
+        [Obsolete(@"accelerator_types is deprecated. Use instance_type instead.")]
         public InputList<string> AcceleratorTypes
         {
             get => _acceleratorTypes ?? (_acceleratorTypes = new InputList<string>());
@@ -282,7 +283,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? DefaultCodeRepository { get; set; }
 
         /// <summary>
-        /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+        /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
         /// </summary>
         [Input("directInternetAccess")]
         public Input<string>? DirectInternetAccess { get; set; }
@@ -300,7 +301,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -324,7 +325,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? PlatformIdentifier { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+        /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -385,6 +386,7 @@ namespace Pulumi.Aws.Sagemaker
         /// <summary>
         /// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
         /// </summary>
+        [Obsolete(@"accelerator_types is deprecated. Use instance_type instead.")]
         public InputList<string> AcceleratorTypes
         {
             get => _acceleratorTypes ?? (_acceleratorTypes = new InputList<string>());
@@ -417,7 +419,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? DefaultCodeRepository { get; set; }
 
         /// <summary>
-        /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+        /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
         /// </summary>
         [Input("directInternetAccess")]
         public Input<string>? DirectInternetAccess { get; set; }
@@ -435,7 +437,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -453,7 +455,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
+        /// The network interface ID that Amazon SageMaker AI created at the time of creating the instance. Only available when setting `subnet_id`.
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
@@ -465,7 +467,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? PlatformIdentifier { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+        /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker data quality job definition resource.
+ * Provides a SageMaker AI data quality job definition resource.
  *
  * ## Example Usage
  *
@@ -115,7 +115,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
      */
     public readonly networkConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionNetworkConfig | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
@@ -230,7 +230,7 @@ export interface DataQualityJobDefinitionState {
      */
     networkConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionNetworkConfig>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      */
     roleArn?: pulumi.Input<string>;
     /**
@@ -282,7 +282,7 @@ export interface DataQualityJobDefinitionArgs {
      */
     networkConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionNetworkConfig>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      */
     roleArn: pulumi.Input<string>;
     /**

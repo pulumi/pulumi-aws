@@ -90,12 +90,16 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly ebsOptimized!: pulumi.Output<string | undefined>;
     /**
-     * The elastic GPU to attach to the instance. See Elastic GPU
+     * **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
+     *
+     * @deprecated elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
      */
     public readonly elasticGpuSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateElasticGpuSpecification[] | undefined>;
     /**
-     * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     * **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     *
+     * @deprecated elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
      */
     public readonly elasticInferenceAccelerator!: pulumi.Output<outputs.ec2.LaunchTemplateElasticInferenceAccelerator | undefined>;
     /**
@@ -367,12 +371,16 @@ export interface LaunchTemplateState {
      */
     ebsOptimized?: pulumi.Input<string>;
     /**
-     * The elastic GPU to attach to the instance. See Elastic GPU
+     * **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
+     *
+     * @deprecated elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
      */
     elasticGpuSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateElasticGpuSpecification>[]>;
     /**
-     * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     * **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     *
+     * @deprecated elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
      */
     elasticInferenceAccelerator?: pulumi.Input<inputs.ec2.LaunchTemplateElasticInferenceAccelerator>;
     /**
@@ -540,12 +548,16 @@ export interface LaunchTemplateArgs {
      */
     ebsOptimized?: pulumi.Input<string>;
     /**
-     * The elastic GPU to attach to the instance. See Elastic GPU
+     * **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
+     *
+     * @deprecated elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
      */
     elasticGpuSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateElasticGpuSpecification>[]>;
     /**
-     * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     * **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     *
+     * @deprecated elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
      */
     elasticInferenceAccelerator?: pulumi.Input<inputs.ec2.LaunchTemplateElasticInferenceAccelerator>;
     /**

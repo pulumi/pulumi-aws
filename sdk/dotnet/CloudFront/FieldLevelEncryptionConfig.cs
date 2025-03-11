@@ -72,6 +72,12 @@ namespace Pulumi.Aws.CloudFront
     public partial class FieldLevelEncryptionConfig : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Field Level Encryption Config ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
         /// </summary>
         [Output("callerReference")]
@@ -173,6 +179,12 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class FieldLevelEncryptionConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Field Level Encryption Config ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
         /// </summary>

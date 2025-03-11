@@ -120,7 +120,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// <summary>
         /// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"this attribute has been deprecated")]
+        [Obsolete(@"tags_all is deprecated. This argument will be removed in a future major version.")]
         public Dictionary<string, string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new Dictionary<string, string>());
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// <summary>
         /// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"this attribute has been deprecated")]
+        [Obsolete(@"tags_all is deprecated. This argument will be removed in a future major version.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

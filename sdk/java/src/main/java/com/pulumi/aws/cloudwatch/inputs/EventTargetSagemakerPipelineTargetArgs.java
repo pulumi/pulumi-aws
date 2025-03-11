@@ -17,14 +17,14 @@ public final class EventTargetSagemakerPipelineTargetArgs extends com.pulumi.res
     public static final EventTargetSagemakerPipelineTargetArgs Empty = new EventTargetSagemakerPipelineTargetArgs();
 
     /**
-     * List of Parameter names and values for SageMaker Model Building Pipeline execution.
+     * List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
      * 
      */
     @Import(name="pipelineParameterLists")
     private @Nullable Output<List<EventTargetSagemakerPipelineTargetPipelineParameterListArgs>> pipelineParameterLists;
 
     /**
-     * @return List of Parameter names and values for SageMaker Model Building Pipeline execution.
+     * @return List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
      * 
      */
     public Optional<Output<List<EventTargetSagemakerPipelineTargetPipelineParameterListArgs>>> pipelineParameterLists() {
@@ -56,7 +56,7 @@ public final class EventTargetSagemakerPipelineTargetArgs extends com.pulumi.res
         }
 
         /**
-         * @param pipelineParameterLists List of Parameter names and values for SageMaker Model Building Pipeline execution.
+         * @param pipelineParameterLists List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class EventTargetSagemakerPipelineTargetArgs extends com.pulumi.res
         }
 
         /**
-         * @param pipelineParameterLists List of Parameter names and values for SageMaker Model Building Pipeline execution.
+         * @param pipelineParameterLists List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class EventTargetSagemakerPipelineTargetArgs extends com.pulumi.res
         }
 
         /**
-         * @param pipelineParameterLists List of Parameter names and values for SageMaker Model Building Pipeline execution.
+         * @param pipelineParameterLists List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
          * 
          * @return builder
          * 

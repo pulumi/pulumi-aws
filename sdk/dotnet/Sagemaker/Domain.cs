@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker Domain resource.
+    /// Provides a SageMaker AI Domain resource.
     /// 
     /// ## Example Usage
     /// 
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker Domains using the `id`. For example:
+    /// Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> SecurityGroupIdForDomainBoundary { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+        /// The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
         /// </summary>
         [Output("singleSignOnApplicationArn")]
         public Output<string> SingleSignOnApplicationArn { get; private set; } = null!;
@@ -426,7 +426,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? SecurityGroupIdForDomainBoundary { get; set; }
 
         /// <summary>
-        /// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+        /// The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
         /// </summary>
         [Input("singleSignOnApplicationArn")]
         public Input<string>? SingleSignOnApplicationArn { get; set; }

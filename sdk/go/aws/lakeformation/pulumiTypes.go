@@ -1045,6 +1045,1784 @@ func (o DataLakeSettingsCreateTableDefaultPermissionArrayOutput) Index(i pulumi.
 	}).(DataLakeSettingsCreateTableDefaultPermissionOutput)
 }
 
+type OptInCondition struct {
+	// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+	Expression *string `pulumi:"expression"`
+}
+
+// OptInConditionInput is an input type that accepts OptInConditionArgs and OptInConditionOutput values.
+// You can construct a concrete instance of `OptInConditionInput` via:
+//
+//	OptInConditionArgs{...}
+type OptInConditionInput interface {
+	pulumi.Input
+
+	ToOptInConditionOutput() OptInConditionOutput
+	ToOptInConditionOutputWithContext(context.Context) OptInConditionOutput
+}
+
+type OptInConditionArgs struct {
+	// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+}
+
+func (OptInConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInCondition)(nil)).Elem()
+}
+
+func (i OptInConditionArgs) ToOptInConditionOutput() OptInConditionOutput {
+	return i.ToOptInConditionOutputWithContext(context.Background())
+}
+
+func (i OptInConditionArgs) ToOptInConditionOutputWithContext(ctx context.Context) OptInConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInConditionOutput)
+}
+
+// OptInConditionArrayInput is an input type that accepts OptInConditionArray and OptInConditionArrayOutput values.
+// You can construct a concrete instance of `OptInConditionArrayInput` via:
+//
+//	OptInConditionArray{ OptInConditionArgs{...} }
+type OptInConditionArrayInput interface {
+	pulumi.Input
+
+	ToOptInConditionArrayOutput() OptInConditionArrayOutput
+	ToOptInConditionArrayOutputWithContext(context.Context) OptInConditionArrayOutput
+}
+
+type OptInConditionArray []OptInConditionInput
+
+func (OptInConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInCondition)(nil)).Elem()
+}
+
+func (i OptInConditionArray) ToOptInConditionArrayOutput() OptInConditionArrayOutput {
+	return i.ToOptInConditionArrayOutputWithContext(context.Background())
+}
+
+func (i OptInConditionArray) ToOptInConditionArrayOutputWithContext(ctx context.Context) OptInConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInConditionArrayOutput)
+}
+
+type OptInConditionOutput struct{ *pulumi.OutputState }
+
+func (OptInConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInCondition)(nil)).Elem()
+}
+
+func (o OptInConditionOutput) ToOptInConditionOutput() OptInConditionOutput {
+	return o
+}
+
+func (o OptInConditionOutput) ToOptInConditionOutputWithContext(ctx context.Context) OptInConditionOutput {
+	return o
+}
+
+// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+func (o OptInConditionOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInCondition) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+type OptInConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (OptInConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInCondition)(nil)).Elem()
+}
+
+func (o OptInConditionArrayOutput) ToOptInConditionArrayOutput() OptInConditionArrayOutput {
+	return o
+}
+
+func (o OptInConditionArrayOutput) ToOptInConditionArrayOutputWithContext(ctx context.Context) OptInConditionArrayOutput {
+	return o
+}
+
+func (o OptInConditionArrayOutput) Index(i pulumi.IntInput) OptInConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OptInCondition {
+		return vs[0].([]OptInCondition)[vs[1].(int)]
+	}).(OptInConditionOutput)
+}
+
+type OptInPrincipal struct {
+	DataLakePrincipalIdentifier string `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+// OptInPrincipalInput is an input type that accepts OptInPrincipalArgs and OptInPrincipalOutput values.
+// You can construct a concrete instance of `OptInPrincipalInput` via:
+//
+//	OptInPrincipalArgs{...}
+type OptInPrincipalInput interface {
+	pulumi.Input
+
+	ToOptInPrincipalOutput() OptInPrincipalOutput
+	ToOptInPrincipalOutputWithContext(context.Context) OptInPrincipalOutput
+}
+
+type OptInPrincipalArgs struct {
+	DataLakePrincipalIdentifier pulumi.StringInput `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+func (OptInPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInPrincipal)(nil)).Elem()
+}
+
+func (i OptInPrincipalArgs) ToOptInPrincipalOutput() OptInPrincipalOutput {
+	return i.ToOptInPrincipalOutputWithContext(context.Background())
+}
+
+func (i OptInPrincipalArgs) ToOptInPrincipalOutputWithContext(ctx context.Context) OptInPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInPrincipalOutput)
+}
+
+// OptInPrincipalArrayInput is an input type that accepts OptInPrincipalArray and OptInPrincipalArrayOutput values.
+// You can construct a concrete instance of `OptInPrincipalArrayInput` via:
+//
+//	OptInPrincipalArray{ OptInPrincipalArgs{...} }
+type OptInPrincipalArrayInput interface {
+	pulumi.Input
+
+	ToOptInPrincipalArrayOutput() OptInPrincipalArrayOutput
+	ToOptInPrincipalArrayOutputWithContext(context.Context) OptInPrincipalArrayOutput
+}
+
+type OptInPrincipalArray []OptInPrincipalInput
+
+func (OptInPrincipalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInPrincipal)(nil)).Elem()
+}
+
+func (i OptInPrincipalArray) ToOptInPrincipalArrayOutput() OptInPrincipalArrayOutput {
+	return i.ToOptInPrincipalArrayOutputWithContext(context.Background())
+}
+
+func (i OptInPrincipalArray) ToOptInPrincipalArrayOutputWithContext(ctx context.Context) OptInPrincipalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInPrincipalArrayOutput)
+}
+
+type OptInPrincipalOutput struct{ *pulumi.OutputState }
+
+func (OptInPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInPrincipal)(nil)).Elem()
+}
+
+func (o OptInPrincipalOutput) ToOptInPrincipalOutput() OptInPrincipalOutput {
+	return o
+}
+
+func (o OptInPrincipalOutput) ToOptInPrincipalOutputWithContext(ctx context.Context) OptInPrincipalOutput {
+	return o
+}
+
+func (o OptInPrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v OptInPrincipal) string { return v.DataLakePrincipalIdentifier }).(pulumi.StringOutput)
+}
+
+type OptInPrincipalArrayOutput struct{ *pulumi.OutputState }
+
+func (OptInPrincipalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInPrincipal)(nil)).Elem()
+}
+
+func (o OptInPrincipalArrayOutput) ToOptInPrincipalArrayOutput() OptInPrincipalArrayOutput {
+	return o
+}
+
+func (o OptInPrincipalArrayOutput) ToOptInPrincipalArrayOutputWithContext(ctx context.Context) OptInPrincipalArrayOutput {
+	return o
+}
+
+func (o OptInPrincipalArrayOutput) Index(i pulumi.IntInput) OptInPrincipalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OptInPrincipal {
+		return vs[0].([]OptInPrincipal)[vs[1].(int)]
+	}).(OptInPrincipalOutput)
+}
+
+type OptInResourceData struct {
+	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+	Catalogs []OptInResourceDataCatalog `pulumi:"catalogs"`
+	// Data cell filter. See Data Cells Filter for more details.
+	DataCellsFilters []OptInResourceDataDataCellsFilter `pulumi:"dataCellsFilters"`
+	// Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+	DataLocations []OptInResourceDataDataLocation `pulumi:"dataLocations"`
+	// Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+	Database *OptInResourceDataDatabase `pulumi:"database"`
+	// LF-tag key and values attached to a resource.
+	LfTag *OptInResourceDataLfTag `pulumi:"lfTag"`
+	// Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+	LfTagExpressions []OptInResourceDataLfTagExpression `pulumi:"lfTagExpressions"`
+	// List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
+	LfTagPolicies []OptInResourceDataLfTagPolicy `pulumi:"lfTagPolicies"`
+	// Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+	Table *OptInResourceDataTable `pulumi:"table"`
+	// Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+	TableWithColumns *OptInResourceDataTableWithColumns `pulumi:"tableWithColumns"`
+}
+
+// OptInResourceDataInput is an input type that accepts OptInResourceDataArgs and OptInResourceDataOutput values.
+// You can construct a concrete instance of `OptInResourceDataInput` via:
+//
+//	OptInResourceDataArgs{...}
+type OptInResourceDataInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataOutput() OptInResourceDataOutput
+	ToOptInResourceDataOutputWithContext(context.Context) OptInResourceDataOutput
+}
+
+type OptInResourceDataArgs struct {
+	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+	Catalogs OptInResourceDataCatalogArrayInput `pulumi:"catalogs"`
+	// Data cell filter. See Data Cells Filter for more details.
+	DataCellsFilters OptInResourceDataDataCellsFilterArrayInput `pulumi:"dataCellsFilters"`
+	// Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+	DataLocations OptInResourceDataDataLocationArrayInput `pulumi:"dataLocations"`
+	// Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+	Database OptInResourceDataDatabasePtrInput `pulumi:"database"`
+	// LF-tag key and values attached to a resource.
+	LfTag OptInResourceDataLfTagPtrInput `pulumi:"lfTag"`
+	// Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+	LfTagExpressions OptInResourceDataLfTagExpressionArrayInput `pulumi:"lfTagExpressions"`
+	// List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
+	LfTagPolicies OptInResourceDataLfTagPolicyArrayInput `pulumi:"lfTagPolicies"`
+	// Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+	Table OptInResourceDataTablePtrInput `pulumi:"table"`
+	// Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+	TableWithColumns OptInResourceDataTableWithColumnsPtrInput `pulumi:"tableWithColumns"`
+}
+
+func (OptInResourceDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceData)(nil)).Elem()
+}
+
+func (i OptInResourceDataArgs) ToOptInResourceDataOutput() OptInResourceDataOutput {
+	return i.ToOptInResourceDataOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataArgs) ToOptInResourceDataOutputWithContext(ctx context.Context) OptInResourceDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataOutput)
+}
+
+// OptInResourceDataArrayInput is an input type that accepts OptInResourceDataArray and OptInResourceDataArrayOutput values.
+// You can construct a concrete instance of `OptInResourceDataArrayInput` via:
+//
+//	OptInResourceDataArray{ OptInResourceDataArgs{...} }
+type OptInResourceDataArrayInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataArrayOutput() OptInResourceDataArrayOutput
+	ToOptInResourceDataArrayOutputWithContext(context.Context) OptInResourceDataArrayOutput
+}
+
+type OptInResourceDataArray []OptInResourceDataInput
+
+func (OptInResourceDataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInResourceData)(nil)).Elem()
+}
+
+func (i OptInResourceDataArray) ToOptInResourceDataArrayOutput() OptInResourceDataArrayOutput {
+	return i.ToOptInResourceDataArrayOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataArray) ToOptInResourceDataArrayOutputWithContext(ctx context.Context) OptInResourceDataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataArrayOutput)
+}
+
+type OptInResourceDataOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceData)(nil)).Elem()
+}
+
+func (o OptInResourceDataOutput) ToOptInResourceDataOutput() OptInResourceDataOutput {
+	return o
+}
+
+func (o OptInResourceDataOutput) ToOptInResourceDataOutputWithContext(ctx context.Context) OptInResourceDataOutput {
+	return o
+}
+
+// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+func (o OptInResourceDataOutput) Catalogs() OptInResourceDataCatalogArrayOutput {
+	return o.ApplyT(func(v OptInResourceData) []OptInResourceDataCatalog { return v.Catalogs }).(OptInResourceDataCatalogArrayOutput)
+}
+
+// Data cell filter. See Data Cells Filter for more details.
+func (o OptInResourceDataOutput) DataCellsFilters() OptInResourceDataDataCellsFilterArrayOutput {
+	return o.ApplyT(func(v OptInResourceData) []OptInResourceDataDataCellsFilter { return v.DataCellsFilters }).(OptInResourceDataDataCellsFilterArrayOutput)
+}
+
+// Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+func (o OptInResourceDataOutput) DataLocations() OptInResourceDataDataLocationArrayOutput {
+	return o.ApplyT(func(v OptInResourceData) []OptInResourceDataDataLocation { return v.DataLocations }).(OptInResourceDataDataLocationArrayOutput)
+}
+
+// Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+func (o OptInResourceDataOutput) Database() OptInResourceDataDatabasePtrOutput {
+	return o.ApplyT(func(v OptInResourceData) *OptInResourceDataDatabase { return v.Database }).(OptInResourceDataDatabasePtrOutput)
+}
+
+// LF-tag key and values attached to a resource.
+func (o OptInResourceDataOutput) LfTag() OptInResourceDataLfTagPtrOutput {
+	return o.ApplyT(func(v OptInResourceData) *OptInResourceDataLfTag { return v.LfTag }).(OptInResourceDataLfTagPtrOutput)
+}
+
+// Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+func (o OptInResourceDataOutput) LfTagExpressions() OptInResourceDataLfTagExpressionArrayOutput {
+	return o.ApplyT(func(v OptInResourceData) []OptInResourceDataLfTagExpression { return v.LfTagExpressions }).(OptInResourceDataLfTagExpressionArrayOutput)
+}
+
+// List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
+func (o OptInResourceDataOutput) LfTagPolicies() OptInResourceDataLfTagPolicyArrayOutput {
+	return o.ApplyT(func(v OptInResourceData) []OptInResourceDataLfTagPolicy { return v.LfTagPolicies }).(OptInResourceDataLfTagPolicyArrayOutput)
+}
+
+// Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+func (o OptInResourceDataOutput) Table() OptInResourceDataTablePtrOutput {
+	return o.ApplyT(func(v OptInResourceData) *OptInResourceDataTable { return v.Table }).(OptInResourceDataTablePtrOutput)
+}
+
+// Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+func (o OptInResourceDataOutput) TableWithColumns() OptInResourceDataTableWithColumnsPtrOutput {
+	return o.ApplyT(func(v OptInResourceData) *OptInResourceDataTableWithColumns { return v.TableWithColumns }).(OptInResourceDataTableWithColumnsPtrOutput)
+}
+
+type OptInResourceDataArrayOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInResourceData)(nil)).Elem()
+}
+
+func (o OptInResourceDataArrayOutput) ToOptInResourceDataArrayOutput() OptInResourceDataArrayOutput {
+	return o
+}
+
+func (o OptInResourceDataArrayOutput) ToOptInResourceDataArrayOutputWithContext(ctx context.Context) OptInResourceDataArrayOutput {
+	return o
+}
+
+func (o OptInResourceDataArrayOutput) Index(i pulumi.IntInput) OptInResourceDataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OptInResourceData {
+		return vs[0].([]OptInResourceData)[vs[1].(int)]
+	}).(OptInResourceDataOutput)
+}
+
+type OptInResourceDataCatalog struct {
+	// Identifier for the catalog resource.
+	Id *string `pulumi:"id"`
+}
+
+// OptInResourceDataCatalogInput is an input type that accepts OptInResourceDataCatalogArgs and OptInResourceDataCatalogOutput values.
+// You can construct a concrete instance of `OptInResourceDataCatalogInput` via:
+//
+//	OptInResourceDataCatalogArgs{...}
+type OptInResourceDataCatalogInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataCatalogOutput() OptInResourceDataCatalogOutput
+	ToOptInResourceDataCatalogOutputWithContext(context.Context) OptInResourceDataCatalogOutput
+}
+
+type OptInResourceDataCatalogArgs struct {
+	// Identifier for the catalog resource.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (OptInResourceDataCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataCatalog)(nil)).Elem()
+}
+
+func (i OptInResourceDataCatalogArgs) ToOptInResourceDataCatalogOutput() OptInResourceDataCatalogOutput {
+	return i.ToOptInResourceDataCatalogOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataCatalogArgs) ToOptInResourceDataCatalogOutputWithContext(ctx context.Context) OptInResourceDataCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataCatalogOutput)
+}
+
+// OptInResourceDataCatalogArrayInput is an input type that accepts OptInResourceDataCatalogArray and OptInResourceDataCatalogArrayOutput values.
+// You can construct a concrete instance of `OptInResourceDataCatalogArrayInput` via:
+//
+//	OptInResourceDataCatalogArray{ OptInResourceDataCatalogArgs{...} }
+type OptInResourceDataCatalogArrayInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataCatalogArrayOutput() OptInResourceDataCatalogArrayOutput
+	ToOptInResourceDataCatalogArrayOutputWithContext(context.Context) OptInResourceDataCatalogArrayOutput
+}
+
+type OptInResourceDataCatalogArray []OptInResourceDataCatalogInput
+
+func (OptInResourceDataCatalogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInResourceDataCatalog)(nil)).Elem()
+}
+
+func (i OptInResourceDataCatalogArray) ToOptInResourceDataCatalogArrayOutput() OptInResourceDataCatalogArrayOutput {
+	return i.ToOptInResourceDataCatalogArrayOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataCatalogArray) ToOptInResourceDataCatalogArrayOutputWithContext(ctx context.Context) OptInResourceDataCatalogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataCatalogArrayOutput)
+}
+
+type OptInResourceDataCatalogOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataCatalog)(nil)).Elem()
+}
+
+func (o OptInResourceDataCatalogOutput) ToOptInResourceDataCatalogOutput() OptInResourceDataCatalogOutput {
+	return o
+}
+
+func (o OptInResourceDataCatalogOutput) ToOptInResourceDataCatalogOutputWithContext(ctx context.Context) OptInResourceDataCatalogOutput {
+	return o
+}
+
+// Identifier for the catalog resource.
+func (o OptInResourceDataCatalogOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataCatalog) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type OptInResourceDataCatalogArrayOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataCatalogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInResourceDataCatalog)(nil)).Elem()
+}
+
+func (o OptInResourceDataCatalogArrayOutput) ToOptInResourceDataCatalogArrayOutput() OptInResourceDataCatalogArrayOutput {
+	return o
+}
+
+func (o OptInResourceDataCatalogArrayOutput) ToOptInResourceDataCatalogArrayOutputWithContext(ctx context.Context) OptInResourceDataCatalogArrayOutput {
+	return o
+}
+
+func (o OptInResourceDataCatalogArrayOutput) Index(i pulumi.IntInput) OptInResourceDataCatalogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OptInResourceDataCatalog {
+		return vs[0].([]OptInResourceDataCatalog)[vs[1].(int)]
+	}).(OptInResourceDataCatalogOutput)
+}
+
+type OptInResourceDataDataCellsFilter struct {
+	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Name of the table.
+	Name *string `pulumi:"name"`
+	// ID of the catalog to which the table belongs.
+	TableCatalogId *string `pulumi:"tableCatalogId"`
+	// Name of the table.
+	TableName *string `pulumi:"tableName"`
+}
+
+// OptInResourceDataDataCellsFilterInput is an input type that accepts OptInResourceDataDataCellsFilterArgs and OptInResourceDataDataCellsFilterOutput values.
+// You can construct a concrete instance of `OptInResourceDataDataCellsFilterInput` via:
+//
+//	OptInResourceDataDataCellsFilterArgs{...}
+type OptInResourceDataDataCellsFilterInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataDataCellsFilterOutput() OptInResourceDataDataCellsFilterOutput
+	ToOptInResourceDataDataCellsFilterOutputWithContext(context.Context) OptInResourceDataDataCellsFilterOutput
+}
+
+type OptInResourceDataDataCellsFilterArgs struct {
+	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Name of the table.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ID of the catalog to which the table belongs.
+	TableCatalogId pulumi.StringPtrInput `pulumi:"tableCatalogId"`
+	// Name of the table.
+	TableName pulumi.StringPtrInput `pulumi:"tableName"`
+}
+
+func (OptInResourceDataDataCellsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataDataCellsFilter)(nil)).Elem()
+}
+
+func (i OptInResourceDataDataCellsFilterArgs) ToOptInResourceDataDataCellsFilterOutput() OptInResourceDataDataCellsFilterOutput {
+	return i.ToOptInResourceDataDataCellsFilterOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataDataCellsFilterArgs) ToOptInResourceDataDataCellsFilterOutputWithContext(ctx context.Context) OptInResourceDataDataCellsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataDataCellsFilterOutput)
+}
+
+// OptInResourceDataDataCellsFilterArrayInput is an input type that accepts OptInResourceDataDataCellsFilterArray and OptInResourceDataDataCellsFilterArrayOutput values.
+// You can construct a concrete instance of `OptInResourceDataDataCellsFilterArrayInput` via:
+//
+//	OptInResourceDataDataCellsFilterArray{ OptInResourceDataDataCellsFilterArgs{...} }
+type OptInResourceDataDataCellsFilterArrayInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataDataCellsFilterArrayOutput() OptInResourceDataDataCellsFilterArrayOutput
+	ToOptInResourceDataDataCellsFilterArrayOutputWithContext(context.Context) OptInResourceDataDataCellsFilterArrayOutput
+}
+
+type OptInResourceDataDataCellsFilterArray []OptInResourceDataDataCellsFilterInput
+
+func (OptInResourceDataDataCellsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInResourceDataDataCellsFilter)(nil)).Elem()
+}
+
+func (i OptInResourceDataDataCellsFilterArray) ToOptInResourceDataDataCellsFilterArrayOutput() OptInResourceDataDataCellsFilterArrayOutput {
+	return i.ToOptInResourceDataDataCellsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataDataCellsFilterArray) ToOptInResourceDataDataCellsFilterArrayOutputWithContext(ctx context.Context) OptInResourceDataDataCellsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataDataCellsFilterArrayOutput)
+}
+
+type OptInResourceDataDataCellsFilterOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataDataCellsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataDataCellsFilter)(nil)).Elem()
+}
+
+func (o OptInResourceDataDataCellsFilterOutput) ToOptInResourceDataDataCellsFilterOutput() OptInResourceDataDataCellsFilterOutput {
+	return o
+}
+
+func (o OptInResourceDataDataCellsFilterOutput) ToOptInResourceDataDataCellsFilterOutputWithContext(ctx context.Context) OptInResourceDataDataCellsFilterOutput {
+	return o
+}
+
+// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+func (o OptInResourceDataDataCellsFilterOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataDataCellsFilter) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the table.
+func (o OptInResourceDataDataCellsFilterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataDataCellsFilter) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// ID of the catalog to which the table belongs.
+func (o OptInResourceDataDataCellsFilterOutput) TableCatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataDataCellsFilter) *string { return v.TableCatalogId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the table.
+func (o OptInResourceDataDataCellsFilterOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataDataCellsFilter) *string { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+type OptInResourceDataDataCellsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataDataCellsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInResourceDataDataCellsFilter)(nil)).Elem()
+}
+
+func (o OptInResourceDataDataCellsFilterArrayOutput) ToOptInResourceDataDataCellsFilterArrayOutput() OptInResourceDataDataCellsFilterArrayOutput {
+	return o
+}
+
+func (o OptInResourceDataDataCellsFilterArrayOutput) ToOptInResourceDataDataCellsFilterArrayOutputWithContext(ctx context.Context) OptInResourceDataDataCellsFilterArrayOutput {
+	return o
+}
+
+func (o OptInResourceDataDataCellsFilterArrayOutput) Index(i pulumi.IntInput) OptInResourceDataDataCellsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OptInResourceDataDataCellsFilter {
+		return vs[0].([]OptInResourceDataDataCellsFilter)[vs[1].(int)]
+	}).(OptInResourceDataDataCellsFilterOutput)
+}
+
+type OptInResourceDataDataLocation struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// ARN that uniquely identifies the data location resource.
+	ResourceArn string `pulumi:"resourceArn"`
+}
+
+// OptInResourceDataDataLocationInput is an input type that accepts OptInResourceDataDataLocationArgs and OptInResourceDataDataLocationOutput values.
+// You can construct a concrete instance of `OptInResourceDataDataLocationInput` via:
+//
+//	OptInResourceDataDataLocationArgs{...}
+type OptInResourceDataDataLocationInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataDataLocationOutput() OptInResourceDataDataLocationOutput
+	ToOptInResourceDataDataLocationOutputWithContext(context.Context) OptInResourceDataDataLocationOutput
+}
+
+type OptInResourceDataDataLocationArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// ARN that uniquely identifies the data location resource.
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+}
+
+func (OptInResourceDataDataLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataDataLocation)(nil)).Elem()
+}
+
+func (i OptInResourceDataDataLocationArgs) ToOptInResourceDataDataLocationOutput() OptInResourceDataDataLocationOutput {
+	return i.ToOptInResourceDataDataLocationOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataDataLocationArgs) ToOptInResourceDataDataLocationOutputWithContext(ctx context.Context) OptInResourceDataDataLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataDataLocationOutput)
+}
+
+// OptInResourceDataDataLocationArrayInput is an input type that accepts OptInResourceDataDataLocationArray and OptInResourceDataDataLocationArrayOutput values.
+// You can construct a concrete instance of `OptInResourceDataDataLocationArrayInput` via:
+//
+//	OptInResourceDataDataLocationArray{ OptInResourceDataDataLocationArgs{...} }
+type OptInResourceDataDataLocationArrayInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataDataLocationArrayOutput() OptInResourceDataDataLocationArrayOutput
+	ToOptInResourceDataDataLocationArrayOutputWithContext(context.Context) OptInResourceDataDataLocationArrayOutput
+}
+
+type OptInResourceDataDataLocationArray []OptInResourceDataDataLocationInput
+
+func (OptInResourceDataDataLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInResourceDataDataLocation)(nil)).Elem()
+}
+
+func (i OptInResourceDataDataLocationArray) ToOptInResourceDataDataLocationArrayOutput() OptInResourceDataDataLocationArrayOutput {
+	return i.ToOptInResourceDataDataLocationArrayOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataDataLocationArray) ToOptInResourceDataDataLocationArrayOutputWithContext(ctx context.Context) OptInResourceDataDataLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataDataLocationArrayOutput)
+}
+
+type OptInResourceDataDataLocationOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataDataLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataDataLocation)(nil)).Elem()
+}
+
+func (o OptInResourceDataDataLocationOutput) ToOptInResourceDataDataLocationOutput() OptInResourceDataDataLocationOutput {
+	return o
+}
+
+func (o OptInResourceDataDataLocationOutput) ToOptInResourceDataDataLocationOutputWithContext(ctx context.Context) OptInResourceDataDataLocationOutput {
+	return o
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o OptInResourceDataDataLocationOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataDataLocation) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// ARN that uniquely identifies the data location resource.
+func (o OptInResourceDataDataLocationOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v OptInResourceDataDataLocation) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+type OptInResourceDataDataLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataDataLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInResourceDataDataLocation)(nil)).Elem()
+}
+
+func (o OptInResourceDataDataLocationArrayOutput) ToOptInResourceDataDataLocationArrayOutput() OptInResourceDataDataLocationArrayOutput {
+	return o
+}
+
+func (o OptInResourceDataDataLocationArrayOutput) ToOptInResourceDataDataLocationArrayOutputWithContext(ctx context.Context) OptInResourceDataDataLocationArrayOutput {
+	return o
+}
+
+func (o OptInResourceDataDataLocationArrayOutput) Index(i pulumi.IntInput) OptInResourceDataDataLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OptInResourceDataDataLocation {
+		return vs[0].([]OptInResourceDataDataLocation)[vs[1].(int)]
+	}).(OptInResourceDataDataLocationOutput)
+}
+
+type OptInResourceDataDatabase struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// Name of the table.
+	Name string `pulumi:"name"`
+}
+
+// OptInResourceDataDatabaseInput is an input type that accepts OptInResourceDataDatabaseArgs and OptInResourceDataDatabaseOutput values.
+// You can construct a concrete instance of `OptInResourceDataDatabaseInput` via:
+//
+//	OptInResourceDataDatabaseArgs{...}
+type OptInResourceDataDatabaseInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataDatabaseOutput() OptInResourceDataDatabaseOutput
+	ToOptInResourceDataDatabaseOutputWithContext(context.Context) OptInResourceDataDatabaseOutput
+}
+
+type OptInResourceDataDatabaseArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// Name of the table.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OptInResourceDataDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataDatabase)(nil)).Elem()
+}
+
+func (i OptInResourceDataDatabaseArgs) ToOptInResourceDataDatabaseOutput() OptInResourceDataDatabaseOutput {
+	return i.ToOptInResourceDataDatabaseOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataDatabaseArgs) ToOptInResourceDataDatabaseOutputWithContext(ctx context.Context) OptInResourceDataDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataDatabaseOutput)
+}
+
+func (i OptInResourceDataDatabaseArgs) ToOptInResourceDataDatabasePtrOutput() OptInResourceDataDatabasePtrOutput {
+	return i.ToOptInResourceDataDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataDatabaseArgs) ToOptInResourceDataDatabasePtrOutputWithContext(ctx context.Context) OptInResourceDataDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataDatabaseOutput).ToOptInResourceDataDatabasePtrOutputWithContext(ctx)
+}
+
+// OptInResourceDataDatabasePtrInput is an input type that accepts OptInResourceDataDatabaseArgs, OptInResourceDataDatabasePtr and OptInResourceDataDatabasePtrOutput values.
+// You can construct a concrete instance of `OptInResourceDataDatabasePtrInput` via:
+//
+//	        OptInResourceDataDatabaseArgs{...}
+//
+//	or:
+//
+//	        nil
+type OptInResourceDataDatabasePtrInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataDatabasePtrOutput() OptInResourceDataDatabasePtrOutput
+	ToOptInResourceDataDatabasePtrOutputWithContext(context.Context) OptInResourceDataDatabasePtrOutput
+}
+
+type optInResourceDataDatabasePtrType OptInResourceDataDatabaseArgs
+
+func OptInResourceDataDatabasePtr(v *OptInResourceDataDatabaseArgs) OptInResourceDataDatabasePtrInput {
+	return (*optInResourceDataDatabasePtrType)(v)
+}
+
+func (*optInResourceDataDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptInResourceDataDatabase)(nil)).Elem()
+}
+
+func (i *optInResourceDataDatabasePtrType) ToOptInResourceDataDatabasePtrOutput() OptInResourceDataDatabasePtrOutput {
+	return i.ToOptInResourceDataDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *optInResourceDataDatabasePtrType) ToOptInResourceDataDatabasePtrOutputWithContext(ctx context.Context) OptInResourceDataDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataDatabasePtrOutput)
+}
+
+type OptInResourceDataDatabaseOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataDatabase)(nil)).Elem()
+}
+
+func (o OptInResourceDataDatabaseOutput) ToOptInResourceDataDatabaseOutput() OptInResourceDataDatabaseOutput {
+	return o
+}
+
+func (o OptInResourceDataDatabaseOutput) ToOptInResourceDataDatabaseOutputWithContext(ctx context.Context) OptInResourceDataDatabaseOutput {
+	return o
+}
+
+func (o OptInResourceDataDatabaseOutput) ToOptInResourceDataDatabasePtrOutput() OptInResourceDataDatabasePtrOutput {
+	return o.ToOptInResourceDataDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o OptInResourceDataDatabaseOutput) ToOptInResourceDataDatabasePtrOutputWithContext(ctx context.Context) OptInResourceDataDatabasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OptInResourceDataDatabase) *OptInResourceDataDatabase {
+		return &v
+	}).(OptInResourceDataDatabasePtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o OptInResourceDataDatabaseOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataDatabase) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the table.
+func (o OptInResourceDataDatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OptInResourceDataDatabase) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OptInResourceDataDatabasePtrOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptInResourceDataDatabase)(nil)).Elem()
+}
+
+func (o OptInResourceDataDatabasePtrOutput) ToOptInResourceDataDatabasePtrOutput() OptInResourceDataDatabasePtrOutput {
+	return o
+}
+
+func (o OptInResourceDataDatabasePtrOutput) ToOptInResourceDataDatabasePtrOutputWithContext(ctx context.Context) OptInResourceDataDatabasePtrOutput {
+	return o
+}
+
+func (o OptInResourceDataDatabasePtrOutput) Elem() OptInResourceDataDatabaseOutput {
+	return o.ApplyT(func(v *OptInResourceDataDatabase) OptInResourceDataDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret OptInResourceDataDatabase
+		return ret
+	}).(OptInResourceDataDatabaseOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o OptInResourceDataDatabasePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the table.
+func (o OptInResourceDataDatabasePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type OptInResourceDataLfTag struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	Key       string  `pulumi:"key"`
+	Value     string  `pulumi:"value"`
+}
+
+// OptInResourceDataLfTagInput is an input type that accepts OptInResourceDataLfTagArgs and OptInResourceDataLfTagOutput values.
+// You can construct a concrete instance of `OptInResourceDataLfTagInput` via:
+//
+//	OptInResourceDataLfTagArgs{...}
+type OptInResourceDataLfTagInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataLfTagOutput() OptInResourceDataLfTagOutput
+	ToOptInResourceDataLfTagOutputWithContext(context.Context) OptInResourceDataLfTagOutput
+}
+
+type OptInResourceDataLfTagArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	Key       pulumi.StringInput    `pulumi:"key"`
+	Value     pulumi.StringInput    `pulumi:"value"`
+}
+
+func (OptInResourceDataLfTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataLfTag)(nil)).Elem()
+}
+
+func (i OptInResourceDataLfTagArgs) ToOptInResourceDataLfTagOutput() OptInResourceDataLfTagOutput {
+	return i.ToOptInResourceDataLfTagOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataLfTagArgs) ToOptInResourceDataLfTagOutputWithContext(ctx context.Context) OptInResourceDataLfTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataLfTagOutput)
+}
+
+func (i OptInResourceDataLfTagArgs) ToOptInResourceDataLfTagPtrOutput() OptInResourceDataLfTagPtrOutput {
+	return i.ToOptInResourceDataLfTagPtrOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataLfTagArgs) ToOptInResourceDataLfTagPtrOutputWithContext(ctx context.Context) OptInResourceDataLfTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataLfTagOutput).ToOptInResourceDataLfTagPtrOutputWithContext(ctx)
+}
+
+// OptInResourceDataLfTagPtrInput is an input type that accepts OptInResourceDataLfTagArgs, OptInResourceDataLfTagPtr and OptInResourceDataLfTagPtrOutput values.
+// You can construct a concrete instance of `OptInResourceDataLfTagPtrInput` via:
+//
+//	        OptInResourceDataLfTagArgs{...}
+//
+//	or:
+//
+//	        nil
+type OptInResourceDataLfTagPtrInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataLfTagPtrOutput() OptInResourceDataLfTagPtrOutput
+	ToOptInResourceDataLfTagPtrOutputWithContext(context.Context) OptInResourceDataLfTagPtrOutput
+}
+
+type optInResourceDataLfTagPtrType OptInResourceDataLfTagArgs
+
+func OptInResourceDataLfTagPtr(v *OptInResourceDataLfTagArgs) OptInResourceDataLfTagPtrInput {
+	return (*optInResourceDataLfTagPtrType)(v)
+}
+
+func (*optInResourceDataLfTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptInResourceDataLfTag)(nil)).Elem()
+}
+
+func (i *optInResourceDataLfTagPtrType) ToOptInResourceDataLfTagPtrOutput() OptInResourceDataLfTagPtrOutput {
+	return i.ToOptInResourceDataLfTagPtrOutputWithContext(context.Background())
+}
+
+func (i *optInResourceDataLfTagPtrType) ToOptInResourceDataLfTagPtrOutputWithContext(ctx context.Context) OptInResourceDataLfTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataLfTagPtrOutput)
+}
+
+type OptInResourceDataLfTagOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataLfTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataLfTag)(nil)).Elem()
+}
+
+func (o OptInResourceDataLfTagOutput) ToOptInResourceDataLfTagOutput() OptInResourceDataLfTagOutput {
+	return o
+}
+
+func (o OptInResourceDataLfTagOutput) ToOptInResourceDataLfTagOutputWithContext(ctx context.Context) OptInResourceDataLfTagOutput {
+	return o
+}
+
+func (o OptInResourceDataLfTagOutput) ToOptInResourceDataLfTagPtrOutput() OptInResourceDataLfTagPtrOutput {
+	return o.ToOptInResourceDataLfTagPtrOutputWithContext(context.Background())
+}
+
+func (o OptInResourceDataLfTagOutput) ToOptInResourceDataLfTagPtrOutputWithContext(ctx context.Context) OptInResourceDataLfTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OptInResourceDataLfTag) *OptInResourceDataLfTag {
+		return &v
+	}).(OptInResourceDataLfTagPtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o OptInResourceDataLfTagOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataLfTag) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+func (o OptInResourceDataLfTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v OptInResourceDataLfTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o OptInResourceDataLfTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v OptInResourceDataLfTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type OptInResourceDataLfTagPtrOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataLfTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptInResourceDataLfTag)(nil)).Elem()
+}
+
+func (o OptInResourceDataLfTagPtrOutput) ToOptInResourceDataLfTagPtrOutput() OptInResourceDataLfTagPtrOutput {
+	return o
+}
+
+func (o OptInResourceDataLfTagPtrOutput) ToOptInResourceDataLfTagPtrOutputWithContext(ctx context.Context) OptInResourceDataLfTagPtrOutput {
+	return o
+}
+
+func (o OptInResourceDataLfTagPtrOutput) Elem() OptInResourceDataLfTagOutput {
+	return o.ApplyT(func(v *OptInResourceDataLfTag) OptInResourceDataLfTag {
+		if v != nil {
+			return *v
+		}
+		var ret OptInResourceDataLfTag
+		return ret
+	}).(OptInResourceDataLfTagOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o OptInResourceDataLfTagPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataLfTag) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OptInResourceDataLfTagPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataLfTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OptInResourceDataLfTagPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataLfTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type OptInResourceDataLfTagExpression struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// Name of the table.
+	Name string `pulumi:"name"`
+}
+
+// OptInResourceDataLfTagExpressionInput is an input type that accepts OptInResourceDataLfTagExpressionArgs and OptInResourceDataLfTagExpressionOutput values.
+// You can construct a concrete instance of `OptInResourceDataLfTagExpressionInput` via:
+//
+//	OptInResourceDataLfTagExpressionArgs{...}
+type OptInResourceDataLfTagExpressionInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataLfTagExpressionOutput() OptInResourceDataLfTagExpressionOutput
+	ToOptInResourceDataLfTagExpressionOutputWithContext(context.Context) OptInResourceDataLfTagExpressionOutput
+}
+
+type OptInResourceDataLfTagExpressionArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// Name of the table.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OptInResourceDataLfTagExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataLfTagExpression)(nil)).Elem()
+}
+
+func (i OptInResourceDataLfTagExpressionArgs) ToOptInResourceDataLfTagExpressionOutput() OptInResourceDataLfTagExpressionOutput {
+	return i.ToOptInResourceDataLfTagExpressionOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataLfTagExpressionArgs) ToOptInResourceDataLfTagExpressionOutputWithContext(ctx context.Context) OptInResourceDataLfTagExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataLfTagExpressionOutput)
+}
+
+// OptInResourceDataLfTagExpressionArrayInput is an input type that accepts OptInResourceDataLfTagExpressionArray and OptInResourceDataLfTagExpressionArrayOutput values.
+// You can construct a concrete instance of `OptInResourceDataLfTagExpressionArrayInput` via:
+//
+//	OptInResourceDataLfTagExpressionArray{ OptInResourceDataLfTagExpressionArgs{...} }
+type OptInResourceDataLfTagExpressionArrayInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataLfTagExpressionArrayOutput() OptInResourceDataLfTagExpressionArrayOutput
+	ToOptInResourceDataLfTagExpressionArrayOutputWithContext(context.Context) OptInResourceDataLfTagExpressionArrayOutput
+}
+
+type OptInResourceDataLfTagExpressionArray []OptInResourceDataLfTagExpressionInput
+
+func (OptInResourceDataLfTagExpressionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInResourceDataLfTagExpression)(nil)).Elem()
+}
+
+func (i OptInResourceDataLfTagExpressionArray) ToOptInResourceDataLfTagExpressionArrayOutput() OptInResourceDataLfTagExpressionArrayOutput {
+	return i.ToOptInResourceDataLfTagExpressionArrayOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataLfTagExpressionArray) ToOptInResourceDataLfTagExpressionArrayOutputWithContext(ctx context.Context) OptInResourceDataLfTagExpressionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataLfTagExpressionArrayOutput)
+}
+
+type OptInResourceDataLfTagExpressionOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataLfTagExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataLfTagExpression)(nil)).Elem()
+}
+
+func (o OptInResourceDataLfTagExpressionOutput) ToOptInResourceDataLfTagExpressionOutput() OptInResourceDataLfTagExpressionOutput {
+	return o
+}
+
+func (o OptInResourceDataLfTagExpressionOutput) ToOptInResourceDataLfTagExpressionOutputWithContext(ctx context.Context) OptInResourceDataLfTagExpressionOutput {
+	return o
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o OptInResourceDataLfTagExpressionOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataLfTagExpression) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the table.
+func (o OptInResourceDataLfTagExpressionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OptInResourceDataLfTagExpression) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OptInResourceDataLfTagExpressionArrayOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataLfTagExpressionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInResourceDataLfTagExpression)(nil)).Elem()
+}
+
+func (o OptInResourceDataLfTagExpressionArrayOutput) ToOptInResourceDataLfTagExpressionArrayOutput() OptInResourceDataLfTagExpressionArrayOutput {
+	return o
+}
+
+func (o OptInResourceDataLfTagExpressionArrayOutput) ToOptInResourceDataLfTagExpressionArrayOutputWithContext(ctx context.Context) OptInResourceDataLfTagExpressionArrayOutput {
+	return o
+}
+
+func (o OptInResourceDataLfTagExpressionArrayOutput) Index(i pulumi.IntInput) OptInResourceDataLfTagExpressionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OptInResourceDataLfTagExpression {
+		return vs[0].([]OptInResourceDataLfTagExpression)[vs[1].(int)]
+	}).(OptInResourceDataLfTagExpressionOutput)
+}
+
+type OptInResourceDataLfTagPolicy struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+	ExpressionName *string `pulumi:"expressionName"`
+	// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+	Expressions []string `pulumi:"expressions"`
+	// Resource type for which the LF-tag policy applies.
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// OptInResourceDataLfTagPolicyInput is an input type that accepts OptInResourceDataLfTagPolicyArgs and OptInResourceDataLfTagPolicyOutput values.
+// You can construct a concrete instance of `OptInResourceDataLfTagPolicyInput` via:
+//
+//	OptInResourceDataLfTagPolicyArgs{...}
+type OptInResourceDataLfTagPolicyInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataLfTagPolicyOutput() OptInResourceDataLfTagPolicyOutput
+	ToOptInResourceDataLfTagPolicyOutputWithContext(context.Context) OptInResourceDataLfTagPolicyOutput
+}
+
+type OptInResourceDataLfTagPolicyArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+	ExpressionName pulumi.StringPtrInput `pulumi:"expressionName"`
+	// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+	Expressions pulumi.StringArrayInput `pulumi:"expressions"`
+	// Resource type for which the LF-tag policy applies.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (OptInResourceDataLfTagPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataLfTagPolicy)(nil)).Elem()
+}
+
+func (i OptInResourceDataLfTagPolicyArgs) ToOptInResourceDataLfTagPolicyOutput() OptInResourceDataLfTagPolicyOutput {
+	return i.ToOptInResourceDataLfTagPolicyOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataLfTagPolicyArgs) ToOptInResourceDataLfTagPolicyOutputWithContext(ctx context.Context) OptInResourceDataLfTagPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataLfTagPolicyOutput)
+}
+
+// OptInResourceDataLfTagPolicyArrayInput is an input type that accepts OptInResourceDataLfTagPolicyArray and OptInResourceDataLfTagPolicyArrayOutput values.
+// You can construct a concrete instance of `OptInResourceDataLfTagPolicyArrayInput` via:
+//
+//	OptInResourceDataLfTagPolicyArray{ OptInResourceDataLfTagPolicyArgs{...} }
+type OptInResourceDataLfTagPolicyArrayInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataLfTagPolicyArrayOutput() OptInResourceDataLfTagPolicyArrayOutput
+	ToOptInResourceDataLfTagPolicyArrayOutputWithContext(context.Context) OptInResourceDataLfTagPolicyArrayOutput
+}
+
+type OptInResourceDataLfTagPolicyArray []OptInResourceDataLfTagPolicyInput
+
+func (OptInResourceDataLfTagPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInResourceDataLfTagPolicy)(nil)).Elem()
+}
+
+func (i OptInResourceDataLfTagPolicyArray) ToOptInResourceDataLfTagPolicyArrayOutput() OptInResourceDataLfTagPolicyArrayOutput {
+	return i.ToOptInResourceDataLfTagPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataLfTagPolicyArray) ToOptInResourceDataLfTagPolicyArrayOutputWithContext(ctx context.Context) OptInResourceDataLfTagPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataLfTagPolicyArrayOutput)
+}
+
+type OptInResourceDataLfTagPolicyOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataLfTagPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataLfTagPolicy)(nil)).Elem()
+}
+
+func (o OptInResourceDataLfTagPolicyOutput) ToOptInResourceDataLfTagPolicyOutput() OptInResourceDataLfTagPolicyOutput {
+	return o
+}
+
+func (o OptInResourceDataLfTagPolicyOutput) ToOptInResourceDataLfTagPolicyOutputWithContext(ctx context.Context) OptInResourceDataLfTagPolicyOutput {
+	return o
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o OptInResourceDataLfTagPolicyOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataLfTagPolicy) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+func (o OptInResourceDataLfTagPolicyOutput) ExpressionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataLfTagPolicy) *string { return v.ExpressionName }).(pulumi.StringPtrOutput)
+}
+
+// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+func (o OptInResourceDataLfTagPolicyOutput) Expressions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OptInResourceDataLfTagPolicy) []string { return v.Expressions }).(pulumi.StringArrayOutput)
+}
+
+// Resource type for which the LF-tag policy applies.
+func (o OptInResourceDataLfTagPolicyOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v OptInResourceDataLfTagPolicy) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type OptInResourceDataLfTagPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataLfTagPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptInResourceDataLfTagPolicy)(nil)).Elem()
+}
+
+func (o OptInResourceDataLfTagPolicyArrayOutput) ToOptInResourceDataLfTagPolicyArrayOutput() OptInResourceDataLfTagPolicyArrayOutput {
+	return o
+}
+
+func (o OptInResourceDataLfTagPolicyArrayOutput) ToOptInResourceDataLfTagPolicyArrayOutputWithContext(ctx context.Context) OptInResourceDataLfTagPolicyArrayOutput {
+	return o
+}
+
+func (o OptInResourceDataLfTagPolicyArrayOutput) Index(i pulumi.IntInput) OptInResourceDataLfTagPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OptInResourceDataLfTagPolicy {
+		return vs[0].([]OptInResourceDataLfTagPolicy)[vs[1].(int)]
+	}).(OptInResourceDataLfTagPolicyOutput)
+}
+
+type OptInResourceDataTable struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName string `pulumi:"databaseName"`
+	// Name of the table.
+	Name     *string `pulumi:"name"`
+	Wildcard *bool   `pulumi:"wildcard"`
+}
+
+// OptInResourceDataTableInput is an input type that accepts OptInResourceDataTableArgs and OptInResourceDataTableOutput values.
+// You can construct a concrete instance of `OptInResourceDataTableInput` via:
+//
+//	OptInResourceDataTableArgs{...}
+type OptInResourceDataTableInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataTableOutput() OptInResourceDataTableOutput
+	ToOptInResourceDataTableOutputWithContext(context.Context) OptInResourceDataTableOutput
+}
+
+type OptInResourceDataTableArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Name of the table.
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Wildcard pulumi.BoolPtrInput   `pulumi:"wildcard"`
+}
+
+func (OptInResourceDataTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataTable)(nil)).Elem()
+}
+
+func (i OptInResourceDataTableArgs) ToOptInResourceDataTableOutput() OptInResourceDataTableOutput {
+	return i.ToOptInResourceDataTableOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataTableArgs) ToOptInResourceDataTableOutputWithContext(ctx context.Context) OptInResourceDataTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataTableOutput)
+}
+
+func (i OptInResourceDataTableArgs) ToOptInResourceDataTablePtrOutput() OptInResourceDataTablePtrOutput {
+	return i.ToOptInResourceDataTablePtrOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataTableArgs) ToOptInResourceDataTablePtrOutputWithContext(ctx context.Context) OptInResourceDataTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataTableOutput).ToOptInResourceDataTablePtrOutputWithContext(ctx)
+}
+
+// OptInResourceDataTablePtrInput is an input type that accepts OptInResourceDataTableArgs, OptInResourceDataTablePtr and OptInResourceDataTablePtrOutput values.
+// You can construct a concrete instance of `OptInResourceDataTablePtrInput` via:
+//
+//	        OptInResourceDataTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type OptInResourceDataTablePtrInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataTablePtrOutput() OptInResourceDataTablePtrOutput
+	ToOptInResourceDataTablePtrOutputWithContext(context.Context) OptInResourceDataTablePtrOutput
+}
+
+type optInResourceDataTablePtrType OptInResourceDataTableArgs
+
+func OptInResourceDataTablePtr(v *OptInResourceDataTableArgs) OptInResourceDataTablePtrInput {
+	return (*optInResourceDataTablePtrType)(v)
+}
+
+func (*optInResourceDataTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptInResourceDataTable)(nil)).Elem()
+}
+
+func (i *optInResourceDataTablePtrType) ToOptInResourceDataTablePtrOutput() OptInResourceDataTablePtrOutput {
+	return i.ToOptInResourceDataTablePtrOutputWithContext(context.Background())
+}
+
+func (i *optInResourceDataTablePtrType) ToOptInResourceDataTablePtrOutputWithContext(ctx context.Context) OptInResourceDataTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataTablePtrOutput)
+}
+
+type OptInResourceDataTableOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataTable)(nil)).Elem()
+}
+
+func (o OptInResourceDataTableOutput) ToOptInResourceDataTableOutput() OptInResourceDataTableOutput {
+	return o
+}
+
+func (o OptInResourceDataTableOutput) ToOptInResourceDataTableOutputWithContext(ctx context.Context) OptInResourceDataTableOutput {
+	return o
+}
+
+func (o OptInResourceDataTableOutput) ToOptInResourceDataTablePtrOutput() OptInResourceDataTablePtrOutput {
+	return o.ToOptInResourceDataTablePtrOutputWithContext(context.Background())
+}
+
+func (o OptInResourceDataTableOutput) ToOptInResourceDataTablePtrOutputWithContext(ctx context.Context) OptInResourceDataTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OptInResourceDataTable) *OptInResourceDataTable {
+		return &v
+	}).(OptInResourceDataTablePtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o OptInResourceDataTableOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+func (o OptInResourceDataTableOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v OptInResourceDataTable) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Name of the table.
+func (o OptInResourceDataTableOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataTable) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o OptInResourceDataTableOutput) Wildcard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataTable) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
+}
+
+type OptInResourceDataTablePtrOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptInResourceDataTable)(nil)).Elem()
+}
+
+func (o OptInResourceDataTablePtrOutput) ToOptInResourceDataTablePtrOutput() OptInResourceDataTablePtrOutput {
+	return o
+}
+
+func (o OptInResourceDataTablePtrOutput) ToOptInResourceDataTablePtrOutputWithContext(ctx context.Context) OptInResourceDataTablePtrOutput {
+	return o
+}
+
+func (o OptInResourceDataTablePtrOutput) Elem() OptInResourceDataTableOutput {
+	return o.ApplyT(func(v *OptInResourceDataTable) OptInResourceDataTable {
+		if v != nil {
+			return *v
+		}
+		var ret OptInResourceDataTable
+		return ret
+	}).(OptInResourceDataTableOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o OptInResourceDataTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+func (o OptInResourceDataTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the table.
+func (o OptInResourceDataTablePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OptInResourceDataTablePtrOutput) Wildcard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataTable) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Wildcard
+	}).(pulumi.BoolPtrOutput)
+}
+
+type OptInResourceDataTableWithColumns struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
+	ColumnNames []string `pulumi:"columnNames"`
+	// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+	ColumnWildcard *OptInResourceDataTableWithColumnsColumnWildcard `pulumi:"columnWildcard"`
+	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName string `pulumi:"databaseName"`
+	// Name of the table.
+	Name string `pulumi:"name"`
+}
+
+// OptInResourceDataTableWithColumnsInput is an input type that accepts OptInResourceDataTableWithColumnsArgs and OptInResourceDataTableWithColumnsOutput values.
+// You can construct a concrete instance of `OptInResourceDataTableWithColumnsInput` via:
+//
+//	OptInResourceDataTableWithColumnsArgs{...}
+type OptInResourceDataTableWithColumnsInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataTableWithColumnsOutput() OptInResourceDataTableWithColumnsOutput
+	ToOptInResourceDataTableWithColumnsOutputWithContext(context.Context) OptInResourceDataTableWithColumnsOutput
+}
+
+type OptInResourceDataTableWithColumnsArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
+	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
+	// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+	ColumnWildcard OptInResourceDataTableWithColumnsColumnWildcardPtrInput `pulumi:"columnWildcard"`
+	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Name of the table.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OptInResourceDataTableWithColumnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataTableWithColumns)(nil)).Elem()
+}
+
+func (i OptInResourceDataTableWithColumnsArgs) ToOptInResourceDataTableWithColumnsOutput() OptInResourceDataTableWithColumnsOutput {
+	return i.ToOptInResourceDataTableWithColumnsOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataTableWithColumnsArgs) ToOptInResourceDataTableWithColumnsOutputWithContext(ctx context.Context) OptInResourceDataTableWithColumnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataTableWithColumnsOutput)
+}
+
+func (i OptInResourceDataTableWithColumnsArgs) ToOptInResourceDataTableWithColumnsPtrOutput() OptInResourceDataTableWithColumnsPtrOutput {
+	return i.ToOptInResourceDataTableWithColumnsPtrOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataTableWithColumnsArgs) ToOptInResourceDataTableWithColumnsPtrOutputWithContext(ctx context.Context) OptInResourceDataTableWithColumnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataTableWithColumnsOutput).ToOptInResourceDataTableWithColumnsPtrOutputWithContext(ctx)
+}
+
+// OptInResourceDataTableWithColumnsPtrInput is an input type that accepts OptInResourceDataTableWithColumnsArgs, OptInResourceDataTableWithColumnsPtr and OptInResourceDataTableWithColumnsPtrOutput values.
+// You can construct a concrete instance of `OptInResourceDataTableWithColumnsPtrInput` via:
+//
+//	        OptInResourceDataTableWithColumnsArgs{...}
+//
+//	or:
+//
+//	        nil
+type OptInResourceDataTableWithColumnsPtrInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataTableWithColumnsPtrOutput() OptInResourceDataTableWithColumnsPtrOutput
+	ToOptInResourceDataTableWithColumnsPtrOutputWithContext(context.Context) OptInResourceDataTableWithColumnsPtrOutput
+}
+
+type optInResourceDataTableWithColumnsPtrType OptInResourceDataTableWithColumnsArgs
+
+func OptInResourceDataTableWithColumnsPtr(v *OptInResourceDataTableWithColumnsArgs) OptInResourceDataTableWithColumnsPtrInput {
+	return (*optInResourceDataTableWithColumnsPtrType)(v)
+}
+
+func (*optInResourceDataTableWithColumnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptInResourceDataTableWithColumns)(nil)).Elem()
+}
+
+func (i *optInResourceDataTableWithColumnsPtrType) ToOptInResourceDataTableWithColumnsPtrOutput() OptInResourceDataTableWithColumnsPtrOutput {
+	return i.ToOptInResourceDataTableWithColumnsPtrOutputWithContext(context.Background())
+}
+
+func (i *optInResourceDataTableWithColumnsPtrType) ToOptInResourceDataTableWithColumnsPtrOutputWithContext(ctx context.Context) OptInResourceDataTableWithColumnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataTableWithColumnsPtrOutput)
+}
+
+type OptInResourceDataTableWithColumnsOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataTableWithColumnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataTableWithColumns)(nil)).Elem()
+}
+
+func (o OptInResourceDataTableWithColumnsOutput) ToOptInResourceDataTableWithColumnsOutput() OptInResourceDataTableWithColumnsOutput {
+	return o
+}
+
+func (o OptInResourceDataTableWithColumnsOutput) ToOptInResourceDataTableWithColumnsOutputWithContext(ctx context.Context) OptInResourceDataTableWithColumnsOutput {
+	return o
+}
+
+func (o OptInResourceDataTableWithColumnsOutput) ToOptInResourceDataTableWithColumnsPtrOutput() OptInResourceDataTableWithColumnsPtrOutput {
+	return o.ToOptInResourceDataTableWithColumnsPtrOutputWithContext(context.Background())
+}
+
+func (o OptInResourceDataTableWithColumnsOutput) ToOptInResourceDataTableWithColumnsPtrOutputWithContext(ctx context.Context) OptInResourceDataTableWithColumnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OptInResourceDataTableWithColumns) *OptInResourceDataTableWithColumns {
+		return &v
+	}).(OptInResourceDataTableWithColumnsPtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o OptInResourceDataTableWithColumnsOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataTableWithColumns) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
+func (o OptInResourceDataTableWithColumnsOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OptInResourceDataTableWithColumns) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
+}
+
+// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+func (o OptInResourceDataTableWithColumnsOutput) ColumnWildcard() OptInResourceDataTableWithColumnsColumnWildcardPtrOutput {
+	return o.ApplyT(func(v OptInResourceDataTableWithColumns) *OptInResourceDataTableWithColumnsColumnWildcard {
+		return v.ColumnWildcard
+	}).(OptInResourceDataTableWithColumnsColumnWildcardPtrOutput)
+}
+
+// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+func (o OptInResourceDataTableWithColumnsOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v OptInResourceDataTableWithColumns) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Name of the table.
+func (o OptInResourceDataTableWithColumnsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OptInResourceDataTableWithColumns) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OptInResourceDataTableWithColumnsPtrOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataTableWithColumnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptInResourceDataTableWithColumns)(nil)).Elem()
+}
+
+func (o OptInResourceDataTableWithColumnsPtrOutput) ToOptInResourceDataTableWithColumnsPtrOutput() OptInResourceDataTableWithColumnsPtrOutput {
+	return o
+}
+
+func (o OptInResourceDataTableWithColumnsPtrOutput) ToOptInResourceDataTableWithColumnsPtrOutputWithContext(ctx context.Context) OptInResourceDataTableWithColumnsPtrOutput {
+	return o
+}
+
+func (o OptInResourceDataTableWithColumnsPtrOutput) Elem() OptInResourceDataTableWithColumnsOutput {
+	return o.ApplyT(func(v *OptInResourceDataTableWithColumns) OptInResourceDataTableWithColumns {
+		if v != nil {
+			return *v
+		}
+		var ret OptInResourceDataTableWithColumns
+		return ret
+	}).(OptInResourceDataTableWithColumnsOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o OptInResourceDataTableWithColumnsPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataTableWithColumns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
+func (o OptInResourceDataTableWithColumnsPtrOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OptInResourceDataTableWithColumns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+func (o OptInResourceDataTableWithColumnsPtrOutput) ColumnWildcard() OptInResourceDataTableWithColumnsColumnWildcardPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataTableWithColumns) *OptInResourceDataTableWithColumnsColumnWildcard {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnWildcard
+	}).(OptInResourceDataTableWithColumnsColumnWildcardPtrOutput)
+}
+
+// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+func (o OptInResourceDataTableWithColumnsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataTableWithColumns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the table.
+func (o OptInResourceDataTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptInResourceDataTableWithColumns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type OptInResourceDataTableWithColumnsColumnWildcard struct {
+	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
+}
+
+// OptInResourceDataTableWithColumnsColumnWildcardInput is an input type that accepts OptInResourceDataTableWithColumnsColumnWildcardArgs and OptInResourceDataTableWithColumnsColumnWildcardOutput values.
+// You can construct a concrete instance of `OptInResourceDataTableWithColumnsColumnWildcardInput` via:
+//
+//	OptInResourceDataTableWithColumnsColumnWildcardArgs{...}
+type OptInResourceDataTableWithColumnsColumnWildcardInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataTableWithColumnsColumnWildcardOutput() OptInResourceDataTableWithColumnsColumnWildcardOutput
+	ToOptInResourceDataTableWithColumnsColumnWildcardOutputWithContext(context.Context) OptInResourceDataTableWithColumnsColumnWildcardOutput
+}
+
+type OptInResourceDataTableWithColumnsColumnWildcardArgs struct {
+	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
+}
+
+func (OptInResourceDataTableWithColumnsColumnWildcardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataTableWithColumnsColumnWildcard)(nil)).Elem()
+}
+
+func (i OptInResourceDataTableWithColumnsColumnWildcardArgs) ToOptInResourceDataTableWithColumnsColumnWildcardOutput() OptInResourceDataTableWithColumnsColumnWildcardOutput {
+	return i.ToOptInResourceDataTableWithColumnsColumnWildcardOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataTableWithColumnsColumnWildcardArgs) ToOptInResourceDataTableWithColumnsColumnWildcardOutputWithContext(ctx context.Context) OptInResourceDataTableWithColumnsColumnWildcardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataTableWithColumnsColumnWildcardOutput)
+}
+
+func (i OptInResourceDataTableWithColumnsColumnWildcardArgs) ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutput() OptInResourceDataTableWithColumnsColumnWildcardPtrOutput {
+	return i.ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i OptInResourceDataTableWithColumnsColumnWildcardArgs) ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutputWithContext(ctx context.Context) OptInResourceDataTableWithColumnsColumnWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataTableWithColumnsColumnWildcardOutput).ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutputWithContext(ctx)
+}
+
+// OptInResourceDataTableWithColumnsColumnWildcardPtrInput is an input type that accepts OptInResourceDataTableWithColumnsColumnWildcardArgs, OptInResourceDataTableWithColumnsColumnWildcardPtr and OptInResourceDataTableWithColumnsColumnWildcardPtrOutput values.
+// You can construct a concrete instance of `OptInResourceDataTableWithColumnsColumnWildcardPtrInput` via:
+//
+//	        OptInResourceDataTableWithColumnsColumnWildcardArgs{...}
+//
+//	or:
+//
+//	        nil
+type OptInResourceDataTableWithColumnsColumnWildcardPtrInput interface {
+	pulumi.Input
+
+	ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutput() OptInResourceDataTableWithColumnsColumnWildcardPtrOutput
+	ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutputWithContext(context.Context) OptInResourceDataTableWithColumnsColumnWildcardPtrOutput
+}
+
+type optInResourceDataTableWithColumnsColumnWildcardPtrType OptInResourceDataTableWithColumnsColumnWildcardArgs
+
+func OptInResourceDataTableWithColumnsColumnWildcardPtr(v *OptInResourceDataTableWithColumnsColumnWildcardArgs) OptInResourceDataTableWithColumnsColumnWildcardPtrInput {
+	return (*optInResourceDataTableWithColumnsColumnWildcardPtrType)(v)
+}
+
+func (*optInResourceDataTableWithColumnsColumnWildcardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptInResourceDataTableWithColumnsColumnWildcard)(nil)).Elem()
+}
+
+func (i *optInResourceDataTableWithColumnsColumnWildcardPtrType) ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutput() OptInResourceDataTableWithColumnsColumnWildcardPtrOutput {
+	return i.ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i *optInResourceDataTableWithColumnsColumnWildcardPtrType) ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutputWithContext(ctx context.Context) OptInResourceDataTableWithColumnsColumnWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptInResourceDataTableWithColumnsColumnWildcardPtrOutput)
+}
+
+type OptInResourceDataTableWithColumnsColumnWildcardOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataTableWithColumnsColumnWildcardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptInResourceDataTableWithColumnsColumnWildcard)(nil)).Elem()
+}
+
+func (o OptInResourceDataTableWithColumnsColumnWildcardOutput) ToOptInResourceDataTableWithColumnsColumnWildcardOutput() OptInResourceDataTableWithColumnsColumnWildcardOutput {
+	return o
+}
+
+func (o OptInResourceDataTableWithColumnsColumnWildcardOutput) ToOptInResourceDataTableWithColumnsColumnWildcardOutputWithContext(ctx context.Context) OptInResourceDataTableWithColumnsColumnWildcardOutput {
+	return o
+}
+
+func (o OptInResourceDataTableWithColumnsColumnWildcardOutput) ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutput() OptInResourceDataTableWithColumnsColumnWildcardPtrOutput {
+	return o.ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (o OptInResourceDataTableWithColumnsColumnWildcardOutput) ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutputWithContext(ctx context.Context) OptInResourceDataTableWithColumnsColumnWildcardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OptInResourceDataTableWithColumnsColumnWildcard) *OptInResourceDataTableWithColumnsColumnWildcard {
+		return &v
+	}).(OptInResourceDataTableWithColumnsColumnWildcardPtrOutput)
+}
+
+func (o OptInResourceDataTableWithColumnsColumnWildcardOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OptInResourceDataTableWithColumnsColumnWildcard) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
+}
+
+type OptInResourceDataTableWithColumnsColumnWildcardPtrOutput struct{ *pulumi.OutputState }
+
+func (OptInResourceDataTableWithColumnsColumnWildcardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptInResourceDataTableWithColumnsColumnWildcard)(nil)).Elem()
+}
+
+func (o OptInResourceDataTableWithColumnsColumnWildcardPtrOutput) ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutput() OptInResourceDataTableWithColumnsColumnWildcardPtrOutput {
+	return o
+}
+
+func (o OptInResourceDataTableWithColumnsColumnWildcardPtrOutput) ToOptInResourceDataTableWithColumnsColumnWildcardPtrOutputWithContext(ctx context.Context) OptInResourceDataTableWithColumnsColumnWildcardPtrOutput {
+	return o
+}
+
+func (o OptInResourceDataTableWithColumnsColumnWildcardPtrOutput) Elem() OptInResourceDataTableWithColumnsColumnWildcardOutput {
+	return o.ApplyT(func(v *OptInResourceDataTableWithColumnsColumnWildcard) OptInResourceDataTableWithColumnsColumnWildcard {
+		if v != nil {
+			return *v
+		}
+		var ret OptInResourceDataTableWithColumnsColumnWildcard
+		return ret
+	}).(OptInResourceDataTableWithColumnsColumnWildcardOutput)
+}
+
+func (o OptInResourceDataTableWithColumnsColumnWildcardPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OptInResourceDataTableWithColumnsColumnWildcard) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
 type PermissionsDataCellsFilter struct {
 	// The name of the database.
 	DatabaseName string `pulumi:"databaseName"`
@@ -5932,6 +7710,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateDatabaseDefaultPermissionArrayInput)(nil)).Elem(), DataLakeSettingsCreateDatabaseDefaultPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateTableDefaultPermissionInput)(nil)).Elem(), DataLakeSettingsCreateTableDefaultPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsCreateTableDefaultPermissionArrayInput)(nil)).Elem(), DataLakeSettingsCreateTableDefaultPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInConditionInput)(nil)).Elem(), OptInConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInConditionArrayInput)(nil)).Elem(), OptInConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInPrincipalInput)(nil)).Elem(), OptInPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInPrincipalArrayInput)(nil)).Elem(), OptInPrincipalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataInput)(nil)).Elem(), OptInResourceDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataArrayInput)(nil)).Elem(), OptInResourceDataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataCatalogInput)(nil)).Elem(), OptInResourceDataCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataCatalogArrayInput)(nil)).Elem(), OptInResourceDataCatalogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataDataCellsFilterInput)(nil)).Elem(), OptInResourceDataDataCellsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataDataCellsFilterArrayInput)(nil)).Elem(), OptInResourceDataDataCellsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataDataLocationInput)(nil)).Elem(), OptInResourceDataDataLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataDataLocationArrayInput)(nil)).Elem(), OptInResourceDataDataLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataDatabaseInput)(nil)).Elem(), OptInResourceDataDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataDatabasePtrInput)(nil)).Elem(), OptInResourceDataDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataLfTagInput)(nil)).Elem(), OptInResourceDataLfTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataLfTagPtrInput)(nil)).Elem(), OptInResourceDataLfTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataLfTagExpressionInput)(nil)).Elem(), OptInResourceDataLfTagExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataLfTagExpressionArrayInput)(nil)).Elem(), OptInResourceDataLfTagExpressionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataLfTagPolicyInput)(nil)).Elem(), OptInResourceDataLfTagPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataLfTagPolicyArrayInput)(nil)).Elem(), OptInResourceDataLfTagPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataTableInput)(nil)).Elem(), OptInResourceDataTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataTablePtrInput)(nil)).Elem(), OptInResourceDataTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataTableWithColumnsInput)(nil)).Elem(), OptInResourceDataTableWithColumnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataTableWithColumnsPtrInput)(nil)).Elem(), OptInResourceDataTableWithColumnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataTableWithColumnsColumnWildcardInput)(nil)).Elem(), OptInResourceDataTableWithColumnsColumnWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptInResourceDataTableWithColumnsColumnWildcardPtrInput)(nil)).Elem(), OptInResourceDataTableWithColumnsColumnWildcardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsDataCellsFilterInput)(nil)).Elem(), PermissionsDataCellsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsDataCellsFilterPtrInput)(nil)).Elem(), PermissionsDataCellsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsDataLocationInput)(nil)).Elem(), PermissionsDataLocationArgs{})
@@ -6002,6 +7806,32 @@ func init() {
 	pulumi.RegisterOutputType(DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsCreateTableDefaultPermissionOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsCreateTableDefaultPermissionArrayOutput{})
+	pulumi.RegisterOutputType(OptInConditionOutput{})
+	pulumi.RegisterOutputType(OptInConditionArrayOutput{})
+	pulumi.RegisterOutputType(OptInPrincipalOutput{})
+	pulumi.RegisterOutputType(OptInPrincipalArrayOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataArrayOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataCatalogOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataCatalogArrayOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataDataCellsFilterOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataDataCellsFilterArrayOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataDataLocationOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataDataLocationArrayOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataDatabaseOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataDatabasePtrOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataLfTagOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataLfTagPtrOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataLfTagExpressionOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataLfTagExpressionArrayOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataLfTagPolicyOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataLfTagPolicyArrayOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataTableOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataTablePtrOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataTableWithColumnsOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataTableWithColumnsPtrOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataTableWithColumnsColumnWildcardOutput{})
+	pulumi.RegisterOutputType(OptInResourceDataTableWithColumnsColumnWildcardPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsDataCellsFilterOutput{})
 	pulumi.RegisterOutputType(PermissionsDataCellsFilterPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsDataLocationOutput{})

@@ -68,14 +68,14 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A role that SageMaker can assume to access model artifacts and docker images for deployment.
+     * A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
      * 
      */
     @Import(name="executionRoleArn")
     private @Nullable Output<String> executionRoleArn;
 
     /**
-     * @return A role that SageMaker can assume to access model artifacts and docker images for deployment.
+     * @return A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
      * 
      */
     public Optional<Output<String>> executionRoleArn() {
@@ -287,7 +287,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionRoleArn A role that SageMaker can assume to access model artifacts and docker images for deployment.
+         * @param executionRoleArn A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionRoleArn A role that SageMaker can assume to access model artifacts and docker images for deployment.
+         * @param executionRoleArn A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
          * 
          * @return builder
          * 

@@ -893,8 +893,6 @@ class GangliaLayer(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks Ganglia layer resource.
-
         ## Example Usage
 
         ```python
@@ -939,8 +937,6 @@ class GangliaLayer(pulumi.CustomResource):
                  args: GangliaLayerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks Ganglia layer resource.
-
         ## Example Usage
 
         ```python

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         /// </summary>
         [Input("volumeKmsKeyId")]
         public Input<string>? VolumeKmsKeyId { get; set; }

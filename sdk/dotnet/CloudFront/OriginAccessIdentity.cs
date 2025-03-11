@@ -138,6 +138,12 @@ namespace Pulumi.Aws.CloudFront
     public partial class OriginAccessIdentity : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The origin access identity ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Internal value used by CloudFront to allow future
         /// updates to the origin access identity.
         /// </summary>
@@ -240,6 +246,12 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class OriginAccessIdentityState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The origin access identity ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Internal value used by CloudFront to allow future
         /// updates to the origin access identity.

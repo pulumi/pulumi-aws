@@ -3526,7 +3526,7 @@ type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration struct {
 	// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
 	NewerNoncurrentVersions *int `pulumi:"newerNoncurrentVersions"`
 	// Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-	NoncurrentDays *int `pulumi:"noncurrentDays"`
+	NoncurrentDays int `pulumi:"noncurrentDays"`
 }
 
 // BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationInput is an input type that accepts BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs and BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput values.
@@ -3544,7 +3544,7 @@ type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs struct {
 	// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
 	NewerNoncurrentVersions pulumi.IntPtrInput `pulumi:"newerNoncurrentVersions"`
 	// Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-	NoncurrentDays pulumi.IntPtrInput `pulumi:"noncurrentDays"`
+	NoncurrentDays pulumi.IntInput `pulumi:"noncurrentDays"`
 }
 
 func (BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs) ElementType() reflect.Type {
@@ -3632,8 +3632,8 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) New
 }
 
 // Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) NoncurrentDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *int { return v.NoncurrentDays }).(pulumi.IntPtrOutput)
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) NoncurrentDays() pulumi.IntOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) int { return v.NoncurrentDays }).(pulumi.IntOutput)
 }
 
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput struct{ *pulumi.OutputState }
@@ -3676,7 +3676,7 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) 
 		if v == nil {
 			return nil
 		}
-		return v.NoncurrentDays
+		return &v.NoncurrentDays
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -3684,7 +3684,7 @@ type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition struct {
 	// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
 	NewerNoncurrentVersions *int `pulumi:"newerNoncurrentVersions"`
 	// Number of days an object is noncurrent before Amazon S3 can perform the associated action.
-	NoncurrentDays *int `pulumi:"noncurrentDays"`
+	NoncurrentDays int `pulumi:"noncurrentDays"`
 	// Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
 	StorageClass string `pulumi:"storageClass"`
 }
@@ -3704,7 +3704,7 @@ type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs struct {
 	// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
 	NewerNoncurrentVersions pulumi.IntPtrInput `pulumi:"newerNoncurrentVersions"`
 	// Number of days an object is noncurrent before Amazon S3 can perform the associated action.
-	NoncurrentDays pulumi.IntPtrInput `pulumi:"noncurrentDays"`
+	NoncurrentDays pulumi.IntInput `pulumi:"noncurrentDays"`
 	// Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
@@ -3768,8 +3768,8 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) New
 }
 
 // Number of days an object is noncurrent before Amazon S3 can perform the associated action.
-func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) NoncurrentDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition) *int { return v.NoncurrentDays }).(pulumi.IntPtrOutput)
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) NoncurrentDays() pulumi.IntOutput {
+	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition) int { return v.NoncurrentDays }).(pulumi.IntOutput)
 }
 
 // Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
@@ -7312,7 +7312,7 @@ type BucketReplicationConfigRule struct {
 	Id *string `pulumi:"id"`
 	// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
 	//
-	// Deprecated: Use filter instead
+	// Deprecated: prefix is deprecated. Use filter instead.
 	Prefix *string `pulumi:"prefix"`
 	// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
 	Priority *int `pulumi:"priority"`
@@ -7346,7 +7346,7 @@ type BucketReplicationConfigRuleArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
 	//
-	// Deprecated: Use filter instead
+	// Deprecated: prefix is deprecated. Use filter instead.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
@@ -7438,7 +7438,7 @@ func (o BucketReplicationConfigRuleOutput) Id() pulumi.StringPtrOutput {
 
 // Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
 //
-// Deprecated: Use filter instead
+// Deprecated: prefix is deprecated. Use filter instead.
 func (o BucketReplicationConfigRuleOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -12684,11 +12684,11 @@ func (o BucketV2LoggingArrayOutput) Index(i pulumi.IntInput) BucketV2LoggingOutp
 type BucketV2ObjectLockConfiguration struct {
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	//
-	// Deprecated: Use the top-level parameter objectLockEnabled instead
+	// Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
 	// Object Lock rule in place for this bucket (documented below).
 	//
-	// Deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead
+	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.
 	Rules []BucketV2ObjectLockConfigurationRule `pulumi:"rules"`
 }
 
@@ -12706,11 +12706,11 @@ type BucketV2ObjectLockConfigurationInput interface {
 type BucketV2ObjectLockConfigurationArgs struct {
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	//
-	// Deprecated: Use the top-level parameter objectLockEnabled instead
+	// Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 	ObjectLockEnabled pulumi.StringPtrInput `pulumi:"objectLockEnabled"`
 	// Object Lock rule in place for this bucket (documented below).
 	//
-	// Deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead
+	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.
 	Rules BucketV2ObjectLockConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
@@ -12793,14 +12793,14 @@ func (o BucketV2ObjectLockConfigurationOutput) ToBucketV2ObjectLockConfiguration
 
 // Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 //
-// Deprecated: Use the top-level parameter objectLockEnabled instead
+// Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 func (o BucketV2ObjectLockConfigurationOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2ObjectLockConfiguration) *string { return v.ObjectLockEnabled }).(pulumi.StringPtrOutput)
 }
 
 // Object Lock rule in place for this bucket (documented below).
 //
-// Deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead
+// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.
 func (o BucketV2ObjectLockConfigurationOutput) Rules() BucketV2ObjectLockConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v BucketV2ObjectLockConfiguration) []BucketV2ObjectLockConfigurationRule { return v.Rules }).(BucketV2ObjectLockConfigurationRuleArrayOutput)
 }
@@ -12831,7 +12831,7 @@ func (o BucketV2ObjectLockConfigurationPtrOutput) Elem() BucketV2ObjectLockConfi
 
 // Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 //
-// Deprecated: Use the top-level parameter objectLockEnabled instead
+// Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 func (o BucketV2ObjectLockConfigurationPtrOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketV2ObjectLockConfiguration) *string {
 		if v == nil {
@@ -12843,7 +12843,7 @@ func (o BucketV2ObjectLockConfigurationPtrOutput) ObjectLockEnabled() pulumi.Str
 
 // Object Lock rule in place for this bucket (documented below).
 //
-// Deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead
+// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.
 func (o BucketV2ObjectLockConfigurationPtrOutput) Rules() BucketV2ObjectLockConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v *BucketV2ObjectLockConfiguration) []BucketV2ObjectLockConfigurationRule {
 		if v == nil {

@@ -75,6 +75,8 @@ type LookupConnectionResult struct {
 	PartnerName string `pulumi:"partnerName"`
 	// Name of the service provider associated with the connection.
 	ProviderName string `pulumi:"providerName"`
+	// State of the connection.
+	State string `pulumi:"state"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The VLAN ID.
@@ -159,6 +161,11 @@ func (o LookupConnectionResultOutput) PartnerName() pulumi.StringOutput {
 // Name of the service provider associated with the connection.
 func (o LookupConnectionResultOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+// State of the connection.
+func (o LookupConnectionResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.State }).(pulumi.StringOutput)
 }
 
 // Map of tags for the resource.

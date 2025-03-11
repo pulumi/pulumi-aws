@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
+// Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker AI projects.
 //
 // ## Example Usage
 //

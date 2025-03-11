@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Endpoint resource.
+// Provides a SageMaker AI Endpoint resource.
 //
 // ## Example Usage
 //

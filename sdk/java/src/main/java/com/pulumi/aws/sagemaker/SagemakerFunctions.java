@@ -16,7 +16,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class SagemakerFunctions {
     /**
-     * Get information about prebuilt Amazon SageMaker Docker images.
+     * Get information about prebuilt Amazon SageMaker AI  Docker images.
      * 
      * &gt; **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
      * 
@@ -63,7 +63,7 @@ public final class SagemakerFunctions {
         return getPrebuiltEcrImage(args, InvokeOptions.Empty);
     }
     /**
-     * Get information about prebuilt Amazon SageMaker Docker images.
+     * Get information about prebuilt Amazon SageMaker AI  Docker images.
      * 
      * &gt; **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
      * 
@@ -110,7 +110,7 @@ public final class SagemakerFunctions {
         return getPrebuiltEcrImagePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get information about prebuilt Amazon SageMaker Docker images.
+     * Get information about prebuilt Amazon SageMaker AI  Docker images.
      * 
      * &gt; **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
      * 
@@ -157,7 +157,7 @@ public final class SagemakerFunctions {
         return Deployment.getInstance().invoke("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", TypeShape.of(GetPrebuiltEcrImageResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get information about prebuilt Amazon SageMaker Docker images.
+     * Get information about prebuilt Amazon SageMaker AI  Docker images.
      * 
      * &gt; **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
      * 
@@ -204,7 +204,7 @@ public final class SagemakerFunctions {
         return Deployment.getInstance().invoke("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", TypeShape.of(GetPrebuiltEcrImageResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get information about prebuilt Amazon SageMaker Docker images.
+     * Get information about prebuilt Amazon SageMaker AI  Docker images.
      * 
      * &gt; **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
      * 

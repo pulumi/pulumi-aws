@@ -2500,7 +2500,7 @@ func (o DistributionOriginPtrOutput) ResourceType() pulumi.StringPtrOutput {
 type InstanceAddOn struct {
 	// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
 	SnapshotTime string `pulumi:"snapshotTime"`
-	// The status of the add on. Valid Values: `Enabled`, `Disabled`.
+	// The status of the add-on. Valid Values: `Enabled`, `Disabled`.
 	Status string `pulumi:"status"`
 	// The add-on type. There is currently only one valid type `AutoSnapshot`.
 	Type string `pulumi:"type"`
@@ -2520,7 +2520,7 @@ type InstanceAddOnInput interface {
 type InstanceAddOnArgs struct {
 	// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
 	SnapshotTime pulumi.StringInput `pulumi:"snapshotTime"`
-	// The status of the add on. Valid Values: `Enabled`, `Disabled`.
+	// The status of the add-on. Valid Values: `Enabled`, `Disabled`.
 	Status pulumi.StringInput `pulumi:"status"`
 	// The add-on type. There is currently only one valid type `AutoSnapshot`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2608,7 +2608,7 @@ func (o InstanceAddOnOutput) SnapshotTime() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAddOn) string { return v.SnapshotTime }).(pulumi.StringOutput)
 }
 
-// The status of the add on. Valid Values: `Enabled`, `Disabled`.
+// The status of the add-on. Valid Values: `Enabled`, `Disabled`.
 func (o InstanceAddOnOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAddOn) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -2652,7 +2652,7 @@ func (o InstanceAddOnPtrOutput) SnapshotTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of the add on. Valid Values: `Enabled`, `Disabled`.
+// The status of the add-on. Valid Values: `Enabled`, `Disabled`.
 func (o InstanceAddOnPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceAddOn) *string {
 		if v == nil {

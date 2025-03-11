@@ -26,7 +26,10 @@ class GetOriginAccessControlResult:
     """
     A collection of values returned by getOriginAccessControl.
     """
-    def __init__(__self__, description=None, etag=None, id=None, name=None, origin_access_control_origin_type=None, signing_behavior=None, signing_protocol=None):
+    def __init__(__self__, arn=None, description=None, etag=None, id=None, name=None, origin_access_control_origin_type=None, signing_behavior=None, signing_protocol=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -48,6 +51,14 @@ class GetOriginAccessControlResult:
         if signing_protocol and not isinstance(signing_protocol, str):
             raise TypeError("Expected argument 'signing_protocol' to be a str")
         pulumi.set(__self__, "signing_protocol", signing_protocol)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The origin access control ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -109,6 +120,7 @@ class AwaitableGetOriginAccessControlResult(GetOriginAccessControlResult):
         if False:
             yield self
         return GetOriginAccessControlResult(
+            arn=self.arn,
             description=self.description,
             etag=self.etag,
             id=self.id,
@@ -143,6 +155,7 @@ def get_origin_access_control(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudfront/getOriginAccessControl:getOriginAccessControl', __args__, opts=opts, typ=GetOriginAccessControlResult).value
 
     return AwaitableGetOriginAccessControlResult(
+        arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -174,6 +187,7 @@ def get_origin_access_control_output(id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getOriginAccessControl:getOriginAccessControl', __args__, opts=opts, typ=GetOriginAccessControlResult)
     return __ret__.apply(lambda __response__: GetOriginAccessControlResult(
+        arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

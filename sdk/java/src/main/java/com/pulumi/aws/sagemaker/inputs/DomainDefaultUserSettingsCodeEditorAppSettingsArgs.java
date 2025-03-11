@@ -50,14 +50,14 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends co
     }
 
     /**
-     * A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+     * A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `custom_image` Block below.
      * 
      */
     @Import(name="customImages")
     private @Nullable Output<List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs>> customImages;
 
     /**
-     * @return A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+     * @return A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `custom_image` Block below.
      * 
      */
     public Optional<Output<List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs>>> customImages() {
@@ -65,14 +65,14 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends co
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
@@ -165,7 +165,7 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends co
         }
 
         /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+         * @param customImages A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `custom_image` Block below.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends co
         }
 
         /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+         * @param customImages A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `custom_image` Block below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends co
         }
 
         /**
-         * @param customImages A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+         * @param customImages A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `custom_image` Block below.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends co
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends co
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
          * 
          * @return builder
          * 

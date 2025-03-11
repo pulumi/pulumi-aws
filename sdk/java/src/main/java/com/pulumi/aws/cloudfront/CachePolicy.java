@@ -97,6 +97,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/cachePolicy:CachePolicy")
 public class CachePolicy extends com.pulumi.resources.CustomResource {
     /**
+     * The cache policy ARN.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The cache policy ARN.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * Description for the cache policy.
      * 
      */

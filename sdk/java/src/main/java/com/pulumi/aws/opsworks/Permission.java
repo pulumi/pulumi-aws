@@ -15,8 +15,6 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Provides an OpsWorks permission resource.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

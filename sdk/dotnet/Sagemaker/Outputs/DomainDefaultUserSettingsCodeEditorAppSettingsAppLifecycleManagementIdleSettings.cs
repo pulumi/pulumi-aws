@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings
     {
         /// <summary>
-        /// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        /// The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         /// </summary>
         public readonly int? IdleTimeoutInMinutes;
         /// <summary>

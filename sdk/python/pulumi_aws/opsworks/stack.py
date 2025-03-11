@@ -824,8 +824,6 @@ class Stack(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks stack resource.
-
         ## Example Usage
 
         ```python
@@ -892,8 +890,6 @@ class Stack(pulumi.CustomResource):
                  args: StackArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks stack resource.
-
         ## Example Usage
 
         ```python

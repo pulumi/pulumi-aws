@@ -76,14 +76,14 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+     * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
      * 
      */
     @Import(name="customFileSystemConfigs")
     private @Nullable Output<List<UserProfileUserSettingsCustomFileSystemConfigArgs>> customFileSystemConfigs;
 
     /**
-     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
      * 
      */
     public Optional<Output<List<UserProfileUserSettingsCustomFileSystemConfigArgs>>> customFileSystemConfigs() {
@@ -405,7 +405,7 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
          * 
          * @return builder
          * 

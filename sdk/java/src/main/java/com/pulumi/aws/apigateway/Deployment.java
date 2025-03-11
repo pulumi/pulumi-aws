@@ -48,10 +48,10 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Has no effect when `stage_name` is not set.
      * 
      * @deprecated
-     * The attribute &#34;canary_settings&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+     * canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
      * 
      */
-    @Deprecated /* The attribute ""canary_settings"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+    @Deprecated /* canary_settings is deprecated. Use the aws.apigateway.Stage resource instead. */
     @Export(name="canarySettings", refs={DeploymentCanarySettings.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentCanarySettings> canarySettings;
 
@@ -145,10 +145,10 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Has no effect when `stage_name` is not set.
      * 
      * @deprecated
-     * The attribute &#34;stage_description&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+     * stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
      * 
      */
-    @Deprecated /* The attribute ""stage_description"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+    @Deprecated /* stage_description is deprecated. Use the aws.apigateway.Stage resource instead. */
     @Export(name="stageDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stageDescription;
 
@@ -166,10 +166,10 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      * 
      * @deprecated
-     * The attribute &#34;stage_name&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+     * stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
      * 
      */
-    @Deprecated /* The attribute ""stage_name"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+    @Deprecated /* stage_name is deprecated. Use the aws.apigateway.Stage resource instead. */
     @Export(name="stageName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stageName;
 

@@ -176,7 +176,7 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         public readonly string CustomDomainName;
         /// <summary>
-        /// DNS name of the service.
+        /// List of objects with DNS names.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDnsEntryResult> DnsEntries;
         /// <summary>

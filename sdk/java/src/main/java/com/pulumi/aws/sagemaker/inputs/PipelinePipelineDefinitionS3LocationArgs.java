@@ -47,14 +47,14 @@ public final class PipelinePipelineDefinitionS3LocationArgs extends com.pulumi.r
     }
 
     /**
-     * Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+     * Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
      * 
      */
     @Import(name="versionId")
     private @Nullable Output<String> versionId;
 
     /**
-     * @return Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+     * @return Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
      * 
      */
     public Optional<Output<String>> versionId() {
@@ -130,7 +130,7 @@ public final class PipelinePipelineDefinitionS3LocationArgs extends com.pulumi.r
         }
 
         /**
-         * @param versionId Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+         * @param versionId Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PipelinePipelineDefinitionS3LocationArgs extends com.pulumi.r
         }
 
         /**
-         * @param versionId Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+         * @param versionId Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
          * 
          * @return builder
          * 

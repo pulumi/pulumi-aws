@@ -124,6 +124,10 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetOriginAccessIdentityResult
     {
         /// <summary>
+        /// The origin access identity ARN.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// Internal value used by CloudFront to allow future
         /// updates to the origin access identity.
         /// </summary>
@@ -158,6 +162,8 @@ namespace Pulumi.Aws.CloudFront
 
         [OutputConstructor]
         private GetOriginAccessIdentityResult(
+            string arn,
+
             string callerReference,
 
             string cloudfrontAccessIdentityPath,
@@ -172,6 +178,7 @@ namespace Pulumi.Aws.CloudFront
 
             string s3CanonicalUserId)
         {
+            Arn = arn;
             CallerReference = callerReference;
             CloudfrontAccessIdentityPath = cloudfrontAccessIdentityPath;
             Comment = comment;

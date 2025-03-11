@@ -291,14 +291,14 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
      * 
      */
     @Import(name="sagemakerPipelineTarget")
     private @Nullable Output<EventTargetSagemakerPipelineTargetArgs> sagemakerPipelineTarget;
 
     /**
-     * @return Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * @return Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
      * 
      */
     public Optional<Output<EventTargetSagemakerPipelineTargetArgs>> sagemakerPipelineTarget() {
@@ -752,7 +752,7 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sagemakerPipelineTarget Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+         * @param sagemakerPipelineTarget Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
          * 
          * @return builder
          * 
@@ -763,7 +763,7 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sagemakerPipelineTarget Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+         * @param sagemakerPipelineTarget Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
          * 
          * @return builder
          * 

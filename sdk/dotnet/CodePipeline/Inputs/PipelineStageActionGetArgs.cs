@@ -96,6 +96,9 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         [Input("runOrder")]
         public Input<int>? RunOrder { get; set; }
 
+        /// <summary>
+        /// The action timeout for the rule.
+        /// </summary>
         [Input("timeoutInMinutes")]
         public Input<int>? TimeoutInMinutes { get; set; }
 

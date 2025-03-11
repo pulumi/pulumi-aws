@@ -17,6 +17,21 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
     public static final TrafficPolicyState Empty = new TrafficPolicyState();
 
     /**
+     * Amazon Resource Name (ARN) of the traffic policy.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the traffic policy.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Comment for the traffic policy.
      * 
      */
@@ -98,6 +113,7 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
     private TrafficPolicyState() {}
 
     private TrafficPolicyState(TrafficPolicyState $) {
+        this.arn = $.arn;
         this.comment = $.comment;
         this.document = $.document;
         this.name = $.name;
@@ -121,6 +137,27 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
 
         public Builder(TrafficPolicyState defaults) {
             $ = new TrafficPolicyState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) of the traffic policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) of the traffic policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

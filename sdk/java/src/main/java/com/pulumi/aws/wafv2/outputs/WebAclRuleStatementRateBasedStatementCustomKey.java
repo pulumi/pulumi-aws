@@ -8,6 +8,8 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomK
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyHeader;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyIp;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryString;
@@ -44,6 +46,16 @@ public final class WebAclRuleStatementRateBasedStatementCustomKey {
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyIp ip;
+    /**
+     * @return Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint ja3Fingerprint;
+    /**
+     * @return Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint ja4Fingerprint;
     /**
      * @return Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
      * 
@@ -102,6 +114,20 @@ public final class WebAclRuleStatementRateBasedStatementCustomKey {
         return Optional.ofNullable(this.ip);
     }
     /**
+     * @return Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint> ja3Fingerprint() {
+        return Optional.ofNullable(this.ja3Fingerprint);
+    }
+    /**
+     * @return Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
+    }
+    /**
      * @return Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
      * 
      */
@@ -144,6 +170,8 @@ public final class WebAclRuleStatementRateBasedStatementCustomKey {
         private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyHeader header;
         private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod httpMethod;
         private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyIp ip;
+        private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint ja3Fingerprint;
+        private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint ja4Fingerprint;
         private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace labelNamespace;
         private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument queryArgument;
         private @Nullable WebAclRuleStatementRateBasedStatementCustomKeyQueryString queryString;
@@ -156,6 +184,8 @@ public final class WebAclRuleStatementRateBasedStatementCustomKey {
     	      this.header = defaults.header;
     	      this.httpMethod = defaults.httpMethod;
     	      this.ip = defaults.ip;
+    	      this.ja3Fingerprint = defaults.ja3Fingerprint;
+    	      this.ja4Fingerprint = defaults.ja4Fingerprint;
     	      this.labelNamespace = defaults.labelNamespace;
     	      this.queryArgument = defaults.queryArgument;
     	      this.queryString = defaults.queryString;
@@ -193,6 +223,18 @@ public final class WebAclRuleStatementRateBasedStatementCustomKey {
             return this;
         }
         @CustomType.Setter
+        public Builder ja3Fingerprint(@Nullable WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint ja3Fingerprint) {
+
+            this.ja3Fingerprint = ja3Fingerprint;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ja4Fingerprint(@Nullable WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint ja4Fingerprint) {
+
+            this.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder labelNamespace(@Nullable WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace labelNamespace) {
 
             this.labelNamespace = labelNamespace;
@@ -223,6 +265,8 @@ public final class WebAclRuleStatementRateBasedStatementCustomKey {
             _resultValue.header = header;
             _resultValue.httpMethod = httpMethod;
             _resultValue.ip = ip;
+            _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.ja4Fingerprint = ja4Fingerprint;
             _resultValue.labelNamespace = labelNamespace;
             _resultValue.queryArgument = queryArgument;
             _resultValue.queryString = queryString;

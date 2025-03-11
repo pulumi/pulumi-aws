@@ -24,14 +24,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     public static final DomainDefaultUserSettingsCanvasAppSettingsArgs Empty = new DomainDefaultUserSettingsCanvasAppSettingsArgs();
 
     /**
-     * The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
+     * The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
      * 
      */
     @Import(name="directDeploySettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs> directDeploySettings;
 
     /**
-     * @return The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
+     * @return The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs>> directDeploySettings() {
@@ -39,14 +39,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+     * The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
      * 
      */
     @Import(name="emrServerlessSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs> emrServerlessSettings;
 
     /**
-     * @return The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs>> emrServerlessSettings() {
@@ -91,14 +91,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
+     * The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
      * 
      */
     @Import(name="modelRegisterSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs> modelRegisterSettings;
 
     /**
-     * @return The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
+     * @return The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs>> modelRegisterSettings() {
@@ -121,14 +121,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     }
 
     /**
-     * The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
+     * The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
      * 
      */
     @Import(name="workspaceSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs> workspaceSettings;
 
     /**
-     * @return The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
+     * @return The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs>> workspaceSettings() {
@@ -167,7 +167,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param directDeploySettings The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
+         * @param directDeploySettings The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param directDeploySettings The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
+         * @param directDeploySettings The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param modelRegisterSettings The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
+         * @param modelRegisterSettings The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param modelRegisterSettings The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
+         * @param modelRegisterSettings The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param workspaceSettings The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
+         * @param workspaceSettings The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param workspaceSettings The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
+         * @param workspaceSettings The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
          * 
          * @return builder
          * 

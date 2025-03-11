@@ -56,6 +56,12 @@ namespace Pulumi.Aws.Waf
     public partial class ByteMatchSet : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN) of the byte match set.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the bytes (typically a string that corresponds
         /// with ASCII characters) that you want to search for in web requests,
         /// the location in requests that you want to search, and other settings.
@@ -143,6 +149,12 @@ namespace Pulumi.Aws.Waf
 
     public sealed class ByteMatchSetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the byte match set.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("byteMatchTuples")]
         private InputList<Inputs.ByteMatchSetByteMatchTupleGetArgs>? _byteMatchTuples;
 

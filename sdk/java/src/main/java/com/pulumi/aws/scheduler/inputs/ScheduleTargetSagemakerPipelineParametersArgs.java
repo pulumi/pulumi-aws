@@ -17,14 +17,14 @@ public final class ScheduleTargetSagemakerPipelineParametersArgs extends com.pul
     public static final ScheduleTargetSagemakerPipelineParametersArgs Empty = new ScheduleTargetSagemakerPipelineParametersArgs();
 
     /**
-     * Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+     * Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
      * 
      */
     @Import(name="pipelineParameters")
     private @Nullable Output<List<ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs>> pipelineParameters;
 
     /**
-     * @return Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+     * @return Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
      * 
      */
     public Optional<Output<List<ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs>>> pipelineParameters() {
@@ -56,7 +56,7 @@ public final class ScheduleTargetSagemakerPipelineParametersArgs extends com.pul
         }
 
         /**
-         * @param pipelineParameters Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+         * @param pipelineParameters Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ScheduleTargetSagemakerPipelineParametersArgs extends com.pul
         }
 
         /**
-         * @param pipelineParameters Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+         * @param pipelineParameters Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ScheduleTargetSagemakerPipelineParametersArgs extends com.pul
         }
 
         /**
-         * @param pipelineParameters Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+         * @param pipelineParameters Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
          * 
          * @return builder
          * 

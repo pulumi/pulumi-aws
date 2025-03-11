@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
-    /// Provides an OpsWorks NodeJS application layer resource.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

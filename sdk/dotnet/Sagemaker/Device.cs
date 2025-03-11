@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker Device resource.
+    /// Provides a SageMaker AI Device resource.
     /// 
     /// ## Example Usage
     /// 
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For example:
+    /// Using `pulumi import`, import SageMaker AI Devices using the `device-fleet-name/device-name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The device to register with SageMaker Edge Manager. See Device details below.
+        /// The device to register with SageMaker AI Edge Manager. See Device details below.
         /// </summary>
         [Output("device")]
         public Output<Outputs.DeviceDevice> DeviceDetails { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The device to register with SageMaker Edge Manager. See Device details below.
+        /// The device to register with SageMaker AI Edge Manager. See Device details below.
         /// </summary>
         [Input("device", required: true)]
         public Input<Inputs.DeviceDeviceArgs> DeviceDetails { get; set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The device to register with SageMaker Edge Manager. See Device details below.
+        /// The device to register with SageMaker AI Edge Manager. See Device details below.
         /// </summary>
         [Input("device")]
         public Input<Inputs.DeviceDeviceGetArgs>? DeviceDetails { get; set; }

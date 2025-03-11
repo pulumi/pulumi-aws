@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker Image resource.
+ * Provides a SageMaker AI Image resource.
  * 
  * ## Example Usage
  * 
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
+ * Using `pulumi import`, import SageMaker AI Code Images using the `name`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
@@ -124,14 +124,14 @@ public class Image extends com.pulumi.resources.CustomResource {
         return this.imageName;
     }
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+     * @return The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      * 
      */
     public Output<String> roleArn() {

@@ -18,14 +18,14 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
     public static final EndpointConfigurationAsyncInferenceConfigOutputConfigArgs Empty = new EndpointConfigurationAsyncInferenceConfigOutputConfigArgs();
 
     /**
-     * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+     * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -105,7 +105,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
         }
 
         /**
-         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
         }
 
         /**
-         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
          * 
          * @return builder
          * 

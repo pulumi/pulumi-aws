@@ -59,7 +59,7 @@ type LookupDataSetArgs struct {
 	// The following arguments are optional:
 	DataSetId string            `pulumi:"dataSetId"`
 	Tags      map[string]string `pulumi:"tags"`
-	// Deprecated: this attribute has been deprecated
+	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -82,7 +82,7 @@ type LookupDataSetResult struct {
 	RowLevelPermissionDataSets          []GetDataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSets"`
 	RowLevelPermissionTagConfigurations []GetDataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfigurations"`
 	Tags                                map[string]string                              `pulumi:"tags"`
-	// Deprecated: this attribute has been deprecated
+	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -104,7 +104,7 @@ type LookupDataSetOutputArgs struct {
 	// The following arguments are optional:
 	DataSetId pulumi.StringInput    `pulumi:"dataSetId"`
 	Tags      pulumi.StringMapInput `pulumi:"tags"`
-	// Deprecated: this attribute has been deprecated
+	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
 	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 }
 
@@ -194,7 +194,7 @@ func (o LookupDataSetResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDataSetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: this attribute has been deprecated
+// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
 func (o LookupDataSetResultOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDataSetResult) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
 }

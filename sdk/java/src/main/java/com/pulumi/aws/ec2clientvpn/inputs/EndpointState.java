@@ -129,6 +129,21 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+     * 
+     */
+    @Import(name="disconnectOnSessionTimeout")
+    private @Nullable Output<Boolean> disconnectOnSessionTimeout;
+
+    /**
+     * @return Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> disconnectOnSessionTimeout() {
+        return Optional.ofNullable(this.disconnectOnSessionTimeout);
+    }
+
+    /**
      * The DNS name to be used by clients when establishing their VPN session.
      * 
      */
@@ -341,6 +356,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         this.clientLoginBannerOptions = $.clientLoginBannerOptions;
         this.connectionLogOptions = $.connectionLogOptions;
         this.description = $.description;
+        this.disconnectOnSessionTimeout = $.disconnectOnSessionTimeout;
         this.dnsName = $.dnsName;
         this.dnsServers = $.dnsServers;
         this.securityGroupIds = $.securityGroupIds;
@@ -529,6 +545,27 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param disconnectOnSessionTimeout Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disconnectOnSessionTimeout(@Nullable Output<Boolean> disconnectOnSessionTimeout) {
+            $.disconnectOnSessionTimeout = disconnectOnSessionTimeout;
+            return this;
+        }
+
+        /**
+         * @param disconnectOnSessionTimeout Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disconnectOnSessionTimeout(Boolean disconnectOnSessionTimeout) {
+            return disconnectOnSessionTimeout(Output.of(disconnectOnSessionTimeout));
         }
 
         /**

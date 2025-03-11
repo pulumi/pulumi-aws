@@ -30,9 +30,13 @@ public final class GetTaskExecutionOverrides {
      */
     private @Nullable String executionRoleArn;
     /**
-     * @return Elastic Inference accelerator override for the task. See below.
+     * @return **DEPRECATED** Elastic Inference accelerator override for the task. See below.
+     * 
+     * @deprecated
+     * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
      * 
      */
+    @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
     private @Nullable List<GetTaskExecutionOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides;
     /**
      * @return The memory override for the task.
@@ -68,9 +72,13 @@ public final class GetTaskExecutionOverrides {
         return Optional.ofNullable(this.executionRoleArn);
     }
     /**
-     * @return Elastic Inference accelerator override for the task. See below.
+     * @return **DEPRECATED** Elastic Inference accelerator override for the task. See below.
+     * 
+     * @deprecated
+     * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
      * 
      */
+    @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
     public List<GetTaskExecutionOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides() {
         return this.inferenceAcceleratorOverrides == null ? List.of() : this.inferenceAcceleratorOverrides;
     }

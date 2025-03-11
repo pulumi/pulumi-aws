@@ -600,7 +600,7 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly runCommandTargets!: pulumi.Output<outputs.cloudwatch.EventTargetRunCommandTarget[] | undefined>;
     /**
-     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
      */
     public readonly sagemakerPipelineTarget!: pulumi.Output<outputs.cloudwatch.EventTargetSagemakerPipelineTarget | undefined>;
     /**
@@ -755,7 +755,7 @@ export interface EventTargetState {
      */
     runCommandTargets?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetRunCommandTarget>[]>;
     /**
-     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
      */
     sagemakerPipelineTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSagemakerPipelineTarget>;
     /**
@@ -844,7 +844,7 @@ export interface EventTargetArgs {
      */
     runCommandTargets?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetRunCommandTarget>[]>;
     /**
-     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
      */
     sagemakerPipelineTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSagemakerPipelineTarget>;
     /**

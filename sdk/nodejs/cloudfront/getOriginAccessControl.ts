@@ -42,6 +42,10 @@ export interface GetOriginAccessControlArgs {
  */
 export interface GetOriginAccessControlResult {
     /**
+     * The origin access control ARN.
+     */
+    readonly arn: string;
+    /**
      * A description of the origin access control.
      */
     readonly description: string;

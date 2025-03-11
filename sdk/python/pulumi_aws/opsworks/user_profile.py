@@ -169,8 +169,6 @@ class UserProfile(pulumi.CustomResource):
                  user_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks User Profile resource.
-
         ## Example Usage
 
         ```python
@@ -196,8 +194,6 @@ class UserProfile(pulumi.CustomResource):
                  args: UserProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks User Profile resource.
-
         ## Example Usage
 
         ```python

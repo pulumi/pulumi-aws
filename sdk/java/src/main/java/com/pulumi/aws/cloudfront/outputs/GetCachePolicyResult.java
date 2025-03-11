@@ -16,6 +16,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCachePolicyResult {
     /**
+     * @return The cache policy ARN.
+     * 
+     */
+    private String arn;
+    /**
      * @return Comment to describe the cache policy.
      * 
      */
@@ -49,6 +54,13 @@ public final class GetCachePolicyResult {
     private List<GetCachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigins;
 
     private GetCachePolicyResult() {}
+    /**
+     * @return The cache policy ARN.
+     * 
+     */
+    public String arn() {
+        return this.arn;
+    }
     /**
      * @return Comment to describe the cache policy.
      * 
@@ -107,6 +119,7 @@ public final class GetCachePolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
         private String comment;
         private Integer defaultTtl;
         private String etag;
@@ -118,6 +131,7 @@ public final class GetCachePolicyResult {
         public Builder() {}
         public Builder(GetCachePolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.comment = defaults.comment;
     	      this.defaultTtl = defaults.defaultTtl;
     	      this.etag = defaults.etag;
@@ -128,6 +142,14 @@ public final class GetCachePolicyResult {
     	      this.parametersInCacheKeyAndForwardedToOrigins = defaults.parametersInCacheKeyAndForwardedToOrigins;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetCachePolicyResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder comment(String comment) {
             if (comment == null) {
@@ -193,6 +215,7 @@ public final class GetCachePolicyResult {
         }
         public GetCachePolicyResult build() {
             final var _resultValue = new GetCachePolicyResult();
+            _resultValue.arn = arn;
             _resultValue.comment = comment;
             _resultValue.defaultTtl = defaultTtl;
             _resultValue.etag = etag;

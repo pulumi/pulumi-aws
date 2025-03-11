@@ -19,6 +19,21 @@ public final class OriginRequestPolicyState extends com.pulumi.resources.Resourc
     public static final OriginRequestPolicyState Empty = new OriginRequestPolicyState();
 
     /**
+     * The origin request policy ARN.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The origin request policy ARN.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Comment to describe the origin request policy.
      * 
      */
@@ -111,6 +126,7 @@ public final class OriginRequestPolicyState extends com.pulumi.resources.Resourc
     private OriginRequestPolicyState() {}
 
     private OriginRequestPolicyState(OriginRequestPolicyState $) {
+        this.arn = $.arn;
         this.comment = $.comment;
         this.cookiesConfig = $.cookiesConfig;
         this.etag = $.etag;
@@ -135,6 +151,27 @@ public final class OriginRequestPolicyState extends com.pulumi.resources.Resourc
 
         public Builder(OriginRequestPolicyState defaults) {
             $ = new OriginRequestPolicyState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The origin request policy ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The origin request policy ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

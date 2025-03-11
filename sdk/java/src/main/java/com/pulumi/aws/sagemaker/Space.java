@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker Space resource.
+ * Provides a SageMaker AI Space resource.
  * 
  * ## Example Usage
  * 
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SageMaker Spaces using the `id`. For example:
+ * Using `pulumi import`, import SageMaker AI Spaces using the `id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
@@ -127,14 +127,14 @@ public class Space extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ownershipSettings);
     }
     /**
-     * The name of the space that appears in the SageMaker Studio UI.
+     * The name of the space that appears in the SageMaker AI Studio UI.
      * 
      */
     @Export(name="spaceDisplayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> spaceDisplayName;
 
     /**
-     * @return The name of the space that appears in the SageMaker Studio UI.
+     * @return The name of the space that appears in the SageMaker AI Studio UI.
      * 
      */
     public Output<Optional<String>> spaceDisplayName() {

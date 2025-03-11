@@ -99,7 +99,7 @@ export class Replicator extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * ARN of the Replicator.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly currentVersion!: pulumi.Output<string>;
@@ -123,8 +123,13 @@ export class Replicator extends pulumi.CustomResource {
      * The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
      */
     public readonly serviceExecutionRoleArn!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
@@ -185,7 +190,7 @@ export class Replicator extends pulumi.CustomResource {
  */
 export interface ReplicatorState {
     /**
-     * ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * ARN of the Replicator.
      */
     arn?: pulumi.Input<string>;
     currentVersion?: pulumi.Input<string>;
@@ -209,8 +214,13 @@ export interface ReplicatorState {
      * The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
      */
     serviceExecutionRoleArn?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -240,5 +250,8 @@ export interface ReplicatorArgs {
      * The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
      */
     serviceExecutionRoleArn: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

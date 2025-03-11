@@ -4,12 +4,17 @@
 package com.pulumi.aws.codepipeline.inputs;
 
 import com.pulumi.aws.codepipeline.inputs.PipelineStageActionArgs;
+import com.pulumi.aws.codepipeline.inputs.PipelineStageBeforeEntryArgs;
+import com.pulumi.aws.codepipeline.inputs.PipelineStageOnFailureArgs;
+import com.pulumi.aws.codepipeline.inputs.PipelineStageOnSuccessArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class PipelineStageArgs extends com.pulumi.resources.ResourceArgs {
@@ -32,6 +37,21 @@ public final class PipelineStageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+     * 
+     */
+    @Import(name="beforeEntry")
+    private @Nullable Output<PipelineStageBeforeEntryArgs> beforeEntry;
+
+    /**
+     * @return The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+     * 
+     */
+    public Optional<Output<PipelineStageBeforeEntryArgs>> beforeEntry() {
+        return Optional.ofNullable(this.beforeEntry);
+    }
+
+    /**
      * The name of the stage.
      * 
      */
@@ -46,11 +66,44 @@ public final class PipelineStageArgs extends com.pulumi.resources.ResourceArgs {
         return this.name;
     }
 
+    /**
+     * The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+     * 
+     */
+    @Import(name="onFailure")
+    private @Nullable Output<PipelineStageOnFailureArgs> onFailure;
+
+    /**
+     * @return The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+     * 
+     */
+    public Optional<Output<PipelineStageOnFailureArgs>> onFailure() {
+        return Optional.ofNullable(this.onFailure);
+    }
+
+    /**
+     * The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+     * 
+     */
+    @Import(name="onSuccess")
+    private @Nullable Output<PipelineStageOnSuccessArgs> onSuccess;
+
+    /**
+     * @return The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+     * 
+     */
+    public Optional<Output<PipelineStageOnSuccessArgs>> onSuccess() {
+        return Optional.ofNullable(this.onSuccess);
+    }
+
     private PipelineStageArgs() {}
 
     private PipelineStageArgs(PipelineStageArgs $) {
         this.actions = $.actions;
+        this.beforeEntry = $.beforeEntry;
         this.name = $.name;
+        this.onFailure = $.onFailure;
+        this.onSuccess = $.onSuccess;
     }
 
     public static Builder builder() {
@@ -103,6 +156,27 @@ public final class PipelineStageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param beforeEntry The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder beforeEntry(@Nullable Output<PipelineStageBeforeEntryArgs> beforeEntry) {
+            $.beforeEntry = beforeEntry;
+            return this;
+        }
+
+        /**
+         * @param beforeEntry The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder beforeEntry(PipelineStageBeforeEntryArgs beforeEntry) {
+            return beforeEntry(Output.of(beforeEntry));
+        }
+
+        /**
          * @param name The name of the stage.
          * 
          * @return builder
@@ -121,6 +195,48 @@ public final class PipelineStageArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param onFailure The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onFailure(@Nullable Output<PipelineStageOnFailureArgs> onFailure) {
+            $.onFailure = onFailure;
+            return this;
+        }
+
+        /**
+         * @param onFailure The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onFailure(PipelineStageOnFailureArgs onFailure) {
+            return onFailure(Output.of(onFailure));
+        }
+
+        /**
+         * @param onSuccess The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onSuccess(@Nullable Output<PipelineStageOnSuccessArgs> onSuccess) {
+            $.onSuccess = onSuccess;
+            return this;
+        }
+
+        /**
+         * @param onSuccess The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onSuccess(PipelineStageOnSuccessArgs onSuccess) {
+            return onSuccess(Output.of(onSuccess));
         }
 
         public PipelineStageArgs build() {

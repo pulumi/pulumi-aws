@@ -34,6 +34,14 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyIp? Ip;
         /// <summary>
+        /// (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint? Ja3Fingerprint;
+        /// <summary>
+        /// (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint? Ja4Fingerprint;
+        /// <summary>
         /// (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace? LabelNamespace;
@@ -62,6 +70,10 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyIp? ip,
 
+            Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint? ja3Fingerprint,
+
+            Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint? ja4Fingerprint,
+
             Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace? labelNamespace,
 
             Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument? queryArgument,
@@ -75,6 +87,8 @@ namespace Pulumi.Aws.WafV2.Outputs
             Header = header;
             HttpMethod = httpMethod;
             Ip = ip;
+            Ja3Fingerprint = ja3Fingerprint;
+            Ja4Fingerprint = ja4Fingerprint;
             LabelNamespace = labelNamespace;
             QueryArgument = queryArgument;
             QueryString = queryString;

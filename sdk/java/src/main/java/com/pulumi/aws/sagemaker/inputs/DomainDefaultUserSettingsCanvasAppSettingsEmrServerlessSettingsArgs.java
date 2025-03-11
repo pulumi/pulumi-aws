@@ -16,14 +16,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettin
     public static final DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs Empty = new DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+     * The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
      * 
      */
     @Import(name="executionRoleArn")
     private @Nullable Output<String> executionRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+     * @return The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
      * 
      */
     public Optional<Output<String>> executionRoleArn() {
@@ -31,14 +31,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettin
     }
 
     /**
-     * Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+     * Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+     * @return Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -71,7 +71,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettin
         }
 
         /**
-         * @param executionRoleArn The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+         * @param executionRoleArn The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettin
         }
 
         /**
-         * @param executionRoleArn The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+         * @param executionRoleArn The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettin
         }
 
         /**
-         * @param status Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+         * @param status Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettin
         }
 
         /**
-         * @param status Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+         * @param status Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
          * 
          * @return builder
          * 

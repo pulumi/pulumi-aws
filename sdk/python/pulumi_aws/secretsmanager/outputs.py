@@ -205,8 +205,10 @@ class GetSecretVersionsVersionResult(dict):
                  version_id: str,
                  version_stages: Sequence[str]):
         """
+        :param str created_time: Date and time this version of the secret was created.
         :param str last_accessed_date: Date that this version of the secret was last accessed.
         :param str version_id: Unique version identifier of this version of the secret.
+        :param Sequence[str] version_stages: List of staging labels attached to the version.
         """
         pulumi.set(__self__, "created_time", created_time)
         pulumi.set(__self__, "last_accessed_date", last_accessed_date)
@@ -216,6 +218,9 @@ class GetSecretVersionsVersionResult(dict):
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> str:
+        """
+        Date and time this version of the secret was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
@@ -237,6 +242,9 @@ class GetSecretVersionsVersionResult(dict):
     @property
     @pulumi.getter(name="versionStages")
     def version_stages(self) -> Sequence[str]:
+        """
+        List of staging labels attached to the version.
+        """
         return pulumi.get(self, "version_stages")
 
 

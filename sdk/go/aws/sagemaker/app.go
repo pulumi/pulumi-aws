@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker App resource.
+// Provides a SageMaker AI App resource.
 //
 // ## Example Usage
 //
@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SageMaker Apps using the `id`. For example:
+// Using `pulumi import`, import SageMaker AI Apps using the `id`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
@@ -63,7 +63,7 @@ type App struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The domain ID.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecOutput `pulumi:"resourceSpec"`
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName pulumi.StringPtrOutput `pulumi:"spaceName"`
@@ -124,7 +124,7 @@ type appState struct {
 	Arn *string `pulumi:"arn"`
 	// The domain ID.
 	DomainId *string `pulumi:"domainId"`
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName *string `pulumi:"spaceName"`
@@ -147,7 +147,7 @@ type AppState struct {
 	Arn pulumi.StringPtrInput
 	// The domain ID.
 	DomainId pulumi.StringPtrInput
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecPtrInput
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName pulumi.StringPtrInput
@@ -172,7 +172,7 @@ type appArgs struct {
 	AppType string `pulumi:"appType"`
 	// The domain ID.
 	DomainId string `pulumi:"domainId"`
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName *string `pulumi:"spaceName"`
@@ -190,7 +190,7 @@ type AppArgs struct {
 	AppType pulumi.StringInput
 	// The domain ID.
 	DomainId pulumi.StringInput
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 	ResourceSpec AppResourceSpecPtrInput
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName pulumi.StringPtrInput
@@ -307,7 +307,7 @@ func (o AppOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
-// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
 func (o AppOutput) ResourceSpec() AppResourceSpecOutput {
 	return o.ApplyT(func(v *App) AppResourceSpecOutput { return v.ResourceSpec }).(AppResourceSpecOutput)
 }

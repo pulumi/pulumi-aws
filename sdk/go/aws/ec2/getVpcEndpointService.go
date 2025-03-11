@@ -133,7 +133,7 @@ type LookupVpcEndpointServiceArgs struct {
 	Filters []GetVpcEndpointServiceFilter `pulumi:"filters"`
 	// Common name of an AWS service (e.g., `s3`).
 	Service *string `pulumi:"service"`
-	// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+	// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName *string `pulumi:"serviceName"`
 	// AWS regions in which to look for services.
 	ServiceRegions []string `pulumi:"serviceRegions"`
@@ -197,7 +197,7 @@ type LookupVpcEndpointServiceOutputArgs struct {
 	Filters GetVpcEndpointServiceFilterArrayInput `pulumi:"filters"`
 	// Common name of an AWS service (e.g., `s3`).
 	Service pulumi.StringPtrInput `pulumi:"service"`
-	// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+	// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
 	// AWS regions in which to look for services.
 	ServiceRegions pulumi.StringArrayInput `pulumi:"serviceRegions"`

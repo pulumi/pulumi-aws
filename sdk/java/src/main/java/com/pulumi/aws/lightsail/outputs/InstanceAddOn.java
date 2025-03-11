@@ -16,7 +16,7 @@ public final class InstanceAddOn {
      */
     private String snapshotTime;
     /**
-     * @return The status of the add on. Valid Values: `Enabled`, `Disabled`.
+     * @return The status of the add-on. Valid Values: `Enabled`, `Disabled`.
      * 
      */
     private String status;
@@ -35,7 +35,7 @@ public final class InstanceAddOn {
         return this.snapshotTime;
     }
     /**
-     * @return The status of the add on. Valid Values: `Enabled`, `Disabled`.
+     * @return The status of the add-on. Valid Values: `Enabled`, `Disabled`.
      * 
      */
     public String status() {

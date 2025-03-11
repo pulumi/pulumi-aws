@@ -11,6 +11,11 @@ import java.util.Objects;
 @CustomType
 public final class GetOriginAccessIdentityResult {
     /**
+     * @return The origin access identity ARN.
+     * 
+     */
+    private String arn;
+    /**
      * @return Internal value used by CloudFront to allow future
      * updates to the origin access identity.
      * 
@@ -50,6 +55,13 @@ public final class GetOriginAccessIdentityResult {
     private String s3CanonicalUserId;
 
     private GetOriginAccessIdentityResult() {}
+    /**
+     * @return The origin access identity ARN.
+     * 
+     */
+    public String arn() {
+        return this.arn;
+    }
     /**
      * @return Internal value used by CloudFront to allow future
      * updates to the origin access identity.
@@ -112,6 +124,7 @@ public final class GetOriginAccessIdentityResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
         private String callerReference;
         private String cloudfrontAccessIdentityPath;
         private String comment;
@@ -122,6 +135,7 @@ public final class GetOriginAccessIdentityResult {
         public Builder() {}
         public Builder(GetOriginAccessIdentityResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.callerReference = defaults.callerReference;
     	      this.cloudfrontAccessIdentityPath = defaults.cloudfrontAccessIdentityPath;
     	      this.comment = defaults.comment;
@@ -131,6 +145,14 @@ public final class GetOriginAccessIdentityResult {
     	      this.s3CanonicalUserId = defaults.s3CanonicalUserId;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessIdentityResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder callerReference(String callerReference) {
             if (callerReference == null) {
@@ -189,6 +211,7 @@ public final class GetOriginAccessIdentityResult {
         }
         public GetOriginAccessIdentityResult build() {
             final var _resultValue = new GetOriginAccessIdentityResult();
+            _resultValue.arn = arn;
             _resultValue.callerReference = callerReference;
             _resultValue.cloudfrontAccessIdentityPath = cloudfrontAccessIdentityPath;
             _resultValue.comment = comment;

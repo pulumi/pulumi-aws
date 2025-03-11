@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker monitoring schedule resource.
+ * Provides a SageMaker AI monitoring schedule resource.
  * 
  * ## Example Usage
  * 

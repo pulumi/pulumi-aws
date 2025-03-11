@@ -175,7 +175,7 @@ class MonitoringSchedule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker monitoring schedule resource.
+        Provides a SageMaker AI monitoring schedule resource.
 
         ## Example Usage
 
@@ -214,7 +214,7 @@ class MonitoringSchedule(pulumi.CustomResource):
                  args: MonitoringScheduleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker monitoring schedule resource.
+        Provides a SageMaker AI monitoring schedule resource.
 
         ## Example Usage
 

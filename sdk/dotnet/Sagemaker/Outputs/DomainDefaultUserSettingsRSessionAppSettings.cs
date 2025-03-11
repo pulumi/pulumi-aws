@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettingsRSessionAppSettings
     {
         /// <summary>
-        /// A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
+        /// A list of custom SageMaker AI images that are configured to run as a RSession app. see `custom_image` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsRSessionAppSettingsCustomImage> CustomImages;
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec? DefaultResourceSpec;
 

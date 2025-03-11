@@ -154,6 +154,8 @@ import (
 type OriginAccessIdentity struct {
 	pulumi.CustomResourceState
 
+	// The origin access identity ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future
 	// updates to the origin access identity.
 	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
@@ -205,6 +207,8 @@ func GetOriginAccessIdentity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OriginAccessIdentity resources.
 type originAccessIdentityState struct {
+	// The origin access identity ARN.
+	Arn *string `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future
 	// updates to the origin access identity.
 	CallerReference *string `pulumi:"callerReference"`
@@ -227,6 +231,8 @@ type originAccessIdentityState struct {
 }
 
 type OriginAccessIdentityState struct {
+	// The origin access identity ARN.
+	Arn pulumi.StringPtrInput
 	// Internal value used by CloudFront to allow future
 	// updates to the origin access identity.
 	CallerReference pulumi.StringPtrInput
@@ -348,6 +354,11 @@ func (o OriginAccessIdentityOutput) ToOriginAccessIdentityOutput() OriginAccessI
 
 func (o OriginAccessIdentityOutput) ToOriginAccessIdentityOutputWithContext(ctx context.Context) OriginAccessIdentityOutput {
 	return o
+}
+
+// The origin access identity ARN.
+func (o OriginAccessIdentityOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginAccessIdentity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Internal value used by CloudFront to allow future

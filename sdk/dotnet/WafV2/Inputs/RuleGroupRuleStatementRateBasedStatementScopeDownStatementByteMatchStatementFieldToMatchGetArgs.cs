@@ -54,8 +54,17 @@ namespace Pulumi.Aws.WafV2.Inputs
             set => _headers = value;
         }
 
+        /// <summary>
+        /// Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        /// </summary>
         [Input("ja3Fingerprint")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintGetArgs>? Ja3Fingerprint { get; set; }
+
+        /// <summary>
+        /// Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        /// </summary>
+        [Input("ja4Fingerprint")]
+        public Input<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintGetArgs>? Ja4Fingerprint { get; set; }
 
         /// <summary>
         /// Inspect the request body as JSON. See JSON Body for details.

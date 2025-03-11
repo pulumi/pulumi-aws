@@ -35,14 +35,14 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
     }
 
     /**
-     * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+     * A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
      * 
      */
     @Import(name="codeRepositories")
     private @Nullable Output<List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs>> codeRepositories;
 
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
      * 
      */
     public Optional<Output<List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs>>> codeRepositories() {
@@ -50,14 +50,14 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     @Import(name="defaultResourceSpec", required=true)
     private Output<SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     public Output<SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs> defaultResourceSpec() {
@@ -112,7 +112,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
          * 
          * @return builder
          * 

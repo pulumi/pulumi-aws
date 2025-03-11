@@ -52,14 +52,14 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
     }
 
     /**
-     * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
      * 
      */
     @Import(name="codeRepositories")
     private @Nullable Output<List<UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs>> codeRepositories;
 
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
      * 
      */
     public Optional<Output<List<UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs>>> codeRepositories() {
@@ -74,14 +74,14 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     public Optional<Output<UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
@@ -89,14 +89,14 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
     }
 
     /**
-     * The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+     * The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
      * 
      */
     @Import(name="emrSettings")
     private @Nullable Output<UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs> emrSettings;
 
     /**
-     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
      * 
      */
     public Optional<Output<UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs>> emrSettings() {
@@ -191,7 +191,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         }
 
         /**
-         * @param emrSettings The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+         * @param emrSettings The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsArgs extends com.
         }
 
         /**
-         * @param emrSettings The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+         * @param emrSettings The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
          * 
          * @return builder
          * 

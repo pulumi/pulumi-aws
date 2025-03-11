@@ -103,7 +103,7 @@ type LookupDomainResult struct {
 	IpAddressType string `pulumi:"ipAddressType"`
 	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
 	//
-	// Deprecated: use 'dashboard_endpoint' attribute instead
+	// Deprecated: kibana_endpoint is deprecated. Use dashboardEndpoint instead.
 	KibanaEndpoint string `pulumi:"kibanaEndpoint"`
 	// Domain log publishing related options.
 	LogPublishingOptions []GetDomainLogPublishingOption `pulumi:"logPublishingOptions"`
@@ -267,7 +267,7 @@ func (o LookupDomainResultOutput) IpAddressType() pulumi.StringOutput {
 
 // (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
 //
-// Deprecated: use 'dashboard_endpoint' attribute instead
+// Deprecated: kibana_endpoint is deprecated. Use dashboardEndpoint instead.
 func (o LookupDomainResultOutput) KibanaEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.KibanaEndpoint }).(pulumi.StringOutput)
 }

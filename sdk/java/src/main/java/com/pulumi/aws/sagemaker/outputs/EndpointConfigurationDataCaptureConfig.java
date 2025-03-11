@@ -44,7 +44,7 @@ public final class EndpointConfigurationDataCaptureConfig {
      */
     private Integer initialSamplingPercentage;
     /**
-     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -87,7 +87,7 @@ public final class EndpointConfigurationDataCaptureConfig {
         return this.initialSamplingPercentage;
     }
     /**
-     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
      * 
      */
     public Optional<String> kmsKeyId() {

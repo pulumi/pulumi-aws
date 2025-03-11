@@ -159,6 +159,8 @@ import (
 type ContinuousDeploymentPolicy struct {
 	pulumi.CustomResourceState
 
+	// The continuous deployment policy ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether this continuous deployment policy is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Current version of the continuous distribution policy.
@@ -204,6 +206,8 @@ func GetContinuousDeploymentPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContinuousDeploymentPolicy resources.
 type continuousDeploymentPolicyState struct {
+	// The continuous deployment policy ARN.
+	Arn *string `pulumi:"arn"`
 	// Whether this continuous deployment policy is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Current version of the continuous distribution policy.
@@ -217,6 +221,8 @@ type continuousDeploymentPolicyState struct {
 }
 
 type ContinuousDeploymentPolicyState struct {
+	// The continuous deployment policy ARN.
+	Arn pulumi.StringPtrInput
 	// Whether this continuous deployment policy is enabled.
 	Enabled pulumi.BoolPtrInput
 	// Current version of the continuous distribution policy.
@@ -337,6 +343,11 @@ func (o ContinuousDeploymentPolicyOutput) ToContinuousDeploymentPolicyOutput() C
 
 func (o ContinuousDeploymentPolicyOutput) ToContinuousDeploymentPolicyOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyOutput {
 	return o
+}
+
+// The continuous deployment policy ARN.
+func (o ContinuousDeploymentPolicyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Whether this continuous deployment policy is enabled.

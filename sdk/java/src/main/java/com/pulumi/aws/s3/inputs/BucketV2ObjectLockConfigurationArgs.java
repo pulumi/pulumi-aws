@@ -21,10 +21,10 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
      * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      * 
      * @deprecated
-     * Use the top-level parameter object_lock_enabled instead
+     * object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.
      * 
      */
-    @Deprecated /* Use the top-level parameter object_lock_enabled instead */
+    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
     @Import(name="objectLockEnabled")
     private @Nullable Output<String> objectLockEnabled;
 
@@ -32,10 +32,10 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
      * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      * 
      * @deprecated
-     * Use the top-level parameter object_lock_enabled instead
+     * object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.
      * 
      */
-    @Deprecated /* Use the top-level parameter object_lock_enabled instead */
+    @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
     public Optional<Output<String>> objectLockEnabled() {
         return Optional.ofNullable(this.objectLockEnabled);
     }
@@ -44,10 +44,10 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
      * Object Lock rule in place for this bucket (documented below).
      * 
      * @deprecated
-     * Use the aws.s3.BucketObjectLockConfigurationV2 resource instead
+     * rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead.
      * 
      */
-    @Deprecated /* Use the aws.s3.BucketObjectLockConfigurationV2 resource instead */
+    @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead. */
     @Import(name="rules")
     private @Nullable Output<List<BucketV2ObjectLockConfigurationRuleArgs>> rules;
 
@@ -55,10 +55,10 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
      * @return Object Lock rule in place for this bucket (documented below).
      * 
      * @deprecated
-     * Use the aws.s3.BucketObjectLockConfigurationV2 resource instead
+     * rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead.
      * 
      */
-    @Deprecated /* Use the aws.s3.BucketObjectLockConfigurationV2 resource instead */
+    @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead. */
     public Optional<Output<List<BucketV2ObjectLockConfigurationRuleArgs>>> rules() {
         return Optional.ofNullable(this.rules);
     }
@@ -94,10 +94,10 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
          * @return builder
          * 
          * @deprecated
-         * Use the top-level parameter object_lock_enabled instead
+         * object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.
          * 
          */
-        @Deprecated /* Use the top-level parameter object_lock_enabled instead */
+        @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
         public Builder objectLockEnabled(@Nullable Output<String> objectLockEnabled) {
             $.objectLockEnabled = objectLockEnabled;
             return this;
@@ -109,10 +109,10 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
          * @return builder
          * 
          * @deprecated
-         * Use the top-level parameter object_lock_enabled instead
+         * object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.
          * 
          */
-        @Deprecated /* Use the top-level parameter object_lock_enabled instead */
+        @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
         public Builder objectLockEnabled(String objectLockEnabled) {
             return objectLockEnabled(Output.of(objectLockEnabled));
         }
@@ -123,10 +123,10 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
          * @return builder
          * 
          * @deprecated
-         * Use the aws.s3.BucketObjectLockConfigurationV2 resource instead
+         * rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead.
          * 
          */
-        @Deprecated /* Use the aws.s3.BucketObjectLockConfigurationV2 resource instead */
+        @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead. */
         public Builder rules(@Nullable Output<List<BucketV2ObjectLockConfigurationRuleArgs>> rules) {
             $.rules = rules;
             return this;
@@ -138,10 +138,10 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
          * @return builder
          * 
          * @deprecated
-         * Use the aws.s3.BucketObjectLockConfigurationV2 resource instead
+         * rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead.
          * 
          */
-        @Deprecated /* Use the aws.s3.BucketObjectLockConfigurationV2 resource instead */
+        @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead. */
         public Builder rules(List<BucketV2ObjectLockConfigurationRuleArgs> rules) {
             return rules(Output.of(rules));
         }
@@ -152,10 +152,10 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
          * @return builder
          * 
          * @deprecated
-         * Use the aws.s3.BucketObjectLockConfigurationV2 resource instead
+         * rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead.
          * 
          */
-        @Deprecated /* Use the aws.s3.BucketObjectLockConfigurationV2 resource instead */
+        @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead. */
         public Builder rules(BucketV2ObjectLockConfigurationRuleArgs... rules) {
             return rules(List.of(rules));
         }

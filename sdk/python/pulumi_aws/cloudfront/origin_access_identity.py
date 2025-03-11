@@ -43,6 +43,7 @@ class OriginAccessIdentityArgs:
 @pulumi.input_type
 class _OriginAccessIdentityState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  caller_reference: Optional[pulumi.Input[str]] = None,
                  cloudfront_access_identity_path: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
@@ -51,6 +52,7 @@ class _OriginAccessIdentityState:
                  s3_canonical_user_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OriginAccessIdentity resources.
+        :param pulumi.Input[str] arn: The origin access identity ARN.
         :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future
                updates to the origin access identity.
         :param pulumi.Input[str] cloudfront_access_identity_path: A shortcut to the full path for the
@@ -65,6 +67,8 @@ class _OriginAccessIdentityState:
                access identity, which you use when giving the origin access identity read
                permission to an object in Amazon S3.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if caller_reference is not None:
             pulumi.set(__self__, "caller_reference", caller_reference)
         if cloudfront_access_identity_path is not None:
@@ -77,6 +81,18 @@ class _OriginAccessIdentityState:
             pulumi.set(__self__, "iam_arn", iam_arn)
         if s3_canonical_user_id is not None:
             pulumi.set(__self__, "s3_canonical_user_id", s3_canonical_user_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The origin access identity ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="callerReference")
@@ -347,6 +363,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
             __props__ = OriginAccessIdentityArgs.__new__(OriginAccessIdentityArgs)
 
             __props__.__dict__["comment"] = comment
+            __props__.__dict__["arn"] = None
             __props__.__dict__["caller_reference"] = None
             __props__.__dict__["cloudfront_access_identity_path"] = None
             __props__.__dict__["etag"] = None
@@ -362,6 +379,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             caller_reference: Optional[pulumi.Input[str]] = None,
             cloudfront_access_identity_path: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
@@ -375,6 +393,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The origin access identity ARN.
         :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future
                updates to the origin access identity.
         :param pulumi.Input[str] cloudfront_access_identity_path: A shortcut to the full path for the
@@ -393,6 +412,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
         __props__ = _OriginAccessIdentityState.__new__(_OriginAccessIdentityState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["caller_reference"] = caller_reference
         __props__.__dict__["cloudfront_access_identity_path"] = cloudfront_access_identity_path
         __props__.__dict__["comment"] = comment
@@ -400,6 +420,14 @@ class OriginAccessIdentity(pulumi.CustomResource):
         __props__.__dict__["iam_arn"] = iam_arn
         __props__.__dict__["s3_canonical_user_id"] = s3_canonical_user_id
         return OriginAccessIdentity(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The origin access identity ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="callerReference")

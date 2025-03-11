@@ -79,6 +79,8 @@ import (
 type FieldLevelEncryptionProfile struct {
 	pulumi.CustomResourceState
 
+	// The Field Level Encryption Profile ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
 	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
 	// An optional comment about the Field Level Encryption Profile.
@@ -124,6 +126,8 @@ func GetFieldLevelEncryptionProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FieldLevelEncryptionProfile resources.
 type fieldLevelEncryptionProfileState struct {
+	// The Field Level Encryption Profile ARN.
+	Arn *string `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
 	CallerReference *string `pulumi:"callerReference"`
 	// An optional comment about the Field Level Encryption Profile.
@@ -137,6 +141,8 @@ type fieldLevelEncryptionProfileState struct {
 }
 
 type FieldLevelEncryptionProfileState struct {
+	// The Field Level Encryption Profile ARN.
+	Arn pulumi.StringPtrInput
 	// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
 	CallerReference pulumi.StringPtrInput
 	// An optional comment about the Field Level Encryption Profile.
@@ -257,6 +263,11 @@ func (o FieldLevelEncryptionProfileOutput) ToFieldLevelEncryptionProfileOutput()
 
 func (o FieldLevelEncryptionProfileOutput) ToFieldLevelEncryptionProfileOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileOutput {
 	return o
+}
+
+// The Field Level Encryption Profile ARN.
+func (o FieldLevelEncryptionProfileOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.

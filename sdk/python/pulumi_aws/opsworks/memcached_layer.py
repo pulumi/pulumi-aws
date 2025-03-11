@@ -828,8 +828,6 @@ class MemcachedLayer(pulumi.CustomResource):
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks memcached layer resource.
-
         ## Example Usage
 
         ```python
@@ -870,8 +868,6 @@ class MemcachedLayer(pulumi.CustomResource):
                  args: MemcachedLayerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks memcached layer resource.
-
         ## Example Usage
 
         ```python

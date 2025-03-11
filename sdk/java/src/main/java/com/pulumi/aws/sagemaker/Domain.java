@@ -21,7 +21,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker Domain resource.
+ * Provides a SageMaker AI Domain resource.
  * 
  * ## Example Usage
  * 
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SageMaker Domains using the `id`. For example:
+ * Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -340,14 +340,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.securityGroupIdForDomainBoundary;
     }
     /**
-     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     * The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
      * 
      */
     @Export(name="singleSignOnApplicationArn", refs={String.class}, tree="[0]")
     private Output<String> singleSignOnApplicationArn;
 
     /**
-     * @return The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     * @return The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
      * 
      */
     public Output<String> singleSignOnApplicationArn() {

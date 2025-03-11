@@ -270,7 +270,7 @@ class _DomainState:
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
-        :param pulumi.Input[str] single_sign_on_application_arn: The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+        :param pulumi.Input[str] single_sign_on_application_arn: The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
         :param pulumi.Input[str] single_sign_on_managed_application_instance_id: The SSO managed application instance ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
@@ -473,7 +473,7 @@ class _DomainState:
     @pulumi.getter(name="singleSignOnApplicationArn")
     def single_sign_on_application_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+        The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
         """
         return pulumi.get(self, "single_sign_on_application_arn")
 
@@ -589,7 +589,7 @@ class Domain(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Domain resource.
+        Provides a SageMaker AI Domain resource.
 
         ## Example Usage
 
@@ -622,7 +622,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Domains using the `id`. For example:
+        Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -653,7 +653,7 @@ class Domain(pulumi.CustomResource):
                  args: DomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Domain resource.
+        Provides a SageMaker AI Domain resource.
 
         ## Example Usage
 
@@ -686,7 +686,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Domains using the `id`. For example:
+        Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -808,7 +808,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
-        :param pulumi.Input[str] single_sign_on_application_arn: The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+        :param pulumi.Input[str] single_sign_on_application_arn: The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
         :param pulumi.Input[str] single_sign_on_managed_application_instance_id: The SSO managed application instance ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
@@ -945,7 +945,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="singleSignOnApplicationArn")
     def single_sign_on_application_arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+        The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
         """
         return pulumi.get(self, "single_sign_on_application_arn")
 

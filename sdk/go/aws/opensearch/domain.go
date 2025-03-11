@@ -524,7 +524,7 @@ type Domain struct {
 	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
 	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
 	//
-	// Deprecated: use 'dashboard_endpoint' attribute instead
+	// Deprecated: kibana_endpoint is deprecated. Use dashboardEndpoint instead.
 	KibanaEndpoint pulumi.StringOutput `pulumi:"kibanaEndpoint"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions DomainLogPublishingOptionArrayOutput `pulumi:"logPublishingOptions"`
@@ -620,7 +620,7 @@ type domainState struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
 	//
-	// Deprecated: use 'dashboard_endpoint' attribute instead
+	// Deprecated: kibana_endpoint is deprecated. Use dashboardEndpoint instead.
 	KibanaEndpoint *string `pulumi:"kibanaEndpoint"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
@@ -687,7 +687,7 @@ type DomainState struct {
 	IpAddressType pulumi.StringPtrInput
 	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
 	//
-	// Deprecated: use 'dashboard_endpoint' attribute instead
+	// Deprecated: kibana_endpoint is deprecated. Use dashboardEndpoint instead.
 	KibanaEndpoint pulumi.StringPtrInput
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
@@ -992,7 +992,7 @@ func (o DomainOutput) IpAddressType() pulumi.StringOutput {
 
 // (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
 //
-// Deprecated: use 'dashboard_endpoint' attribute instead
+// Deprecated: kibana_endpoint is deprecated. Use dashboardEndpoint instead.
 func (o DomainOutput) KibanaEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.KibanaEndpoint }).(pulumi.StringOutput)
 }

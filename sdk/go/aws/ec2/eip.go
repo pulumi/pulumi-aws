@@ -270,7 +270,7 @@ type Eip struct {
 	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
 	// case both options are defined as the api only requires one or the other.
 	//
-	// Deprecated: use domain attribute instead
+	// Deprecated: vpc is deprecated. Use domain instead.
 	Vpc pulumi.BoolOutput `pulumi:"vpc"`
 }
 
@@ -356,7 +356,7 @@ type eipState struct {
 	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
 	// case both options are defined as the api only requires one or the other.
 	//
-	// Deprecated: use domain attribute instead
+	// Deprecated: vpc is deprecated. Use domain instead.
 	Vpc *bool `pulumi:"vpc"`
 }
 
@@ -413,7 +413,7 @@ type EipState struct {
 	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
 	// case both options are defined as the api only requires one or the other.
 	//
-	// Deprecated: use domain attribute instead
+	// Deprecated: vpc is deprecated. Use domain instead.
 	Vpc pulumi.BoolPtrInput
 }
 
@@ -451,7 +451,7 @@ type eipArgs struct {
 	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
 	// case both options are defined as the api only requires one or the other.
 	//
-	// Deprecated: use domain attribute instead
+	// Deprecated: vpc is deprecated. Use domain instead.
 	Vpc *bool `pulumi:"vpc"`
 }
 
@@ -486,7 +486,7 @@ type EipArgs struct {
 	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
 	// case both options are defined as the api only requires one or the other.
 	//
-	// Deprecated: use domain attribute instead
+	// Deprecated: vpc is deprecated. Use domain instead.
 	Vpc pulumi.BoolPtrInput
 }
 
@@ -692,7 +692,7 @@ func (o EipOutput) TagsAll() pulumi.StringMapOutput {
 // > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
 // case both options are defined as the api only requires one or the other.
 //
-// Deprecated: use domain attribute instead
+// Deprecated: vpc is deprecated. Use domain instead.
 func (o EipOutput) Vpc() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Eip) pulumi.BoolOutput { return v.Vpc }).(pulumi.BoolOutput)
 }

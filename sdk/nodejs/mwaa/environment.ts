@@ -184,7 +184,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly endpointManagement!: pulumi.Output<string>;
     /**
-     * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+     * Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      */
     public readonly environmentClass!: pulumi.Output<string>;
     /**
@@ -201,7 +201,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentLoggingConfiguration>;
     /**
-     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      */
     public readonly maxWebservers!: pulumi.Output<number>;
     /**
@@ -209,7 +209,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly maxWorkers!: pulumi.Output<number>;
     /**
-     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      */
     public readonly minWebservers!: pulumi.Output<number>;
     /**
@@ -428,7 +428,7 @@ export interface EnvironmentState {
      */
     endpointManagement?: pulumi.Input<string>;
     /**
-     * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+     * Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      */
     environmentClass?: pulumi.Input<string>;
     /**
@@ -445,7 +445,7 @@ export interface EnvironmentState {
      */
     loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfiguration>;
     /**
-     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      */
     maxWebservers?: pulumi.Input<number>;
     /**
@@ -453,7 +453,7 @@ export interface EnvironmentState {
      */
     maxWorkers?: pulumi.Input<number>;
     /**
-     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      */
     minWebservers?: pulumi.Input<number>;
     /**
@@ -557,7 +557,7 @@ export interface EnvironmentArgs {
      */
     endpointManagement?: pulumi.Input<string>;
     /**
-     * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+     * Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      */
     environmentClass?: pulumi.Input<string>;
     /**
@@ -573,7 +573,7 @@ export interface EnvironmentArgs {
      */
     loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfiguration>;
     /**
-     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      */
     maxWebservers?: pulumi.Input<number>;
     /**
@@ -581,7 +581,7 @@ export interface EnvironmentArgs {
      */
     maxWorkers?: pulumi.Input<number>;
     /**
-     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      */
     minWebservers?: pulumi.Input<number>;
     /**

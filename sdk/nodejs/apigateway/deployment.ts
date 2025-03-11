@@ -65,7 +65,7 @@ export class Deployment extends pulumi.CustomResource {
      * See `canarySettings below.
      * Has no effect when `stageName` is not set.
      *
-     * @deprecated The attribute "canarySettings" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
+     * @deprecated canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
      */
     public readonly canarySettings!: pulumi.Output<outputs.apigateway.DeploymentCanarySettings | undefined>;
     /**
@@ -95,7 +95,7 @@ export class Deployment extends pulumi.CustomResource {
      * Description to set on the stage managed by the `stageName` argument.
      * Has no effect when `stageName` is not set.
      *
-     * @deprecated The attribute "stageDescription" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
+     * @deprecated stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
      */
     public readonly stageDescription!: pulumi.Output<string | undefined>;
     /**
@@ -103,7 +103,7 @@ export class Deployment extends pulumi.CustomResource {
      * If the specified stage already exists, it will be updated to point to the new deployment.
      * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      *
-     * @deprecated The attribute "stageName" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
+     * @deprecated stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
      */
     public readonly stageName!: pulumi.Output<string | undefined>;
     /**
@@ -168,7 +168,7 @@ export interface DeploymentState {
      * See `canarySettings below.
      * Has no effect when `stageName` is not set.
      *
-     * @deprecated The attribute "canarySettings" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
+     * @deprecated canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
      */
     canarySettings?: pulumi.Input<inputs.apigateway.DeploymentCanarySettings>;
     /**
@@ -198,7 +198,7 @@ export interface DeploymentState {
      * Description to set on the stage managed by the `stageName` argument.
      * Has no effect when `stageName` is not set.
      *
-     * @deprecated The attribute "stageDescription" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
+     * @deprecated stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
      */
     stageDescription?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface DeploymentState {
      * If the specified stage already exists, it will be updated to point to the new deployment.
      * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      *
-     * @deprecated The attribute "stageName" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
+     * @deprecated stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
      */
     stageName?: pulumi.Input<string>;
     /**
@@ -228,7 +228,7 @@ export interface DeploymentArgs {
      * See `canarySettings below.
      * Has no effect when `stageName` is not set.
      *
-     * @deprecated The attribute "canarySettings" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
+     * @deprecated canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
      */
     canarySettings?: pulumi.Input<inputs.apigateway.DeploymentCanarySettings>;
     /**
@@ -243,7 +243,7 @@ export interface DeploymentArgs {
      * Description to set on the stage managed by the `stageName` argument.
      * Has no effect when `stageName` is not set.
      *
-     * @deprecated The attribute "stageDescription" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
+     * @deprecated stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
      */
     stageDescription?: pulumi.Input<string>;
     /**
@@ -251,7 +251,7 @@ export interface DeploymentArgs {
      * If the specified stage already exists, it will be updated to point to the new deployment.
      * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      *
-     * @deprecated The attribute "stageName" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
+     * @deprecated stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
      */
     stageName?: pulumi.Input<string>;
     /**

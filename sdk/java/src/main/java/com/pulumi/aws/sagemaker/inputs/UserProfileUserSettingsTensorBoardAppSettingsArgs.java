@@ -16,14 +16,14 @@ public final class UserProfileUserSettingsTensorBoardAppSettingsArgs extends com
     public static final UserProfileUserSettingsTensorBoardAppSettingsArgs Empty = new UserProfileUserSettingsTensorBoardAppSettingsArgs();
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     public Optional<Output<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
@@ -55,7 +55,7 @@ public final class UserProfileUserSettingsTensorBoardAppSettingsArgs extends com
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class UserProfileUserSettingsTensorBoardAppSettingsArgs extends com
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
          * 
          * @return builder
          * 

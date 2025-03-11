@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
-    /// Provides an OpsWorks Ganglia layer resource.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

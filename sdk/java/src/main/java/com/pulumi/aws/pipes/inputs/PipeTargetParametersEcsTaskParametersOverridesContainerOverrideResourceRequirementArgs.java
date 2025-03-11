@@ -30,14 +30,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
     }
 
     /**
-     * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+     * Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+     * @return Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
      * 
      */
     public Output<String> value() {
@@ -91,7 +91,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+         * @param value Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+         * @param value Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
          * 
          * @return builder
          * 

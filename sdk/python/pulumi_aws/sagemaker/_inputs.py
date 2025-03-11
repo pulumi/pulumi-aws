@@ -1085,7 +1085,7 @@ if not MYPY:
     class AppResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -1093,11 +1093,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -1115,10 +1115,10 @@ class AppResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -1136,7 +1136,7 @@ class AppResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -1160,7 +1160,7 @@ class AppResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -1172,7 +1172,7 @@ class AppResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -1848,7 +1848,7 @@ if not MYPY:
         """
         kms_key_id: NotRequired[pulumi.Input[str]]
         """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
 elif False:
     DataQualityJobDefinitionDataQualityJobOutputConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -1860,7 +1860,7 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
-        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
         if kms_key_id is not None:
@@ -1882,7 +1882,7 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -1926,11 +1926,11 @@ if not MYPY:
     class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgsDict(TypedDict):
         s3_uri: pulumi.Input[str]
         """
-        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
+        A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
         """
         local_path: NotRequired[pulumi.Input[str]]
         """
-        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
+        The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
         """
         s3_upload_mode: NotRequired[pulumi.Input[str]]
         """
@@ -1946,8 +1946,8 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Outpu
                  local_path: Optional[pulumi.Input[str]] = None,
                  s3_upload_mode: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        :param pulumi.Input[str] local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
+        :param pulumi.Input[str] s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+        :param pulumi.Input[str] local_path: The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
         :param pulumi.Input[str] s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -1960,7 +1960,7 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Outpu
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> pulumi.Input[str]:
         """
-        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
+        A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -1972,7 +1972,7 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Outpu
     @pulumi.getter(name="localPath")
     def local_path(self) -> Optional[pulumi.Input[str]]:
         """
-        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
+        The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
         """
         return pulumi.get(self, "local_path")
 
@@ -2040,7 +2040,7 @@ if not MYPY:
         """
         volume_kms_key_id: NotRequired[pulumi.Input[str]]
         """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
 elif False:
     DataQualityJobDefinitionJobResourcesClusterConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -2056,7 +2056,7 @@ class DataQualityJobDefinitionJobResourcesClusterConfigArgs:
         :param pulumi.Input[int] instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
         :param pulumi.Input[str] instance_type: The ML compute instance type for the processing job.
         :param pulumi.Input[int] volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-        :param pulumi.Input[str] volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+        :param pulumi.Input[str] volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -2104,7 +2104,7 @@ class DataQualityJobDefinitionJobResourcesClusterConfigArgs:
     @pulumi.getter(name="volumeKmsKeyId")
     def volume_kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
         return pulumi.get(self, "volume_kms_key_id")
 
@@ -2346,7 +2346,7 @@ if not MYPY:
         """
         kms_key_id: NotRequired[pulumi.Input[str]]
         """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
         """
 elif False:
     DeviceFleetOutputConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -2358,7 +2358,7 @@ class DeviceFleetOutputConfigArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] s3_output_location: The Amazon Simple Storage (S3) bucker URI.
-        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
         """
         pulumi.set(__self__, "s3_output_location", s3_output_location)
         if kms_key_id is not None:
@@ -2380,7 +2380,7 @@ class DeviceFleetOutputConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2397,7 +2397,7 @@ if not MYPY:
         """
         custom_file_system_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigArgsDict']]]]
         """
-        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
         """
         custom_posix_user_config: NotRequired[pulumi.Input['DomainDefaultSpaceSettingsCustomPosixUserConfigArgsDict']]
         """
@@ -2439,7 +2439,7 @@ class DomainDefaultSpaceSettingsArgs:
                  space_storage_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsSpaceStorageSettingsArgs']] = None):
         """
         :param pulumi.Input[str] execution_role: The execution role for the space.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
         :param pulumi.Input['DomainDefaultSpaceSettingsCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
         :param pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         :param pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
@@ -2479,7 +2479,7 @@ class DomainDefaultSpaceSettingsArgs:
     @pulumi.getter(name="customFileSystemConfigs")
     def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigArgs']]]]:
         """
-        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
         """
         return pulumi.get(self, "custom_file_system_configs")
 
@@ -2600,7 +2600,7 @@ if not MYPY:
         """
         file_system_path: pulumi.Input[str]
         """
-        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
 elif False:
     DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -2612,7 +2612,7 @@ class DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs:
                  file_system_path: pulumi.Input[str]):
         """
         :param pulumi.Input[str] file_system_id: The ID of your Amazon EFS file system.
-        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "file_system_path", file_system_path)
@@ -2633,7 +2633,7 @@ class DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs:
     @pulumi.getter(name="fileSystemPath")
     def file_system_path(self) -> pulumi.Input[str]:
         """
-        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
         return pulumi.get(self, "file_system_path")
 
@@ -2704,19 +2704,19 @@ if not MYPY:
         """
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgsDict']]]]
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         """
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgsDict']]]]
         """
-        A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `custom_image` Block below.
         """
         default_resource_spec: NotRequired[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         emr_settings: NotRequired[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgsDict']]
         """
-        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -2738,10 +2738,10 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs:
         """
         :param pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs'] app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
         :param pulumi.Input[str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
-        :param pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
-        :param pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs'] emr_settings: The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+        :param pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
+        :param pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs'] emr_settings: The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if app_lifecycle_management is not None:
@@ -2787,7 +2787,7 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -2799,7 +2799,7 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -2811,7 +2811,7 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -2823,7 +2823,7 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="emrSettings")
     def emr_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs']]:
         """
-        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         """
         return pulumi.get(self, "emr_settings")
 
@@ -2880,7 +2880,7 @@ if not MYPY:
     class DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgsDict(TypedDict):
         idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         lifecycle_management: NotRequired[pulumi.Input[str]]
         """
@@ -2905,7 +2905,7 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleS
                  max_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  min_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         :param pulumi.Input[str] lifecycle_management: Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[int] max_idle_timeout_in_minutes: The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
         :param pulumi.Input[int] min_idle_timeout_in_minutes: The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
@@ -2923,7 +2923,7 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleS
     @pulumi.getter(name="idleTimeoutInMinutes")
     def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
@@ -3073,7 +3073,7 @@ if not MYPY:
     class DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -3081,11 +3081,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -3103,10 +3103,10 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -3124,7 +3124,7 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -3148,7 +3148,7 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -3160,7 +3160,7 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -3185,7 +3185,7 @@ if not MYPY:
     class DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgsDict(TypedDict):
         assumable_role_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
         """
         execution_role_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -3200,7 +3200,7 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs:
                  assumable_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  execution_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] assumable_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assumable_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] execution_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
         """
         if assumable_role_arns is not None:
@@ -3212,7 +3212,7 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs:
     @pulumi.getter(name="assumableRoleArns")
     def assumable_role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
         """
         return pulumi.get(self, "assumable_role_arns")
 
@@ -3237,11 +3237,11 @@ if not MYPY:
     class DomainDefaultSpaceSettingsJupyterServerAppSettingsArgsDict(TypedDict):
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgsDict']]]]
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         """
         default_resource_spec: NotRequired[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -3257,8 +3257,8 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
-        :param pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        :param pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if code_repositories is not None:
@@ -3272,7 +3272,7 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -3284,7 +3284,7 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -3340,7 +3340,7 @@ if not MYPY:
     class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -3348,11 +3348,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -3370,10 +3370,10 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -3391,7 +3391,7 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -3415,7 +3415,7 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -3427,7 +3427,7 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -3452,11 +3452,11 @@ if not MYPY:
     class DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgsDict(TypedDict):
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgsDict']]]]
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `custom_image` Block below.
         """
         default_resource_spec: NotRequired[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -3472,8 +3472,8 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
-        :param pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `custom_image` Block below.
+        :param pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if custom_images is not None:
@@ -3487,7 +3487,7 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -3499,7 +3499,7 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -3594,7 +3594,7 @@ if not MYPY:
     class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -3602,11 +3602,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -3624,10 +3624,10 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -3645,7 +3645,7 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -3669,7 +3669,7 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -3681,7 +3681,7 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -3804,7 +3804,7 @@ if not MYPY:
         """
         custom_file_system_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgsDict']]]]
         """
-        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
         """
         custom_posix_user_config: NotRequired[pulumi.Input['DomainDefaultUserSettingsCustomPosixUserConfigArgsDict']]
         """
@@ -3887,7 +3887,7 @@ class DomainDefaultUserSettingsArgs:
         :param pulumi.Input[str] auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
         :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsArgs'] canvas_app_settings: The Canvas app settings. See `canvas_app_settings` Block below.
         :param pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See `code_editor_app_settings` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
         :param pulumi.Input['DomainDefaultUserSettingsCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
         :param pulumi.Input[str] default_landing_uri: The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
         :param pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
@@ -3990,7 +3990,7 @@ class DomainDefaultUserSettingsArgs:
     @pulumi.getter(name="customFileSystemConfigs")
     def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgs']]]]:
         """
-        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
         """
         return pulumi.get(self, "custom_file_system_configs")
 
@@ -4159,11 +4159,11 @@ if not MYPY:
     class DomainDefaultUserSettingsCanvasAppSettingsArgsDict(TypedDict):
         direct_deploy_settings: NotRequired[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgsDict']]
         """
-        The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
+        The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
         """
         emr_serverless_settings: NotRequired[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgsDict']]
         """
-        The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+        The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
         """
         generative_ai_settings: NotRequired[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgsDict']]
         identity_provider_oauth_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgsDict']]]]
@@ -4176,7 +4176,7 @@ if not MYPY:
         """
         model_register_settings: NotRequired[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgsDict']]
         """
-        The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
+        The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
         """
         time_series_forecasting_settings: NotRequired[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgsDict']]
         """
@@ -4184,7 +4184,7 @@ if not MYPY:
         """
         workspace_settings: NotRequired[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgsDict']]
         """
-        The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
+        The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
         """
 elif False:
     DomainDefaultUserSettingsCanvasAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -4201,13 +4201,13 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
                  time_series_forecasting_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']] = None,
                  workspace_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']] = None):
         """
-        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs'] direct_deploy_settings: The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
-        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs'] emr_serverless_settings: The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs'] direct_deploy_settings: The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs'] emr_serverless_settings: The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
         :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]] identity_provider_oauth_settings: The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
         :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs'] kendra_settings: The settings for document querying. See `kendra_settings` Block below.
-        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs'] model_register_settings: The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs'] model_register_settings: The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
         :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs'] time_series_forecasting_settings: Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
-        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
         """
         if direct_deploy_settings is not None:
             pulumi.set(__self__, "direct_deploy_settings", direct_deploy_settings)
@@ -4230,7 +4230,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="directDeploySettings")
     def direct_deploy_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']]:
         """
-        The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
+        The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
         """
         return pulumi.get(self, "direct_deploy_settings")
 
@@ -4242,7 +4242,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="emrServerlessSettings")
     def emr_serverless_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs']]:
         """
-        The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+        The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
         """
         return pulumi.get(self, "emr_serverless_settings")
 
@@ -4287,7 +4287,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="modelRegisterSettings")
     def model_register_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']]:
         """
-        The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
+        The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
         """
         return pulumi.get(self, "model_register_settings")
 
@@ -4311,7 +4311,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="workspaceSettings")
     def workspace_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']]:
         """
-        The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
+        The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
         """
         return pulumi.get(self, "workspace_settings")
 
@@ -4356,11 +4356,11 @@ if not MYPY:
     class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgsDict(TypedDict):
         execution_role_arn: NotRequired[pulumi.Input[str]]
         """
-        The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+        The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
         """
         status: NotRequired[pulumi.Input[str]]
         """
-        Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+        Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
         """
 elif False:
     DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -4371,8 +4371,8 @@ class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs:
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
-        :param pulumi.Input[str] status: Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+        :param pulumi.Input[str] status: Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
         """
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
@@ -4383,7 +4383,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+        The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -4395,7 +4395,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+        Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -4534,7 +4534,7 @@ if not MYPY:
     class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgsDict(TypedDict):
         cross_account_model_register_role_arn: NotRequired[pulumi.Input[str]]
         """
-        The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+        The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
         """
         status: NotRequired[pulumi.Input[str]]
         """
@@ -4549,7 +4549,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs:
                  cross_account_model_register_role_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] cross_account_model_register_role_arn: The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+        :param pulumi.Input[str] cross_account_model_register_role_arn: The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
         :param pulumi.Input[str] status: Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         """
         if cross_account_model_register_role_arn is not None:
@@ -4561,7 +4561,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs:
     @pulumi.getter(name="crossAccountModelRegisterRoleArn")
     def cross_account_model_register_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+        The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
         """
         return pulumi.get(self, "cross_account_model_register_role_arn")
 
@@ -4698,11 +4698,11 @@ if not MYPY:
         """
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgsDict']]]]
         """
-        A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `custom_image` Block below.
         """
         default_resource_spec: NotRequired[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -4722,8 +4722,8 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsArgs:
         """
         :param pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs'] app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
         :param pulumi.Input[str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
-        :param pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if app_lifecycle_management is not None:
@@ -4765,7 +4765,7 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -4777,7 +4777,7 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -4834,7 +4834,7 @@ if not MYPY:
     class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgsDict(TypedDict):
         idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         lifecycle_management: NotRequired[pulumi.Input[str]]
         """
@@ -4859,7 +4859,7 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSe
                  max_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  min_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         :param pulumi.Input[str] lifecycle_management: Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[int] max_idle_timeout_in_minutes: The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
         :param pulumi.Input[int] min_idle_timeout_in_minutes: The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
@@ -4877,7 +4877,7 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSe
     @pulumi.getter(name="idleTimeoutInMinutes")
     def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
@@ -4996,7 +4996,7 @@ if not MYPY:
     class DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -5004,11 +5004,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -5026,10 +5026,10 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -5047,7 +5047,7 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -5071,7 +5071,7 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -5083,7 +5083,7 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -5144,7 +5144,7 @@ if not MYPY:
         """
         file_system_path: pulumi.Input[str]
         """
-        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
 elif False:
     DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -5156,7 +5156,7 @@ class DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs:
                  file_system_path: pulumi.Input[str]):
         """
         :param pulumi.Input[str] file_system_id: The ID of your Amazon EFS file system.
-        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "file_system_path", file_system_path)
@@ -5177,7 +5177,7 @@ class DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs:
     @pulumi.getter(name="fileSystemPath")
     def file_system_path(self) -> pulumi.Input[str]:
         """
-        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
         return pulumi.get(self, "file_system_path")
 
@@ -5248,19 +5248,19 @@ if not MYPY:
         """
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgsDict']]]]
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         """
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgsDict']]]]
         """
-        A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `custom_image` Block below.
         """
         default_resource_spec: NotRequired[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         emr_settings: NotRequired[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgsDict']]
         """
-        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -5282,10 +5282,10 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsArgs:
         """
         :param pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs'] app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
         :param pulumi.Input[str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
-        :param pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
-        :param pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs'] emr_settings: The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs'] emr_settings: The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if app_lifecycle_management is not None:
@@ -5331,7 +5331,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -5343,7 +5343,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -5355,7 +5355,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -5367,7 +5367,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="emrSettings")
     def emr_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs']]:
         """
-        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         """
         return pulumi.get(self, "emr_settings")
 
@@ -5424,7 +5424,7 @@ if not MYPY:
     class DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgsDict(TypedDict):
         idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         lifecycle_management: NotRequired[pulumi.Input[str]]
         """
@@ -5449,7 +5449,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSe
                  max_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  min_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         :param pulumi.Input[str] lifecycle_management: Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[int] max_idle_timeout_in_minutes: The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
         :param pulumi.Input[int] min_idle_timeout_in_minutes: The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
@@ -5467,7 +5467,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSe
     @pulumi.getter(name="idleTimeoutInMinutes")
     def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
@@ -5617,7 +5617,7 @@ if not MYPY:
     class DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -5625,11 +5625,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -5647,10 +5647,10 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -5668,7 +5668,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -5692,7 +5692,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -5704,7 +5704,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -5729,7 +5729,7 @@ if not MYPY:
     class DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgsDict(TypedDict):
         assumable_role_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
         """
         execution_role_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -5744,7 +5744,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs:
                  assumable_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  execution_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] assumable_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assumable_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] execution_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
         """
         if assumable_role_arns is not None:
@@ -5756,7 +5756,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs:
     @pulumi.getter(name="assumableRoleArns")
     def assumable_role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
         """
         return pulumi.get(self, "assumable_role_arns")
 
@@ -5781,11 +5781,11 @@ if not MYPY:
     class DomainDefaultUserSettingsJupyterServerAppSettingsArgsDict(TypedDict):
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgsDict']]]]
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         """
         default_resource_spec: NotRequired[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -5801,8 +5801,8 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
-        :param pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if code_repositories is not None:
@@ -5816,7 +5816,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -5828,7 +5828,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -5884,7 +5884,7 @@ if not MYPY:
     class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -5892,11 +5892,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -5914,10 +5914,10 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -5935,7 +5935,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -5959,7 +5959,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -5971,7 +5971,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -5996,11 +5996,11 @@ if not MYPY:
     class DomainDefaultUserSettingsKernelGatewayAppSettingsArgsDict(TypedDict):
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgsDict']]]]
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `custom_image` Block below.
         """
         default_resource_spec: NotRequired[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -6016,8 +6016,8 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
-        :param pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `custom_image` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if custom_images is not None:
@@ -6031,7 +6031,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -6043,7 +6043,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -6138,7 +6138,7 @@ if not MYPY:
     class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -6146,11 +6146,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -6168,10 +6168,10 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -6189,7 +6189,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -6213,7 +6213,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -6225,7 +6225,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -6250,11 +6250,11 @@ if not MYPY:
     class DomainDefaultUserSettingsRSessionAppSettingsArgsDict(TypedDict):
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgsDict']]]]
         """
-        A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a RSession app. see `custom_image` Block below.
         """
         default_resource_spec: NotRequired[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
         """
 elif False:
     DomainDefaultUserSettingsRSessionAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -6265,8 +6265,8 @@ class DomainDefaultUserSettingsRSessionAppSettingsArgs:
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
-        :param pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker AI images that are configured to run as a RSession app. see `custom_image` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
         """
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
@@ -6277,7 +6277,7 @@ class DomainDefaultUserSettingsRSessionAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a RSession app. see `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a RSession app. see `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -6289,7 +6289,7 @@ class DomainDefaultUserSettingsRSessionAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -6372,7 +6372,7 @@ if not MYPY:
     class DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -6380,11 +6380,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -6402,10 +6402,10 @@ class DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -6423,7 +6423,7 @@ class DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -6447,7 +6447,7 @@ class DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -6459,7 +6459,7 @@ class DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -6762,7 +6762,7 @@ if not MYPY:
     class DomainDefaultUserSettingsTensorBoardAppSettingsArgsDict(TypedDict):
         default_resource_spec: NotRequired[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
 elif False:
     DomainDefaultUserSettingsTensorBoardAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -6772,7 +6772,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsArgs:
     def __init__(__self__, *,
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']] = None):
         """
-        :param pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        :param pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -6781,7 +6781,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -6794,7 +6794,7 @@ if not MYPY:
     class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -6802,11 +6802,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -6824,10 +6824,10 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -6845,7 +6845,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -6869,7 +6869,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -6881,7 +6881,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -6910,7 +6910,7 @@ if not MYPY:
         """
         execution_role_identity_config: NotRequired[pulumi.Input[str]]
         """
-        The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+        The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
         """
         r_studio_server_pro_domain_settings: NotRequired[pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsArgsDict']]
         """
@@ -6932,7 +6932,7 @@ class DomainDomainSettingsArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input['DomainDomainSettingsDockerSettingsArgs'] docker_settings: A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
-        :param pulumi.Input[str] execution_role_identity_config: The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+        :param pulumi.Input[str] execution_role_identity_config: The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
         :param pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsArgs'] r_studio_server_pro_domain_settings: A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
@@ -6961,7 +6961,7 @@ class DomainDomainSettingsArgs:
     @pulumi.getter(name="executionRoleIdentityConfig")
     def execution_role_identity_config(self) -> Optional[pulumi.Input[str]]:
         """
-        The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+        The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
         """
         return pulumi.get(self, "execution_role_identity_config")
 
@@ -7054,7 +7054,7 @@ if not MYPY:
         """
         default_resource_spec: NotRequired[pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
         """
         r_studio_connect_url: NotRequired[pulumi.Input[str]]
         """
@@ -7076,7 +7076,7 @@ class DomainDomainSettingsRStudioServerProDomainSettingsArgs:
                  r_studio_package_manager_url: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] domain_execution_role_arn: The ARN of the execution role for the RStudioServerPro Domain-level app.
-        :param pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
+        :param pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
         :param pulumi.Input[str] r_studio_connect_url: A URL pointing to an RStudio Connect server.
         :param pulumi.Input[str] r_studio_package_manager_url: A URL pointing to an RStudio Package Manager server.
         """
@@ -7104,7 +7104,7 @@ class DomainDomainSettingsRStudioServerProDomainSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -7141,7 +7141,7 @@ if not MYPY:
     class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -7149,11 +7149,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -7171,10 +7171,10 @@ class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -7192,7 +7192,7 @@ class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -7216,7 +7216,7 @@ class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -7228,7 +7228,7 @@ class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -7289,7 +7289,7 @@ if not MYPY:
         """
         client_config: NotRequired[pulumi.Input['EndpointConfigurationAsyncInferenceConfigClientConfigArgsDict']]
         """
-        Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+        Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
         """
 elif False:
     EndpointConfigurationAsyncInferenceConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -7301,7 +7301,7 @@ class EndpointConfigurationAsyncInferenceConfigArgs:
                  client_config: Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigClientConfigArgs']] = None):
         """
         :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigOutputConfigArgs'] output_config: Specifies the configuration for asynchronous inference invocation outputs.
-        :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigClientConfigArgs'] client_config: Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+        :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigClientConfigArgs'] client_config: Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
         """
         pulumi.set(__self__, "output_config", output_config)
         if client_config is not None:
@@ -7323,7 +7323,7 @@ class EndpointConfigurationAsyncInferenceConfigArgs:
     @pulumi.getter(name="clientConfig")
     def client_config(self) -> Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigClientConfigArgs']]:
         """
-        Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+        Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
         """
         return pulumi.get(self, "client_config")
 
@@ -7336,7 +7336,7 @@ if not MYPY:
     class EndpointConfigurationAsyncInferenceConfigClientConfigArgsDict(TypedDict):
         max_concurrent_invocations_per_instance: NotRequired[pulumi.Input[int]]
         """
-        The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+        The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
         """
 elif False:
     EndpointConfigurationAsyncInferenceConfigClientConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -7346,7 +7346,7 @@ class EndpointConfigurationAsyncInferenceConfigClientConfigArgs:
     def __init__(__self__, *,
                  max_concurrent_invocations_per_instance: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max_concurrent_invocations_per_instance: The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+        :param pulumi.Input[int] max_concurrent_invocations_per_instance: The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
         """
         if max_concurrent_invocations_per_instance is not None:
             pulumi.set(__self__, "max_concurrent_invocations_per_instance", max_concurrent_invocations_per_instance)
@@ -7355,7 +7355,7 @@ class EndpointConfigurationAsyncInferenceConfigClientConfigArgs:
     @pulumi.getter(name="maxConcurrentInvocationsPerInstance")
     def max_concurrent_invocations_per_instance(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+        The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
         """
         return pulumi.get(self, "max_concurrent_invocations_per_instance")
 
@@ -7372,7 +7372,7 @@ if not MYPY:
         """
         kms_key_id: NotRequired[pulumi.Input[str]]
         """
-        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
         """
         notification_config: NotRequired[pulumi.Input['EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgsDict']]
         """
@@ -7394,7 +7394,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs:
                  s3_failure_path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] s3_output_path: The Amazon S3 location to upload inference responses to.
-        :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
         :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs'] notification_config: Specifies the configuration for notifications of inference results for asynchronous inference.
         :param pulumi.Input[str] s3_failure_path: The Amazon S3 location to upload failure inference responses to.
         """
@@ -7422,7 +7422,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -7552,7 +7552,7 @@ if not MYPY:
         """
         kms_key_id: NotRequired[pulumi.Input[str]]
         """
-        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
         """
 elif False:
     EndpointConfigurationDataCaptureConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -7573,7 +7573,7 @@ class EndpointConfigurationDataCaptureConfigArgs:
         :param pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs'] capture_content_type_header: The content type headers to capture.
                See `capture_content_type_header` below.
         :param pulumi.Input[bool] enable_capture: Flag to enable data capture. Defaults to `false`.
-        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
         """
         pulumi.set(__self__, "capture_options", capture_options)
         pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
@@ -7650,7 +7650,7 @@ class EndpointConfigurationDataCaptureConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -7760,7 +7760,7 @@ if not MYPY:
         """
         container_startup_health_check_timeout_in_seconds: NotRequired[pulumi.Input[int]]
         """
-        The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         """
         core_dump_config: NotRequired[pulumi.Input['EndpointConfigurationProductionVariantCoreDumpConfigArgsDict']]
         """
@@ -7834,7 +7834,7 @@ class EndpointConfigurationProductionVariantArgs:
         """
         :param pulumi.Input[str] model_name: The name of the model to use.
         :param pulumi.Input[str] accelerator_type: The size of the Elastic Inference (EI) instance to use for the production variant.
-        :param pulumi.Input[int] container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        :param pulumi.Input[int] container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         :param pulumi.Input['EndpointConfigurationProductionVariantCoreDumpConfigArgs'] core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
         :param pulumi.Input[bool] enable_ssm_access: You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
         :param pulumi.Input[str] inference_ami_version: Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
@@ -7906,7 +7906,7 @@ class EndpointConfigurationProductionVariantArgs:
     @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
     def container_startup_health_check_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         """
         return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
 
@@ -8067,7 +8067,7 @@ if not MYPY:
         """
         kms_key_id: NotRequired[pulumi.Input[str]]
         """
-        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
 elif False:
     EndpointConfigurationProductionVariantCoreDumpConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -8079,7 +8079,7 @@ class EndpointConfigurationProductionVariantCoreDumpConfigArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] destination_s3_uri: The Amazon S3 bucket to send the core dump to.
-        :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+        :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
         pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
         if kms_key_id is not None:
@@ -8101,7 +8101,7 @@ class EndpointConfigurationProductionVariantCoreDumpConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -8295,7 +8295,7 @@ if not MYPY:
         """
         container_startup_health_check_timeout_in_seconds: NotRequired[pulumi.Input[int]]
         """
-        The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         """
         core_dump_config: NotRequired[pulumi.Input['EndpointConfigurationShadowProductionVariantCoreDumpConfigArgsDict']]
         """
@@ -8369,7 +8369,7 @@ class EndpointConfigurationShadowProductionVariantArgs:
         """
         :param pulumi.Input[str] model_name: The name of the model to use.
         :param pulumi.Input[str] accelerator_type: The size of the Elastic Inference (EI) instance to use for the production variant.
-        :param pulumi.Input[int] container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        :param pulumi.Input[int] container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         :param pulumi.Input['EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs'] core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
         :param pulumi.Input[bool] enable_ssm_access: You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
         :param pulumi.Input[str] inference_ami_version: Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
@@ -8441,7 +8441,7 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
     def container_startup_health_check_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+        The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         """
         return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
 
@@ -8602,7 +8602,7 @@ if not MYPY:
         """
         kms_key_id: pulumi.Input[str]
         """
-        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
 elif False:
     EndpointConfigurationShadowProductionVariantCoreDumpConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -8614,7 +8614,7 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs:
                  kms_key_id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] destination_s3_uri: The Amazon S3 bucket to send the core dump to.
-        :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+        :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
         pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -8635,7 +8635,7 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[str]:
         """
-        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -8825,11 +8825,11 @@ if not MYPY:
         """
         blue_green_update_policy: NotRequired[pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgsDict']]
         """
-        Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+        Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
         """
         rolling_update_policy: NotRequired[pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyArgsDict']]
         """
-        Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+        Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
         """
 elif False:
     EndpointDeploymentConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -8842,8 +8842,8 @@ class EndpointDeploymentConfigArgs:
                  rolling_update_policy: Optional[pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyArgs']] = None):
         """
         :param pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationArgs'] auto_rollback_configuration: Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
-        :param pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs'] blue_green_update_policy: Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
-        :param pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyArgs'] rolling_update_policy: Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+        :param pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs'] blue_green_update_policy: Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+        :param pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyArgs'] rolling_update_policy: Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
         """
         if auto_rollback_configuration is not None:
             pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
@@ -8868,7 +8868,7 @@ class EndpointDeploymentConfigArgs:
     @pulumi.getter(name="blueGreenUpdatePolicy")
     def blue_green_update_policy(self) -> Optional[pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs']]:
         """
-        Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+        Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
         """
         return pulumi.get(self, "blue_green_update_policy")
 
@@ -8880,7 +8880,7 @@ class EndpointDeploymentConfigArgs:
     @pulumi.getter(name="rollingUpdatePolicy")
     def rolling_update_policy(self) -> Optional[pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyArgs']]:
         """
-        Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+        Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
         """
         return pulumi.get(self, "rolling_update_policy")
 
@@ -8893,7 +8893,7 @@ if not MYPY:
     class EndpointDeploymentConfigAutoRollbackConfigurationArgsDict(TypedDict):
         alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgsDict']]]]
         """
-        List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
+        List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker AI rolls back the deployment. See Alarms.
         """
 elif False:
     EndpointDeploymentConfigAutoRollbackConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -8903,7 +8903,7 @@ class EndpointDeploymentConfigAutoRollbackConfigurationArgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs']]] alarms: List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs']]] alarms: List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker AI rolls back the deployment. See Alarms.
         """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
@@ -8912,7 +8912,7 @@ class EndpointDeploymentConfigAutoRollbackConfigurationArgs:
     @pulumi.getter
     def alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs']]]]:
         """
-        List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
+        List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker AI rolls back the deployment. See Alarms.
         """
         return pulumi.get(self, "alarms")
 
@@ -9214,7 +9214,7 @@ if not MYPY:
         """
         wait_interval_in_seconds: pulumi.Input[int]
         """
-        The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+        The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
         """
         maximum_execution_timeout_in_seconds: NotRequired[pulumi.Input[int]]
         """
@@ -9236,7 +9236,7 @@ class EndpointDeploymentConfigRollingUpdatePolicyArgs:
                  rollback_maximum_batch_size: Optional[pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs']] = None):
         """
         :param pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs'] maximum_batch_size: Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
-        :param pulumi.Input[int] wait_interval_in_seconds: The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+        :param pulumi.Input[int] wait_interval_in_seconds: The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
         :param pulumi.Input[int] maximum_execution_timeout_in_seconds: The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
         :param pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs'] rollback_maximum_batch_size: Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
         """
@@ -9263,7 +9263,7 @@ class EndpointDeploymentConfigRollingUpdatePolicyArgs:
     @pulumi.getter(name="waitIntervalInSeconds")
     def wait_interval_in_seconds(self) -> pulumi.Input[int]:
         """
-        The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+        The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
         """
         return pulumi.get(self, "wait_interval_in_seconds")
 
@@ -9850,7 +9850,7 @@ if not MYPY:
     class FeatureGroupOnlineStoreConfigSecurityConfigArgsDict(TypedDict):
         kms_key_id: NotRequired[pulumi.Input[str]]
         """
-        The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+        The ID of the AWS Key Management Service (AWS KMS) key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
         """
 elif False:
     FeatureGroupOnlineStoreConfigSecurityConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -9860,7 +9860,7 @@ class FeatureGroupOnlineStoreConfigSecurityConfigArgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+        :param pulumi.Input[str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
         """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -9869,7 +9869,7 @@ class FeatureGroupOnlineStoreConfigSecurityConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+        The ID of the AWS Key Management Service (AWS KMS) key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -9983,7 +9983,7 @@ if not MYPY:
     class FlowDefinitionHumanLoopActivationConfigArgsDict(TypedDict):
         human_loop_activation_conditions_config: NotRequired[pulumi.Input['FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgsDict']]
         """
-        defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+        defines under what conditions SageMaker AI creates a human loop. See Human Loop Activation Conditions Config details below.
         """
 elif False:
     FlowDefinitionHumanLoopActivationConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -9993,7 +9993,7 @@ class FlowDefinitionHumanLoopActivationConfigArgs:
     def __init__(__self__, *,
                  human_loop_activation_conditions_config: Optional[pulumi.Input['FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs']] = None):
         """
-        :param pulumi.Input['FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs'] human_loop_activation_conditions_config: defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+        :param pulumi.Input['FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs'] human_loop_activation_conditions_config: defines under what conditions SageMaker AI creates a human loop. See Human Loop Activation Conditions Config details below.
         """
         if human_loop_activation_conditions_config is not None:
             pulumi.set(__self__, "human_loop_activation_conditions_config", human_loop_activation_conditions_config)
@@ -10002,7 +10002,7 @@ class FlowDefinitionHumanLoopActivationConfigArgs:
     @pulumi.getter(name="humanLoopActivationConditionsConfig")
     def human_loop_activation_conditions_config(self) -> Optional[pulumi.Input['FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs']]:
         """
-        defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+        defines under what conditions SageMaker AI creates a human loop. See Human Loop Activation Conditions Config details below.
         """
         return pulumi.get(self, "human_loop_activation_conditions_config")
 
@@ -10548,7 +10548,7 @@ if not MYPY:
         """
         model_data_source: NotRequired[pulumi.Input['ModelContainerModelDataSourceArgsDict']]
         """
-        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
         """
         model_data_url: NotRequired[pulumi.Input[str]]
         """
@@ -10586,7 +10586,7 @@ class ModelContainerArgs:
         :param pulumi.Input['ModelContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         :param pulumi.Input[str] inference_specification_name: The inference specification name in the model package version.
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-        :param pulumi.Input['ModelContainerModelDataSourceArgs'] model_data_source: The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+        :param pulumi.Input['ModelContainerModelDataSourceArgs'] model_data_source: The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
         :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
         :param pulumi.Input['ModelContainerMultiModelConfigArgs'] multi_model_config: Specifies additional configuration for multi-model endpoints. see Multi Model Config.
@@ -10689,7 +10689,7 @@ class ModelContainerArgs:
     @pulumi.getter(name="modelDataSource")
     def model_data_source(self) -> Optional[pulumi.Input['ModelContainerModelDataSourceArgs']]:
         """
-        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
         """
         return pulumi.get(self, "model_data_source")
 
@@ -11059,7 +11059,7 @@ if not MYPY:
         """
         model_data_source: NotRequired[pulumi.Input['ModelPrimaryContainerModelDataSourceArgsDict']]
         """
-        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
         """
         model_data_url: NotRequired[pulumi.Input[str]]
         """
@@ -11097,7 +11097,7 @@ class ModelPrimaryContainerArgs:
         :param pulumi.Input['ModelPrimaryContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         :param pulumi.Input[str] inference_specification_name: The inference specification name in the model package version.
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-        :param pulumi.Input['ModelPrimaryContainerModelDataSourceArgs'] model_data_source: The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+        :param pulumi.Input['ModelPrimaryContainerModelDataSourceArgs'] model_data_source: The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
         :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
         :param pulumi.Input['ModelPrimaryContainerMultiModelConfigArgs'] multi_model_config: Specifies additional configuration for multi-model endpoints. see Multi Model Config.
@@ -11200,7 +11200,7 @@ class ModelPrimaryContainerArgs:
     @pulumi.getter(name="modelDataSource")
     def model_data_source(self) -> Optional[pulumi.Input['ModelPrimaryContainerModelDataSourceArgs']]:
         """
-        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
         """
         return pulumi.get(self, "model_data_source")
 
@@ -11720,7 +11720,7 @@ if not MYPY:
         """
         version_id: NotRequired[pulumi.Input[str]]
         """
-        Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+        Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
         """
 elif False:
     PipelinePipelineDefinitionS3LocationArgsDict: TypeAlias = Mapping[str, Any]
@@ -11734,7 +11734,7 @@ class PipelinePipelineDefinitionS3LocationArgs:
         """
         :param pulumi.Input[str] bucket: Name of the S3 bucket.
         :param pulumi.Input[str] object_key: The object key (or key name) uniquely identifies the object in an S3 bucket.
-        :param pulumi.Input[str] version_id: Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+        :param pulumi.Input[str] version_id: Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "object_key", object_key)
@@ -11769,7 +11769,7 @@ class PipelinePipelineDefinitionS3LocationArgs:
     @pulumi.getter(name="versionId")
     def version_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+        Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
         """
         return pulumi.get(self, "version_id")
 
@@ -11963,7 +11963,7 @@ if not MYPY:
         """
         custom_file_systems: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgsDict']]]]
         """
-        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
+        A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `custom_file_system` Block below.
         """
         jupyter_lab_app_settings: NotRequired[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgsDict']]
         """
@@ -11997,7 +11997,7 @@ class SpaceSpaceSettingsArgs:
         """
         :param pulumi.Input[str] app_type: The type of app created within the space.
         :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See `code_editor_app_settings` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]] custom_file_systems: A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]] custom_file_systems: A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `custom_file_system` Block below.
         :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
@@ -12046,7 +12046,7 @@ class SpaceSpaceSettingsArgs:
     @pulumi.getter(name="customFileSystems")
     def custom_file_systems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]]]:
         """
-        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
+        A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `custom_file_system` Block below.
         """
         return pulumi.get(self, "custom_file_systems")
 
@@ -12107,7 +12107,7 @@ if not MYPY:
     class SpaceSpaceSettingsCodeEditorAppSettingsArgsDict(TypedDict):
         default_resource_spec: pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict']
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         """
         app_lifecycle_management: NotRequired[pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgsDict']]
         """
@@ -12122,7 +12122,7 @@ class SpaceSpaceSettingsCodeEditorAppSettingsArgs:
                  default_resource_spec: pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'],
                  app_lifecycle_management: Optional[pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs']] = None):
         """
-        :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         :param pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs'] app_lifecycle_management: Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -12133,7 +12133,7 @@ class SpaceSpaceSettingsCodeEditorAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -12190,7 +12190,7 @@ if not MYPY:
     class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgsDict(TypedDict):
         idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
 elif False:
     SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -12200,7 +12200,7 @@ class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsA
     def __init__(__self__, *,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         if idle_timeout_in_minutes is not None:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
@@ -12209,7 +12209,7 @@ class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsA
     @pulumi.getter(name="idleTimeoutInMinutes")
     def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
@@ -12230,11 +12230,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -12254,8 +12254,8 @@ class SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
         """
         :param pulumi.Input[str] instance_type: The instance type.
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -12297,7 +12297,7 @@ class SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -12309,7 +12309,7 @@ class SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -12396,7 +12396,7 @@ if not MYPY:
     class SpaceSpaceSettingsJupyterLabAppSettingsArgsDict(TypedDict):
         default_resource_spec: pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict']
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         """
         app_lifecycle_management: NotRequired[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgsDict']]
         """
@@ -12404,7 +12404,7 @@ if not MYPY:
         """
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgsDict']]]]
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
         """
 elif False:
     SpaceSpaceSettingsJupyterLabAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -12416,9 +12416,9 @@ class SpaceSpaceSettingsJupyterLabAppSettingsArgs:
                  app_lifecycle_management: Optional[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs']] = None,
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]] = None):
         """
-        :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         :param pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs'] app_lifecycle_management: Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if app_lifecycle_management is not None:
@@ -12430,7 +12430,7 @@ class SpaceSpaceSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -12454,7 +12454,7 @@ class SpaceSpaceSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -12499,7 +12499,7 @@ if not MYPY:
     class SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgsDict(TypedDict):
         idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
 elif False:
     SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -12509,7 +12509,7 @@ class SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsA
     def __init__(__self__, *,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         if idle_timeout_in_minutes is not None:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
@@ -12518,7 +12518,7 @@ class SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsA
     @pulumi.getter(name="idleTimeoutInMinutes")
     def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
@@ -12570,11 +12570,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -12594,8 +12594,8 @@ class SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
         """
         :param pulumi.Input[str] instance_type: The instance type.
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -12637,7 +12637,7 @@ class SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -12649,7 +12649,7 @@ class SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -12674,11 +12674,11 @@ if not MYPY:
     class SpaceSpaceSettingsJupyterServerAppSettingsArgsDict(TypedDict):
         default_resource_spec: pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgsDict']
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         """
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgsDict']]]]
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -12694,8 +12694,8 @@ class SpaceSpaceSettingsJupyterServerAppSettingsArgs:
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
+        :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -12708,7 +12708,7 @@ class SpaceSpaceSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -12720,7 +12720,7 @@ class SpaceSpaceSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -12784,11 +12784,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -12808,8 +12808,8 @@ class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
         """
         :param pulumi.Input[str] instance_type: The instance type.
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -12851,7 +12851,7 @@ class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -12863,7 +12863,7 @@ class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -12888,11 +12888,11 @@ if not MYPY:
     class SpaceSpaceSettingsKernelGatewayAppSettingsArgsDict(TypedDict):
         default_resource_spec: pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict']
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         """
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgsDict']]]]
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a KernelGateway app. See `custom_image` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -12908,8 +12908,8 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsArgs:
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]]] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
+        :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker AI images that are configured to run as a KernelGateway app. See `custom_image` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -12922,7 +12922,7 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -12934,7 +12934,7 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. See `custom_image` Block below.
+        A list of custom SageMaker AI images that are configured to run as a KernelGateway app. See `custom_image` Block below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -13037,11 +13037,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -13061,8 +13061,8 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
         """
         :param pulumi.Input[str] instance_type: The instance type.
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -13104,7 +13104,7 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -13116,7 +13116,7 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -13250,7 +13250,7 @@ if not MYPY:
         """
         custom_file_system_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigArgsDict']]]]
         """
-        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
         """
         custom_posix_user_config: NotRequired[pulumi.Input['UserProfileUserSettingsCustomPosixUserConfigArgsDict']]
         """
@@ -13333,7 +13333,7 @@ class UserProfileUserSettingsArgs:
         :param pulumi.Input[str] auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsArgs'] canvas_app_settings: The Canvas app settings. See Canvas App Settings below.
         :param pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings. See Code Editor App Settings below.
-        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
         :param pulumi.Input['UserProfileUserSettingsCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
         :param pulumi.Input[str] default_landing_uri: The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
         :param pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See Jupyter Lab App Settings below.
@@ -13436,7 +13436,7 @@ class UserProfileUserSettingsArgs:
     @pulumi.getter(name="customFileSystemConfigs")
     def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigArgs']]]]:
         """
-        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
         """
         return pulumi.get(self, "custom_file_system_configs")
 
@@ -13605,11 +13605,11 @@ if not MYPY:
     class UserProfileUserSettingsCanvasAppSettingsArgsDict(TypedDict):
         direct_deploy_settings: NotRequired[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgsDict']]
         """
-        The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
         """
         emr_serverless_settings: NotRequired[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgsDict']]
         """
-        The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+        The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
         """
         generative_ai_settings: NotRequired[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgsDict']]
         identity_provider_oauth_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgsDict']]]]
@@ -13622,7 +13622,7 @@ if not MYPY:
         """
         model_register_settings: NotRequired[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgsDict']]
         """
-        The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
         """
         time_series_forecasting_settings: NotRequired[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgsDict']]
         """
@@ -13630,7 +13630,7 @@ if not MYPY:
         """
         workspace_settings: NotRequired[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgsDict']]
         """
-        The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
         """
 elif False:
     UserProfileUserSettingsCanvasAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -13647,13 +13647,13 @@ class UserProfileUserSettingsCanvasAppSettingsArgs:
                  time_series_forecasting_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']] = None,
                  workspace_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']] = None):
         """
-        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs'] direct_deploy_settings: The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
-        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs'] emr_serverless_settings: The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs'] direct_deploy_settings: The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
+        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs'] emr_serverless_settings: The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]] identity_provider_oauth_settings: The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs'] kendra_settings: The settings for document querying. See Kendra Settings below.
-        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs'] model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs'] model_register_settings: The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs'] time_series_forecasting_settings: Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
-        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
         """
         if direct_deploy_settings is not None:
             pulumi.set(__self__, "direct_deploy_settings", direct_deploy_settings)
@@ -13676,7 +13676,7 @@ class UserProfileUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="directDeploySettings")
     def direct_deploy_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']]:
         """
-        The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
         """
         return pulumi.get(self, "direct_deploy_settings")
 
@@ -13688,7 +13688,7 @@ class UserProfileUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="emrServerlessSettings")
     def emr_serverless_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs']]:
         """
-        The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+        The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
         """
         return pulumi.get(self, "emr_serverless_settings")
 
@@ -13733,7 +13733,7 @@ class UserProfileUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="modelRegisterSettings")
     def model_register_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']]:
         """
-        The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
         """
         return pulumi.get(self, "model_register_settings")
 
@@ -13757,7 +13757,7 @@ class UserProfileUserSettingsCanvasAppSettingsArgs:
     @pulumi.getter(name="workspaceSettings")
     def workspace_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']]:
         """
-        The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
         """
         return pulumi.get(self, "workspace_settings")
 
@@ -13802,11 +13802,11 @@ if not MYPY:
     class UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgsDict(TypedDict):
         execution_role_arn: NotRequired[pulumi.Input[str]]
         """
-        The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+        The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
         """
         status: NotRequired[pulumi.Input[str]]
         """
-        Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+        Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
         """
 elif False:
     UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -13817,8 +13817,8 @@ class UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs:
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
-        :param pulumi.Input[str] status: Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+        :param pulumi.Input[str] status: Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
         """
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
@@ -13829,7 +13829,7 @@ class UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+        The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -13841,7 +13841,7 @@ class UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+        Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -13980,7 +13980,7 @@ if not MYPY:
     class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgsDict(TypedDict):
         cross_account_model_register_role_arn: NotRequired[pulumi.Input[str]]
         """
-        The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+        The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
         """
         status: NotRequired[pulumi.Input[str]]
         """
@@ -13995,7 +13995,7 @@ class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs:
                  cross_account_model_register_role_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] cross_account_model_register_role_arn: The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+        :param pulumi.Input[str] cross_account_model_register_role_arn: The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
         :param pulumi.Input[str] status: Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         """
         if cross_account_model_register_role_arn is not None:
@@ -14007,7 +14007,7 @@ class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs:
     @pulumi.getter(name="crossAccountModelRegisterRoleArn")
     def cross_account_model_register_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+        The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
         """
         return pulumi.get(self, "cross_account_model_register_role_arn")
 
@@ -14144,11 +14144,11 @@ if not MYPY:
         """
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgsDict']]]]
         """
-        A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+        A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
         """
         default_resource_spec: NotRequired[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -14168,8 +14168,8 @@ class UserProfileUserSettingsCodeEditorAppSettingsArgs:
         """
         :param pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs'] app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
         :param pulumi.Input[str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
-        :param pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
+        :param pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if app_lifecycle_management is not None:
@@ -14211,7 +14211,7 @@ class UserProfileUserSettingsCodeEditorAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+        A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -14223,7 +14223,7 @@ class UserProfileUserSettingsCodeEditorAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -14280,7 +14280,7 @@ if not MYPY:
     class UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgsDict(TypedDict):
         idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         lifecycle_management: NotRequired[pulumi.Input[str]]
         """
@@ -14305,7 +14305,7 @@ class UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSett
                  max_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  min_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         :param pulumi.Input[str] lifecycle_management: Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[int] max_idle_timeout_in_minutes: The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
         :param pulumi.Input[int] min_idle_timeout_in_minutes: The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
@@ -14323,7 +14323,7 @@ class UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSett
     @pulumi.getter(name="idleTimeoutInMinutes")
     def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
@@ -14442,7 +14442,7 @@ if not MYPY:
     class UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -14450,11 +14450,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -14472,10 +14472,10 @@ class UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -14493,7 +14493,7 @@ class UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -14517,7 +14517,7 @@ class UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -14529,7 +14529,7 @@ class UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -14590,7 +14590,7 @@ if not MYPY:
         """
         file_system_path: NotRequired[pulumi.Input[str]]
         """
-        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
 elif False:
     UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -14602,7 +14602,7 @@ class UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs:
                  file_system_path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] file_system_id: The ID of your Amazon EFS file system.
-        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
         if file_system_path is not None:
@@ -14624,7 +14624,7 @@ class UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs:
     @pulumi.getter(name="fileSystemPath")
     def file_system_path(self) -> Optional[pulumi.Input[str]]:
         """
-        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
         return pulumi.get(self, "file_system_path")
 
@@ -14695,16 +14695,16 @@ if not MYPY:
         """
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgsDict']]]]
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
         """
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgsDict']]]]
         default_resource_spec: NotRequired[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
         emr_settings: NotRequired[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgsDict']]
         """
-        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -14726,9 +14726,9 @@ class UserProfileUserSettingsJupyterLabAppSettingsArgs:
         """
         :param pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs'] app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
         :param pulumi.Input[str] built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-        :param pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-        :param pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs'] emr_settings: The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs'] emr_settings: The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if app_lifecycle_management is not None:
@@ -14774,7 +14774,7 @@ class UserProfileUserSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -14795,7 +14795,7 @@ class UserProfileUserSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -14807,7 +14807,7 @@ class UserProfileUserSettingsJupyterLabAppSettingsArgs:
     @pulumi.getter(name="emrSettings")
     def emr_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs']]:
         """
-        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         """
         return pulumi.get(self, "emr_settings")
 
@@ -14864,7 +14864,7 @@ if not MYPY:
     class UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgsDict(TypedDict):
         idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         lifecycle_management: NotRequired[pulumi.Input[str]]
         """
@@ -14889,7 +14889,7 @@ class UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSett
                  max_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  min_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        :param pulumi.Input[int] idle_timeout_in_minutes: The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         :param pulumi.Input[str] lifecycle_management: Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[int] max_idle_timeout_in_minutes: The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
         :param pulumi.Input[int] min_idle_timeout_in_minutes: The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
@@ -14907,7 +14907,7 @@ class UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSett
     @pulumi.getter(name="idleTimeoutInMinutes")
     def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
@@ -15057,7 +15057,7 @@ if not MYPY:
     class UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -15065,11 +15065,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -15087,10 +15087,10 @@ class UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -15108,7 +15108,7 @@ class UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -15132,7 +15132,7 @@ class UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -15144,7 +15144,7 @@ class UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -15169,7 +15169,7 @@ if not MYPY:
     class UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgsDict(TypedDict):
         assumable_role_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
         """
         execution_role_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -15184,7 +15184,7 @@ class UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs:
                  assumable_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  execution_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] assumable_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assumable_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] execution_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
         """
         if assumable_role_arns is not None:
@@ -15196,7 +15196,7 @@ class UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs:
     @pulumi.getter(name="assumableRoleArns")
     def assumable_role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
         """
         return pulumi.get(self, "assumable_role_arns")
 
@@ -15221,11 +15221,11 @@ if not MYPY:
     class UserProfileUserSettingsJupyterServerAppSettingsArgsDict(TypedDict):
         code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgsDict']]]]
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
         """
         default_resource_spec: NotRequired[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -15241,8 +15241,8 @@ class UserProfileUserSettingsJupyterServerAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-        :param pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if code_repositories is not None:
@@ -15256,7 +15256,7 @@ class UserProfileUserSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]]:
         """
-        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
         """
         return pulumi.get(self, "code_repositories")
 
@@ -15268,7 +15268,7 @@ class UserProfileUserSettingsJupyterServerAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -15324,7 +15324,7 @@ if not MYPY:
     class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -15332,11 +15332,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -15354,10 +15354,10 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -15375,7 +15375,7 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -15399,7 +15399,7 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -15411,7 +15411,7 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -15436,11 +15436,11 @@ if not MYPY:
     class UserProfileUserSettingsKernelGatewayAppSettingsArgsDict(TypedDict):
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgsDict']]]]
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
         """
         default_resource_spec: NotRequired[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
         lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -15456,8 +15456,8 @@ class UserProfileUserSettingsKernelGatewayAppSettingsArgs:
                  default_resource_spec: Optional[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        :param pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if custom_images is not None:
@@ -15471,7 +15471,7 @@ class UserProfileUserSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -15483,7 +15483,7 @@ class UserProfileUserSettingsKernelGatewayAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -15578,7 +15578,7 @@ if not MYPY:
     class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -15586,11 +15586,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -15608,10 +15608,10 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -15629,7 +15629,7 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -15653,7 +15653,7 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -15665,7 +15665,7 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -15690,11 +15690,11 @@ if not MYPY:
     class UserProfileUserSettingsRSessionAppSettingsArgsDict(TypedDict):
         custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsCustomImageArgsDict']]]]
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
         """
         default_resource_spec: NotRequired[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
 elif False:
     UserProfileUserSettingsRSessionAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -15705,8 +15705,8 @@ class UserProfileUserSettingsRSessionAppSettingsArgs:
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        :param pulumi.Input['UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param pulumi.Input['UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
@@ -15717,7 +15717,7 @@ class UserProfileUserSettingsRSessionAppSettingsArgs:
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsCustomImageArgs']]]]:
         """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
         """
         return pulumi.get(self, "custom_images")
 
@@ -15729,7 +15729,7 @@ class UserProfileUserSettingsRSessionAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -15812,7 +15812,7 @@ if not MYPY:
     class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -15820,11 +15820,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -15842,10 +15842,10 @@ class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -15863,7 +15863,7 @@ class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -15887,7 +15887,7 @@ class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -15899,7 +15899,7 @@ class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 
@@ -16202,7 +16202,7 @@ if not MYPY:
     class UserProfileUserSettingsTensorBoardAppSettingsArgsDict(TypedDict):
         default_resource_spec: NotRequired[pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgsDict']]
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
 elif False:
     UserProfileUserSettingsTensorBoardAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -16212,7 +16212,7 @@ class UserProfileUserSettingsTensorBoardAppSettingsArgs:
     def __init__(__self__, *,
                  default_resource_spec: Optional[pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']] = None):
         """
-        :param pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -16221,7 +16221,7 @@ class UserProfileUserSettingsTensorBoardAppSettingsArgs:
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']]:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -16234,7 +16234,7 @@ if not MYPY:
     class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgsDict(TypedDict):
         instance_type: NotRequired[pulumi.Input[str]]
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         lifecycle_config_arn: NotRequired[pulumi.Input[str]]
         """
@@ -16242,11 +16242,11 @@ if not MYPY:
         """
         sagemaker_image_arn: NotRequired[pulumi.Input[str]]
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
         """
@@ -16264,10 +16264,10 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
-        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
-        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker AI image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker AI Image Version Alias.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
@@ -16285,7 +16285,7 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -16309,7 +16309,7 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageArn")
     def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the SageMaker image that the image version belongs to.
+        The ARN of the SageMaker AI image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
 
@@ -16321,7 +16321,7 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="sagemakerImageVersionAlias")
     def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The SageMaker Image Version Alias.
+        The SageMaker AI Image Version Alias.
         """
         return pulumi.get(self, "sagemaker_image_version_alias")
 

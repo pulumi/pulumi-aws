@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly int InitialSamplingPercentage;
         /// <summary>
-        /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+        /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
         /// </summary>
         public readonly string? KmsKeyId;
 

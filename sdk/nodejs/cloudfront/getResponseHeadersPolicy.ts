@@ -64,6 +64,10 @@ export interface GetResponseHeadersPolicyArgs {
  */
 export interface GetResponseHeadersPolicyResult {
     /**
+     * The response headers policy ARN.
+     */
+    readonly arn: string;
+    /**
      * Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      */
     readonly comment: string;

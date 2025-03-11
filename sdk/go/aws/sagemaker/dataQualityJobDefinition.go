@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker data quality job definition resource.
+// Provides a SageMaker AI data quality job definition resource.
 //
 // ## Example Usage
 //
@@ -93,7 +93,7 @@ type DataQualityJobDefinition struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrOutput `pulumi:"networkConfig"`
-	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
 	StoppingCondition DataQualityJobDefinitionStoppingConditionOutput `pulumi:"stoppingCondition"`
@@ -166,7 +166,7 @@ type dataQualityJobDefinitionState struct {
 	Name *string `pulumi:"name"`
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig *DataQualityJobDefinitionNetworkConfig `pulumi:"networkConfig"`
-	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
 	StoppingCondition *DataQualityJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
@@ -195,7 +195,7 @@ type DataQualityJobDefinitionState struct {
 	Name pulumi.StringPtrInput
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrInput
-	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
 	StoppingCondition DataQualityJobDefinitionStoppingConditionPtrInput
@@ -226,7 +226,7 @@ type dataQualityJobDefinitionArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig *DataQualityJobDefinitionNetworkConfig `pulumi:"networkConfig"`
-	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
 	StoppingCondition *DataQualityJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
@@ -250,7 +250,7 @@ type DataQualityJobDefinitionArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrInput
-	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringInput
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
 	StoppingCondition DataQualityJobDefinitionStoppingConditionPtrInput
@@ -395,7 +395,7 @@ func (o DataQualityJobDefinitionOutput) NetworkConfig() DataQualityJobDefinition
 	}).(DataQualityJobDefinitionNetworkConfigPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 func (o DataQualityJobDefinitionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

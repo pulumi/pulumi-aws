@@ -795,8 +795,6 @@ class PhpAppLayer(pulumi.CustomResource):
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks PHP application layer resource.
-
         ## Example Usage
 
         ```python
@@ -844,8 +842,6 @@ class PhpAppLayer(pulumi.CustomResource):
                  args: PhpAppLayerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks PHP application layer resource.
-
         ## Example Usage
 
         ```python

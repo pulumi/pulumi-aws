@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Sagemaker
     public static class GetPrebuiltEcrImage
     {
         /// <summary>
-        /// Get information about prebuilt Amazon SageMaker Docker images.
+        /// Get information about prebuilt Amazon SageMaker AI  Docker images.
         /// 
         /// &gt; **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
         /// 
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Sagemaker
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrebuiltEcrImageResult>("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args ?? new GetPrebuiltEcrImageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get information about prebuilt Amazon SageMaker Docker images.
+        /// Get information about prebuilt Amazon SageMaker AI  Docker images.
         /// 
         /// &gt; **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
         /// 
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Sagemaker
             => global::Pulumi.Deployment.Instance.Invoke<GetPrebuiltEcrImageResult>("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args ?? new GetPrebuiltEcrImageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get information about prebuilt Amazon SageMaker Docker images.
+        /// Get information about prebuilt Amazon SageMaker AI  Docker images.
         /// 
         /// &gt; **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
         /// 

@@ -105,12 +105,14 @@ type LookupLaunchTemplateResult struct {
 	DisableApiStop                    bool                                                `pulumi:"disableApiStop"`
 	DisableApiTermination             bool                                                `pulumi:"disableApiTermination"`
 	EbsOptimized                      string                                              `pulumi:"ebsOptimized"`
-	ElasticGpuSpecifications          []GetLaunchTemplateElasticGpuSpecification          `pulumi:"elasticGpuSpecifications"`
-	ElasticInferenceAccelerators      []GetLaunchTemplateElasticInferenceAccelerator      `pulumi:"elasticInferenceAccelerators"`
-	EnclaveOptions                    []GetLaunchTemplateEnclaveOption                    `pulumi:"enclaveOptions"`
-	Filters                           []GetLaunchTemplateFilter                           `pulumi:"filters"`
-	HibernationOptions                []GetLaunchTemplateHibernationOption                `pulumi:"hibernationOptions"`
-	IamInstanceProfiles               []GetLaunchTemplateIamInstanceProfile               `pulumi:"iamInstanceProfiles"`
+	// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
+	ElasticGpuSpecifications []GetLaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
+	// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
+	ElasticInferenceAccelerators []GetLaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerators"`
+	EnclaveOptions               []GetLaunchTemplateEnclaveOption               `pulumi:"enclaveOptions"`
+	Filters                      []GetLaunchTemplateFilter                      `pulumi:"filters"`
+	HibernationOptions           []GetLaunchTemplateHibernationOption           `pulumi:"hibernationOptions"`
+	IamInstanceProfiles          []GetLaunchTemplateIamInstanceProfile          `pulumi:"iamInstanceProfiles"`
 	// ID of the launch template.
 	Id                                string                                  `pulumi:"id"`
 	ImageId                           string                                  `pulumi:"imageId"`
@@ -221,12 +223,14 @@ func (o LookupLaunchTemplateResultOutput) EbsOptimized() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.EbsOptimized }).(pulumi.StringOutput)
 }
 
+// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
 func (o LookupLaunchTemplateResultOutput) ElasticGpuSpecifications() GetLaunchTemplateElasticGpuSpecificationArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateElasticGpuSpecification {
 		return v.ElasticGpuSpecifications
 	}).(GetLaunchTemplateElasticGpuSpecificationArrayOutput)
 }
 
+// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
 func (o LookupLaunchTemplateResultOutput) ElasticInferenceAccelerators() GetLaunchTemplateElasticInferenceAcceleratorArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateElasticInferenceAccelerator {
 		return v.ElasticInferenceAccelerators

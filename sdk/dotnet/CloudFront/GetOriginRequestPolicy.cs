@@ -190,6 +190,10 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetOriginRequestPolicyResult
     {
         /// <summary>
+        /// The origin request policy ARN.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// Comment to describe the origin request policy.
         /// </summary>
         public readonly string Comment;
@@ -214,6 +218,8 @@ namespace Pulumi.Aws.CloudFront
 
         [OutputConstructor]
         private GetOriginRequestPolicyResult(
+            string arn,
+
             string comment,
 
             ImmutableArray<Outputs.GetOriginRequestPolicyCookiesConfigResult> cookiesConfigs,
@@ -228,6 +234,7 @@ namespace Pulumi.Aws.CloudFront
 
             ImmutableArray<Outputs.GetOriginRequestPolicyQueryStringsConfigResult> queryStringsConfigs)
         {
+            Arn = arn;
             Comment = comment;
             CookiesConfigs = cookiesConfigs;
             Etag = etag;

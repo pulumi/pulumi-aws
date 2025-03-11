@@ -120,7 +120,7 @@ type Parameter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
 	//
-	// Deprecated: this attribute has been deprecated
+	// Deprecated: overwrite is deprecated. This argument will be removed in a future major version.
 	Overwrite pulumi.BoolPtrOutput `pulumi:"overwrite"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -196,7 +196,7 @@ type parameterState struct {
 	Name *string `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
 	//
-	// Deprecated: this attribute has been deprecated
+	// Deprecated: overwrite is deprecated. This argument will be removed in a future major version.
 	Overwrite *bool `pulumi:"overwrite"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -233,7 +233,7 @@ type ParameterState struct {
 	Name pulumi.StringPtrInput
 	// Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
 	//
-	// Deprecated: this attribute has been deprecated
+	// Deprecated: overwrite is deprecated. This argument will be removed in a future major version.
 	Overwrite pulumi.BoolPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -274,7 +274,7 @@ type parameterArgs struct {
 	Name *string `pulumi:"name"`
 	// Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
 	//
-	// Deprecated: this attribute has been deprecated
+	// Deprecated: overwrite is deprecated. This argument will be removed in a future major version.
 	Overwrite *bool `pulumi:"overwrite"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -306,7 +306,7 @@ type ParameterArgs struct {
 	Name pulumi.StringPtrInput
 	// Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
 	//
-	// Deprecated: this attribute has been deprecated
+	// Deprecated: overwrite is deprecated. This argument will be removed in a future major version.
 	Overwrite pulumi.BoolPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -444,7 +444,7 @@ func (o ParameterOutput) Name() pulumi.StringOutput {
 
 // Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
 //
-// Deprecated: this attribute has been deprecated
+// Deprecated: overwrite is deprecated. This argument will be removed in a future major version.
 func (o ParameterOutput) Overwrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.BoolPtrOutput { return v.Overwrite }).(pulumi.BoolPtrOutput)
 }

@@ -34,7 +34,7 @@ public final class GetServiceResult {
      */
     private String customDomainName;
     /**
-     * @return DNS name of the service.
+     * @return List of objects with DNS names.
      * 
      */
     private List<GetServiceDnsEntry> dnsEntries;
@@ -86,7 +86,7 @@ public final class GetServiceResult {
         return this.customDomainName;
     }
     /**
-     * @return DNS name of the service.
+     * @return List of objects with DNS names.
      * 
      */
     public List<GetServiceDnsEntry> dnsEntries() {

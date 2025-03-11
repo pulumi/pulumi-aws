@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec
     {
         /// <summary>
-        /// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        /// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? LifecycleConfigArn;
         /// <summary>
-        /// The ARN of the SageMaker image that the image version belongs to.
+        /// The ARN of the SageMaker AI image that the image version belongs to.
         /// </summary>
         public readonly string? SagemakerImageArn;
         /// <summary>
-        /// The SageMaker Image Version Alias.
+        /// The SageMaker AI Image Version Alias.
         /// </summary>
         public readonly string? SagemakerImageVersionAlias;
         /// <summary>

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker Endpoint resource.
+ * Provides a SageMaker AI Endpoint resource.
  *
  * ## Example Usage
  *

@@ -16,14 +16,14 @@ public final class EndpointConfigurationAsyncInferenceConfigClientConfigArgs ext
     public static final EndpointConfigurationAsyncInferenceConfigClientConfigArgs Empty = new EndpointConfigurationAsyncInferenceConfigClientConfigArgs();
 
     /**
-     * The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+     * The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
      * 
      */
     @Import(name="maxConcurrentInvocationsPerInstance")
     private @Nullable Output<Integer> maxConcurrentInvocationsPerInstance;
 
     /**
-     * @return The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+     * @return The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
      * 
      */
     public Optional<Output<Integer>> maxConcurrentInvocationsPerInstance() {
@@ -55,7 +55,7 @@ public final class EndpointConfigurationAsyncInferenceConfigClientConfigArgs ext
         }
 
         /**
-         * @param maxConcurrentInvocationsPerInstance The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+         * @param maxConcurrentInvocationsPerInstance The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class EndpointConfigurationAsyncInferenceConfigClientConfigArgs ext
         }
 
         /**
-         * @param maxConcurrentInvocationsPerInstance The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+         * @param maxConcurrentInvocationsPerInstance The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
          * 
          * @return builder
          * 

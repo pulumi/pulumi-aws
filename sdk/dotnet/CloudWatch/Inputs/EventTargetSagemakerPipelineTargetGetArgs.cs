@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         private InputList<Inputs.EventTargetSagemakerPipelineTargetPipelineParameterListGetArgs>? _pipelineParameterLists;
 
         /// <summary>
-        /// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        /// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
         /// </summary>
         public InputList<Inputs.EventTargetSagemakerPipelineTargetPipelineParameterListGetArgs> PipelineParameterLists
         {

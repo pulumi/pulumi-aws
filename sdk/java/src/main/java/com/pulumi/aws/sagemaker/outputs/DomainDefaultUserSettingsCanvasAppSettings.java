@@ -20,12 +20,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsCanvasAppSettings {
     /**
-     * @return The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
+     * @return The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings;
     /**
-     * @return The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings emrServerlessSettings;
@@ -41,7 +41,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsKendraSettings kendraSettings;
     /**
-     * @return The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
+     * @return The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings;
@@ -51,21 +51,21 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings;
     /**
-     * @return The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
+     * @return The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings workspaceSettings;
 
     private DomainDefaultUserSettingsCanvasAppSettings() {}
     /**
-     * @return The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
+     * @return The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings> directDeploySettings() {
         return Optional.ofNullable(this.directDeploySettings);
     }
     /**
-     * @return The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+     * @return The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings> emrServerlessSettings() {
@@ -89,7 +89,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
         return Optional.ofNullable(this.kendraSettings);
     }
     /**
-     * @return The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
+     * @return The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings> modelRegisterSettings() {
@@ -103,7 +103,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
         return Optional.ofNullable(this.timeSeriesForecastingSettings);
     }
     /**
-     * @return The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
+     * @return The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings> workspaceSettings() {

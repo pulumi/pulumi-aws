@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker Image Version resource.
+ * Provides a SageMaker AI Image Version resource.
  *
  * ## Example Usage
  *
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import SageMaker Image Versions using the `name`. For example:
+ * Using `pulumi import`, import SageMaker AI Image Versions using the `name`. For example:
  *
  * ```sh
  * $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo

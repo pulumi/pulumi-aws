@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an OpsWorks Ganglia layer resource.
-//
 // ## Example Usage
 //
 // ```go

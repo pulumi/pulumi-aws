@@ -79,6 +79,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/trafficPolicy:TrafficPolicy")
 public class TrafficPolicy extends com.pulumi.resources.CustomResource {
     /**
+     * Amazon Resource Name (ARN) of the traffic policy.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the traffic policy.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * Comment for the traffic policy.
      * 
      */

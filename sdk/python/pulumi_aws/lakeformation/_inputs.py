@@ -29,6 +29,32 @@ __all__ = [
     'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict',
     'DataLakeSettingsCreateTableDefaultPermissionArgs',
     'DataLakeSettingsCreateTableDefaultPermissionArgsDict',
+    'OptInConditionArgs',
+    'OptInConditionArgsDict',
+    'OptInPrincipalArgs',
+    'OptInPrincipalArgsDict',
+    'OptInResourceDataArgs',
+    'OptInResourceDataArgsDict',
+    'OptInResourceDataCatalogArgs',
+    'OptInResourceDataCatalogArgsDict',
+    'OptInResourceDataDataCellsFilterArgs',
+    'OptInResourceDataDataCellsFilterArgsDict',
+    'OptInResourceDataDataLocationArgs',
+    'OptInResourceDataDataLocationArgsDict',
+    'OptInResourceDataDatabaseArgs',
+    'OptInResourceDataDatabaseArgsDict',
+    'OptInResourceDataLfTagArgs',
+    'OptInResourceDataLfTagArgsDict',
+    'OptInResourceDataLfTagExpressionArgs',
+    'OptInResourceDataLfTagExpressionArgsDict',
+    'OptInResourceDataLfTagPolicyArgs',
+    'OptInResourceDataLfTagPolicyArgsDict',
+    'OptInResourceDataTableArgs',
+    'OptInResourceDataTableArgsDict',
+    'OptInResourceDataTableWithColumnsArgs',
+    'OptInResourceDataTableWithColumnsArgsDict',
+    'OptInResourceDataTableWithColumnsColumnWildcardArgs',
+    'OptInResourceDataTableWithColumnsColumnWildcardArgsDict',
     'PermissionsDataCellsFilterArgs',
     'PermissionsDataCellsFilterArgsDict',
     'PermissionsDataLocationArgs',
@@ -483,6 +509,893 @@ class DataLakeSettingsCreateTableDefaultPermissionArgs:
     @principal.setter
     def principal(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal", value)
+
+
+if not MYPY:
+    class OptInConditionArgsDict(TypedDict):
+        expression: NotRequired[pulumi.Input[str]]
+        """
+        List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+        """
+elif False:
+    OptInConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInConditionArgs:
+    def __init__(__self__, *,
+                 expression: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] expression: List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+        """
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expression", value)
+
+
+if not MYPY:
+    class OptInPrincipalArgsDict(TypedDict):
+        data_lake_principal_identifier: pulumi.Input[str]
+elif False:
+    OptInPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInPrincipalArgs:
+    def __init__(__self__, *,
+                 data_lake_principal_identifier: pulumi.Input[str]):
+        pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+
+    @property
+    @pulumi.getter(name="dataLakePrincipalIdentifier")
+    def data_lake_principal_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_lake_principal_identifier")
+
+    @data_lake_principal_identifier.setter
+    def data_lake_principal_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_lake_principal_identifier", value)
+
+
+if not MYPY:
+    class OptInResourceDataArgsDict(TypedDict):
+        catalogs: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataCatalogArgsDict']]]]
+        """
+        Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+        """
+        data_cells_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataCellsFilterArgsDict']]]]
+        """
+        Data cell filter. See Data Cells Filter for more details.
+        """
+        data_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataLocationArgsDict']]]]
+        """
+        Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+        """
+        database: NotRequired[pulumi.Input['OptInResourceDataDatabaseArgsDict']]
+        """
+        Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+        """
+        lf_tag: NotRequired[pulumi.Input['OptInResourceDataLfTagArgsDict']]
+        """
+        LF-tag key and values attached to a resource.
+        """
+        lf_tag_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagExpressionArgsDict']]]]
+        """
+        Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+        """
+        lf_tag_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagPolicyArgsDict']]]]
+        """
+        List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
+        """
+        table: NotRequired[pulumi.Input['OptInResourceDataTableArgsDict']]
+        """
+        Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+        """
+        table_with_columns: NotRequired[pulumi.Input['OptInResourceDataTableWithColumnsArgsDict']]
+        """
+        Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+        """
+elif False:
+    OptInResourceDataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInResourceDataArgs:
+    def __init__(__self__, *,
+                 catalogs: Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataCatalogArgs']]]] = None,
+                 data_cells_filters: Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataCellsFilterArgs']]]] = None,
+                 data_locations: Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataLocationArgs']]]] = None,
+                 database: Optional[pulumi.Input['OptInResourceDataDatabaseArgs']] = None,
+                 lf_tag: Optional[pulumi.Input['OptInResourceDataLfTagArgs']] = None,
+                 lf_tag_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagExpressionArgs']]]] = None,
+                 lf_tag_policies: Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagPolicyArgs']]]] = None,
+                 table: Optional[pulumi.Input['OptInResourceDataTableArgs']] = None,
+                 table_with_columns: Optional[pulumi.Input['OptInResourceDataTableWithColumnsArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['OptInResourceDataCatalogArgs']]] catalogs: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataCellsFilterArgs']]] data_cells_filters: Data cell filter. See Data Cells Filter for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataLocationArgs']]] data_locations: Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+        :param pulumi.Input['OptInResourceDataDatabaseArgs'] database: Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+        :param pulumi.Input['OptInResourceDataLfTagArgs'] lf_tag: LF-tag key and values attached to a resource.
+        :param pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagExpressionArgs']]] lf_tag_expressions: Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagPolicyArgs']]] lf_tag_policies: List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
+        :param pulumi.Input['OptInResourceDataTableArgs'] table: Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+        :param pulumi.Input['OptInResourceDataTableWithColumnsArgs'] table_with_columns: Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+        """
+        if catalogs is not None:
+            pulumi.set(__self__, "catalogs", catalogs)
+        if data_cells_filters is not None:
+            pulumi.set(__self__, "data_cells_filters", data_cells_filters)
+        if data_locations is not None:
+            pulumi.set(__self__, "data_locations", data_locations)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if lf_tag is not None:
+            pulumi.set(__self__, "lf_tag", lf_tag)
+        if lf_tag_expressions is not None:
+            pulumi.set(__self__, "lf_tag_expressions", lf_tag_expressions)
+        if lf_tag_policies is not None:
+            pulumi.set(__self__, "lf_tag_policies", lf_tag_policies)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
+        if table_with_columns is not None:
+            pulumi.set(__self__, "table_with_columns", table_with_columns)
+
+    @property
+    @pulumi.getter
+    def catalogs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataCatalogArgs']]]]:
+        """
+        Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+        """
+        return pulumi.get(self, "catalogs")
+
+    @catalogs.setter
+    def catalogs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataCatalogArgs']]]]):
+        pulumi.set(self, "catalogs", value)
+
+    @property
+    @pulumi.getter(name="dataCellsFilters")
+    def data_cells_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataCellsFilterArgs']]]]:
+        """
+        Data cell filter. See Data Cells Filter for more details.
+        """
+        return pulumi.get(self, "data_cells_filters")
+
+    @data_cells_filters.setter
+    def data_cells_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataCellsFilterArgs']]]]):
+        pulumi.set(self, "data_cells_filters", value)
+
+    @property
+    @pulumi.getter(name="dataLocations")
+    def data_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataLocationArgs']]]]:
+        """
+        Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+        """
+        return pulumi.get(self, "data_locations")
+
+    @data_locations.setter
+    def data_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataLocationArgs']]]]):
+        pulumi.set(self, "data_locations", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[pulumi.Input['OptInResourceDataDatabaseArgs']]:
+        """
+        Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[pulumi.Input['OptInResourceDataDatabaseArgs']]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="lfTag")
+    def lf_tag(self) -> Optional[pulumi.Input['OptInResourceDataLfTagArgs']]:
+        """
+        LF-tag key and values attached to a resource.
+        """
+        return pulumi.get(self, "lf_tag")
+
+    @lf_tag.setter
+    def lf_tag(self, value: Optional[pulumi.Input['OptInResourceDataLfTagArgs']]):
+        pulumi.set(self, "lf_tag", value)
+
+    @property
+    @pulumi.getter(name="lfTagExpressions")
+    def lf_tag_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagExpressionArgs']]]]:
+        """
+        Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+        """
+        return pulumi.get(self, "lf_tag_expressions")
+
+    @lf_tag_expressions.setter
+    def lf_tag_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagExpressionArgs']]]]):
+        pulumi.set(self, "lf_tag_expressions", value)
+
+    @property
+    @pulumi.getter(name="lfTagPolicies")
+    def lf_tag_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagPolicyArgs']]]]:
+        """
+        List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
+        """
+        return pulumi.get(self, "lf_tag_policies")
+
+    @lf_tag_policies.setter
+    def lf_tag_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagPolicyArgs']]]]):
+        pulumi.set(self, "lf_tag_policies", value)
+
+    @property
+    @pulumi.getter
+    def table(self) -> Optional[pulumi.Input['OptInResourceDataTableArgs']]:
+        """
+        Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: Optional[pulumi.Input['OptInResourceDataTableArgs']]):
+        pulumi.set(self, "table", value)
+
+    @property
+    @pulumi.getter(name="tableWithColumns")
+    def table_with_columns(self) -> Optional[pulumi.Input['OptInResourceDataTableWithColumnsArgs']]:
+        """
+        Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+        """
+        return pulumi.get(self, "table_with_columns")
+
+    @table_with_columns.setter
+    def table_with_columns(self, value: Optional[pulumi.Input['OptInResourceDataTableWithColumnsArgs']]):
+        pulumi.set(self, "table_with_columns", value)
+
+
+if not MYPY:
+    class OptInResourceDataCatalogArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier for the catalog resource.
+        """
+elif False:
+    OptInResourceDataCatalogArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInResourceDataCatalogArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: Identifier for the catalog resource.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the catalog resource.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class OptInResourceDataDataCellsFilterArgsDict(TypedDict):
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the table.
+        """
+        table_catalog_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the catalog to which the table belongs.
+        """
+        table_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the table.
+        """
+elif False:
+    OptInResourceDataDataCellsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInResourceDataDataCellsFilterArgs:
+    def __init__(__self__, *,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 table_catalog_id: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] database_name: The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        :param pulumi.Input[str] name: Name of the table.
+        :param pulumi.Input[str] table_catalog_id: ID of the catalog to which the table belongs.
+        :param pulumi.Input[str] table_name: Name of the table.
+        """
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if table_catalog_id is not None:
+            pulumi.set(__self__, "table_catalog_id", table_catalog_id)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="tableCatalogId")
+    def table_catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the catalog to which the table belongs.
+        """
+        return pulumi.get(self, "table_catalog_id")
+
+    @table_catalog_id.setter
+    def table_catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_catalog_id", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_name", value)
+
+
+if not MYPY:
+    class OptInResourceDataDataLocationArgsDict(TypedDict):
+        resource_arn: pulumi.Input[str]
+        """
+        ARN that uniquely identifies the data location resource.
+        """
+        catalog_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+elif False:
+    OptInResourceDataDataLocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInResourceDataDataLocationArgs:
+    def __init__(__self__, *,
+                 resource_arn: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] resource_arn: ARN that uniquely identifies the data location resource.
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[str]:
+        """
+        ARN that uniquely identifies the data location resource.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+
+if not MYPY:
+    class OptInResourceDataDatabaseArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the table.
+        """
+        catalog_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+elif False:
+    OptInResourceDataDatabaseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInResourceDataDatabaseArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the table.
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        pulumi.set(__self__, "name", name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+
+if not MYPY:
+    class OptInResourceDataLfTagArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        value: pulumi.Input[str]
+        catalog_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+elif False:
+    OptInResourceDataLfTagArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInResourceDataLfTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+
+if not MYPY:
+    class OptInResourceDataLfTagExpressionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the table.
+        """
+        catalog_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+elif False:
+    OptInResourceDataLfTagExpressionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInResourceDataLfTagExpressionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the table.
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        pulumi.set(__self__, "name", name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+
+if not MYPY:
+    class OptInResourceDataLfTagPolicyArgsDict(TypedDict):
+        resource_type: pulumi.Input[str]
+        """
+        Resource type for which the LF-tag policy applies.
+        """
+        catalog_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        expression_name: NotRequired[pulumi.Input[str]]
+        """
+        If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+        """
+        expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+        """
+elif False:
+    OptInResourceDataLfTagPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInResourceDataLfTagPolicyArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 expression_name: Optional[pulumi.Input[str]] = None,
+                 expressions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] resource_type: Resource type for which the LF-tag policy applies.
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param pulumi.Input[str] expression_name: If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] expressions: List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+        """
+        pulumi.set(__self__, "resource_type", resource_type)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if expression_name is not None:
+            pulumi.set(__self__, "expression_name", expression_name)
+        if expressions is not None:
+            pulumi.set(__self__, "expressions", expressions)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[str]:
+        """
+        Resource type for which the LF-tag policy applies.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="expressionName")
+    def expression_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+        """
+        return pulumi.get(self, "expression_name")
+
+    @expression_name.setter
+    def expression_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expression_name", value)
+
+    @property
+    @pulumi.getter
+    def expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+        """
+        return pulumi.get(self, "expressions")
+
+    @expressions.setter
+    def expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "expressions", value)
+
+
+if not MYPY:
+    class OptInResourceDataTableArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
+        catalog_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the table.
+        """
+        wildcard: NotRequired[pulumi.Input[bool]]
+elif False:
+    OptInResourceDataTableArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInResourceDataTableArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 wildcard: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] database_name: The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param pulumi.Input[str] name: Name of the table.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if wildcard is not None:
+            pulumi.set(__self__, "wildcard", wildcard)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def wildcard(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "wildcard")
+
+    @wildcard.setter
+    def wildcard(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "wildcard", value)
+
+
+if not MYPY:
+    class OptInResourceDataTableWithColumnsArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the table.
+        """
+        catalog_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
+        """
+        column_wildcard: NotRequired[pulumi.Input['OptInResourceDataTableWithColumnsColumnWildcardArgsDict']]
+        """
+        Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+        """
+elif False:
+    OptInResourceDataTableWithColumnsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInResourceDataTableWithColumnsArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 column_wildcard: Optional[pulumi.Input['OptInResourceDataTableWithColumnsColumnWildcardArgs']] = None):
+        """
+        :param pulumi.Input[str] database_name: The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        :param pulumi.Input[str] name: Name of the table.
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
+        :param pulumi.Input['OptInResourceDataTableWithColumnsColumnWildcardArgs'] column_wildcard: Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if column_names is not None:
+            pulumi.set(__self__, "column_names", column_names)
+        if column_wildcard is not None:
+            pulumi.set(__self__, "column_wildcard", column_wildcard)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="columnNames")
+    def column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
+        """
+        return pulumi.get(self, "column_names")
+
+    @column_names.setter
+    def column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "column_names", value)
+
+    @property
+    @pulumi.getter(name="columnWildcard")
+    def column_wildcard(self) -> Optional[pulumi.Input['OptInResourceDataTableWithColumnsColumnWildcardArgs']]:
+        """
+        Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+        """
+        return pulumi.get(self, "column_wildcard")
+
+    @column_wildcard.setter
+    def column_wildcard(self, value: Optional[pulumi.Input['OptInResourceDataTableWithColumnsColumnWildcardArgs']]):
+        pulumi.set(self, "column_wildcard", value)
+
+
+if not MYPY:
+    class OptInResourceDataTableWithColumnsColumnWildcardArgsDict(TypedDict):
+        excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    OptInResourceDataTableWithColumnsColumnWildcardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptInResourceDataTableWithColumnsColumnWildcardArgs:
+    def __init__(__self__, *,
+                 excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if excluded_column_names is not None:
+            pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+
+    @property
+    @pulumi.getter(name="excludedColumnNames")
+    def excluded_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "excluded_column_names")
+
+    @excluded_column_names.setter
+    def excluded_column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_column_names", value)
 
 
 if not MYPY:

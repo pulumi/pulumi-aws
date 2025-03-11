@@ -19,14 +19,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     public static final InstanceArgs Empty = new InstanceArgs();
 
     /**
-     * The add on configuration for the instance. Detailed below.
+     * The add-on configuration for the instance. Detailed below.
      * 
      */
     @Import(name="addOn")
     private @Nullable Output<InstanceAddOnArgs> addOn;
 
     /**
-     * @return The add on configuration for the instance. Detailed below.
+     * @return The add-on configuration for the instance. Detailed below.
      * 
      */
     public Optional<Output<InstanceAddOnArgs>> addOn() {
@@ -91,14 +91,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * @return The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -200,7 +200,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addOn The add on configuration for the instance. Detailed below.
+         * @param addOn The add-on configuration for the instance. Detailed below.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addOn The add on configuration for the instance. Detailed below.
+         * @param addOn The add-on configuration for the instance. Detailed below.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+         * @param ipAddressType The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+         * @param ipAddressType The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
          * 
          * @return builder
          * 

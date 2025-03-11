@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Comprehend.Outputs
     public sealed class DocumentClassifierInputDataConfig
     {
         /// <summary>
-        /// List of training datasets produced by Amazon SageMaker Ground Truth.
+        /// List of training datasets produced by Amazon SageMaker AI Ground Truth.
         /// Used if `data_format` is `AUGMENTED_MANIFEST`.
         /// See the `augmented_manifests` Configuration Block section below.
         /// </summary>

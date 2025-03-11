@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
     /**
-     * @return The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+     * @return The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
      * 
      */
     private @Nullable Integer idleTimeoutInMinutes;
@@ -35,7 +35,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManag
 
     private UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings() {}
     /**
-     * @return The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+     * @return The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
      * 
      */
     public Optional<Integer> idleTimeoutInMinutes() {

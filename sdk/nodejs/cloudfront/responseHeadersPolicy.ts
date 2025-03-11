@@ -129,6 +129,10 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The response headers policy ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
@@ -174,6 +178,7 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResponseHeadersPolicyState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["corsConfig"] = state ? state.corsConfig : undefined;
             resourceInputs["customHeadersConfig"] = state ? state.customHeadersConfig : undefined;
@@ -192,6 +197,7 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
             resourceInputs["removeHeadersConfig"] = args ? args.removeHeadersConfig : undefined;
             resourceInputs["securityHeadersConfig"] = args ? args.securityHeadersConfig : undefined;
             resourceInputs["serverTimingHeadersConfig"] = args ? args.serverTimingHeadersConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResponseHeadersPolicy.__pulumiType, name, resourceInputs, opts);
@@ -202,6 +208,10 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResponseHeadersPolicy resources.
  */
 export interface ResponseHeadersPolicyState {
+    /**
+     * The response headers policy ARN.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      */

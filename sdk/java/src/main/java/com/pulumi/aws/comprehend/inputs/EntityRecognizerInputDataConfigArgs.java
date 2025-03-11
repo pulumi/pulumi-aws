@@ -42,7 +42,7 @@ public final class EntityRecognizerInputDataConfigArgs extends com.pulumi.resour
     }
 
     /**
-     * List of training datasets produced by Amazon SageMaker Ground Truth.
+     * List of training datasets produced by Amazon SageMaker AI Ground Truth.
      * Used if `data_format` is `AUGMENTED_MANIFEST`.
      * See the `augmented_manifests` Configuration Block section below.
      * 
@@ -51,7 +51,7 @@ public final class EntityRecognizerInputDataConfigArgs extends com.pulumi.resour
     private @Nullable Output<List<EntityRecognizerInputDataConfigAugmentedManifestArgs>> augmentedManifests;
 
     /**
-     * @return List of training datasets produced by Amazon SageMaker Ground Truth.
+     * @return List of training datasets produced by Amazon SageMaker AI Ground Truth.
      * Used if `data_format` is `AUGMENTED_MANIFEST`.
      * See the `augmented_manifests` Configuration Block section below.
      * 
@@ -189,7 +189,7 @@ public final class EntityRecognizerInputDataConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param augmentedManifests List of training datasets produced by Amazon SageMaker Ground Truth.
+         * @param augmentedManifests List of training datasets produced by Amazon SageMaker AI Ground Truth.
          * Used if `data_format` is `AUGMENTED_MANIFEST`.
          * See the `augmented_manifests` Configuration Block section below.
          * 
@@ -202,7 +202,7 @@ public final class EntityRecognizerInputDataConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param augmentedManifests List of training datasets produced by Amazon SageMaker Ground Truth.
+         * @param augmentedManifests List of training datasets produced by Amazon SageMaker AI Ground Truth.
          * Used if `data_format` is `AUGMENTED_MANIFEST`.
          * See the `augmented_manifests` Configuration Block section below.
          * 
@@ -214,7 +214,7 @@ public final class EntityRecognizerInputDataConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param augmentedManifests List of training datasets produced by Amazon SageMaker Ground Truth.
+         * @param augmentedManifests List of training datasets produced by Amazon SageMaker AI Ground Truth.
          * Used if `data_format` is `AUGMENTED_MANIFEST`.
          * See the `augmented_manifests` Configuration Block section below.
          * 

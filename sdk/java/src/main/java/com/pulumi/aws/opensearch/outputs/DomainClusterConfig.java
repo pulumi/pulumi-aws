@@ -4,11 +4,13 @@
 package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.aws.opensearch.outputs.DomainClusterConfigColdStorageOptions;
+import com.pulumi.aws.opensearch.outputs.DomainClusterConfigNodeOption;
 import com.pulumi.aws.opensearch.outputs.DomainClusterConfigZoneAwarenessConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -50,6 +52,11 @@ public final class DomainClusterConfig {
      * 
      */
     private @Nullable Boolean multiAzWithStandbyEnabled;
+    /**
+     * @return List of node options for the domain.
+     * 
+     */
+    private @Nullable List<DomainClusterConfigNodeOption> nodeOptions;
     /**
      * @return Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
      * 
@@ -127,6 +134,13 @@ public final class DomainClusterConfig {
         return Optional.ofNullable(this.multiAzWithStandbyEnabled);
     }
     /**
+     * @return List of node options for the domain.
+     * 
+     */
+    public List<DomainClusterConfigNodeOption> nodeOptions() {
+        return this.nodeOptions == null ? List.of() : this.nodeOptions;
+    }
+    /**
      * @return Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
      * 
      */
@@ -178,6 +192,7 @@ public final class DomainClusterConfig {
         private @Nullable Integer instanceCount;
         private @Nullable String instanceType;
         private @Nullable Boolean multiAzWithStandbyEnabled;
+        private @Nullable List<DomainClusterConfigNodeOption> nodeOptions;
         private @Nullable Integer warmCount;
         private @Nullable Boolean warmEnabled;
         private @Nullable String warmType;
@@ -193,6 +208,7 @@ public final class DomainClusterConfig {
     	      this.instanceCount = defaults.instanceCount;
     	      this.instanceType = defaults.instanceType;
     	      this.multiAzWithStandbyEnabled = defaults.multiAzWithStandbyEnabled;
+    	      this.nodeOptions = defaults.nodeOptions;
     	      this.warmCount = defaults.warmCount;
     	      this.warmEnabled = defaults.warmEnabled;
     	      this.warmType = defaults.warmType;
@@ -243,6 +259,15 @@ public final class DomainClusterConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder nodeOptions(@Nullable List<DomainClusterConfigNodeOption> nodeOptions) {
+
+            this.nodeOptions = nodeOptions;
+            return this;
+        }
+        public Builder nodeOptions(DomainClusterConfigNodeOption... nodeOptions) {
+            return nodeOptions(List.of(nodeOptions));
+        }
+        @CustomType.Setter
         public Builder warmCount(@Nullable Integer warmCount) {
 
             this.warmCount = warmCount;
@@ -281,6 +306,7 @@ public final class DomainClusterConfig {
             _resultValue.instanceCount = instanceCount;
             _resultValue.instanceType = instanceType;
             _resultValue.multiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
+            _resultValue.nodeOptions = nodeOptions;
             _resultValue.warmCount = warmCount;
             _resultValue.warmEnabled = warmEnabled;
             _resultValue.warmType = warmType;

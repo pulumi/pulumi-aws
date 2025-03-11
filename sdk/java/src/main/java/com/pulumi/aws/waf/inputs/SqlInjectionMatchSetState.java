@@ -18,6 +18,21 @@ public final class SqlInjectionMatchSetState extends com.pulumi.resources.Resour
     public static final SqlInjectionMatchSetState Empty = new SqlInjectionMatchSetState();
 
     /**
+     * Amazon Resource Name (ARN) of the SQL injection match set.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the SQL injection match set.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * The name or description of the SQL Injection Match Set.
      * 
      */
@@ -50,6 +65,7 @@ public final class SqlInjectionMatchSetState extends com.pulumi.resources.Resour
     private SqlInjectionMatchSetState() {}
 
     private SqlInjectionMatchSetState(SqlInjectionMatchSetState $) {
+        this.arn = $.arn;
         this.name = $.name;
         this.sqlInjectionMatchTuples = $.sqlInjectionMatchTuples;
     }
@@ -70,6 +86,27 @@ public final class SqlInjectionMatchSetState extends com.pulumi.resources.Resour
 
         public Builder(SqlInjectionMatchSetState defaults) {
             $ = new SqlInjectionMatchSetState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) of the SQL injection match set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) of the SQL injection match set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

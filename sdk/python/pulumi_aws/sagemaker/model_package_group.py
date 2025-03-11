@@ -173,7 +173,7 @@ class ModelPackageGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Model Package Group resource.
+        Provides a SageMaker AI Model Package Group resource.
 
         ## Example Usage
 
@@ -188,7 +188,7 @@ class ModelPackageGroup(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
@@ -207,7 +207,7 @@ class ModelPackageGroup(pulumi.CustomResource):
                  args: ModelPackageGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Model Package Group resource.
+        Provides a SageMaker AI Model Package Group resource.
 
         ## Example Usage
 
@@ -222,7 +222,7 @@ class ModelPackageGroup(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo

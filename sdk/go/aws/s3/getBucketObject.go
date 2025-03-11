@@ -127,7 +127,7 @@ func LookupBucketObject(ctx *pulumi.Context, args *LookupBucketObjectArgs, opts 
 type LookupBucketObjectArgs struct {
 	// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	//
-	// Deprecated: Use the s3.BucketObjectv2 data source instead
+	// Deprecated: bucket is deprecated. Use the s3.BucketObjectv2 data source instead.
 	Bucket string `pulumi:"bucket"`
 	// Full path to the object inside the bucket
 	Key   string  `pulumi:"key"`
@@ -143,7 +143,7 @@ type LookupBucketObjectResult struct {
 	Arn string `pulumi:"arn"`
 	// Object data (see **limitations above** to understand cases in which this field is actually available)
 	Body string `pulumi:"body"`
-	// Deprecated: Use the s3.BucketObjectv2 data source instead
+	// Deprecated: bucket is deprecated. Use the s3.BucketObjectv2 data source instead.
 	Bucket string `pulumi:"bucket"`
 	// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled bool `pulumi:"bucketKeyEnabled"`
@@ -206,7 +206,7 @@ func LookupBucketObjectOutput(ctx *pulumi.Context, args LookupBucketObjectOutput
 type LookupBucketObjectOutputArgs struct {
 	// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	//
-	// Deprecated: Use the s3.BucketObjectv2 data source instead
+	// Deprecated: bucket is deprecated. Use the s3.BucketObjectv2 data source instead.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Full path to the object inside the bucket
 	Key   pulumi.StringInput    `pulumi:"key"`
@@ -245,7 +245,7 @@ func (o LookupBucketObjectResultOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Body }).(pulumi.StringOutput)
 }
 
-// Deprecated: Use the s3.BucketObjectv2 data source instead
+// Deprecated: bucket is deprecated. Use the s3.BucketObjectv2 data source instead.
 func (o LookupBucketObjectResultOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Bucket }).(pulumi.StringOutput)
 }

@@ -67,6 +67,10 @@ export interface GetCachePolicyArgs {
  */
 export interface GetCachePolicyResult {
     /**
+     * The cache policy ARN.
+     */
+    readonly arn: string;
+    /**
      * Comment to describe the cache policy.
      */
     readonly comment: string;

@@ -132,10 +132,10 @@ public final class GetDomainResult {
      * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
      * 
      * @deprecated
-     * use &#39;dashboard_endpoint&#39; attribute instead
+     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
      * 
      */
-    @Deprecated /* use 'dashboard_endpoint' attribute instead */
+    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
     private String kibanaEndpoint;
     /**
      * @return Domain log publishing related options.
@@ -326,10 +326,10 @@ public final class GetDomainResult {
      * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
      * 
      * @deprecated
-     * use &#39;dashboard_endpoint&#39; attribute instead
+     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
      * 
      */
-    @Deprecated /* use 'dashboard_endpoint' attribute instead */
+    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
     public String kibanaEndpoint() {
         return this.kibanaEndpoint;
     }

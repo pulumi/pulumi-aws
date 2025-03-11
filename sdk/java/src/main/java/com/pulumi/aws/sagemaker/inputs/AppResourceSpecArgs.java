@@ -16,14 +16,14 @@ public final class AppResourceSpecArgs extends com.pulumi.resources.ResourceArgs
     public static final AppResourceSpecArgs Empty = new AppResourceSpecArgs();
 
     /**
-     * The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+     * The instance type that the image version runs on. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
      * 
      */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
     /**
-     * @return The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+     * @return The instance type that the image version runs on. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
      * 
      */
     public Optional<Output<String>> instanceType() {
@@ -46,14 +46,14 @@ public final class AppResourceSpecArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ARN of the SageMaker image that the image version belongs to.
+     * The ARN of the SageMaker AI image that the image version belongs to.
      * 
      */
     @Import(name="sagemakerImageArn")
     private @Nullable Output<String> sagemakerImageArn;
 
     /**
-     * @return The ARN of the SageMaker image that the image version belongs to.
+     * @return The ARN of the SageMaker AI image that the image version belongs to.
      * 
      */
     public Optional<Output<String>> sagemakerImageArn() {
@@ -61,14 +61,14 @@ public final class AppResourceSpecArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The SageMaker Image Version Alias.
+     * The SageMaker AI Image Version Alias.
      * 
      */
     @Import(name="sagemakerImageVersionAlias")
     private @Nullable Output<String> sagemakerImageVersionAlias;
 
     /**
-     * @return The SageMaker Image Version Alias.
+     * @return The SageMaker AI Image Version Alias.
      * 
      */
     public Optional<Output<String>> sagemakerImageVersionAlias() {
@@ -119,7 +119,7 @@ public final class AppResourceSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceType The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         * @param instanceType The instance type that the image version runs on. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class AppResourceSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceType The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         * @param instanceType The instance type that the image version runs on. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class AppResourceSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sagemakerImageArn The ARN of the SageMaker image that the image version belongs to.
+         * @param sagemakerImageArn The ARN of the SageMaker AI image that the image version belongs to.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class AppResourceSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sagemakerImageArn The ARN of the SageMaker image that the image version belongs to.
+         * @param sagemakerImageArn The ARN of the SageMaker AI image that the image version belongs to.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class AppResourceSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sagemakerImageVersionAlias The SageMaker Image Version Alias.
+         * @param sagemakerImageVersionAlias The SageMaker AI Image Version Alias.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class AppResourceSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sagemakerImageVersionAlias The SageMaker Image Version Alias.
+         * @param sagemakerImageVersionAlias The SageMaker AI Image Version Alias.
          * 
          * @return builder
          * 

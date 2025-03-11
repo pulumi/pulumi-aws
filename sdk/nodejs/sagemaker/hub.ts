@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker Hub resource.
+ * Provides a SageMaker AI Hub resource.
  *
  * ## Example Usage
  *
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import SageMaker Hubs using the `name`. For example:
+ * Using `pulumi import`, import SageMaker AI Hubs using the `name`. For example:
  *
  * ```sh
  * $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo

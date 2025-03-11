@@ -146,7 +146,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
      */
     public readonly proposalId!: pulumi.Output<string | undefined>;
     /**
-     * @deprecated use 'associated_gateway_id' argument instead
+     * @deprecated vpn_gateway_id is deprecated. Use associatedGatewayId instead.
      */
     public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
 
@@ -232,7 +232,7 @@ export interface GatewayAssociationState {
      */
     proposalId?: pulumi.Input<string>;
     /**
-     * @deprecated use 'associated_gateway_id' argument instead
+     * @deprecated vpn_gateway_id is deprecated. Use associatedGatewayId instead.
      */
     vpnGatewayId?: pulumi.Input<string>;
 }
@@ -265,7 +265,7 @@ export interface GatewayAssociationArgs {
      */
     proposalId?: pulumi.Input<string>;
     /**
-     * @deprecated use 'associated_gateway_id' argument instead
+     * @deprecated vpn_gateway_id is deprecated. Use associatedGatewayId instead.
      */
     vpnGatewayId?: pulumi.Input<string>;
 }

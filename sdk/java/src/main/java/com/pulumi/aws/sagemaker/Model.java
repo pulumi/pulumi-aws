@@ -22,7 +22,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker model resource.
+ * Provides a SageMaker AI model resource.
  * 
  * ## Example Usage
  * 
@@ -148,14 +148,14 @@ public class Model extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableNetworkIsolation);
     }
     /**
-     * A role that SageMaker can assume to access model artifacts and docker images for deployment.
+     * A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
      * 
      */
     @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> executionRoleArn;
 
     /**
-     * @return A role that SageMaker can assume to access model artifacts and docker images for deployment.
+     * @return A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
      * 
      */
     public Output<String> executionRoleArn() {

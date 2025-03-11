@@ -1142,7 +1142,7 @@ if not MYPY:
         """
         status: pulumi.Input[str]
         """
-        The status of the add on. Valid Values: `Enabled`, `Disabled`.
+        The status of the add-on. Valid Values: `Enabled`, `Disabled`.
         """
         type: pulumi.Input[str]
         """
@@ -1159,7 +1159,7 @@ class InstanceAddOnArgs:
                  type: pulumi.Input[str]):
         """
         :param pulumi.Input[str] snapshot_time: The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
-        :param pulumi.Input[str] status: The status of the add on. Valid Values: `Enabled`, `Disabled`.
+        :param pulumi.Input[str] status: The status of the add-on. Valid Values: `Enabled`, `Disabled`.
         :param pulumi.Input[str] type: The add-on type. There is currently only one valid type `AutoSnapshot`.
         """
         pulumi.set(__self__, "snapshot_time", snapshot_time)
@@ -1182,7 +1182,7 @@ class InstanceAddOnArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The status of the add on. Valid Values: `Enabled`, `Disabled`.
+        The status of the add-on. Valid Values: `Enabled`, `Disabled`.
         """
         return pulumi.get(self, "status")
 

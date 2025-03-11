@@ -42,7 +42,7 @@ public final class DomainDefaultUserSettings {
      */
     private @Nullable DomainDefaultUserSettingsCodeEditorAppSettings codeEditorAppSettings;
     /**
-     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
      * 
      */
     private @Nullable List<DomainDefaultUserSettingsCustomFileSystemConfig> customFileSystemConfigs;
@@ -140,7 +140,7 @@ public final class DomainDefaultUserSettings {
         return Optional.ofNullable(this.codeEditorAppSettings);
     }
     /**
-     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
      * 
      */
     public List<DomainDefaultUserSettingsCustomFileSystemConfig> customFileSystemConfigs() {

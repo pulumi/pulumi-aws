@@ -155,15 +155,15 @@ class SpotInstanceRequestArgs:
         if capacity_reservation_specification is not None:
             pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
         if cpu_core_count is not None:
-            warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
-            pulumi.log.warn("""cpu_core_count is deprecated: use 'cpu_options' argument instead""")
+            warnings.warn("""cpu_core_count is deprecated. Use cpu_options instead.""", DeprecationWarning)
+            pulumi.log.warn("""cpu_core_count is deprecated: cpu_core_count is deprecated. Use cpu_options instead.""")
         if cpu_core_count is not None:
             pulumi.set(__self__, "cpu_core_count", cpu_core_count)
         if cpu_options is not None:
             pulumi.set(__self__, "cpu_options", cpu_options)
         if cpu_threads_per_core is not None:
-            warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
-            pulumi.log.warn("""cpu_threads_per_core is deprecated: use 'cpu_options' argument instead""")
+            warnings.warn("""cpu_threads_per_core is deprecated. Use cpu_options instead.""", DeprecationWarning)
+            pulumi.log.warn("""cpu_threads_per_core is deprecated: cpu_threads_per_core is deprecated. Use cpu_options instead.""")
         if cpu_threads_per_core is not None:
             pulumi.set(__self__, "cpu_threads_per_core", cpu_threads_per_core)
         if credit_specification is not None:
@@ -325,7 +325,7 @@ class SpotInstanceRequestArgs:
 
     @property
     @pulumi.getter(name="cpuCoreCount")
-    @_utilities.deprecated("""use 'cpu_options' argument instead""")
+    @_utilities.deprecated("""cpu_core_count is deprecated. Use cpu_options instead.""")
     def cpu_core_count(self) -> Optional[pulumi.Input[int]]:
         """
         Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
@@ -350,7 +350,7 @@ class SpotInstanceRequestArgs:
 
     @property
     @pulumi.getter(name="cpuThreadsPerCore")
-    @_utilities.deprecated("""use 'cpu_options' argument instead""")
+    @_utilities.deprecated("""cpu_threads_per_core is deprecated. Use cpu_options instead.""")
     def cpu_threads_per_core(self) -> Optional[pulumi.Input[int]]:
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -1088,15 +1088,15 @@ class _SpotInstanceRequestState:
         if capacity_reservation_specification is not None:
             pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
         if cpu_core_count is not None:
-            warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
-            pulumi.log.warn("""cpu_core_count is deprecated: use 'cpu_options' argument instead""")
+            warnings.warn("""cpu_core_count is deprecated. Use cpu_options instead.""", DeprecationWarning)
+            pulumi.log.warn("""cpu_core_count is deprecated: cpu_core_count is deprecated. Use cpu_options instead.""")
         if cpu_core_count is not None:
             pulumi.set(__self__, "cpu_core_count", cpu_core_count)
         if cpu_options is not None:
             pulumi.set(__self__, "cpu_options", cpu_options)
         if cpu_threads_per_core is not None:
-            warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
-            pulumi.log.warn("""cpu_threads_per_core is deprecated: use 'cpu_options' argument instead""")
+            warnings.warn("""cpu_threads_per_core is deprecated. Use cpu_options instead.""", DeprecationWarning)
+            pulumi.log.warn("""cpu_threads_per_core is deprecated: cpu_threads_per_core is deprecated. Use cpu_options instead.""")
         if cpu_threads_per_core is not None:
             pulumi.set(__self__, "cpu_threads_per_core", cpu_threads_per_core)
         if credit_specification is not None:
@@ -1292,7 +1292,7 @@ class _SpotInstanceRequestState:
 
     @property
     @pulumi.getter(name="cpuCoreCount")
-    @_utilities.deprecated("""use 'cpu_options' argument instead""")
+    @_utilities.deprecated("""cpu_core_count is deprecated. Use cpu_options instead.""")
     def cpu_core_count(self) -> Optional[pulumi.Input[int]]:
         """
         Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
@@ -1317,7 +1317,7 @@ class _SpotInstanceRequestState:
 
     @property
     @pulumi.getter(name="cpuThreadsPerCore")
-    @_utilities.deprecated("""use 'cpu_options' argument instead""")
+    @_utilities.deprecated("""cpu_threads_per_core is deprecated. Use cpu_options instead.""")
     def cpu_threads_per_core(self) -> Optional[pulumi.Input[int]]:
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -2671,7 +2671,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cpuCoreCount")
-    @_utilities.deprecated("""use 'cpu_options' argument instead""")
+    @_utilities.deprecated("""cpu_core_count is deprecated. Use cpu_options instead.""")
     def cpu_core_count(self) -> pulumi.Output[int]:
         """
         Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
@@ -2688,7 +2688,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cpuThreadsPerCore")
-    @_utilities.deprecated("""use 'cpu_options' argument instead""")
+    @_utilities.deprecated("""cpu_threads_per_core is deprecated. Use cpu_options instead.""")
     def cpu_threads_per_core(self) -> pulumi.Output[int]:
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.

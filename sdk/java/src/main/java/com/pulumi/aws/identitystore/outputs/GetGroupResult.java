@@ -34,10 +34,10 @@ public final class GetGroupResult {
     private List<GetGroupExternalId> externalIds;
     /**
      * @deprecated
-     * Use the alternate_identifier attribute instead.
+     * filter is deprecated. Use alternate_identifier instead.
      * 
      */
-    @Deprecated /* Use the alternate_identifier attribute instead. */
+    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
     private @Nullable GetGroupFilter filter;
     private String groupId;
     /**
@@ -74,10 +74,10 @@ public final class GetGroupResult {
     }
     /**
      * @deprecated
-     * Use the alternate_identifier attribute instead.
+     * filter is deprecated. Use alternate_identifier instead.
      * 
      */
-    @Deprecated /* Use the alternate_identifier attribute instead. */
+    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
     public Optional<GetGroupFilter> filter() {
         return Optional.ofNullable(this.filter);
     }

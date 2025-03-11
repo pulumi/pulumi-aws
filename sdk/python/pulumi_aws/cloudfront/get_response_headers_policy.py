@@ -27,7 +27,10 @@ class GetResponseHeadersPolicyResult:
     """
     A collection of values returned by getResponseHeadersPolicy.
     """
-    def __init__(__self__, comment=None, cors_configs=None, custom_headers_configs=None, etag=None, id=None, name=None, remove_headers_configs=None, security_headers_configs=None, server_timing_headers_configs=None):
+    def __init__(__self__, arn=None, comment=None, cors_configs=None, custom_headers_configs=None, etag=None, id=None, name=None, remove_headers_configs=None, security_headers_configs=None, server_timing_headers_configs=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if comment and not isinstance(comment, str):
             raise TypeError("Expected argument 'comment' to be a str")
         pulumi.set(__self__, "comment", comment)
@@ -55,6 +58,14 @@ class GetResponseHeadersPolicyResult:
         if server_timing_headers_configs and not isinstance(server_timing_headers_configs, list):
             raise TypeError("Expected argument 'server_timing_headers_configs' to be a list")
         pulumi.set(__self__, "server_timing_headers_configs", server_timing_headers_configs)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The response headers policy ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetResponseHeadersPolicyResult(GetResponseHeadersPolicyResult):
         if False:
             yield self
         return GetResponseHeadersPolicyResult(
+            arn=self.arn,
             comment=self.comment,
             cors_configs=self.cors_configs,
             custom_headers_configs=self.custom_headers_configs,
@@ -179,6 +191,7 @@ def get_response_headers_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy', __args__, opts=opts, typ=GetResponseHeadersPolicyResult).value
 
     return AwaitableGetResponseHeadersPolicyResult(
+        arn=pulumi.get(__ret__, 'arn'),
         comment=pulumi.get(__ret__, 'comment'),
         cors_configs=pulumi.get(__ret__, 'cors_configs'),
         custom_headers_configs=pulumi.get(__ret__, 'custom_headers_configs'),
@@ -226,6 +239,7 @@ def get_response_headers_policy_output(id: Optional[pulumi.Input[Optional[str]]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy', __args__, opts=opts, typ=GetResponseHeadersPolicyResult)
     return __ret__.apply(lambda __response__: GetResponseHeadersPolicyResult(
+        arn=pulumi.get(__response__, 'arn'),
         comment=pulumi.get(__response__, 'comment'),
         cors_configs=pulumi.get(__response__, 'cors_configs'),
         custom_headers_configs=pulumi.get(__response__, 'custom_headers_configs'),

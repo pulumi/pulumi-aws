@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker Pipeline resource.
+ * Provides a SageMaker AI Pipeline resource.
  *
  * ## Example Usage
  *
@@ -84,7 +84,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly pipelineDefinition!: pulumi.Output<string | undefined>;
     /**
-     * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+     * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
      */
     public readonly pipelineDefinitionS3Location!: pulumi.Output<outputs.sagemaker.PipelinePipelineDefinitionS3Location | undefined>;
     /**
@@ -178,7 +178,7 @@ export interface PipelineState {
      */
     pipelineDefinition?: pulumi.Input<string>;
     /**
-     * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+     * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
      */
     pipelineDefinitionS3Location?: pulumi.Input<inputs.sagemaker.PipelinePipelineDefinitionS3Location>;
     /**
@@ -222,7 +222,7 @@ export interface PipelineArgs {
      */
     pipelineDefinition?: pulumi.Input<string>;
     /**
-     * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+     * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
      */
     pipelineDefinitionS3Location?: pulumi.Input<inputs.sagemaker.PipelinePipelineDefinitionS3Location>;
     /**

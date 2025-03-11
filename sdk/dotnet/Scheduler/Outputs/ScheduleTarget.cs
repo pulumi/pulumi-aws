@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Scheduler.Outputs
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+        /// Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
         /// </summary>
         public readonly Outputs.ScheduleTargetSagemakerPipelineParameters? SagemakerPipelineParameters;
         /// <summary>

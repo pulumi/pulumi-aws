@@ -82,6 +82,10 @@ export class CachePolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The cache policy ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Description for the cache policy.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
@@ -123,6 +127,7 @@ export class CachePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CachePolicyState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["defaultTtl"] = state ? state.defaultTtl : undefined;
             resourceInputs["etag"] = state ? state.etag : undefined;
@@ -141,6 +146,7 @@ export class CachePolicy extends pulumi.CustomResource {
             resourceInputs["minTtl"] = args ? args.minTtl : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parametersInCacheKeyAndForwardedToOrigin"] = args ? args.parametersInCacheKeyAndForwardedToOrigin : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -152,6 +158,10 @@ export class CachePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CachePolicy resources.
  */
 export interface CachePolicyState {
+    /**
+     * The cache policy ARN.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Description for the cache policy.
      */

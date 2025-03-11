@@ -27,7 +27,7 @@ class ImageArgs:
         """
         The set of arguments for constructing a Image resource.
         :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         :param pulumi.Input[str] description: The description of the image.
         :param pulumi.Input[str] display_name: The display name of the image. When the image is added to a domain (must be unique to the domain).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -57,7 +57,7 @@ class ImageArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -118,7 +118,7 @@ class _ImageState:
         :param pulumi.Input[str] description: The description of the image.
         :param pulumi.Input[str] display_name: The display name of the image. When the image is added to a domain (must be unique to the domain).
         :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -192,7 +192,7 @@ class _ImageState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -238,7 +238,7 @@ class Image(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Image resource.
+        Provides a SageMaker AI Image resource.
 
         ## Example Usage
 
@@ -255,7 +255,7 @@ class Image(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI Code Images using the `name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
@@ -266,7 +266,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the image.
         :param pulumi.Input[str] display_name: The display name of the image. When the image is added to a domain (must be unique to the domain).
         :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -276,7 +276,7 @@ class Image(pulumi.CustomResource):
                  args: ImageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Image resource.
+        Provides a SageMaker AI Image resource.
 
         ## Example Usage
 
@@ -293,7 +293,7 @@ class Image(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI Code Images using the `name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
@@ -367,7 +367,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the image.
         :param pulumi.Input[str] display_name: The display name of the image. When the image is added to a domain (must be unique to the domain).
         :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -420,7 +420,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 

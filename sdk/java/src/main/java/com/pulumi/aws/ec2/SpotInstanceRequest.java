@@ -187,10 +187,10 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      * 
      * @deprecated
-     * use &#39;cpu_options&#39; argument instead
+     * cpu_core_count is deprecated. Use cpu_options instead.
      * 
      */
-    @Deprecated /* use 'cpu_options' argument instead */
+    @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
     @Export(name="cpuCoreCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuCoreCount;
 
@@ -219,10 +219,10 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      * 
      * @deprecated
-     * use &#39;cpu_options&#39; argument instead
+     * cpu_threads_per_core is deprecated. Use cpu_options instead.
      * 
      */
-    @Deprecated /* use 'cpu_options' argument instead */
+    @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
     @Export(name="cpuThreadsPerCore", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuThreadsPerCore;
 

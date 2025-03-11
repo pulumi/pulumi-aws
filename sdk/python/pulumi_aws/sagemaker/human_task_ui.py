@@ -174,7 +174,7 @@ class HumanTaskUI(pulumi.CustomResource):
                  ui_template: Optional[pulumi.Input[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Human Task UI resource.
+        Provides a SageMaker AI Human Task UI resource.
 
         ## Example Usage
 
@@ -192,7 +192,7 @@ class HumanTaskUI(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
+        Using `pulumi import`, import SageMaker AI Human Task UIs using the `human_task_ui_name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
@@ -211,7 +211,7 @@ class HumanTaskUI(pulumi.CustomResource):
                  args: HumanTaskUIArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Human Task UI resource.
+        Provides a SageMaker AI Human Task UI resource.
 
         ## Example Usage
 
@@ -229,7 +229,7 @@ class HumanTaskUI(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
+        Using `pulumi import`, import SageMaker AI Human Task UIs using the `human_task_ui_name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example

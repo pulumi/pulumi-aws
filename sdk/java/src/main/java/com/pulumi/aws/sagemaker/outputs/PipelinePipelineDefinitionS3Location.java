@@ -23,7 +23,7 @@ public final class PipelinePipelineDefinitionS3Location {
      */
     private String objectKey;
     /**
-     * @return Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+     * @return Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
      * 
      */
     private @Nullable String versionId;
@@ -44,7 +44,7 @@ public final class PipelinePipelineDefinitionS3Location {
         return this.objectKey;
     }
     /**
-     * @return Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+     * @return Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
      * 
      */
     public Optional<String> versionId() {

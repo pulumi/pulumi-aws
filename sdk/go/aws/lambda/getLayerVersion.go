@@ -92,7 +92,7 @@ type LookupLayerVersionResult struct {
 	SigningProfileVersionArn string `pulumi:"signingProfileVersionArn"`
 	// (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
 	//
-	// Deprecated: This attribute is deprecated and will be removed in a future major version. Use `codeSha256` instead.
+	// Deprecated: source_code_hash is deprecated. Use codeSha256 instead.
 	SourceCodeHash string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize int `pulumi:"sourceCodeSize"`
@@ -209,7 +209,7 @@ func (o LookupLayerVersionResultOutput) SigningProfileVersionArn() pulumi.String
 
 // (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
 //
-// Deprecated: This attribute is deprecated and will be removed in a future major version. Use `codeSha256` instead.
+// Deprecated: source_code_hash is deprecated. Use codeSha256 instead.
 func (o LookupLayerVersionResultOutput) SourceCodeHash() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.SourceCodeHash }).(pulumi.StringOutput)
 }

@@ -24,6 +24,8 @@ __all__ = [
     'DomainAutoTuneOptionsMaintenanceScheduleDuration',
     'DomainClusterConfig',
     'DomainClusterConfigColdStorageOptions',
+    'DomainClusterConfigNodeOption',
+    'DomainClusterConfigNodeOptionNodeConfig',
     'DomainClusterConfigZoneAwarenessConfig',
     'DomainCognitoOptions',
     'DomainDomainEndpointOptions',
@@ -54,6 +56,8 @@ __all__ = [
     'GetDomainAutoTuneOptionMaintenanceScheduleDurationResult',
     'GetDomainClusterConfigResult',
     'GetDomainClusterConfigColdStorageOptionResult',
+    'GetDomainClusterConfigNodeOptionResult',
+    'GetDomainClusterConfigNodeOptionNodeConfigResult',
     'GetDomainClusterConfigZoneAwarenessConfigResult',
     'GetDomainCognitoOptionResult',
     'GetDomainEbsOptionResult',
@@ -442,6 +446,8 @@ class DomainClusterConfig(dict):
             suggest = "instance_type"
         elif key == "multiAzWithStandbyEnabled":
             suggest = "multi_az_with_standby_enabled"
+        elif key == "nodeOptions":
+            suggest = "node_options"
         elif key == "warmCount":
             suggest = "warm_count"
         elif key == "warmEnabled":
@@ -472,6 +478,7 @@ class DomainClusterConfig(dict):
                  instance_count: Optional[int] = None,
                  instance_type: Optional[str] = None,
                  multi_az_with_standby_enabled: Optional[bool] = None,
+                 node_options: Optional[Sequence['outputs.DomainClusterConfigNodeOption']] = None,
                  warm_count: Optional[int] = None,
                  warm_enabled: Optional[bool] = None,
                  warm_type: Optional[str] = None,
@@ -485,6 +492,7 @@ class DomainClusterConfig(dict):
         :param int instance_count: Number of instances in the cluster.
         :param str instance_type: Instance type of data nodes in the cluster.
         :param bool multi_az_with_standby_enabled: Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+        :param Sequence['DomainClusterConfigNodeOptionArgs'] node_options: List of node options for the domain.
         :param int warm_count: Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         :param bool warm_enabled: Whether to enable warm storage.
         :param str warm_type: Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
@@ -505,6 +513,8 @@ class DomainClusterConfig(dict):
             pulumi.set(__self__, "instance_type", instance_type)
         if multi_az_with_standby_enabled is not None:
             pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
+        if node_options is not None:
+            pulumi.set(__self__, "node_options", node_options)
         if warm_count is not None:
             pulumi.set(__self__, "warm_count", warm_count)
         if warm_enabled is not None:
@@ -573,6 +583,14 @@ class DomainClusterConfig(dict):
         return pulumi.get(self, "multi_az_with_standby_enabled")
 
     @property
+    @pulumi.getter(name="nodeOptions")
+    def node_options(self) -> Optional[Sequence['outputs.DomainClusterConfigNodeOption']]:
+        """
+        List of node options for the domain.
+        """
+        return pulumi.get(self, "node_options")
+
+    @property
     @pulumi.getter(name="warmCount")
     def warm_count(self) -> Optional[int]:
         """
@@ -630,6 +648,99 @@ class DomainClusterConfigColdStorageOptions(dict):
         Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DomainClusterConfigNodeOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeConfig":
+            suggest = "node_config"
+        elif key == "nodeType":
+            suggest = "node_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainClusterConfigNodeOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainClusterConfigNodeOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainClusterConfigNodeOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 node_config: Optional['outputs.DomainClusterConfigNodeOptionNodeConfig'] = None,
+                 node_type: Optional[str] = None):
+        """
+        :param 'DomainClusterConfigNodeOptionNodeConfigArgs' node_config: Container to specify sizing of a node type.
+        :param str node_type: Type of node this configuration describes. Valid values: `coordinator`.
+        """
+        if node_config is not None:
+            pulumi.set(__self__, "node_config", node_config)
+        if node_type is not None:
+            pulumi.set(__self__, "node_type", node_type)
+
+    @property
+    @pulumi.getter(name="nodeConfig")
+    def node_config(self) -> Optional['outputs.DomainClusterConfigNodeOptionNodeConfig']:
+        """
+        Container to specify sizing of a node type.
+        """
+        return pulumi.get(self, "node_config")
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> Optional[str]:
+        """
+        Type of node this configuration describes. Valid values: `coordinator`.
+        """
+        return pulumi.get(self, "node_type")
+
+
+@pulumi.output_type
+class DomainClusterConfigNodeOptionNodeConfig(dict):
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 enabled: Optional[bool] = None,
+                 type: Optional[str] = None):
+        """
+        :param int count: Number of nodes of a particular node type in the cluster.
+        :param bool enabled: Whether a particular node type is enabled.
+        :param str type: The instance type of a particular node type in the cluster.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        Number of nodes of a particular node type in the cluster.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether a particular node type is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The instance type of a particular node type in the cluster.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -2103,6 +2214,7 @@ class GetDomainClusterConfigResult(dict):
                  instance_count: int,
                  instance_type: str,
                  multi_az_with_standby_enabled: bool,
+                 node_options: Sequence['outputs.GetDomainClusterConfigNodeOptionResult'],
                  warm_count: int,
                  warm_type: str,
                  zone_awareness_configs: Sequence['outputs.GetDomainClusterConfigZoneAwarenessConfigResult'],
@@ -2116,6 +2228,7 @@ class GetDomainClusterConfigResult(dict):
         :param int instance_count: Number of instances in the cluster.
         :param str instance_type: Instance type of data nodes in the cluster.
         :param bool multi_az_with_standby_enabled: Whether a multi-AZ domain is turned on with a standby AZ.
+        :param Sequence['GetDomainClusterConfigNodeOptionArgs'] node_options: List of node options for the domain.
         :param int warm_count: Number of warm nodes in the cluster.
         :param str warm_type: Instance type for the OpenSearch cluster's warm nodes.
         :param Sequence['GetDomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_configs: Configuration block containing zone awareness settings.
@@ -2129,6 +2242,7 @@ class GetDomainClusterConfigResult(dict):
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
+        pulumi.set(__self__, "node_options", node_options)
         pulumi.set(__self__, "warm_count", warm_count)
         pulumi.set(__self__, "warm_type", warm_type)
         pulumi.set(__self__, "zone_awareness_configs", zone_awareness_configs)
@@ -2193,6 +2307,14 @@ class GetDomainClusterConfigResult(dict):
         return pulumi.get(self, "multi_az_with_standby_enabled")
 
     @property
+    @pulumi.getter(name="nodeOptions")
+    def node_options(self) -> Sequence['outputs.GetDomainClusterConfigNodeOptionResult']:
+        """
+        List of node options for the domain.
+        """
+        return pulumi.get(self, "node_options")
+
+    @property
     @pulumi.getter(name="warmCount")
     def warm_count(self) -> int:
         """
@@ -2249,6 +2371,75 @@ class GetDomainClusterConfigColdStorageOptionResult(dict):
         Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class GetDomainClusterConfigNodeOptionResult(dict):
+    def __init__(__self__, *,
+                 node_configs: Sequence['outputs.GetDomainClusterConfigNodeOptionNodeConfigResult'],
+                 node_type: str):
+        """
+        :param Sequence['GetDomainClusterConfigNodeOptionNodeConfigArgs'] node_configs: Sizing of a node type.
+        :param str node_type: Type of node this configuration describes.
+        """
+        pulumi.set(__self__, "node_configs", node_configs)
+        pulumi.set(__self__, "node_type", node_type)
+
+    @property
+    @pulumi.getter(name="nodeConfigs")
+    def node_configs(self) -> Sequence['outputs.GetDomainClusterConfigNodeOptionNodeConfigResult']:
+        """
+        Sizing of a node type.
+        """
+        return pulumi.get(self, "node_configs")
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> str:
+        """
+        Type of node this configuration describes.
+        """
+        return pulumi.get(self, "node_type")
+
+
+@pulumi.output_type
+class GetDomainClusterConfigNodeOptionNodeConfigResult(dict):
+    def __init__(__self__, *,
+                 count: int,
+                 enabled: bool,
+                 type: str):
+        """
+        :param int count: Number of nodes of a particular node type in the cluster.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
+        :param str type: The instance type of a particular node type in the cluster.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        Number of nodes of a particular node type in the cluster.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Enabled disabled toggle for off-peak update window
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The instance type of a particular node type in the cluster.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -82,6 +82,12 @@ namespace Pulumi.Aws.CloudFront
     public partial class CachePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The cache policy ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Description for the cache policy.
         /// </summary>
         [Output("comment")]
@@ -213,6 +219,12 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class CachePolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The cache policy ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Description for the cache policy.
         /// </summary>

@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
-    /// Provides an OpsWorks User Profile resource.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

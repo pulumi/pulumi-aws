@@ -46,14 +46,14 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArg
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+     * The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
      * 
      */
     @Import(name="sagemakerImageArn")
     private @Nullable Output<String> sagemakerImageArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+     * @return The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
      * 
      */
     public Optional<Output<String>> sagemakerImageArn() {
@@ -61,14 +61,14 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArg
     }
 
     /**
-     * The SageMaker Image Version Alias.
+     * The SageMaker AI Image Version Alias.
      * 
      */
     @Import(name="sagemakerImageVersionAlias")
     private @Nullable Output<String> sagemakerImageVersionAlias;
 
     /**
-     * @return The SageMaker Image Version Alias.
+     * @return The SageMaker AI Image Version Alias.
      * 
      */
     public Optional<Output<String>> sagemakerImageVersionAlias() {
@@ -161,7 +161,7 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArg
         }
 
         /**
-         * @param sagemakerImageArn The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         * @param sagemakerImageArn The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArg
         }
 
         /**
-         * @param sagemakerImageArn The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+         * @param sagemakerImageArn The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArg
         }
 
         /**
-         * @param sagemakerImageVersionAlias The SageMaker Image Version Alias.
+         * @param sagemakerImageVersionAlias The SageMaker AI Image Version Alias.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArg
         }
 
         /**
-         * @param sagemakerImageVersionAlias The SageMaker Image Version Alias.
+         * @param sagemakerImageVersionAlias The SageMaker AI Image Version Alias.
          * 
          * @return builder
          * 

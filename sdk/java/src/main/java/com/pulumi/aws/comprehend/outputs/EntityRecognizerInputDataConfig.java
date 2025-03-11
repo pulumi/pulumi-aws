@@ -26,7 +26,7 @@ public final class EntityRecognizerInputDataConfig {
      */
     private @Nullable EntityRecognizerInputDataConfigAnnotations annotations;
     /**
-     * @return List of training datasets produced by Amazon SageMaker Ground Truth.
+     * @return List of training datasets produced by Amazon SageMaker AI Ground Truth.
      * Used if `data_format` is `AUGMENTED_MANIFEST`.
      * See the `augmented_manifests` Configuration Block section below.
      * 
@@ -71,7 +71,7 @@ public final class EntityRecognizerInputDataConfig {
         return Optional.ofNullable(this.annotations);
     }
     /**
-     * @return List of training datasets produced by Amazon SageMaker Ground Truth.
+     * @return List of training datasets produced by Amazon SageMaker AI Ground Truth.
      * Used if `data_format` is `AUGMENTED_MANIFEST`.
      * See the `augmented_manifests` Configuration Block section below.
      * 

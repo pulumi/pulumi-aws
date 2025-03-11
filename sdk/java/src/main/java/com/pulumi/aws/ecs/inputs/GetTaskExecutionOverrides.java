@@ -63,16 +63,24 @@ public final class GetTaskExecutionOverrides extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Elastic Inference accelerator override for the task. See below.
+     * **DEPRECATED** Elastic Inference accelerator override for the task. See below.
+     * 
+     * @deprecated
+     * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
      * 
      */
+    @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
     @Import(name="inferenceAcceleratorOverrides")
     private @Nullable List<GetTaskExecutionOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides;
 
     /**
-     * @return Elastic Inference accelerator override for the task. See below.
+     * @return **DEPRECATED** Elastic Inference accelerator override for the task. See below.
+     * 
+     * @deprecated
+     * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
      * 
      */
+    @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
     public Optional<List<GetTaskExecutionOverridesInferenceAcceleratorOverride>> inferenceAcceleratorOverrides() {
         return Optional.ofNullable(this.inferenceAcceleratorOverrides);
     }
@@ -180,22 +188,30 @@ public final class GetTaskExecutionOverrides extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param inferenceAcceleratorOverrides Elastic Inference accelerator override for the task. See below.
+         * @param inferenceAcceleratorOverrides **DEPRECATED** Elastic Inference accelerator override for the task. See below.
          * 
          * @return builder
          * 
+         * @deprecated
+         * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
+         * 
          */
+        @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
         public Builder inferenceAcceleratorOverrides(@Nullable List<GetTaskExecutionOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides) {
             $.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
             return this;
         }
 
         /**
-         * @param inferenceAcceleratorOverrides Elastic Inference accelerator override for the task. See below.
+         * @param inferenceAcceleratorOverrides **DEPRECATED** Elastic Inference accelerator override for the task. See below.
          * 
          * @return builder
          * 
+         * @deprecated
+         * inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
+         * 
          */
+        @Deprecated /* inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service. */
         public Builder inferenceAcceleratorOverrides(GetTaskExecutionOverridesInferenceAcceleratorOverride... inferenceAcceleratorOverrides) {
             return inferenceAcceleratorOverrides(List.of(inferenceAcceleratorOverrides));
         }

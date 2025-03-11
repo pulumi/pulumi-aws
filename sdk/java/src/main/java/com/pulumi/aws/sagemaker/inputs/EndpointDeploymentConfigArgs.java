@@ -33,14 +33,14 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+     * Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
      * 
      */
     @Import(name="blueGreenUpdatePolicy")
     private @Nullable Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> blueGreenUpdatePolicy;
 
     /**
-     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
      * 
      */
     public Optional<Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs>> blueGreenUpdatePolicy() {
@@ -48,14 +48,14 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+     * Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
      * 
      */
     @Import(name="rollingUpdatePolicy")
     private @Nullable Output<EndpointDeploymentConfigRollingUpdatePolicyArgs> rollingUpdatePolicy;
 
     /**
-     * @return Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+     * @return Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
      * 
      */
     public Optional<Output<EndpointDeploymentConfigRollingUpdatePolicyArgs>> rollingUpdatePolicy() {
@@ -110,7 +110,7 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param blueGreenUpdatePolicy Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+         * @param blueGreenUpdatePolicy Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param blueGreenUpdatePolicy Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+         * @param blueGreenUpdatePolicy Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param rollingUpdatePolicy Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+         * @param rollingUpdatePolicy Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param rollingUpdatePolicy Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+         * @param rollingUpdatePolicy Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
          * 
          * @return builder
          * 

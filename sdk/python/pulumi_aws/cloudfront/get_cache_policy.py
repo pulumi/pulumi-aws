@@ -27,7 +27,10 @@ class GetCachePolicyResult:
     """
     A collection of values returned by getCachePolicy.
     """
-    def __init__(__self__, comment=None, default_ttl=None, etag=None, id=None, max_ttl=None, min_ttl=None, name=None, parameters_in_cache_key_and_forwarded_to_origins=None):
+    def __init__(__self__, arn=None, comment=None, default_ttl=None, etag=None, id=None, max_ttl=None, min_ttl=None, name=None, parameters_in_cache_key_and_forwarded_to_origins=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if comment and not isinstance(comment, str):
             raise TypeError("Expected argument 'comment' to be a str")
         pulumi.set(__self__, "comment", comment)
@@ -52,6 +55,14 @@ class GetCachePolicyResult:
         if parameters_in_cache_key_and_forwarded_to_origins and not isinstance(parameters_in_cache_key_and_forwarded_to_origins, list):
             raise TypeError("Expected argument 'parameters_in_cache_key_and_forwarded_to_origins' to be a list")
         pulumi.set(__self__, "parameters_in_cache_key_and_forwarded_to_origins", parameters_in_cache_key_and_forwarded_to_origins)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The cache policy ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetCachePolicyResult(GetCachePolicyResult):
         if False:
             yield self
         return GetCachePolicyResult(
+            arn=self.arn,
             comment=self.comment,
             default_ttl=self.default_ttl,
             etag=self.etag,
@@ -168,6 +180,7 @@ def get_cache_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudfront/getCachePolicy:getCachePolicy', __args__, opts=opts, typ=GetCachePolicyResult).value
 
     return AwaitableGetCachePolicyResult(
+        arn=pulumi.get(__ret__, 'arn'),
         comment=pulumi.get(__ret__, 'comment'),
         default_ttl=pulumi.get(__ret__, 'default_ttl'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -215,6 +228,7 @@ def get_cache_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getCachePolicy:getCachePolicy', __args__, opts=opts, typ=GetCachePolicyResult)
     return __ret__.apply(lambda __response__: GetCachePolicyResult(
+        arn=pulumi.get(__response__, 'arn'),
         comment=pulumi.get(__response__, 'comment'),
         default_ttl=pulumi.get(__response__, 'default_ttl'),
         etag=pulumi.get(__response__, 'etag'),

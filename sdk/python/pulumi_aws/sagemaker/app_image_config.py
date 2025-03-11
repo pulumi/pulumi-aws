@@ -31,7 +31,7 @@ class AppImageConfigArgs:
         :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
         :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
         :param pulumi.Input['AppImageConfigJupyterLabImageConfigArgs'] jupyter_lab_image_config: The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
-        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "app_image_config_name", app_image_config_name)
@@ -84,7 +84,7 @@ class AppImageConfigArgs:
     @pulumi.getter(name="kernelGatewayImageConfig")
     def kernel_gateway_image_config(self) -> Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]:
         """
-        The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         """
         return pulumi.get(self, "kernel_gateway_image_config")
 
@@ -121,7 +121,7 @@ class _AppImageConfigState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
         :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
         :param pulumi.Input['AppImageConfigJupyterLabImageConfigArgs'] jupyter_lab_image_config: The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
-        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -195,7 +195,7 @@ class _AppImageConfigState:
     @pulumi.getter(name="kernelGatewayImageConfig")
     def kernel_gateway_image_config(self) -> Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]:
         """
-        The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         """
         return pulumi.get(self, "kernel_gateway_image_config")
 
@@ -241,13 +241,13 @@ class AppImageConfig(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker App Image Config resource.
+        Provides a SageMaker AI App Image Config resource.
 
         ## Example Usage
 
         ## Import
 
-        Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
@@ -258,7 +258,7 @@ class AppImageConfig(pulumi.CustomResource):
         :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
         :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
         :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
-        :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -268,13 +268,13 @@ class AppImageConfig(pulumi.CustomResource):
                  args: AppImageConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker App Image Config resource.
+        Provides a SageMaker AI App Image Config resource.
 
         ## Example Usage
 
         ## Import
 
-        Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
@@ -346,7 +346,7 @@ class AppImageConfig(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
         :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
         :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
-        :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -399,7 +399,7 @@ class AppImageConfig(pulumi.CustomResource):
     @pulumi.getter(name="kernelGatewayImageConfig")
     def kernel_gateway_image_config(self) -> pulumi.Output[Optional['outputs.AppImageConfigKernelGatewayImageConfig']]:
         """
-        The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         """
         return pulumi.get(self, "kernel_gateway_image_config")
 

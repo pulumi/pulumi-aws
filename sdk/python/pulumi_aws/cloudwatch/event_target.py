@@ -63,7 +63,7 @@ class EventTargetArgs:
         :param pulumi.Input['EventTargetRetryPolicyArgs'] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        :param pulumi.Input['EventTargetSagemakerPipelineTargetArgs'] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input['EventTargetSagemakerPipelineTargetArgs'] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
@@ -317,7 +317,7 @@ class EventTargetArgs:
     @pulumi.getter(name="sagemakerPipelineTarget")
     def sagemaker_pipeline_target(self) -> Optional[pulumi.Input['EventTargetSagemakerPipelineTargetArgs']]:
         """
-        Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         """
         return pulumi.get(self, "sagemaker_pipeline_target")
 
@@ -395,7 +395,7 @@ class _EventTargetState:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        :param pulumi.Input['EventTargetSagemakerPipelineTargetArgs'] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input['EventTargetSagemakerPipelineTargetArgs'] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
@@ -651,7 +651,7 @@ class _EventTargetState:
     @pulumi.getter(name="sagemakerPipelineTarget")
     def sagemaker_pipeline_target(self) -> Optional[pulumi.Input['EventTargetSagemakerPipelineTargetArgs']]:
         """
-        Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         """
         return pulumi.get(self, "sagemaker_pipeline_target")
 
@@ -1174,7 +1174,7 @@ class EventTarget(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventTargetRunCommandTargetArgs', 'EventTargetRunCommandTargetArgsDict']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        :param pulumi.Input[Union['EventTargetSagemakerPipelineTargetArgs', 'EventTargetSagemakerPipelineTargetArgsDict']] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[Union['EventTargetSagemakerPipelineTargetArgs', 'EventTargetSagemakerPipelineTargetArgsDict']] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetSqsTargetArgs', 'EventTargetSqsTargetArgsDict']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
@@ -1751,7 +1751,7 @@ class EventTarget(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventTargetRunCommandTargetArgs', 'EventTargetRunCommandTargetArgsDict']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        :param pulumi.Input[Union['EventTargetSagemakerPipelineTargetArgs', 'EventTargetSagemakerPipelineTargetArgsDict']] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[Union['EventTargetSagemakerPipelineTargetArgs', 'EventTargetSagemakerPipelineTargetArgsDict']] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetSqsTargetArgs', 'EventTargetSqsTargetArgsDict']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
@@ -1924,7 +1924,7 @@ class EventTarget(pulumi.CustomResource):
     @pulumi.getter(name="sagemakerPipelineTarget")
     def sagemaker_pipeline_target(self) -> pulumi.Output[Optional['outputs.EventTargetSagemakerPipelineTarget']]:
         """
-        Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         """
         return pulumi.get(self, "sagemaker_pipeline_target")
 

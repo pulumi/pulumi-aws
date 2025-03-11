@@ -287,7 +287,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="kibanaEndpoint")
-    @_utilities.deprecated("""use 'dashboard_endpoint' attribute instead""")
+    @_utilities.deprecated("""kibana_endpoint is deprecated. Use dashboard_endpoint instead.""")
     def kibana_endpoint(self) -> str:
         """
         (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.

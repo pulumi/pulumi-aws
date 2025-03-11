@@ -1430,10 +1430,10 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "newerNoncurrentVersions":
-            suggest = "newer_noncurrent_versions"
-        elif key == "noncurrentDays":
+        if key == "noncurrentDays":
             suggest = "noncurrent_days"
+        elif key == "newerNoncurrentVersions":
+            suggest = "newer_noncurrent_versions"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration. Access the value via the '{suggest}' property getter instead.")
@@ -1447,16 +1447,23 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 newer_noncurrent_versions: Optional[int] = None,
-                 noncurrent_days: Optional[int] = None):
+                 noncurrent_days: int,
+                 newer_noncurrent_versions: Optional[int] = None):
         """
-        :param int newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         :param int noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
+        :param int newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         """
+        pulumi.set(__self__, "noncurrent_days", noncurrent_days)
         if newer_noncurrent_versions is not None:
             pulumi.set(__self__, "newer_noncurrent_versions", newer_noncurrent_versions)
-        if noncurrent_days is not None:
-            pulumi.set(__self__, "noncurrent_days", noncurrent_days)
+
+    @property
+    @pulumi.getter(name="noncurrentDays")
+    def noncurrent_days(self) -> int:
+        """
+        Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
+        """
+        return pulumi.get(self, "noncurrent_days")
 
     @property
     @pulumi.getter(name="newerNoncurrentVersions")
@@ -1466,26 +1473,18 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(dict):
         """
         return pulumi.get(self, "newer_noncurrent_versions")
 
-    @property
-    @pulumi.getter(name="noncurrentDays")
-    def noncurrent_days(self) -> Optional[int]:
-        """
-        Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-        """
-        return pulumi.get(self, "noncurrent_days")
-
 
 @pulumi.output_type
 class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "storageClass":
+        if key == "noncurrentDays":
+            suggest = "noncurrent_days"
+        elif key == "storageClass":
             suggest = "storage_class"
         elif key == "newerNoncurrentVersions":
             suggest = "newer_noncurrent_versions"
-        elif key == "noncurrentDays":
-            suggest = "noncurrent_days"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition. Access the value via the '{suggest}' property getter instead.")
@@ -1499,19 +1498,26 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 noncurrent_days: int,
                  storage_class: str,
-                 newer_noncurrent_versions: Optional[int] = None,
-                 noncurrent_days: Optional[int] = None):
+                 newer_noncurrent_versions: Optional[int] = None):
         """
+        :param int noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action.
         :param str storage_class: Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
         :param int newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-        :param int noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action.
         """
+        pulumi.set(__self__, "noncurrent_days", noncurrent_days)
         pulumi.set(__self__, "storage_class", storage_class)
         if newer_noncurrent_versions is not None:
             pulumi.set(__self__, "newer_noncurrent_versions", newer_noncurrent_versions)
-        if noncurrent_days is not None:
-            pulumi.set(__self__, "noncurrent_days", noncurrent_days)
+
+    @property
+    @pulumi.getter(name="noncurrentDays")
+    def noncurrent_days(self) -> int:
+        """
+        Number of days an object is noncurrent before Amazon S3 can perform the associated action.
+        """
+        return pulumi.get(self, "noncurrent_days")
 
     @property
     @pulumi.getter(name="storageClass")
@@ -1528,14 +1534,6 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(dict):
         Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         """
         return pulumi.get(self, "newer_noncurrent_versions")
-
-    @property
-    @pulumi.getter(name="noncurrentDays")
-    def noncurrent_days(self) -> Optional[int]:
-        """
-        Number of days an object is noncurrent before Amazon S3 can perform the associated action.
-        """
-        return pulumi.get(self, "noncurrent_days")
 
 
 @pulumi.output_type
@@ -2942,7 +2940,7 @@ class BucketReplicationConfigRule(dict):
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""Use filter instead""")
+    @_utilities.deprecated("""prefix is deprecated. Use filter instead.""")
     def prefix(self) -> Optional[str]:
         """
         Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
@@ -4685,7 +4683,7 @@ class BucketV2ObjectLockConfiguration(dict):
 
     @property
     @pulumi.getter(name="objectLockEnabled")
-    @_utilities.deprecated("""Use the top-level parameter object_lock_enabled instead""")
+    @_utilities.deprecated("""object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead.""")
     def object_lock_enabled(self) -> Optional[str]:
         """
         Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
@@ -4694,7 +4692,7 @@ class BucketV2ObjectLockConfiguration(dict):
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""Use the s3.BucketObjectLockConfigurationV2 resource instead""")
+    @_utilities.deprecated("""rule is deprecated. Use the s3.BucketObjectLockConfigurationV2 resource instead.""")
     def rules(self) -> Optional[Sequence['outputs.BucketV2ObjectLockConfigurationRule']]:
         """
         Object Lock rule in place for this bucket (documented below).

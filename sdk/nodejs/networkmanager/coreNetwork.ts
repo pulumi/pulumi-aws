@@ -351,7 +351,7 @@ export class CoreNetwork extends pulumi.CustomResource {
     /**
      * The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      *
-     * @deprecated Use the basePolicyRegions argument instead. This argument will be removed in the next major version of the provider.
+     * @deprecated base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
      */
     public readonly basePolicyRegion!: pulumi.Output<string | undefined>;
     /**
@@ -487,7 +487,7 @@ export interface CoreNetworkState {
     /**
      * The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      *
-     * @deprecated Use the basePolicyRegions argument instead. This argument will be removed in the next major version of the provider.
+     * @deprecated base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
      */
     basePolicyRegion?: pulumi.Input<string>;
     /**
@@ -570,7 +570,7 @@ export interface CoreNetworkArgs {
     /**
      * The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      *
-     * @deprecated Use the basePolicyRegions argument instead. This argument will be removed in the next major version of the provider.
+     * @deprecated base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
      */
     basePolicyRegion?: pulumi.Input<string>;
     /**

@@ -953,8 +953,14 @@ func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Type() pulumi.StringPtrOutp
 type PipelineStage struct {
 	// The action(s) to include in the stage. Defined as an `action` block below
 	Actions []PipelineStageAction `pulumi:"actions"`
+	// The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+	BeforeEntry *PipelineStageBeforeEntry `pulumi:"beforeEntry"`
 	// The name of the stage.
 	Name string `pulumi:"name"`
+	// The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+	OnFailure *PipelineStageOnFailure `pulumi:"onFailure"`
+	// The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+	OnSuccess *PipelineStageOnSuccess `pulumi:"onSuccess"`
 }
 
 // PipelineStageInput is an input type that accepts PipelineStageArgs and PipelineStageOutput values.
@@ -971,8 +977,14 @@ type PipelineStageInput interface {
 type PipelineStageArgs struct {
 	// The action(s) to include in the stage. Defined as an `action` block below
 	Actions PipelineStageActionArrayInput `pulumi:"actions"`
+	// The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+	BeforeEntry PipelineStageBeforeEntryPtrInput `pulumi:"beforeEntry"`
 	// The name of the stage.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+	OnFailure PipelineStageOnFailurePtrInput `pulumi:"onFailure"`
+	// The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+	OnSuccess PipelineStageOnSuccessPtrInput `pulumi:"onSuccess"`
 }
 
 func (PipelineStageArgs) ElementType() reflect.Type {
@@ -1031,9 +1043,24 @@ func (o PipelineStageOutput) Actions() PipelineStageActionArrayOutput {
 	return o.ApplyT(func(v PipelineStage) []PipelineStageAction { return v.Actions }).(PipelineStageActionArrayOutput)
 }
 
+// The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+func (o PipelineStageOutput) BeforeEntry() PipelineStageBeforeEntryPtrOutput {
+	return o.ApplyT(func(v PipelineStage) *PipelineStageBeforeEntry { return v.BeforeEntry }).(PipelineStageBeforeEntryPtrOutput)
+}
+
 // The name of the stage.
 func (o PipelineStageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStage) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+func (o PipelineStageOutput) OnFailure() PipelineStageOnFailurePtrOutput {
+	return o.ApplyT(func(v PipelineStage) *PipelineStageOnFailure { return v.OnFailure }).(PipelineStageOnFailurePtrOutput)
+}
+
+// The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+func (o PipelineStageOutput) OnSuccess() PipelineStageOnSuccessPtrOutput {
+	return o.ApplyT(func(v PipelineStage) *PipelineStageOnSuccess { return v.OnSuccess }).(PipelineStageOnSuccessPtrOutput)
 }
 
 type PipelineStageArrayOutput struct{ *pulumi.OutputState }
@@ -1078,7 +1105,8 @@ type PipelineStageAction struct {
 	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 	RoleArn *string `pulumi:"roleArn"`
 	// The order in which actions are run.
-	RunOrder         *int `pulumi:"runOrder"`
+	RunOrder *int `pulumi:"runOrder"`
+	// The action timeout for the rule.
 	TimeoutInMinutes *int `pulumi:"timeoutInMinutes"`
 	// A string that identifies the action type.
 	Version string `pulumi:"version"`
@@ -1117,7 +1145,8 @@ type PipelineStageActionArgs struct {
 	// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// The order in which actions are run.
-	RunOrder         pulumi.IntPtrInput `pulumi:"runOrder"`
+	RunOrder pulumi.IntPtrInput `pulumi:"runOrder"`
+	// The action timeout for the rule.
 	TimeoutInMinutes pulumi.IntPtrInput `pulumi:"timeoutInMinutes"`
 	// A string that identifies the action type.
 	Version pulumi.StringInput `pulumi:"version"`
@@ -1229,6 +1258,7 @@ func (o PipelineStageActionOutput) RunOrder() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipelineStageAction) *int { return v.RunOrder }).(pulumi.IntPtrOutput)
 }
 
+// The action timeout for the rule.
 func (o PipelineStageActionOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipelineStageAction) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -1256,6 +1286,1783 @@ func (o PipelineStageActionArrayOutput) Index(i pulumi.IntInput) PipelineStageAc
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineStageAction {
 		return vs[0].([]PipelineStageAction)[vs[1].(int)]
 	}).(PipelineStageActionOutput)
+}
+
+type PipelineStageBeforeEntry struct {
+	// The conditions that are configured as entry condition. Defined as a `condition` block below.
+	Condition PipelineStageBeforeEntryCondition `pulumi:"condition"`
+}
+
+// PipelineStageBeforeEntryInput is an input type that accepts PipelineStageBeforeEntryArgs and PipelineStageBeforeEntryOutput values.
+// You can construct a concrete instance of `PipelineStageBeforeEntryInput` via:
+//
+//	PipelineStageBeforeEntryArgs{...}
+type PipelineStageBeforeEntryInput interface {
+	pulumi.Input
+
+	ToPipelineStageBeforeEntryOutput() PipelineStageBeforeEntryOutput
+	ToPipelineStageBeforeEntryOutputWithContext(context.Context) PipelineStageBeforeEntryOutput
+}
+
+type PipelineStageBeforeEntryArgs struct {
+	// The conditions that are configured as entry condition. Defined as a `condition` block below.
+	Condition PipelineStageBeforeEntryConditionInput `pulumi:"condition"`
+}
+
+func (PipelineStageBeforeEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageBeforeEntry)(nil)).Elem()
+}
+
+func (i PipelineStageBeforeEntryArgs) ToPipelineStageBeforeEntryOutput() PipelineStageBeforeEntryOutput {
+	return i.ToPipelineStageBeforeEntryOutputWithContext(context.Background())
+}
+
+func (i PipelineStageBeforeEntryArgs) ToPipelineStageBeforeEntryOutputWithContext(ctx context.Context) PipelineStageBeforeEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageBeforeEntryOutput)
+}
+
+func (i PipelineStageBeforeEntryArgs) ToPipelineStageBeforeEntryPtrOutput() PipelineStageBeforeEntryPtrOutput {
+	return i.ToPipelineStageBeforeEntryPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineStageBeforeEntryArgs) ToPipelineStageBeforeEntryPtrOutputWithContext(ctx context.Context) PipelineStageBeforeEntryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageBeforeEntryOutput).ToPipelineStageBeforeEntryPtrOutputWithContext(ctx)
+}
+
+// PipelineStageBeforeEntryPtrInput is an input type that accepts PipelineStageBeforeEntryArgs, PipelineStageBeforeEntryPtr and PipelineStageBeforeEntryPtrOutput values.
+// You can construct a concrete instance of `PipelineStageBeforeEntryPtrInput` via:
+//
+//	        PipelineStageBeforeEntryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineStageBeforeEntryPtrInput interface {
+	pulumi.Input
+
+	ToPipelineStageBeforeEntryPtrOutput() PipelineStageBeforeEntryPtrOutput
+	ToPipelineStageBeforeEntryPtrOutputWithContext(context.Context) PipelineStageBeforeEntryPtrOutput
+}
+
+type pipelineStageBeforeEntryPtrType PipelineStageBeforeEntryArgs
+
+func PipelineStageBeforeEntryPtr(v *PipelineStageBeforeEntryArgs) PipelineStageBeforeEntryPtrInput {
+	return (*pipelineStageBeforeEntryPtrType)(v)
+}
+
+func (*pipelineStageBeforeEntryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageBeforeEntry)(nil)).Elem()
+}
+
+func (i *pipelineStageBeforeEntryPtrType) ToPipelineStageBeforeEntryPtrOutput() PipelineStageBeforeEntryPtrOutput {
+	return i.ToPipelineStageBeforeEntryPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineStageBeforeEntryPtrType) ToPipelineStageBeforeEntryPtrOutputWithContext(ctx context.Context) PipelineStageBeforeEntryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageBeforeEntryPtrOutput)
+}
+
+type PipelineStageBeforeEntryOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageBeforeEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageBeforeEntry)(nil)).Elem()
+}
+
+func (o PipelineStageBeforeEntryOutput) ToPipelineStageBeforeEntryOutput() PipelineStageBeforeEntryOutput {
+	return o
+}
+
+func (o PipelineStageBeforeEntryOutput) ToPipelineStageBeforeEntryOutputWithContext(ctx context.Context) PipelineStageBeforeEntryOutput {
+	return o
+}
+
+func (o PipelineStageBeforeEntryOutput) ToPipelineStageBeforeEntryPtrOutput() PipelineStageBeforeEntryPtrOutput {
+	return o.ToPipelineStageBeforeEntryPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineStageBeforeEntryOutput) ToPipelineStageBeforeEntryPtrOutputWithContext(ctx context.Context) PipelineStageBeforeEntryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineStageBeforeEntry) *PipelineStageBeforeEntry {
+		return &v
+	}).(PipelineStageBeforeEntryPtrOutput)
+}
+
+// The conditions that are configured as entry condition. Defined as a `condition` block below.
+func (o PipelineStageBeforeEntryOutput) Condition() PipelineStageBeforeEntryConditionOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntry) PipelineStageBeforeEntryCondition { return v.Condition }).(PipelineStageBeforeEntryConditionOutput)
+}
+
+type PipelineStageBeforeEntryPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageBeforeEntryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageBeforeEntry)(nil)).Elem()
+}
+
+func (o PipelineStageBeforeEntryPtrOutput) ToPipelineStageBeforeEntryPtrOutput() PipelineStageBeforeEntryPtrOutput {
+	return o
+}
+
+func (o PipelineStageBeforeEntryPtrOutput) ToPipelineStageBeforeEntryPtrOutputWithContext(ctx context.Context) PipelineStageBeforeEntryPtrOutput {
+	return o
+}
+
+func (o PipelineStageBeforeEntryPtrOutput) Elem() PipelineStageBeforeEntryOutput {
+	return o.ApplyT(func(v *PipelineStageBeforeEntry) PipelineStageBeforeEntry {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineStageBeforeEntry
+		return ret
+	}).(PipelineStageBeforeEntryOutput)
+}
+
+// The conditions that are configured as entry condition. Defined as a `condition` block below.
+func (o PipelineStageBeforeEntryPtrOutput) Condition() PipelineStageBeforeEntryConditionPtrOutput {
+	return o.ApplyT(func(v *PipelineStageBeforeEntry) *PipelineStageBeforeEntryCondition {
+		if v == nil {
+			return nil
+		}
+		return &v.Condition
+	}).(PipelineStageBeforeEntryConditionPtrOutput)
+}
+
+type PipelineStageBeforeEntryCondition struct {
+	// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+	Result *string `pulumi:"result"`
+	// The rules that make up the condition. Defined as a `rule` block below.
+	Rules []PipelineStageBeforeEntryConditionRule `pulumi:"rules"`
+}
+
+// PipelineStageBeforeEntryConditionInput is an input type that accepts PipelineStageBeforeEntryConditionArgs and PipelineStageBeforeEntryConditionOutput values.
+// You can construct a concrete instance of `PipelineStageBeforeEntryConditionInput` via:
+//
+//	PipelineStageBeforeEntryConditionArgs{...}
+type PipelineStageBeforeEntryConditionInput interface {
+	pulumi.Input
+
+	ToPipelineStageBeforeEntryConditionOutput() PipelineStageBeforeEntryConditionOutput
+	ToPipelineStageBeforeEntryConditionOutputWithContext(context.Context) PipelineStageBeforeEntryConditionOutput
+}
+
+type PipelineStageBeforeEntryConditionArgs struct {
+	// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+	Result pulumi.StringPtrInput `pulumi:"result"`
+	// The rules that make up the condition. Defined as a `rule` block below.
+	Rules PipelineStageBeforeEntryConditionRuleArrayInput `pulumi:"rules"`
+}
+
+func (PipelineStageBeforeEntryConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageBeforeEntryCondition)(nil)).Elem()
+}
+
+func (i PipelineStageBeforeEntryConditionArgs) ToPipelineStageBeforeEntryConditionOutput() PipelineStageBeforeEntryConditionOutput {
+	return i.ToPipelineStageBeforeEntryConditionOutputWithContext(context.Background())
+}
+
+func (i PipelineStageBeforeEntryConditionArgs) ToPipelineStageBeforeEntryConditionOutputWithContext(ctx context.Context) PipelineStageBeforeEntryConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageBeforeEntryConditionOutput)
+}
+
+func (i PipelineStageBeforeEntryConditionArgs) ToPipelineStageBeforeEntryConditionPtrOutput() PipelineStageBeforeEntryConditionPtrOutput {
+	return i.ToPipelineStageBeforeEntryConditionPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineStageBeforeEntryConditionArgs) ToPipelineStageBeforeEntryConditionPtrOutputWithContext(ctx context.Context) PipelineStageBeforeEntryConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageBeforeEntryConditionOutput).ToPipelineStageBeforeEntryConditionPtrOutputWithContext(ctx)
+}
+
+// PipelineStageBeforeEntryConditionPtrInput is an input type that accepts PipelineStageBeforeEntryConditionArgs, PipelineStageBeforeEntryConditionPtr and PipelineStageBeforeEntryConditionPtrOutput values.
+// You can construct a concrete instance of `PipelineStageBeforeEntryConditionPtrInput` via:
+//
+//	        PipelineStageBeforeEntryConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineStageBeforeEntryConditionPtrInput interface {
+	pulumi.Input
+
+	ToPipelineStageBeforeEntryConditionPtrOutput() PipelineStageBeforeEntryConditionPtrOutput
+	ToPipelineStageBeforeEntryConditionPtrOutputWithContext(context.Context) PipelineStageBeforeEntryConditionPtrOutput
+}
+
+type pipelineStageBeforeEntryConditionPtrType PipelineStageBeforeEntryConditionArgs
+
+func PipelineStageBeforeEntryConditionPtr(v *PipelineStageBeforeEntryConditionArgs) PipelineStageBeforeEntryConditionPtrInput {
+	return (*pipelineStageBeforeEntryConditionPtrType)(v)
+}
+
+func (*pipelineStageBeforeEntryConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageBeforeEntryCondition)(nil)).Elem()
+}
+
+func (i *pipelineStageBeforeEntryConditionPtrType) ToPipelineStageBeforeEntryConditionPtrOutput() PipelineStageBeforeEntryConditionPtrOutput {
+	return i.ToPipelineStageBeforeEntryConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineStageBeforeEntryConditionPtrType) ToPipelineStageBeforeEntryConditionPtrOutputWithContext(ctx context.Context) PipelineStageBeforeEntryConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageBeforeEntryConditionPtrOutput)
+}
+
+type PipelineStageBeforeEntryConditionOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageBeforeEntryConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageBeforeEntryCondition)(nil)).Elem()
+}
+
+func (o PipelineStageBeforeEntryConditionOutput) ToPipelineStageBeforeEntryConditionOutput() PipelineStageBeforeEntryConditionOutput {
+	return o
+}
+
+func (o PipelineStageBeforeEntryConditionOutput) ToPipelineStageBeforeEntryConditionOutputWithContext(ctx context.Context) PipelineStageBeforeEntryConditionOutput {
+	return o
+}
+
+func (o PipelineStageBeforeEntryConditionOutput) ToPipelineStageBeforeEntryConditionPtrOutput() PipelineStageBeforeEntryConditionPtrOutput {
+	return o.ToPipelineStageBeforeEntryConditionPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineStageBeforeEntryConditionOutput) ToPipelineStageBeforeEntryConditionPtrOutputWithContext(ctx context.Context) PipelineStageBeforeEntryConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineStageBeforeEntryCondition) *PipelineStageBeforeEntryCondition {
+		return &v
+	}).(PipelineStageBeforeEntryConditionPtrOutput)
+}
+
+// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+func (o PipelineStageBeforeEntryConditionOutput) Result() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryCondition) *string { return v.Result }).(pulumi.StringPtrOutput)
+}
+
+// The rules that make up the condition. Defined as a `rule` block below.
+func (o PipelineStageBeforeEntryConditionOutput) Rules() PipelineStageBeforeEntryConditionRuleArrayOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryCondition) []PipelineStageBeforeEntryConditionRule { return v.Rules }).(PipelineStageBeforeEntryConditionRuleArrayOutput)
+}
+
+type PipelineStageBeforeEntryConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageBeforeEntryConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageBeforeEntryCondition)(nil)).Elem()
+}
+
+func (o PipelineStageBeforeEntryConditionPtrOutput) ToPipelineStageBeforeEntryConditionPtrOutput() PipelineStageBeforeEntryConditionPtrOutput {
+	return o
+}
+
+func (o PipelineStageBeforeEntryConditionPtrOutput) ToPipelineStageBeforeEntryConditionPtrOutputWithContext(ctx context.Context) PipelineStageBeforeEntryConditionPtrOutput {
+	return o
+}
+
+func (o PipelineStageBeforeEntryConditionPtrOutput) Elem() PipelineStageBeforeEntryConditionOutput {
+	return o.ApplyT(func(v *PipelineStageBeforeEntryCondition) PipelineStageBeforeEntryCondition {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineStageBeforeEntryCondition
+		return ret
+	}).(PipelineStageBeforeEntryConditionOutput)
+}
+
+// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+func (o PipelineStageBeforeEntryConditionPtrOutput) Result() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineStageBeforeEntryCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Result
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rules that make up the condition. Defined as a `rule` block below.
+func (o PipelineStageBeforeEntryConditionPtrOutput) Rules() PipelineStageBeforeEntryConditionRuleArrayOutput {
+	return o.ApplyT(func(v *PipelineStageBeforeEntryCondition) []PipelineStageBeforeEntryConditionRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(PipelineStageBeforeEntryConditionRuleArrayOutput)
+}
+
+type PipelineStageBeforeEntryConditionRule struct {
+	// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+	Commands []string `pulumi:"commands"`
+	// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+	Configuration map[string]string `pulumi:"configuration"`
+	// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+	InputArtifacts []string `pulumi:"inputArtifacts"`
+	// The name of the rule that is created for the condition, such as `VariableCheck`.
+	Name string `pulumi:"name"`
+	// The Region for the condition associated with the rule.
+	Region *string `pulumi:"region"`
+	// The pipeline role ARN associated with the rule.
+	RoleArn *string `pulumi:"roleArn"`
+	// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
+	RuleTypeId PipelineStageBeforeEntryConditionRuleRuleTypeId `pulumi:"ruleTypeId"`
+	// The action timeout for the rule.
+	TimeoutInMinutes *int `pulumi:"timeoutInMinutes"`
+}
+
+// PipelineStageBeforeEntryConditionRuleInput is an input type that accepts PipelineStageBeforeEntryConditionRuleArgs and PipelineStageBeforeEntryConditionRuleOutput values.
+// You can construct a concrete instance of `PipelineStageBeforeEntryConditionRuleInput` via:
+//
+//	PipelineStageBeforeEntryConditionRuleArgs{...}
+type PipelineStageBeforeEntryConditionRuleInput interface {
+	pulumi.Input
+
+	ToPipelineStageBeforeEntryConditionRuleOutput() PipelineStageBeforeEntryConditionRuleOutput
+	ToPipelineStageBeforeEntryConditionRuleOutputWithContext(context.Context) PipelineStageBeforeEntryConditionRuleOutput
+}
+
+type PipelineStageBeforeEntryConditionRuleArgs struct {
+	// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+	Configuration pulumi.StringMapInput `pulumi:"configuration"`
+	// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
+	// The name of the rule that is created for the condition, such as `VariableCheck`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Region for the condition associated with the rule.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// The pipeline role ARN associated with the rule.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
+	RuleTypeId PipelineStageBeforeEntryConditionRuleRuleTypeIdInput `pulumi:"ruleTypeId"`
+	// The action timeout for the rule.
+	TimeoutInMinutes pulumi.IntPtrInput `pulumi:"timeoutInMinutes"`
+}
+
+func (PipelineStageBeforeEntryConditionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageBeforeEntryConditionRule)(nil)).Elem()
+}
+
+func (i PipelineStageBeforeEntryConditionRuleArgs) ToPipelineStageBeforeEntryConditionRuleOutput() PipelineStageBeforeEntryConditionRuleOutput {
+	return i.ToPipelineStageBeforeEntryConditionRuleOutputWithContext(context.Background())
+}
+
+func (i PipelineStageBeforeEntryConditionRuleArgs) ToPipelineStageBeforeEntryConditionRuleOutputWithContext(ctx context.Context) PipelineStageBeforeEntryConditionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageBeforeEntryConditionRuleOutput)
+}
+
+// PipelineStageBeforeEntryConditionRuleArrayInput is an input type that accepts PipelineStageBeforeEntryConditionRuleArray and PipelineStageBeforeEntryConditionRuleArrayOutput values.
+// You can construct a concrete instance of `PipelineStageBeforeEntryConditionRuleArrayInput` via:
+//
+//	PipelineStageBeforeEntryConditionRuleArray{ PipelineStageBeforeEntryConditionRuleArgs{...} }
+type PipelineStageBeforeEntryConditionRuleArrayInput interface {
+	pulumi.Input
+
+	ToPipelineStageBeforeEntryConditionRuleArrayOutput() PipelineStageBeforeEntryConditionRuleArrayOutput
+	ToPipelineStageBeforeEntryConditionRuleArrayOutputWithContext(context.Context) PipelineStageBeforeEntryConditionRuleArrayOutput
+}
+
+type PipelineStageBeforeEntryConditionRuleArray []PipelineStageBeforeEntryConditionRuleInput
+
+func (PipelineStageBeforeEntryConditionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineStageBeforeEntryConditionRule)(nil)).Elem()
+}
+
+func (i PipelineStageBeforeEntryConditionRuleArray) ToPipelineStageBeforeEntryConditionRuleArrayOutput() PipelineStageBeforeEntryConditionRuleArrayOutput {
+	return i.ToPipelineStageBeforeEntryConditionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineStageBeforeEntryConditionRuleArray) ToPipelineStageBeforeEntryConditionRuleArrayOutputWithContext(ctx context.Context) PipelineStageBeforeEntryConditionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageBeforeEntryConditionRuleArrayOutput)
+}
+
+type PipelineStageBeforeEntryConditionRuleOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageBeforeEntryConditionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageBeforeEntryConditionRule)(nil)).Elem()
+}
+
+func (o PipelineStageBeforeEntryConditionRuleOutput) ToPipelineStageBeforeEntryConditionRuleOutput() PipelineStageBeforeEntryConditionRuleOutput {
+	return o
+}
+
+func (o PipelineStageBeforeEntryConditionRuleOutput) ToPipelineStageBeforeEntryConditionRuleOutputWithContext(ctx context.Context) PipelineStageBeforeEntryConditionRuleOutput {
+	return o
+}
+
+// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+func (o PipelineStageBeforeEntryConditionRuleOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+func (o PipelineStageBeforeEntryConditionRuleOutput) Configuration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
+}
+
+// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+func (o PipelineStageBeforeEntryConditionRuleOutput) InputArtifacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) []string { return v.InputArtifacts }).(pulumi.StringArrayOutput)
+}
+
+// The name of the rule that is created for the condition, such as `VariableCheck`.
+func (o PipelineStageBeforeEntryConditionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Region for the condition associated with the rule.
+func (o PipelineStageBeforeEntryConditionRuleOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The pipeline role ARN associated with the rule.
+func (o PipelineStageBeforeEntryConditionRuleOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
+func (o PipelineStageBeforeEntryConditionRuleOutput) RuleTypeId() PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) PipelineStageBeforeEntryConditionRuleRuleTypeId {
+		return v.RuleTypeId
+	}).(PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput)
+}
+
+// The action timeout for the rule.
+func (o PipelineStageBeforeEntryConditionRuleOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRule) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type PipelineStageBeforeEntryConditionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageBeforeEntryConditionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineStageBeforeEntryConditionRule)(nil)).Elem()
+}
+
+func (o PipelineStageBeforeEntryConditionRuleArrayOutput) ToPipelineStageBeforeEntryConditionRuleArrayOutput() PipelineStageBeforeEntryConditionRuleArrayOutput {
+	return o
+}
+
+func (o PipelineStageBeforeEntryConditionRuleArrayOutput) ToPipelineStageBeforeEntryConditionRuleArrayOutputWithContext(ctx context.Context) PipelineStageBeforeEntryConditionRuleArrayOutput {
+	return o
+}
+
+func (o PipelineStageBeforeEntryConditionRuleArrayOutput) Index(i pulumi.IntInput) PipelineStageBeforeEntryConditionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineStageBeforeEntryConditionRule {
+		return vs[0].([]PipelineStageBeforeEntryConditionRule)[vs[1].(int)]
+	}).(PipelineStageBeforeEntryConditionRuleOutput)
+}
+
+type PipelineStageBeforeEntryConditionRuleRuleTypeId struct {
+	// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+	Category string `pulumi:"category"`
+	// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+	Owner *string `pulumi:"owner"`
+	// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+	Provider string `pulumi:"provider"`
+	// A string that describes the rule version.
+	Version *string `pulumi:"version"`
+}
+
+// PipelineStageBeforeEntryConditionRuleRuleTypeIdInput is an input type that accepts PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs and PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput values.
+// You can construct a concrete instance of `PipelineStageBeforeEntryConditionRuleRuleTypeIdInput` via:
+//
+//	PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs{...}
+type PipelineStageBeforeEntryConditionRuleRuleTypeIdInput interface {
+	pulumi.Input
+
+	ToPipelineStageBeforeEntryConditionRuleRuleTypeIdOutput() PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput
+	ToPipelineStageBeforeEntryConditionRuleRuleTypeIdOutputWithContext(context.Context) PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput
+}
+
+type PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs struct {
+	// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+	Category pulumi.StringInput `pulumi:"category"`
+	// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+	Provider pulumi.StringInput `pulumi:"provider"`
+	// A string that describes the rule version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageBeforeEntryConditionRuleRuleTypeId)(nil)).Elem()
+}
+
+func (i PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs) ToPipelineStageBeforeEntryConditionRuleRuleTypeIdOutput() PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput {
+	return i.ToPipelineStageBeforeEntryConditionRuleRuleTypeIdOutputWithContext(context.Background())
+}
+
+func (i PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs) ToPipelineStageBeforeEntryConditionRuleRuleTypeIdOutputWithContext(ctx context.Context) PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput)
+}
+
+type PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageBeforeEntryConditionRuleRuleTypeId)(nil)).Elem()
+}
+
+func (o PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput) ToPipelineStageBeforeEntryConditionRuleRuleTypeIdOutput() PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput {
+	return o
+}
+
+func (o PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput) ToPipelineStageBeforeEntryConditionRuleRuleTypeIdOutputWithContext(ctx context.Context) PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput {
+	return o
+}
+
+// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+func (o PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRuleRuleTypeId) string { return v.Category }).(pulumi.StringOutput)
+}
+
+// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+func (o PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRuleRuleTypeId) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+func (o PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRuleRuleTypeId) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+// A string that describes the rule version.
+func (o PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageBeforeEntryConditionRuleRuleTypeId) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type PipelineStageOnFailure struct {
+	// The conditions that are failure conditions. Defined as a `condition` block below.
+	Condition *PipelineStageOnFailureCondition `pulumi:"condition"`
+	// The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
+	Result *string `pulumi:"result"`
+	// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
+	RetryConfiguration *PipelineStageOnFailureRetryConfiguration `pulumi:"retryConfiguration"`
+}
+
+// PipelineStageOnFailureInput is an input type that accepts PipelineStageOnFailureArgs and PipelineStageOnFailureOutput values.
+// You can construct a concrete instance of `PipelineStageOnFailureInput` via:
+//
+//	PipelineStageOnFailureArgs{...}
+type PipelineStageOnFailureInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnFailureOutput() PipelineStageOnFailureOutput
+	ToPipelineStageOnFailureOutputWithContext(context.Context) PipelineStageOnFailureOutput
+}
+
+type PipelineStageOnFailureArgs struct {
+	// The conditions that are failure conditions. Defined as a `condition` block below.
+	Condition PipelineStageOnFailureConditionPtrInput `pulumi:"condition"`
+	// The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
+	Result pulumi.StringPtrInput `pulumi:"result"`
+	// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
+	RetryConfiguration PipelineStageOnFailureRetryConfigurationPtrInput `pulumi:"retryConfiguration"`
+}
+
+func (PipelineStageOnFailureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnFailure)(nil)).Elem()
+}
+
+func (i PipelineStageOnFailureArgs) ToPipelineStageOnFailureOutput() PipelineStageOnFailureOutput {
+	return i.ToPipelineStageOnFailureOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnFailureArgs) ToPipelineStageOnFailureOutputWithContext(ctx context.Context) PipelineStageOnFailureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnFailureOutput)
+}
+
+func (i PipelineStageOnFailureArgs) ToPipelineStageOnFailurePtrOutput() PipelineStageOnFailurePtrOutput {
+	return i.ToPipelineStageOnFailurePtrOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnFailureArgs) ToPipelineStageOnFailurePtrOutputWithContext(ctx context.Context) PipelineStageOnFailurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnFailureOutput).ToPipelineStageOnFailurePtrOutputWithContext(ctx)
+}
+
+// PipelineStageOnFailurePtrInput is an input type that accepts PipelineStageOnFailureArgs, PipelineStageOnFailurePtr and PipelineStageOnFailurePtrOutput values.
+// You can construct a concrete instance of `PipelineStageOnFailurePtrInput` via:
+//
+//	        PipelineStageOnFailureArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineStageOnFailurePtrInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnFailurePtrOutput() PipelineStageOnFailurePtrOutput
+	ToPipelineStageOnFailurePtrOutputWithContext(context.Context) PipelineStageOnFailurePtrOutput
+}
+
+type pipelineStageOnFailurePtrType PipelineStageOnFailureArgs
+
+func PipelineStageOnFailurePtr(v *PipelineStageOnFailureArgs) PipelineStageOnFailurePtrInput {
+	return (*pipelineStageOnFailurePtrType)(v)
+}
+
+func (*pipelineStageOnFailurePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageOnFailure)(nil)).Elem()
+}
+
+func (i *pipelineStageOnFailurePtrType) ToPipelineStageOnFailurePtrOutput() PipelineStageOnFailurePtrOutput {
+	return i.ToPipelineStageOnFailurePtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineStageOnFailurePtrType) ToPipelineStageOnFailurePtrOutputWithContext(ctx context.Context) PipelineStageOnFailurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnFailurePtrOutput)
+}
+
+type PipelineStageOnFailureOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnFailureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnFailure)(nil)).Elem()
+}
+
+func (o PipelineStageOnFailureOutput) ToPipelineStageOnFailureOutput() PipelineStageOnFailureOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureOutput) ToPipelineStageOnFailureOutputWithContext(ctx context.Context) PipelineStageOnFailureOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureOutput) ToPipelineStageOnFailurePtrOutput() PipelineStageOnFailurePtrOutput {
+	return o.ToPipelineStageOnFailurePtrOutputWithContext(context.Background())
+}
+
+func (o PipelineStageOnFailureOutput) ToPipelineStageOnFailurePtrOutputWithContext(ctx context.Context) PipelineStageOnFailurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineStageOnFailure) *PipelineStageOnFailure {
+		return &v
+	}).(PipelineStageOnFailurePtrOutput)
+}
+
+// The conditions that are failure conditions. Defined as a `condition` block below.
+func (o PipelineStageOnFailureOutput) Condition() PipelineStageOnFailureConditionPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnFailure) *PipelineStageOnFailureCondition { return v.Condition }).(PipelineStageOnFailureConditionPtrOutput)
+}
+
+// The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
+func (o PipelineStageOnFailureOutput) Result() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnFailure) *string { return v.Result }).(pulumi.StringPtrOutput)
+}
+
+// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
+func (o PipelineStageOnFailureOutput) RetryConfiguration() PipelineStageOnFailureRetryConfigurationPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnFailure) *PipelineStageOnFailureRetryConfiguration { return v.RetryConfiguration }).(PipelineStageOnFailureRetryConfigurationPtrOutput)
+}
+
+type PipelineStageOnFailurePtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnFailurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageOnFailure)(nil)).Elem()
+}
+
+func (o PipelineStageOnFailurePtrOutput) ToPipelineStageOnFailurePtrOutput() PipelineStageOnFailurePtrOutput {
+	return o
+}
+
+func (o PipelineStageOnFailurePtrOutput) ToPipelineStageOnFailurePtrOutputWithContext(ctx context.Context) PipelineStageOnFailurePtrOutput {
+	return o
+}
+
+func (o PipelineStageOnFailurePtrOutput) Elem() PipelineStageOnFailureOutput {
+	return o.ApplyT(func(v *PipelineStageOnFailure) PipelineStageOnFailure {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineStageOnFailure
+		return ret
+	}).(PipelineStageOnFailureOutput)
+}
+
+// The conditions that are failure conditions. Defined as a `condition` block below.
+func (o PipelineStageOnFailurePtrOutput) Condition() PipelineStageOnFailureConditionPtrOutput {
+	return o.ApplyT(func(v *PipelineStageOnFailure) *PipelineStageOnFailureCondition {
+		if v == nil {
+			return nil
+		}
+		return v.Condition
+	}).(PipelineStageOnFailureConditionPtrOutput)
+}
+
+// The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
+func (o PipelineStageOnFailurePtrOutput) Result() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineStageOnFailure) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Result
+	}).(pulumi.StringPtrOutput)
+}
+
+// The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retryConfiguration` block below.
+func (o PipelineStageOnFailurePtrOutput) RetryConfiguration() PipelineStageOnFailureRetryConfigurationPtrOutput {
+	return o.ApplyT(func(v *PipelineStageOnFailure) *PipelineStageOnFailureRetryConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RetryConfiguration
+	}).(PipelineStageOnFailureRetryConfigurationPtrOutput)
+}
+
+type PipelineStageOnFailureCondition struct {
+	// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+	Result *string `pulumi:"result"`
+	// The rules that make up the condition. Defined as a `rule` block below.
+	Rules []PipelineStageOnFailureConditionRule `pulumi:"rules"`
+}
+
+// PipelineStageOnFailureConditionInput is an input type that accepts PipelineStageOnFailureConditionArgs and PipelineStageOnFailureConditionOutput values.
+// You can construct a concrete instance of `PipelineStageOnFailureConditionInput` via:
+//
+//	PipelineStageOnFailureConditionArgs{...}
+type PipelineStageOnFailureConditionInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnFailureConditionOutput() PipelineStageOnFailureConditionOutput
+	ToPipelineStageOnFailureConditionOutputWithContext(context.Context) PipelineStageOnFailureConditionOutput
+}
+
+type PipelineStageOnFailureConditionArgs struct {
+	// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+	Result pulumi.StringPtrInput `pulumi:"result"`
+	// The rules that make up the condition. Defined as a `rule` block below.
+	Rules PipelineStageOnFailureConditionRuleArrayInput `pulumi:"rules"`
+}
+
+func (PipelineStageOnFailureConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnFailureCondition)(nil)).Elem()
+}
+
+func (i PipelineStageOnFailureConditionArgs) ToPipelineStageOnFailureConditionOutput() PipelineStageOnFailureConditionOutput {
+	return i.ToPipelineStageOnFailureConditionOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnFailureConditionArgs) ToPipelineStageOnFailureConditionOutputWithContext(ctx context.Context) PipelineStageOnFailureConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnFailureConditionOutput)
+}
+
+func (i PipelineStageOnFailureConditionArgs) ToPipelineStageOnFailureConditionPtrOutput() PipelineStageOnFailureConditionPtrOutput {
+	return i.ToPipelineStageOnFailureConditionPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnFailureConditionArgs) ToPipelineStageOnFailureConditionPtrOutputWithContext(ctx context.Context) PipelineStageOnFailureConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnFailureConditionOutput).ToPipelineStageOnFailureConditionPtrOutputWithContext(ctx)
+}
+
+// PipelineStageOnFailureConditionPtrInput is an input type that accepts PipelineStageOnFailureConditionArgs, PipelineStageOnFailureConditionPtr and PipelineStageOnFailureConditionPtrOutput values.
+// You can construct a concrete instance of `PipelineStageOnFailureConditionPtrInput` via:
+//
+//	        PipelineStageOnFailureConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineStageOnFailureConditionPtrInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnFailureConditionPtrOutput() PipelineStageOnFailureConditionPtrOutput
+	ToPipelineStageOnFailureConditionPtrOutputWithContext(context.Context) PipelineStageOnFailureConditionPtrOutput
+}
+
+type pipelineStageOnFailureConditionPtrType PipelineStageOnFailureConditionArgs
+
+func PipelineStageOnFailureConditionPtr(v *PipelineStageOnFailureConditionArgs) PipelineStageOnFailureConditionPtrInput {
+	return (*pipelineStageOnFailureConditionPtrType)(v)
+}
+
+func (*pipelineStageOnFailureConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageOnFailureCondition)(nil)).Elem()
+}
+
+func (i *pipelineStageOnFailureConditionPtrType) ToPipelineStageOnFailureConditionPtrOutput() PipelineStageOnFailureConditionPtrOutput {
+	return i.ToPipelineStageOnFailureConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineStageOnFailureConditionPtrType) ToPipelineStageOnFailureConditionPtrOutputWithContext(ctx context.Context) PipelineStageOnFailureConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnFailureConditionPtrOutput)
+}
+
+type PipelineStageOnFailureConditionOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnFailureConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnFailureCondition)(nil)).Elem()
+}
+
+func (o PipelineStageOnFailureConditionOutput) ToPipelineStageOnFailureConditionOutput() PipelineStageOnFailureConditionOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureConditionOutput) ToPipelineStageOnFailureConditionOutputWithContext(ctx context.Context) PipelineStageOnFailureConditionOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureConditionOutput) ToPipelineStageOnFailureConditionPtrOutput() PipelineStageOnFailureConditionPtrOutput {
+	return o.ToPipelineStageOnFailureConditionPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineStageOnFailureConditionOutput) ToPipelineStageOnFailureConditionPtrOutputWithContext(ctx context.Context) PipelineStageOnFailureConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineStageOnFailureCondition) *PipelineStageOnFailureCondition {
+		return &v
+	}).(PipelineStageOnFailureConditionPtrOutput)
+}
+
+// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+func (o PipelineStageOnFailureConditionOutput) Result() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureCondition) *string { return v.Result }).(pulumi.StringPtrOutput)
+}
+
+// The rules that make up the condition. Defined as a `rule` block below.
+func (o PipelineStageOnFailureConditionOutput) Rules() PipelineStageOnFailureConditionRuleArrayOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureCondition) []PipelineStageOnFailureConditionRule { return v.Rules }).(PipelineStageOnFailureConditionRuleArrayOutput)
+}
+
+type PipelineStageOnFailureConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnFailureConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageOnFailureCondition)(nil)).Elem()
+}
+
+func (o PipelineStageOnFailureConditionPtrOutput) ToPipelineStageOnFailureConditionPtrOutput() PipelineStageOnFailureConditionPtrOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureConditionPtrOutput) ToPipelineStageOnFailureConditionPtrOutputWithContext(ctx context.Context) PipelineStageOnFailureConditionPtrOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureConditionPtrOutput) Elem() PipelineStageOnFailureConditionOutput {
+	return o.ApplyT(func(v *PipelineStageOnFailureCondition) PipelineStageOnFailureCondition {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineStageOnFailureCondition
+		return ret
+	}).(PipelineStageOnFailureConditionOutput)
+}
+
+// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+func (o PipelineStageOnFailureConditionPtrOutput) Result() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineStageOnFailureCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Result
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rules that make up the condition. Defined as a `rule` block below.
+func (o PipelineStageOnFailureConditionPtrOutput) Rules() PipelineStageOnFailureConditionRuleArrayOutput {
+	return o.ApplyT(func(v *PipelineStageOnFailureCondition) []PipelineStageOnFailureConditionRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(PipelineStageOnFailureConditionRuleArrayOutput)
+}
+
+type PipelineStageOnFailureConditionRule struct {
+	// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+	Commands []string `pulumi:"commands"`
+	// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+	Configuration map[string]string `pulumi:"configuration"`
+	// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+	InputArtifacts []string `pulumi:"inputArtifacts"`
+	// The name of the rule that is created for the condition, such as `VariableCheck`.
+	Name string `pulumi:"name"`
+	// The Region for the condition associated with the rule.
+	Region *string `pulumi:"region"`
+	// The pipeline role ARN associated with the rule.
+	RoleArn *string `pulumi:"roleArn"`
+	// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
+	RuleTypeId PipelineStageOnFailureConditionRuleRuleTypeId `pulumi:"ruleTypeId"`
+	// The action timeout for the rule.
+	TimeoutInMinutes *int `pulumi:"timeoutInMinutes"`
+}
+
+// PipelineStageOnFailureConditionRuleInput is an input type that accepts PipelineStageOnFailureConditionRuleArgs and PipelineStageOnFailureConditionRuleOutput values.
+// You can construct a concrete instance of `PipelineStageOnFailureConditionRuleInput` via:
+//
+//	PipelineStageOnFailureConditionRuleArgs{...}
+type PipelineStageOnFailureConditionRuleInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnFailureConditionRuleOutput() PipelineStageOnFailureConditionRuleOutput
+	ToPipelineStageOnFailureConditionRuleOutputWithContext(context.Context) PipelineStageOnFailureConditionRuleOutput
+}
+
+type PipelineStageOnFailureConditionRuleArgs struct {
+	// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+	Configuration pulumi.StringMapInput `pulumi:"configuration"`
+	// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
+	// The name of the rule that is created for the condition, such as `VariableCheck`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Region for the condition associated with the rule.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// The pipeline role ARN associated with the rule.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
+	RuleTypeId PipelineStageOnFailureConditionRuleRuleTypeIdInput `pulumi:"ruleTypeId"`
+	// The action timeout for the rule.
+	TimeoutInMinutes pulumi.IntPtrInput `pulumi:"timeoutInMinutes"`
+}
+
+func (PipelineStageOnFailureConditionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnFailureConditionRule)(nil)).Elem()
+}
+
+func (i PipelineStageOnFailureConditionRuleArgs) ToPipelineStageOnFailureConditionRuleOutput() PipelineStageOnFailureConditionRuleOutput {
+	return i.ToPipelineStageOnFailureConditionRuleOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnFailureConditionRuleArgs) ToPipelineStageOnFailureConditionRuleOutputWithContext(ctx context.Context) PipelineStageOnFailureConditionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnFailureConditionRuleOutput)
+}
+
+// PipelineStageOnFailureConditionRuleArrayInput is an input type that accepts PipelineStageOnFailureConditionRuleArray and PipelineStageOnFailureConditionRuleArrayOutput values.
+// You can construct a concrete instance of `PipelineStageOnFailureConditionRuleArrayInput` via:
+//
+//	PipelineStageOnFailureConditionRuleArray{ PipelineStageOnFailureConditionRuleArgs{...} }
+type PipelineStageOnFailureConditionRuleArrayInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnFailureConditionRuleArrayOutput() PipelineStageOnFailureConditionRuleArrayOutput
+	ToPipelineStageOnFailureConditionRuleArrayOutputWithContext(context.Context) PipelineStageOnFailureConditionRuleArrayOutput
+}
+
+type PipelineStageOnFailureConditionRuleArray []PipelineStageOnFailureConditionRuleInput
+
+func (PipelineStageOnFailureConditionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineStageOnFailureConditionRule)(nil)).Elem()
+}
+
+func (i PipelineStageOnFailureConditionRuleArray) ToPipelineStageOnFailureConditionRuleArrayOutput() PipelineStageOnFailureConditionRuleArrayOutput {
+	return i.ToPipelineStageOnFailureConditionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnFailureConditionRuleArray) ToPipelineStageOnFailureConditionRuleArrayOutputWithContext(ctx context.Context) PipelineStageOnFailureConditionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnFailureConditionRuleArrayOutput)
+}
+
+type PipelineStageOnFailureConditionRuleOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnFailureConditionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnFailureConditionRule)(nil)).Elem()
+}
+
+func (o PipelineStageOnFailureConditionRuleOutput) ToPipelineStageOnFailureConditionRuleOutput() PipelineStageOnFailureConditionRuleOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureConditionRuleOutput) ToPipelineStageOnFailureConditionRuleOutputWithContext(ctx context.Context) PipelineStageOnFailureConditionRuleOutput {
+	return o
+}
+
+// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+func (o PipelineStageOnFailureConditionRuleOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+func (o PipelineStageOnFailureConditionRuleOutput) Configuration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
+}
+
+// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+func (o PipelineStageOnFailureConditionRuleOutput) InputArtifacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) []string { return v.InputArtifacts }).(pulumi.StringArrayOutput)
+}
+
+// The name of the rule that is created for the condition, such as `VariableCheck`.
+func (o PipelineStageOnFailureConditionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Region for the condition associated with the rule.
+func (o PipelineStageOnFailureConditionRuleOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The pipeline role ARN associated with the rule.
+func (o PipelineStageOnFailureConditionRuleOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
+func (o PipelineStageOnFailureConditionRuleOutput) RuleTypeId() PipelineStageOnFailureConditionRuleRuleTypeIdOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) PipelineStageOnFailureConditionRuleRuleTypeId {
+		return v.RuleTypeId
+	}).(PipelineStageOnFailureConditionRuleRuleTypeIdOutput)
+}
+
+// The action timeout for the rule.
+func (o PipelineStageOnFailureConditionRuleOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureConditionRule) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type PipelineStageOnFailureConditionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnFailureConditionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineStageOnFailureConditionRule)(nil)).Elem()
+}
+
+func (o PipelineStageOnFailureConditionRuleArrayOutput) ToPipelineStageOnFailureConditionRuleArrayOutput() PipelineStageOnFailureConditionRuleArrayOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureConditionRuleArrayOutput) ToPipelineStageOnFailureConditionRuleArrayOutputWithContext(ctx context.Context) PipelineStageOnFailureConditionRuleArrayOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureConditionRuleArrayOutput) Index(i pulumi.IntInput) PipelineStageOnFailureConditionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineStageOnFailureConditionRule {
+		return vs[0].([]PipelineStageOnFailureConditionRule)[vs[1].(int)]
+	}).(PipelineStageOnFailureConditionRuleOutput)
+}
+
+type PipelineStageOnFailureConditionRuleRuleTypeId struct {
+	// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+	Category string `pulumi:"category"`
+	// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+	Owner *string `pulumi:"owner"`
+	// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+	Provider string `pulumi:"provider"`
+	// A string that describes the rule version.
+	Version *string `pulumi:"version"`
+}
+
+// PipelineStageOnFailureConditionRuleRuleTypeIdInput is an input type that accepts PipelineStageOnFailureConditionRuleRuleTypeIdArgs and PipelineStageOnFailureConditionRuleRuleTypeIdOutput values.
+// You can construct a concrete instance of `PipelineStageOnFailureConditionRuleRuleTypeIdInput` via:
+//
+//	PipelineStageOnFailureConditionRuleRuleTypeIdArgs{...}
+type PipelineStageOnFailureConditionRuleRuleTypeIdInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnFailureConditionRuleRuleTypeIdOutput() PipelineStageOnFailureConditionRuleRuleTypeIdOutput
+	ToPipelineStageOnFailureConditionRuleRuleTypeIdOutputWithContext(context.Context) PipelineStageOnFailureConditionRuleRuleTypeIdOutput
+}
+
+type PipelineStageOnFailureConditionRuleRuleTypeIdArgs struct {
+	// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+	Category pulumi.StringInput `pulumi:"category"`
+	// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+	Provider pulumi.StringInput `pulumi:"provider"`
+	// A string that describes the rule version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (PipelineStageOnFailureConditionRuleRuleTypeIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnFailureConditionRuleRuleTypeId)(nil)).Elem()
+}
+
+func (i PipelineStageOnFailureConditionRuleRuleTypeIdArgs) ToPipelineStageOnFailureConditionRuleRuleTypeIdOutput() PipelineStageOnFailureConditionRuleRuleTypeIdOutput {
+	return i.ToPipelineStageOnFailureConditionRuleRuleTypeIdOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnFailureConditionRuleRuleTypeIdArgs) ToPipelineStageOnFailureConditionRuleRuleTypeIdOutputWithContext(ctx context.Context) PipelineStageOnFailureConditionRuleRuleTypeIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnFailureConditionRuleRuleTypeIdOutput)
+}
+
+type PipelineStageOnFailureConditionRuleRuleTypeIdOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnFailureConditionRuleRuleTypeIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnFailureConditionRuleRuleTypeId)(nil)).Elem()
+}
+
+func (o PipelineStageOnFailureConditionRuleRuleTypeIdOutput) ToPipelineStageOnFailureConditionRuleRuleTypeIdOutput() PipelineStageOnFailureConditionRuleRuleTypeIdOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureConditionRuleRuleTypeIdOutput) ToPipelineStageOnFailureConditionRuleRuleTypeIdOutputWithContext(ctx context.Context) PipelineStageOnFailureConditionRuleRuleTypeIdOutput {
+	return o
+}
+
+// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+func (o PipelineStageOnFailureConditionRuleRuleTypeIdOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureConditionRuleRuleTypeId) string { return v.Category }).(pulumi.StringOutput)
+}
+
+// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+func (o PipelineStageOnFailureConditionRuleRuleTypeIdOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureConditionRuleRuleTypeId) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+func (o PipelineStageOnFailureConditionRuleRuleTypeIdOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureConditionRuleRuleTypeId) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+// A string that describes the rule version.
+func (o PipelineStageOnFailureConditionRuleRuleTypeIdOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureConditionRuleRuleTypeId) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type PipelineStageOnFailureRetryConfiguration struct {
+	// The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
+	RetryMode *string `pulumi:"retryMode"`
+}
+
+// PipelineStageOnFailureRetryConfigurationInput is an input type that accepts PipelineStageOnFailureRetryConfigurationArgs and PipelineStageOnFailureRetryConfigurationOutput values.
+// You can construct a concrete instance of `PipelineStageOnFailureRetryConfigurationInput` via:
+//
+//	PipelineStageOnFailureRetryConfigurationArgs{...}
+type PipelineStageOnFailureRetryConfigurationInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnFailureRetryConfigurationOutput() PipelineStageOnFailureRetryConfigurationOutput
+	ToPipelineStageOnFailureRetryConfigurationOutputWithContext(context.Context) PipelineStageOnFailureRetryConfigurationOutput
+}
+
+type PipelineStageOnFailureRetryConfigurationArgs struct {
+	// The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
+	RetryMode pulumi.StringPtrInput `pulumi:"retryMode"`
+}
+
+func (PipelineStageOnFailureRetryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnFailureRetryConfiguration)(nil)).Elem()
+}
+
+func (i PipelineStageOnFailureRetryConfigurationArgs) ToPipelineStageOnFailureRetryConfigurationOutput() PipelineStageOnFailureRetryConfigurationOutput {
+	return i.ToPipelineStageOnFailureRetryConfigurationOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnFailureRetryConfigurationArgs) ToPipelineStageOnFailureRetryConfigurationOutputWithContext(ctx context.Context) PipelineStageOnFailureRetryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnFailureRetryConfigurationOutput)
+}
+
+func (i PipelineStageOnFailureRetryConfigurationArgs) ToPipelineStageOnFailureRetryConfigurationPtrOutput() PipelineStageOnFailureRetryConfigurationPtrOutput {
+	return i.ToPipelineStageOnFailureRetryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnFailureRetryConfigurationArgs) ToPipelineStageOnFailureRetryConfigurationPtrOutputWithContext(ctx context.Context) PipelineStageOnFailureRetryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnFailureRetryConfigurationOutput).ToPipelineStageOnFailureRetryConfigurationPtrOutputWithContext(ctx)
+}
+
+// PipelineStageOnFailureRetryConfigurationPtrInput is an input type that accepts PipelineStageOnFailureRetryConfigurationArgs, PipelineStageOnFailureRetryConfigurationPtr and PipelineStageOnFailureRetryConfigurationPtrOutput values.
+// You can construct a concrete instance of `PipelineStageOnFailureRetryConfigurationPtrInput` via:
+//
+//	        PipelineStageOnFailureRetryConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineStageOnFailureRetryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnFailureRetryConfigurationPtrOutput() PipelineStageOnFailureRetryConfigurationPtrOutput
+	ToPipelineStageOnFailureRetryConfigurationPtrOutputWithContext(context.Context) PipelineStageOnFailureRetryConfigurationPtrOutput
+}
+
+type pipelineStageOnFailureRetryConfigurationPtrType PipelineStageOnFailureRetryConfigurationArgs
+
+func PipelineStageOnFailureRetryConfigurationPtr(v *PipelineStageOnFailureRetryConfigurationArgs) PipelineStageOnFailureRetryConfigurationPtrInput {
+	return (*pipelineStageOnFailureRetryConfigurationPtrType)(v)
+}
+
+func (*pipelineStageOnFailureRetryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageOnFailureRetryConfiguration)(nil)).Elem()
+}
+
+func (i *pipelineStageOnFailureRetryConfigurationPtrType) ToPipelineStageOnFailureRetryConfigurationPtrOutput() PipelineStageOnFailureRetryConfigurationPtrOutput {
+	return i.ToPipelineStageOnFailureRetryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineStageOnFailureRetryConfigurationPtrType) ToPipelineStageOnFailureRetryConfigurationPtrOutputWithContext(ctx context.Context) PipelineStageOnFailureRetryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnFailureRetryConfigurationPtrOutput)
+}
+
+type PipelineStageOnFailureRetryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnFailureRetryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnFailureRetryConfiguration)(nil)).Elem()
+}
+
+func (o PipelineStageOnFailureRetryConfigurationOutput) ToPipelineStageOnFailureRetryConfigurationOutput() PipelineStageOnFailureRetryConfigurationOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureRetryConfigurationOutput) ToPipelineStageOnFailureRetryConfigurationOutputWithContext(ctx context.Context) PipelineStageOnFailureRetryConfigurationOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureRetryConfigurationOutput) ToPipelineStageOnFailureRetryConfigurationPtrOutput() PipelineStageOnFailureRetryConfigurationPtrOutput {
+	return o.ToPipelineStageOnFailureRetryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineStageOnFailureRetryConfigurationOutput) ToPipelineStageOnFailureRetryConfigurationPtrOutputWithContext(ctx context.Context) PipelineStageOnFailureRetryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineStageOnFailureRetryConfiguration) *PipelineStageOnFailureRetryConfiguration {
+		return &v
+	}).(PipelineStageOnFailureRetryConfigurationPtrOutput)
+}
+
+// The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
+func (o PipelineStageOnFailureRetryConfigurationOutput) RetryMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnFailureRetryConfiguration) *string { return v.RetryMode }).(pulumi.StringPtrOutput)
+}
+
+type PipelineStageOnFailureRetryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnFailureRetryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageOnFailureRetryConfiguration)(nil)).Elem()
+}
+
+func (o PipelineStageOnFailureRetryConfigurationPtrOutput) ToPipelineStageOnFailureRetryConfigurationPtrOutput() PipelineStageOnFailureRetryConfigurationPtrOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureRetryConfigurationPtrOutput) ToPipelineStageOnFailureRetryConfigurationPtrOutputWithContext(ctx context.Context) PipelineStageOnFailureRetryConfigurationPtrOutput {
+	return o
+}
+
+func (o PipelineStageOnFailureRetryConfigurationPtrOutput) Elem() PipelineStageOnFailureRetryConfigurationOutput {
+	return o.ApplyT(func(v *PipelineStageOnFailureRetryConfiguration) PipelineStageOnFailureRetryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineStageOnFailureRetryConfiguration
+		return ret
+	}).(PipelineStageOnFailureRetryConfigurationOutput)
+}
+
+// The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
+func (o PipelineStageOnFailureRetryConfigurationPtrOutput) RetryMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineStageOnFailureRetryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetryMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineStageOnSuccess struct {
+	// The conditions that are success conditions. Defined as a `condition` block below.
+	Condition PipelineStageOnSuccessCondition `pulumi:"condition"`
+}
+
+// PipelineStageOnSuccessInput is an input type that accepts PipelineStageOnSuccessArgs and PipelineStageOnSuccessOutput values.
+// You can construct a concrete instance of `PipelineStageOnSuccessInput` via:
+//
+//	PipelineStageOnSuccessArgs{...}
+type PipelineStageOnSuccessInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnSuccessOutput() PipelineStageOnSuccessOutput
+	ToPipelineStageOnSuccessOutputWithContext(context.Context) PipelineStageOnSuccessOutput
+}
+
+type PipelineStageOnSuccessArgs struct {
+	// The conditions that are success conditions. Defined as a `condition` block below.
+	Condition PipelineStageOnSuccessConditionInput `pulumi:"condition"`
+}
+
+func (PipelineStageOnSuccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnSuccess)(nil)).Elem()
+}
+
+func (i PipelineStageOnSuccessArgs) ToPipelineStageOnSuccessOutput() PipelineStageOnSuccessOutput {
+	return i.ToPipelineStageOnSuccessOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnSuccessArgs) ToPipelineStageOnSuccessOutputWithContext(ctx context.Context) PipelineStageOnSuccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnSuccessOutput)
+}
+
+func (i PipelineStageOnSuccessArgs) ToPipelineStageOnSuccessPtrOutput() PipelineStageOnSuccessPtrOutput {
+	return i.ToPipelineStageOnSuccessPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnSuccessArgs) ToPipelineStageOnSuccessPtrOutputWithContext(ctx context.Context) PipelineStageOnSuccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnSuccessOutput).ToPipelineStageOnSuccessPtrOutputWithContext(ctx)
+}
+
+// PipelineStageOnSuccessPtrInput is an input type that accepts PipelineStageOnSuccessArgs, PipelineStageOnSuccessPtr and PipelineStageOnSuccessPtrOutput values.
+// You can construct a concrete instance of `PipelineStageOnSuccessPtrInput` via:
+//
+//	        PipelineStageOnSuccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineStageOnSuccessPtrInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnSuccessPtrOutput() PipelineStageOnSuccessPtrOutput
+	ToPipelineStageOnSuccessPtrOutputWithContext(context.Context) PipelineStageOnSuccessPtrOutput
+}
+
+type pipelineStageOnSuccessPtrType PipelineStageOnSuccessArgs
+
+func PipelineStageOnSuccessPtr(v *PipelineStageOnSuccessArgs) PipelineStageOnSuccessPtrInput {
+	return (*pipelineStageOnSuccessPtrType)(v)
+}
+
+func (*pipelineStageOnSuccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageOnSuccess)(nil)).Elem()
+}
+
+func (i *pipelineStageOnSuccessPtrType) ToPipelineStageOnSuccessPtrOutput() PipelineStageOnSuccessPtrOutput {
+	return i.ToPipelineStageOnSuccessPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineStageOnSuccessPtrType) ToPipelineStageOnSuccessPtrOutputWithContext(ctx context.Context) PipelineStageOnSuccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnSuccessPtrOutput)
+}
+
+type PipelineStageOnSuccessOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnSuccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnSuccess)(nil)).Elem()
+}
+
+func (o PipelineStageOnSuccessOutput) ToPipelineStageOnSuccessOutput() PipelineStageOnSuccessOutput {
+	return o
+}
+
+func (o PipelineStageOnSuccessOutput) ToPipelineStageOnSuccessOutputWithContext(ctx context.Context) PipelineStageOnSuccessOutput {
+	return o
+}
+
+func (o PipelineStageOnSuccessOutput) ToPipelineStageOnSuccessPtrOutput() PipelineStageOnSuccessPtrOutput {
+	return o.ToPipelineStageOnSuccessPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineStageOnSuccessOutput) ToPipelineStageOnSuccessPtrOutputWithContext(ctx context.Context) PipelineStageOnSuccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineStageOnSuccess) *PipelineStageOnSuccess {
+		return &v
+	}).(PipelineStageOnSuccessPtrOutput)
+}
+
+// The conditions that are success conditions. Defined as a `condition` block below.
+func (o PipelineStageOnSuccessOutput) Condition() PipelineStageOnSuccessConditionOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccess) PipelineStageOnSuccessCondition { return v.Condition }).(PipelineStageOnSuccessConditionOutput)
+}
+
+type PipelineStageOnSuccessPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnSuccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageOnSuccess)(nil)).Elem()
+}
+
+func (o PipelineStageOnSuccessPtrOutput) ToPipelineStageOnSuccessPtrOutput() PipelineStageOnSuccessPtrOutput {
+	return o
+}
+
+func (o PipelineStageOnSuccessPtrOutput) ToPipelineStageOnSuccessPtrOutputWithContext(ctx context.Context) PipelineStageOnSuccessPtrOutput {
+	return o
+}
+
+func (o PipelineStageOnSuccessPtrOutput) Elem() PipelineStageOnSuccessOutput {
+	return o.ApplyT(func(v *PipelineStageOnSuccess) PipelineStageOnSuccess {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineStageOnSuccess
+		return ret
+	}).(PipelineStageOnSuccessOutput)
+}
+
+// The conditions that are success conditions. Defined as a `condition` block below.
+func (o PipelineStageOnSuccessPtrOutput) Condition() PipelineStageOnSuccessConditionPtrOutput {
+	return o.ApplyT(func(v *PipelineStageOnSuccess) *PipelineStageOnSuccessCondition {
+		if v == nil {
+			return nil
+		}
+		return &v.Condition
+	}).(PipelineStageOnSuccessConditionPtrOutput)
+}
+
+type PipelineStageOnSuccessCondition struct {
+	// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+	Result *string `pulumi:"result"`
+	// The rules that make up the condition. Defined as a `rule` block below.
+	Rules []PipelineStageOnSuccessConditionRule `pulumi:"rules"`
+}
+
+// PipelineStageOnSuccessConditionInput is an input type that accepts PipelineStageOnSuccessConditionArgs and PipelineStageOnSuccessConditionOutput values.
+// You can construct a concrete instance of `PipelineStageOnSuccessConditionInput` via:
+//
+//	PipelineStageOnSuccessConditionArgs{...}
+type PipelineStageOnSuccessConditionInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnSuccessConditionOutput() PipelineStageOnSuccessConditionOutput
+	ToPipelineStageOnSuccessConditionOutputWithContext(context.Context) PipelineStageOnSuccessConditionOutput
+}
+
+type PipelineStageOnSuccessConditionArgs struct {
+	// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+	Result pulumi.StringPtrInput `pulumi:"result"`
+	// The rules that make up the condition. Defined as a `rule` block below.
+	Rules PipelineStageOnSuccessConditionRuleArrayInput `pulumi:"rules"`
+}
+
+func (PipelineStageOnSuccessConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnSuccessCondition)(nil)).Elem()
+}
+
+func (i PipelineStageOnSuccessConditionArgs) ToPipelineStageOnSuccessConditionOutput() PipelineStageOnSuccessConditionOutput {
+	return i.ToPipelineStageOnSuccessConditionOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnSuccessConditionArgs) ToPipelineStageOnSuccessConditionOutputWithContext(ctx context.Context) PipelineStageOnSuccessConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnSuccessConditionOutput)
+}
+
+func (i PipelineStageOnSuccessConditionArgs) ToPipelineStageOnSuccessConditionPtrOutput() PipelineStageOnSuccessConditionPtrOutput {
+	return i.ToPipelineStageOnSuccessConditionPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnSuccessConditionArgs) ToPipelineStageOnSuccessConditionPtrOutputWithContext(ctx context.Context) PipelineStageOnSuccessConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnSuccessConditionOutput).ToPipelineStageOnSuccessConditionPtrOutputWithContext(ctx)
+}
+
+// PipelineStageOnSuccessConditionPtrInput is an input type that accepts PipelineStageOnSuccessConditionArgs, PipelineStageOnSuccessConditionPtr and PipelineStageOnSuccessConditionPtrOutput values.
+// You can construct a concrete instance of `PipelineStageOnSuccessConditionPtrInput` via:
+//
+//	        PipelineStageOnSuccessConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineStageOnSuccessConditionPtrInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnSuccessConditionPtrOutput() PipelineStageOnSuccessConditionPtrOutput
+	ToPipelineStageOnSuccessConditionPtrOutputWithContext(context.Context) PipelineStageOnSuccessConditionPtrOutput
+}
+
+type pipelineStageOnSuccessConditionPtrType PipelineStageOnSuccessConditionArgs
+
+func PipelineStageOnSuccessConditionPtr(v *PipelineStageOnSuccessConditionArgs) PipelineStageOnSuccessConditionPtrInput {
+	return (*pipelineStageOnSuccessConditionPtrType)(v)
+}
+
+func (*pipelineStageOnSuccessConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageOnSuccessCondition)(nil)).Elem()
+}
+
+func (i *pipelineStageOnSuccessConditionPtrType) ToPipelineStageOnSuccessConditionPtrOutput() PipelineStageOnSuccessConditionPtrOutput {
+	return i.ToPipelineStageOnSuccessConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineStageOnSuccessConditionPtrType) ToPipelineStageOnSuccessConditionPtrOutputWithContext(ctx context.Context) PipelineStageOnSuccessConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnSuccessConditionPtrOutput)
+}
+
+type PipelineStageOnSuccessConditionOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnSuccessConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnSuccessCondition)(nil)).Elem()
+}
+
+func (o PipelineStageOnSuccessConditionOutput) ToPipelineStageOnSuccessConditionOutput() PipelineStageOnSuccessConditionOutput {
+	return o
+}
+
+func (o PipelineStageOnSuccessConditionOutput) ToPipelineStageOnSuccessConditionOutputWithContext(ctx context.Context) PipelineStageOnSuccessConditionOutput {
+	return o
+}
+
+func (o PipelineStageOnSuccessConditionOutput) ToPipelineStageOnSuccessConditionPtrOutput() PipelineStageOnSuccessConditionPtrOutput {
+	return o.ToPipelineStageOnSuccessConditionPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineStageOnSuccessConditionOutput) ToPipelineStageOnSuccessConditionPtrOutputWithContext(ctx context.Context) PipelineStageOnSuccessConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineStageOnSuccessCondition) *PipelineStageOnSuccessCondition {
+		return &v
+	}).(PipelineStageOnSuccessConditionPtrOutput)
+}
+
+// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+func (o PipelineStageOnSuccessConditionOutput) Result() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessCondition) *string { return v.Result }).(pulumi.StringPtrOutput)
+}
+
+// The rules that make up the condition. Defined as a `rule` block below.
+func (o PipelineStageOnSuccessConditionOutput) Rules() PipelineStageOnSuccessConditionRuleArrayOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessCondition) []PipelineStageOnSuccessConditionRule { return v.Rules }).(PipelineStageOnSuccessConditionRuleArrayOutput)
+}
+
+type PipelineStageOnSuccessConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnSuccessConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineStageOnSuccessCondition)(nil)).Elem()
+}
+
+func (o PipelineStageOnSuccessConditionPtrOutput) ToPipelineStageOnSuccessConditionPtrOutput() PipelineStageOnSuccessConditionPtrOutput {
+	return o
+}
+
+func (o PipelineStageOnSuccessConditionPtrOutput) ToPipelineStageOnSuccessConditionPtrOutputWithContext(ctx context.Context) PipelineStageOnSuccessConditionPtrOutput {
+	return o
+}
+
+func (o PipelineStageOnSuccessConditionPtrOutput) Elem() PipelineStageOnSuccessConditionOutput {
+	return o.ApplyT(func(v *PipelineStageOnSuccessCondition) PipelineStageOnSuccessCondition {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineStageOnSuccessCondition
+		return ret
+	}).(PipelineStageOnSuccessConditionOutput)
+}
+
+// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+func (o PipelineStageOnSuccessConditionPtrOutput) Result() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineStageOnSuccessCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Result
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rules that make up the condition. Defined as a `rule` block below.
+func (o PipelineStageOnSuccessConditionPtrOutput) Rules() PipelineStageOnSuccessConditionRuleArrayOutput {
+	return o.ApplyT(func(v *PipelineStageOnSuccessCondition) []PipelineStageOnSuccessConditionRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(PipelineStageOnSuccessConditionRuleArrayOutput)
+}
+
+type PipelineStageOnSuccessConditionRule struct {
+	// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+	Commands []string `pulumi:"commands"`
+	// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+	Configuration map[string]string `pulumi:"configuration"`
+	// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+	InputArtifacts []string `pulumi:"inputArtifacts"`
+	// The name of the rule that is created for the condition, such as `VariableCheck`.
+	Name string `pulumi:"name"`
+	// The Region for the condition associated with the rule.
+	Region *string `pulumi:"region"`
+	// The pipeline role ARN associated with the rule.
+	RoleArn *string `pulumi:"roleArn"`
+	// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
+	RuleTypeId PipelineStageOnSuccessConditionRuleRuleTypeId `pulumi:"ruleTypeId"`
+	// The action timeout for the rule.
+	TimeoutInMinutes *int `pulumi:"timeoutInMinutes"`
+}
+
+// PipelineStageOnSuccessConditionRuleInput is an input type that accepts PipelineStageOnSuccessConditionRuleArgs and PipelineStageOnSuccessConditionRuleOutput values.
+// You can construct a concrete instance of `PipelineStageOnSuccessConditionRuleInput` via:
+//
+//	PipelineStageOnSuccessConditionRuleArgs{...}
+type PipelineStageOnSuccessConditionRuleInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnSuccessConditionRuleOutput() PipelineStageOnSuccessConditionRuleOutput
+	ToPipelineStageOnSuccessConditionRuleOutputWithContext(context.Context) PipelineStageOnSuccessConditionRuleOutput
+}
+
+type PipelineStageOnSuccessConditionRuleArgs struct {
+	// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+	Configuration pulumi.StringMapInput `pulumi:"configuration"`
+	// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
+	// The name of the rule that is created for the condition, such as `VariableCheck`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Region for the condition associated with the rule.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// The pipeline role ARN associated with the rule.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
+	RuleTypeId PipelineStageOnSuccessConditionRuleRuleTypeIdInput `pulumi:"ruleTypeId"`
+	// The action timeout for the rule.
+	TimeoutInMinutes pulumi.IntPtrInput `pulumi:"timeoutInMinutes"`
+}
+
+func (PipelineStageOnSuccessConditionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnSuccessConditionRule)(nil)).Elem()
+}
+
+func (i PipelineStageOnSuccessConditionRuleArgs) ToPipelineStageOnSuccessConditionRuleOutput() PipelineStageOnSuccessConditionRuleOutput {
+	return i.ToPipelineStageOnSuccessConditionRuleOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnSuccessConditionRuleArgs) ToPipelineStageOnSuccessConditionRuleOutputWithContext(ctx context.Context) PipelineStageOnSuccessConditionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnSuccessConditionRuleOutput)
+}
+
+// PipelineStageOnSuccessConditionRuleArrayInput is an input type that accepts PipelineStageOnSuccessConditionRuleArray and PipelineStageOnSuccessConditionRuleArrayOutput values.
+// You can construct a concrete instance of `PipelineStageOnSuccessConditionRuleArrayInput` via:
+//
+//	PipelineStageOnSuccessConditionRuleArray{ PipelineStageOnSuccessConditionRuleArgs{...} }
+type PipelineStageOnSuccessConditionRuleArrayInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnSuccessConditionRuleArrayOutput() PipelineStageOnSuccessConditionRuleArrayOutput
+	ToPipelineStageOnSuccessConditionRuleArrayOutputWithContext(context.Context) PipelineStageOnSuccessConditionRuleArrayOutput
+}
+
+type PipelineStageOnSuccessConditionRuleArray []PipelineStageOnSuccessConditionRuleInput
+
+func (PipelineStageOnSuccessConditionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineStageOnSuccessConditionRule)(nil)).Elem()
+}
+
+func (i PipelineStageOnSuccessConditionRuleArray) ToPipelineStageOnSuccessConditionRuleArrayOutput() PipelineStageOnSuccessConditionRuleArrayOutput {
+	return i.ToPipelineStageOnSuccessConditionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnSuccessConditionRuleArray) ToPipelineStageOnSuccessConditionRuleArrayOutputWithContext(ctx context.Context) PipelineStageOnSuccessConditionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnSuccessConditionRuleArrayOutput)
+}
+
+type PipelineStageOnSuccessConditionRuleOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnSuccessConditionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnSuccessConditionRule)(nil)).Elem()
+}
+
+func (o PipelineStageOnSuccessConditionRuleOutput) ToPipelineStageOnSuccessConditionRuleOutput() PipelineStageOnSuccessConditionRuleOutput {
+	return o
+}
+
+func (o PipelineStageOnSuccessConditionRuleOutput) ToPipelineStageOnSuccessConditionRuleOutputWithContext(ctx context.Context) PipelineStageOnSuccessConditionRuleOutput {
+	return o
+}
+
+// The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+func (o PipelineStageOnSuccessConditionRuleOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+func (o PipelineStageOnSuccessConditionRuleOutput) Configuration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
+}
+
+// The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+func (o PipelineStageOnSuccessConditionRuleOutput) InputArtifacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) []string { return v.InputArtifacts }).(pulumi.StringArrayOutput)
+}
+
+// The name of the rule that is created for the condition, such as `VariableCheck`.
+func (o PipelineStageOnSuccessConditionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Region for the condition associated with the rule.
+func (o PipelineStageOnSuccessConditionRuleOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The pipeline role ARN associated with the rule.
+func (o PipelineStageOnSuccessConditionRuleOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `ruleTypeId` block below.
+func (o PipelineStageOnSuccessConditionRuleOutput) RuleTypeId() PipelineStageOnSuccessConditionRuleRuleTypeIdOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) PipelineStageOnSuccessConditionRuleRuleTypeId {
+		return v.RuleTypeId
+	}).(PipelineStageOnSuccessConditionRuleRuleTypeIdOutput)
+}
+
+// The action timeout for the rule.
+func (o PipelineStageOnSuccessConditionRuleOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessConditionRule) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type PipelineStageOnSuccessConditionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnSuccessConditionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineStageOnSuccessConditionRule)(nil)).Elem()
+}
+
+func (o PipelineStageOnSuccessConditionRuleArrayOutput) ToPipelineStageOnSuccessConditionRuleArrayOutput() PipelineStageOnSuccessConditionRuleArrayOutput {
+	return o
+}
+
+func (o PipelineStageOnSuccessConditionRuleArrayOutput) ToPipelineStageOnSuccessConditionRuleArrayOutputWithContext(ctx context.Context) PipelineStageOnSuccessConditionRuleArrayOutput {
+	return o
+}
+
+func (o PipelineStageOnSuccessConditionRuleArrayOutput) Index(i pulumi.IntInput) PipelineStageOnSuccessConditionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineStageOnSuccessConditionRule {
+		return vs[0].([]PipelineStageOnSuccessConditionRule)[vs[1].(int)]
+	}).(PipelineStageOnSuccessConditionRuleOutput)
+}
+
+type PipelineStageOnSuccessConditionRuleRuleTypeId struct {
+	// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+	Category string `pulumi:"category"`
+	// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+	Owner *string `pulumi:"owner"`
+	// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+	Provider string `pulumi:"provider"`
+	// A string that describes the rule version.
+	Version *string `pulumi:"version"`
+}
+
+// PipelineStageOnSuccessConditionRuleRuleTypeIdInput is an input type that accepts PipelineStageOnSuccessConditionRuleRuleTypeIdArgs and PipelineStageOnSuccessConditionRuleRuleTypeIdOutput values.
+// You can construct a concrete instance of `PipelineStageOnSuccessConditionRuleRuleTypeIdInput` via:
+//
+//	PipelineStageOnSuccessConditionRuleRuleTypeIdArgs{...}
+type PipelineStageOnSuccessConditionRuleRuleTypeIdInput interface {
+	pulumi.Input
+
+	ToPipelineStageOnSuccessConditionRuleRuleTypeIdOutput() PipelineStageOnSuccessConditionRuleRuleTypeIdOutput
+	ToPipelineStageOnSuccessConditionRuleRuleTypeIdOutputWithContext(context.Context) PipelineStageOnSuccessConditionRuleRuleTypeIdOutput
+}
+
+type PipelineStageOnSuccessConditionRuleRuleTypeIdArgs struct {
+	// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+	Category pulumi.StringInput `pulumi:"category"`
+	// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+	Provider pulumi.StringInput `pulumi:"provider"`
+	// A string that describes the rule version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (PipelineStageOnSuccessConditionRuleRuleTypeIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnSuccessConditionRuleRuleTypeId)(nil)).Elem()
+}
+
+func (i PipelineStageOnSuccessConditionRuleRuleTypeIdArgs) ToPipelineStageOnSuccessConditionRuleRuleTypeIdOutput() PipelineStageOnSuccessConditionRuleRuleTypeIdOutput {
+	return i.ToPipelineStageOnSuccessConditionRuleRuleTypeIdOutputWithContext(context.Background())
+}
+
+func (i PipelineStageOnSuccessConditionRuleRuleTypeIdArgs) ToPipelineStageOnSuccessConditionRuleRuleTypeIdOutputWithContext(ctx context.Context) PipelineStageOnSuccessConditionRuleRuleTypeIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOnSuccessConditionRuleRuleTypeIdOutput)
+}
+
+type PipelineStageOnSuccessConditionRuleRuleTypeIdOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageOnSuccessConditionRuleRuleTypeIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageOnSuccessConditionRuleRuleTypeId)(nil)).Elem()
+}
+
+func (o PipelineStageOnSuccessConditionRuleRuleTypeIdOutput) ToPipelineStageOnSuccessConditionRuleRuleTypeIdOutput() PipelineStageOnSuccessConditionRuleRuleTypeIdOutput {
+	return o
+}
+
+func (o PipelineStageOnSuccessConditionRuleRuleTypeIdOutput) ToPipelineStageOnSuccessConditionRuleRuleTypeIdOutputWithContext(ctx context.Context) PipelineStageOnSuccessConditionRuleRuleTypeIdOutput {
+	return o
+}
+
+// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+func (o PipelineStageOnSuccessConditionRuleRuleTypeIdOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessConditionRuleRuleTypeId) string { return v.Category }).(pulumi.StringOutput)
+}
+
+// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+func (o PipelineStageOnSuccessConditionRuleRuleTypeIdOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessConditionRuleRuleTypeId) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+func (o PipelineStageOnSuccessConditionRuleRuleTypeIdOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessConditionRuleRuleTypeId) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+// A string that describes the rule version.
+func (o PipelineStageOnSuccessConditionRuleRuleTypeIdOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineStageOnSuccessConditionRuleRuleTypeId) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type PipelineTrigger struct {
@@ -2854,6 +4661,29 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageArrayInput)(nil)).Elem(), PipelineStageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageActionInput)(nil)).Elem(), PipelineStageActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageActionArrayInput)(nil)).Elem(), PipelineStageActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageBeforeEntryInput)(nil)).Elem(), PipelineStageBeforeEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageBeforeEntryPtrInput)(nil)).Elem(), PipelineStageBeforeEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageBeforeEntryConditionInput)(nil)).Elem(), PipelineStageBeforeEntryConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageBeforeEntryConditionPtrInput)(nil)).Elem(), PipelineStageBeforeEntryConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageBeforeEntryConditionRuleInput)(nil)).Elem(), PipelineStageBeforeEntryConditionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageBeforeEntryConditionRuleArrayInput)(nil)).Elem(), PipelineStageBeforeEntryConditionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageBeforeEntryConditionRuleRuleTypeIdInput)(nil)).Elem(), PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnFailureInput)(nil)).Elem(), PipelineStageOnFailureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnFailurePtrInput)(nil)).Elem(), PipelineStageOnFailureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnFailureConditionInput)(nil)).Elem(), PipelineStageOnFailureConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnFailureConditionPtrInput)(nil)).Elem(), PipelineStageOnFailureConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnFailureConditionRuleInput)(nil)).Elem(), PipelineStageOnFailureConditionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnFailureConditionRuleArrayInput)(nil)).Elem(), PipelineStageOnFailureConditionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnFailureConditionRuleRuleTypeIdInput)(nil)).Elem(), PipelineStageOnFailureConditionRuleRuleTypeIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnFailureRetryConfigurationInput)(nil)).Elem(), PipelineStageOnFailureRetryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnFailureRetryConfigurationPtrInput)(nil)).Elem(), PipelineStageOnFailureRetryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnSuccessInput)(nil)).Elem(), PipelineStageOnSuccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnSuccessPtrInput)(nil)).Elem(), PipelineStageOnSuccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnSuccessConditionInput)(nil)).Elem(), PipelineStageOnSuccessConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnSuccessConditionPtrInput)(nil)).Elem(), PipelineStageOnSuccessConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnSuccessConditionRuleInput)(nil)).Elem(), PipelineStageOnSuccessConditionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnSuccessConditionRuleArrayInput)(nil)).Elem(), PipelineStageOnSuccessConditionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageOnSuccessConditionRuleRuleTypeIdInput)(nil)).Elem(), PipelineStageOnSuccessConditionRuleRuleTypeIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerInput)(nil)).Elem(), PipelineTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerArrayInput)(nil)).Elem(), PipelineTriggerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerGitConfigurationInput)(nil)).Elem(), PipelineTriggerGitConfigurationArgs{})
@@ -2893,6 +4723,29 @@ func init() {
 	pulumi.RegisterOutputType(PipelineStageArrayOutput{})
 	pulumi.RegisterOutputType(PipelineStageActionOutput{})
 	pulumi.RegisterOutputType(PipelineStageActionArrayOutput{})
+	pulumi.RegisterOutputType(PipelineStageBeforeEntryOutput{})
+	pulumi.RegisterOutputType(PipelineStageBeforeEntryPtrOutput{})
+	pulumi.RegisterOutputType(PipelineStageBeforeEntryConditionOutput{})
+	pulumi.RegisterOutputType(PipelineStageBeforeEntryConditionPtrOutput{})
+	pulumi.RegisterOutputType(PipelineStageBeforeEntryConditionRuleOutput{})
+	pulumi.RegisterOutputType(PipelineStageBeforeEntryConditionRuleArrayOutput{})
+	pulumi.RegisterOutputType(PipelineStageBeforeEntryConditionRuleRuleTypeIdOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnFailureOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnFailurePtrOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnFailureConditionOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnFailureConditionPtrOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnFailureConditionRuleOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnFailureConditionRuleArrayOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnFailureConditionRuleRuleTypeIdOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnFailureRetryConfigurationOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnFailureRetryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnSuccessOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnSuccessPtrOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnSuccessConditionOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnSuccessConditionPtrOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnSuccessConditionRuleOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnSuccessConditionRuleArrayOutput{})
+	pulumi.RegisterOutputType(PipelineStageOnSuccessConditionRuleRuleTypeIdOutput{})
 	pulumi.RegisterOutputType(PipelineTriggerOutput{})
 	pulumi.RegisterOutputType(PipelineTriggerArrayOutput{})
 	pulumi.RegisterOutputType(PipelineTriggerGitConfigurationOutput{})

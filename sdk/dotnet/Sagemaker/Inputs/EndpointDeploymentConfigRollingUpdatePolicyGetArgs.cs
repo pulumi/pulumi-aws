@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<Inputs.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeGetArgs>? RollbackMaximumBatchSize { get; set; }
 
         /// <summary>
-        /// The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+        /// The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
         /// </summary>
         [Input("waitIntervalInSeconds", required: true)]
         public Input<int> WaitIntervalInSeconds { get; set; } = null!;

@@ -19,14 +19,14 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsArgs extends c
     public static final UserProfileUserSettingsJupyterServerAppSettingsArgs Empty = new UserProfileUserSettingsJupyterServerAppSettingsArgs();
 
     /**
-     * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
      * 
      */
     @Import(name="codeRepositories")
     private @Nullable Output<List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs>> codeRepositories;
 
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
      * 
      */
     public Optional<Output<List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs>>> codeRepositories() {
@@ -34,14 +34,14 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsArgs extends c
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     public Optional<Output<UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
@@ -90,7 +90,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsArgs extends c
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsArgs extends c
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsArgs extends c
         }
 
         /**
-         * @param codeRepositories A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * @param codeRepositories A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsArgs extends c
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class UserProfileUserSettingsJupyterServerAppSettingsArgs extends c
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
          * 
          * @return builder
          * 

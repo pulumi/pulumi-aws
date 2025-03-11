@@ -22,16 +22,16 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? BuiltInLifecycleConfigArn;
         /// <summary>
-        /// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserProfileUserSettingsJupyterLabAppSettingsCodeRepository> CodeRepositories;
         public readonly ImmutableArray<Outputs.UserProfileUserSettingsJupyterLabAppSettingsCustomImage> CustomImages;
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         /// </summary>
         public readonly Outputs.UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec? DefaultResourceSpec;
         /// <summary>
-        /// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        /// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         /// </summary>
         public readonly Outputs.UserProfileUserSettingsJupyterLabAppSettingsEmrSettings? EmrSettings;
         /// <summary>

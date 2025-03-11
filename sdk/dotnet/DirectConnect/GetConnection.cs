@@ -175,6 +175,10 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public readonly string ProviderName;
         /// <summary>
+        /// State of the connection.
+        /// </summary>
+        public readonly string State;
+        /// <summary>
         /// Map of tags for the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -203,6 +207,8 @@ namespace Pulumi.Aws.DirectConnect
 
             string providerName,
 
+            string state,
+
             ImmutableDictionary<string, string> tags,
 
             int vlanId)
@@ -216,6 +222,7 @@ namespace Pulumi.Aws.DirectConnect
             OwnerAccountId = ownerAccountId;
             PartnerName = partnerName;
             ProviderName = providerName;
+            State = state;
             Tags = tags;
             VlanId = vlanId;
         }

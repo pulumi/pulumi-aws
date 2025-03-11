@@ -86,6 +86,8 @@ type LookupOriginRequestPolicyArgs struct {
 
 // A collection of values returned by getOriginRequestPolicy.
 type LookupOriginRequestPolicyResult struct {
+	// The origin request policy ARN.
+	Arn string `pulumi:"arn"`
 	// Comment to describe the origin request policy.
 	Comment string `pulumi:"comment"`
 	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
@@ -134,6 +136,11 @@ func (o LookupOriginRequestPolicyResultOutput) ToLookupOriginRequestPolicyResult
 
 func (o LookupOriginRequestPolicyResultOutput) ToLookupOriginRequestPolicyResultOutputWithContext(ctx context.Context) LookupOriginRequestPolicyResultOutput {
 	return o
+}
+
+// The origin request policy ARN.
+func (o LookupOriginRequestPolicyResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOriginRequestPolicyResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Comment to describe the origin request policy.

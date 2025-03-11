@@ -71,7 +71,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
+        Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker AI projects.
 
         ## Example Usage
 
@@ -103,7 +103,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
                  args: ServicecatalogPortfolioStatusArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
+        Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker AI projects.
 
         ## Example Usage
 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class UserProfileUserSettingsTensorBoardAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs>? DefaultResourceSpec { get; set; }

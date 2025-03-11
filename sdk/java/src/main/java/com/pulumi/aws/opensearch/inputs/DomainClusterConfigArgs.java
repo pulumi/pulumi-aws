@@ -4,12 +4,14 @@
 package com.pulumi.aws.opensearch.inputs;
 
 import com.pulumi.aws.opensearch.inputs.DomainClusterConfigColdStorageOptionsArgs;
+import com.pulumi.aws.opensearch.inputs.DomainClusterConfigNodeOptionArgs;
 import com.pulumi.aws.opensearch.inputs.DomainClusterConfigZoneAwarenessConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -125,6 +127,21 @@ public final class DomainClusterConfigArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * List of node options for the domain.
+     * 
+     */
+    @Import(name="nodeOptions")
+    private @Nullable Output<List<DomainClusterConfigNodeOptionArgs>> nodeOptions;
+
+    /**
+     * @return List of node options for the domain.
+     * 
+     */
+    public Optional<Output<List<DomainClusterConfigNodeOptionArgs>>> nodeOptions() {
+        return Optional.ofNullable(this.nodeOptions);
+    }
+
+    /**
      * Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
      * 
      */
@@ -209,6 +226,7 @@ public final class DomainClusterConfigArgs extends com.pulumi.resources.Resource
         this.instanceCount = $.instanceCount;
         this.instanceType = $.instanceType;
         this.multiAzWithStandbyEnabled = $.multiAzWithStandbyEnabled;
+        this.nodeOptions = $.nodeOptions;
         this.warmCount = $.warmCount;
         this.warmEnabled = $.warmEnabled;
         this.warmType = $.warmType;
@@ -379,6 +397,37 @@ public final class DomainClusterConfigArgs extends com.pulumi.resources.Resource
          */
         public Builder multiAzWithStandbyEnabled(Boolean multiAzWithStandbyEnabled) {
             return multiAzWithStandbyEnabled(Output.of(multiAzWithStandbyEnabled));
+        }
+
+        /**
+         * @param nodeOptions List of node options for the domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeOptions(@Nullable Output<List<DomainClusterConfigNodeOptionArgs>> nodeOptions) {
+            $.nodeOptions = nodeOptions;
+            return this;
+        }
+
+        /**
+         * @param nodeOptions List of node options for the domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeOptions(List<DomainClusterConfigNodeOptionArgs> nodeOptions) {
+            return nodeOptions(Output.of(nodeOptions));
+        }
+
+        /**
+         * @param nodeOptions List of node options for the domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeOptions(DomainClusterConfigNodeOptionArgs... nodeOptions) {
+            return nodeOptions(List.of(nodeOptions));
         }
 
         /**

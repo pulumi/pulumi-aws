@@ -17,6 +17,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetOriginRequestPolicyResult {
     /**
+     * @return The origin request policy ARN.
+     * 
+     */
+    private String arn;
+    /**
      * @return Comment to describe the origin request policy.
      * 
      */
@@ -45,6 +50,13 @@ public final class GetOriginRequestPolicyResult {
     private List<GetOriginRequestPolicyQueryStringsConfig> queryStringsConfigs;
 
     private GetOriginRequestPolicyResult() {}
+    /**
+     * @return The origin request policy ARN.
+     * 
+     */
+    public String arn() {
+        return this.arn;
+    }
     /**
      * @return Comment to describe the origin request policy.
      * 
@@ -96,6 +108,7 @@ public final class GetOriginRequestPolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
         private String comment;
         private List<GetOriginRequestPolicyCookiesConfig> cookiesConfigs;
         private String etag;
@@ -106,6 +119,7 @@ public final class GetOriginRequestPolicyResult {
         public Builder() {}
         public Builder(GetOriginRequestPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.comment = defaults.comment;
     	      this.cookiesConfigs = defaults.cookiesConfigs;
     	      this.etag = defaults.etag;
@@ -115,6 +129,14 @@ public final class GetOriginRequestPolicyResult {
     	      this.queryStringsConfigs = defaults.queryStringsConfigs;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetOriginRequestPolicyResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder comment(String comment) {
             if (comment == null) {
@@ -178,6 +200,7 @@ public final class GetOriginRequestPolicyResult {
         }
         public GetOriginRequestPolicyResult build() {
             final var _resultValue = new GetOriginRequestPolicyResult();
+            _resultValue.arn = arn;
             _resultValue.comment = comment;
             _resultValue.cookiesConfigs = cookiesConfigs;
             _resultValue.etag = etag;

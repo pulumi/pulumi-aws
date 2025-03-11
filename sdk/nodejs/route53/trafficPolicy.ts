@@ -68,6 +68,10 @@ export class TrafficPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the traffic policy.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Comment for the traffic policy.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
@@ -103,6 +107,7 @@ export class TrafficPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficPolicyState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["document"] = state ? state.document : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -116,6 +121,7 @@ export class TrafficPolicy extends pulumi.CustomResource {
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["document"] = args ? args.document : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
@@ -128,6 +134,10 @@ export class TrafficPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrafficPolicy resources.
  */
 export interface TrafficPolicyState {
+    /**
+     * Amazon Resource Name (ARN) of the traffic policy.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Comment for the traffic policy.
      */

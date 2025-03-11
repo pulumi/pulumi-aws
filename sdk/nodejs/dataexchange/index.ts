@@ -10,6 +10,11 @@ export type DataSet = import("./dataSet").DataSet;
 export const DataSet: typeof import("./dataSet").DataSet = null as any;
 utilities.lazyLoad(exports, ["DataSet"], () => require("./dataSet"));
 
+export { EventActionArgs, EventActionState } from "./eventAction";
+export type EventAction = import("./eventAction").EventAction;
+export const EventAction: typeof import("./eventAction").EventAction = null as any;
+utilities.lazyLoad(exports, ["EventAction"], () => require("./eventAction"));
+
 export { RevisionArgs, RevisionState } from "./revision";
 export type Revision = import("./revision").Revision;
 export const Revision: typeof import("./revision").Revision = null as any;
@@ -22,6 +27,8 @@ const _module = {
         switch (type) {
             case "aws:dataexchange/dataSet:DataSet":
                 return new DataSet(name, <any>undefined, { urn })
+            case "aws:dataexchange/eventAction:EventAction":
+                return new EventAction(name, <any>undefined, { urn })
             case "aws:dataexchange/revision:Revision":
                 return new Revision(name, <any>undefined, { urn })
             default:
@@ -30,4 +37,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "dataexchange/dataSet", _module)
+pulumi.runtime.registerResourceModule("aws", "dataexchange/eventAction", _module)
 pulumi.runtime.registerResourceModule("aws", "dataexchange/revision", _module)

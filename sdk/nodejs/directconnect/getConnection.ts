@@ -78,6 +78,10 @@ export interface GetConnectionResult {
      */
     readonly providerName: string;
     /**
+     * State of the connection.
+     */
+    readonly state: string;
+    /**
      * Map of tags for the resource.
      */
     readonly tags: {[key: string]: string};

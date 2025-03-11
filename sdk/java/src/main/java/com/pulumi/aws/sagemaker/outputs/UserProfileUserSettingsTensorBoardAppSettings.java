@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UserProfileUserSettingsTensorBoardAppSettings {
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     private @Nullable UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec;
 
     private UserProfileUserSettingsTensorBoardAppSettings() {}
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     public Optional<UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec> defaultResourceSpec() {

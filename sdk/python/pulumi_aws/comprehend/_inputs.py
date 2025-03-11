@@ -45,7 +45,7 @@ if not MYPY:
     class DocumentClassifierInputDataConfigArgsDict(TypedDict):
         augmented_manifests: NotRequired[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgsDict']]]]
         """
-        List of training datasets produced by Amazon SageMaker Ground Truth.
+        List of training datasets produced by Amazon SageMaker AI Ground Truth.
         Used if `data_format` is `AUGMENTED_MANIFEST`.
         See the `augmented_manifests` Configuration Block section below.
         """
@@ -78,7 +78,7 @@ class DocumentClassifierInputDataConfigArgs:
                  s3_uri: Optional[pulumi.Input[str]] = None,
                  test_s3_uri: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgs']]] augmented_manifests: List of training datasets produced by Amazon SageMaker Ground Truth.
+        :param pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgs']]] augmented_manifests: List of training datasets produced by Amazon SageMaker AI Ground Truth.
                Used if `data_format` is `AUGMENTED_MANIFEST`.
                See the `augmented_manifests` Configuration Block section below.
         :param pulumi.Input[str] data_format: The format for the training data.
@@ -104,7 +104,7 @@ class DocumentClassifierInputDataConfigArgs:
     @pulumi.getter(name="augmentedManifests")
     def augmented_manifests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgs']]]]:
         """
-        List of training datasets produced by Amazon SageMaker Ground Truth.
+        List of training datasets produced by Amazon SageMaker AI Ground Truth.
         Used if `data_format` is `AUGMENTED_MANIFEST`.
         See the `augmented_manifests` Configuration Block section below.
         """
@@ -443,7 +443,7 @@ if not MYPY:
         """
         augmented_manifests: NotRequired[pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArgsDict']]]]
         """
-        List of training datasets produced by Amazon SageMaker Ground Truth.
+        List of training datasets produced by Amazon SageMaker AI Ground Truth.
         Used if `data_format` is `AUGMENTED_MANIFEST`.
         See the `augmented_manifests` Configuration Block section below.
         """
@@ -483,7 +483,7 @@ class EntityRecognizerInputDataConfigArgs:
         :param pulumi.Input['EntityRecognizerInputDataConfigAnnotationsArgs'] annotations: Specifies location of the document annotation data.
                See the `annotations` Configuration Block section below.
                One of `annotations` or `entity_list` is required.
-        :param pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArgs']]] augmented_manifests: List of training datasets produced by Amazon SageMaker Ground Truth.
+        :param pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArgs']]] augmented_manifests: List of training datasets produced by Amazon SageMaker AI Ground Truth.
                Used if `data_format` is `AUGMENTED_MANIFEST`.
                See the `augmented_manifests` Configuration Block section below.
         :param pulumi.Input[str] data_format: The format for the training data.
@@ -539,7 +539,7 @@ class EntityRecognizerInputDataConfigArgs:
     @pulumi.getter(name="augmentedManifests")
     def augmented_manifests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArgs']]]]:
         """
-        List of training datasets produced by Amazon SageMaker Ground Truth.
+        List of training datasets produced by Amazon SageMaker AI Ground Truth.
         Used if `data_format` is `AUGMENTED_MANIFEST`.
         See the `augmented_manifests` Configuration Block section below.
         """

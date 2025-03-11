@@ -190,7 +190,7 @@ type GatewayAssociation struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrOutput `pulumi:"proposalId"`
-	// Deprecated: use 'associated_gateway_id' argument instead
+	// Deprecated: vpn_gateway_id is deprecated. Use associatedGatewayId instead.
 	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
 }
 
@@ -246,7 +246,7 @@ type gatewayAssociationState struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId *string `pulumi:"proposalId"`
-	// Deprecated: use 'associated_gateway_id' argument instead
+	// Deprecated: vpn_gateway_id is deprecated. Use associatedGatewayId instead.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
@@ -270,7 +270,7 @@ type GatewayAssociationState struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrInput
-	// Deprecated: use 'associated_gateway_id' argument instead
+	// Deprecated: vpn_gateway_id is deprecated. Use associatedGatewayId instead.
 	VpnGatewayId pulumi.StringPtrInput
 }
 
@@ -292,7 +292,7 @@ type gatewayAssociationArgs struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId *string `pulumi:"proposalId"`
-	// Deprecated: use 'associated_gateway_id' argument instead
+	// Deprecated: vpn_gateway_id is deprecated. Use associatedGatewayId instead.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
@@ -311,7 +311,7 @@ type GatewayAssociationArgs struct {
 	// The ID of the Direct Connect gateway association proposal.
 	// Used for cross-account Direct Connect gateway associations.
 	ProposalId pulumi.StringPtrInput
-	// Deprecated: use 'associated_gateway_id' argument instead
+	// Deprecated: vpn_gateway_id is deprecated. Use associatedGatewayId instead.
 	VpnGatewayId pulumi.StringPtrInput
 }
 
@@ -445,7 +445,7 @@ func (o GatewayAssociationOutput) ProposalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringPtrOutput { return v.ProposalId }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: use 'associated_gateway_id' argument instead
+// Deprecated: vpn_gateway_id is deprecated. Use associatedGatewayId instead.
 func (o GatewayAssociationOutput) VpnGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayAssociation) pulumi.StringPtrOutput { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
 }

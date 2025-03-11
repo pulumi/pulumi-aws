@@ -2977,7 +2977,7 @@ type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride struct {
 	EdgeSets [][]string `pulumi:"edgeSets"`
 	// The preferred edge to use.
 	//
-	// Deprecated: Use use_edge_location
+	// Deprecated: use_edge is deprecated. Use useEdgeLocation instead.
 	UseEdge *string `pulumi:"useEdge"`
 	// The preferred edge to use.
 	UseEdgeLocation *string `pulumi:"useEdgeLocation"`
@@ -2999,7 +2999,7 @@ type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs struct {
 	EdgeSets pulumi.StringArrayArrayInput `pulumi:"edgeSets"`
 	// The preferred edge to use.
 	//
-	// Deprecated: Use use_edge_location
+	// Deprecated: use_edge is deprecated. Use useEdgeLocation instead.
 	UseEdge pulumi.StringPtrInput `pulumi:"useEdge"`
 	// The preferred edge to use.
 	UseEdgeLocation pulumi.StringPtrInput `pulumi:"useEdgeLocation"`
@@ -3063,7 +3063,7 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput) Edge
 
 // The preferred edge to use.
 //
-// Deprecated: Use use_edge_location
+// Deprecated: use_edge is deprecated. Use useEdgeLocation instead.
 func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput) UseEdge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride) *string { return v.UseEdge }).(pulumi.StringPtrOutput)
 }

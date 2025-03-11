@@ -76,6 +76,7 @@ class ContinuousDeploymentPolicyArgs:
 @pulumi.input_type
 class _ContinuousDeploymentPolicyState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
@@ -83,12 +84,15 @@ class _ContinuousDeploymentPolicyState:
                  traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None):
         """
         Input properties used for looking up and filtering ContinuousDeploymentPolicy resources.
+        :param pulumi.Input[str] arn: The continuous deployment policy ARN.
         :param pulumi.Input[bool] enabled: Whether this continuous deployment policy is enabled.
         :param pulumi.Input[str] etag: Current version of the continuous distribution policy.
         :param pulumi.Input[str] last_modified_time: Date and time the continuous deployment policy was last modified.
         :param pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs'] staging_distribution_dns_names: CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
         :param pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs'] traffic_config: Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if etag is not None:
@@ -99,6 +103,18 @@ class _ContinuousDeploymentPolicyState:
             pulumi.set(__self__, "staging_distribution_dns_names", staging_distribution_dns_names)
         if traffic_config is not None:
             pulumi.set(__self__, "traffic_config", traffic_config)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The continuous deployment policy ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -382,6 +398,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["staging_distribution_dns_names"] = staging_distribution_dns_names
             __props__.__dict__["traffic_config"] = traffic_config
+            __props__.__dict__["arn"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_time"] = None
         super(ContinuousDeploymentPolicy, __self__).__init__(
@@ -394,6 +411,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             last_modified_time: Optional[pulumi.Input[str]] = None,
@@ -406,6 +424,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The continuous deployment policy ARN.
         :param pulumi.Input[bool] enabled: Whether this continuous deployment policy is enabled.
         :param pulumi.Input[str] etag: Current version of the continuous distribution policy.
         :param pulumi.Input[str] last_modified_time: Date and time the continuous deployment policy was last modified.
@@ -416,12 +435,21 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         __props__ = _ContinuousDeploymentPolicyState.__new__(_ContinuousDeploymentPolicyState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["etag"] = etag
         __props__.__dict__["last_modified_time"] = last_modified_time
         __props__.__dict__["staging_distribution_dns_names"] = staging_distribution_dns_names
         __props__.__dict__["traffic_config"] = traffic_config
         return ContinuousDeploymentPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The continuous deployment policy ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

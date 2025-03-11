@@ -1252,7 +1252,7 @@ class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideResult(dict):
 
     @property
     @pulumi.getter(name="useEdge")
-    @_utilities.deprecated("""Use use_edge_location""")
+    @_utilities.deprecated("""use_edge is deprecated. Use use_edge_location instead.""")
     def use_edge(self) -> Optional[str]:
         """
         The preferred edge to use.

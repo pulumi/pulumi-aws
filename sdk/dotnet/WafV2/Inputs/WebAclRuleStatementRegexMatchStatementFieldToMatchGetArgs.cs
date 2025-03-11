@@ -61,6 +61,12 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintGetArgs>? Ja3Fingerprint { get; set; }
 
         /// <summary>
+        /// Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        /// </summary>
+        [Input("ja4Fingerprint")]
+        public Input<Inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintGetArgs>? Ja4Fingerprint { get; set; }
+
+        /// <summary>
         /// Inspect the request body as JSON. See `json_body` for details.
         /// </summary>
         [Input("jsonBody")]

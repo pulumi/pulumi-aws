@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker MLFlow Tracking Server resource.
+ * Provides a SageMaker AI MLFlow Tracking Server resource.
  *
  * ## Example Usage
  *
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import SageMaker MLFlow Tracking Servers using the `workteam_name`. For example:
+ * Using `pulumi import`, import SageMaker AI MLFlow Tracking Servers using the `workteam_name`. For example:
  *
  * ```sh
  * $ pulumi import aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer example example

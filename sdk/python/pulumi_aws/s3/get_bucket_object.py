@@ -124,7 +124,7 @@ class GetBucketObjectResult:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""Use the s3.BucketObjectv2 data source instead""")
+    @_utilities.deprecated("""bucket is deprecated. Use the s3.BucketObjectv2 data source instead.""")
     def bucket(self) -> str:
         return pulumi.get(self, "bucket")
 

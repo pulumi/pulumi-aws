@@ -17,14 +17,14 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleMan
     public static final DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs Empty = new DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs();
 
     /**
-     * The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+     * The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
      * 
      */
     @Import(name="idleTimeoutInMinutes")
     private @Nullable Output<Integer> idleTimeoutInMinutes;
 
     /**
-     * @return The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+     * @return The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
      * 
      */
     public Optional<Output<Integer>> idleTimeoutInMinutes() {
@@ -104,7 +104,7 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleMan
         }
 
         /**
-         * @param idleTimeoutInMinutes The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+         * @param idleTimeoutInMinutes The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleMan
         }
 
         /**
-         * @param idleTimeoutInMinutes The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+         * @param idleTimeoutInMinutes The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
          * 
          * @return builder
          * 

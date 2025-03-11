@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Device resource.
+// Provides a SageMaker AI Device resource.
 //
 // ## Example Usage
 //
@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For example:
+// Using `pulumi import`, import SageMaker AI Devices using the `device-fleet-name/device-name`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
@@ -58,7 +58,7 @@ type Device struct {
 	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this Device.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The device to register with SageMaker Edge Manager. See Device details below.
+	// The device to register with SageMaker AI Edge Manager. See Device details below.
 	Device DeviceDeviceOutput `pulumi:"device"`
 	// The name of the Device Fleet.
 	DeviceFleetName pulumi.StringOutput `pulumi:"deviceFleetName"`
@@ -103,7 +103,7 @@ type deviceState struct {
 	AgentVersion *string `pulumi:"agentVersion"`
 	// The Amazon Resource Name (ARN) assigned by AWS to this Device.
 	Arn *string `pulumi:"arn"`
-	// The device to register with SageMaker Edge Manager. See Device details below.
+	// The device to register with SageMaker AI Edge Manager. See Device details below.
 	Device *DeviceDevice `pulumi:"device"`
 	// The name of the Device Fleet.
 	DeviceFleetName *string `pulumi:"deviceFleetName"`
@@ -113,7 +113,7 @@ type DeviceState struct {
 	AgentVersion pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) assigned by AWS to this Device.
 	Arn pulumi.StringPtrInput
-	// The device to register with SageMaker Edge Manager. See Device details below.
+	// The device to register with SageMaker AI Edge Manager. See Device details below.
 	Device DeviceDevicePtrInput
 	// The name of the Device Fleet.
 	DeviceFleetName pulumi.StringPtrInput
@@ -124,7 +124,7 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
-	// The device to register with SageMaker Edge Manager. See Device details below.
+	// The device to register with SageMaker AI Edge Manager. See Device details below.
 	Device DeviceDevice `pulumi:"device"`
 	// The name of the Device Fleet.
 	DeviceFleetName string `pulumi:"deviceFleetName"`
@@ -132,7 +132,7 @@ type deviceArgs struct {
 
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
-	// The device to register with SageMaker Edge Manager. See Device details below.
+	// The device to register with SageMaker AI Edge Manager. See Device details below.
 	Device DeviceDeviceInput
 	// The name of the Device Fleet.
 	DeviceFleetName pulumi.StringInput
@@ -234,7 +234,7 @@ func (o DeviceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The device to register with SageMaker Edge Manager. See Device details below.
+// The device to register with SageMaker AI Edge Manager. See Device details below.
 func (o DeviceOutput) Device() DeviceDeviceOutput {
 	return o.ApplyT(func(v *Device) DeviceDeviceOutput { return v.Device }).(DeviceDeviceOutput)
 }

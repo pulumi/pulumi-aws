@@ -58,6 +58,8 @@ type LookupOriginAccessIdentityArgs struct {
 
 // A collection of values returned by getOriginAccessIdentity.
 type LookupOriginAccessIdentityResult struct {
+	// The origin access identity ARN.
+	Arn string `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future
 	// updates to the origin access identity.
 	CallerReference string `pulumi:"callerReference"`
@@ -112,6 +114,11 @@ func (o LookupOriginAccessIdentityResultOutput) ToLookupOriginAccessIdentityResu
 
 func (o LookupOriginAccessIdentityResultOutput) ToLookupOriginAccessIdentityResultOutputWithContext(ctx context.Context) LookupOriginAccessIdentityResultOutput {
 	return o
+}
+
+// The origin access identity ARN.
+func (o LookupOriginAccessIdentityResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOriginAccessIdentityResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Internal value used by CloudFront to allow future

@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker App Image Config resource.
+ * Provides a SageMaker AI App Image Config resource.
  * 
  * ## Example Usage
  * 
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
+ * Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
@@ -171,14 +171,14 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.jupyterLabImageConfig);
     }
     /**
-     * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+     * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      * 
      */
     @Export(name="kernelGatewayImageConfig", refs={AppImageConfigKernelGatewayImageConfig.class}, tree="[0]")
     private Output</* @Nullable */ AppImageConfigKernelGatewayImageConfig> kernelGatewayImageConfig;
 
     /**
-     * @return The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+     * @return The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      * 
      */
     public Output<Optional<AppImageConfigKernelGatewayImageConfig>> kernelGatewayImageConfig() {

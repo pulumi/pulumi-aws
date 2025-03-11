@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker endpoint configuration resource.
+ * Provides a SageMaker AI endpoint configuration resource.
  *
  * ## Example Usage
  *
@@ -77,11 +77,11 @@ export class EndpointConfiguration extends pulumi.CustomResource {
      */
     public readonly asyncInferenceConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigurationAsyncInferenceConfig | undefined>;
     /**
-     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+     * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      */
     public readonly dataCaptureConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigurationDataCaptureConfig | undefined>;
     /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
@@ -168,11 +168,11 @@ export interface EndpointConfigurationState {
      */
     asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationAsyncInferenceConfig>;
     /**
-     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+     * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      */
     dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
     /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
@@ -212,11 +212,11 @@ export interface EndpointConfigurationArgs {
      */
     asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationAsyncInferenceConfig>;
     /**
-     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+     * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      */
     dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
     /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**

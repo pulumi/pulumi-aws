@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettingsCanvasAppSettings
     {
         /// <summary>
-        /// The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
+        /// The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings? DirectDeploySettings;
         /// <summary>
-        /// The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+        /// The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings? EmrServerlessSettings;
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings? GenerativeAiSettings;
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsKendraSettings? KendraSettings;
         /// <summary>
-        /// The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
+        /// The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings? ModelRegisterSettings;
         /// <summary>
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings? TimeSeriesForecastingSettings;
         /// <summary>
-        /// The workspace settings for the SageMaker Canvas application. See `workspace_settings` Block below.
+        /// The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings? WorkspaceSettings;
 

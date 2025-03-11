@@ -40,7 +40,7 @@ type Deployment struct {
 	// See `canarySettings below.
 	// Has no effect when `stageName` is not set.
 	//
-	// Deprecated: The attribute "canarySettings" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.
 	CanarySettings DeploymentCanarySettingsPtrOutput `pulumi:"canarySettings"`
 	// Creation date of the deployment
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
@@ -58,13 +58,13 @@ type Deployment struct {
 	// Description to set on the stage managed by the `stageName` argument.
 	// Has no effect when `stageName` is not set.
 	//
-	// Deprecated: The attribute "stageDescription" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.
 	StageDescription pulumi.StringPtrOutput `pulumi:"stageDescription"`
 	// Name of the stage to create with this deployment.
 	// If the specified stage already exists, it will be updated to point to the new deployment.
 	// We recommend using the `apigateway.Stage` resource instead to manage stages.
 	//
-	// Deprecated: The attribute "stageName" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.
 	StageName pulumi.StringPtrOutput `pulumi:"stageName"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
@@ -109,7 +109,7 @@ type deploymentState struct {
 	// See `canarySettings below.
 	// Has no effect when `stageName` is not set.
 	//
-	// Deprecated: The attribute "canarySettings" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.
 	CanarySettings *DeploymentCanarySettings `pulumi:"canarySettings"`
 	// Creation date of the deployment
 	CreatedDate *string `pulumi:"createdDate"`
@@ -127,13 +127,13 @@ type deploymentState struct {
 	// Description to set on the stage managed by the `stageName` argument.
 	// Has no effect when `stageName` is not set.
 	//
-	// Deprecated: The attribute "stageDescription" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.
 	StageDescription *string `pulumi:"stageDescription"`
 	// Name of the stage to create with this deployment.
 	// If the specified stage already exists, it will be updated to point to the new deployment.
 	// We recommend using the `apigateway.Stage` resource instead to manage stages.
 	//
-	// Deprecated: The attribute "stageName" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.
 	StageName *string `pulumi:"stageName"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -146,7 +146,7 @@ type DeploymentState struct {
 	// See `canarySettings below.
 	// Has no effect when `stageName` is not set.
 	//
-	// Deprecated: The attribute "canarySettings" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.
 	CanarySettings DeploymentCanarySettingsPtrInput
 	// Creation date of the deployment
 	CreatedDate pulumi.StringPtrInput
@@ -164,13 +164,13 @@ type DeploymentState struct {
 	// Description to set on the stage managed by the `stageName` argument.
 	// Has no effect when `stageName` is not set.
 	//
-	// Deprecated: The attribute "stageDescription" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.
 	StageDescription pulumi.StringPtrInput
 	// Name of the stage to create with this deployment.
 	// If the specified stage already exists, it will be updated to point to the new deployment.
 	// We recommend using the `apigateway.Stage` resource instead to manage stages.
 	//
-	// Deprecated: The attribute "stageName" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.
 	StageName pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
@@ -187,7 +187,7 @@ type deploymentArgs struct {
 	// See `canarySettings below.
 	// Has no effect when `stageName` is not set.
 	//
-	// Deprecated: The attribute "canarySettings" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.
 	CanarySettings *DeploymentCanarySettings `pulumi:"canarySettings"`
 	// Description of the deployment
 	Description *string `pulumi:"description"`
@@ -196,13 +196,13 @@ type deploymentArgs struct {
 	// Description to set on the stage managed by the `stageName` argument.
 	// Has no effect when `stageName` is not set.
 	//
-	// Deprecated: The attribute "stageDescription" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.
 	StageDescription *string `pulumi:"stageDescription"`
 	// Name of the stage to create with this deployment.
 	// If the specified stage already exists, it will be updated to point to the new deployment.
 	// We recommend using the `apigateway.Stage` resource instead to manage stages.
 	//
-	// Deprecated: The attribute "stageName" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.
 	StageName *string `pulumi:"stageName"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
@@ -216,7 +216,7 @@ type DeploymentArgs struct {
 	// See `canarySettings below.
 	// Has no effect when `stageName` is not set.
 	//
-	// Deprecated: The attribute "canarySettings" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.
 	CanarySettings DeploymentCanarySettingsPtrInput
 	// Description of the deployment
 	Description pulumi.StringPtrInput
@@ -225,13 +225,13 @@ type DeploymentArgs struct {
 	// Description to set on the stage managed by the `stageName` argument.
 	// Has no effect when `stageName` is not set.
 	//
-	// Deprecated: The attribute "stageDescription" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.
 	StageDescription pulumi.StringPtrInput
 	// Name of the stage to create with this deployment.
 	// If the specified stage already exists, it will be updated to point to the new deployment.
 	// We recommend using the `apigateway.Stage` resource instead to manage stages.
 	//
-	// Deprecated: The attribute "stageName" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+	// Deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.
 	StageName pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
@@ -330,7 +330,7 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 // See `canarySettings below.
 // Has no effect when `stageName` is not set.
 //
-// Deprecated: The attribute "canarySettings" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+// Deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.
 func (o DeploymentOutput) CanarySettings() DeploymentCanarySettingsPtrOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentCanarySettingsPtrOutput { return v.CanarySettings }).(DeploymentCanarySettingsPtrOutput)
 }
@@ -366,7 +366,7 @@ func (o DeploymentOutput) RestApi() pulumi.StringOutput {
 // Description to set on the stage managed by the `stageName` argument.
 // Has no effect when `stageName` is not set.
 //
-// Deprecated: The attribute "stageDescription" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+// Deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.
 func (o DeploymentOutput) StageDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.StageDescription }).(pulumi.StringPtrOutput)
 }
@@ -375,7 +375,7 @@ func (o DeploymentOutput) StageDescription() pulumi.StringPtrOutput {
 // If the specified stage already exists, it will be updated to point to the new deployment.
 // We recommend using the `apigateway.Stage` resource instead to manage stages.
 //
-// Deprecated: The attribute "stageName" will be removed in a future major version. Use an explicit "apigateway.Stage" instead.
+// Deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.
 func (o DeploymentOutput) StageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.StageName }).(pulumi.StringPtrOutput)
 }

@@ -112,7 +112,7 @@ namespace Pulumi.Aws.LightSail
     public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The add on configuration for the instance. Detailed below.
+        /// The add-on configuration for the instance. Detailed below.
         /// </summary>
         [Output("addOn")]
         public Output<Outputs.InstanceAddOn?> AddOn { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        /// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.Aws.LightSail
     public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The add on configuration for the instance. Detailed below.
+        /// The add-on configuration for the instance. Detailed below.
         /// </summary>
         [Input("addOn")]
         public Input<Inputs.InstanceAddOnArgs>? AddOn { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string> BundleId { get; set; } = null!;
 
         /// <summary>
-        /// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        /// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.Aws.LightSail
     public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The add on configuration for the instance. Detailed below.
+        /// The add-on configuration for the instance. Detailed below.
         /// </summary>
         [Input("addOn")]
         public Input<Inputs.InstanceAddOnGetArgs>? AddOn { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        /// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }

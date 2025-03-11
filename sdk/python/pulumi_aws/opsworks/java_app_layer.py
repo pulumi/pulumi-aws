@@ -960,8 +960,6 @@ class JavaAppLayer(pulumi.CustomResource):
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks Java application layer resource.
-
         ## Example Usage
 
         ```python
@@ -1006,8 +1004,6 @@ class JavaAppLayer(pulumi.CustomResource):
                  args: JavaAppLayerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks Java application layer resource.
-
         ## Example Usage
 
         ```python

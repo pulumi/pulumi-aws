@@ -47,10 +47,10 @@ public final class BucketReplicationConfigRule {
      * @return Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
      * 
      * @deprecated
-     * Use filter instead
+     * prefix is deprecated. Use filter instead.
      * 
      */
-    @Deprecated /* Use filter instead */
+    @Deprecated /* prefix is deprecated. Use filter instead. */
     private @Nullable String prefix;
     /**
      * @return Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
@@ -108,10 +108,10 @@ public final class BucketReplicationConfigRule {
      * @return Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
      * 
      * @deprecated
-     * Use filter instead
+     * prefix is deprecated. Use filter instead.
      * 
      */
-    @Deprecated /* Use filter instead */
+    @Deprecated /* prefix is deprecated. Use filter instead. */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

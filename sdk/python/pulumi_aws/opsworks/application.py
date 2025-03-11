@@ -600,8 +600,6 @@ class Application(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks application resource.
-
         ## Example Usage
 
         ```python
@@ -674,8 +672,6 @@ class Application(pulumi.CustomResource):
                  args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks application resource.
-
         ## Example Usage
 
         ```python

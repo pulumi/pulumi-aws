@@ -17,6 +17,11 @@ import java.util.Objects;
 @CustomType
 public final class GetResponseHeadersPolicyResult {
     /**
+     * @return The response headers policy ARN.
+     * 
+     */
+    private String arn;
+    /**
      * @return Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
      */
@@ -55,6 +60,13 @@ public final class GetResponseHeadersPolicyResult {
     private List<GetResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfigs;
 
     private GetResponseHeadersPolicyResult() {}
+    /**
+     * @return The response headers policy ARN.
+     * 
+     */
+    public String arn() {
+        return this.arn;
+    }
     /**
      * @return Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
@@ -120,6 +132,7 @@ public final class GetResponseHeadersPolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
         private String comment;
         private List<GetResponseHeadersPolicyCorsConfig> corsConfigs;
         private List<GetResponseHeadersPolicyCustomHeadersConfig> customHeadersConfigs;
@@ -132,6 +145,7 @@ public final class GetResponseHeadersPolicyResult {
         public Builder() {}
         public Builder(GetResponseHeadersPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.comment = defaults.comment;
     	      this.corsConfigs = defaults.corsConfigs;
     	      this.customHeadersConfigs = defaults.customHeadersConfigs;
@@ -143,6 +157,14 @@ public final class GetResponseHeadersPolicyResult {
     	      this.serverTimingHeadersConfigs = defaults.serverTimingHeadersConfigs;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetResponseHeadersPolicyResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder comment(String comment) {
             if (comment == null) {
@@ -232,6 +254,7 @@ public final class GetResponseHeadersPolicyResult {
         }
         public GetResponseHeadersPolicyResult build() {
             final var _resultValue = new GetResponseHeadersPolicyResult();
+            _resultValue.arn = arn;
             _resultValue.comment = comment;
             _resultValue.corsConfigs = corsConfigs;
             _resultValue.customHeadersConfigs = customHeadersConfigs;

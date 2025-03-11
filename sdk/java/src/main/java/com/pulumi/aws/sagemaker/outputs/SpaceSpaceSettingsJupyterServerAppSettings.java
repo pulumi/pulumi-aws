@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SpaceSpaceSettingsJupyterServerAppSettings {
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
      * 
      */
     private @Nullable List<SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository> codeRepositories;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     private SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -32,14 +32,14 @@ public final class SpaceSpaceSettingsJupyterServerAppSettings {
 
     private SpaceSpaceSettingsJupyterServerAppSettings() {}
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
      * 
      */
     public List<SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository> codeRepositories() {
         return this.codeRepositories == null ? List.of() : this.codeRepositories;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     public SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec() {

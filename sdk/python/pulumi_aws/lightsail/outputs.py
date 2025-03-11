@@ -962,7 +962,7 @@ class InstanceAddOn(dict):
                  type: str):
         """
         :param str snapshot_time: The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
-        :param str status: The status of the add on. Valid Values: `Enabled`, `Disabled`.
+        :param str status: The status of the add-on. Valid Values: `Enabled`, `Disabled`.
         :param str type: The add-on type. There is currently only one valid type `AutoSnapshot`.
         """
         pulumi.set(__self__, "snapshot_time", snapshot_time)
@@ -981,7 +981,7 @@ class InstanceAddOn(dict):
     @pulumi.getter
     def status(self) -> str:
         """
-        The status of the add on. Valid Values: `Enabled`, `Disabled`.
+        The status of the add-on. Valid Values: `Enabled`, `Disabled`.
         """
         return pulumi.get(self, "status")
 

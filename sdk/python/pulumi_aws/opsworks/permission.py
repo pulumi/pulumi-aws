@@ -202,8 +202,6 @@ class Permission(pulumi.CustomResource):
                  user_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks permission resource.
-
         ## Example Usage
 
         ```python
@@ -233,8 +231,6 @@ class Permission(pulumi.CustomResource):
                  args: PermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks permission resource.
-
         ## Example Usage
 
         ```python
