@@ -6066,6 +6066,10 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		return attr(state, "dbShardGroupIdentifier"), nil
 	}
 
+	prov.Resources["aws_lakeformation_opt_in"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "principal.dataLakePrincipalIdentifier"), nil
+	}
+
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
 		"aws_cloudwatch_log_index_policy":                {"logGroupName"},
 		"aws_cloudwatch_log_delivery_source":             {"name"},
