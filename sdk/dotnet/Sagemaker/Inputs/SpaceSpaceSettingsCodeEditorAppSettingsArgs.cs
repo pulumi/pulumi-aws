@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<Inputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
 
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         /// </summary>
         [Input("defaultResourceSpec", required: true)]
         public Input<Inputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> DefaultResourceSpec { get; set; } = null!;

@@ -9,6 +9,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScope
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrderArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs;
@@ -102,11 +103,34 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         return Optional.ofNullable(this.headers);
     }
 
+    /**
+     * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
     @Import(name="ja3Fingerprint")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
 
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs>> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
+    }
+
+    /**
+     * Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    @Import(name="ja4Fingerprint")
+    private @Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint;
+
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs>> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
     }
 
     /**
@@ -208,6 +232,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         this.headerOrders = $.headerOrders;
         this.headers = $.headers;
         this.ja3Fingerprint = $.ja3Fingerprint;
+        this.ja4Fingerprint = $.ja4Fingerprint;
         this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
@@ -359,13 +384,46 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
             return headers(List.of(headers));
         }
 
+        /**
+         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ja3Fingerprint(@Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint) {
             $.ja3Fingerprint = ja3Fingerprint;
             return this;
         }
 
+        /**
+         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ja3Fingerprint(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint) {
             return ja3Fingerprint(Output.of(ja3Fingerprint));
+        }
+
+        /**
+         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja4Fingerprint(@Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint) {
+            $.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+
+        /**
+         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja4Fingerprint(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs ja4Fingerprint) {
+            return ja4Fingerprint(Output.of(ja4Fingerprint));
         }
 
         /**

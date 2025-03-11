@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Workforce resource.
+// Provides a SageMaker AI Workforce resource.
 //
 // ## Example Usage
 //
@@ -106,7 +106,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For example:
+// Using `pulumi import`, import SageMaker AI Workforces using the `workforce_name`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/workforce:Workforce example example

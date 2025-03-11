@@ -78,6 +78,8 @@ type Endpoint struct {
 	ConnectionLogOptions EndpointConnectionLogOptionsOutput `pulumi:"connectionLogOptions"`
 	// A brief description of the Client VPN endpoint.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+	DisconnectOnSessionTimeout pulumi.BoolOutput `pulumi:"disconnectOnSessionTimeout"`
 	// The DNS name to be used by clients when establishing their VPN session.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
@@ -164,6 +166,8 @@ type endpointState struct {
 	ConnectionLogOptions *EndpointConnectionLogOptions `pulumi:"connectionLogOptions"`
 	// A brief description of the Client VPN endpoint.
 	Description *string `pulumi:"description"`
+	// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+	DisconnectOnSessionTimeout *bool `pulumi:"disconnectOnSessionTimeout"`
 	// The DNS name to be used by clients when establishing their VPN session.
 	DnsName *string `pulumi:"dnsName"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
@@ -209,6 +213,8 @@ type EndpointState struct {
 	ConnectionLogOptions EndpointConnectionLogOptionsPtrInput
 	// A brief description of the Client VPN endpoint.
 	Description pulumi.StringPtrInput
+	// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+	DisconnectOnSessionTimeout pulumi.BoolPtrInput
 	// The DNS name to be used by clients when establishing their VPN session.
 	DnsName pulumi.StringPtrInput
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
@@ -256,6 +262,8 @@ type endpointArgs struct {
 	ConnectionLogOptions EndpointConnectionLogOptions `pulumi:"connectionLogOptions"`
 	// A brief description of the Client VPN endpoint.
 	Description *string `pulumi:"description"`
+	// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+	DisconnectOnSessionTimeout *bool `pulumi:"disconnectOnSessionTimeout"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers []string `pulumi:"dnsServers"`
 	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
@@ -292,6 +300,8 @@ type EndpointArgs struct {
 	ConnectionLogOptions EndpointConnectionLogOptionsInput
 	// A brief description of the Client VPN endpoint.
 	Description pulumi.StringPtrInput
+	// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+	DisconnectOnSessionTimeout pulumi.BoolPtrInput
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers pulumi.StringArrayInput
 	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
@@ -434,6 +444,11 @@ func (o EndpointOutput) ConnectionLogOptions() EndpointConnectionLogOptionsOutpu
 // A brief description of the Client VPN endpoint.
 func (o EndpointOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+func (o EndpointOutput) DisconnectOnSessionTimeout() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.BoolOutput { return v.DisconnectOnSessionTimeout }).(pulumi.BoolOutput)
 }
 
 // The DNS name to be used by clients when establishing their VPN session.

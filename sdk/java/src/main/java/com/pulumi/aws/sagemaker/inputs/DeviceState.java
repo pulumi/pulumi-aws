@@ -39,14 +39,14 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The device to register with SageMaker Edge Manager. See Device details below.
+     * The device to register with SageMaker AI Edge Manager. See Device details below.
      * 
      */
     @Import(name="device")
     private @Nullable Output<DeviceDeviceArgs> device;
 
     /**
-     * @return The device to register with SageMaker Edge Manager. See Device details below.
+     * @return The device to register with SageMaker AI Edge Manager. See Device details below.
      * 
      */
     public Optional<Output<DeviceDeviceArgs>> device() {
@@ -126,7 +126,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param device The device to register with SageMaker Edge Manager. See Device details below.
+         * @param device The device to register with SageMaker AI Edge Manager. See Device details below.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param device The device to register with SageMaker Edge Manager. See Device details below.
+         * @param device The device to register with SageMaker AI Edge Manager. See Device details below.
          * 
          * @return builder
          * 

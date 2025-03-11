@@ -35,7 +35,7 @@ class PipelineArgs:
         :param pulumi.Input[str] pipeline_name: The name of the pipeline.
         :param pulumi.Input['PipelineParallelismConfigurationArgs'] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         :param pulumi.Input[str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        :param pulumi.Input['PipelinePipelineDefinitionS3LocationArgs'] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        :param pulumi.Input['PipelinePipelineDefinitionS3LocationArgs'] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         :param pulumi.Input[str] pipeline_description: A description of the pipeline.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role the pipeline will execute as.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -107,7 +107,7 @@ class PipelineArgs:
     @pulumi.getter(name="pipelineDefinitionS3Location")
     def pipeline_definition_s3_location(self) -> Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']]:
         """
-        The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         """
         return pulumi.get(self, "pipeline_definition_s3_location")
 
@@ -170,7 +170,7 @@ class _PipelineState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
         :param pulumi.Input['PipelineParallelismConfigurationArgs'] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         :param pulumi.Input[str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        :param pulumi.Input['PipelinePipelineDefinitionS3LocationArgs'] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        :param pulumi.Input['PipelinePipelineDefinitionS3LocationArgs'] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         :param pulumi.Input[str] pipeline_description: A description of the pipeline.
         :param pulumi.Input[str] pipeline_display_name: The display name of the pipeline.
         :param pulumi.Input[str] pipeline_name: The name of the pipeline.
@@ -242,7 +242,7 @@ class _PipelineState:
     @pulumi.getter(name="pipelineDefinitionS3Location")
     def pipeline_definition_s3_location(self) -> Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']]:
         """
-        The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         """
         return pulumi.get(self, "pipeline_definition_s3_location")
 
@@ -339,7 +339,7 @@ class Pipeline(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Pipeline resource.
+        Provides a SageMaker AI Pipeline resource.
 
         ## Example Usage
 
@@ -378,7 +378,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         :param pulumi.Input[str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        :param pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        :param pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         :param pulumi.Input[str] pipeline_description: A description of the pipeline.
         :param pulumi.Input[str] pipeline_display_name: The display name of the pipeline.
         :param pulumi.Input[str] pipeline_name: The name of the pipeline.
@@ -392,7 +392,7 @@ class Pipeline(pulumi.CustomResource):
                  args: PipelineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Pipeline resource.
+        Provides a SageMaker AI Pipeline resource.
 
         ## Example Usage
 
@@ -503,7 +503,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
         :param pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         :param pulumi.Input[str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        :param pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        :param pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         :param pulumi.Input[str] pipeline_description: A description of the pipeline.
         :param pulumi.Input[str] pipeline_display_name: The display name of the pipeline.
         :param pulumi.Input[str] pipeline_name: The name of the pipeline.
@@ -555,7 +555,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter(name="pipelineDefinitionS3Location")
     def pipeline_definition_s3_location(self) -> pulumi.Output[Optional['outputs.PipelinePipelineDefinitionS3Location']]:
         """
-        The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         """
         return pulumi.get(self, "pipeline_definition_s3_location")
 

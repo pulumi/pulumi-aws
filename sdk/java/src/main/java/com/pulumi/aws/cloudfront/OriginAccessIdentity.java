@@ -175,6 +175,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/originAccessIdentity:OriginAccessIdentity")
 public class OriginAccessIdentity extends com.pulumi.resources.CustomResource {
     /**
+     * The origin access identity ARN.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The origin access identity ARN.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * Internal value used by CloudFront to allow future
      * updates to the origin access identity.
      * 

@@ -85,7 +85,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""Use the alternate_identifier attribute instead.""")
+    @_utilities.deprecated("""filter is deprecated. Use alternate_identifier instead.""")
     def filter(self) -> Optional['outputs.GetGroupFilterResult']:
         return pulumi.get(self, "filter")
 

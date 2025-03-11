@@ -52,14 +52,14 @@ public final class EndpointConfigurationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+     * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      * 
      */
     @Import(name="dataCaptureConfig")
     private @Nullable Output<EndpointConfigurationDataCaptureConfigArgs> dataCaptureConfig;
 
     /**
-     * @return Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+     * @return Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      * 
      */
     public Optional<Output<EndpointConfigurationDataCaptureConfigArgs>> dataCaptureConfig() {
@@ -67,14 +67,14 @@ public final class EndpointConfigurationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -255,7 +255,7 @@ public final class EndpointConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataCaptureConfig Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+         * @param dataCaptureConfig Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class EndpointConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataCaptureConfig Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+         * @param dataCaptureConfig Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class EndpointConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+         * @param kmsKeyArn Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class EndpointConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+         * @param kmsKeyArn Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
          * 
          * @return builder
          * 

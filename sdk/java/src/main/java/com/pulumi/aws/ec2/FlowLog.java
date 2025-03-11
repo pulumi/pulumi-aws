@@ -431,10 +431,10 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
      * 
      * @deprecated
-     * use &#39;log_destination&#39; argument instead
+     * log_group_name is deprecated. Use log_destination instead.
      * 
      */
-    @Deprecated /* use 'log_destination' argument instead */
+    @Deprecated /* log_group_name is deprecated. Use log_destination instead. */
     @Export(name="logGroupName", refs={String.class}, tree="[0]")
     private Output<String> logGroupName;
 

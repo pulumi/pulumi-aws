@@ -38,6 +38,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint? Ja3Fingerprint;
         /// <summary>
+        /// Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint? Ja4Fingerprint;
+        /// <summary>
         /// Inspect the request body as JSON. See `json_body` for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody? JsonBody;
@@ -76,6 +80,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint? ja3Fingerprint,
 
+            Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint? ja4Fingerprint,
+
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody? jsonBody,
 
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod? method,
@@ -94,6 +100,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             HeaderOrders = headerOrders;
             Headers = headers;
             Ja3Fingerprint = ja3Fingerprint;
+            Ja4Fingerprint = ja4Fingerprint;
             JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;

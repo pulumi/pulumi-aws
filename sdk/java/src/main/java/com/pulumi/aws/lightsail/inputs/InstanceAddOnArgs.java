@@ -30,14 +30,14 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the add on. Valid Values: `Enabled`, `Disabled`.
+     * The status of the add-on. Valid Values: `Enabled`, `Disabled`.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The status of the add on. Valid Values: `Enabled`, `Disabled`.
+     * @return The status of the add-on. Valid Values: `Enabled`, `Disabled`.
      * 
      */
     public Output<String> status() {
@@ -107,7 +107,7 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the add on. Valid Values: `Enabled`, `Disabled`.
+         * @param status The status of the add-on. Valid Values: `Enabled`, `Disabled`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class InstanceAddOnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the add on. Valid Values: `Enabled`, `Disabled`.
+         * @param status The status of the add-on. Valid Values: `Enabled`, `Disabled`.
          * 
          * @return builder
          * 

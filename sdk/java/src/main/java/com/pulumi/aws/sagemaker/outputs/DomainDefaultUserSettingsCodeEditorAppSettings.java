@@ -26,12 +26,12 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettings {
      */
     private @Nullable String builtInLifecycleConfigArn;
     /**
-     * @return A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+     * @return A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `custom_image` Block below.
      * 
      */
     private @Nullable List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -57,14 +57,14 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettings {
         return Optional.ofNullable(this.builtInLifecycleConfigArn);
     }
     /**
-     * @return A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+     * @return A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `custom_image` Block below.
      * 
      */
     public List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> customImages() {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec> defaultResourceSpec() {

@@ -123,7 +123,7 @@ export class Parameter extends pulumi.CustomResource {
     /**
      * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
      *
-     * @deprecated this attribute has been deprecated
+     * @deprecated overwrite is deprecated. This argument will be removed in a future major version.
      */
     public readonly overwrite!: pulumi.Output<boolean | undefined>;
     /**
@@ -244,7 +244,7 @@ export interface ParameterState {
     /**
      * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
      *
-     * @deprecated this attribute has been deprecated
+     * @deprecated overwrite is deprecated. This argument will be removed in a future major version.
      */
     overwrite?: pulumi.Input<boolean>;
     /**
@@ -312,7 +312,7 @@ export interface ParameterArgs {
     /**
      * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
      *
-     * @deprecated this attribute has been deprecated
+     * @deprecated overwrite is deprecated. This argument will be removed in a future major version.
      */
     overwrite?: pulumi.Input<boolean>;
     /**

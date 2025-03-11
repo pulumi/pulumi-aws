@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? LifecycleConfigArn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        /// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
         /// </summary>
         [Input("sagemakerImageArn")]
         public Input<string>? SagemakerImageArn { get; set; }
 
         /// <summary>
-        /// The SageMaker Image Version Alias.
+        /// The SageMaker AI Image Version Alias.
         /// </summary>
         [Input("sagemakerImageVersionAlias")]
         public Input<string>? SagemakerImageVersionAlias { get; set; }

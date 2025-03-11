@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker App Image Config resource.
+    /// Provides a SageMaker AI App Image Config resource.
     /// 
     /// ## Example Usage
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
+    /// Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.AppImageConfigJupyterLabImageConfig?> JupyterLabImageConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        /// The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         /// </summary>
         [Output("kernelGatewayImageConfig")]
         public Output<Outputs.AppImageConfigKernelGatewayImageConfig?> KernelGatewayImageConfig { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.AppImageConfigJupyterLabImageConfigArgs>? JupyterLabImageConfig { get; set; }
 
         /// <summary>
-        /// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        /// The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         /// </summary>
         [Input("kernelGatewayImageConfig")]
         public Input<Inputs.AppImageConfigKernelGatewayImageConfigArgs>? KernelGatewayImageConfig { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.AppImageConfigJupyterLabImageConfigGetArgs>? JupyterLabImageConfig { get; set; }
 
         /// <summary>
-        /// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        /// The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         /// </summary>
         [Input("kernelGatewayImageConfig")]
         public Input<Inputs.AppImageConfigKernelGatewayImageConfigGetArgs>? KernelGatewayImageConfig { get; set; }

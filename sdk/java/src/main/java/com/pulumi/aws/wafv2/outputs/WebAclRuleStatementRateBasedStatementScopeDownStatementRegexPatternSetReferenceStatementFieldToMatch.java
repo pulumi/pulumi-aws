@@ -9,6 +9,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDo
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
@@ -53,6 +54,11 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
     /**
      * @return Inspect the request body as JSON. See `json_body` for details.
      * 
@@ -128,6 +134,13 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
         return Optional.ofNullable(this.ja3Fingerprint);
     }
     /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
+    }
+    /**
      * @return Inspect the request body as JSON. See `json_body` for details.
      * 
      */
@@ -185,6 +198,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
         private @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+        private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody jsonBody;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod method;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString queryString;
@@ -200,6 +214,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
     	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
+    	      this.ja4Fingerprint = defaults.ja4Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -251,6 +266,12 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
             return this;
         }
         @CustomType.Setter
+        public Builder ja4Fingerprint(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint ja4Fingerprint) {
+
+            this.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder jsonBody(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody jsonBody) {
 
             this.jsonBody = jsonBody;
@@ -294,6 +315,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
             _resultValue.headerOrders = headerOrders;
             _resultValue.headers = headers;
             _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.ja4Fingerprint = ja4Fingerprint;
             _resultValue.jsonBody = jsonBody;
             _resultValue.method = method;
             _resultValue.queryString = queryString;

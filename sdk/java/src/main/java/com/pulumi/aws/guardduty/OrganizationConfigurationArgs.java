@@ -22,10 +22,10 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
      * *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      * 
      * @deprecated
-     * Use auto_enable_organization_members instead
+     * auto_enable is deprecated. Use auto_enable_organization_members instead.
      * 
      */
-    @Deprecated /* Use auto_enable_organization_members instead */
+    @Deprecated /* auto_enable is deprecated. Use auto_enable_organization_members instead. */
     @Import(name="autoEnable")
     private @Nullable Output<Boolean> autoEnable;
 
@@ -33,10 +33,10 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
      * @return *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      * 
      * @deprecated
-     * Use auto_enable_organization_members instead
+     * auto_enable is deprecated. Use auto_enable_organization_members instead.
      * 
      */
-    @Deprecated /* Use auto_enable_organization_members instead */
+    @Deprecated /* auto_enable is deprecated. Use auto_enable_organization_members instead. */
     public Optional<Output<Boolean>> autoEnable() {
         return Optional.ofNullable(this.autoEnable);
     }
@@ -119,10 +119,10 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          * @deprecated
-         * Use auto_enable_organization_members instead
+         * auto_enable is deprecated. Use auto_enable_organization_members instead.
          * 
          */
-        @Deprecated /* Use auto_enable_organization_members instead */
+        @Deprecated /* auto_enable is deprecated. Use auto_enable_organization_members instead. */
         public Builder autoEnable(@Nullable Output<Boolean> autoEnable) {
             $.autoEnable = autoEnable;
             return this;
@@ -134,10 +134,10 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          * @deprecated
-         * Use auto_enable_organization_members instead
+         * auto_enable is deprecated. Use auto_enable_organization_members instead.
          * 
          */
-        @Deprecated /* Use auto_enable_organization_members instead */
+        @Deprecated /* auto_enable is deprecated. Use auto_enable_organization_members instead. */
         public Builder autoEnable(Boolean autoEnable) {
             return autoEnable(Output.of(autoEnable));
         }

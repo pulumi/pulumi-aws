@@ -17,6 +17,21 @@ public final class TrafficPolicyInstanceState extends com.pulumi.resources.Resou
     public static final TrafficPolicyInstanceState Empty = new TrafficPolicyInstanceState();
 
     /**
+     * Amazon Resource Name (ARN) of the traffic policy instance.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the traffic policy instance.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
      * 
      */
@@ -94,6 +109,7 @@ public final class TrafficPolicyInstanceState extends com.pulumi.resources.Resou
     private TrafficPolicyInstanceState() {}
 
     private TrafficPolicyInstanceState(TrafficPolicyInstanceState $) {
+        this.arn = $.arn;
         this.hostedZoneId = $.hostedZoneId;
         this.name = $.name;
         this.trafficPolicyId = $.trafficPolicyId;
@@ -117,6 +133,27 @@ public final class TrafficPolicyInstanceState extends com.pulumi.resources.Resou
 
         public Builder(TrafficPolicyInstanceState defaults) {
             $ = new TrafficPolicyInstanceState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) of the traffic policy instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn Amazon Resource Name (ARN) of the traffic policy instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

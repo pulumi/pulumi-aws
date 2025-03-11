@@ -57,6 +57,8 @@ import (
 type SqlInjectionMatchSet struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the SQL injection match set.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name or description of the SQL Injection Match Set.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
@@ -93,6 +95,8 @@ func GetSqlInjectionMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlInjectionMatchSet resources.
 type sqlInjectionMatchSetState struct {
+	// Amazon Resource Name (ARN) of the SQL injection match set.
+	Arn *string `pulumi:"arn"`
 	// The name or description of the SQL Injection Match Set.
 	Name *string `pulumi:"name"`
 	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
@@ -100,6 +104,8 @@ type sqlInjectionMatchSetState struct {
 }
 
 type SqlInjectionMatchSetState struct {
+	// Amazon Resource Name (ARN) of the SQL injection match set.
+	Arn pulumi.StringPtrInput
 	// The name or description of the SQL Injection Match Set.
 	Name pulumi.StringPtrInput
 	// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
@@ -210,6 +216,11 @@ func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutput() SqlInjectionM
 
 func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutputWithContext(ctx context.Context) SqlInjectionMatchSetOutput {
 	return o
+}
+
+// Amazon Resource Name (ARN) of the SQL injection match set.
+func (o SqlInjectionMatchSetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlInjectionMatchSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The name or description of the SQL Injection Match Set.

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DocumentClassifierInputDataConfig {
     /**
-     * @return List of training datasets produced by Amazon SageMaker Ground Truth.
+     * @return List of training datasets produced by Amazon SageMaker AI Ground Truth.
      * Used if `data_format` is `AUGMENTED_MANIFEST`.
      * See the `augmented_manifests` Configuration Block section below.
      * 
@@ -43,7 +43,7 @@ public final class DocumentClassifierInputDataConfig {
 
     private DocumentClassifierInputDataConfig() {}
     /**
-     * @return List of training datasets produced by Amazon SageMaker Ground Truth.
+     * @return List of training datasets produced by Amazon SageMaker AI Ground Truth.
      * Used if `data_format` is `AUGMENTED_MANIFEST`.
      * See the `augmented_manifests` Configuration Block section below.
      * 

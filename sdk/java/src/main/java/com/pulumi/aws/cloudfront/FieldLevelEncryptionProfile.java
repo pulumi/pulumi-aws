@@ -86,6 +86,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile")
 public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomResource {
     /**
+     * The Field Level Encryption Profile ARN.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The Field Level Encryption Profile ARN.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
      * 
      */

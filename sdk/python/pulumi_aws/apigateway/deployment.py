@@ -45,20 +45,20 @@ class DeploymentArgs:
         """
         pulumi.set(__self__, "rest_api", rest_api)
         if canary_settings is not None:
-            warnings.warn("""The attribute \"canary_settings\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""canary_settings is deprecated: The attribute \"canary_settings\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+            warnings.warn("""canary_settings is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""canary_settings is deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.""")
         if canary_settings is not None:
             pulumi.set(__self__, "canary_settings", canary_settings)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if stage_description is not None:
-            warnings.warn("""The attribute \"stage_description\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""stage_description is deprecated: The attribute \"stage_description\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+            warnings.warn("""stage_description is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""stage_description is deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.""")
         if stage_description is not None:
             pulumi.set(__self__, "stage_description", stage_description)
         if stage_name is not None:
-            warnings.warn("""The attribute \"stage_name\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""stage_name is deprecated: The attribute \"stage_name\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+            warnings.warn("""stage_name is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""stage_name is deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.""")
         if stage_name is not None:
             pulumi.set(__self__, "stage_name", stage_name)
         if triggers is not None:
@@ -80,7 +80,7 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter(name="canarySettings")
-    @_utilities.deprecated("""The attribute \"canary_settings\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+    @_utilities.deprecated("""canary_settings is deprecated. Use the apigateway.Stage resource instead.""")
     def canary_settings(self) -> Optional[pulumi.Input['DeploymentCanarySettingsArgs']]:
         """
         Input configuration for the canary deployment when the deployment is a canary release deployment.
@@ -107,7 +107,7 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter(name="stageDescription")
-    @_utilities.deprecated("""The attribute \"stage_description\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+    @_utilities.deprecated("""stage_description is deprecated. Use the apigateway.Stage resource instead.""")
     def stage_description(self) -> Optional[pulumi.Input[str]]:
         """
         Description to set on the stage managed by the `stage_name` argument.
@@ -121,7 +121,7 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter(name="stageName")
-    @_utilities.deprecated("""The attribute \"stage_name\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+    @_utilities.deprecated("""stage_name is deprecated. Use the apigateway.Stage resource instead.""")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the stage to create with this deployment.
@@ -194,8 +194,8 @@ class _DeploymentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map to set on the stage managed by the `stage_name` argument.
         """
         if canary_settings is not None:
-            warnings.warn("""The attribute \"canary_settings\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""canary_settings is deprecated: The attribute \"canary_settings\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+            warnings.warn("""canary_settings is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""canary_settings is deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.""")
         if canary_settings is not None:
             pulumi.set(__self__, "canary_settings", canary_settings)
         if created_date is not None:
@@ -209,13 +209,13 @@ class _DeploymentState:
         if rest_api is not None:
             pulumi.set(__self__, "rest_api", rest_api)
         if stage_description is not None:
-            warnings.warn("""The attribute \"stage_description\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""stage_description is deprecated: The attribute \"stage_description\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+            warnings.warn("""stage_description is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""stage_description is deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.""")
         if stage_description is not None:
             pulumi.set(__self__, "stage_description", stage_description)
         if stage_name is not None:
-            warnings.warn("""The attribute \"stage_name\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""stage_name is deprecated: The attribute \"stage_name\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+            warnings.warn("""stage_name is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""stage_name is deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.""")
         if stage_name is not None:
             pulumi.set(__self__, "stage_name", stage_name)
         if triggers is not None:
@@ -225,7 +225,7 @@ class _DeploymentState:
 
     @property
     @pulumi.getter(name="canarySettings")
-    @_utilities.deprecated("""The attribute \"canary_settings\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+    @_utilities.deprecated("""canary_settings is deprecated. Use the apigateway.Stage resource instead.""")
     def canary_settings(self) -> Optional[pulumi.Input['DeploymentCanarySettingsArgs']]:
         """
         Input configuration for the canary deployment when the deployment is a canary release deployment.
@@ -303,7 +303,7 @@ class _DeploymentState:
 
     @property
     @pulumi.getter(name="stageDescription")
-    @_utilities.deprecated("""The attribute \"stage_description\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+    @_utilities.deprecated("""stage_description is deprecated. Use the apigateway.Stage resource instead.""")
     def stage_description(self) -> Optional[pulumi.Input[str]]:
         """
         Description to set on the stage managed by the `stage_name` argument.
@@ -317,7 +317,7 @@ class _DeploymentState:
 
     @property
     @pulumi.getter(name="stageName")
-    @_utilities.deprecated("""The attribute \"stage_name\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+    @_utilities.deprecated("""stage_name is deprecated. Use the apigateway.Stage resource instead.""")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the stage to create with this deployment.
@@ -542,7 +542,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="canarySettings")
-    @_utilities.deprecated("""The attribute \"canary_settings\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+    @_utilities.deprecated("""canary_settings is deprecated. Use the apigateway.Stage resource instead.""")
     def canary_settings(self) -> pulumi.Output[Optional['outputs.DeploymentCanarySettings']]:
         """
         Input configuration for the canary deployment when the deployment is a canary release deployment.
@@ -596,7 +596,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stageDescription")
-    @_utilities.deprecated("""The attribute \"stage_description\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+    @_utilities.deprecated("""stage_description is deprecated. Use the apigateway.Stage resource instead.""")
     def stage_description(self) -> pulumi.Output[Optional[str]]:
         """
         Description to set on the stage managed by the `stage_name` argument.
@@ -606,7 +606,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stageName")
-    @_utilities.deprecated("""The attribute \"stage_name\" will be removed in a future major version. Use an explicit \"apigateway.Stage\" instead.""")
+    @_utilities.deprecated("""stage_name is deprecated. Use the apigateway.Stage resource instead.""")
     def stage_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the stage to create with this deployment.

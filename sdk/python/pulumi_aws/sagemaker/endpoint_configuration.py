@@ -33,8 +33,8 @@ class EndpointConfigurationArgs:
         The set of arguments for constructing a EndpointConfiguration resource.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
         :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs'] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
-        :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
-        :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
@@ -84,7 +84,7 @@ class EndpointConfigurationArgs:
     @pulumi.getter(name="dataCaptureConfig")
     def data_capture_config(self) -> Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigArgs']]:
         """
-        Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+        Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         """
         return pulumi.get(self, "data_capture_config")
 
@@ -96,7 +96,7 @@ class EndpointConfigurationArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -170,8 +170,8 @@ class _EndpointConfigurationState:
         Input properties used for looking up and filtering EndpointConfiguration resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
         :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs'] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
-        :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
-        :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
@@ -231,7 +231,7 @@ class _EndpointConfigurationState:
     @pulumi.getter(name="dataCaptureConfig")
     def data_capture_config(self) -> Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigArgs']]:
         """
-        Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+        Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         """
         return pulumi.get(self, "data_capture_config")
 
@@ -243,7 +243,7 @@ class _EndpointConfigurationState:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -340,7 +340,7 @@ class EndpointConfiguration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker endpoint configuration resource.
+        Provides a SageMaker AI endpoint configuration resource.
 
         ## Example Usage
 
@@ -374,8 +374,8 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
-        :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']] data_capture_config: Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
-        :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']] data_capture_config: Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
@@ -389,7 +389,7 @@ class EndpointConfiguration(pulumi.CustomResource):
                  args: EndpointConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker endpoint configuration resource.
+        Provides a SageMaker AI endpoint configuration resource.
 
         ## Example Usage
 
@@ -493,8 +493,8 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
         :param pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
-        :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']] data_capture_config: Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
-        :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']] data_capture_config: Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
@@ -538,7 +538,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="dataCaptureConfig")
     def data_capture_config(self) -> pulumi.Output[Optional['outputs.EndpointConfigurationDataCaptureConfig']]:
         """
-        Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+        Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         """
         return pulumi.get(self, "data_capture_config")
 
@@ -546,7 +546,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         """
         return pulumi.get(self, "kms_key_arn")
 

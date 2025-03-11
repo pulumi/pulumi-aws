@@ -19,6 +19,21 @@ public final class ContinuousDeploymentPolicyState extends com.pulumi.resources.
     public static final ContinuousDeploymentPolicyState Empty = new ContinuousDeploymentPolicyState();
 
     /**
+     * The continuous deployment policy ARN.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The continuous deployment policy ARN.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Whether this continuous deployment policy is enabled.
      * 
      */
@@ -96,6 +111,7 @@ public final class ContinuousDeploymentPolicyState extends com.pulumi.resources.
     private ContinuousDeploymentPolicyState() {}
 
     private ContinuousDeploymentPolicyState(ContinuousDeploymentPolicyState $) {
+        this.arn = $.arn;
         this.enabled = $.enabled;
         this.etag = $.etag;
         this.lastModifiedTime = $.lastModifiedTime;
@@ -119,6 +135,27 @@ public final class ContinuousDeploymentPolicyState extends com.pulumi.resources.
 
         public Builder(ContinuousDeploymentPolicyState defaults) {
             $ = new ContinuousDeploymentPolicyState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The continuous deployment policy ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The continuous deployment policy ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

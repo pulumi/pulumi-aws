@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker monitoring schedule resource.
+    /// Provides a SageMaker AI monitoring schedule resource.
     /// 
     /// ## Example Usage
     /// 

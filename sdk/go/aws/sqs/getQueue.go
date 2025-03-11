@@ -15,6 +15,8 @@ import (
 // By using this data source, you can reference SQS queues without having to hardcode
 // the ARNs as input.
 //
+// > **NOTE:** To use this data source, you must have the `sqs:GetQueueAttributes` and `sqs:GetQueueURL` permissions.
+//
 // ## Example Usage
 //
 // ```go

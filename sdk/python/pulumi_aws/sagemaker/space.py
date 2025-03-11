@@ -33,7 +33,7 @@ class SpaceArgs:
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] space_name: The name of the space.
         :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
+        :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
         :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See `space_settings` Block below.
         :param pulumi.Input['SpaceSpaceSharingSettingsArgs'] space_sharing_settings: A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -91,7 +91,7 @@ class SpaceArgs:
     @pulumi.getter(name="spaceDisplayName")
     def space_display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the space that appears in the SageMaker Studio UI.
+        The name of the space that appears in the SageMaker AI Studio UI.
         """
         return pulumi.get(self, "space_display_name")
 
@@ -156,7 +156,7 @@ class _SpaceState:
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
         :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
+        :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
         :param pulumi.Input[str] space_name: The name of the space.
         :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See `space_settings` Block below.
         :param pulumi.Input['SpaceSpaceSharingSettingsArgs'] space_sharing_settings: A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
@@ -242,7 +242,7 @@ class _SpaceState:
     @pulumi.getter(name="spaceDisplayName")
     def space_display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the space that appears in the SageMaker Studio UI.
+        The name of the space that appears in the SageMaker AI Studio UI.
         """
         return pulumi.get(self, "space_display_name")
 
@@ -338,7 +338,7 @@ class Space(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Space resource.
+        Provides a SageMaker AI Space resource.
 
         ## Example Usage
 
@@ -355,7 +355,7 @@ class Space(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Spaces using the `id`. For example:
+        Using `pulumi import`, import SageMaker AI Spaces using the `id`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
@@ -365,7 +365,7 @@ class Space(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
+        :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
         :param pulumi.Input[str] space_name: The name of the space.
         :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See `space_settings` Block below.
         :param pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']] space_sharing_settings: A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
@@ -378,7 +378,7 @@ class Space(pulumi.CustomResource):
                  args: SpaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Space resource.
+        Provides a SageMaker AI Space resource.
 
         ## Example Usage
 
@@ -395,7 +395,7 @@ class Space(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Spaces using the `id`. For example:
+        Using `pulumi import`, import SageMaker AI Spaces using the `id`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
@@ -479,7 +479,7 @@ class Space(pulumi.CustomResource):
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
         :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
-        :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
+        :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
         :param pulumi.Input[str] space_name: The name of the space.
         :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See `space_settings` Block below.
         :param pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']] space_sharing_settings: A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
@@ -540,7 +540,7 @@ class Space(pulumi.CustomResource):
     @pulumi.getter(name="spaceDisplayName")
     def space_display_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the space that appears in the SageMaker Studio UI.
+        The name of the space that appears in the SageMaker AI Studio UI.
         """
         return pulumi.get(self, "space_display_name")
 

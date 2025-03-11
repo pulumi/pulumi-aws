@@ -8,6 +8,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -22,6 +23,11 @@ public final class PipelineVpcOptions {
      * 
      */
     private List<String> subnetIds;
+    /**
+     * @return Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+     * 
+     */
+    private @Nullable String vpcEndpointManagement;
 
     private PipelineVpcOptions() {}
     /**
@@ -38,6 +44,13 @@ public final class PipelineVpcOptions {
     public List<String> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * @return Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+     * 
+     */
+    public Optional<String> vpcEndpointManagement() {
+        return Optional.ofNullable(this.vpcEndpointManagement);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +63,13 @@ public final class PipelineVpcOptions {
     public static final class Builder {
         private @Nullable List<String> securityGroupIds;
         private List<String> subnetIds;
+        private @Nullable String vpcEndpointManagement;
         public Builder() {}
         public Builder(PipelineVpcOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnetIds = defaults.subnetIds;
+    	      this.vpcEndpointManagement = defaults.vpcEndpointManagement;
         }
 
         @CustomType.Setter
@@ -77,10 +92,17 @@ public final class PipelineVpcOptions {
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
+        @CustomType.Setter
+        public Builder vpcEndpointManagement(@Nullable String vpcEndpointManagement) {
+
+            this.vpcEndpointManagement = vpcEndpointManagement;
+            return this;
+        }
         public PipelineVpcOptions build() {
             final var _resultValue = new PipelineVpcOptions();
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.subnetIds = subnetIds;
+            _resultValue.vpcEndpointManagement = vpcEndpointManagement;
             return _resultValue;
         }
     }

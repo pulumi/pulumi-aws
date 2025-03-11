@@ -35,6 +35,11 @@ export type FormType = import("./formType").FormType;
 export const FormType: typeof import("./formType").FormType = null as any;
 utilities.lazyLoad(exports, ["FormType"], () => require("./formType"));
 
+export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
+export const getDomain: typeof import("./getDomain").getDomain = null as any;
+export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+
 export { GetEnvironmentBlueprintArgs, GetEnvironmentBlueprintResult, GetEnvironmentBlueprintOutputArgs } from "./getEnvironmentBlueprint";
 export const getEnvironmentBlueprint: typeof import("./getEnvironmentBlueprint").getEnvironmentBlueprint = null as any;
 export const getEnvironmentBlueprintOutput: typeof import("./getEnvironmentBlueprint").getEnvironmentBlueprintOutput = null as any;

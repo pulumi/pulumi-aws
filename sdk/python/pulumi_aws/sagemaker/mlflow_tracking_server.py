@@ -352,7 +352,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a SageMaker MLFlow Tracking Server resource.
+        Provides a SageMaker AI MLFlow Tracking Server resource.
 
         ## Example Usage
 
@@ -370,7 +370,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker MLFlow Tracking Servers using the `workteam_name`. For example:
+        Using `pulumi import`, import SageMaker AI MLFlow Tracking Servers using the `workteam_name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer example example
@@ -394,7 +394,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  args: MlflowTrackingServerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker MLFlow Tracking Server resource.
+        Provides a SageMaker AI MLFlow Tracking Server resource.
 
         ## Example Usage
 
@@ -412,7 +412,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker MLFlow Tracking Servers using the `workteam_name`. For example:
+        Using `pulumi import`, import SageMaker AI MLFlow Tracking Servers using the `workteam_name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer example example

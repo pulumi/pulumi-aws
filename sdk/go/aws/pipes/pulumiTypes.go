@@ -4265,7 +4265,7 @@ type PipeTargetParameters struct {
 	LambdaFunctionParameters *PipeTargetParametersLambdaFunctionParameters `pulumi:"lambdaFunctionParameters"`
 	// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
 	RedshiftDataParameters *PipeTargetParametersRedshiftDataParameters `pulumi:"redshiftDataParameters"`
-	// The parameters for using a SageMaker pipeline as a target. Detailed below.
+	// The parameters for using a SageMaker AI pipeline as a target. Detailed below.
 	SagemakerPipelineParameters *PipeTargetParametersSagemakerPipelineParameters `pulumi:"sagemakerPipelineParameters"`
 	// The parameters for using a Amazon SQS stream as a target. Detailed below.
 	SqsQueueParameters *PipeTargetParametersSqsQueueParameters `pulumi:"sqsQueueParameters"`
@@ -4303,7 +4303,7 @@ type PipeTargetParametersArgs struct {
 	LambdaFunctionParameters PipeTargetParametersLambdaFunctionParametersPtrInput `pulumi:"lambdaFunctionParameters"`
 	// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
 	RedshiftDataParameters PipeTargetParametersRedshiftDataParametersPtrInput `pulumi:"redshiftDataParameters"`
-	// The parameters for using a SageMaker pipeline as a target. Detailed below.
+	// The parameters for using a SageMaker AI pipeline as a target. Detailed below.
 	SagemakerPipelineParameters PipeTargetParametersSagemakerPipelineParametersPtrInput `pulumi:"sagemakerPipelineParameters"`
 	// The parameters for using a Amazon SQS stream as a target. Detailed below.
 	SqsQueueParameters PipeTargetParametersSqsQueueParametersPtrInput `pulumi:"sqsQueueParameters"`
@@ -4443,7 +4443,7 @@ func (o PipeTargetParametersOutput) RedshiftDataParameters() PipeTargetParameter
 	}).(PipeTargetParametersRedshiftDataParametersPtrOutput)
 }
 
-// The parameters for using a SageMaker pipeline as a target. Detailed below.
+// The parameters for using a SageMaker AI pipeline as a target. Detailed below.
 func (o PipeTargetParametersOutput) SagemakerPipelineParameters() PipeTargetParametersSagemakerPipelineParametersPtrOutput {
 	return o.ApplyT(func(v PipeTargetParameters) *PipeTargetParametersSagemakerPipelineParameters {
 		return v.SagemakerPipelineParameters
@@ -4576,7 +4576,7 @@ func (o PipeTargetParametersPtrOutput) RedshiftDataParameters() PipeTargetParame
 	}).(PipeTargetParametersRedshiftDataParametersPtrOutput)
 }
 
-// The parameters for using a SageMaker pipeline as a target. Detailed below.
+// The parameters for using a SageMaker AI pipeline as a target. Detailed below.
 func (o PipeTargetParametersPtrOutput) SagemakerPipelineParameters() PipeTargetParametersSagemakerPipelineParametersPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParameters) *PipeTargetParametersSagemakerPipelineParameters {
 		if v == nil {
@@ -5203,7 +5203,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Resou
 type PipeTargetParametersBatchJobParametersContainerOverridesEnvironment struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 	Value *string `pulumi:"value"`
 }
 
@@ -5221,7 +5221,7 @@ type PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentInput in
 type PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -5281,7 +5281,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentOutpu
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverridesEnvironment) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverridesEnvironment) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -5309,7 +5309,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArray
 type PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement struct {
 	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type string `pulumi:"type"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 	Value string `pulumi:"value"`
 }
 
@@ -5327,7 +5327,7 @@ type PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement
 type PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs struct {
 	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5389,7 +5389,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirem
 	}).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement) string {
 		return v.Value
@@ -7085,7 +7085,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrayOutp
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 	Value *string `pulumi:"value"`
 }
 
@@ -7103,7 +7103,7 @@ type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentI
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -7165,7 +7165,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironme
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment) *string {
 		return v.Value
@@ -7195,7 +7195,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironme
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile struct {
 	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type string `pulumi:"type"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 	Value string `pulumi:"value"`
 }
 
@@ -7213,7 +7213,7 @@ type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentF
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs struct {
 	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -7275,7 +7275,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironme
 	}).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile) string {
 		return v.Value
@@ -7305,7 +7305,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironme
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement struct {
 	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type string `pulumi:"type"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 	Value string `pulumi:"value"`
 }
 
@@ -7323,7 +7323,7 @@ type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequ
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs struct {
 	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -7385,7 +7385,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceR
 	}).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement) string {
 		return v.Value
@@ -8754,7 +8754,7 @@ func (o PipeTargetParametersRedshiftDataParametersPtrOutput) WithEvent() pulumi.
 }
 
 type PipeTargetParametersSagemakerPipelineParameters struct {
-	// List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+	// List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
 	PipelineParameters []PipeTargetParametersSagemakerPipelineParametersPipelineParameter `pulumi:"pipelineParameters"`
 }
 
@@ -8770,7 +8770,7 @@ type PipeTargetParametersSagemakerPipelineParametersInput interface {
 }
 
 type PipeTargetParametersSagemakerPipelineParametersArgs struct {
-	// List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+	// List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
 	PipelineParameters PipeTargetParametersSagemakerPipelineParametersPipelineParameterArrayInput `pulumi:"pipelineParameters"`
 }
 
@@ -8851,7 +8851,7 @@ func (o PipeTargetParametersSagemakerPipelineParametersOutput) ToPipeTargetParam
 	}).(PipeTargetParametersSagemakerPipelineParametersPtrOutput)
 }
 
-// List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+// List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
 func (o PipeTargetParametersSagemakerPipelineParametersOutput) PipelineParameters() PipeTargetParametersSagemakerPipelineParametersPipelineParameterArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersSagemakerPipelineParameters) []PipeTargetParametersSagemakerPipelineParametersPipelineParameter {
 		return v.PipelineParameters
@@ -8882,7 +8882,7 @@ func (o PipeTargetParametersSagemakerPipelineParametersPtrOutput) Elem() PipeTar
 	}).(PipeTargetParametersSagemakerPipelineParametersOutput)
 }
 
-// List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+// List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
 func (o PipeTargetParametersSagemakerPipelineParametersPtrOutput) PipelineParameters() PipeTargetParametersSagemakerPipelineParametersPipelineParameterArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersSagemakerPipelineParameters) []PipeTargetParametersSagemakerPipelineParametersPipelineParameter {
 		if v == nil {
@@ -8895,7 +8895,7 @@ func (o PipeTargetParametersSagemakerPipelineParametersPtrOutput) PipelineParame
 type PipeTargetParametersSagemakerPipelineParametersPipelineParameter struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name string `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 	Value string `pulumi:"value"`
 }
 
@@ -8913,7 +8913,7 @@ type PipeTargetParametersSagemakerPipelineParametersPipelineParameterInput inter
 type PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -8973,7 +8973,7 @@ func (o PipeTargetParametersSagemakerPipelineParametersPipelineParameterOutput) 
 	return o.ApplyT(func(v PipeTargetParametersSagemakerPipelineParametersPipelineParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersSagemakerPipelineParametersPipelineParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersSagemakerPipelineParametersPipelineParameter) string { return v.Value }).(pulumi.StringOutput)
 }

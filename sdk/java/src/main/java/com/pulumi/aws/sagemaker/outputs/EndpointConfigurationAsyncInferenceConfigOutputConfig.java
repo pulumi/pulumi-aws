@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -36,7 +36,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
 
     private EndpointConfigurationAsyncInferenceConfigOutputConfig() {}
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
      * 
      */
     public Optional<String> kmsKeyId() {

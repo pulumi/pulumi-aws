@@ -78,6 +78,7 @@ class TrafficPolicyArgs:
 @pulumi.input_type
 class _TrafficPolicyState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  document: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -85,6 +86,7 @@ class _TrafficPolicyState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering TrafficPolicy resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the traffic policy.
         :param pulumi.Input[str] comment: Comment for the traffic policy.
         :param pulumi.Input[str] document: Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
                
@@ -93,6 +95,8 @@ class _TrafficPolicyState:
         :param pulumi.Input[str] type: DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
         :param pulumi.Input[int] version: Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if document is not None:
@@ -103,6 +107,18 @@ class _TrafficPolicyState:
             pulumi.set(__self__, "type", type)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the traffic policy.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -290,6 +306,7 @@ class TrafficPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'document'")
             __props__.__dict__["document"] = document
             __props__.__dict__["name"] = name
+            __props__.__dict__["arn"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
         super(TrafficPolicy, __self__).__init__(
@@ -302,6 +319,7 @@ class TrafficPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             document: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -314,6 +332,7 @@ class TrafficPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the traffic policy.
         :param pulumi.Input[str] comment: Comment for the traffic policy.
         :param pulumi.Input[str] document: Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
                
@@ -326,12 +345,21 @@ class TrafficPolicy(pulumi.CustomResource):
 
         __props__ = _TrafficPolicyState.__new__(_TrafficPolicyState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["comment"] = comment
         __props__.__dict__["document"] = document
         __props__.__dict__["name"] = name
         __props__.__dict__["type"] = type
         __props__.__dict__["version"] = version
         return TrafficPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the traffic policy.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

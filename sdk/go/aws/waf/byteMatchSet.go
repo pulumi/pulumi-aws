@@ -60,6 +60,8 @@ import (
 type ByteMatchSet struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the byte match set.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the bytes (typically a string that corresponds
 	// with ASCII characters) that you want to search for in web requests,
 	// the location in requests that you want to search, and other settings.
@@ -98,6 +100,8 @@ func GetByteMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ByteMatchSet resources.
 type byteMatchSetState struct {
+	// Amazon Resource Name (ARN) of the byte match set.
+	Arn *string `pulumi:"arn"`
 	// Specifies the bytes (typically a string that corresponds
 	// with ASCII characters) that you want to search for in web requests,
 	// the location in requests that you want to search, and other settings.
@@ -107,6 +111,8 @@ type byteMatchSetState struct {
 }
 
 type ByteMatchSetState struct {
+	// Amazon Resource Name (ARN) of the byte match set.
+	Arn pulumi.StringPtrInput
 	// Specifies the bytes (typically a string that corresponds
 	// with ASCII characters) that you want to search for in web requests,
 	// the location in requests that you want to search, and other settings.
@@ -223,6 +229,11 @@ func (o ByteMatchSetOutput) ToByteMatchSetOutput() ByteMatchSetOutput {
 
 func (o ByteMatchSetOutput) ToByteMatchSetOutputWithContext(ctx context.Context) ByteMatchSetOutput {
 	return o
+}
+
+// Amazon Resource Name (ARN) of the byte match set.
+func (o ByteMatchSetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ByteMatchSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Specifies the bytes (typically a string that corresponds

@@ -52,6 +52,7 @@ __all__ = [
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint',
+    'RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -77,6 +78,8 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyIp',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument',
     'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation',
@@ -99,6 +102,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -127,6 +131,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -148,6 +153,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -169,6 +175,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -190,6 +197,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -211,6 +219,7 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -232,6 +241,7 @@ __all__ = [
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint',
+    'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -253,6 +263,7 @@ __all__ = [
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint',
+    'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -274,6 +285,7 @@ __all__ = [
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint',
+    'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -295,6 +307,7 @@ __all__ = [
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint',
+    'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -316,6 +329,7 @@ __all__ = [
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrder',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint',
+    'RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -393,6 +407,7 @@ __all__ = [
     'WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -464,6 +479,7 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -492,6 +508,7 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -513,6 +530,7 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -534,6 +552,7 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -555,6 +574,7 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -576,6 +596,7 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -596,6 +617,8 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation',
     'WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod',
     'WebAclRuleStatementRateBasedStatementCustomKeyIp',
+    'WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint',
+    'WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint',
     'WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace',
     'WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument',
     'WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation',
@@ -618,6 +641,7 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -646,6 +670,7 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -667,6 +692,7 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -688,6 +714,7 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -709,6 +736,7 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -730,6 +758,7 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -751,6 +780,7 @@ __all__ = [
     'WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -772,6 +802,7 @@ __all__ = [
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -811,6 +842,7 @@ __all__ = [
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -832,6 +864,7 @@ __all__ = [
     'WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -853,6 +886,7 @@ __all__ = [
     'WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll',
     'WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder',
     'WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint',
+    'WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint',
     'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody',
     'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
     'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll',
@@ -2063,6 +2097,8 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -2092,6 +2128,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
                  header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString'] = None,
@@ -2104,6 +2141,8 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
         :param Sequence['RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -2123,6 +2162,8 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -2179,7 +2220,18 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
     @property
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -2572,11 +2624,52 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
 
     def __init__(__self__, *,
                  fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -3173,6 +3266,10 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
             suggest = "forwarded_ip"
         elif key == "httpMethod":
             suggest = "http_method"
+        elif key == "ja3Fingerprint":
+            suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "labelNamespace":
             suggest = "label_namespace"
         elif key == "queryArgument":
@@ -3199,6 +3296,8 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
                  header: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader'] = None,
                  http_method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod'] = None,
                  ip: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyIp'] = None,
+                 ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint'] = None,
                  label_namespace: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace'] = None,
                  query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString'] = None,
@@ -3209,6 +3308,8 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs' header: (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs' http_method: (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs' ip: (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs' ja3_fingerprint: (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs' ja4_fingerprint: (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs' label_namespace: (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs' query_argument: (Optional) Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs' query_string: (Optional) Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
@@ -3224,6 +3325,10 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
             pulumi.set(__self__, "http_method", http_method)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
+        if ja3_fingerprint is not None:
+            pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if label_namespace is not None:
             pulumi.set(__self__, "label_namespace", label_namespace)
         if query_argument is not None:
@@ -3272,6 +3377,22 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
         (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
         """
         return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter(name="ja3Fingerprint")
+    def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint']:
+        """
+        (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        """
+        return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint']:
+        """
+        (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="labelNamespace")
@@ -3472,6 +3593,76 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod(dict):
 class RuleGroupRuleStatementRateBasedStatementCustomKeyIp(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
 
 
 @pulumi.output_type
@@ -4041,6 +4232,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -4070,6 +4263,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString'] = None,
@@ -4082,6 +4276,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -4101,6 +4297,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -4157,7 +4355,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @property
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -4550,11 +4759,52 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
     def __init__(__self__, *,
                  fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -5112,6 +5362,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -5141,6 +5393,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString'] = None,
@@ -5153,6 +5406,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -5172,6 +5427,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -5228,7 +5485,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @property
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -5621,11 +5889,52 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
     def __init__(__self__, *,
                  fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -5913,6 +6222,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -5942,6 +6253,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString'] = None,
@@ -5954,6 +6266,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -5973,6 +6287,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -6029,7 +6345,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @property
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -6422,11 +6749,52 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
     def __init__(__self__, *,
                  fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -6727,6 +7095,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -6756,6 +7126,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString'] = None,
@@ -6768,6 +7139,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -6787,6 +7160,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -6843,7 +7218,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @property
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -7236,11 +7622,52 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
     def __init__(__self__, *,
                  fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -7531,6 +7958,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -7560,6 +7989,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString'] = None,
@@ -7572,6 +8002,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -7591,6 +8023,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -7647,7 +8081,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @property
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -8040,11 +8485,52 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
     def __init__(__self__, *,
                  fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -8321,6 +8807,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -8350,6 +8838,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString'] = None,
@@ -8362,6 +8851,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -8381,6 +8872,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -8437,7 +8930,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @property
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -8830,11 +9334,52 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
     def __init__(__self__, *,
                  fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -9124,6 +9669,8 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -9153,6 +9700,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
                  header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString'] = None,
@@ -9165,6 +9713,8 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
         :param Sequence['RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -9184,6 +9734,8 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -9240,7 +9792,18 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
     @property
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -9633,11 +10196,52 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
 
     def __init__(__self__, *,
                  fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -9925,6 +10529,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -9954,6 +10560,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
                  header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString'] = None,
@@ -9966,6 +10573,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
         :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -9985,6 +10594,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -10041,7 +10652,18 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
     @property
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -10434,11 +11056,52 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fing
 
     def __init__(__self__, *,
                  fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -10739,6 +11402,8 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -10768,6 +11433,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
                  header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString'] = None,
@@ -10780,6 +11446,8 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
         :param Sequence['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -10799,6 +11467,8 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -10855,7 +11525,18 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
     @property
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -11248,11 +11929,52 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(di
 
     def __init__(__self__, *,
                  fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -11543,6 +12265,8 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -11572,6 +12296,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
                  header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryString'] = None,
@@ -11584,6 +12309,8 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
         :param Sequence['RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -11603,6 +12330,8 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -11659,7 +12388,18 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
     @property
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -12052,11 +12792,52 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
 
     def __init__(__self__, *,
                  fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -12333,6 +13114,8 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -12362,6 +13145,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
                  header_orders: Optional[Sequence['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString'] = None,
@@ -12374,6 +13158,8 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
         :param Sequence['RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect the request headers. See Header Order below for details.
         :param Sequence['RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -12393,6 +13179,8 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -12449,7 +13237,18 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
     @property
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -12842,11 +13641,52 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
 
     def __init__(__self__, *,
                  fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
         return pulumi.get(self, "fallback_behavior")
 
 
@@ -15429,6 +16269,8 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -15458,6 +16300,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchQueryString'] = None,
@@ -15471,6 +16314,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
         :param Sequence['WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -15490,6 +16334,8 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -15550,6 +16396,14 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -15949,7 +16803,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -15957,7 +16811,42 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -18665,6 +19554,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -18694,6 +19585,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString'] = None,
@@ -18707,6 +19599,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -18726,6 +19619,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -18786,6 +19681,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -19185,7 +20088,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -19193,7 +20096,42 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -19748,6 +20686,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -19777,6 +20717,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString'] = None,
@@ -19790,6 +20731,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -19809,6 +20751,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -19869,6 +20813,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -20268,7 +21220,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -20276,7 +21228,42 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -20561,6 +21548,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -20590,6 +21579,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString'] = None,
@@ -20603,6 +21593,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -20622,6 +21613,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -20682,6 +21675,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -21081,7 +22082,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -21089,7 +22090,42 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -21387,6 +22423,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -21416,6 +22454,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString'] = None,
@@ -21429,6 +22468,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -21448,6 +22488,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -21508,6 +22550,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -21907,7 +22957,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -21915,7 +22965,42 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -22203,6 +23288,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -22232,6 +23319,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString'] = None,
@@ -22245,6 +23333,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -22264,6 +23353,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -22324,6 +23415,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -22723,7 +23822,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -22731,7 +23830,42 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -23005,6 +24139,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -23034,6 +24170,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString'] = None,
@@ -23047,6 +24184,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -23066,6 +24204,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -23126,6 +24266,14 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -23525,7 +24673,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -23533,7 +24681,42 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -23899,6 +25082,10 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
             suggest = "forwarded_ip"
         elif key == "httpMethod":
             suggest = "http_method"
+        elif key == "ja3Fingerprint":
+            suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "labelNamespace":
             suggest = "label_namespace"
         elif key == "queryArgument":
@@ -23925,6 +25112,8 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
                  header: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyHeader'] = None,
                  http_method: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod'] = None,
                  ip: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyIp'] = None,
+                 ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint'] = None,
                  label_namespace: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace'] = None,
                  query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryString'] = None,
@@ -23935,6 +25124,8 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs' header: Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs' http_method: Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyIpArgs' ip: Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs' ja3_fingerprint: Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs' ja4_fingerprint: Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs' label_namespace: Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs' query_argument: Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs' query_string: Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
@@ -23950,6 +25141,10 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
             pulumi.set(__self__, "http_method", http_method)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
+        if ja3_fingerprint is not None:
+            pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if label_namespace is not None:
             pulumi.set(__self__, "label_namespace", label_namespace)
         if query_argument is not None:
@@ -23998,6 +25193,22 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
         Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
         """
         return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter(name="ja3Fingerprint")
+    def ja3_fingerprint(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint']:
+        """
+        Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        """
+        return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint']:
+        """
+        Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="labelNamespace")
@@ -24198,6 +25409,76 @@ class WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod(dict):
 class WebAclRuleStatementRateBasedStatementCustomKeyIp(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementCustomKeyJa3Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementCustomKeyJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
 
 
 @pulumi.output_type
@@ -24763,6 +26044,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -24792,6 +26075,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString'] = None,
@@ -24805,6 +26089,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -24824,6 +26109,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -24884,6 +26171,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -25283,7 +26578,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -25291,7 +26586,42 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -25846,6 +27176,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -25875,6 +27207,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString'] = None,
@@ -25888,6 +27221,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -25907,6 +27241,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -25967,6 +27303,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -26366,7 +27710,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -26374,7 +27718,42 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -26659,6 +28038,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -26688,6 +28069,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString'] = None,
@@ -26701,6 +28083,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -26720,6 +28103,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -26780,6 +28165,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -27179,7 +28572,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -27187,7 +28580,42 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -27485,6 +28913,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -27514,6 +28944,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString'] = None,
@@ -27527,6 +28958,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -27546,6 +28978,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -27606,6 +29040,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -28005,7 +29447,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -28013,7 +29455,42 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -28301,6 +29778,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -28330,6 +29809,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString'] = None,
@@ -28343,6 +29823,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -28362,6 +29843,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -28422,6 +29905,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -28821,7 +30312,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -28829,7 +30320,42 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -29103,6 +30629,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -29132,6 +30660,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString'] = None,
@@ -29145,6 +30674,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -29164,6 +30694,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -29224,6 +30756,14 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -29623,7 +31163,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -29631,7 +31171,42 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -29918,6 +31493,8 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -29947,6 +31524,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchQueryString'] = None,
@@ -29960,6 +31538,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
         :param Sequence['WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -29979,6 +31558,8 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -30039,6 +31620,14 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -30438,7 +32027,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -30446,7 +32035,42 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -30731,6 +32355,8 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -30760,6 +32386,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString'] = None,
@@ -30773,6 +32400,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
         :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -30792,6 +32420,8 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -30852,6 +32482,14 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -31251,7 +32889,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerp
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -31259,7 +32897,42 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerp
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -32233,6 +33906,8 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -32262,6 +33937,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString'] = None,
@@ -32275,6 +33951,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
         :param Sequence['WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -32294,6 +33971,8 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -32354,6 +34033,14 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -32753,7 +34440,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict)
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -32761,7 +34448,42 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict)
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -33049,6 +34771,8 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -33078,6 +34802,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString'] = None,
@@ -33091,6 +34816,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
         :param Sequence['WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -33110,6 +34836,8 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -33170,6 +34898,14 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -33569,7 +35305,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -33577,7 +35313,42 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -33851,6 +35622,8 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
             suggest = "header_orders"
         elif key == "ja3Fingerprint":
             suggest = "ja3_fingerprint"
+        elif key == "ja4Fingerprint":
+            suggest = "ja4_fingerprint"
         elif key == "jsonBody":
             suggest = "json_body"
         elif key == "queryString":
@@ -33880,6 +35653,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
                  header_orders: Optional[Sequence['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder']] = None,
                  headers: Optional[Sequence['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchHeader']] = None,
                  ja3_fingerprint: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint'] = None,
+                 ja4_fingerprint: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint'] = None,
                  json_body: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody'] = None,
                  method: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchMethod'] = None,
                  query_string: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchQueryString'] = None,
@@ -33893,6 +35667,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
         :param Sequence['WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrderArgs'] header_orders: Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         :param Sequence['WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs' ja4_fingerprint: Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
@@ -33912,6 +35687,8 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
             pulumi.set(__self__, "headers", headers)
         if ja3_fingerprint is not None:
             pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
+        if ja4_fingerprint is not None:
+            pulumi.set(__self__, "ja4_fingerprint", ja4_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -33972,6 +35749,14 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
         Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
+
+    @property
+    @pulumi.getter(name="ja4Fingerprint")
+    def ja4_fingerprint(self) -> Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint']:
+        """
+        Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        """
+        return pulumi.get(self, "ja4_fingerprint")
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -34371,7 +36156,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: str):
         """
-        :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -34379,7 +36164,42 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+
+@pulumi.output_type
+class WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackBehavior":
+            suggest = "fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_behavior: str):
+        """
+        :param str fallback_behavior: Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> str:
+        """
+        Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 

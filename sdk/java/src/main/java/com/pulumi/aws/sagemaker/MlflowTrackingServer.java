@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker MLFlow Tracking Server resource.
+ * Provides a SageMaker AI MLFlow Tracking Server resource.
  * 
  * ## Example Usage
  * 
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SageMaker MLFlow Tracking Servers using the `workteam_name`. For example:
+ * Using `pulumi import`, import SageMaker AI MLFlow Tracking Servers using the `workteam_name`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer example example

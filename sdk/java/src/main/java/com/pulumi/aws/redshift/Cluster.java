@@ -149,10 +149,10 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Always returns `auto`.
      * 
      * @deprecated
-     * This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+     * aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      * 
      */
-    @Deprecated /* This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
+    @Deprecated /* aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
     @Export(name="aquaConfigurationStatus", refs={String.class}, tree="[0]")
     private Output<String> aquaConfigurationStatus;
 
@@ -495,10 +495,10 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Logging, documented below.
      * 
      * @deprecated
-     * Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
+     * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
      * 
      */
-    @Deprecated /* Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
+    @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
     @Export(name="logging", refs={ClusterLogging.class}, tree="[0]")
     private Output<ClusterLogging> logging;
 
@@ -771,10 +771,10 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
      * 
      * @deprecated
-     * Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+     * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
      * 
      */
-    @Deprecated /* Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
+    @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
     @Export(name="snapshotCopy", refs={ClusterSnapshotCopy.class}, tree="[0]")
     private Output<ClusterSnapshotCopy> snapshotCopy;
 

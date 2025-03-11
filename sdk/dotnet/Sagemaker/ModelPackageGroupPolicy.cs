@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker Model Package Group Policy resource.
+    /// Provides a SageMaker AI Model Package Group Policy resource.
     /// 
     /// ## Example Usage
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
+    /// Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example

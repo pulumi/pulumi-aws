@@ -104,6 +104,7 @@ class OriginAccessControlArgs:
 @pulumi.input_type
 class _OriginAccessControlState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -112,6 +113,7 @@ class _OriginAccessControlState:
                  signing_protocol: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OriginAccessControl resources.
+        :param pulumi.Input[str] arn: The Origin Access Control ARN.
         :param pulumi.Input[str] description: The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         :param pulumi.Input[str] etag: The current version of this Origin Access Control.
         :param pulumi.Input[str] name: A name that identifies the Origin Access Control.
@@ -119,6 +121,8 @@ class _OriginAccessControlState:
         :param pulumi.Input[str] signing_behavior: Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
         :param pulumi.Input[str] signing_protocol: Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if etag is not None:
@@ -131,6 +135,18 @@ class _OriginAccessControlState:
             pulumi.set(__self__, "signing_behavior", signing_behavior)
         if signing_protocol is not None:
             pulumi.set(__self__, "signing_protocol", signing_protocol)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Origin Access Control ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -328,6 +344,7 @@ class OriginAccessControl(pulumi.CustomResource):
             if signing_protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'signing_protocol'")
             __props__.__dict__["signing_protocol"] = signing_protocol
+            __props__.__dict__["arn"] = None
             __props__.__dict__["etag"] = None
         super(OriginAccessControl, __self__).__init__(
             'aws:cloudfront/originAccessControl:OriginAccessControl',
@@ -339,6 +356,7 @@ class OriginAccessControl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -352,6 +370,7 @@ class OriginAccessControl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Origin Access Control ARN.
         :param pulumi.Input[str] description: The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         :param pulumi.Input[str] etag: The current version of this Origin Access Control.
         :param pulumi.Input[str] name: A name that identifies the Origin Access Control.
@@ -363,6 +382,7 @@ class OriginAccessControl(pulumi.CustomResource):
 
         __props__ = _OriginAccessControlState.__new__(_OriginAccessControlState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
         __props__.__dict__["etag"] = etag
         __props__.__dict__["name"] = name
@@ -370,6 +390,14 @@ class OriginAccessControl(pulumi.CustomResource):
         __props__.__dict__["signing_behavior"] = signing_behavior
         __props__.__dict__["signing_protocol"] = signing_protocol
         return OriginAccessControl(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The Origin Access Control ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

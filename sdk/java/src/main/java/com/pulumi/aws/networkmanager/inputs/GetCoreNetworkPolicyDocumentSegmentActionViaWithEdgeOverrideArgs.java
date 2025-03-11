@@ -35,10 +35,10 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
      * The preferred edge to use.
      * 
      * @deprecated
-     * Use use_edge_location
+     * use_edge is deprecated. Use use_edge_location instead.
      * 
      */
-    @Deprecated /* Use use_edge_location */
+    @Deprecated /* use_edge is deprecated. Use use_edge_location instead. */
     @Import(name="useEdge")
     private @Nullable Output<String> useEdge;
 
@@ -46,10 +46,10 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
      * @return The preferred edge to use.
      * 
      * @deprecated
-     * Use use_edge_location
+     * use_edge is deprecated. Use use_edge_location instead.
      * 
      */
-    @Deprecated /* Use use_edge_location */
+    @Deprecated /* use_edge is deprecated. Use use_edge_location instead. */
     public Optional<Output<String>> useEdge() {
         return Optional.ofNullable(this.useEdge);
     }
@@ -132,10 +132,10 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
          * @return builder
          * 
          * @deprecated
-         * Use use_edge_location
+         * use_edge is deprecated. Use use_edge_location instead.
          * 
          */
-        @Deprecated /* Use use_edge_location */
+        @Deprecated /* use_edge is deprecated. Use use_edge_location instead. */
         public Builder useEdge(@Nullable Output<String> useEdge) {
             $.useEdge = useEdge;
             return this;
@@ -147,10 +147,10 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideA
          * @return builder
          * 
          * @deprecated
-         * Use use_edge_location
+         * use_edge is deprecated. Use use_edge_location instead.
          * 
          */
-        @Deprecated /* Use use_edge_location */
+        @Deprecated /* use_edge is deprecated. Use use_edge_location instead. */
         public Builder useEdge(String useEdge) {
             return useEdge(Output.of(useEdge));
         }

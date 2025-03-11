@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Hub resource.
+// Provides a SageMaker AI Hub resource.
 //
 // ## Example Usage
 //
@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SageMaker Hubs using the `name`. For example:
+// Using `pulumi import`, import SageMaker AI Hubs using the `name`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo

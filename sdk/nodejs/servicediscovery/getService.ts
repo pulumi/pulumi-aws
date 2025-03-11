@@ -51,7 +51,7 @@ export interface GetServiceArgs {
     /**
      * (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
-     * @deprecated this attribute has been deprecated
+     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
      */
     tagsAll?: {[key: string]: string};
 }
@@ -96,7 +96,7 @@ export interface GetServiceResult {
     /**
      * (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
-     * @deprecated this attribute has been deprecated
+     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
      */
     readonly tagsAll: {[key: string]: string};
 }
@@ -144,7 +144,7 @@ export interface GetServiceOutputArgs {
     /**
      * (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
-     * @deprecated this attribute has been deprecated
+     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -1611,6 +1611,10 @@
     {
       "old": "* `ssh_key` - (Optional) SSH key to use when authenticating to the source. Terraform cannot perform drift detection of this configuration.",
       "new": "* `ssh_key` - (Optional) SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration."
+    },
+    {
+      "old": "!> **ALERT:** AWS no longer supports OpsWorks Stacks. All related resources will be removed from the Terraform AWS Provider in the next major version.\n",
+      "new": "!> **ALERT:** AWS no longer supports OpsWorks Stacks. All related resources will be removed from the AWS Provider in the next major version.\n"
     }
   ],
   "organizations_account.html.markdown": [

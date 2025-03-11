@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -34,15 +35,15 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
      * Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
      * 
      */
-    @Import(name="noncurrentDays")
-    private @Nullable Output<Integer> noncurrentDays;
+    @Import(name="noncurrentDays", required=true)
+    private Output<Integer> noncurrentDays;
 
     /**
      * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
      * 
      */
-    public Optional<Output<Integer>> noncurrentDays() {
-        return Optional.ofNullable(this.noncurrentDays);
+    public Output<Integer> noncurrentDays() {
+        return this.noncurrentDays;
     }
 
     private BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs() {}
@@ -97,7 +98,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
          * @return builder
          * 
          */
-        public Builder noncurrentDays(@Nullable Output<Integer> noncurrentDays) {
+        public Builder noncurrentDays(Output<Integer> noncurrentDays) {
             $.noncurrentDays = noncurrentDays;
             return this;
         }
@@ -113,6 +114,9 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
         }
 
         public BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs build() {
+            if ($.noncurrentDays == null) {
+                throw new MissingRequiredPropertyException("BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs", "noncurrentDays");
+            }
             return $;
         }
     }

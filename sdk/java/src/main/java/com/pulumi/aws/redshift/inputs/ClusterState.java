@@ -58,10 +58,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * Always returns `auto`.
      * 
      * @deprecated
-     * This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+     * aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      * 
      */
-    @Deprecated /* This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
+    @Deprecated /* aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
     @Import(name="aquaConfigurationStatus")
     private @Nullable Output<String> aquaConfigurationStatus;
 
@@ -71,10 +71,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * Always returns `auto`.
      * 
      * @deprecated
-     * This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+     * aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      * 
      */
-    @Deprecated /* This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
+    @Deprecated /* aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
     public Optional<Output<String>> aquaConfigurationStatus() {
         return Optional.ofNullable(this.aquaConfigurationStatus);
     }
@@ -432,10 +432,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * Logging, documented below.
      * 
      * @deprecated
-     * Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
+     * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
      * 
      */
-    @Deprecated /* Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
+    @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
     @Import(name="logging")
     private @Nullable Output<ClusterLoggingArgs> logging;
 
@@ -443,10 +443,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * @return Logging, documented below.
      * 
      * @deprecated
-     * Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
+     * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
      * 
      */
-    @Deprecated /* Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
+    @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
     public Optional<Output<ClusterLoggingArgs>> logging() {
         return Optional.ofNullable(this.logging);
     }
@@ -730,10 +730,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
      * 
      * @deprecated
-     * Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+     * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
      * 
      */
-    @Deprecated /* Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
+    @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
     @Import(name="snapshotCopy")
     private @Nullable Output<ClusterSnapshotCopyArgs> snapshotCopy;
 
@@ -741,10 +741,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * @return Configuration of automatic copy of snapshots from one region to another. Documented below.
      * 
      * @deprecated
-     * Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+     * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
      * 
      */
-    @Deprecated /* Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
+    @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
     public Optional<Output<ClusterSnapshotCopyArgs>> snapshotCopy() {
         return Optional.ofNullable(this.snapshotCopy);
     }
@@ -939,10 +939,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+         * aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
          * 
          */
-        @Deprecated /* This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
+        @Deprecated /* aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
         public Builder aquaConfigurationStatus(@Nullable Output<String> aquaConfigurationStatus) {
             $.aquaConfigurationStatus = aquaConfigurationStatus;
             return this;
@@ -956,10 +956,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+         * aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
          * 
          */
-        @Deprecated /* This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
+        @Deprecated /* aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
         public Builder aquaConfigurationStatus(String aquaConfigurationStatus) {
             return aquaConfigurationStatus(Output.of(aquaConfigurationStatus));
         }
@@ -1477,10 +1477,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
+         * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
          * 
          */
-        @Deprecated /* Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
+        @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
         public Builder logging(@Nullable Output<ClusterLoggingArgs> logging) {
             $.logging = logging;
             return this;
@@ -1492,10 +1492,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
+         * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
          * 
          */
-        @Deprecated /* Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
+        @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
         public Builder logging(ClusterLoggingArgs logging) {
             return logging(Output.of(logging));
         }
@@ -1883,10 +1883,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+         * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
          * 
          */
-        @Deprecated /* Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
+        @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
         public Builder snapshotCopy(@Nullable Output<ClusterSnapshotCopyArgs> snapshotCopy) {
             $.snapshotCopy = snapshotCopy;
             return this;
@@ -1898,10 +1898,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+         * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
          * 
          */
-        @Deprecated /* Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
+        @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
         public Builder snapshotCopy(ClusterSnapshotCopyArgs snapshotCopy) {
             return snapshotCopy(Output.of(snapshotCopy));
         }

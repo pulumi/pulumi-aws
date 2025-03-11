@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an OpsWorks RDS DB Instance resource.
-//
 // ## Example Usage
 //
 // ```go

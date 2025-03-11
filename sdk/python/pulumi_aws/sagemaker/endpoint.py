@@ -208,7 +208,7 @@ class Endpoint(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Endpoint resource.
+        Provides a SageMaker AI Endpoint resource.
 
         ## Example Usage
 
@@ -248,7 +248,7 @@ class Endpoint(pulumi.CustomResource):
                  args: EndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Endpoint resource.
+        Provides a SageMaker AI Endpoint resource.
 
         ## Example Usage
 

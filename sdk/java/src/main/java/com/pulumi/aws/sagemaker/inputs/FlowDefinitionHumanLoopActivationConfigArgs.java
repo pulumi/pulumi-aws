@@ -16,14 +16,14 @@ public final class FlowDefinitionHumanLoopActivationConfigArgs extends com.pulum
     public static final FlowDefinitionHumanLoopActivationConfigArgs Empty = new FlowDefinitionHumanLoopActivationConfigArgs();
 
     /**
-     * defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+     * defines under what conditions SageMaker AI creates a human loop. See Human Loop Activation Conditions Config details below.
      * 
      */
     @Import(name="humanLoopActivationConditionsConfig")
     private @Nullable Output<FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs> humanLoopActivationConditionsConfig;
 
     /**
-     * @return defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+     * @return defines under what conditions SageMaker AI creates a human loop. See Human Loop Activation Conditions Config details below.
      * 
      */
     public Optional<Output<FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs>> humanLoopActivationConditionsConfig() {
@@ -55,7 +55,7 @@ public final class FlowDefinitionHumanLoopActivationConfigArgs extends com.pulum
         }
 
         /**
-         * @param humanLoopActivationConditionsConfig defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+         * @param humanLoopActivationConditionsConfig defines under what conditions SageMaker AI creates a human loop. See Human Loop Activation Conditions Config details below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class FlowDefinitionHumanLoopActivationConfigArgs extends com.pulum
         }
 
         /**
-         * @param humanLoopActivationConditionsConfig defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+         * @param humanLoopActivationConditionsConfig defines under what conditions SageMaker AI creates a human loop. See Human Loop Activation Conditions Config details below.
          * 
          * @return builder
          * 

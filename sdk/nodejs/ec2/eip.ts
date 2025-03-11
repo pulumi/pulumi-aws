@@ -236,7 +236,7 @@ export class Eip extends pulumi.CustomResource {
      * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
      * case both options are defined as the api only requires one or the other.
      *
-     * @deprecated use domain attribute instead
+     * @deprecated vpc is deprecated. Use domain instead.
      */
     public readonly vpc!: pulumi.Output<boolean>;
 
@@ -402,7 +402,7 @@ export interface EipState {
      * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
      * case both options are defined as the api only requires one or the other.
      *
-     * @deprecated use domain attribute instead
+     * @deprecated vpc is deprecated. Use domain instead.
      */
     vpc?: pulumi.Input<boolean>;
 }
@@ -461,7 +461,7 @@ export interface EipArgs {
      * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
      * case both options are defined as the api only requires one or the other.
      *
-     * @deprecated use domain attribute instead
+     * @deprecated vpc is deprecated. Use domain instead.
      */
     vpc?: pulumi.Input<boolean>;
 }

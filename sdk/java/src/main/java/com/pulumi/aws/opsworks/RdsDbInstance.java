@@ -15,8 +15,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Provides an OpsWorks RDS DB Instance resource.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

@@ -26,12 +26,12 @@ public final class UserProfileUserSettingsCodeEditorAppSettings {
      */
     private @Nullable String builtInLifecycleConfigArn;
     /**
-     * @return A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+     * @return A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
      * 
      */
     private @Nullable List<UserProfileUserSettingsCodeEditorAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     private @Nullable UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -57,14 +57,14 @@ public final class UserProfileUserSettingsCodeEditorAppSettings {
         return Optional.ofNullable(this.builtInLifecycleConfigArn);
     }
     /**
-     * @return A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+     * @return A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
      * 
      */
     public List<UserProfileUserSettingsCodeEditorAppSettingsCustomImage> customImages() {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     public Optional<UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec> defaultResourceSpec() {

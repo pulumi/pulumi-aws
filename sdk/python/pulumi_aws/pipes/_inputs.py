@@ -2008,7 +2008,7 @@ if not MYPY:
         """
         sagemaker_pipeline_parameters: NotRequired[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersArgsDict']]
         """
-        The parameters for using a SageMaker pipeline as a target. Detailed below.
+        The parameters for using a SageMaker AI pipeline as a target. Detailed below.
         """
         sqs_queue_parameters: NotRequired[pulumi.Input['PipeTargetParametersSqsQueueParametersArgsDict']]
         """
@@ -2046,7 +2046,7 @@ class PipeTargetParametersArgs:
         :param pulumi.Input['PipeTargetParametersKinesisStreamParametersArgs'] kinesis_stream_parameters: The parameters for using a Kinesis stream as a source. Detailed below.
         :param pulumi.Input['PipeTargetParametersLambdaFunctionParametersArgs'] lambda_function_parameters: The parameters for using a Lambda function as a target. Detailed below.
         :param pulumi.Input['PipeTargetParametersRedshiftDataParametersArgs'] redshift_data_parameters: These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
-        :param pulumi.Input['PipeTargetParametersSagemakerPipelineParametersArgs'] sagemaker_pipeline_parameters: The parameters for using a SageMaker pipeline as a target. Detailed below.
+        :param pulumi.Input['PipeTargetParametersSagemakerPipelineParametersArgs'] sagemaker_pipeline_parameters: The parameters for using a SageMaker AI pipeline as a target. Detailed below.
         :param pulumi.Input['PipeTargetParametersSqsQueueParametersArgs'] sqs_queue_parameters: The parameters for using a Amazon SQS stream as a target. Detailed below.
         :param pulumi.Input['PipeTargetParametersStepFunctionStateMachineParametersArgs'] step_function_state_machine_parameters: The parameters for using a Step Functions state machine as a target. Detailed below.
         """
@@ -2187,7 +2187,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="sagemakerPipelineParameters")
     def sagemaker_pipeline_parameters(self) -> Optional[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersArgs']]:
         """
-        The parameters for using a SageMaker pipeline as a target. Detailed below.
+        The parameters for using a SageMaker AI pipeline as a target. Detailed below.
         """
         return pulumi.get(self, "sagemaker_pipeline_parameters")
 
@@ -2502,7 +2502,7 @@ if not MYPY:
         """
         value: NotRequired[pulumi.Input[str]]
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
 elif False:
     PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
@@ -2514,7 +2514,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs:
                  value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -2537,7 +2537,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         return pulumi.get(self, "value")
 
@@ -2554,7 +2554,7 @@ if not MYPY:
         """
         value: pulumi.Input[str]
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
 elif False:
     PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgsDict: TypeAlias = Mapping[str, Any]
@@ -2566,7 +2566,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequiremen
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -2587,7 +2587,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequiremen
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         return pulumi.get(self, "value")
 
@@ -3536,7 +3536,7 @@ if not MYPY:
         """
         value: NotRequired[pulumi.Input[str]]
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
 elif False:
     PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
@@ -3548,7 +3548,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
                  value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -3571,7 +3571,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         return pulumi.get(self, "value")
 
@@ -3588,7 +3588,7 @@ if not MYPY:
         """
         value: pulumi.Input[str]
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
 elif False:
     PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgsDict: TypeAlias = Mapping[str, Any]
@@ -3600,7 +3600,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -3621,7 +3621,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         return pulumi.get(self, "value")
 
@@ -3638,7 +3638,7 @@ if not MYPY:
         """
         value: pulumi.Input[str]
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
 elif False:
     PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgsDict: TypeAlias = Mapping[str, Any]
@@ -3650,7 +3650,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceReq
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -3671,7 +3671,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceReq
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         return pulumi.get(self, "value")
 
@@ -4224,7 +4224,7 @@ if not MYPY:
     class PipeTargetParametersSagemakerPipelineParametersArgsDict(TypedDict):
         pipeline_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgsDict']]]]
         """
-        List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+        List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
         """
 elif False:
     PipeTargetParametersSagemakerPipelineParametersArgsDict: TypeAlias = Mapping[str, Any]
@@ -4234,7 +4234,7 @@ class PipeTargetParametersSagemakerPipelineParametersArgs:
     def __init__(__self__, *,
                  pipeline_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs']]] pipeline_parameters: List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs']]] pipeline_parameters: List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
         """
         if pipeline_parameters is not None:
             pulumi.set(__self__, "pipeline_parameters", pipeline_parameters)
@@ -4243,7 +4243,7 @@ class PipeTargetParametersSagemakerPipelineParametersArgs:
     @pulumi.getter(name="pipelineParameters")
     def pipeline_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs']]]]:
         """
-        List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+        List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
         """
         return pulumi.get(self, "pipeline_parameters")
 
@@ -4260,7 +4260,7 @@ if not MYPY:
         """
         value: pulumi.Input[str]
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
 elif False:
     PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgsDict: TypeAlias = Mapping[str, Any]
@@ -4272,7 +4272,7 @@ class PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -4293,7 +4293,7 @@ class PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         return pulumi.get(self, "value")
 

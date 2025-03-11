@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Msk
     public partial class Replicator : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// ARN of the Replicator.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -151,9 +151,15 @@ namespace Pulumi.Aws.Msk
         [Output("serviceExecutionRoleArn")]
         public Output<string> ServiceExecutionRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -241,6 +247,10 @@ namespace Pulumi.Aws.Msk
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -256,7 +266,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ReplicatorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// ARN of the Replicator.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -302,6 +312,10 @@ namespace Pulumi.Aws.Msk
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -310,6 +324,10 @@ namespace Pulumi.Aws.Msk
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {

@@ -21,7 +21,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker endpoint configuration resource.
+ * Provides a SageMaker AI endpoint configuration resource.
  * 
  * ## Example Usage
  * 
@@ -108,28 +108,28 @@ public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.asyncInferenceConfig);
     }
     /**
-     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+     * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      * 
      */
     @Export(name="dataCaptureConfig", refs={EndpointConfigurationDataCaptureConfig.class}, tree="[0]")
     private Output</* @Nullable */ EndpointConfigurationDataCaptureConfig> dataCaptureConfig;
 
     /**
-     * @return Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
+     * @return Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      * 
      */
     public Output<Optional<EndpointConfigurationDataCaptureConfig>> dataCaptureConfig() {
         return Codegen.optional(this.dataCaptureConfig);
     }
     /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      * 
      */
     public Output<Optional<String>> kmsKeyArn() {

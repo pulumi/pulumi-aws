@@ -18,6 +18,21 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
     public static final CachePolicyState Empty = new CachePolicyState();
 
     /**
+     * The cache policy ARN.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The cache policy ARN.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Description for the cache policy.
      * 
      */
@@ -125,6 +140,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
     private CachePolicyState() {}
 
     private CachePolicyState(CachePolicyState $) {
+        this.arn = $.arn;
         this.comment = $.comment;
         this.defaultTtl = $.defaultTtl;
         this.etag = $.etag;
@@ -150,6 +166,27 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(CachePolicyState defaults) {
             $ = new CachePolicyState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The cache policy ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The cache policy ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

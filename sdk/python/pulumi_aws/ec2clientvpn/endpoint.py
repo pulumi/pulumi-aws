@@ -28,6 +28,7 @@ class EndpointArgs:
                  client_connect_options: Optional[pulumi.Input['EndpointClientConnectOptionsArgs']] = None,
                  client_login_banner_options: Optional[pulumi.Input['EndpointClientLoginBannerOptionsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disconnect_on_session_timeout: Optional[pulumi.Input[bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self_service_portal: Optional[pulumi.Input[str]] = None,
@@ -46,6 +47,7 @@ class EndpointArgs:
         :param pulumi.Input['EndpointClientConnectOptionsArgs'] client_connect_options: The options for managing connection authorization for new client connections.
         :param pulumi.Input['EndpointClientLoginBannerOptionsArgs'] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         :param pulumi.Input[str] description: A brief description of the Client VPN endpoint.
+        :param pulumi.Input[bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
         :param pulumi.Input[str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
@@ -66,6 +68,8 @@ class EndpointArgs:
             pulumi.set(__self__, "client_login_banner_options", client_login_banner_options)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disconnect_on_session_timeout is not None:
+            pulumi.set(__self__, "disconnect_on_session_timeout", disconnect_on_session_timeout)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if security_group_ids is not None:
@@ -168,6 +172,18 @@ class EndpointArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disconnectOnSessionTimeout")
+    def disconnect_on_session_timeout(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        """
+        return pulumi.get(self, "disconnect_on_session_timeout")
+
+    @disconnect_on_session_timeout.setter
+    def disconnect_on_session_timeout(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disconnect_on_session_timeout", value)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -288,6 +304,7 @@ class _EndpointState:
                  client_login_banner_options: Optional[pulumi.Input['EndpointClientLoginBannerOptionsArgs']] = None,
                  connection_log_options: Optional[pulumi.Input['EndpointConnectionLogOptionsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disconnect_on_session_timeout: Optional[pulumi.Input[bool]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -310,6 +327,7 @@ class _EndpointState:
         :param pulumi.Input['EndpointClientLoginBannerOptionsArgs'] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         :param pulumi.Input['EndpointConnectionLogOptionsArgs'] connection_log_options: Information about the client connection logging options.
         :param pulumi.Input[str] description: A brief description of the Client VPN endpoint.
+        :param pulumi.Input[bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[str] dns_name: The DNS name to be used by clients when establishing their VPN session.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
@@ -338,6 +356,8 @@ class _EndpointState:
             pulumi.set(__self__, "connection_log_options", connection_log_options)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disconnect_on_session_timeout is not None:
+            pulumi.set(__self__, "disconnect_on_session_timeout", disconnect_on_session_timeout)
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
         if dns_servers is not None:
@@ -451,6 +471,18 @@ class _EndpointState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disconnectOnSessionTimeout")
+    def disconnect_on_session_timeout(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        """
+        return pulumi.get(self, "disconnect_on_session_timeout")
+
+    @disconnect_on_session_timeout.setter
+    def disconnect_on_session_timeout(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disconnect_on_session_timeout", value)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -621,6 +653,7 @@ class Endpoint(pulumi.CustomResource):
                  client_login_banner_options: Optional[pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']]] = None,
                  connection_log_options: Optional[pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disconnect_on_session_timeout: Optional[pulumi.Input[bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self_service_portal: Optional[pulumi.Input[str]] = None,
@@ -673,6 +706,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         :param pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']] connection_log_options: Information about the client connection logging options.
         :param pulumi.Input[str] description: A brief description of the Client VPN endpoint.
+        :param pulumi.Input[bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
         :param pulumi.Input[str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
@@ -744,6 +778,7 @@ class Endpoint(pulumi.CustomResource):
                  client_login_banner_options: Optional[pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']]] = None,
                  connection_log_options: Optional[pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disconnect_on_session_timeout: Optional[pulumi.Input[bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self_service_portal: Optional[pulumi.Input[str]] = None,
@@ -775,6 +810,7 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connection_log_options'")
             __props__.__dict__["connection_log_options"] = connection_log_options
             __props__.__dict__["description"] = description
+            __props__.__dict__["disconnect_on_session_timeout"] = disconnect_on_session_timeout
             __props__.__dict__["dns_servers"] = dns_servers
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["self_service_portal"] = self_service_portal
@@ -808,6 +844,7 @@ class Endpoint(pulumi.CustomResource):
             client_login_banner_options: Optional[pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']]] = None,
             connection_log_options: Optional[pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            disconnect_on_session_timeout: Optional[pulumi.Input[bool]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -835,6 +872,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         :param pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']] connection_log_options: Information about the client connection logging options.
         :param pulumi.Input[str] description: A brief description of the Client VPN endpoint.
+        :param pulumi.Input[bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[str] dns_name: The DNS name to be used by clients when establishing their VPN session.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
@@ -860,6 +898,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["client_login_banner_options"] = client_login_banner_options
         __props__.__dict__["connection_log_options"] = connection_log_options
         __props__.__dict__["description"] = description
+        __props__.__dict__["disconnect_on_session_timeout"] = disconnect_on_session_timeout
         __props__.__dict__["dns_name"] = dns_name
         __props__.__dict__["dns_servers"] = dns_servers
         __props__.__dict__["security_group_ids"] = security_group_ids
@@ -930,6 +969,14 @@ class Endpoint(pulumi.CustomResource):
         A brief description of the Client VPN endpoint.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disconnectOnSessionTimeout")
+    def disconnect_on_session_timeout(self) -> pulumi.Output[bool]:
+        """
+        Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        """
+        return pulumi.get(self, "disconnect_on_session_timeout")
 
     @property
     @pulumi.getter(name="dnsName")

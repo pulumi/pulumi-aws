@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? ExecutionRoleArn;
         /// <summary>
-        /// Elastic Inference accelerator override for the task. See below.
+        /// **DEPRECATED** Elastic Inference accelerator override for the task. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideResult> InferenceAcceleratorOverrides;
         /// <summary>

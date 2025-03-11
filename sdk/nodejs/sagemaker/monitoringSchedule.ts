@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker monitoring schedule resource.
+ * Provides a SageMaker AI monitoring schedule resource.
  *
  * ## Example Usage
  *

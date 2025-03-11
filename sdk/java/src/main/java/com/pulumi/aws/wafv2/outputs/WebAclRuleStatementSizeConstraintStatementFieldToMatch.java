@@ -9,6 +9,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFi
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString;
@@ -53,6 +54,11 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
      * 
      */
     private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
     /**
      * @return Inspect the request body as JSON. See `json_body` for details.
      * 
@@ -128,6 +134,13 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
         return Optional.ofNullable(this.ja3Fingerprint);
     }
     /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
+    }
+    /**
      * @return Inspect the request body as JSON. See `json_body` for details.
      * 
      */
@@ -185,6 +198,7 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
         private @Nullable List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader> headers;
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+        private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod method;
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString queryString;
@@ -200,6 +214,7 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
     	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
+    	      this.ja4Fingerprint = defaults.ja4Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -251,6 +266,12 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
             return this;
         }
         @CustomType.Setter
+        public Builder ja4Fingerprint(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint ja4Fingerprint) {
+
+            this.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder jsonBody(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody) {
 
             this.jsonBody = jsonBody;
@@ -294,6 +315,7 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
             _resultValue.headerOrders = headerOrders;
             _resultValue.headers = headers;
             _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.ja4Fingerprint = ja4Fingerprint;
             _resultValue.jsonBody = jsonBody;
             _resultValue.method = method;
             _resultValue.queryString = queryString;

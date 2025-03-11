@@ -3409,7 +3409,7 @@ class GetTaskExecutionOverridesResult(dict):
         :param Sequence['GetTaskExecutionOverridesContainerOverrideArgs'] container_overrides: One or more container overrides that are sent to a task. See below.
         :param str cpu: The CPU override for the task.
         :param str execution_role_arn: Amazon Resource Name (ARN) of the task execution role override for the task.
-        :param Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs'] inference_accelerator_overrides: Elastic Inference accelerator override for the task. See below.
+        :param Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs'] inference_accelerator_overrides: **DEPRECATED** Elastic Inference accelerator override for the task. See below.
         :param str memory: The memory override for the task.
         :param str task_role_arn: Amazon Resource Name (ARN) of the role that containers in this task can assume.
         """
@@ -3452,9 +3452,10 @@ class GetTaskExecutionOverridesResult(dict):
 
     @property
     @pulumi.getter(name="inferenceAcceleratorOverrides")
+    @_utilities.deprecated("""inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.""")
     def inference_accelerator_overrides(self) -> Optional[Sequence['outputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideResult']]:
         """
-        Elastic Inference accelerator override for the task. See below.
+        **DEPRECATED** Elastic Inference accelerator override for the task. See below.
         """
         return pulumi.get(self, "inference_accelerator_overrides")
 

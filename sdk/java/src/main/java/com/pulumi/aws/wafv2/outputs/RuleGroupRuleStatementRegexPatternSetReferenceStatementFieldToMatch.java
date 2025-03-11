@@ -9,6 +9,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferen
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
@@ -48,7 +49,16 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
      * 
      */
     private @Nullable List<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers;
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
     private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -116,8 +126,19 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
     public List<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
     public Optional<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
+    }
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
     }
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
@@ -177,6 +198,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         private @Nullable List<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers;
         private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+        private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
         private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody jsonBody;
         private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod method;
         private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString queryString;
@@ -192,6 +214,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
     	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
+    	      this.ja4Fingerprint = defaults.ja4Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -243,6 +266,12 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
             return this;
         }
         @CustomType.Setter
+        public Builder ja4Fingerprint(@Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint ja4Fingerprint) {
+
+            this.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder jsonBody(@Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody jsonBody) {
 
             this.jsonBody = jsonBody;
@@ -286,6 +315,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
             _resultValue.headerOrders = headerOrders;
             _resultValue.headers = headers;
             _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.ja4Fingerprint = ja4Fingerprint;
             _resultValue.jsonBody = jsonBody;
             _resultValue.method = method;
             _resultValue.queryString = queryString;

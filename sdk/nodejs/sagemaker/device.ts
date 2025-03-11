@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker Device resource.
+ * Provides a SageMaker AI Device resource.
  *
  * ## Example Usage
  *
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For example:
+ * Using `pulumi import`, import SageMaker AI Devices using the `device-fleet-name/device-name`. For example:
  *
  * ```sh
  * $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
@@ -68,7 +68,7 @@ export class Device extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The device to register with SageMaker Edge Manager. See Device details below.
+     * The device to register with SageMaker AI Edge Manager. See Device details below.
      */
     public readonly device!: pulumi.Output<outputs.sagemaker.DeviceDevice>;
     /**
@@ -121,7 +121,7 @@ export interface DeviceState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The device to register with SageMaker Edge Manager. See Device details below.
+     * The device to register with SageMaker AI Edge Manager. See Device details below.
      */
     device?: pulumi.Input<inputs.sagemaker.DeviceDevice>;
     /**
@@ -135,7 +135,7 @@ export interface DeviceState {
  */
 export interface DeviceArgs {
     /**
-     * The device to register with SageMaker Edge Manager. See Device details below.
+     * The device to register with SageMaker AI Edge Manager. See Device details below.
      */
     device: pulumi.Input<inputs.sagemaker.DeviceDevice>;
     /**

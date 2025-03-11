@@ -49,7 +49,7 @@ export interface GetDataSetArgs {
     dataSetId: string;
     tags?: {[key: string]: string};
     /**
-     * @deprecated this attribute has been deprecated
+     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
      */
     tagsAll?: {[key: string]: string};
 }
@@ -78,7 +78,7 @@ export interface GetDataSetResult {
     readonly rowLevelPermissionTagConfigurations: outputs.quicksight.GetDataSetRowLevelPermissionTagConfiguration[];
     readonly tags: {[key: string]: string};
     /**
-     * @deprecated this attribute has been deprecated
+     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
      */
     readonly tagsAll: {[key: string]: string};
 }
@@ -124,7 +124,7 @@ export interface GetDataSetOutputArgs {
     dataSetId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * @deprecated this attribute has been deprecated
+     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -31,6 +31,10 @@ __all__ = [
     'DomainClusterConfigArgsDict',
     'DomainClusterConfigColdStorageOptionsArgs',
     'DomainClusterConfigColdStorageOptionsArgsDict',
+    'DomainClusterConfigNodeOptionArgs',
+    'DomainClusterConfigNodeOptionArgsDict',
+    'DomainClusterConfigNodeOptionNodeConfigArgs',
+    'DomainClusterConfigNodeOptionNodeConfigArgsDict',
     'DomainClusterConfigZoneAwarenessConfigArgs',
     'DomainClusterConfigZoneAwarenessConfigArgsDict',
     'DomainCognitoOptionsArgs',
@@ -550,6 +554,10 @@ if not MYPY:
         """
         Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
         """
+        node_options: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainClusterConfigNodeOptionArgsDict']]]]
+        """
+        List of node options for the domain.
+        """
         warm_count: NotRequired[pulumi.Input[int]]
         """
         Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
@@ -583,6 +591,7 @@ class DomainClusterConfigArgs:
                  instance_count: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  multi_az_with_standby_enabled: Optional[pulumi.Input[bool]] = None,
+                 node_options: Optional[pulumi.Input[Sequence[pulumi.Input['DomainClusterConfigNodeOptionArgs']]]] = None,
                  warm_count: Optional[pulumi.Input[int]] = None,
                  warm_enabled: Optional[pulumi.Input[bool]] = None,
                  warm_type: Optional[pulumi.Input[str]] = None,
@@ -596,6 +605,7 @@ class DomainClusterConfigArgs:
         :param pulumi.Input[int] instance_count: Number of instances in the cluster.
         :param pulumi.Input[str] instance_type: Instance type of data nodes in the cluster.
         :param pulumi.Input[bool] multi_az_with_standby_enabled: Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
+        :param pulumi.Input[Sequence[pulumi.Input['DomainClusterConfigNodeOptionArgs']]] node_options: List of node options for the domain.
         :param pulumi.Input[int] warm_count: Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         :param pulumi.Input[bool] warm_enabled: Whether to enable warm storage.
         :param pulumi.Input[str] warm_type: Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
@@ -616,6 +626,8 @@ class DomainClusterConfigArgs:
             pulumi.set(__self__, "instance_type", instance_type)
         if multi_az_with_standby_enabled is not None:
             pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
+        if node_options is not None:
+            pulumi.set(__self__, "node_options", node_options)
         if warm_count is not None:
             pulumi.set(__self__, "warm_count", warm_count)
         if warm_enabled is not None:
@@ -712,6 +724,18 @@ class DomainClusterConfigArgs:
         pulumi.set(self, "multi_az_with_standby_enabled", value)
 
     @property
+    @pulumi.getter(name="nodeOptions")
+    def node_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainClusterConfigNodeOptionArgs']]]]:
+        """
+        List of node options for the domain.
+        """
+        return pulumi.get(self, "node_options")
+
+    @node_options.setter
+    def node_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainClusterConfigNodeOptionArgs']]]]):
+        pulumi.set(self, "node_options", value)
+
+    @property
     @pulumi.getter(name="warmCount")
     def warm_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -802,6 +826,130 @@ class DomainClusterConfigColdStorageOptionsArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class DomainClusterConfigNodeOptionArgsDict(TypedDict):
+        node_config: NotRequired[pulumi.Input['DomainClusterConfigNodeOptionNodeConfigArgsDict']]
+        """
+        Container to specify sizing of a node type.
+        """
+        node_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of node this configuration describes. Valid values: `coordinator`.
+        """
+elif False:
+    DomainClusterConfigNodeOptionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainClusterConfigNodeOptionArgs:
+    def __init__(__self__, *,
+                 node_config: Optional[pulumi.Input['DomainClusterConfigNodeOptionNodeConfigArgs']] = None,
+                 node_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['DomainClusterConfigNodeOptionNodeConfigArgs'] node_config: Container to specify sizing of a node type.
+        :param pulumi.Input[str] node_type: Type of node this configuration describes. Valid values: `coordinator`.
+        """
+        if node_config is not None:
+            pulumi.set(__self__, "node_config", node_config)
+        if node_type is not None:
+            pulumi.set(__self__, "node_type", node_type)
+
+    @property
+    @pulumi.getter(name="nodeConfig")
+    def node_config(self) -> Optional[pulumi.Input['DomainClusterConfigNodeOptionNodeConfigArgs']]:
+        """
+        Container to specify sizing of a node type.
+        """
+        return pulumi.get(self, "node_config")
+
+    @node_config.setter
+    def node_config(self, value: Optional[pulumi.Input['DomainClusterConfigNodeOptionNodeConfigArgs']]):
+        pulumi.set(self, "node_config", value)
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of node this configuration describes. Valid values: `coordinator`.
+        """
+        return pulumi.get(self, "node_type")
+
+    @node_type.setter
+    def node_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_type", value)
+
+
+if not MYPY:
+    class DomainClusterConfigNodeOptionNodeConfigArgsDict(TypedDict):
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Number of nodes of a particular node type in the cluster.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether a particular node type is enabled.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The instance type of a particular node type in the cluster.
+        """
+elif False:
+    DomainClusterConfigNodeOptionNodeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainClusterConfigNodeOptionNodeConfigArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] count: Number of nodes of a particular node type in the cluster.
+        :param pulumi.Input[bool] enabled: Whether a particular node type is enabled.
+        :param pulumi.Input[str] type: The instance type of a particular node type in the cluster.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of nodes of a particular node type in the cluster.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether a particular node type is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type of a particular node type in the cluster.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

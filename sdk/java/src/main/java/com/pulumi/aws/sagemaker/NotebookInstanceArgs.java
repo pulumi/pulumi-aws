@@ -23,14 +23,22 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
     /**
      * A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
      * 
+     * @deprecated
+     * accelerator_types is deprecated. Use instance_type instead.
+     * 
      */
+    @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
     @Import(name="acceleratorTypes")
     private @Nullable Output<List<String>> acceleratorTypes;
 
     /**
      * @return A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
      * 
+     * @deprecated
+     * accelerator_types is deprecated. Use instance_type instead.
+     * 
      */
+    @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
     public Optional<Output<List<String>>> acceleratorTypes() {
         return Optional.ofNullable(this.acceleratorTypes);
     }
@@ -68,14 +76,14 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+     * Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
      * 
      */
     @Import(name="directInternetAccess")
     private @Nullable Output<String> directInternetAccess;
 
     /**
-     * @return Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+     * @return Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
      * 
      */
     public Optional<Output<String>> directInternetAccess() {
@@ -113,14 +121,14 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -173,14 +181,14 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+     * The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+     * @return The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
      * 
      */
     public Output<String> roleArn() {
@@ -306,7 +314,11 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
+         * @deprecated
+         * accelerator_types is deprecated. Use instance_type instead.
+         * 
          */
+        @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
         public Builder acceleratorTypes(@Nullable Output<List<String>> acceleratorTypes) {
             $.acceleratorTypes = acceleratorTypes;
             return this;
@@ -317,7 +329,11 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
+         * @deprecated
+         * accelerator_types is deprecated. Use instance_type instead.
+         * 
          */
+        @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
         public Builder acceleratorTypes(List<String> acceleratorTypes) {
             return acceleratorTypes(Output.of(acceleratorTypes));
         }
@@ -327,7 +343,11 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
+         * @deprecated
+         * accelerator_types is deprecated. Use instance_type instead.
+         * 
          */
+        @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
         public Builder acceleratorTypes(String... acceleratorTypes) {
             return acceleratorTypes(List.of(acceleratorTypes));
         }
@@ -388,7 +408,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param directInternetAccess Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+         * @param directInternetAccess Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
          * 
          * @return builder
          * 
@@ -399,7 +419,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param directInternetAccess Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+         * @param directInternetAccess Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
          * 
          * @return builder
          * 
@@ -451,7 +471,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
          * 
          * @return builder
          * 
@@ -462,7 +482,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
          * 
          * @return builder
          * 
@@ -535,7 +555,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+         * @param roleArn The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
          * 
          * @return builder
          * 
@@ -546,7 +566,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+         * @param roleArn The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
          * 
          * @return builder
          * 

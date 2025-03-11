@@ -388,7 +388,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
      *
-     * @deprecated use 'dashboard_endpoint' attribute instead
+     * @deprecated kibana_endpoint is deprecated. Use dashboardEndpoint instead.
      */
     public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string>;
     /**
@@ -590,7 +590,7 @@ export interface DomainState {
     /**
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
      *
-     * @deprecated use 'dashboard_endpoint' attribute instead
+     * @deprecated kibana_endpoint is deprecated. Use dashboardEndpoint instead.
      */
     kibanaEndpoint?: pulumi.Input<string>;
     /**

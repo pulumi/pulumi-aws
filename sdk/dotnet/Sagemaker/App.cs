@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker App resource.
+    /// Provides a SageMaker AI App resource.
     /// 
     /// ## Example Usage
     /// 
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker Apps using the `id`. For example:
+    /// Using `pulumi import`, import SageMaker AI Apps using the `id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> DomainId { get; private set; } = null!;
 
         /// <summary>
-        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
         /// </summary>
         [Output("resourceSpec")]
         public Output<Outputs.AppResourceSpec> ResourceSpec { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> DomainId { get; set; } = null!;
 
         /// <summary>
-        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
         /// </summary>
         [Input("resourceSpec")]
         public Input<Inputs.AppResourceSpecArgs>? ResourceSpec { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? DomainId { get; set; }
 
         /// <summary>
-        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
         /// </summary>
         [Input("resourceSpec")]
         public Input<Inputs.AppResourceSpecGetArgs>? ResourceSpec { get; set; }

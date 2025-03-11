@@ -11,6 +11,8 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Map;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -74,6 +76,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:amp/ruleGroupNamespace:RuleGroupNamespace")
 public class RuleGroupNamespace extends com.pulumi.resources.CustomResource {
     /**
+     * The ARN of the rule group namespace.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The ARN of the rule group namespace.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
      * 
      */
@@ -88,28 +104,60 @@ public class RuleGroupNamespace extends com.pulumi.resources.CustomResource {
         return this.data;
     }
     /**
-     * The name of the rule group namespace
+     * The name of the rule group namespace.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the rule group namespace
+     * @return The name of the rule group namespace.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * ID of the prometheus workspace the rule group namespace should be linked to
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
+    }
+    /**
+     * ID of the prometheus workspace the rule group namespace should be linked to.
      * 
      */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**
-     * @return ID of the prometheus workspace the rule group namespace should be linked to
+     * @return ID of the prometheus workspace the rule group namespace should be linked to.
      * 
      */
     public Output<String> workspaceId() {

@@ -165,7 +165,7 @@ class GetDataSetResult:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""this attribute has been deprecated""")
+    @_utilities.deprecated("""tags_all is deprecated. This argument will be removed in a future major version.""")
     def tags_all(self) -> Mapping[str, str]:
         return pulumi.get(self, "tags_all")
 

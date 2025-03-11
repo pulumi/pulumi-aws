@@ -861,8 +861,6 @@ class MysqlLayer(pulumi.CustomResource):
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks MySQL layer resource.
-
         ## Example Usage
 
         ```python
@@ -904,8 +902,6 @@ class MysqlLayer(pulumi.CustomResource):
                  args: MysqlLayerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks MySQL layer resource.
-
         ## Example Usage
 
         ```python

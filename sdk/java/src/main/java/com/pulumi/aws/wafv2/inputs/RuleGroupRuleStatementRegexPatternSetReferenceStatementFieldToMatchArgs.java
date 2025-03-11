@@ -9,6 +9,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenc
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs;
@@ -102,11 +103,34 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         return Optional.ofNullable(this.headers);
     }
 
+    /**
+     * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
     @Import(name="ja3Fingerprint")
     private @Nullable Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
 
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
     public Optional<Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs>> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
+    }
+
+    /**
+     * Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    @Import(name="ja4Fingerprint")
+    private @Nullable Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint;
+
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs>> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
     }
 
     /**
@@ -208,6 +232,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         this.headerOrders = $.headerOrders;
         this.headers = $.headers;
         this.ja3Fingerprint = $.ja3Fingerprint;
+        this.ja4Fingerprint = $.ja4Fingerprint;
         this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
@@ -359,13 +384,46 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
             return headers(List.of(headers));
         }
 
+        /**
+         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ja3Fingerprint(@Nullable Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint) {
             $.ja3Fingerprint = ja3Fingerprint;
             return this;
         }
 
+        /**
+         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ja3Fingerprint(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint) {
             return ja3Fingerprint(Output.of(ja3Fingerprint));
+        }
+
+        /**
+         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja4Fingerprint(@Nullable Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint) {
+            $.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+
+        /**
+         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja4Fingerprint(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs ja4Fingerprint) {
+            return ja4Fingerprint(Output.of(ja4Fingerprint));
         }
 
         /**

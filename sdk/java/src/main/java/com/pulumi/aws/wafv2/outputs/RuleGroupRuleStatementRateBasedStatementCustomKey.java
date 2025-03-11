@@ -8,6 +8,8 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCust
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyIp;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString;
@@ -44,6 +46,16 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
      * 
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyIp ip;
+    /**
+     * @return (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint ja3Fingerprint;
+    /**
+     * @return (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint ja4Fingerprint;
     /**
      * @return (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
      * 
@@ -102,6 +114,20 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
         return Optional.ofNullable(this.ip);
     }
     /**
+     * @return (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint> ja3Fingerprint() {
+        return Optional.ofNullable(this.ja3Fingerprint);
+    }
+    /**
+     * @return (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
+    }
+    /**
      * @return (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
      * 
      */
@@ -144,6 +170,8 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
         private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHeader header;
         private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod httpMethod;
         private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyIp ip;
+        private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint ja3Fingerprint;
+        private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint ja4Fingerprint;
         private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace labelNamespace;
         private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument queryArgument;
         private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString queryString;
@@ -156,6 +184,8 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
     	      this.header = defaults.header;
     	      this.httpMethod = defaults.httpMethod;
     	      this.ip = defaults.ip;
+    	      this.ja3Fingerprint = defaults.ja3Fingerprint;
+    	      this.ja4Fingerprint = defaults.ja4Fingerprint;
     	      this.labelNamespace = defaults.labelNamespace;
     	      this.queryArgument = defaults.queryArgument;
     	      this.queryString = defaults.queryString;
@@ -193,6 +223,18 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
             return this;
         }
         @CustomType.Setter
+        public Builder ja3Fingerprint(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint ja3Fingerprint) {
+
+            this.ja3Fingerprint = ja3Fingerprint;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ja4Fingerprint(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint ja4Fingerprint) {
+
+            this.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder labelNamespace(@Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace labelNamespace) {
 
             this.labelNamespace = labelNamespace;
@@ -223,6 +265,8 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
             _resultValue.header = header;
             _resultValue.httpMethod = httpMethod;
             _resultValue.ip = ip;
+            _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.ja4Fingerprint = ja4Fingerprint;
             _resultValue.labelNamespace = labelNamespace;
             _resultValue.queryArgument = queryArgument;
             _resultValue.queryString = queryString;

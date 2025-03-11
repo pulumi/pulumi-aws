@@ -18,7 +18,7 @@ namespace Pulumi.Aws.LightSail.Outputs
         /// </summary>
         public readonly string SnapshotTime;
         /// <summary>
-        /// The status of the add on. Valid Values: `Enabled`, `Disabled`.
+        /// The status of the add-on. Valid Values: `Enabled`, `Disabled`.
         /// </summary>
         public readonly string Status;
         /// <summary>

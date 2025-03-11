@@ -443,8 +443,8 @@ class _DomainState:
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if kibana_endpoint is not None:
-            warnings.warn("""use 'dashboard_endpoint' attribute instead""", DeprecationWarning)
-            pulumi.log.warn("""kibana_endpoint is deprecated: use 'dashboard_endpoint' attribute instead""")
+            warnings.warn("""kibana_endpoint is deprecated. Use dashboard_endpoint instead.""", DeprecationWarning)
+            pulumi.log.warn("""kibana_endpoint is deprecated: kibana_endpoint is deprecated. Use dashboard_endpoint instead.""")
         if kibana_endpoint is not None:
             pulumi.set(__self__, "kibana_endpoint", kibana_endpoint)
         if log_publishing_options is not None:
@@ -701,7 +701,7 @@ class _DomainState:
 
     @property
     @pulumi.getter(name="kibanaEndpoint")
-    @_utilities.deprecated("""use 'dashboard_endpoint' attribute instead""")
+    @_utilities.deprecated("""kibana_endpoint is deprecated. Use dashboard_endpoint instead.""")
     def kibana_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
         (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
@@ -1720,7 +1720,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kibanaEndpoint")
-    @_utilities.deprecated("""use 'dashboard_endpoint' attribute instead""")
+    @_utilities.deprecated("""kibana_endpoint is deprecated. Use dashboard_endpoint instead.""")
     def kibana_endpoint(self) -> pulumi.Output[str]:
         """
         (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.

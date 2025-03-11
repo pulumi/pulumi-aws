@@ -99,14 +99,14 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
     }
 
     /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -260,7 +260,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+         * @param kmsKeyId Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class EndpointConfigurationDataCaptureConfigArgs extends com.pulumi
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+         * @param kmsKeyId Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
          * 
          * @return builder
          * 

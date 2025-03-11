@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceDnsEntry {
+    /**
+     * @return DNS name for the service.
+     * 
+     */
     private String domainName;
+    /**
+     * @return Hosted zone ID where the DNS name is registered.
+     * 
+     */
     private String hostedZoneId;
 
     private GetServiceDnsEntry() {}
+    /**
+     * @return DNS name for the service.
+     * 
+     */
     public String domainName() {
         return this.domainName;
     }
+    /**
+     * @return Hosted zone ID where the DNS name is registered.
+     * 
+     */
     public String hostedZoneId() {
         return this.hostedZoneId;
     }

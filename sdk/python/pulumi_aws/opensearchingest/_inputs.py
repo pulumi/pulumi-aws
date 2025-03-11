@@ -258,6 +258,10 @@ if not MYPY:
         """
         A list of security groups associated with the VPC endpoint.
         """
+        vpc_endpoint_management: NotRequired[pulumi.Input[str]]
+        """
+        Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+        """
 elif False:
     PipelineVpcOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -265,14 +269,18 @@ elif False:
 class PipelineVpcOptionsArgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_endpoint_management: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs associated with the VPC endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security groups associated with the VPC endpoint.
+        :param pulumi.Input[str] vpc_endpoint_management: Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if vpc_endpoint_management is not None:
+            pulumi.set(__self__, "vpc_endpoint_management", vpc_endpoint_management)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -297,5 +305,17 @@ class PipelineVpcOptionsArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="vpcEndpointManagement")
+    def vpc_endpoint_management(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+        """
+        return pulumi.get(self, "vpc_endpoint_management")
+
+    @vpc_endpoint_management.setter
+    def vpc_endpoint_management(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_endpoint_management", value)
 
 

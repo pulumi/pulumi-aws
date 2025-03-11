@@ -15,14 +15,14 @@ public final class EventTargetSagemakerPipelineTargetPipelineParameterListArgs e
     public static final EventTargetSagemakerPipelineTargetPipelineParameterListArgs Empty = new EventTargetSagemakerPipelineTargetPipelineParameterListArgs();
 
     /**
-     * Name of parameter to start execution of a SageMaker Model Building Pipeline.
+     * Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of parameter to start execution of a SageMaker Model Building Pipeline.
+     * @return Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class EventTargetSagemakerPipelineTargetPipelineParameterListArgs e
     }
 
     /**
-     * Value of parameter to start execution of a SageMaker Model Building Pipeline.
+     * Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline.
+     * @return Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class EventTargetSagemakerPipelineTargetPipelineParameterListArgs e
         }
 
         /**
-         * @param name Name of parameter to start execution of a SageMaker Model Building Pipeline.
+         * @param name Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class EventTargetSagemakerPipelineTargetPipelineParameterListArgs e
         }
 
         /**
-         * @param name Name of parameter to start execution of a SageMaker Model Building Pipeline.
+         * @param name Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class EventTargetSagemakerPipelineTargetPipelineParameterListArgs e
         }
 
         /**
-         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline.
+         * @param value Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class EventTargetSagemakerPipelineTargetPipelineParameterListArgs e
         }
 
         /**
-         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline.
+         * @param value Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
          * 
          * @return builder
          * 

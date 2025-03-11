@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a lifecycle configuration for SageMaker Notebook Instances.
+    /// Provides a lifecycle configuration for SageMaker AI Notebook Instances.
     /// 
     /// ## Example Usage
     /// 
@@ -65,13 +65,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+        /// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         /// </summary>
         [Output("onCreate")]
         public Output<string?> OnCreate { get; private set; } = null!;
 
         /// <summary>
-        /// A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+        /// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
         /// </summary>
         [Output("onStart")]
         public Output<string?> OnStart { get; private set; } = null!;
@@ -129,13 +129,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+        /// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         /// </summary>
         [Input("onCreate")]
         public Input<string>? OnCreate { get; set; }
 
         /// <summary>
-        /// A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+        /// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
         /// </summary>
         [Input("onStart")]
         public Input<string>? OnStart { get; set; }
@@ -161,13 +161,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+        /// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         /// </summary>
         [Input("onCreate")]
         public Input<string>? OnCreate { get; set; }
 
         /// <summary>
-        /// A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+        /// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
         /// </summary>
         [Input("onStart")]
         public Input<string>? OnStart { get; set; }

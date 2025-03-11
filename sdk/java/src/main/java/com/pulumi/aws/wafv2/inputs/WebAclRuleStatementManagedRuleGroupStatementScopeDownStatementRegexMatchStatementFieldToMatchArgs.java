@@ -9,6 +9,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementS
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOrderArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs;
@@ -118,6 +119,21 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
 
     /**
+     * Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    @Import(name="ja4Fingerprint")
+    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint;
+
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs>> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
+    }
+
+    /**
      * Inspect the request body as JSON. See `json_body` for details.
      * 
      */
@@ -216,6 +232,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         this.headerOrders = $.headerOrders;
         this.headers = $.headers;
         this.ja3Fingerprint = $.ja3Fingerprint;
+        this.ja4Fingerprint = $.ja4Fingerprint;
         this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
@@ -386,6 +403,27 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
          */
         public Builder ja3Fingerprint(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint) {
             return ja3Fingerprint(Output.of(ja3Fingerprint));
+        }
+
+        /**
+         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja4Fingerprint(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint) {
+            $.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+
+        /**
+         * @param ja4Fingerprint Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja4Fingerprint(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs ja4Fingerprint) {
+            return ja4Fingerprint(Output.of(ja4Fingerprint));
         }
 
         /**

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker Feature Group resource.
+ * Provides a SageMaker AI Feature Group resource.
  *
  * ## Example Usage
  *

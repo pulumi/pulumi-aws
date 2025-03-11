@@ -160,6 +160,8 @@ import (
 type ResponseHeadersPolicy struct {
 	pulumi.CustomResourceState
 
+	// The response headers policy ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
@@ -208,6 +210,8 @@ func GetResponseHeadersPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResponseHeadersPolicy resources.
 type responseHeadersPolicyState struct {
+	// The response headers policy ARN.
+	Arn *string `pulumi:"arn"`
 	// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
 	Comment *string `pulumi:"comment"`
 	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
@@ -227,6 +231,8 @@ type responseHeadersPolicyState struct {
 }
 
 type ResponseHeadersPolicyState struct {
+	// The response headers policy ARN.
+	Arn pulumi.StringPtrInput
 	// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
 	Comment pulumi.StringPtrInput
 	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
@@ -373,6 +379,11 @@ func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutput() ResponseHea
 
 func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutputWithContext(ctx context.Context) ResponseHeadersPolicyOutput {
 	return o
+}
+
+// The response headers policy ARN.
+func (o ResponseHeadersPolicyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // A comment to describe the response headers policy. The comment cannot be longer than 128 characters.

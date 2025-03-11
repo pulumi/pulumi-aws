@@ -70,6 +70,10 @@ public final class PipelineStageAction {
      * 
      */
     private @Nullable Integer runOrder;
+    /**
+     * @return The action timeout for the rule.
+     * 
+     */
     private @Nullable Integer timeoutInMinutes;
     /**
      * @return A string that identifies the action type.
@@ -155,6 +159,10 @@ public final class PipelineStageAction {
     public Optional<Integer> runOrder() {
         return Optional.ofNullable(this.runOrder);
     }
+    /**
+     * @return The action timeout for the rule.
+     * 
+     */
     public Optional<Integer> timeoutInMinutes() {
         return Optional.ofNullable(this.timeoutInMinutes);
     }

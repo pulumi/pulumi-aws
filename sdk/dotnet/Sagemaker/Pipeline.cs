@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker Pipeline resource.
+    /// Provides a SageMaker AI Pipeline resource.
     /// 
     /// ## Example Usage
     /// 
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> PipelineDefinition { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        /// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         /// </summary>
         [Output("pipelineDefinitionS3Location")]
         public Output<Outputs.PipelinePipelineDefinitionS3Location?> PipelineDefinitionS3Location { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? PipelineDefinition { get; set; }
 
         /// <summary>
-        /// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        /// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         /// </summary>
         [Input("pipelineDefinitionS3Location")]
         public Input<Inputs.PipelinePipelineDefinitionS3LocationArgs>? PipelineDefinitionS3Location { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? PipelineDefinition { get; set; }
 
         /// <summary>
-        /// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        /// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         /// </summary>
         [Input("pipelineDefinitionS3Location")]
         public Input<Inputs.PipelinePipelineDefinitionS3LocationGetArgs>? PipelineDefinitionS3Location { get; set; }

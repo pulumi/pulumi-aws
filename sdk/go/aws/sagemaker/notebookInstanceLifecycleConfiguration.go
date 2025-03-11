@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a lifecycle configuration for SageMaker Notebook Instances.
+// Provides a lifecycle configuration for SageMaker AI Notebook Instances.
 //
 // ## Example Usage
 //
@@ -70,9 +70,9 @@ type NotebookInstanceLifecycleConfiguration struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+	// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
 	OnCreate pulumi.StringPtrOutput `pulumi:"onCreate"`
-	// A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart pulumi.StringPtrOutput `pulumi:"onStart"`
 }
 
@@ -110,9 +110,9 @@ type notebookInstanceLifecycleConfigurationState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
-	// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+	// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
 	OnCreate *string `pulumi:"onCreate"`
-	// A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart *string `pulumi:"onStart"`
 }
 
@@ -121,9 +121,9 @@ type NotebookInstanceLifecycleConfigurationState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
-	// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+	// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
 	OnCreate pulumi.StringPtrInput
-	// A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart pulumi.StringPtrInput
 }
 
@@ -134,9 +134,9 @@ func (NotebookInstanceLifecycleConfigurationState) ElementType() reflect.Type {
 type notebookInstanceLifecycleConfigurationArgs struct {
 	// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
-	// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+	// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
 	OnCreate *string `pulumi:"onCreate"`
-	// A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart *string `pulumi:"onStart"`
 }
 
@@ -144,9 +144,9 @@ type notebookInstanceLifecycleConfigurationArgs struct {
 type NotebookInstanceLifecycleConfigurationArgs struct {
 	// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
-	// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+	// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
 	OnCreate pulumi.StringPtrInput
-	// A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+	// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 	OnStart pulumi.StringPtrInput
 }
 
@@ -247,12 +247,12 @@ func (o NotebookInstanceLifecycleConfigurationOutput) Name() pulumi.StringOutput
 	return o.ApplyT(func(v *NotebookInstanceLifecycleConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
 func (o NotebookInstanceLifecycleConfigurationOutput) OnCreate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotebookInstanceLifecycleConfiguration) pulumi.StringPtrOutput { return v.OnCreate }).(pulumi.StringPtrOutput)
 }
 
-// A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
+// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
 func (o NotebookInstanceLifecycleConfigurationOutput) OnStart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotebookInstanceLifecycleConfiguration) pulumi.StringPtrOutput { return v.OnStart }).(pulumi.StringPtrOutput)
 }

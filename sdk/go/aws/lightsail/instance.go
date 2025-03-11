@@ -133,7 +133,7 @@ import (
 type Instance struct {
 	pulumi.CustomResourceState
 
-	// The add on configuration for the instance. Detailed below.
+	// The add-on configuration for the instance. Detailed below.
 	AddOn InstanceAddOnPtrOutput `pulumi:"addOn"`
 	// The ARN of the Lightsail instance (matches `id`).
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -153,7 +153,7 @@ type Instance struct {
 	CpuCount pulumi.IntOutput `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+	// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
@@ -221,7 +221,7 @@ func GetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Instance resources.
 type instanceState struct {
-	// The add on configuration for the instance. Detailed below.
+	// The add-on configuration for the instance. Detailed below.
 	AddOn *InstanceAddOn `pulumi:"addOn"`
 	// The ARN of the Lightsail instance (matches `id`).
 	Arn *string `pulumi:"arn"`
@@ -241,7 +241,7 @@ type instanceState struct {
 	CpuCount *int `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+	// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
@@ -271,7 +271,7 @@ type instanceState struct {
 }
 
 type InstanceState struct {
-	// The add on configuration for the instance. Detailed below.
+	// The add-on configuration for the instance. Detailed below.
 	AddOn InstanceAddOnPtrInput
 	// The ARN of the Lightsail instance (matches `id`).
 	Arn pulumi.StringPtrInput
@@ -291,7 +291,7 @@ type InstanceState struct {
 	CpuCount pulumi.IntPtrInput
 	// The timestamp when the instance was created.
 	CreatedAt pulumi.StringPtrInput
-	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+	// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
 	IpAddressType pulumi.StringPtrInput
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses pulumi.StringArrayInput
@@ -325,7 +325,7 @@ func (InstanceState) ElementType() reflect.Type {
 }
 
 type instanceArgs struct {
-	// The add on configuration for the instance. Detailed below.
+	// The add-on configuration for the instance. Detailed below.
 	AddOn *InstanceAddOn `pulumi:"addOn"`
 	// The Availability Zone in which to create your instance. A
 	// list of available zones can be obtained using the AWS CLI command:
@@ -339,7 +339,7 @@ type instanceArgs struct {
 	// bundle IDs can be obtained using the AWS CLI command:
 	// [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
 	BundleId string `pulumi:"bundleId"`
-	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+	// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
@@ -354,7 +354,7 @@ type instanceArgs struct {
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
-	// The add on configuration for the instance. Detailed below.
+	// The add-on configuration for the instance. Detailed below.
 	AddOn InstanceAddOnPtrInput
 	// The Availability Zone in which to create your instance. A
 	// list of available zones can be obtained using the AWS CLI command:
@@ -368,7 +368,7 @@ type InstanceArgs struct {
 	// bundle IDs can be obtained using the AWS CLI command:
 	// [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
 	BundleId pulumi.StringInput
-	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+	// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
 	IpAddressType pulumi.StringPtrInput
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
@@ -468,7 +468,7 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
-// The add on configuration for the instance. Detailed below.
+// The add-on configuration for the instance. Detailed below.
 func (o InstanceOutput) AddOn() InstanceAddOnPtrOutput {
 	return o.ApplyT(func(v *Instance) InstanceAddOnPtrOutput { return v.AddOn }).(InstanceAddOnPtrOutput)
 }
@@ -509,7 +509,7 @@ func (o InstanceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
 func (o InstanceOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }

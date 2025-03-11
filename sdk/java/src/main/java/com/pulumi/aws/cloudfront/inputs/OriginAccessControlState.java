@@ -16,6 +16,21 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
     public static final OriginAccessControlState Empty = new OriginAccessControlState();
 
     /**
+     * The Origin Access Control ARN.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The Origin Access Control ARN.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
      * 
      */
@@ -108,6 +123,7 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
     private OriginAccessControlState() {}
 
     private OriginAccessControlState(OriginAccessControlState $) {
+        this.arn = $.arn;
         this.description = $.description;
         this.etag = $.etag;
         this.name = $.name;
@@ -132,6 +148,27 @@ public final class OriginAccessControlState extends com.pulumi.resources.Resourc
 
         public Builder(OriginAccessControlState defaults) {
             $ = new OriginAccessControlState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The Origin Access Control ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The Origin Access Control ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

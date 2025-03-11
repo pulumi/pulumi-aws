@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCodeEditorAppSettings? CodeEditorAppSettings;
         /// <summary>
-        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsCustomFileSystemConfig> CustomFileSystemConfigs;
         /// <summary>

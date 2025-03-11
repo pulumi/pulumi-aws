@@ -54,10 +54,10 @@ public final class CoreNetworkState extends com.pulumi.resources.ResourceArgs {
      * The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      * 
      * @deprecated
-     * Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.
+     * base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.
      * 
      */
-    @Deprecated /* Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider. */
+    @Deprecated /* base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider. */
     @Import(name="basePolicyRegion")
     private @Nullable Output<String> basePolicyRegion;
 
@@ -65,10 +65,10 @@ public final class CoreNetworkState extends com.pulumi.resources.ResourceArgs {
      * @return The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      * 
      * @deprecated
-     * Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.
+     * base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.
      * 
      */
-    @Deprecated /* Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider. */
+    @Deprecated /* base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider. */
     public Optional<Output<String>> basePolicyRegion() {
         return Optional.ofNullable(this.basePolicyRegion);
     }
@@ -315,10 +315,10 @@ public final class CoreNetworkState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.
+         * base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.
          * 
          */
-        @Deprecated /* Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider. */
+        @Deprecated /* base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider. */
         public Builder basePolicyRegion(@Nullable Output<String> basePolicyRegion) {
             $.basePolicyRegion = basePolicyRegion;
             return this;
@@ -330,10 +330,10 @@ public final class CoreNetworkState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.
+         * base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider.
          * 
          */
-        @Deprecated /* Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider. */
+        @Deprecated /* base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider. */
         public Builder basePolicyRegion(String basePolicyRegion) {
             return basePolicyRegion(Output.of(basePolicyRegion));
         }

@@ -76,6 +76,10 @@ export class FieldLevelEncryptionProfile extends pulumi.CustomResource {
     }
 
     /**
+     * The Field Level Encryption Profile ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
      */
     public /*out*/ readonly callerReference!: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class FieldLevelEncryptionProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FieldLevelEncryptionProfileState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["callerReference"] = state ? state.callerReference : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["encryptionEntities"] = state ? state.encryptionEntities : undefined;
@@ -122,6 +127,7 @@ export class FieldLevelEncryptionProfile extends pulumi.CustomResource {
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["encryptionEntities"] = args ? args.encryptionEntities : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["callerReference"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
         }
@@ -134,6 +140,10 @@ export class FieldLevelEncryptionProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FieldLevelEncryptionProfile resources.
  */
 export interface FieldLevelEncryptionProfileState {
+    /**
+     * The Field Level Encryption Profile ARN.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
      */

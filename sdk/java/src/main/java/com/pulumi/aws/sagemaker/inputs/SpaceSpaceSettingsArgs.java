@@ -53,14 +53,14 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
+     * A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `custom_file_system` Block below.
      * 
      */
     @Import(name="customFileSystems")
     private @Nullable Output<List<SpaceSpaceSettingsCustomFileSystemArgs>> customFileSystems;
 
     /**
-     * @return A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
+     * @return A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `custom_file_system` Block below.
      * 
      */
     public Optional<Output<List<SpaceSpaceSettingsCustomFileSystemArgs>>> customFileSystems() {
@@ -200,7 +200,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
+         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `custom_file_system` Block below.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
+         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `custom_file_system` Block below.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class SpaceSpaceSettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
+         * @param customFileSystems A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `custom_file_system` Block below.
          * 
          * @return builder
          * 

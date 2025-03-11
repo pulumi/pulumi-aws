@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker Domain resource.
+ * Provides a SageMaker AI Domain resource.
  *
  * ## Example Usage
  *
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import SageMaker Domains using the `id`. For example:
+ * Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
  *
  * ```sh
  * $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -128,7 +128,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly securityGroupIdForDomainBoundary!: pulumi.Output<string>;
     /**
-     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     * The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
      */
     public /*out*/ readonly singleSignOnApplicationArn!: pulumi.Output<string>;
     /**
@@ -293,7 +293,7 @@ export interface DomainState {
      */
     securityGroupIdForDomainBoundary?: pulumi.Input<string>;
     /**
-     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+     * The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
      */
     singleSignOnApplicationArn?: pulumi.Input<string>;
     /**

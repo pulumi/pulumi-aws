@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>
-        /// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        /// The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         /// </summary>
         public readonly string FileSystemPath;
 

@@ -94,6 +94,8 @@ type LookupCachePolicyArgs struct {
 
 // A collection of values returned by getCachePolicy.
 type LookupCachePolicyResult struct {
+	// The cache policy ARN.
+	Arn string `pulumi:"arn"`
 	// Comment to describe the cache policy.
 	Comment string `pulumi:"comment"`
 	// Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
@@ -144,6 +146,11 @@ func (o LookupCachePolicyResultOutput) ToLookupCachePolicyResultOutput() LookupC
 
 func (o LookupCachePolicyResultOutput) ToLookupCachePolicyResultOutputWithContext(ctx context.Context) LookupCachePolicyResultOutput {
 	return o
+}
+
+// The cache policy ARN.
+func (o LookupCachePolicyResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Comment to describe the cache policy.

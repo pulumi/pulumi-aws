@@ -887,6 +887,8 @@ type DomainClusterConfig struct {
 	InstanceType *string `pulumi:"instanceType"`
 	// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
 	MultiAzWithStandbyEnabled *bool `pulumi:"multiAzWithStandbyEnabled"`
+	// List of node options for the domain.
+	NodeOptions []DomainClusterConfigNodeOption `pulumi:"nodeOptions"`
 	// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
 	WarmCount *int `pulumi:"warmCount"`
 	// Whether to enable warm storage.
@@ -925,6 +927,8 @@ type DomainClusterConfigArgs struct {
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
 	MultiAzWithStandbyEnabled pulumi.BoolPtrInput `pulumi:"multiAzWithStandbyEnabled"`
+	// List of node options for the domain.
+	NodeOptions DomainClusterConfigNodeOptionArrayInput `pulumi:"nodeOptions"`
 	// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
 	WarmCount pulumi.IntPtrInput `pulumi:"warmCount"`
 	// Whether to enable warm storage.
@@ -1049,6 +1053,11 @@ func (o DomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOut
 	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// List of node options for the domain.
+func (o DomainClusterConfigOutput) NodeOptions() DomainClusterConfigNodeOptionArrayOutput {
+	return o.ApplyT(func(v DomainClusterConfig) []DomainClusterConfigNodeOption { return v.NodeOptions }).(DomainClusterConfigNodeOptionArrayOutput)
+}
+
 // Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
 func (o DomainClusterConfigOutput) WarmCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *int { return v.WarmCount }).(pulumi.IntPtrOutput)
@@ -1166,6 +1175,16 @@ func (o DomainClusterConfigPtrOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtr
 		}
 		return v.MultiAzWithStandbyEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// List of node options for the domain.
+func (o DomainClusterConfigPtrOutput) NodeOptions() DomainClusterConfigNodeOptionArrayOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) []DomainClusterConfigNodeOption {
+		if v == nil {
+			return nil
+		}
+		return v.NodeOptions
+	}).(DomainClusterConfigNodeOptionArrayOutput)
 }
 
 // Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
@@ -1353,6 +1372,287 @@ func (o DomainClusterConfigColdStorageOptionsPtrOutput) Enabled() pulumi.BoolPtr
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+type DomainClusterConfigNodeOption struct {
+	// Container to specify sizing of a node type.
+	NodeConfig *DomainClusterConfigNodeOptionNodeConfig `pulumi:"nodeConfig"`
+	// Type of node this configuration describes. Valid values: `coordinator`.
+	NodeType *string `pulumi:"nodeType"`
+}
+
+// DomainClusterConfigNodeOptionInput is an input type that accepts DomainClusterConfigNodeOptionArgs and DomainClusterConfigNodeOptionOutput values.
+// You can construct a concrete instance of `DomainClusterConfigNodeOptionInput` via:
+//
+//	DomainClusterConfigNodeOptionArgs{...}
+type DomainClusterConfigNodeOptionInput interface {
+	pulumi.Input
+
+	ToDomainClusterConfigNodeOptionOutput() DomainClusterConfigNodeOptionOutput
+	ToDomainClusterConfigNodeOptionOutputWithContext(context.Context) DomainClusterConfigNodeOptionOutput
+}
+
+type DomainClusterConfigNodeOptionArgs struct {
+	// Container to specify sizing of a node type.
+	NodeConfig DomainClusterConfigNodeOptionNodeConfigPtrInput `pulumi:"nodeConfig"`
+	// Type of node this configuration describes. Valid values: `coordinator`.
+	NodeType pulumi.StringPtrInput `pulumi:"nodeType"`
+}
+
+func (DomainClusterConfigNodeOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainClusterConfigNodeOption)(nil)).Elem()
+}
+
+func (i DomainClusterConfigNodeOptionArgs) ToDomainClusterConfigNodeOptionOutput() DomainClusterConfigNodeOptionOutput {
+	return i.ToDomainClusterConfigNodeOptionOutputWithContext(context.Background())
+}
+
+func (i DomainClusterConfigNodeOptionArgs) ToDomainClusterConfigNodeOptionOutputWithContext(ctx context.Context) DomainClusterConfigNodeOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigNodeOptionOutput)
+}
+
+// DomainClusterConfigNodeOptionArrayInput is an input type that accepts DomainClusterConfigNodeOptionArray and DomainClusterConfigNodeOptionArrayOutput values.
+// You can construct a concrete instance of `DomainClusterConfigNodeOptionArrayInput` via:
+//
+//	DomainClusterConfigNodeOptionArray{ DomainClusterConfigNodeOptionArgs{...} }
+type DomainClusterConfigNodeOptionArrayInput interface {
+	pulumi.Input
+
+	ToDomainClusterConfigNodeOptionArrayOutput() DomainClusterConfigNodeOptionArrayOutput
+	ToDomainClusterConfigNodeOptionArrayOutputWithContext(context.Context) DomainClusterConfigNodeOptionArrayOutput
+}
+
+type DomainClusterConfigNodeOptionArray []DomainClusterConfigNodeOptionInput
+
+func (DomainClusterConfigNodeOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainClusterConfigNodeOption)(nil)).Elem()
+}
+
+func (i DomainClusterConfigNodeOptionArray) ToDomainClusterConfigNodeOptionArrayOutput() DomainClusterConfigNodeOptionArrayOutput {
+	return i.ToDomainClusterConfigNodeOptionArrayOutputWithContext(context.Background())
+}
+
+func (i DomainClusterConfigNodeOptionArray) ToDomainClusterConfigNodeOptionArrayOutputWithContext(ctx context.Context) DomainClusterConfigNodeOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigNodeOptionArrayOutput)
+}
+
+type DomainClusterConfigNodeOptionOutput struct{ *pulumi.OutputState }
+
+func (DomainClusterConfigNodeOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainClusterConfigNodeOption)(nil)).Elem()
+}
+
+func (o DomainClusterConfigNodeOptionOutput) ToDomainClusterConfigNodeOptionOutput() DomainClusterConfigNodeOptionOutput {
+	return o
+}
+
+func (o DomainClusterConfigNodeOptionOutput) ToDomainClusterConfigNodeOptionOutputWithContext(ctx context.Context) DomainClusterConfigNodeOptionOutput {
+	return o
+}
+
+// Container to specify sizing of a node type.
+func (o DomainClusterConfigNodeOptionOutput) NodeConfig() DomainClusterConfigNodeOptionNodeConfigPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfigNodeOption) *DomainClusterConfigNodeOptionNodeConfig { return v.NodeConfig }).(DomainClusterConfigNodeOptionNodeConfigPtrOutput)
+}
+
+// Type of node this configuration describes. Valid values: `coordinator`.
+func (o DomainClusterConfigNodeOptionOutput) NodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfigNodeOption) *string { return v.NodeType }).(pulumi.StringPtrOutput)
+}
+
+type DomainClusterConfigNodeOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainClusterConfigNodeOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainClusterConfigNodeOption)(nil)).Elem()
+}
+
+func (o DomainClusterConfigNodeOptionArrayOutput) ToDomainClusterConfigNodeOptionArrayOutput() DomainClusterConfigNodeOptionArrayOutput {
+	return o
+}
+
+func (o DomainClusterConfigNodeOptionArrayOutput) ToDomainClusterConfigNodeOptionArrayOutputWithContext(ctx context.Context) DomainClusterConfigNodeOptionArrayOutput {
+	return o
+}
+
+func (o DomainClusterConfigNodeOptionArrayOutput) Index(i pulumi.IntInput) DomainClusterConfigNodeOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainClusterConfigNodeOption {
+		return vs[0].([]DomainClusterConfigNodeOption)[vs[1].(int)]
+	}).(DomainClusterConfigNodeOptionOutput)
+}
+
+type DomainClusterConfigNodeOptionNodeConfig struct {
+	// Number of nodes of a particular node type in the cluster.
+	Count *int `pulumi:"count"`
+	// Whether a particular node type is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The instance type of a particular node type in the cluster.
+	Type *string `pulumi:"type"`
+}
+
+// DomainClusterConfigNodeOptionNodeConfigInput is an input type that accepts DomainClusterConfigNodeOptionNodeConfigArgs and DomainClusterConfigNodeOptionNodeConfigOutput values.
+// You can construct a concrete instance of `DomainClusterConfigNodeOptionNodeConfigInput` via:
+//
+//	DomainClusterConfigNodeOptionNodeConfigArgs{...}
+type DomainClusterConfigNodeOptionNodeConfigInput interface {
+	pulumi.Input
+
+	ToDomainClusterConfigNodeOptionNodeConfigOutput() DomainClusterConfigNodeOptionNodeConfigOutput
+	ToDomainClusterConfigNodeOptionNodeConfigOutputWithContext(context.Context) DomainClusterConfigNodeOptionNodeConfigOutput
+}
+
+type DomainClusterConfigNodeOptionNodeConfigArgs struct {
+	// Number of nodes of a particular node type in the cluster.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Whether a particular node type is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The instance type of a particular node type in the cluster.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DomainClusterConfigNodeOptionNodeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainClusterConfigNodeOptionNodeConfig)(nil)).Elem()
+}
+
+func (i DomainClusterConfigNodeOptionNodeConfigArgs) ToDomainClusterConfigNodeOptionNodeConfigOutput() DomainClusterConfigNodeOptionNodeConfigOutput {
+	return i.ToDomainClusterConfigNodeOptionNodeConfigOutputWithContext(context.Background())
+}
+
+func (i DomainClusterConfigNodeOptionNodeConfigArgs) ToDomainClusterConfigNodeOptionNodeConfigOutputWithContext(ctx context.Context) DomainClusterConfigNodeOptionNodeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigNodeOptionNodeConfigOutput)
+}
+
+func (i DomainClusterConfigNodeOptionNodeConfigArgs) ToDomainClusterConfigNodeOptionNodeConfigPtrOutput() DomainClusterConfigNodeOptionNodeConfigPtrOutput {
+	return i.ToDomainClusterConfigNodeOptionNodeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DomainClusterConfigNodeOptionNodeConfigArgs) ToDomainClusterConfigNodeOptionNodeConfigPtrOutputWithContext(ctx context.Context) DomainClusterConfigNodeOptionNodeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigNodeOptionNodeConfigOutput).ToDomainClusterConfigNodeOptionNodeConfigPtrOutputWithContext(ctx)
+}
+
+// DomainClusterConfigNodeOptionNodeConfigPtrInput is an input type that accepts DomainClusterConfigNodeOptionNodeConfigArgs, DomainClusterConfigNodeOptionNodeConfigPtr and DomainClusterConfigNodeOptionNodeConfigPtrOutput values.
+// You can construct a concrete instance of `DomainClusterConfigNodeOptionNodeConfigPtrInput` via:
+//
+//	        DomainClusterConfigNodeOptionNodeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainClusterConfigNodeOptionNodeConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainClusterConfigNodeOptionNodeConfigPtrOutput() DomainClusterConfigNodeOptionNodeConfigPtrOutput
+	ToDomainClusterConfigNodeOptionNodeConfigPtrOutputWithContext(context.Context) DomainClusterConfigNodeOptionNodeConfigPtrOutput
+}
+
+type domainClusterConfigNodeOptionNodeConfigPtrType DomainClusterConfigNodeOptionNodeConfigArgs
+
+func DomainClusterConfigNodeOptionNodeConfigPtr(v *DomainClusterConfigNodeOptionNodeConfigArgs) DomainClusterConfigNodeOptionNodeConfigPtrInput {
+	return (*domainClusterConfigNodeOptionNodeConfigPtrType)(v)
+}
+
+func (*domainClusterConfigNodeOptionNodeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainClusterConfigNodeOptionNodeConfig)(nil)).Elem()
+}
+
+func (i *domainClusterConfigNodeOptionNodeConfigPtrType) ToDomainClusterConfigNodeOptionNodeConfigPtrOutput() DomainClusterConfigNodeOptionNodeConfigPtrOutput {
+	return i.ToDomainClusterConfigNodeOptionNodeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *domainClusterConfigNodeOptionNodeConfigPtrType) ToDomainClusterConfigNodeOptionNodeConfigPtrOutputWithContext(ctx context.Context) DomainClusterConfigNodeOptionNodeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigNodeOptionNodeConfigPtrOutput)
+}
+
+type DomainClusterConfigNodeOptionNodeConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainClusterConfigNodeOptionNodeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainClusterConfigNodeOptionNodeConfig)(nil)).Elem()
+}
+
+func (o DomainClusterConfigNodeOptionNodeConfigOutput) ToDomainClusterConfigNodeOptionNodeConfigOutput() DomainClusterConfigNodeOptionNodeConfigOutput {
+	return o
+}
+
+func (o DomainClusterConfigNodeOptionNodeConfigOutput) ToDomainClusterConfigNodeOptionNodeConfigOutputWithContext(ctx context.Context) DomainClusterConfigNodeOptionNodeConfigOutput {
+	return o
+}
+
+func (o DomainClusterConfigNodeOptionNodeConfigOutput) ToDomainClusterConfigNodeOptionNodeConfigPtrOutput() DomainClusterConfigNodeOptionNodeConfigPtrOutput {
+	return o.ToDomainClusterConfigNodeOptionNodeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainClusterConfigNodeOptionNodeConfigOutput) ToDomainClusterConfigNodeOptionNodeConfigPtrOutputWithContext(ctx context.Context) DomainClusterConfigNodeOptionNodeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainClusterConfigNodeOptionNodeConfig) *DomainClusterConfigNodeOptionNodeConfig {
+		return &v
+	}).(DomainClusterConfigNodeOptionNodeConfigPtrOutput)
+}
+
+// Number of nodes of a particular node type in the cluster.
+func (o DomainClusterConfigNodeOptionNodeConfigOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfigNodeOptionNodeConfig) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// Whether a particular node type is enabled.
+func (o DomainClusterConfigNodeOptionNodeConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfigNodeOptionNodeConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The instance type of a particular node type in the cluster.
+func (o DomainClusterConfigNodeOptionNodeConfigOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfigNodeOptionNodeConfig) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DomainClusterConfigNodeOptionNodeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainClusterConfigNodeOptionNodeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainClusterConfigNodeOptionNodeConfig)(nil)).Elem()
+}
+
+func (o DomainClusterConfigNodeOptionNodeConfigPtrOutput) ToDomainClusterConfigNodeOptionNodeConfigPtrOutput() DomainClusterConfigNodeOptionNodeConfigPtrOutput {
+	return o
+}
+
+func (o DomainClusterConfigNodeOptionNodeConfigPtrOutput) ToDomainClusterConfigNodeOptionNodeConfigPtrOutputWithContext(ctx context.Context) DomainClusterConfigNodeOptionNodeConfigPtrOutput {
+	return o
+}
+
+func (o DomainClusterConfigNodeOptionNodeConfigPtrOutput) Elem() DomainClusterConfigNodeOptionNodeConfigOutput {
+	return o.ApplyT(func(v *DomainClusterConfigNodeOptionNodeConfig) DomainClusterConfigNodeOptionNodeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainClusterConfigNodeOptionNodeConfig
+		return ret
+	}).(DomainClusterConfigNodeOptionNodeConfigOutput)
+}
+
+// Number of nodes of a particular node type in the cluster.
+func (o DomainClusterConfigNodeOptionNodeConfigPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfigNodeOptionNodeConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// Whether a particular node type is enabled.
+func (o DomainClusterConfigNodeOptionNodeConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfigNodeOptionNodeConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The instance type of a particular node type in the cluster.
+func (o DomainClusterConfigNodeOptionNodeConfigPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfigNodeOptionNodeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainClusterConfigZoneAwarenessConfig struct {
@@ -5830,6 +6130,8 @@ type GetDomainClusterConfig struct {
 	InstanceType string `pulumi:"instanceType"`
 	// Whether a multi-AZ domain is turned on with a standby AZ.
 	MultiAzWithStandbyEnabled bool `pulumi:"multiAzWithStandbyEnabled"`
+	// List of node options for the domain.
+	NodeOptions []GetDomainClusterConfigNodeOption `pulumi:"nodeOptions"`
 	// Number of warm nodes in the cluster.
 	WarmCount int `pulumi:"warmCount"`
 	// Warm storage is enabled.
@@ -5868,6 +6170,8 @@ type GetDomainClusterConfigArgs struct {
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// Whether a multi-AZ domain is turned on with a standby AZ.
 	MultiAzWithStandbyEnabled pulumi.BoolInput `pulumi:"multiAzWithStandbyEnabled"`
+	// List of node options for the domain.
+	NodeOptions GetDomainClusterConfigNodeOptionArrayInput `pulumi:"nodeOptions"`
 	// Number of warm nodes in the cluster.
 	WarmCount pulumi.IntInput `pulumi:"warmCount"`
 	// Warm storage is enabled.
@@ -5964,6 +6268,11 @@ func (o GetDomainClusterConfigOutput) InstanceType() pulumi.StringOutput {
 // Whether a multi-AZ domain is turned on with a standby AZ.
 func (o GetDomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolOutput)
+}
+
+// List of node options for the domain.
+func (o GetDomainClusterConfigOutput) NodeOptions() GetDomainClusterConfigNodeOptionArrayOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) []GetDomainClusterConfigNodeOption { return v.NodeOptions }).(GetDomainClusterConfigNodeOptionArrayOutput)
 }
 
 // Number of warm nodes in the cluster.
@@ -6108,6 +6417,229 @@ func (o GetDomainClusterConfigColdStorageOptionArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainClusterConfigColdStorageOption {
 		return vs[0].([]GetDomainClusterConfigColdStorageOption)[vs[1].(int)]
 	}).(GetDomainClusterConfigColdStorageOptionOutput)
+}
+
+type GetDomainClusterConfigNodeOption struct {
+	// Sizing of a node type.
+	NodeConfigs []GetDomainClusterConfigNodeOptionNodeConfig `pulumi:"nodeConfigs"`
+	// Type of node this configuration describes.
+	NodeType string `pulumi:"nodeType"`
+}
+
+// GetDomainClusterConfigNodeOptionInput is an input type that accepts GetDomainClusterConfigNodeOptionArgs and GetDomainClusterConfigNodeOptionOutput values.
+// You can construct a concrete instance of `GetDomainClusterConfigNodeOptionInput` via:
+//
+//	GetDomainClusterConfigNodeOptionArgs{...}
+type GetDomainClusterConfigNodeOptionInput interface {
+	pulumi.Input
+
+	ToGetDomainClusterConfigNodeOptionOutput() GetDomainClusterConfigNodeOptionOutput
+	ToGetDomainClusterConfigNodeOptionOutputWithContext(context.Context) GetDomainClusterConfigNodeOptionOutput
+}
+
+type GetDomainClusterConfigNodeOptionArgs struct {
+	// Sizing of a node type.
+	NodeConfigs GetDomainClusterConfigNodeOptionNodeConfigArrayInput `pulumi:"nodeConfigs"`
+	// Type of node this configuration describes.
+	NodeType pulumi.StringInput `pulumi:"nodeType"`
+}
+
+func (GetDomainClusterConfigNodeOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainClusterConfigNodeOption)(nil)).Elem()
+}
+
+func (i GetDomainClusterConfigNodeOptionArgs) ToGetDomainClusterConfigNodeOptionOutput() GetDomainClusterConfigNodeOptionOutput {
+	return i.ToGetDomainClusterConfigNodeOptionOutputWithContext(context.Background())
+}
+
+func (i GetDomainClusterConfigNodeOptionArgs) ToGetDomainClusterConfigNodeOptionOutputWithContext(ctx context.Context) GetDomainClusterConfigNodeOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigNodeOptionOutput)
+}
+
+// GetDomainClusterConfigNodeOptionArrayInput is an input type that accepts GetDomainClusterConfigNodeOptionArray and GetDomainClusterConfigNodeOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainClusterConfigNodeOptionArrayInput` via:
+//
+//	GetDomainClusterConfigNodeOptionArray{ GetDomainClusterConfigNodeOptionArgs{...} }
+type GetDomainClusterConfigNodeOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainClusterConfigNodeOptionArrayOutput() GetDomainClusterConfigNodeOptionArrayOutput
+	ToGetDomainClusterConfigNodeOptionArrayOutputWithContext(context.Context) GetDomainClusterConfigNodeOptionArrayOutput
+}
+
+type GetDomainClusterConfigNodeOptionArray []GetDomainClusterConfigNodeOptionInput
+
+func (GetDomainClusterConfigNodeOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainClusterConfigNodeOption)(nil)).Elem()
+}
+
+func (i GetDomainClusterConfigNodeOptionArray) ToGetDomainClusterConfigNodeOptionArrayOutput() GetDomainClusterConfigNodeOptionArrayOutput {
+	return i.ToGetDomainClusterConfigNodeOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainClusterConfigNodeOptionArray) ToGetDomainClusterConfigNodeOptionArrayOutputWithContext(ctx context.Context) GetDomainClusterConfigNodeOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigNodeOptionArrayOutput)
+}
+
+type GetDomainClusterConfigNodeOptionOutput struct{ *pulumi.OutputState }
+
+func (GetDomainClusterConfigNodeOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainClusterConfigNodeOption)(nil)).Elem()
+}
+
+func (o GetDomainClusterConfigNodeOptionOutput) ToGetDomainClusterConfigNodeOptionOutput() GetDomainClusterConfigNodeOptionOutput {
+	return o
+}
+
+func (o GetDomainClusterConfigNodeOptionOutput) ToGetDomainClusterConfigNodeOptionOutputWithContext(ctx context.Context) GetDomainClusterConfigNodeOptionOutput {
+	return o
+}
+
+// Sizing of a node type.
+func (o GetDomainClusterConfigNodeOptionOutput) NodeConfigs() GetDomainClusterConfigNodeOptionNodeConfigArrayOutput {
+	return o.ApplyT(func(v GetDomainClusterConfigNodeOption) []GetDomainClusterConfigNodeOptionNodeConfig {
+		return v.NodeConfigs
+	}).(GetDomainClusterConfigNodeOptionNodeConfigArrayOutput)
+}
+
+// Type of node this configuration describes.
+func (o GetDomainClusterConfigNodeOptionOutput) NodeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainClusterConfigNodeOption) string { return v.NodeType }).(pulumi.StringOutput)
+}
+
+type GetDomainClusterConfigNodeOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainClusterConfigNodeOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainClusterConfigNodeOption)(nil)).Elem()
+}
+
+func (o GetDomainClusterConfigNodeOptionArrayOutput) ToGetDomainClusterConfigNodeOptionArrayOutput() GetDomainClusterConfigNodeOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainClusterConfigNodeOptionArrayOutput) ToGetDomainClusterConfigNodeOptionArrayOutputWithContext(ctx context.Context) GetDomainClusterConfigNodeOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainClusterConfigNodeOptionArrayOutput) Index(i pulumi.IntInput) GetDomainClusterConfigNodeOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainClusterConfigNodeOption {
+		return vs[0].([]GetDomainClusterConfigNodeOption)[vs[1].(int)]
+	}).(GetDomainClusterConfigNodeOptionOutput)
+}
+
+type GetDomainClusterConfigNodeOptionNodeConfig struct {
+	// Number of nodes of a particular node type in the cluster.
+	Count int `pulumi:"count"`
+	// Enabled disabled toggle for off-peak update window
+	Enabled bool `pulumi:"enabled"`
+	// The instance type of a particular node type in the cluster.
+	Type string `pulumi:"type"`
+}
+
+// GetDomainClusterConfigNodeOptionNodeConfigInput is an input type that accepts GetDomainClusterConfigNodeOptionNodeConfigArgs and GetDomainClusterConfigNodeOptionNodeConfigOutput values.
+// You can construct a concrete instance of `GetDomainClusterConfigNodeOptionNodeConfigInput` via:
+//
+//	GetDomainClusterConfigNodeOptionNodeConfigArgs{...}
+type GetDomainClusterConfigNodeOptionNodeConfigInput interface {
+	pulumi.Input
+
+	ToGetDomainClusterConfigNodeOptionNodeConfigOutput() GetDomainClusterConfigNodeOptionNodeConfigOutput
+	ToGetDomainClusterConfigNodeOptionNodeConfigOutputWithContext(context.Context) GetDomainClusterConfigNodeOptionNodeConfigOutput
+}
+
+type GetDomainClusterConfigNodeOptionNodeConfigArgs struct {
+	// Number of nodes of a particular node type in the cluster.
+	Count pulumi.IntInput `pulumi:"count"`
+	// Enabled disabled toggle for off-peak update window
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The instance type of a particular node type in the cluster.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDomainClusterConfigNodeOptionNodeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainClusterConfigNodeOptionNodeConfig)(nil)).Elem()
+}
+
+func (i GetDomainClusterConfigNodeOptionNodeConfigArgs) ToGetDomainClusterConfigNodeOptionNodeConfigOutput() GetDomainClusterConfigNodeOptionNodeConfigOutput {
+	return i.ToGetDomainClusterConfigNodeOptionNodeConfigOutputWithContext(context.Background())
+}
+
+func (i GetDomainClusterConfigNodeOptionNodeConfigArgs) ToGetDomainClusterConfigNodeOptionNodeConfigOutputWithContext(ctx context.Context) GetDomainClusterConfigNodeOptionNodeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigNodeOptionNodeConfigOutput)
+}
+
+// GetDomainClusterConfigNodeOptionNodeConfigArrayInput is an input type that accepts GetDomainClusterConfigNodeOptionNodeConfigArray and GetDomainClusterConfigNodeOptionNodeConfigArrayOutput values.
+// You can construct a concrete instance of `GetDomainClusterConfigNodeOptionNodeConfigArrayInput` via:
+//
+//	GetDomainClusterConfigNodeOptionNodeConfigArray{ GetDomainClusterConfigNodeOptionNodeConfigArgs{...} }
+type GetDomainClusterConfigNodeOptionNodeConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainClusterConfigNodeOptionNodeConfigArrayOutput() GetDomainClusterConfigNodeOptionNodeConfigArrayOutput
+	ToGetDomainClusterConfigNodeOptionNodeConfigArrayOutputWithContext(context.Context) GetDomainClusterConfigNodeOptionNodeConfigArrayOutput
+}
+
+type GetDomainClusterConfigNodeOptionNodeConfigArray []GetDomainClusterConfigNodeOptionNodeConfigInput
+
+func (GetDomainClusterConfigNodeOptionNodeConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainClusterConfigNodeOptionNodeConfig)(nil)).Elem()
+}
+
+func (i GetDomainClusterConfigNodeOptionNodeConfigArray) ToGetDomainClusterConfigNodeOptionNodeConfigArrayOutput() GetDomainClusterConfigNodeOptionNodeConfigArrayOutput {
+	return i.ToGetDomainClusterConfigNodeOptionNodeConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainClusterConfigNodeOptionNodeConfigArray) ToGetDomainClusterConfigNodeOptionNodeConfigArrayOutputWithContext(ctx context.Context) GetDomainClusterConfigNodeOptionNodeConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigNodeOptionNodeConfigArrayOutput)
+}
+
+type GetDomainClusterConfigNodeOptionNodeConfigOutput struct{ *pulumi.OutputState }
+
+func (GetDomainClusterConfigNodeOptionNodeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainClusterConfigNodeOptionNodeConfig)(nil)).Elem()
+}
+
+func (o GetDomainClusterConfigNodeOptionNodeConfigOutput) ToGetDomainClusterConfigNodeOptionNodeConfigOutput() GetDomainClusterConfigNodeOptionNodeConfigOutput {
+	return o
+}
+
+func (o GetDomainClusterConfigNodeOptionNodeConfigOutput) ToGetDomainClusterConfigNodeOptionNodeConfigOutputWithContext(ctx context.Context) GetDomainClusterConfigNodeOptionNodeConfigOutput {
+	return o
+}
+
+// Number of nodes of a particular node type in the cluster.
+func (o GetDomainClusterConfigNodeOptionNodeConfigOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDomainClusterConfigNodeOptionNodeConfig) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// Enabled disabled toggle for off-peak update window
+func (o GetDomainClusterConfigNodeOptionNodeConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainClusterConfigNodeOptionNodeConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The instance type of a particular node type in the cluster.
+func (o GetDomainClusterConfigNodeOptionNodeConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainClusterConfigNodeOptionNodeConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDomainClusterConfigNodeOptionNodeConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainClusterConfigNodeOptionNodeConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainClusterConfigNodeOptionNodeConfig)(nil)).Elem()
+}
+
+func (o GetDomainClusterConfigNodeOptionNodeConfigArrayOutput) ToGetDomainClusterConfigNodeOptionNodeConfigArrayOutput() GetDomainClusterConfigNodeOptionNodeConfigArrayOutput {
+	return o
+}
+
+func (o GetDomainClusterConfigNodeOptionNodeConfigArrayOutput) ToGetDomainClusterConfigNodeOptionNodeConfigArrayOutputWithContext(ctx context.Context) GetDomainClusterConfigNodeOptionNodeConfigArrayOutput {
+	return o
+}
+
+func (o GetDomainClusterConfigNodeOptionNodeConfigArrayOutput) Index(i pulumi.IntInput) GetDomainClusterConfigNodeOptionNodeConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainClusterConfigNodeOptionNodeConfig {
+		return vs[0].([]GetDomainClusterConfigNodeOptionNodeConfig)[vs[1].(int)]
+	}).(GetDomainClusterConfigNodeOptionNodeConfigOutput)
 }
 
 type GetDomainClusterConfigZoneAwarenessConfig struct {
@@ -7669,6 +8201,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigPtrInput)(nil)).Elem(), DomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigColdStorageOptionsInput)(nil)).Elem(), DomainClusterConfigColdStorageOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigColdStorageOptionsPtrInput)(nil)).Elem(), DomainClusterConfigColdStorageOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigNodeOptionInput)(nil)).Elem(), DomainClusterConfigNodeOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigNodeOptionArrayInput)(nil)).Elem(), DomainClusterConfigNodeOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigNodeOptionNodeConfigInput)(nil)).Elem(), DomainClusterConfigNodeOptionNodeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigNodeOptionNodeConfigPtrInput)(nil)).Elem(), DomainClusterConfigNodeOptionNodeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigZoneAwarenessConfigInput)(nil)).Elem(), DomainClusterConfigZoneAwarenessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigZoneAwarenessConfigPtrInput)(nil)).Elem(), DomainClusterConfigZoneAwarenessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCognitoOptionsInput)(nil)).Elem(), DomainCognitoOptionsArgs{})
@@ -7729,6 +8265,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigArrayInput)(nil)).Elem(), GetDomainClusterConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigColdStorageOptionInput)(nil)).Elem(), GetDomainClusterConfigColdStorageOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigColdStorageOptionArrayInput)(nil)).Elem(), GetDomainClusterConfigColdStorageOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigNodeOptionInput)(nil)).Elem(), GetDomainClusterConfigNodeOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigNodeOptionArrayInput)(nil)).Elem(), GetDomainClusterConfigNodeOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigNodeOptionNodeConfigInput)(nil)).Elem(), GetDomainClusterConfigNodeOptionNodeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigNodeOptionNodeConfigArrayInput)(nil)).Elem(), GetDomainClusterConfigNodeOptionNodeConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigZoneAwarenessConfigInput)(nil)).Elem(), GetDomainClusterConfigZoneAwarenessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigZoneAwarenessConfigArrayInput)(nil)).Elem(), GetDomainClusterConfigZoneAwarenessConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainCognitoOptionInput)(nil)).Elem(), GetDomainCognitoOptionArgs{})
@@ -7770,6 +8310,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigColdStorageOptionsOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigColdStorageOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainClusterConfigNodeOptionOutput{})
+	pulumi.RegisterOutputType(DomainClusterConfigNodeOptionArrayOutput{})
+	pulumi.RegisterOutputType(DomainClusterConfigNodeOptionNodeConfigOutput{})
+	pulumi.RegisterOutputType(DomainClusterConfigNodeOptionNodeConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigZoneAwarenessConfigOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigZoneAwarenessConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsOutput{})
@@ -7830,6 +8374,10 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainClusterConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigColdStorageOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigColdStorageOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainClusterConfigNodeOptionOutput{})
+	pulumi.RegisterOutputType(GetDomainClusterConfigNodeOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainClusterConfigNodeOptionNodeConfigOutput{})
+	pulumi.RegisterOutputType(GetDomainClusterConfigNodeOptionNodeConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigZoneAwarenessConfigOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigZoneAwarenessConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainCognitoOptionOutput{})

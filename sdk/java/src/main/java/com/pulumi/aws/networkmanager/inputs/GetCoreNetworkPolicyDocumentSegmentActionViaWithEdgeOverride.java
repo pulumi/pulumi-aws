@@ -34,10 +34,10 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
      * The preferred edge to use.
      * 
      * @deprecated
-     * Use use_edge_location
+     * use_edge is deprecated. Use use_edge_location instead.
      * 
      */
-    @Deprecated /* Use use_edge_location */
+    @Deprecated /* use_edge is deprecated. Use use_edge_location instead. */
     @Import(name="useEdge")
     private @Nullable String useEdge;
 
@@ -45,10 +45,10 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
      * @return The preferred edge to use.
      * 
      * @deprecated
-     * Use use_edge_location
+     * use_edge is deprecated. Use use_edge_location instead.
      * 
      */
-    @Deprecated /* Use use_edge_location */
+    @Deprecated /* use_edge is deprecated. Use use_edge_location instead. */
     public Optional<String> useEdge() {
         return Optional.ofNullable(this.useEdge);
     }
@@ -121,10 +121,10 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
          * @return builder
          * 
          * @deprecated
-         * Use use_edge_location
+         * use_edge is deprecated. Use use_edge_location instead.
          * 
          */
-        @Deprecated /* Use use_edge_location */
+        @Deprecated /* use_edge is deprecated. Use use_edge_location instead. */
         public Builder useEdge(@Nullable String useEdge) {
             $.useEdge = useEdge;
             return this;

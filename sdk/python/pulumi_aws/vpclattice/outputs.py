@@ -1458,17 +1458,27 @@ class GetServiceDnsEntryResult(dict):
     def __init__(__self__, *,
                  domain_name: str,
                  hosted_zone_id: str):
+        """
+        :param str domain_name: DNS name for the service.
+        :param str hosted_zone_id: Hosted zone ID where the DNS name is registered.
+        """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> str:
+        """
+        DNS name for the service.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> str:
+        """
+        Hosted zone ID where the DNS name is registered.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
 

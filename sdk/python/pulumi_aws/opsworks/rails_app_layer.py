@@ -993,8 +993,6 @@ class RailsAppLayer(pulumi.CustomResource):
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks Ruby on Rails application layer resource.
-
         ## Example Usage
 
         ```python
@@ -1040,8 +1038,6 @@ class RailsAppLayer(pulumi.CustomResource):
                  args: RailsAppLayerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks Ruby on Rails application layer resource.
-
         ## Example Usage
 
         ```python

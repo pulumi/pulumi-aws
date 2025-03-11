@@ -72,9 +72,9 @@ class LaunchTemplateArgs:
         :param pulumi.Input[bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]] elastic_gpu_specifications: **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
-        :param pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs'] elastic_inference_accelerator: Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        :param pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs'] elastic_inference_accelerator: **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         :param pulumi.Input['LaunchTemplateEnclaveOptionsArgs'] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input['LaunchTemplateHibernationOptionsArgs'] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input['LaunchTemplateIamInstanceProfileArgs'] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -126,7 +126,13 @@ class LaunchTemplateArgs:
         if ebs_optimized is not None:
             pulumi.set(__self__, "ebs_optimized", ebs_optimized)
         if elastic_gpu_specifications is not None:
+            warnings.warn("""elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""", DeprecationWarning)
+            pulumi.log.warn("""elastic_gpu_specifications is deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""")
+        if elastic_gpu_specifications is not None:
             pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
+        if elastic_inference_accelerator is not None:
+            warnings.warn("""elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""", DeprecationWarning)
+            pulumi.log.warn("""elastic_inference_accelerator is deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""")
         if elastic_inference_accelerator is not None:
             pulumi.set(__self__, "elastic_inference_accelerator", elastic_inference_accelerator)
         if enclave_options is not None:
@@ -295,9 +301,10 @@ class LaunchTemplateArgs:
 
     @property
     @pulumi.getter(name="elasticGpuSpecifications")
+    @_utilities.deprecated("""elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""")
     def elastic_gpu_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]]:
         """
-        The elastic GPU to attach to the instance. See Elastic GPU
+        **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
         below for more details.
         """
         return pulumi.get(self, "elastic_gpu_specifications")
@@ -308,9 +315,10 @@ class LaunchTemplateArgs:
 
     @property
     @pulumi.getter(name="elasticInferenceAccelerator")
+    @_utilities.deprecated("""elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""")
     def elastic_inference_accelerator(self) -> Optional[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']]:
         """
-        Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         """
         return pulumi.get(self, "elastic_inference_accelerator")
 
@@ -694,9 +702,9 @@ class _LaunchTemplateState:
         :param pulumi.Input[bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]] elastic_gpu_specifications: **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
-        :param pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs'] elastic_inference_accelerator: Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        :param pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs'] elastic_inference_accelerator: **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         :param pulumi.Input['LaunchTemplateEnclaveOptionsArgs'] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input['LaunchTemplateHibernationOptionsArgs'] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input['LaunchTemplateIamInstanceProfileArgs'] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -752,7 +760,13 @@ class _LaunchTemplateState:
         if ebs_optimized is not None:
             pulumi.set(__self__, "ebs_optimized", ebs_optimized)
         if elastic_gpu_specifications is not None:
+            warnings.warn("""elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""", DeprecationWarning)
+            pulumi.log.warn("""elastic_gpu_specifications is deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""")
+        if elastic_gpu_specifications is not None:
             pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
+        if elastic_inference_accelerator is not None:
+            warnings.warn("""elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""", DeprecationWarning)
+            pulumi.log.warn("""elastic_inference_accelerator is deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""")
         if elastic_inference_accelerator is not None:
             pulumi.set(__self__, "elastic_inference_accelerator", elastic_inference_accelerator)
         if enclave_options is not None:
@@ -940,9 +954,10 @@ class _LaunchTemplateState:
 
     @property
     @pulumi.getter(name="elasticGpuSpecifications")
+    @_utilities.deprecated("""elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""")
     def elastic_gpu_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]]:
         """
-        The elastic GPU to attach to the instance. See Elastic GPU
+        **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
         below for more details.
         """
         return pulumi.get(self, "elastic_gpu_specifications")
@@ -953,9 +968,10 @@ class _LaunchTemplateState:
 
     @property
     @pulumi.getter(name="elasticInferenceAccelerator")
+    @_utilities.deprecated("""elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""")
     def elastic_inference_accelerator(self) -> Optional[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']]:
         """
-        Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         """
         return pulumi.get(self, "elastic_inference_accelerator")
 
@@ -1374,9 +1390,9 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateElasticGpuSpecificationArgs', 'LaunchTemplateElasticGpuSpecificationArgsDict']]]] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateElasticGpuSpecificationArgs', 'LaunchTemplateElasticGpuSpecificationArgsDict']]]] elastic_gpu_specifications: **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
-        :param pulumi.Input[Union['LaunchTemplateElasticInferenceAcceleratorArgs', 'LaunchTemplateElasticInferenceAcceleratorArgsDict']] elastic_inference_accelerator: Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        :param pulumi.Input[Union['LaunchTemplateElasticInferenceAcceleratorArgs', 'LaunchTemplateElasticInferenceAcceleratorArgsDict']] elastic_inference_accelerator: **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         :param pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -1597,9 +1613,9 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateElasticGpuSpecificationArgs', 'LaunchTemplateElasticGpuSpecificationArgsDict']]]] elastic_gpu_specifications: The elastic GPU to attach to the instance. See Elastic GPU
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateElasticGpuSpecificationArgs', 'LaunchTemplateElasticGpuSpecificationArgsDict']]]] elastic_gpu_specifications: **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
                below for more details.
-        :param pulumi.Input[Union['LaunchTemplateElasticInferenceAcceleratorArgs', 'LaunchTemplateElasticInferenceAcceleratorArgsDict']] elastic_inference_accelerator: Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        :param pulumi.Input[Union['LaunchTemplateElasticInferenceAcceleratorArgs', 'LaunchTemplateElasticInferenceAcceleratorArgsDict']] elastic_inference_accelerator: **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         :param pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -1765,18 +1781,20 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="elasticGpuSpecifications")
+    @_utilities.deprecated("""elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""")
     def elastic_gpu_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.LaunchTemplateElasticGpuSpecification']]]:
         """
-        The elastic GPU to attach to the instance. See Elastic GPU
+        **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
         below for more details.
         """
         return pulumi.get(self, "elastic_gpu_specifications")
 
     @property
     @pulumi.getter(name="elasticInferenceAccelerator")
+    @_utilities.deprecated("""elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""")
     def elastic_inference_accelerator(self) -> pulumi.Output[Optional['outputs.LaunchTemplateElasticInferenceAccelerator']]:
         """
-        Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         """
         return pulumi.get(self, "elastic_inference_accelerator")
 

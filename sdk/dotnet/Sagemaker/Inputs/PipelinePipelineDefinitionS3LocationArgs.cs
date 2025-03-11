@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> ObjectKey { get; set; } = null!;
 
         /// <summary>
-        /// Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+        /// Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
         /// </summary>
         [Input("versionId")]
         public Input<string>? VersionId { get; set; }

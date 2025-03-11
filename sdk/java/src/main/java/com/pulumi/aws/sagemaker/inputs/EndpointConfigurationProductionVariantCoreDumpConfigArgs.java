@@ -32,14 +32,14 @@ public final class EndpointConfigurationProductionVariantCoreDumpConfigArgs exte
     }
 
     /**
-     * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+     * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -93,7 +93,7 @@ public final class EndpointConfigurationProductionVariantCoreDumpConfigArgs exte
         }
 
         /**
-         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class EndpointConfigurationProductionVariantCoreDumpConfigArgs exte
         }
 
         /**
-         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
+         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
          * 
          * @return builder
          * 

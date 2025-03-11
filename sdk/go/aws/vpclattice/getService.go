@@ -70,7 +70,7 @@ type LookupServiceResult struct {
 	CertificateArn string `pulumi:"certificateArn"`
 	// Custom domain name of the service.
 	CustomDomainName string `pulumi:"customDomainName"`
-	// DNS name of the service.
+	// List of objects with DNS names.
 	DnsEntries []GetServiceDnsEntry `pulumi:"dnsEntries"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
@@ -140,7 +140,7 @@ func (o LookupServiceResultOutput) CustomDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.CustomDomainName }).(pulumi.StringOutput)
 }
 
-// DNS name of the service.
+// List of objects with DNS names.
 func (o LookupServiceResultOutput) DnsEntries() GetServiceDnsEntryArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceDnsEntry { return v.DnsEntries }).(GetServiceDnsEntryArrayOutput)
 }

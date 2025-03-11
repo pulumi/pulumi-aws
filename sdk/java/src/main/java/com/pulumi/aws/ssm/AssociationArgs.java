@@ -100,10 +100,10 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
      * 
      * @deprecated
-     * use &#39;targets&#39; argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
+     * instance_id is deprecated. Use targets instead.
      * 
      */
-    @Deprecated /* use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId */
+    @Deprecated /* instance_id is deprecated. Use targets instead. */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
@@ -111,10 +111,10 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
      * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
      * 
      * @deprecated
-     * use &#39;targets&#39; argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
+     * instance_id is deprecated. Use targets instead.
      * 
      */
-    @Deprecated /* use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId */
+    @Deprecated /* instance_id is deprecated. Use targets instead. */
     public Optional<Output<String>> instanceId() {
         return Optional.ofNullable(this.instanceId);
     }
@@ -423,10 +423,10 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * use &#39;targets&#39; argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
+         * instance_id is deprecated. Use targets instead.
          * 
          */
-        @Deprecated /* use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId */
+        @Deprecated /* instance_id is deprecated. Use targets instead. */
         public Builder instanceId(@Nullable Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
@@ -438,10 +438,10 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * use &#39;targets&#39; argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
+         * instance_id is deprecated. Use targets instead.
          * 
          */
-        @Deprecated /* use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId */
+        @Deprecated /* instance_id is deprecated. Use targets instead. */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }

@@ -77,6 +77,10 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The origin request policy ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Comment to describe the origin request policy.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
@@ -114,6 +118,7 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OriginRequestPolicyState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["cookiesConfig"] = state ? state.cookiesConfig : undefined;
             resourceInputs["etag"] = state ? state.etag : undefined;
@@ -136,6 +141,7 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
             resourceInputs["headersConfig"] = args ? args.headersConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["queryStringsConfig"] = args ? args.queryStringsConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -147,6 +153,10 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OriginRequestPolicy resources.
  */
 export interface OriginRequestPolicyState {
+    /**
+     * The origin request policy ARN.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Comment to describe the origin request policy.
      */

@@ -111,7 +111,7 @@ export class Instance extends pulumi.CustomResource {
     }
 
     /**
-     * The add on configuration for the instance. Detailed below.
+     * The add-on configuration for the instance. Detailed below.
      */
     public readonly addOn!: pulumi.Output<outputs.lightsail.InstanceAddOn | undefined>;
     /**
@@ -145,7 +145,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
@@ -269,7 +269,7 @@ export class Instance extends pulumi.CustomResource {
  */
 export interface InstanceState {
     /**
-     * The add on configuration for the instance. Detailed below.
+     * The add-on configuration for the instance. Detailed below.
      */
     addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn>;
     /**
@@ -303,7 +303,7 @@ export interface InstanceState {
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
      */
     ipAddressType?: pulumi.Input<string>;
     /**
@@ -360,7 +360,7 @@ export interface InstanceState {
  */
 export interface InstanceArgs {
     /**
-     * The add on configuration for the instance. Detailed below.
+     * The add-on configuration for the instance. Detailed below.
      */
     addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn>;
     /**
@@ -382,7 +382,7 @@ export interface InstanceArgs {
      */
     bundleId: pulumi.Input<string>;
     /**
-     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
      */
     ipAddressType?: pulumi.Input<string>;
     /**

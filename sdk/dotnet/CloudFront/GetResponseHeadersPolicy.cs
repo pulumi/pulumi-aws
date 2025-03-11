@@ -196,6 +196,10 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetResponseHeadersPolicyResult
     {
         /// <summary>
+        /// The response headers policy ARN.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         /// </summary>
         public readonly string Comment;
@@ -228,6 +232,8 @@ namespace Pulumi.Aws.CloudFront
 
         [OutputConstructor]
         private GetResponseHeadersPolicyResult(
+            string arn,
+
             string comment,
 
             ImmutableArray<Outputs.GetResponseHeadersPolicyCorsConfigResult> corsConfigs,
@@ -246,6 +252,7 @@ namespace Pulumi.Aws.CloudFront
 
             ImmutableArray<Outputs.GetResponseHeadersPolicyServerTimingHeadersConfigResult> serverTimingHeadersConfigs)
         {
+            Arn = arn;
             Comment = comment;
             CorsConfigs = corsConfigs;
             CustomHeadersConfigs = customHeadersConfigs;

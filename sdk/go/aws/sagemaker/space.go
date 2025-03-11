@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Space resource.
+// Provides a SageMaker AI Space resource.
 //
 // ## Example Usage
 //
@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SageMaker Spaces using the `id`. For example:
+// Using `pulumi import`, import SageMaker AI Spaces using the `id`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
@@ -61,7 +61,7 @@ type Space struct {
 	HomeEfsFileSystemUid pulumi.StringOutput `pulumi:"homeEfsFileSystemUid"`
 	// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
 	OwnershipSettings SpaceOwnershipSettingsPtrOutput `pulumi:"ownershipSettings"`
-	// The name of the space that appears in the SageMaker Studio UI.
+	// The name of the space that appears in the SageMaker AI Studio UI.
 	SpaceDisplayName pulumi.StringPtrOutput `pulumi:"spaceDisplayName"`
 	// The name of the space.
 	SpaceName pulumi.StringOutput `pulumi:"spaceName"`
@@ -123,7 +123,7 @@ type spaceState struct {
 	HomeEfsFileSystemUid *string `pulumi:"homeEfsFileSystemUid"`
 	// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
 	OwnershipSettings *SpaceOwnershipSettings `pulumi:"ownershipSettings"`
-	// The name of the space that appears in the SageMaker Studio UI.
+	// The name of the space that appears in the SageMaker AI Studio UI.
 	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
 	// The name of the space.
 	SpaceName *string `pulumi:"spaceName"`
@@ -150,7 +150,7 @@ type SpaceState struct {
 	HomeEfsFileSystemUid pulumi.StringPtrInput
 	// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
 	OwnershipSettings SpaceOwnershipSettingsPtrInput
-	// The name of the space that appears in the SageMaker Studio UI.
+	// The name of the space that appears in the SageMaker AI Studio UI.
 	SpaceDisplayName pulumi.StringPtrInput
 	// The name of the space.
 	SpaceName pulumi.StringPtrInput
@@ -177,7 +177,7 @@ type spaceArgs struct {
 	DomainId string `pulumi:"domainId"`
 	// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
 	OwnershipSettings *SpaceOwnershipSettings `pulumi:"ownershipSettings"`
-	// The name of the space that appears in the SageMaker Studio UI.
+	// The name of the space that appears in the SageMaker AI Studio UI.
 	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
 	// The name of the space.
 	SpaceName string `pulumi:"spaceName"`
@@ -195,7 +195,7 @@ type SpaceArgs struct {
 	DomainId pulumi.StringInput
 	// A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
 	OwnershipSettings SpaceOwnershipSettingsPtrInput
-	// The name of the space that appears in the SageMaker Studio UI.
+	// The name of the space that appears in the SageMaker AI Studio UI.
 	SpaceDisplayName pulumi.StringPtrInput
 	// The name of the space.
 	SpaceName pulumi.StringInput
@@ -314,7 +314,7 @@ func (o SpaceOutput) OwnershipSettings() SpaceOwnershipSettingsPtrOutput {
 	return o.ApplyT(func(v *Space) SpaceOwnershipSettingsPtrOutput { return v.OwnershipSettings }).(SpaceOwnershipSettingsPtrOutput)
 }
 
-// The name of the space that appears in the SageMaker Studio UI.
+// The name of the space that appears in the SageMaker AI Studio UI.
 func (o SpaceOutput) SpaceDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringPtrOutput { return v.SpaceDisplayName }).(pulumi.StringPtrOutput)
 }

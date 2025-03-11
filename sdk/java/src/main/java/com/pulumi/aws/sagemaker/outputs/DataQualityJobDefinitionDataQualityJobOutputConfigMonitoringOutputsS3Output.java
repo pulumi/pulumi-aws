@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output {
     /**
-     * @return The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
+     * @return The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
      * 
      */
     private @Nullable String localPath;
@@ -23,14 +23,14 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
      */
     private @Nullable String s3UploadMode;
     /**
-     * @return A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
+     * @return A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
      * 
      */
     private String s3Uri;
 
     private DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output() {}
     /**
-     * @return The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
+     * @return The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
      * 
      */
     public Optional<String> localPath() {
@@ -44,7 +44,7 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
         return Optional.ofNullable(this.s3UploadMode);
     }
     /**
-     * @return A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
+     * @return A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
      * 
      */
     public String s3Uri() {

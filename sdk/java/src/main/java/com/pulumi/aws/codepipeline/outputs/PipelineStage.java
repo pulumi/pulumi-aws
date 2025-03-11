@@ -4,11 +4,16 @@
 package com.pulumi.aws.codepipeline.outputs;
 
 import com.pulumi.aws.codepipeline.outputs.PipelineStageAction;
+import com.pulumi.aws.codepipeline.outputs.PipelineStageBeforeEntry;
+import com.pulumi.aws.codepipeline.outputs.PipelineStageOnFailure;
+import com.pulumi.aws.codepipeline.outputs.PipelineStageOnSuccess;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineStage {
@@ -18,10 +23,25 @@ public final class PipelineStage {
      */
     private List<PipelineStageAction> actions;
     /**
+     * @return The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+     * 
+     */
+    private @Nullable PipelineStageBeforeEntry beforeEntry;
+    /**
      * @return The name of the stage.
      * 
      */
     private String name;
+    /**
+     * @return The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+     * 
+     */
+    private @Nullable PipelineStageOnFailure onFailure;
+    /**
+     * @return The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+     * 
+     */
+    private @Nullable PipelineStageOnSuccess onSuccess;
 
     private PipelineStage() {}
     /**
@@ -32,11 +52,32 @@ public final class PipelineStage {
         return this.actions;
     }
     /**
+     * @return The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+     * 
+     */
+    public Optional<PipelineStageBeforeEntry> beforeEntry() {
+        return Optional.ofNullable(this.beforeEntry);
+    }
+    /**
      * @return The name of the stage.
      * 
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+     * 
+     */
+    public Optional<PipelineStageOnFailure> onFailure() {
+        return Optional.ofNullable(this.onFailure);
+    }
+    /**
+     * @return The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+     * 
+     */
+    public Optional<PipelineStageOnSuccess> onSuccess() {
+        return Optional.ofNullable(this.onSuccess);
     }
 
     public static Builder builder() {
@@ -49,12 +90,18 @@ public final class PipelineStage {
     @CustomType.Builder
     public static final class Builder {
         private List<PipelineStageAction> actions;
+        private @Nullable PipelineStageBeforeEntry beforeEntry;
         private String name;
+        private @Nullable PipelineStageOnFailure onFailure;
+        private @Nullable PipelineStageOnSuccess onSuccess;
         public Builder() {}
         public Builder(PipelineStage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
+    	      this.beforeEntry = defaults.beforeEntry;
     	      this.name = defaults.name;
+    	      this.onFailure = defaults.onFailure;
+    	      this.onSuccess = defaults.onSuccess;
         }
 
         @CustomType.Setter
@@ -69,6 +116,12 @@ public final class PipelineStage {
             return actions(List.of(actions));
         }
         @CustomType.Setter
+        public Builder beforeEntry(@Nullable PipelineStageBeforeEntry beforeEntry) {
+
+            this.beforeEntry = beforeEntry;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("PipelineStage", "name");
@@ -76,10 +129,25 @@ public final class PipelineStage {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder onFailure(@Nullable PipelineStageOnFailure onFailure) {
+
+            this.onFailure = onFailure;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder onSuccess(@Nullable PipelineStageOnSuccess onSuccess) {
+
+            this.onSuccess = onSuccess;
+            return this;
+        }
         public PipelineStage build() {
             final var _resultValue = new PipelineStage();
             _resultValue.actions = actions;
+            _resultValue.beforeEntry = beforeEntry;
             _resultValue.name = name;
+            _resultValue.onFailure = onFailure;
+            _resultValue.onSuccess = onSuccess;
             return _resultValue;
         }
     }

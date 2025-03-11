@@ -168,14 +168,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lightsail/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
     /**
-     * The add on configuration for the instance. Detailed below.
+     * The add-on configuration for the instance. Detailed below.
      * 
      */
     @Export(name="addOn", refs={InstanceAddOn.class}, tree="[0]")
     private Output</* @Nullable */ InstanceAddOn> addOn;
 
     /**
-     * @return The add on configuration for the instance. Detailed below.
+     * @return The add-on configuration for the instance. Detailed below.
      * 
      */
     public Output<Optional<InstanceAddOn>> addOn() {
@@ -278,14 +278,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
-     * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddressType;
 
     /**
-     * @return The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+     * @return The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
      * 
      */
     public Output<Optional<String>> ipAddressType() {

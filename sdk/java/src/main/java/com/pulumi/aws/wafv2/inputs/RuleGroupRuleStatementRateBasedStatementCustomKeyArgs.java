@@ -8,6 +8,8 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCusto
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs;
@@ -99,6 +101,36 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
+     * (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    @Import(name="ja3Fingerprint")
+    private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs> ja3Fingerprint;
+
+    /**
+     * @return (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs>> ja3Fingerprint() {
+        return Optional.ofNullable(this.ja3Fingerprint);
+    }
+
+    /**
+     * (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    @Import(name="ja4Fingerprint")
+    private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs> ja4Fingerprint;
+
+    /**
+     * @return (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs>> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
+    }
+
+    /**
      * (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
      * 
      */
@@ -166,6 +198,8 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         this.header = $.header;
         this.httpMethod = $.httpMethod;
         this.ip = $.ip;
+        this.ja3Fingerprint = $.ja3Fingerprint;
+        this.ja4Fingerprint = $.ja4Fingerprint;
         this.labelNamespace = $.labelNamespace;
         this.queryArgument = $.queryArgument;
         this.queryString = $.queryString;
@@ -293,6 +327,48 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
          */
         public Builder ip(RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs ip) {
             return ip(Output.of(ip));
+        }
+
+        /**
+         * @param ja3Fingerprint (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja3Fingerprint(@Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs> ja3Fingerprint) {
+            $.ja3Fingerprint = ja3Fingerprint;
+            return this;
+        }
+
+        /**
+         * @param ja3Fingerprint (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja3Fingerprint(RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs ja3Fingerprint) {
+            return ja3Fingerprint(Output.of(ja3Fingerprint));
+        }
+
+        /**
+         * @param ja4Fingerprint (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja4Fingerprint(@Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs> ja4Fingerprint) {
+            $.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+
+        /**
+         * @param ja4Fingerprint (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja4Fingerprint(RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs ja4Fingerprint) {
+            return ja4Fingerprint(Output.of(ja4Fingerprint));
         }
 
         /**

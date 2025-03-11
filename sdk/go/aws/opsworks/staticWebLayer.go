@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an OpsWorks static web server layer resource.
-//
 // ## Example Usage
 //
 // ```go

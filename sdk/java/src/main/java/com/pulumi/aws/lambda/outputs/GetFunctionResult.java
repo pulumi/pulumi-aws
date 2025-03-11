@@ -153,10 +153,10 @@ public final class GetFunctionResult {
      * @return (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
      * 
      * @deprecated
-     * This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead.
+     * source_code_hash is deprecated. Use code_sha256 instead.
      * 
      */
-    @Deprecated /* This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead. */
+    @Deprecated /* source_code_hash is deprecated. Use code_sha256 instead. */
     private String sourceCodeHash;
     /**
      * @return Size in bytes of the function .zip file.
@@ -371,10 +371,10 @@ public final class GetFunctionResult {
      * @return (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
      * 
      * @deprecated
-     * This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead.
+     * source_code_hash is deprecated. Use code_sha256 instead.
      * 
      */
-    @Deprecated /* This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead. */
+    @Deprecated /* source_code_hash is deprecated. Use code_sha256 instead. */
     public String sourceCodeHash() {
         return this.sourceCodeHash;
     }

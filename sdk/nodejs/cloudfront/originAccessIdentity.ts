@@ -109,6 +109,10 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
     }
 
     /**
+     * The origin access identity ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Internal value used by CloudFront to allow future
      * updates to the origin access identity.
      */
@@ -153,6 +157,7 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OriginAccessIdentityState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["callerReference"] = state ? state.callerReference : undefined;
             resourceInputs["cloudfrontAccessIdentityPath"] = state ? state.cloudfrontAccessIdentityPath : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
@@ -162,6 +167,7 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
         } else {
             const args = argsOrState as OriginAccessIdentityArgs | undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["callerReference"] = undefined /*out*/;
             resourceInputs["cloudfrontAccessIdentityPath"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -177,6 +183,10 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OriginAccessIdentity resources.
  */
 export interface OriginAccessIdentityState {
+    /**
+     * The origin access identity ARN.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Internal value used by CloudFront to allow future
      * updates to the origin access identity.

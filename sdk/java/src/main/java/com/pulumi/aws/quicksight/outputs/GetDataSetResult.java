@@ -43,10 +43,10 @@ public final class GetDataSetResult {
     private Map<String,String> tags;
     /**
      * @deprecated
-     * this attribute has been deprecated
+     * tags_all is deprecated. This argument will be removed in a future major version.
      * 
      */
-    @Deprecated /* this attribute has been deprecated */
+    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
     private Map<String,String> tagsAll;
 
     private GetDataSetResult() {}
@@ -104,10 +104,10 @@ public final class GetDataSetResult {
     }
     /**
      * @deprecated
-     * this attribute has been deprecated
+     * tags_all is deprecated. This argument will be removed in a future major version.
      * 
      */
-    @Deprecated /* this attribute has been deprecated */
+    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
     public Map<String,String> tagsAll() {
         return this.tagsAll;
     }

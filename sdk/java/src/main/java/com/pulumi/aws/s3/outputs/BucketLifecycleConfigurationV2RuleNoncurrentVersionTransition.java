@@ -22,7 +22,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
      * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action.
      * 
      */
-    private @Nullable Integer noncurrentDays;
+    private Integer noncurrentDays;
     /**
      * @return Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
      * 
@@ -41,8 +41,8 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
      * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action.
      * 
      */
-    public Optional<Integer> noncurrentDays() {
-        return Optional.ofNullable(this.noncurrentDays);
+    public Integer noncurrentDays() {
+        return this.noncurrentDays;
     }
     /**
      * @return Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
@@ -62,7 +62,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer newerNoncurrentVersions;
-        private @Nullable Integer noncurrentDays;
+        private Integer noncurrentDays;
         private String storageClass;
         public Builder() {}
         public Builder(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition defaults) {
@@ -79,8 +79,10 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
             return this;
         }
         @CustomType.Setter
-        public Builder noncurrentDays(@Nullable Integer noncurrentDays) {
-
+        public Builder noncurrentDays(Integer noncurrentDays) {
+            if (noncurrentDays == null) {
+              throw new MissingRequiredPropertyException("BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition", "noncurrentDays");
+            }
             this.noncurrentDays = noncurrentDays;
             return this;
         }

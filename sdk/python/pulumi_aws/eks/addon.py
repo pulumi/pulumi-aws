@@ -71,8 +71,8 @@ class AddonArgs:
         if preserve is not None:
             pulumi.set(__self__, "preserve", preserve)
         if resolve_conflicts is not None:
-            warnings.warn("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""", DeprecationWarning)
-            pulumi.log.warn("""resolve_conflicts is deprecated: The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
+            warnings.warn("""resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to \"PRESERVE\" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead.""", DeprecationWarning)
+            pulumi.log.warn("""resolve_conflicts is deprecated: resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to \"PRESERVE\" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead.""")
         if resolve_conflicts is not None:
             pulumi.set(__self__, "resolve_conflicts", resolve_conflicts)
         if resolve_conflicts_on_create is not None:
@@ -162,7 +162,7 @@ class AddonArgs:
 
     @property
     @pulumi.getter(name="resolveConflicts")
-    @_utilities.deprecated("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
+    @_utilities.deprecated("""resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to \"PRESERVE\" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead.""")
     def resolve_conflicts(self) -> Optional[pulumi.Input[str]]:
         """
         Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
@@ -301,8 +301,8 @@ class _AddonState:
         if preserve is not None:
             pulumi.set(__self__, "preserve", preserve)
         if resolve_conflicts is not None:
-            warnings.warn("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""", DeprecationWarning)
-            pulumi.log.warn("""resolve_conflicts is deprecated: The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
+            warnings.warn("""resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to \"PRESERVE\" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead.""", DeprecationWarning)
+            pulumi.log.warn("""resolve_conflicts is deprecated: resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to \"PRESERVE\" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead.""")
         if resolve_conflicts is not None:
             pulumi.set(__self__, "resolve_conflicts", resolve_conflicts)
         if resolve_conflicts_on_create is not None:
@@ -433,7 +433,7 @@ class _AddonState:
 
     @property
     @pulumi.getter(name="resolveConflicts")
-    @_utilities.deprecated("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
+    @_utilities.deprecated("""resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to \"PRESERVE\" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead.""")
     def resolve_conflicts(self) -> Optional[pulumi.Input[str]]:
         """
         Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
@@ -928,7 +928,7 @@ class Addon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resolveConflicts")
-    @_utilities.deprecated("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
+    @_utilities.deprecated("""resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to \"PRESERVE\" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead.""")
     def resolve_conflicts(self) -> pulumi.Output[Optional[str]]:
         """
         Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.

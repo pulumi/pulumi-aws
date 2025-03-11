@@ -207,7 +207,7 @@ type Environment struct {
 	DatabaseVpcEndpointService pulumi.StringOutput `pulumi:"databaseVpcEndpointService"`
 	// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
 	EndpointManagement pulumi.StringOutput `pulumi:"endpointManagement"`
-	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+	// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass pulumi.StringOutput `pulumi:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
@@ -216,11 +216,11 @@ type Environment struct {
 	LastUpdateds EnvironmentLastUpdatedArrayOutput `pulumi:"lastUpdateds"`
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 	LoggingConfiguration EnvironmentLoggingConfigurationOutput `pulumi:"loggingConfiguration"`
-	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
 	MaxWebservers pulumi.IntOutput `pulumi:"maxWebservers"`
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
 	MaxWorkers pulumi.IntOutput `pulumi:"maxWorkers"`
-	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
 	MinWebservers pulumi.IntOutput `pulumi:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers pulumi.IntOutput `pulumi:"minWorkers"`
@@ -328,7 +328,7 @@ type environmentState struct {
 	DatabaseVpcEndpointService *string `pulumi:"databaseVpcEndpointService"`
 	// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
 	EndpointManagement *string `pulumi:"endpointManagement"`
-	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+	// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass *string `pulumi:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
@@ -337,11 +337,11 @@ type environmentState struct {
 	LastUpdateds []EnvironmentLastUpdated `pulumi:"lastUpdateds"`
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 	LoggingConfiguration *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
-	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
 	MaxWebservers *int `pulumi:"maxWebservers"`
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
 	MaxWorkers *int `pulumi:"maxWorkers"`
-	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
 	MinWebservers *int `pulumi:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers *int `pulumi:"minWorkers"`
@@ -401,7 +401,7 @@ type EnvironmentState struct {
 	DatabaseVpcEndpointService pulumi.StringPtrInput
 	// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
 	EndpointManagement pulumi.StringPtrInput
-	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+	// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
 	ExecutionRoleArn pulumi.StringPtrInput
@@ -410,11 +410,11 @@ type EnvironmentState struct {
 	LastUpdateds EnvironmentLastUpdatedArrayInput
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 	LoggingConfiguration EnvironmentLoggingConfigurationPtrInput
-	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
 	MaxWebservers pulumi.IntPtrInput
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
 	MaxWorkers pulumi.IntPtrInput
-	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
 	MinWebservers pulumi.IntPtrInput
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers pulumi.IntPtrInput
@@ -471,7 +471,7 @@ type environmentArgs struct {
 	DagS3Path string `pulumi:"dagS3Path"`
 	// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
 	EndpointManagement *string `pulumi:"endpointManagement"`
-	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+	// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass *string `pulumi:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
@@ -479,11 +479,11 @@ type environmentArgs struct {
 	KmsKey *string `pulumi:"kmsKey"`
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 	LoggingConfiguration *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
-	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
 	MaxWebservers *int `pulumi:"maxWebservers"`
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
 	MaxWorkers *int `pulumi:"maxWorkers"`
-	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
 	MinWebservers *int `pulumi:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers *int `pulumi:"minWorkers"`
@@ -525,7 +525,7 @@ type EnvironmentArgs struct {
 	DagS3Path pulumi.StringInput
 	// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
 	EndpointManagement pulumi.StringPtrInput
-	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+	// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
 	ExecutionRoleArn pulumi.StringInput
@@ -533,11 +533,11 @@ type EnvironmentArgs struct {
 	KmsKey pulumi.StringPtrInput
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 	LoggingConfiguration EnvironmentLoggingConfigurationPtrInput
-	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
 	MaxWebservers pulumi.IntPtrInput
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
 	MaxWorkers pulumi.IntPtrInput
-	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+	// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
 	MinWebservers pulumi.IntPtrInput
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers pulumi.IntPtrInput
@@ -692,7 +692,7 @@ func (o EnvironmentOutput) EndpointManagement() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EndpointManagement }).(pulumi.StringOutput)
 }
 
-// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 func (o EnvironmentOutput) EnvironmentClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentClass }).(pulumi.StringOutput)
 }
@@ -716,7 +716,7 @@ func (o EnvironmentOutput) LoggingConfiguration() EnvironmentLoggingConfiguratio
 	return o.ApplyT(func(v *Environment) EnvironmentLoggingConfigurationOutput { return v.LoggingConfiguration }).(EnvironmentLoggingConfigurationOutput)
 }
 
-// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
 func (o EnvironmentOutput) MaxWebservers() pulumi.IntOutput {
 	return o.ApplyT(func(v *Environment) pulumi.IntOutput { return v.MaxWebservers }).(pulumi.IntOutput)
 }
@@ -726,7 +726,7 @@ func (o EnvironmentOutput) MaxWorkers() pulumi.IntOutput {
 	return o.ApplyT(func(v *Environment) pulumi.IntOutput { return v.MaxWorkers }).(pulumi.IntOutput)
 }
 
-// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
 func (o EnvironmentOutput) MinWebservers() pulumi.IntOutput {
 	return o.ApplyT(func(v *Environment) pulumi.IntOutput { return v.MinWebservers }).(pulumi.IntOutput)
 }

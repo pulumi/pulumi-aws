@@ -95,7 +95,7 @@ class GetServiceResult:
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> Sequence['outputs.GetServiceDnsEntryResult']:
         """
-        DNS name of the service.
+        List of objects with DNS names.
         """
         return pulumi.get(self, "dns_entries")
 

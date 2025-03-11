@@ -16,14 +16,14 @@ public final class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings
     public static final UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs Empty = new UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+     * The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
      * 
      */
     @Import(name="crossAccountModelRegisterRoleArn")
     private @Nullable Output<String> crossAccountModelRegisterRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+     * @return The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
      * 
      */
     public Optional<Output<String>> crossAccountModelRegisterRoleArn() {
@@ -71,7 +71,7 @@ public final class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings
         }
 
         /**
-         * @param crossAccountModelRegisterRoleArn The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+         * @param crossAccountModelRegisterRoleArn The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings
         }
 
         /**
-         * @param crossAccountModelRegisterRoleArn The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+         * @param crossAccountModelRegisterRoleArn The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
          * 
          * @return builder
          * 

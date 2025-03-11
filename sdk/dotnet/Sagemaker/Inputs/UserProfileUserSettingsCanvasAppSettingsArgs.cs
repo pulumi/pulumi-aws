@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class UserProfileUserSettingsCanvasAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        /// The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
         /// </summary>
         [Input("directDeploySettings")]
         public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs>? DirectDeploySettings { get; set; }
 
         /// <summary>
-        /// The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+        /// The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
         /// </summary>
         [Input("emrServerlessSettings")]
         public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs>? EmrServerlessSettings { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs>? KendraSettings { get; set; }
 
         /// <summary>
-        /// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        /// The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
         /// </summary>
         [Input("modelRegisterSettings")]
         public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs>? ModelRegisterSettings { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs>? TimeSeriesForecastingSettings { get; set; }
 
         /// <summary>
-        /// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        /// The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
         /// </summary>
         [Input("workspaceSettings")]
         public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs>? WorkspaceSettings { get; set; }

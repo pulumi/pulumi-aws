@@ -317,10 +317,10 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * use &#39;associated_gateway_id&#39; argument instead
+     * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
      * 
      */
-    @Deprecated /* use 'associated_gateway_id' argument instead */
+    @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
     @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpnGatewayId;
 

@@ -9037,7 +9037,9 @@ type GetTaskExecutionOverrides struct {
 	Cpu *string `pulumi:"cpu"`
 	// Amazon Resource Name (ARN) of the task execution role override for the task.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// Elastic Inference accelerator override for the task. See below.
+	// **DEPRECATED** Elastic Inference accelerator override for the task. See below.
+	//
+	// Deprecated: inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
 	InferenceAcceleratorOverrides []GetTaskExecutionOverridesInferenceAcceleratorOverride `pulumi:"inferenceAcceleratorOverrides"`
 	// The memory override for the task.
 	Memory *string `pulumi:"memory"`
@@ -9063,7 +9065,9 @@ type GetTaskExecutionOverridesArgs struct {
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
 	// Amazon Resource Name (ARN) of the task execution role override for the task.
 	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
-	// Elastic Inference accelerator override for the task. See below.
+	// **DEPRECATED** Elastic Inference accelerator override for the task. See below.
+	//
+	// Deprecated: inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
 	InferenceAcceleratorOverrides GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayInput `pulumi:"inferenceAcceleratorOverrides"`
 	// The memory override for the task.
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
@@ -9165,7 +9169,9 @@ func (o GetTaskExecutionOverridesOutput) ExecutionRoleArn() pulumi.StringPtrOutp
 	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Elastic Inference accelerator override for the task. See below.
+// **DEPRECATED** Elastic Inference accelerator override for the task. See below.
+//
+// Deprecated: inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
 func (o GetTaskExecutionOverridesOutput) InferenceAcceleratorOverrides() GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverrides) []GetTaskExecutionOverridesInferenceAcceleratorOverride {
 		return v.InferenceAcceleratorOverrides
@@ -9236,7 +9242,9 @@ func (o GetTaskExecutionOverridesPtrOutput) ExecutionRoleArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Elastic Inference accelerator override for the task. See below.
+// **DEPRECATED** Elastic Inference accelerator override for the task. See below.
+//
+// Deprecated: inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
 func (o GetTaskExecutionOverridesPtrOutput) InferenceAcceleratorOverrides() GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
 	return o.ApplyT(func(v *GetTaskExecutionOverrides) []GetTaskExecutionOverridesInferenceAcceleratorOverride {
 		if v == nil {

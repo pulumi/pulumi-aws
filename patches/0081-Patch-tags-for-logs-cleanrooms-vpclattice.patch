@@ -18,7 +18,7 @@ index ee4f03039e..991000a637 100644
  				CustomType: timetypes.RFC3339Type{},
  				Computed:   true,
 diff --git a/internal/service/logs/delivery.go b/internal/service/logs/delivery.go
-index d749138f74..24b91ea5ea 100644
+index d749138f74..29e6891331 100644
 --- a/internal/service/logs/delivery.go
 +++ b/internal/service/logs/delivery.go
 @@ -93,7 +93,7 @@ func (r *deliveryResource) Schema(ctx context.Context, request resource.SchemaRe
@@ -26,7 +26,7 @@ index d749138f74..24b91ea5ea 100644
  			"s3_delivery_configuration": framework.ResourceOptionalComputedListOfObjectsAttribute[s3DeliveryConfigurationModel](ctx, 1, s3DeliveryConfigurationListOptions, listplanmodifier.UseStateForUnknown()),
  			names.AttrTags:              tftags.TagsAttribute(),
 -			names.AttrTagsAll:           tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll:           tftags.TagsAttribute(),
  		},
  	}
  }

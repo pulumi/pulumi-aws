@@ -198,15 +198,19 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ebsOptimized);
     }
     /**
-     * The elastic GPU to attach to the instance. See Elastic GPU
+     * **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
      * 
+     * @deprecated
+     * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
+     * 
      */
+    @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
     @Export(name="elasticGpuSpecifications", refs={List.class,LaunchTemplateElasticGpuSpecification.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LaunchTemplateElasticGpuSpecification>> elasticGpuSpecifications;
 
     /**
-     * @return The elastic GPU to attach to the instance. See Elastic GPU
+     * @return **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
      * 
      */
@@ -214,14 +218,18 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.elasticGpuSpecifications);
     }
     /**
-     * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     * **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     * 
+     * @deprecated
+     * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
      * 
      */
+    @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
     @Export(name="elasticInferenceAccelerator", refs={LaunchTemplateElasticInferenceAccelerator.class}, tree="[0]")
     private Output</* @Nullable */ LaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerator;
 
     /**
-     * @return Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     * @return **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
      * 
      */
     public Output<Optional<LaunchTemplateElasticInferenceAccelerator>> elasticInferenceAccelerator() {

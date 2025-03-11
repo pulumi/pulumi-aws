@@ -115,7 +115,7 @@ def get_prebuilt_ecr_image(dns_suffix: Optional[str] = None,
                            repository_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrebuiltEcrImageResult:
     """
-    Get information about prebuilt Amazon SageMaker Docker images.
+    Get information about prebuilt Amazon SageMaker AI  Docker images.
 
     > **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
 
@@ -159,7 +159,7 @@ def get_prebuilt_ecr_image_output(dns_suffix: Optional[pulumi.Input[Optional[str
                                   repository_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrebuiltEcrImageResult]:
     """
-    Get information about prebuilt Amazon SageMaker Docker images.
+    Get information about prebuilt Amazon SageMaker AI  Docker images.
 
     > **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
 

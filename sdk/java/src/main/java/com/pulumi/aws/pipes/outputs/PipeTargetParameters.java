@@ -68,7 +68,7 @@ public final class PipeTargetParameters {
      */
     private @Nullable PipeTargetParametersRedshiftDataParameters redshiftDataParameters;
     /**
-     * @return The parameters for using a SageMaker pipeline as a target. Detailed below.
+     * @return The parameters for using a SageMaker AI pipeline as a target. Detailed below.
      * 
      */
     private @Nullable PipeTargetParametersSagemakerPipelineParameters sagemakerPipelineParameters;
@@ -148,7 +148,7 @@ public final class PipeTargetParameters {
         return Optional.ofNullable(this.redshiftDataParameters);
     }
     /**
-     * @return The parameters for using a SageMaker pipeline as a target. Detailed below.
+     * @return The parameters for using a SageMaker AI pipeline as a target. Detailed below.
      * 
      */
     public Optional<PipeTargetParametersSagemakerPipelineParameters> sagemakerPipelineParameters() {

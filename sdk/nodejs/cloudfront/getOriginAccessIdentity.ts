@@ -42,6 +42,10 @@ export interface GetOriginAccessIdentityArgs {
  */
 export interface GetOriginAccessIdentityResult {
     /**
+     * The origin access identity ARN.
+     */
+    readonly arn: string;
+    /**
      * Internal value used by CloudFront to allow future
      * updates to the origin access identity.
      */

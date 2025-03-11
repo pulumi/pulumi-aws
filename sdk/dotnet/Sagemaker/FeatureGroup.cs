@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker Feature Group resource.
+    /// Provides a SageMaker AI Feature Group resource.
     /// 
     /// ## Example Usage
     /// 

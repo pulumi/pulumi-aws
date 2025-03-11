@@ -92,6 +92,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/originRequestPolicy:OriginRequestPolicy")
 public class OriginRequestPolicy extends com.pulumi.resources.CustomResource {
     /**
+     * The origin request policy ARN.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The origin request policy ARN.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * Comment to describe the origin request policy.
      * 
      */

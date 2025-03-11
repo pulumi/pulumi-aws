@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
     /**
-     * @return The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+     * @return The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
      * 
      */
     private @Nullable String instanceType;
@@ -22,12 +22,12 @@ public final class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResou
      */
     private @Nullable String lifecycleConfigArn;
     /**
-     * @return The ARN of the SageMaker image that the image version belongs to.
+     * @return The ARN of the SageMaker AI image that the image version belongs to.
      * 
      */
     private @Nullable String sagemakerImageArn;
     /**
-     * @return The SageMaker Image Version Alias.
+     * @return The SageMaker AI Image Version Alias.
      * 
      */
     private @Nullable String sagemakerImageVersionAlias;
@@ -39,7 +39,7 @@ public final class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResou
 
     private DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec() {}
     /**
-     * @return The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+     * @return The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
      * 
      */
     public Optional<String> instanceType() {
@@ -53,14 +53,14 @@ public final class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResou
         return Optional.ofNullable(this.lifecycleConfigArn);
     }
     /**
-     * @return The ARN of the SageMaker image that the image version belongs to.
+     * @return The ARN of the SageMaker AI image that the image version belongs to.
      * 
      */
     public Optional<String> sagemakerImageArn() {
         return Optional.ofNullable(this.sagemakerImageArn);
     }
     /**
-     * @return The SageMaker Image Version Alias.
+     * @return The SageMaker AI Image Version Alias.
      * 
      */
     public Optional<String> sagemakerImageVersionAlias() {

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.UserProfileUserSettingsCustomFileSystemConfigArgs>? _customFileSystemConfigs;
 
         /// <summary>
-        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
         /// </summary>
         public InputList<Inputs.UserProfileUserSettingsCustomFileSystemConfigArgs> CustomFileSystemConfigs
         {

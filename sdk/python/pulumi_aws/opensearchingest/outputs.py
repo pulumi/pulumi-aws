@@ -231,6 +231,8 @@ class PipelineVpcOptions(dict):
             suggest = "subnet_ids"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
+        elif key == "vpcEndpointManagement":
+            suggest = "vpc_endpoint_management"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PipelineVpcOptions. Access the value via the '{suggest}' property getter instead.")
@@ -245,14 +247,18 @@ class PipelineVpcOptions(dict):
 
     def __init__(__self__, *,
                  subnet_ids: Sequence[str],
-                 security_group_ids: Optional[Sequence[str]] = None):
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 vpc_endpoint_management: Optional[str] = None):
         """
         :param Sequence[str] subnet_ids: A list of subnet IDs associated with the VPC endpoint.
         :param Sequence[str] security_group_ids: A list of security groups associated with the VPC endpoint.
+        :param str vpc_endpoint_management: Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if vpc_endpoint_management is not None:
+            pulumi.set(__self__, "vpc_endpoint_management", vpc_endpoint_management)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -269,5 +275,13 @@ class PipelineVpcOptions(dict):
         A list of security groups associated with the VPC endpoint.
         """
         return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="vpcEndpointManagement")
+    def vpc_endpoint_management(self) -> Optional[str]:
+        """
+        Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+        """
+        return pulumi.get(self, "vpc_endpoint_management")
 
 

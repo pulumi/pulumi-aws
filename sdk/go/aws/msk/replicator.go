@@ -101,7 +101,7 @@ import (
 type Replicator struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+	// ARN of the Replicator.
 	Arn            pulumi.StringOutput `pulumi:"arn"`
 	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
 	// A summary description of the replicator.
@@ -113,8 +113,11 @@ type Replicator struct {
 	// The name of the replicator.
 	ReplicatorName pulumi.StringOutput `pulumi:"replicatorName"`
 	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
-	ServiceExecutionRoleArn pulumi.StringOutput    `pulumi:"serviceExecutionRoleArn"`
-	Tags                    pulumi.StringMapOutput `pulumi:"tags"`
+	ServiceExecutionRoleArn pulumi.StringOutput `pulumi:"serviceExecutionRoleArn"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -161,7 +164,7 @@ func GetReplicator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Replicator resources.
 type replicatorState struct {
-	// ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+	// ARN of the Replicator.
 	Arn            *string `pulumi:"arn"`
 	CurrentVersion *string `pulumi:"currentVersion"`
 	// A summary description of the replicator.
@@ -173,14 +176,17 @@ type replicatorState struct {
 	// The name of the replicator.
 	ReplicatorName *string `pulumi:"replicatorName"`
 	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
-	ServiceExecutionRoleArn *string           `pulumi:"serviceExecutionRoleArn"`
-	Tags                    map[string]string `pulumi:"tags"`
+	ServiceExecutionRoleArn *string `pulumi:"serviceExecutionRoleArn"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ReplicatorState struct {
-	// ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+	// ARN of the Replicator.
 	Arn            pulumi.StringPtrInput
 	CurrentVersion pulumi.StringPtrInput
 	// A summary description of the replicator.
@@ -193,7 +199,10 @@ type ReplicatorState struct {
 	ReplicatorName pulumi.StringPtrInput
 	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
 	ServiceExecutionRoleArn pulumi.StringPtrInput
-	Tags                    pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
@@ -212,8 +221,9 @@ type replicatorArgs struct {
 	// The name of the replicator.
 	ReplicatorName string `pulumi:"replicatorName"`
 	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
-	ServiceExecutionRoleArn string            `pulumi:"serviceExecutionRoleArn"`
-	Tags                    map[string]string `pulumi:"tags"`
+	ServiceExecutionRoleArn string `pulumi:"serviceExecutionRoleArn"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Replicator resource.
@@ -228,7 +238,8 @@ type ReplicatorArgs struct {
 	ReplicatorName pulumi.StringInput
 	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
 	ServiceExecutionRoleArn pulumi.StringInput
-	Tags                    pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ReplicatorArgs) ElementType() reflect.Type {
@@ -318,7 +329,7 @@ func (o ReplicatorOutput) ToReplicatorOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
-// ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+// ARN of the Replicator.
 func (o ReplicatorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Replicator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -352,10 +363,13 @@ func (o ReplicatorOutput) ServiceExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Replicator) pulumi.StringOutput { return v.ServiceExecutionRoleArn }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ReplicatorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Replicator) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
 // Deprecated: Please use `tags` instead.
 func (o ReplicatorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Replicator) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)

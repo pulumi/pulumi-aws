@@ -22,8 +22,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an OpsWorks memcached layer resource.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

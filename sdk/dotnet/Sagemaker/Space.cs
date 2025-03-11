@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker Space resource.
+    /// Provides a SageMaker AI Space resource.
     /// 
     /// ## Example Usage
     /// 
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker Spaces using the `id`. For example:
+    /// Using `pulumi import`, import SageMaker AI Spaces using the `id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.SpaceOwnershipSettings?> OwnershipSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the space that appears in the SageMaker Studio UI.
+        /// The name of the space that appears in the SageMaker AI Studio UI.
         /// </summary>
         [Output("spaceDisplayName")]
         public Output<string?> SpaceDisplayName { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.SpaceOwnershipSettingsArgs>? OwnershipSettings { get; set; }
 
         /// <summary>
-        /// The name of the space that appears in the SageMaker Studio UI.
+        /// The name of the space that appears in the SageMaker AI Studio UI.
         /// </summary>
         [Input("spaceDisplayName")]
         public Input<string>? SpaceDisplayName { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.SpaceOwnershipSettingsGetArgs>? OwnershipSettings { get; set; }
 
         /// <summary>
-        /// The name of the space that appears in the SageMaker Studio UI.
+        /// The name of the space that appears in the SageMaker AI Studio UI.
         /// </summary>
         [Input("spaceDisplayName")]
         public Input<string>? SpaceDisplayName { get; set; }

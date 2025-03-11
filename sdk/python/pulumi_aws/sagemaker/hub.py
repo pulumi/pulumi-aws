@@ -273,7 +273,7 @@ class Hub(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Hub resource.
+        Provides a SageMaker AI Hub resource.
 
         ## Example Usage
 
@@ -290,7 +290,7 @@ class Hub(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Hubs using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI Hubs using the `name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo
@@ -312,7 +312,7 @@ class Hub(pulumi.CustomResource):
                  args: HubArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Hub resource.
+        Provides a SageMaker AI Hub resource.
 
         ## Example Usage
 
@@ -329,7 +329,7 @@ class Hub(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Hubs using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI Hubs using the `name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo

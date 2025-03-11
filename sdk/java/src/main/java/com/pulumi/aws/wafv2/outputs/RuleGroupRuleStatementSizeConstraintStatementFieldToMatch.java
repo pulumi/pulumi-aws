@@ -9,6 +9,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSizeConstraintStatemen
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString;
@@ -48,7 +49,16 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch {
      * 
      */
     private @Nullable List<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader> headers;
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
     private @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -116,8 +126,19 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch {
     public List<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
     public Optional<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
         return Optional.ofNullable(this.ja3Fingerprint);
+    }
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
     }
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
@@ -177,6 +198,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch {
         private @Nullable List<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader> headers;
         private @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+        private @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
         private @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
         private @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod method;
         private @Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString queryString;
@@ -192,6 +214,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch {
     	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
+    	      this.ja4Fingerprint = defaults.ja4Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -243,6 +266,12 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch {
             return this;
         }
         @CustomType.Setter
+        public Builder ja4Fingerprint(@Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint ja4Fingerprint) {
+
+            this.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder jsonBody(@Nullable RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody) {
 
             this.jsonBody = jsonBody;
@@ -286,6 +315,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch {
             _resultValue.headerOrders = headerOrders;
             _resultValue.headers = headers;
             _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.ja4Fingerprint = ja4Fingerprint;
             _resultValue.jsonBody = jsonBody;
             _resultValue.method = method;
             _resultValue.queryString = queryString;

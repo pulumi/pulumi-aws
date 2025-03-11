@@ -68,6 +68,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/trafficPolicyInstance:TrafficPolicyInstance")
 public class TrafficPolicyInstance extends com.pulumi.resources.CustomResource {
     /**
+     * Amazon Resource Name (ARN) of the traffic policy instance.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the traffic policy instance.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
      * 
      */

@@ -21,17 +21,21 @@ class RuleGroupNamespaceArgs:
     def __init__(__self__, *,
                  data: pulumi.Input[str],
                  workspace_id: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RuleGroupNamespace resource.
         :param pulumi.Input[str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to
-        :param pulumi.Input[str] name: The name of the rule group namespace
+        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
+        :param pulumi.Input[str] name: The name of the rule group namespace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "workspace_id", workspace_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -49,7 +53,7 @@ class RuleGroupNamespaceArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
         """
-        ID of the prometheus workspace the rule group namespace should be linked to
+        ID of the prometheus workspace the rule group namespace should be linked to.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -61,7 +65,7 @@ class RuleGroupNamespaceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the rule group namespace
+        The name of the rule group namespace.
         """
         return pulumi.get(self, "name")
 
@@ -69,25 +73,64 @@ class RuleGroupNamespaceArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _RuleGroupNamespaceState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  data: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RuleGroupNamespace resources.
+        :param pulumi.Input[str] arn: The ARN of the rule group namespace.
         :param pulumi.Input[str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        :param pulumi.Input[str] name: The name of the rule group namespace
-        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to
+        :param pulumi.Input[str] name: The name of the rule group namespace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if data is not None:
             pulumi.set(__self__, "data", data)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the rule group namespace.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -105,7 +148,7 @@ class _RuleGroupNamespaceState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the rule group namespace
+        The name of the rule group namespace.
         """
         return pulumi.get(self, "name")
 
@@ -114,10 +157,35 @@ class _RuleGroupNamespaceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the prometheus workspace the rule group namespace should be linked to
+        ID of the prometheus workspace the rule group namespace should be linked to.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -133,6 +201,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -167,8 +236,9 @@ class RuleGroupNamespace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        :param pulumi.Input[str] name: The name of the rule group namespace
-        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to
+        :param pulumi.Input[str] name: The name of the rule group namespace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
         """
         ...
     @overload
@@ -222,6 +292,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -236,9 +307,12 @@ class RuleGroupNamespace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data'")
             __props__.__dict__["data"] = data
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(RuleGroupNamespace, __self__).__init__(
             'aws:amp/ruleGroupNamespace:RuleGroupNamespace',
             resource_name,
@@ -249,8 +323,11 @@ class RuleGroupNamespace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             data: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             workspace_id: Optional[pulumi.Input[str]] = None) -> 'RuleGroupNamespace':
         """
         Get an existing RuleGroupNamespace resource's state with the given name, id, and optional extra
@@ -259,18 +336,32 @@ class RuleGroupNamespace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the rule group namespace.
         :param pulumi.Input[str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        :param pulumi.Input[str] name: The name of the rule group namespace
-        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to
+        :param pulumi.Input[str] name: The name of the rule group namespace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _RuleGroupNamespaceState.__new__(_RuleGroupNamespaceState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["data"] = data
         __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["workspace_id"] = workspace_id
         return RuleGroupNamespace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the rule group namespace.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -284,15 +375,32 @@ class RuleGroupNamespace(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the rule group namespace
+        The name of the rule group namespace.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
         """
-        ID of the prometheus workspace the rule group namespace should be linked to
+        ID of the prometheus workspace the rule group namespace should be linked to.
         """
         return pulumi.get(self, "workspace_id")
 

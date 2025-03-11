@@ -3438,6 +3438,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "dataexchange/eventAction",
+  "fqn": "pulumi_aws.dataexchange",
+  "classes": {
+   "aws:dataexchange/eventAction:EventAction": "EventAction"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "dataexchange/revision",
   "fqn": "pulumi_aws.dataexchange",
   "classes": {
@@ -7354,6 +7362,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lakeformation",
   "classes": {
    "aws:lakeformation/lfTag:LfTag": "LfTag"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lakeformation/optIn",
+  "fqn": "pulumi_aws.lakeformation",
+  "classes": {
+   "aws:lakeformation/optIn:OptIn": "OptIn"
   }
  },
  {

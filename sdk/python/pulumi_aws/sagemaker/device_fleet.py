@@ -284,7 +284,7 @@ class DeviceFleet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Device Fleet resource.
+        Provides a SageMaker AI Device Fleet resource.
 
         ## Example Usage
 
@@ -304,7 +304,7 @@ class DeviceFleet(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI Device Fleets using the `name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
@@ -326,7 +326,7 @@ class DeviceFleet(pulumi.CustomResource):
                  args: DeviceFleetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Device Fleet resource.
+        Provides a SageMaker AI Device Fleet resource.
 
         ## Example Usage
 
@@ -346,7 +346,7 @@ class DeviceFleet(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI Device Fleets using the `name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet

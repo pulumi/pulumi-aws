@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker model resource.
+    /// Provides a SageMaker AI model resource.
     /// 
     /// ## Example Usage
     /// 
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<bool?> EnableNetworkIsolation { get; private set; } = null!;
 
         /// <summary>
-        /// A role that SageMaker can assume to access model artifacts and docker images for deployment.
+        /// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
         /// </summary>
         [Output("executionRoleArn")]
         public Output<string> ExecutionRoleArn { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<bool>? EnableNetworkIsolation { get; set; }
 
         /// <summary>
-        /// A role that SageMaker can assume to access model artifacts and docker images for deployment.
+        /// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
         /// </summary>
         [Input("executionRoleArn", required: true)]
         public Input<string> ExecutionRoleArn { get; set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<bool>? EnableNetworkIsolation { get; set; }
 
         /// <summary>
-        /// A role that SageMaker can assume to access model artifacts and docker images for deployment.
+        /// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
         /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }

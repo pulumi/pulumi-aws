@@ -19,7 +19,7 @@ namespace Pulumi.Aws.LightSail.Inputs
         public Input<string> SnapshotTime { get; set; } = null!;
 
         /// <summary>
-        /// The status of the add on. Valid Values: `Enabled`, `Disabled`.
+        /// The status of the add-on. Valid Values: `Enabled`, `Disabled`.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

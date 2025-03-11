@@ -26,7 +26,10 @@ class GetOriginAccessIdentityResult:
     """
     A collection of values returned by getOriginAccessIdentity.
     """
-    def __init__(__self__, caller_reference=None, cloudfront_access_identity_path=None, comment=None, etag=None, iam_arn=None, id=None, s3_canonical_user_id=None):
+    def __init__(__self__, arn=None, caller_reference=None, cloudfront_access_identity_path=None, comment=None, etag=None, iam_arn=None, id=None, s3_canonical_user_id=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if caller_reference and not isinstance(caller_reference, str):
             raise TypeError("Expected argument 'caller_reference' to be a str")
         pulumi.set(__self__, "caller_reference", caller_reference)
@@ -48,6 +51,14 @@ class GetOriginAccessIdentityResult:
         if s3_canonical_user_id and not isinstance(s3_canonical_user_id, str):
             raise TypeError("Expected argument 's3_canonical_user_id' to be a str")
         pulumi.set(__self__, "s3_canonical_user_id", s3_canonical_user_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The origin access identity ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="callerReference")
@@ -116,6 +127,7 @@ class AwaitableGetOriginAccessIdentityResult(GetOriginAccessIdentityResult):
         if False:
             yield self
         return GetOriginAccessIdentityResult(
+            arn=self.arn,
             caller_reference=self.caller_reference,
             cloudfront_access_identity_path=self.cloudfront_access_identity_path,
             comment=self.comment,
@@ -150,6 +162,7 @@ def get_origin_access_identity(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity', __args__, opts=opts, typ=GetOriginAccessIdentityResult).value
 
     return AwaitableGetOriginAccessIdentityResult(
+        arn=pulumi.get(__ret__, 'arn'),
         caller_reference=pulumi.get(__ret__, 'caller_reference'),
         cloudfront_access_identity_path=pulumi.get(__ret__, 'cloudfront_access_identity_path'),
         comment=pulumi.get(__ret__, 'comment'),
@@ -181,6 +194,7 @@ def get_origin_access_identity_output(id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity', __args__, opts=opts, typ=GetOriginAccessIdentityResult)
     return __ret__.apply(lambda __response__: GetOriginAccessIdentityResult(
+        arn=pulumi.get(__response__, 'arn'),
         caller_reference=pulumi.get(__response__, 'caller_reference'),
         cloudfront_access_identity_path=pulumi.get(__response__, 'cloudfront_access_identity_path'),
         comment=pulumi.get(__response__, 'comment'),

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Image resource.
+// Provides a SageMaker AI Image resource.
 //
 // ## Example Usage
 //
@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
+// Using `pulumi import`, import SageMaker AI Code Images using the `name`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
@@ -61,7 +61,7 @@ type Image struct {
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The name of the image. Must be unique to your account.
 	ImageName pulumi.StringOutput `pulumi:"imageName"`
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -115,7 +115,7 @@ type imageState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the image. Must be unique to your account.
 	ImageName *string `pulumi:"imageName"`
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -134,7 +134,7 @@ type ImageState struct {
 	DisplayName pulumi.StringPtrInput
 	// The name of the image. Must be unique to your account.
 	ImageName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -155,7 +155,7 @@ type imageArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the image. Must be unique to your account.
 	ImageName string `pulumi:"imageName"`
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -169,7 +169,7 @@ type ImageArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The name of the image. Must be unique to your account.
 	ImageName pulumi.StringInput
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -282,7 +282,7 @@ func (o ImageOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 func (o ImageOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

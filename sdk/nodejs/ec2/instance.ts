@@ -251,7 +251,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      *
-     * @deprecated use 'cpu_options' argument instead
+     * @deprecated cpu_core_count is deprecated. Use cpuOptions instead.
      */
     public readonly cpuCoreCount!: pulumi.Output<number>;
     /**
@@ -261,7 +261,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      *
-     * @deprecated use 'cpu_options' argument instead
+     * @deprecated cpu_threads_per_core is deprecated. Use cpuOptions instead.
      */
     public readonly cpuThreadsPerCore!: pulumi.Output<number>;
     /**
@@ -639,7 +639,7 @@ export interface InstanceState {
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      *
-     * @deprecated use 'cpu_options' argument instead
+     * @deprecated cpu_core_count is deprecated. Use cpuOptions instead.
      */
     cpuCoreCount?: pulumi.Input<number>;
     /**
@@ -649,7 +649,7 @@ export interface InstanceState {
     /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      *
-     * @deprecated use 'cpu_options' argument instead
+     * @deprecated cpu_threads_per_core is deprecated. Use cpuOptions instead.
      */
     cpuThreadsPerCore?: pulumi.Input<number>;
     /**
@@ -887,7 +887,7 @@ export interface InstanceArgs {
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      *
-     * @deprecated use 'cpu_options' argument instead
+     * @deprecated cpu_core_count is deprecated. Use cpuOptions instead.
      */
     cpuCoreCount?: pulumi.Input<number>;
     /**
@@ -897,7 +897,7 @@ export interface InstanceArgs {
     /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      *
-     * @deprecated use 'cpu_options' argument instead
+     * @deprecated cpu_threads_per_core is deprecated. Use cpuOptions instead.
      */
     cpuThreadsPerCore?: pulumi.Input<number>;
     /**

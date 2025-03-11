@@ -2042,7 +2042,7 @@ class EventTargetSagemakerPipelineTarget(dict):
     def __init__(__self__, *,
                  pipeline_parameter_lists: Optional[Sequence['outputs.EventTargetSagemakerPipelineTargetPipelineParameterList']] = None):
         """
-        :param Sequence['EventTargetSagemakerPipelineTargetPipelineParameterListArgs'] pipeline_parameter_lists: List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        :param Sequence['EventTargetSagemakerPipelineTargetPipelineParameterListArgs'] pipeline_parameter_lists: List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
         """
         if pipeline_parameter_lists is not None:
             pulumi.set(__self__, "pipeline_parameter_lists", pipeline_parameter_lists)
@@ -2051,7 +2051,7 @@ class EventTargetSagemakerPipelineTarget(dict):
     @pulumi.getter(name="pipelineParameterLists")
     def pipeline_parameter_lists(self) -> Optional[Sequence['outputs.EventTargetSagemakerPipelineTargetPipelineParameterList']]:
         """
-        List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
         """
         return pulumi.get(self, "pipeline_parameter_lists")
 
@@ -2062,8 +2062,8 @@ class EventTargetSagemakerPipelineTargetPipelineParameterList(dict):
                  name: str,
                  value: str):
         """
-        :param str name: Name of parameter to start execution of a SageMaker Model Building Pipeline.
-        :param str value: Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        :param str name: Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
+        :param str value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -2072,7 +2072,7 @@ class EventTargetSagemakerPipelineTargetPipelineParameterList(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         return pulumi.get(self, "name")
 
@@ -2080,7 +2080,7 @@ class EventTargetSagemakerPipelineTargetPipelineParameterList(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         return pulumi.get(self, "value")
 

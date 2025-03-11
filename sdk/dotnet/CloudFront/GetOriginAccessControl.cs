@@ -124,6 +124,10 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetOriginAccessControlResult
     {
         /// <summary>
+        /// The origin access control ARN.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// A description of the origin access control.
         /// </summary>
         public readonly string Description;
@@ -151,6 +155,8 @@ namespace Pulumi.Aws.CloudFront
 
         [OutputConstructor]
         private GetOriginAccessControlResult(
+            string arn,
+
             string description,
 
             string etag,
@@ -165,6 +171,7 @@ namespace Pulumi.Aws.CloudFront
 
             string signingProtocol)
         {
+            Arn = arn;
             Description = description;
             Etag = etag;
             Id = id;

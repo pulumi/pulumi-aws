@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Feature Group resource.
+// Provides a SageMaker AI Feature Group resource.
 //
 // ## Example Usage
 //

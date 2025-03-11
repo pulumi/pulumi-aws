@@ -23,7 +23,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker data quality job definition resource.
+ * Provides a SageMaker AI data quality job definition resource.
  * 
  * ## Example Usage
  * 
@@ -217,14 +217,14 @@ public class DataQualityJobDefinition extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.networkConfig);
     }
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+     * @return The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      * 
      */
     public Output<String> roleArn() {

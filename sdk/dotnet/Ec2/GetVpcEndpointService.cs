@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Ec2
         public string? Service { get; set; }
 
         /// <summary>
-        /// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+        /// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
         [Input("serviceName")]
         public string? ServiceName { get; set; }
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Service { get; set; }
 
         /// <summary>
-        /// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+        /// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }

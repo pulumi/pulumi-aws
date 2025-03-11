@@ -98,6 +98,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+     */
+    public readonly disconnectOnSessionTimeout!: pulumi.Output<boolean>;
+    /**
      * The DNS name to be used by clients when establishing their VPN session.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
@@ -172,6 +176,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["clientLoginBannerOptions"] = state ? state.clientLoginBannerOptions : undefined;
             resourceInputs["connectionLogOptions"] = state ? state.connectionLogOptions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["disconnectOnSessionTimeout"] = state ? state.disconnectOnSessionTimeout : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
             resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
@@ -205,6 +210,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["clientLoginBannerOptions"] = args ? args.clientLoginBannerOptions : undefined;
             resourceInputs["connectionLogOptions"] = args ? args.connectionLogOptions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disconnectOnSessionTimeout"] = args ? args.disconnectOnSessionTimeout : undefined;
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["selfServicePortal"] = args ? args.selfServicePortal : undefined;
@@ -257,6 +263,10 @@ export interface EndpointState {
      * A brief description of the Client VPN endpoint.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+     */
+    disconnectOnSessionTimeout?: pulumi.Input<boolean>;
     /**
      * The DNS name to be used by clients when establishing their VPN session.
      */
@@ -341,6 +351,10 @@ export interface EndpointArgs {
      * A brief description of the Client VPN endpoint.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+     */
+    disconnectOnSessionTimeout?: pulumi.Input<boolean>;
     /**
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      */

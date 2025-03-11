@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Mwaa
         public Output<string> EndpointManagement { get; private set; } = null!;
 
         /// <summary>
-        /// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+        /// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         /// </summary>
         [Output("environmentClass")]
         public Output<string> EnvironmentClass { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.Mwaa
         public Output<Outputs.EnvironmentLoggingConfiguration> LoggingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         /// </summary>
         [Output("maxWebservers")]
         public Output<int> MaxWebservers { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Mwaa
         public Output<int> MaxWorkers { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         /// </summary>
         [Output("minWebservers")]
         public Output<int> MinWebservers { get; private set; } = null!;
@@ -470,7 +470,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? EndpointManagement { get; set; }
 
         /// <summary>
-        /// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+        /// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         /// </summary>
         [Input("environmentClass")]
         public Input<string>? EnvironmentClass { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<Inputs.EnvironmentLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
-        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         /// </summary>
         [Input("maxWebservers")]
         public Input<int>? MaxWebservers { get; set; }
@@ -506,7 +506,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<int>? MaxWorkers { get; set; }
 
         /// <summary>
-        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         /// </summary>
         [Input("minWebservers")]
         public Input<int>? MinWebservers { get; set; }
@@ -663,7 +663,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? EndpointManagement { get; set; }
 
         /// <summary>
-        /// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+        /// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         /// </summary>
         [Input("environmentClass")]
         public Input<string>? EnvironmentClass { get; set; }
@@ -695,7 +695,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<Inputs.EnvironmentLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
         /// <summary>
-        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         /// </summary>
         [Input("maxWebservers")]
         public Input<int>? MaxWebservers { get; set; }
@@ -707,7 +707,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<int>? MaxWorkers { get; set; }
 
         /// <summary>
-        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         /// </summary>
         [Input("minWebservers")]
         public Input<int>? MinWebservers { get; set; }

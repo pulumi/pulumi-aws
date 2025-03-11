@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class EndpointConfigurationAsyncInferenceConfig
     {
         /// <summary>
-        /// Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+        /// Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
         /// </summary>
         public readonly Outputs.EndpointConfigurationAsyncInferenceConfigClientConfig? ClientConfig;
         /// <summary>

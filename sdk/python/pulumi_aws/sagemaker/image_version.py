@@ -163,7 +163,7 @@ class ImageVersion(pulumi.CustomResource):
                  image_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Image Version resource.
+        Provides a SageMaker AI Image Version resource.
 
         ## Example Usage
 
@@ -180,7 +180,7 @@ class ImageVersion(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Image Versions using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI Image Versions using the `name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
@@ -198,7 +198,7 @@ class ImageVersion(pulumi.CustomResource):
                  args: ImageVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Image Version resource.
+        Provides a SageMaker AI Image Version resource.
 
         ## Example Usage
 
@@ -215,7 +215,7 @@ class ImageVersion(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Image Versions using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI Image Versions using the `name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo

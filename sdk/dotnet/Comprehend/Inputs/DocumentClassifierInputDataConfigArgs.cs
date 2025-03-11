@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Comprehend.Inputs
         private InputList<Inputs.DocumentClassifierInputDataConfigAugmentedManifestArgs>? _augmentedManifests;
 
         /// <summary>
-        /// List of training datasets produced by Amazon SageMaker Ground Truth.
+        /// List of training datasets produced by Amazon SageMaker AI Ground Truth.
         /// Used if `data_format` is `AUGMENTED_MANIFEST`.
         /// See the `augmented_manifests` Configuration Block section below.
         /// </summary>

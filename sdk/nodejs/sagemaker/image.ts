@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker Image resource.
+ * Provides a SageMaker AI Image resource.
  *
  * ## Example Usage
  *
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
+ * Using `pulumi import`, import SageMaker AI Code Images using the `name`. For example:
  *
  * ```sh
  * $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
@@ -74,7 +74,7 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly imageName!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
@@ -150,7 +150,7 @@ export interface ImageState {
      */
     imageName?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      */
     roleArn?: pulumi.Input<string>;
     /**
@@ -182,7 +182,7 @@ export interface ImageArgs {
      */
     imageName: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      */
     roleArn: pulumi.Input<string>;
     /**

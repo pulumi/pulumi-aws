@@ -9,6 +9,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldTo
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString;
@@ -53,6 +54,11 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatch {
      * 
      */
     private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
     /**
      * @return Inspect the request body as JSON. See `json_body` for details.
      * 
@@ -128,6 +134,13 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatch {
         return Optional.ofNullable(this.ja3Fingerprint);
     }
     /**
+     * @return Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint> ja4Fingerprint() {
+        return Optional.ofNullable(this.ja4Fingerprint);
+    }
+    /**
      * @return Inspect the request body as JSON. See `json_body` for details.
      * 
      */
@@ -185,6 +198,7 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatch {
         private @Nullable List<WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder> headerOrders;
         private @Nullable List<WebAclRuleStatementSqliMatchStatementFieldToMatchHeader> headers;
         private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
+        private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint ja4Fingerprint;
         private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody jsonBody;
         private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchMethod method;
         private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString queryString;
@@ -200,6 +214,7 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatch {
     	      this.headerOrders = defaults.headerOrders;
     	      this.headers = defaults.headers;
     	      this.ja3Fingerprint = defaults.ja3Fingerprint;
+    	      this.ja4Fingerprint = defaults.ja4Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -251,6 +266,12 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatch {
             return this;
         }
         @CustomType.Setter
+        public Builder ja4Fingerprint(@Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint ja4Fingerprint) {
+
+            this.ja4Fingerprint = ja4Fingerprint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder jsonBody(@Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody jsonBody) {
 
             this.jsonBody = jsonBody;
@@ -294,6 +315,7 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatch {
             _resultValue.headerOrders = headerOrders;
             _resultValue.headers = headers;
             _resultValue.ja3Fingerprint = ja3Fingerprint;
+            _resultValue.ja4Fingerprint = ja4Fingerprint;
             _resultValue.jsonBody = jsonBody;
             _resultValue.method = method;
             _resultValue.queryString = queryString;

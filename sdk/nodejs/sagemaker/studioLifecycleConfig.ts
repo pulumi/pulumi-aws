@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker Studio Lifecycle Config resource.
+ * Provides a SageMaker AI Studio Lifecycle Config resource.
  *
  * ## Example Usage
  *
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
+ * Using `pulumi import`, import SageMaker AI Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
  *
  * ```sh
  * $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example

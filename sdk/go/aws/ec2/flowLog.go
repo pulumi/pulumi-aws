@@ -213,7 +213,7 @@ type FlowLog struct {
 	LogFormat pulumi.StringOutput `pulumi:"logFormat"`
 	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
-	// Deprecated: use 'log_destination' argument instead
+	// Deprecated: log_group_name is deprecated. Use logDestination instead.
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -286,7 +286,7 @@ type flowLogState struct {
 	LogFormat *string `pulumi:"logFormat"`
 	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
-	// Deprecated: use 'log_destination' argument instead
+	// Deprecated: log_group_name is deprecated. Use logDestination instead.
 	LogGroupName *string `pulumi:"logGroupName"`
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -330,7 +330,7 @@ type FlowLogState struct {
 	LogFormat pulumi.StringPtrInput
 	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
-	// Deprecated: use 'log_destination' argument instead
+	// Deprecated: log_group_name is deprecated. Use logDestination instead.
 	LogGroupName pulumi.StringPtrInput
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -376,7 +376,7 @@ type flowLogArgs struct {
 	LogFormat *string `pulumi:"logFormat"`
 	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
-	// Deprecated: use 'log_destination' argument instead
+	// Deprecated: log_group_name is deprecated. Use logDestination instead.
 	LogGroupName *string `pulumi:"logGroupName"`
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -415,7 +415,7 @@ type FlowLogArgs struct {
 	LogFormat pulumi.StringPtrInput
 	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
-	// Deprecated: use 'log_destination' argument instead
+	// Deprecated: log_group_name is deprecated. Use logDestination instead.
 	LogGroupName pulumi.StringPtrInput
 	// The maximum interval of time
 	// during which a flow of packets is captured and aggregated into a flow
@@ -565,7 +565,7 @@ func (o FlowLogOutput) LogFormat() pulumi.StringOutput {
 
 // **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 //
-// Deprecated: use 'log_destination' argument instead
+// Deprecated: log_group_name is deprecated. Use logDestination instead.
 func (o FlowLogOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
 }

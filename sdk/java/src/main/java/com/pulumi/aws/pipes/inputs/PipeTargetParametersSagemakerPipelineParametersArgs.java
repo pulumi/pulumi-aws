@@ -17,14 +17,14 @@ public final class PipeTargetParametersSagemakerPipelineParametersArgs extends c
     public static final PipeTargetParametersSagemakerPipelineParametersArgs Empty = new PipeTargetParametersSagemakerPipelineParametersArgs();
 
     /**
-     * List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+     * List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
      * 
      */
     @Import(name="pipelineParameters")
     private @Nullable Output<List<PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs>> pipelineParameters;
 
     /**
-     * @return List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+     * @return List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
      * 
      */
     public Optional<Output<List<PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs>>> pipelineParameters() {
@@ -56,7 +56,7 @@ public final class PipeTargetParametersSagemakerPipelineParametersArgs extends c
         }
 
         /**
-         * @param pipelineParameters List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+         * @param pipelineParameters List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class PipeTargetParametersSagemakerPipelineParametersArgs extends c
         }
 
         /**
-         * @param pipelineParameters List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+         * @param pipelineParameters List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class PipeTargetParametersSagemakerPipelineParametersArgs extends c
         }
 
         /**
-         * @param pipelineParameters List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+         * @param pipelineParameters List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
          * 
          * @return builder
          * 

@@ -1277,8 +1277,6 @@ class Instance(pulumi.CustomResource):
                  virtualization_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks instance resource.
-
         ## Example Usage
 
         ```python
@@ -1387,8 +1385,6 @@ class Instance(pulumi.CustomResource):
                  args: InstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks instance resource.
-
         ## Example Usage
 
         ```python

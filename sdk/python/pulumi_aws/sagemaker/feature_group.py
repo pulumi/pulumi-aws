@@ -394,7 +394,7 @@ class FeatureGroup(pulumi.CustomResource):
                  throughput_config: Optional[pulumi.Input[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Feature Group resource.
+        Provides a SageMaker AI Feature Group resource.
 
         ## Example Usage
 
@@ -445,7 +445,7 @@ class FeatureGroup(pulumi.CustomResource):
                  args: FeatureGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Feature Group resource.
+        Provides a SageMaker AI Feature Group resource.
 
         ## Example Usage
 

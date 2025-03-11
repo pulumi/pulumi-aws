@@ -37,10 +37,10 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
      * Configuration block for filtering by a unique attribute of the group. Detailed below.
      * 
      * @deprecated
-     * Use the alternate_identifier attribute instead.
+     * filter is deprecated. Use alternate_identifier instead.
      * 
      */
-    @Deprecated /* Use the alternate_identifier attribute instead. */
+    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
     @Import(name="filter")
     private @Nullable Output<GetGroupFilterArgs> filter;
 
@@ -48,10 +48,10 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
      * @return Configuration block for filtering by a unique attribute of the group. Detailed below.
      * 
      * @deprecated
-     * Use the alternate_identifier attribute instead.
+     * filter is deprecated. Use alternate_identifier instead.
      * 
      */
-    @Deprecated /* Use the alternate_identifier attribute instead. */
+    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
     public Optional<Output<GetGroupFilterArgs>> filter() {
         return Optional.ofNullable(this.filter);
     }
@@ -148,10 +148,10 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the alternate_identifier attribute instead.
+         * filter is deprecated. Use alternate_identifier instead.
          * 
          */
-        @Deprecated /* Use the alternate_identifier attribute instead. */
+        @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
         public Builder filter(@Nullable Output<GetGroupFilterArgs> filter) {
             $.filter = filter;
             return this;
@@ -163,10 +163,10 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the alternate_identifier attribute instead.
+         * filter is deprecated. Use alternate_identifier instead.
          * 
          */
-        @Deprecated /* Use the alternate_identifier attribute instead. */
+        @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
         public Builder filter(GetGroupFilterArgs filter) {
             return filter(Output.of(filter));
         }

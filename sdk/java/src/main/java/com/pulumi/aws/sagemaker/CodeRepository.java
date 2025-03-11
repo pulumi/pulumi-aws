@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker Code Repository resource.
+ * Provides a SageMaker AI Code Repository resource.
  * 
  * ## Example Usage
  * 
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SageMaker Code Repositories using the `name`. For example:
+ * Using `pulumi import`, import SageMaker AI Code Repositories using the `name`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo

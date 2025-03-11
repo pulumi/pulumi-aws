@@ -64,14 +64,14 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs extends com.p
     }
 
     /**
-     * The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+     * The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
      * 
      */
     @Import(name="waitIntervalInSeconds", required=true)
     private Output<Integer> waitIntervalInSeconds;
 
     /**
-     * @return The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+     * @return The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
      * 
      */
     public Output<Integer> waitIntervalInSeconds() {
@@ -169,7 +169,7 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs extends com.p
         }
 
         /**
-         * @param waitIntervalInSeconds The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+         * @param waitIntervalInSeconds The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs extends com.p
         }
 
         /**
-         * @param waitIntervalInSeconds The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+         * @param waitIntervalInSeconds The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
          * 
          * @return builder
          * 

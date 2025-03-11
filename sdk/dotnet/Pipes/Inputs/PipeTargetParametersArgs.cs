@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         public Input<Inputs.PipeTargetParametersRedshiftDataParametersArgs>? RedshiftDataParameters { get; set; }
 
         /// <summary>
-        /// The parameters for using a SageMaker pipeline as a target. Detailed below.
+        /// The parameters for using a SageMaker AI pipeline as a target. Detailed below.
         /// </summary>
         [Input("sagemakerPipelineParameters")]
         public Input<Inputs.PipeTargetParametersSagemakerPipelineParametersArgs>? SagemakerPipelineParameters { get; set; }

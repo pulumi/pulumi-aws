@@ -428,11 +428,13 @@ func (o GetSecretRotationRotationRuleArrayOutput) Index(i pulumi.IntInput) GetSe
 }
 
 type GetSecretVersionsVersion struct {
+	// Date and time this version of the secret was created.
 	CreatedTime string `pulumi:"createdTime"`
 	// Date that this version of the secret was last accessed.
 	LastAccessedDate string `pulumi:"lastAccessedDate"`
 	// Unique version identifier of this version of the secret.
-	VersionId     string   `pulumi:"versionId"`
+	VersionId string `pulumi:"versionId"`
+	// List of staging labels attached to the version.
 	VersionStages []string `pulumi:"versionStages"`
 }
 
@@ -448,11 +450,13 @@ type GetSecretVersionsVersionInput interface {
 }
 
 type GetSecretVersionsVersionArgs struct {
+	// Date and time this version of the secret was created.
 	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
 	// Date that this version of the secret was last accessed.
 	LastAccessedDate pulumi.StringInput `pulumi:"lastAccessedDate"`
 	// Unique version identifier of this version of the secret.
-	VersionId     pulumi.StringInput      `pulumi:"versionId"`
+	VersionId pulumi.StringInput `pulumi:"versionId"`
+	// List of staging labels attached to the version.
 	VersionStages pulumi.StringArrayInput `pulumi:"versionStages"`
 }
 
@@ -507,6 +511,7 @@ func (o GetSecretVersionsVersionOutput) ToGetSecretVersionsVersionOutputWithCont
 	return o
 }
 
+// Date and time this version of the secret was created.
 func (o GetSecretVersionsVersionOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsVersion) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
@@ -521,6 +526,7 @@ func (o GetSecretVersionsVersionOutput) VersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsVersion) string { return v.VersionId }).(pulumi.StringOutput)
 }
 
+// List of staging labels attached to the version.
 func (o GetSecretVersionsVersionOutput) VersionStages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecretVersionsVersion) []string { return v.VersionStages }).(pulumi.StringArrayOutput)
 }

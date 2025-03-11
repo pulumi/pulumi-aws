@@ -4537,7 +4537,9 @@ func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.In
 }
 
 type GetServiceDnsEntry struct {
-	DomainName   string `pulumi:"domainName"`
+	// DNS name for the service.
+	DomainName string `pulumi:"domainName"`
+	// Hosted zone ID where the DNS name is registered.
 	HostedZoneId string `pulumi:"hostedZoneId"`
 }
 
@@ -4553,7 +4555,9 @@ type GetServiceDnsEntryInput interface {
 }
 
 type GetServiceDnsEntryArgs struct {
-	DomainName   pulumi.StringInput `pulumi:"domainName"`
+	// DNS name for the service.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// Hosted zone ID where the DNS name is registered.
 	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
 }
 
@@ -4608,10 +4612,12 @@ func (o GetServiceDnsEntryOutput) ToGetServiceDnsEntryOutputWithContext(ctx cont
 	return o
 }
 
+// DNS name for the service.
 func (o GetServiceDnsEntryOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceDnsEntry) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// Hosted zone ID where the DNS name is registered.
 func (o GetServiceDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
 }

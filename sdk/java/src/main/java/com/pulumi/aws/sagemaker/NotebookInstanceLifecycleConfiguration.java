@@ -15,7 +15,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a lifecycle configuration for SageMaker Notebook Instances.
+ * Provides a lifecycle configuration for SageMaker AI Notebook Instances.
  * 
  * ## Example Usage
  * 
@@ -100,28 +100,28 @@ public class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources
         return this.name;
     }
     /**
-     * A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+     * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
      * 
      */
     @Export(name="onCreate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onCreate;
 
     /**
-     * @return A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+     * @return A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
      * 
      */
     public Output<Optional<String>> onCreate() {
         return Codegen.optional(this.onCreate);
     }
     /**
-     * A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it&#39;s created.
+     * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
      * 
      */
     @Export(name="onStart", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onStart;
 
     /**
-     * @return A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it&#39;s created.
+     * @return A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
      * 
      */
     public Output<Optional<String>> onStart() {

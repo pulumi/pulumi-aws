@@ -103,10 +103,10 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      * 
      * @deprecated
-     * use &#39;cpu_options&#39; argument instead
+     * cpu_core_count is deprecated. Use cpu_options instead.
      * 
      */
-    @Deprecated /* use 'cpu_options' argument instead */
+    @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
     @Import(name="cpuCoreCount")
     private @Nullable Output<Integer> cpuCoreCount;
 
@@ -114,10 +114,10 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * @return Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      * 
      * @deprecated
-     * use &#39;cpu_options&#39; argument instead
+     * cpu_core_count is deprecated. Use cpu_options instead.
      * 
      */
-    @Deprecated /* use 'cpu_options' argument instead */
+    @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
     public Optional<Output<Integer>> cpuCoreCount() {
         return Optional.ofNullable(this.cpuCoreCount);
     }
@@ -141,10 +141,10 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      * 
      * @deprecated
-     * use &#39;cpu_options&#39; argument instead
+     * cpu_threads_per_core is deprecated. Use cpu_options instead.
      * 
      */
-    @Deprecated /* use 'cpu_options' argument instead */
+    @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
     @Import(name="cpuThreadsPerCore")
     private @Nullable Output<Integer> cpuThreadsPerCore;
 
@@ -152,10 +152,10 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      * 
      * @deprecated
-     * use &#39;cpu_options&#39; argument instead
+     * cpu_threads_per_core is deprecated. Use cpu_options instead.
      * 
      */
-    @Deprecated /* use 'cpu_options' argument instead */
+    @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
     public Optional<Output<Integer>> cpuThreadsPerCore() {
         return Optional.ofNullable(this.cpuThreadsPerCore);
     }
@@ -940,10 +940,10 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * use &#39;cpu_options&#39; argument instead
+         * cpu_core_count is deprecated. Use cpu_options instead.
          * 
          */
-        @Deprecated /* use 'cpu_options' argument instead */
+        @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
         public Builder cpuCoreCount(@Nullable Output<Integer> cpuCoreCount) {
             $.cpuCoreCount = cpuCoreCount;
             return this;
@@ -955,10 +955,10 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * use &#39;cpu_options&#39; argument instead
+         * cpu_core_count is deprecated. Use cpu_options instead.
          * 
          */
-        @Deprecated /* use 'cpu_options' argument instead */
+        @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
         public Builder cpuCoreCount(Integer cpuCoreCount) {
             return cpuCoreCount(Output.of(cpuCoreCount));
         }
@@ -990,10 +990,10 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * use &#39;cpu_options&#39; argument instead
+         * cpu_threads_per_core is deprecated. Use cpu_options instead.
          * 
          */
-        @Deprecated /* use 'cpu_options' argument instead */
+        @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
         public Builder cpuThreadsPerCore(@Nullable Output<Integer> cpuThreadsPerCore) {
             $.cpuThreadsPerCore = cpuThreadsPerCore;
             return this;
@@ -1005,10 +1005,10 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * use &#39;cpu_options&#39; argument instead
+         * cpu_threads_per_core is deprecated. Use cpu_options instead.
          * 
          */
-        @Deprecated /* use 'cpu_options' argument instead */
+        @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
         public Builder cpuThreadsPerCore(Integer cpuThreadsPerCore) {
             return cpuThreadsPerCore(Output.of(cpuThreadsPerCore));
         }

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        /// </summary>
         [Input("fallbackBehavior", required: true)]
         public Input<string> FallbackBehavior { get; set; } = null!;
 

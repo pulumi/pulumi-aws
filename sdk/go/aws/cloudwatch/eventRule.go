@@ -125,7 +125,7 @@ type EventRule struct {
 	// Defaults to `true`.
 	// Conflicts with `state`.
 	//
-	// Deprecated: Use "state" instead
+	// Deprecated: is_enabled is deprecated. Use state instead.
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -197,7 +197,7 @@ type eventRuleState struct {
 	// Defaults to `true`.
 	// Conflicts with `state`.
 	//
-	// Deprecated: Use "state" instead
+	// Deprecated: is_enabled is deprecated. Use state instead.
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -240,7 +240,7 @@ type EventRuleState struct {
 	// Defaults to `true`.
 	// Conflicts with `state`.
 	//
-	// Deprecated: Use "state" instead
+	// Deprecated: is_enabled is deprecated. Use state instead.
 	IsEnabled pulumi.BoolPtrInput
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -285,7 +285,7 @@ type eventRuleArgs struct {
 	// Defaults to `true`.
 	// Conflicts with `state`.
 	//
-	// Deprecated: Use "state" instead
+	// Deprecated: is_enabled is deprecated. Use state instead.
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -323,7 +323,7 @@ type EventRuleArgs struct {
 	// Defaults to `true`.
 	// Conflicts with `state`.
 	//
-	// Deprecated: Use "state" instead
+	// Deprecated: is_enabled is deprecated. Use state instead.
 	IsEnabled pulumi.BoolPtrInput
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -463,7 +463,7 @@ func (o EventRuleOutput) ForceDestroy() pulumi.BoolPtrOutput {
 // Defaults to `true`.
 // Conflicts with `state`.
 //
-// Deprecated: Use "state" instead
+// Deprecated: is_enabled is deprecated. Use state instead.
 func (o EventRuleOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }

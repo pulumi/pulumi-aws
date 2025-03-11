@@ -41,8 +41,8 @@ class InstanceArgs:
         :param pulumi.Input[str] bundle_id: The bundle of specification information. A list of available
                bundle IDs can be obtained using the AWS CLI command:
                [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-        :param pulumi.Input['InstanceAddOnArgs'] add_on: The add on configuration for the instance. Detailed below.
-        :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        :param pulumi.Input['InstanceAddOnArgs'] add_on: The add-on configuration for the instance. Detailed below.
+        :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
@@ -111,7 +111,7 @@ class InstanceArgs:
     @pulumi.getter(name="addOn")
     def add_on(self) -> Optional[pulumi.Input['InstanceAddOnArgs']]:
         """
-        The add on configuration for the instance. Detailed below.
+        The add-on configuration for the instance. Detailed below.
         """
         return pulumi.get(self, "add_on")
 
@@ -123,7 +123,7 @@ class InstanceArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -205,7 +205,7 @@ class _InstanceState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
-        :param pulumi.Input['InstanceAddOnArgs'] add_on: The add on configuration for the instance. Detailed below.
+        :param pulumi.Input['InstanceAddOnArgs'] add_on: The add-on configuration for the instance. Detailed below.
         :param pulumi.Input[str] arn: The ARN of the Lightsail instance (matches `id`).
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your instance. A
                list of available zones can be obtained using the AWS CLI command:
@@ -218,7 +218,7 @@ class _InstanceState:
                [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
         :param pulumi.Input[int] cpu_count: The number of vCPUs the instance has.
         :param pulumi.Input[str] created_at: The timestamp when the instance was created.
-        :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: List of IPv6 addresses for the Lightsail instance.
         :param pulumi.Input[bool] is_static_ip: A Boolean value indicating whether this instance has a static IP assigned to it.
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
@@ -278,7 +278,7 @@ class _InstanceState:
     @pulumi.getter(name="addOn")
     def add_on(self) -> Optional[pulumi.Input['InstanceAddOnArgs']]:
         """
-        The add on configuration for the instance. Detailed below.
+        The add-on configuration for the instance. Detailed below.
         """
         return pulumi.get(self, "add_on")
 
@@ -368,7 +368,7 @@ class _InstanceState:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -600,7 +600,7 @@ class Instance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']] add_on: The add on configuration for the instance. Detailed below.
+        :param pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']] add_on: The add-on configuration for the instance. Detailed below.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your instance. A
                list of available zones can be obtained using the AWS CLI command:
                [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
@@ -610,7 +610,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] bundle_id: The bundle of specification information. A list of available
                bundle IDs can be obtained using the AWS CLI command:
                [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-        :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
@@ -789,7 +789,7 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']] add_on: The add on configuration for the instance. Detailed below.
+        :param pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']] add_on: The add-on configuration for the instance. Detailed below.
         :param pulumi.Input[str] arn: The ARN of the Lightsail instance (matches `id`).
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your instance. A
                list of available zones can be obtained using the AWS CLI command:
@@ -802,7 +802,7 @@ class Instance(pulumi.CustomResource):
                [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
         :param pulumi.Input[int] cpu_count: The number of vCPUs the instance has.
         :param pulumi.Input[str] created_at: The timestamp when the instance was created.
-        :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        :param pulumi.Input[str] ip_address_type: The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: List of IPv6 addresses for the Lightsail instance.
         :param pulumi.Input[bool] is_static_ip: A Boolean value indicating whether this instance has a static IP assigned to it.
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
@@ -845,7 +845,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="addOn")
     def add_on(self) -> pulumi.Output[Optional['outputs.InstanceAddOn']]:
         """
-        The add on configuration for the instance. Detailed below.
+        The add-on configuration for the instance. Detailed below.
         """
         return pulumi.get(self, "add_on")
 
@@ -907,7 +907,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
+        The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         """
         return pulumi.get(self, "ip_address_type")
 

@@ -51,14 +51,14 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the space that appears in the SageMaker Studio UI.
+     * The name of the space that appears in the SageMaker AI Studio UI.
      * 
      */
     @Import(name="spaceDisplayName")
     private @Nullable Output<String> spaceDisplayName;
 
     /**
-     * @return The name of the space that appears in the SageMaker Studio UI.
+     * @return The name of the space that appears in the SageMaker AI Studio UI.
      * 
      */
     public Optional<Output<String>> spaceDisplayName() {
@@ -198,7 +198,7 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spaceDisplayName The name of the space that appears in the SageMaker Studio UI.
+         * @param spaceDisplayName The name of the space that appears in the SageMaker AI Studio UI.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class SpaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spaceDisplayName The name of the space that appears in the SageMaker Studio UI.
+         * @param spaceDisplayName The name of the space that appears in the SageMaker AI Studio UI.
          * 
          * @return builder
          * 

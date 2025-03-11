@@ -31,14 +31,14 @@ public final class NotebookInstanceLifecycleConfigurationArgs extends com.pulumi
     }
 
     /**
-     * A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+     * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
      * 
      */
     @Import(name="onCreate")
     private @Nullable Output<String> onCreate;
 
     /**
-     * @return A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+     * @return A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
      * 
      */
     public Optional<Output<String>> onCreate() {
@@ -46,14 +46,14 @@ public final class NotebookInstanceLifecycleConfigurationArgs extends com.pulumi
     }
 
     /**
-     * A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it&#39;s created.
+     * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
      * 
      */
     @Import(name="onStart")
     private @Nullable Output<String> onStart;
 
     /**
-     * @return A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it&#39;s created.
+     * @return A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
      * 
      */
     public Optional<Output<String>> onStart() {
@@ -108,7 +108,7 @@ public final class NotebookInstanceLifecycleConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param onCreate A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+         * @param onCreate A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class NotebookInstanceLifecycleConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param onCreate A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
+         * @param onCreate A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class NotebookInstanceLifecycleConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param onStart A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it&#39;s created.
+         * @param onStart A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class NotebookInstanceLifecycleConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param onStart A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it&#39;s created.
+         * @param onStart A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
          * 
          * @return builder
          * 

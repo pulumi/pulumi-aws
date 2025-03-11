@@ -59,19 +59,19 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @deprecated
-     * this attribute has been deprecated
+     * tags_all is deprecated. This argument will be removed in a future major version.
      * 
      */
-    @Deprecated /* this attribute has been deprecated */
+    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
     @Import(name="tagsAll")
     private @Nullable Map<String,String> tagsAll;
 
     /**
      * @deprecated
-     * this attribute has been deprecated
+     * tags_all is deprecated. This argument will be removed in a future major version.
      * 
      */
-    @Deprecated /* this attribute has been deprecated */
+    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
     public Optional<Map<String,String>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -136,10 +136,10 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          * @deprecated
-         * this attribute has been deprecated
+         * tags_all is deprecated. This argument will be removed in a future major version.
          * 
          */
-        @Deprecated /* this attribute has been deprecated */
+        @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
         public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
             $.tagsAll = tagsAll;
             return this;

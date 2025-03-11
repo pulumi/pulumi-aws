@@ -344,10 +344,10 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
      * case both options are defined as the api only requires one or the other.
      * 
      * @deprecated
-     * use domain attribute instead
+     * vpc is deprecated. Use domain instead.
      * 
      */
-    @Deprecated /* use domain attribute instead */
+    @Deprecated /* vpc is deprecated. Use domain instead. */
     @Import(name="vpc")
     private @Nullable Output<Boolean> vpc;
 
@@ -361,10 +361,10 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
      * case both options are defined as the api only requires one or the other.
      * 
      * @deprecated
-     * use domain attribute instead
+     * vpc is deprecated. Use domain instead.
      * 
      */
-    @Deprecated /* use domain attribute instead */
+    @Deprecated /* vpc is deprecated. Use domain instead. */
     public Optional<Output<Boolean>> vpc() {
         return Optional.ofNullable(this.vpc);
     }
@@ -865,10 +865,10 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * use domain attribute instead
+         * vpc is deprecated. Use domain instead.
          * 
          */
-        @Deprecated /* use domain attribute instead */
+        @Deprecated /* vpc is deprecated. Use domain instead. */
         public Builder vpc(@Nullable Output<Boolean> vpc) {
             $.vpc = vpc;
             return this;
@@ -886,10 +886,10 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * use domain attribute instead
+         * vpc is deprecated. Use domain instead.
          * 
          */
-        @Deprecated /* use domain attribute instead */
+        @Deprecated /* vpc is deprecated. Use domain instead. */
         public Builder vpc(Boolean vpc) {
             return vpc(Output.of(vpc));
         }

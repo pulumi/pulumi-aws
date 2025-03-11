@@ -75,6 +75,8 @@ import (
 type OriginRequestPolicy struct {
 	pulumi.CustomResourceState
 
+	// The origin request policy ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Comment to describe the origin request policy.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
@@ -128,6 +130,8 @@ func GetOriginRequestPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OriginRequestPolicy resources.
 type originRequestPolicyState struct {
+	// The origin request policy ARN.
+	Arn *string `pulumi:"arn"`
 	// Comment to describe the origin request policy.
 	Comment *string `pulumi:"comment"`
 	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
@@ -143,6 +147,8 @@ type originRequestPolicyState struct {
 }
 
 type OriginRequestPolicyState struct {
+	// The origin request policy ARN.
+	Arn pulumi.StringPtrInput
 	// Comment to describe the origin request policy.
 	Comment pulumi.StringPtrInput
 	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
@@ -273,6 +279,11 @@ func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutput() OriginRequestPo
 
 func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutputWithContext(ctx context.Context) OriginRequestPolicyOutput {
 	return o
+}
+
+// The origin request policy ARN.
+func (o OriginRequestPolicyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginRequestPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Comment to describe the origin request policy.

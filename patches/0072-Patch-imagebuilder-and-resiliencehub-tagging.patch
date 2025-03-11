@@ -18,7 +18,7 @@ index 00d0567a29..0b4142a476 100644
  		Blocks: map[string]schema.Block{
  			"policy_detail": schema.SetNestedBlock{
 diff --git a/internal/service/resiliencehub/resiliency_policy.go b/internal/service/resiliencehub/resiliency_policy.go
-index cccdd2a608..8313d71791 100644
+index 38c67dcced..823c917fa7 100644
 --- a/internal/service/resiliencehub/resiliency_policy.go
 +++ b/internal/service/resiliencehub/resiliency_policy.go
 @@ -126,7 +126,7 @@ func (r *resourceResiliencyPolicy) Schema(ctx context.Context, req resource.Sche
@@ -29,4 +29,4 @@ index cccdd2a608..8313d71791 100644
 +			names.AttrTagsAll: tftags.TagsAttribute(),
  		},
  		Blocks: map[string]schema.Block{
- 			names.AttrPolicy: schema.SingleNestedBlock{
+ 			names.AttrPolicy: schema.SingleNestedBlock{ // nosemgrep:ci.avoid-SingleNestedBlock pre-existing, will be converted

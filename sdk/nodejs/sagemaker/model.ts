@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker model resource.
+ * Provides a SageMaker AI model resource.
  *
  * ## Example Usage
  *
@@ -93,7 +93,7 @@ export class Model extends pulumi.CustomResource {
      */
     public readonly enableNetworkIsolation!: pulumi.Output<boolean | undefined>;
     /**
-     * A role that SageMaker can assume to access model artifacts and docker images for deployment.
+     * A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
      */
     public readonly executionRoleArn!: pulumi.Output<string>;
     /**
@@ -184,7 +184,7 @@ export interface ModelState {
      */
     enableNetworkIsolation?: pulumi.Input<boolean>;
     /**
-     * A role that SageMaker can assume to access model artifacts and docker images for deployment.
+     * A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
      */
     executionRoleArn?: pulumi.Input<string>;
     /**
@@ -228,7 +228,7 @@ export interface ModelArgs {
      */
     enableNetworkIsolation?: pulumi.Input<boolean>;
     /**
-     * A role that SageMaker can assume to access model artifacts and docker images for deployment.
+     * A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
      */
     executionRoleArn: pulumi.Input<string>;
     /**

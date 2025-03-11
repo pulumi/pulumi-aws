@@ -21,8 +21,8 @@ namespace Pulumi.Aws.S3.Inputs
         /// <summary>
         /// Number of days an object is noncurrent before Amazon S3 can perform the associated action.
         /// </summary>
-        [Input("noncurrentDays")]
-        public Input<int>? NoncurrentDays { get; set; }
+        [Input("noncurrentDays", required: true)]
+        public Input<int> NoncurrentDays { get; set; } = null!;
 
         /// <summary>
         /// Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.

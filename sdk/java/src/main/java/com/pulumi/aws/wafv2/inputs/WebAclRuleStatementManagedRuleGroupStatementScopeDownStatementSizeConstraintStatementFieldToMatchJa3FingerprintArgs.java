@@ -15,14 +15,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs();
 
     /**
-     * The match status to assign to the web request if the request doesn&#39;t have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+     * Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
     @Import(name="fallbackBehavior", required=true)
     private Output<String> fallbackBehavior;
 
     /**
-     * @return The match status to assign to the web request if the request doesn&#39;t have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+     * @return Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
     public Output<String> fallbackBehavior() {
@@ -54,7 +54,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param fallbackBehavior The match status to assign to the web request if the request doesn&#39;t have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * @param fallbackBehavior Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
-         * @param fallbackBehavior The match status to assign to the web request if the request doesn&#39;t have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * @param fallbackBehavior Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          * 
          * @return builder
          * 

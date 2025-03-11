@@ -327,10 +327,10 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
      * 
      * @deprecated
-     * use &#39;dashboard_endpoint&#39; attribute instead
+     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
      * 
      */
-    @Deprecated /* use 'dashboard_endpoint' attribute instead */
+    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
     @Import(name="kibanaEndpoint")
     private @Nullable Output<String> kibanaEndpoint;
 
@@ -338,10 +338,10 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
      * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
      * 
      * @deprecated
-     * use &#39;dashboard_endpoint&#39; attribute instead
+     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
      * 
      */
-    @Deprecated /* use 'dashboard_endpoint' attribute instead */
+    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
     public Optional<Output<String>> kibanaEndpoint() {
         return Optional.ofNullable(this.kibanaEndpoint);
     }
@@ -938,10 +938,10 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * use &#39;dashboard_endpoint&#39; attribute instead
+         * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
          * 
          */
-        @Deprecated /* use 'dashboard_endpoint' attribute instead */
+        @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
         public Builder kibanaEndpoint(@Nullable Output<String> kibanaEndpoint) {
             $.kibanaEndpoint = kibanaEndpoint;
             return this;
@@ -953,10 +953,10 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * use &#39;dashboard_endpoint&#39; attribute instead
+         * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
          * 
          */
-        @Deprecated /* use 'dashboard_endpoint' attribute instead */
+        @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
         public Builder kibanaEndpoint(String kibanaEndpoint) {
             return kibanaEndpoint(Output.of(kibanaEndpoint));
         }

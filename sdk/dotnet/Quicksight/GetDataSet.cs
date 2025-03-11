@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Quicksight
 
         [Input("tagsAll")]
         private Dictionary<string, string>? _tagsAll;
-        [Obsolete(@"this attribute has been deprecated")]
+        [Obsolete(@"tags_all is deprecated. This argument will be removed in a future major version.")]
         public Dictionary<string, string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new Dictionary<string, string>());
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Quicksight
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"this attribute has been deprecated")]
+        [Obsolete(@"tags_all is deprecated. This argument will be removed in a future major version.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

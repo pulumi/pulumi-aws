@@ -61,17 +61,33 @@ class SqlInjectionMatchSetArgs:
 @pulumi.input_type
 class _SqlInjectionMatchSetState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] = None):
         """
         Input properties used for looking up and filtering SqlInjectionMatchSet resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the SQL injection match set.
         :param pulumi.Input[str] name: The name or description of the SQL Injection Match Set.
         :param pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if sql_injection_match_tuples is not None:
             pulumi.set(__self__, "sql_injection_match_tuples", sql_injection_match_tuples)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the SQL injection match set.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -199,6 +215,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["sql_injection_match_tuples"] = sql_injection_match_tuples
+            __props__.__dict__["arn"] = None
         super(SqlInjectionMatchSet, __self__).__init__(
             'aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet',
             resource_name,
@@ -209,6 +226,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None) -> 'SqlInjectionMatchSet':
         """
@@ -218,6 +236,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the SQL injection match set.
         :param pulumi.Input[str] name: The name or description of the SQL Injection Match Set.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
@@ -225,9 +244,18 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
 
         __props__ = _SqlInjectionMatchSetState.__new__(_SqlInjectionMatchSetState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["name"] = name
         __props__.__dict__["sql_injection_match_tuples"] = sql_injection_match_tuples
         return SqlInjectionMatchSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the SQL injection match set.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

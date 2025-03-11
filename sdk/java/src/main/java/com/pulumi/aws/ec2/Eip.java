@@ -570,10 +570,10 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * case both options are defined as the api only requires one or the other.
      * 
      * @deprecated
-     * use domain attribute instead
+     * vpc is deprecated. Use domain instead.
      * 
      */
-    @Deprecated /* use domain attribute instead */
+    @Deprecated /* vpc is deprecated. Use domain instead. */
     @Export(name="vpc", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> vpc;
 

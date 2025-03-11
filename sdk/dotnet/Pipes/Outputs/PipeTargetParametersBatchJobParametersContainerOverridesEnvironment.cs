@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+        /// Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         /// </summary>
         public readonly string? Value;
 

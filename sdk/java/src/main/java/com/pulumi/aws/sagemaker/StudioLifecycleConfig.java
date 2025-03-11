@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker Studio Lifecycle Config resource.
+ * Provides a SageMaker AI Studio Lifecycle Config resource.
  * 
  * ## Example Usage
  * 
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
+ * Using `pulumi import`, import SageMaker AI Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example

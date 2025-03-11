@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.SpaceSpaceSettingsCodeEditorAppSettings? CodeEditorAppSettings;
         /// <summary>
-        /// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
+        /// A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `custom_file_system` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SpaceSpaceSettingsCustomFileSystem> CustomFileSystems;
         /// <summary>

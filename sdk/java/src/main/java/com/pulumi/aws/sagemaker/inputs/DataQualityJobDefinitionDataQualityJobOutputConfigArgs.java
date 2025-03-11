@@ -18,14 +18,14 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigArgs extend
     public static final DataQualityJobDefinitionDataQualityJobOutputConfigArgs Empty = new DataQualityJobDefinitionDataQualityJobOutputConfigArgs();
 
     /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -73,7 +73,7 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigArgs extend
         }
 
         /**
-         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigArgs extend
         }
 
         /**
-         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+         * @param kmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
          * 
          * @return builder
          * 

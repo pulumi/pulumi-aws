@@ -80,14 +80,14 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+     * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      * 
      */
     @Import(name="kernelGatewayImageConfig")
     private @Nullable Output<AppImageConfigKernelGatewayImageConfigArgs> kernelGatewayImageConfig;
 
     /**
-     * @return The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+     * @return The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      * 
      */
     public Optional<Output<AppImageConfigKernelGatewayImageConfigArgs>> kernelGatewayImageConfig() {
@@ -247,7 +247,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param kernelGatewayImageConfig The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+         * @param kernelGatewayImageConfig The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param kernelGatewayImageConfig The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+         * @param kernelGatewayImageConfig The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
          * 
          * @return builder
          * 

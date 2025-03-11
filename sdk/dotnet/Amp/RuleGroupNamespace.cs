@@ -51,19 +51,37 @@ namespace Pulumi.Aws.Amp
     public partial class RuleGroupNamespace : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the rule group namespace.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
         /// </summary>
         [Output("data")]
         public Output<string> Data { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the rule group namespace
+        /// The name of the rule group namespace.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the prometheus workspace the rule group namespace should be linked to
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the prometheus workspace the rule group namespace should be linked to.
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -121,13 +139,25 @@ namespace Pulumi.Aws.Amp
         public Input<string> Data { get; set; } = null!;
 
         /// <summary>
-        /// The name of the rule group namespace
+        /// The name of the rule group namespace.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
-        /// ID of the prometheus workspace the rule group namespace should be linked to
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// ID of the prometheus workspace the rule group namespace should be linked to.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -141,19 +171,50 @@ namespace Pulumi.Aws.Amp
     public sealed class RuleGroupNamespaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ARN of the rule group namespace.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
         /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 
         /// <summary>
-        /// The name of the rule group namespace
+        /// The name of the rule group namespace.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
-        /// ID of the prometheus workspace the rule group namespace should be linked to
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Obsolete(@"Please use `tags` instead.")]
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
+        /// <summary>
+        /// ID of the prometheus workspace the rule group namespace should be linked to.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

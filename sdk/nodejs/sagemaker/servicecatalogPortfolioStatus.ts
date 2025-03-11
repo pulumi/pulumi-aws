@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
+ * Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker AI projects.
  *
  * ## Example Usage
  *

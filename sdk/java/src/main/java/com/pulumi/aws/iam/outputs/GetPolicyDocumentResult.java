@@ -31,19 +31,19 @@ public final class GetPolicyDocumentResult {
     private String minifiedJson;
     /**
      * @deprecated
-     * Not used
+     * override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* Not used */
+    @Deprecated /* override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
     private @Nullable String overrideJson;
     private @Nullable List<String> overridePolicyDocuments;
     private @Nullable String policyId;
     /**
      * @deprecated
-     * Not used
+     * source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* Not used */
+    @Deprecated /* source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
     private @Nullable String sourceJson;
     private @Nullable List<String> sourcePolicyDocuments;
     private @Nullable List<GetPolicyDocumentStatement> statements;
@@ -73,10 +73,10 @@ public final class GetPolicyDocumentResult {
     }
     /**
      * @deprecated
-     * Not used
+     * override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* Not used */
+    @Deprecated /* override_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
     public Optional<String> overrideJson() {
         return Optional.ofNullable(this.overrideJson);
     }
@@ -88,10 +88,10 @@ public final class GetPolicyDocumentResult {
     }
     /**
      * @deprecated
-     * Not used
+     * source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source.
      * 
      */
-    @Deprecated /* Not used */
+    @Deprecated /* source_json is deprecated. This argument is retained only for backward compatibility with previous versions of this data source. */
     public Optional<String> sourceJson() {
         return Optional.ofNullable(this.sourceJson);
     }

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> FileSystemId { get; set; } = null!;
 
         /// <summary>
-        /// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        /// The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         /// </summary>
         [Input("fileSystemPath")]
         public Input<string>? FileSystemPath { get; set; }

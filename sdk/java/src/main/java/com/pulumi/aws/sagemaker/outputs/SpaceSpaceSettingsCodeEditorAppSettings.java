@@ -19,7 +19,7 @@ public final class SpaceSpaceSettingsCodeEditorAppSettings {
      */
     private @Nullable SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement appLifecycleManagement;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     private SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -33,7 +33,7 @@ public final class SpaceSpaceSettingsCodeEditorAppSettings {
         return Optional.ofNullable(this.appLifecycleManagement);
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     public SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec() {

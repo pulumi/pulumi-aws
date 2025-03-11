@@ -27,7 +27,10 @@ class GetOriginRequestPolicyResult:
     """
     A collection of values returned by getOriginRequestPolicy.
     """
-    def __init__(__self__, comment=None, cookies_configs=None, etag=None, headers_configs=None, id=None, name=None, query_strings_configs=None):
+    def __init__(__self__, arn=None, comment=None, cookies_configs=None, etag=None, headers_configs=None, id=None, name=None, query_strings_configs=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if comment and not isinstance(comment, str):
             raise TypeError("Expected argument 'comment' to be a str")
         pulumi.set(__self__, "comment", comment)
@@ -49,6 +52,14 @@ class GetOriginRequestPolicyResult:
         if query_strings_configs and not isinstance(query_strings_configs, list):
             raise TypeError("Expected argument 'query_strings_configs' to be a list")
         pulumi.set(__self__, "query_strings_configs", query_strings_configs)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The origin request policy ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetOriginRequestPolicyResult(GetOriginRequestPolicyResult):
         if False:
             yield self
         return GetOriginRequestPolicyResult(
+            arn=self.arn,
             comment=self.comment,
             cookies_configs=self.cookies_configs,
             etag=self.etag,
@@ -153,6 +165,7 @@ def get_origin_request_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy', __args__, opts=opts, typ=GetOriginRequestPolicyResult).value
 
     return AwaitableGetOriginRequestPolicyResult(
+        arn=pulumi.get(__ret__, 'arn'),
         comment=pulumi.get(__ret__, 'comment'),
         cookies_configs=pulumi.get(__ret__, 'cookies_configs'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -196,6 +209,7 @@ def get_origin_request_policy_output(id: Optional[pulumi.Input[Optional[str]]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy', __args__, opts=opts, typ=GetOriginRequestPolicyResult)
     return __ret__.apply(lambda __response__: GetOriginRequestPolicyResult(
+        arn=pulumi.get(__response__, 'arn'),
         comment=pulumi.get(__response__, 'comment'),
         cookies_configs=pulumi.get(__response__, 'cookies_configs'),
         etag=pulumi.get(__response__, 'etag'),

@@ -20,7 +20,7 @@ public final class DomainDomainSettings {
      */
     private @Nullable DomainDomainSettingsDockerSettings dockerSettings;
     /**
-     * @return The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+     * @return The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
      * 
      */
     private @Nullable String executionRoleIdentityConfig;
@@ -44,7 +44,7 @@ public final class DomainDomainSettings {
         return Optional.ofNullable(this.dockerSettings);
     }
     /**
-     * @return The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+     * @return The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
      * 
      */
     public Optional<String> executionRoleIdentityConfig() {

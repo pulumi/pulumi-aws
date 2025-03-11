@@ -129,14 +129,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+     * Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      * 
      */
     @Import(name="environmentClass")
     private @Nullable Output<String> environmentClass;
 
     /**
-     * @return Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+     * @return Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      * 
      */
     public Optional<Output<String>> environmentClass() {
@@ -196,14 +196,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
      * 
      */
     @Import(name="maxWebservers")
     private @Nullable Output<Integer> maxWebservers;
 
     /**
-     * @return The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * @return The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
      * 
      */
     public Optional<Output<Integer>> maxWebservers() {
@@ -226,14 +226,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
      * 
      */
     @Import(name="minWebservers")
     private @Nullable Output<Integer> minWebservers;
 
     /**
-     * @return The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * @return The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
      * 
      */
     public Optional<Output<Integer>> minWebservers() {
@@ -740,7 +740,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentClass Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+         * @param environmentClass Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentClass Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+         * @param environmentClass Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
          * 
          * @return builder
          * 
@@ -837,7 +837,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxWebservers The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+         * @param maxWebservers The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
          * 
          * @return builder
          * 
@@ -848,7 +848,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxWebservers The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+         * @param maxWebservers The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
          * 
          * @return builder
          * 
@@ -879,7 +879,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minWebservers The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+         * @param minWebservers The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
          * 
          * @return builder
          * 
@@ -890,7 +890,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minWebservers The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+         * @param minWebservers The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
          * 
          * @return builder
          * 

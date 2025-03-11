@@ -196,6 +196,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy")
 public class ContinuousDeploymentPolicy extends com.pulumi.resources.CustomResource {
     /**
+     * The continuous deployment policy ARN.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The continuous deployment policy ARN.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * Whether this continuous deployment policy is enabled.
      * 
      */

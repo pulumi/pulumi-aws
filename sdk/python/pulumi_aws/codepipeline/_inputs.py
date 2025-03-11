@@ -31,6 +31,32 @@ __all__ = [
     'PipelineStageArgsDict',
     'PipelineStageActionArgs',
     'PipelineStageActionArgsDict',
+    'PipelineStageBeforeEntryArgs',
+    'PipelineStageBeforeEntryArgsDict',
+    'PipelineStageBeforeEntryConditionArgs',
+    'PipelineStageBeforeEntryConditionArgsDict',
+    'PipelineStageBeforeEntryConditionRuleArgs',
+    'PipelineStageBeforeEntryConditionRuleArgsDict',
+    'PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs',
+    'PipelineStageBeforeEntryConditionRuleRuleTypeIdArgsDict',
+    'PipelineStageOnFailureArgs',
+    'PipelineStageOnFailureArgsDict',
+    'PipelineStageOnFailureConditionArgs',
+    'PipelineStageOnFailureConditionArgsDict',
+    'PipelineStageOnFailureConditionRuleArgs',
+    'PipelineStageOnFailureConditionRuleArgsDict',
+    'PipelineStageOnFailureConditionRuleRuleTypeIdArgs',
+    'PipelineStageOnFailureConditionRuleRuleTypeIdArgsDict',
+    'PipelineStageOnFailureRetryConfigurationArgs',
+    'PipelineStageOnFailureRetryConfigurationArgsDict',
+    'PipelineStageOnSuccessArgs',
+    'PipelineStageOnSuccessArgsDict',
+    'PipelineStageOnSuccessConditionArgs',
+    'PipelineStageOnSuccessConditionArgsDict',
+    'PipelineStageOnSuccessConditionRuleArgs',
+    'PipelineStageOnSuccessConditionRuleArgsDict',
+    'PipelineStageOnSuccessConditionRuleRuleTypeIdArgs',
+    'PipelineStageOnSuccessConditionRuleRuleTypeIdArgsDict',
     'PipelineTriggerArgs',
     'PipelineTriggerArgsDict',
     'PipelineTriggerGitConfigurationArgs',
@@ -549,6 +575,18 @@ if not MYPY:
         """
         The name of the stage.
         """
+        before_entry: NotRequired[pulumi.Input['PipelineStageBeforeEntryArgsDict']]
+        """
+        The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+        """
+        on_failure: NotRequired[pulumi.Input['PipelineStageOnFailureArgsDict']]
+        """
+        The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+        """
+        on_success: NotRequired[pulumi.Input['PipelineStageOnSuccessArgsDict']]
+        """
+        The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+        """
 elif False:
     PipelineStageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -556,13 +594,25 @@ elif False:
 class PipelineStageArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArgs']]],
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[str],
+                 before_entry: Optional[pulumi.Input['PipelineStageBeforeEntryArgs']] = None,
+                 on_failure: Optional[pulumi.Input['PipelineStageOnFailureArgs']] = None,
+                 on_success: Optional[pulumi.Input['PipelineStageOnSuccessArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArgs']]] actions: The action(s) to include in the stage. Defined as an `action` block below
         :param pulumi.Input[str] name: The name of the stage.
+        :param pulumi.Input['PipelineStageBeforeEntryArgs'] before_entry: The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+        :param pulumi.Input['PipelineStageOnFailureArgs'] on_failure: The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+        :param pulumi.Input['PipelineStageOnSuccessArgs'] on_success: The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "name", name)
+        if before_entry is not None:
+            pulumi.set(__self__, "before_entry", before_entry)
+        if on_failure is not None:
+            pulumi.set(__self__, "on_failure", on_failure)
+        if on_success is not None:
+            pulumi.set(__self__, "on_success", on_success)
 
     @property
     @pulumi.getter
@@ -587,6 +637,42 @@ class PipelineStageArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="beforeEntry")
+    def before_entry(self) -> Optional[pulumi.Input['PipelineStageBeforeEntryArgs']]:
+        """
+        The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+        """
+        return pulumi.get(self, "before_entry")
+
+    @before_entry.setter
+    def before_entry(self, value: Optional[pulumi.Input['PipelineStageBeforeEntryArgs']]):
+        pulumi.set(self, "before_entry", value)
+
+    @property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> Optional[pulumi.Input['PipelineStageOnFailureArgs']]:
+        """
+        The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+        """
+        return pulumi.get(self, "on_failure")
+
+    @on_failure.setter
+    def on_failure(self, value: Optional[pulumi.Input['PipelineStageOnFailureArgs']]):
+        pulumi.set(self, "on_failure", value)
+
+    @property
+    @pulumi.getter(name="onSuccess")
+    def on_success(self) -> Optional[pulumi.Input['PipelineStageOnSuccessArgs']]:
+        """
+        The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+        """
+        return pulumi.get(self, "on_success")
+
+    @on_success.setter
+    def on_success(self, value: Optional[pulumi.Input['PipelineStageOnSuccessArgs']]):
+        pulumi.set(self, "on_success", value)
 
 
 if not MYPY:
@@ -640,6 +726,9 @@ if not MYPY:
         The order in which actions are run.
         """
         timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The action timeout for the rule.
+        """
 elif False:
     PipelineStageActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -672,6 +761,7 @@ class PipelineStageActionArgs:
         :param pulumi.Input[str] region: The region in which to run the action.
         :param pulumi.Input[str] role_arn: The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
         :param pulumi.Input[int] run_order: The order in which actions are run.
+        :param pulumi.Input[int] timeout_in_minutes: The action timeout for the rule.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "name", name)
@@ -842,11 +932,1113 @@ class PipelineStageActionArgs:
     @property
     @pulumi.getter(name="timeoutInMinutes")
     def timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The action timeout for the rule.
+        """
         return pulumi.get(self, "timeout_in_minutes")
 
     @timeout_in_minutes.setter
     def timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_in_minutes", value)
+
+
+if not MYPY:
+    class PipelineStageBeforeEntryArgsDict(TypedDict):
+        condition: pulumi.Input['PipelineStageBeforeEntryConditionArgsDict']
+        """
+        The conditions that are configured as entry condition. Defined as a `condition` block below.
+        """
+elif False:
+    PipelineStageBeforeEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageBeforeEntryArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input['PipelineStageBeforeEntryConditionArgs']):
+        """
+        :param pulumi.Input['PipelineStageBeforeEntryConditionArgs'] condition: The conditions that are configured as entry condition. Defined as a `condition` block below.
+        """
+        pulumi.set(__self__, "condition", condition)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input['PipelineStageBeforeEntryConditionArgs']:
+        """
+        The conditions that are configured as entry condition. Defined as a `condition` block below.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input['PipelineStageBeforeEntryConditionArgs']):
+        pulumi.set(self, "condition", value)
+
+
+if not MYPY:
+    class PipelineStageBeforeEntryConditionArgsDict(TypedDict):
+        rules: pulumi.Input[Sequence[pulumi.Input['PipelineStageBeforeEntryConditionRuleArgsDict']]]
+        """
+        The rules that make up the condition. Defined as a `rule` block below.
+        """
+        result: NotRequired[pulumi.Input[str]]
+        """
+        The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+        """
+elif False:
+    PipelineStageBeforeEntryConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageBeforeEntryConditionArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['PipelineStageBeforeEntryConditionRuleArgs']]],
+                 result: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageBeforeEntryConditionRuleArgs']]] rules: The rules that make up the condition. Defined as a `rule` block below.
+        :param pulumi.Input[str] result: The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+        """
+        pulumi.set(__self__, "rules", rules)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineStageBeforeEntryConditionRuleArgs']]]:
+        """
+        The rules that make up the condition. Defined as a `rule` block below.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['PipelineStageBeforeEntryConditionRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def result(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "result", value)
+
+
+if not MYPY:
+    class PipelineStageBeforeEntryConditionRuleArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the rule that is created for the condition, such as `VariableCheck`.
+        """
+        rule_type_id: pulumi.Input['PipelineStageBeforeEntryConditionRuleRuleTypeIdArgsDict']
+        """
+        The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+        """
+        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+        """
+        configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        """
+        input_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        The Region for the condition associated with the rule.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The pipeline role ARN associated with the rule.
+        """
+        timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The action timeout for the rule.
+        """
+elif False:
+    PipelineStageBeforeEntryConditionRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageBeforeEntryConditionRuleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 rule_type_id: pulumi.Input['PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs'],
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 input_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 timeout_in_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the rule that is created for the condition, such as `VariableCheck`.
+        :param pulumi.Input['PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs'] rule_type_id: The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration: The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] input_artifacts: The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+        :param pulumi.Input[str] region: The Region for the condition associated with the rule.
+        :param pulumi.Input[str] role_arn: The pipeline role ARN associated with the rule.
+        :param pulumi.Input[int] timeout_in_minutes: The action timeout for the rule.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "rule_type_id", rule_type_id)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if input_artifacts is not None:
+            pulumi.set(__self__, "input_artifacts", input_artifacts)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if timeout_in_minutes is not None:
+            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the rule that is created for the condition, such as `VariableCheck`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ruleTypeId")
+    def rule_type_id(self) -> pulumi.Input['PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs']:
+        """
+        The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+        """
+        return pulumi.get(self, "rule_type_id")
+
+    @rule_type_id.setter
+    def rule_type_id(self, value: pulumi.Input['PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs']):
+        pulumi.set(self, "rule_type_id", value)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "commands", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter(name="inputArtifacts")
+    def input_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+        """
+        return pulumi.get(self, "input_artifacts")
+
+    @input_artifacts.setter
+    def input_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "input_artifacts", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Region for the condition associated with the rule.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The pipeline role ARN associated with the rule.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="timeoutInMinutes")
+    def timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The action timeout for the rule.
+        """
+        return pulumi.get(self, "timeout_in_minutes")
+
+    @timeout_in_minutes.setter
+    def timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_minutes", value)
+
+
+if not MYPY:
+    class PipelineStageBeforeEntryConditionRuleRuleTypeIdArgsDict(TypedDict):
+        category: pulumi.Input[str]
+        """
+        A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+        """
+        provider: pulumi.Input[str]
+        """
+        The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        """
+        owner: NotRequired[pulumi.Input[str]]
+        """
+        The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        A string that describes the rule version.
+        """
+elif False:
+    PipelineStageBeforeEntryConditionRuleRuleTypeIdArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input[str],
+                 provider: pulumi.Input[str],
+                 owner: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] category: A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+        :param pulumi.Input[str] provider: The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        :param pulumi.Input[str] owner: The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+        :param pulumi.Input[str] version: A string that describes the rule version.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "provider", provider)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[str]:
+        """
+        A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[str]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input[str]:
+        """
+        The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that describes the rule version.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class PipelineStageOnFailureArgsDict(TypedDict):
+        condition: NotRequired[pulumi.Input['PipelineStageOnFailureConditionArgsDict']]
+        """
+        The conditions that are failure conditions. Defined as a `condition` block below.
+        """
+        result: NotRequired[pulumi.Input[str]]
+        """
+        The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
+        """
+        retry_configuration: NotRequired[pulumi.Input['PipelineStageOnFailureRetryConfigurationArgsDict']]
+        """
+        The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
+        """
+elif False:
+    PipelineStageOnFailureArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageOnFailureArgs:
+    def __init__(__self__, *,
+                 condition: Optional[pulumi.Input['PipelineStageOnFailureConditionArgs']] = None,
+                 result: Optional[pulumi.Input[str]] = None,
+                 retry_configuration: Optional[pulumi.Input['PipelineStageOnFailureRetryConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['PipelineStageOnFailureConditionArgs'] condition: The conditions that are failure conditions. Defined as a `condition` block below.
+        :param pulumi.Input[str] result: The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
+        :param pulumi.Input['PipelineStageOnFailureRetryConfigurationArgs'] retry_configuration: The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
+        """
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+        if retry_configuration is not None:
+            pulumi.set(__self__, "retry_configuration", retry_configuration)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input['PipelineStageOnFailureConditionArgs']]:
+        """
+        The conditions that are failure conditions. Defined as a `condition` block below.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input['PipelineStageOnFailureConditionArgs']]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter
+    def result(self) -> Optional[pulumi.Input[str]]:
+        """
+        The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "result", value)
+
+    @property
+    @pulumi.getter(name="retryConfiguration")
+    def retry_configuration(self) -> Optional[pulumi.Input['PipelineStageOnFailureRetryConfigurationArgs']]:
+        """
+        The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
+        """
+        return pulumi.get(self, "retry_configuration")
+
+    @retry_configuration.setter
+    def retry_configuration(self, value: Optional[pulumi.Input['PipelineStageOnFailureRetryConfigurationArgs']]):
+        pulumi.set(self, "retry_configuration", value)
+
+
+if not MYPY:
+    class PipelineStageOnFailureConditionArgsDict(TypedDict):
+        rules: pulumi.Input[Sequence[pulumi.Input['PipelineStageOnFailureConditionRuleArgsDict']]]
+        """
+        The rules that make up the condition. Defined as a `rule` block below.
+        """
+        result: NotRequired[pulumi.Input[str]]
+        """
+        The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+        """
+elif False:
+    PipelineStageOnFailureConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageOnFailureConditionArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['PipelineStageOnFailureConditionRuleArgs']]],
+                 result: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageOnFailureConditionRuleArgs']]] rules: The rules that make up the condition. Defined as a `rule` block below.
+        :param pulumi.Input[str] result: The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+        """
+        pulumi.set(__self__, "rules", rules)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineStageOnFailureConditionRuleArgs']]]:
+        """
+        The rules that make up the condition. Defined as a `rule` block below.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['PipelineStageOnFailureConditionRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def result(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "result", value)
+
+
+if not MYPY:
+    class PipelineStageOnFailureConditionRuleArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the rule that is created for the condition, such as `VariableCheck`.
+        """
+        rule_type_id: pulumi.Input['PipelineStageOnFailureConditionRuleRuleTypeIdArgsDict']
+        """
+        The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+        """
+        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+        """
+        configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        """
+        input_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        The Region for the condition associated with the rule.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The pipeline role ARN associated with the rule.
+        """
+        timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The action timeout for the rule.
+        """
+elif False:
+    PipelineStageOnFailureConditionRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageOnFailureConditionRuleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 rule_type_id: pulumi.Input['PipelineStageOnFailureConditionRuleRuleTypeIdArgs'],
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 input_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 timeout_in_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the rule that is created for the condition, such as `VariableCheck`.
+        :param pulumi.Input['PipelineStageOnFailureConditionRuleRuleTypeIdArgs'] rule_type_id: The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration: The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] input_artifacts: The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+        :param pulumi.Input[str] region: The Region for the condition associated with the rule.
+        :param pulumi.Input[str] role_arn: The pipeline role ARN associated with the rule.
+        :param pulumi.Input[int] timeout_in_minutes: The action timeout for the rule.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "rule_type_id", rule_type_id)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if input_artifacts is not None:
+            pulumi.set(__self__, "input_artifacts", input_artifacts)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if timeout_in_minutes is not None:
+            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the rule that is created for the condition, such as `VariableCheck`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ruleTypeId")
+    def rule_type_id(self) -> pulumi.Input['PipelineStageOnFailureConditionRuleRuleTypeIdArgs']:
+        """
+        The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+        """
+        return pulumi.get(self, "rule_type_id")
+
+    @rule_type_id.setter
+    def rule_type_id(self, value: pulumi.Input['PipelineStageOnFailureConditionRuleRuleTypeIdArgs']):
+        pulumi.set(self, "rule_type_id", value)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "commands", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter(name="inputArtifacts")
+    def input_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+        """
+        return pulumi.get(self, "input_artifacts")
+
+    @input_artifacts.setter
+    def input_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "input_artifacts", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Region for the condition associated with the rule.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The pipeline role ARN associated with the rule.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="timeoutInMinutes")
+    def timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The action timeout for the rule.
+        """
+        return pulumi.get(self, "timeout_in_minutes")
+
+    @timeout_in_minutes.setter
+    def timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_minutes", value)
+
+
+if not MYPY:
+    class PipelineStageOnFailureConditionRuleRuleTypeIdArgsDict(TypedDict):
+        category: pulumi.Input[str]
+        """
+        A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+        """
+        provider: pulumi.Input[str]
+        """
+        The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        """
+        owner: NotRequired[pulumi.Input[str]]
+        """
+        The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        A string that describes the rule version.
+        """
+elif False:
+    PipelineStageOnFailureConditionRuleRuleTypeIdArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageOnFailureConditionRuleRuleTypeIdArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input[str],
+                 provider: pulumi.Input[str],
+                 owner: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] category: A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+        :param pulumi.Input[str] provider: The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        :param pulumi.Input[str] owner: The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+        :param pulumi.Input[str] version: A string that describes the rule version.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "provider", provider)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[str]:
+        """
+        A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[str]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input[str]:
+        """
+        The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that describes the rule version.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class PipelineStageOnFailureRetryConfigurationArgsDict(TypedDict):
+        retry_mode: NotRequired[pulumi.Input[str]]
+        """
+        The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
+        """
+elif False:
+    PipelineStageOnFailureRetryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageOnFailureRetryConfigurationArgs:
+    def __init__(__self__, *,
+                 retry_mode: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] retry_mode: The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
+        """
+        if retry_mode is not None:
+            pulumi.set(__self__, "retry_mode", retry_mode)
+
+    @property
+    @pulumi.getter(name="retryMode")
+    def retry_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
+        """
+        return pulumi.get(self, "retry_mode")
+
+    @retry_mode.setter
+    def retry_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "retry_mode", value)
+
+
+if not MYPY:
+    class PipelineStageOnSuccessArgsDict(TypedDict):
+        condition: pulumi.Input['PipelineStageOnSuccessConditionArgsDict']
+        """
+        The conditions that are success conditions. Defined as a `condition` block below.
+        """
+elif False:
+    PipelineStageOnSuccessArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageOnSuccessArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input['PipelineStageOnSuccessConditionArgs']):
+        """
+        :param pulumi.Input['PipelineStageOnSuccessConditionArgs'] condition: The conditions that are success conditions. Defined as a `condition` block below.
+        """
+        pulumi.set(__self__, "condition", condition)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input['PipelineStageOnSuccessConditionArgs']:
+        """
+        The conditions that are success conditions. Defined as a `condition` block below.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input['PipelineStageOnSuccessConditionArgs']):
+        pulumi.set(self, "condition", value)
+
+
+if not MYPY:
+    class PipelineStageOnSuccessConditionArgsDict(TypedDict):
+        rules: pulumi.Input[Sequence[pulumi.Input['PipelineStageOnSuccessConditionRuleArgsDict']]]
+        """
+        The rules that make up the condition. Defined as a `rule` block below.
+        """
+        result: NotRequired[pulumi.Input[str]]
+        """
+        The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+        """
+elif False:
+    PipelineStageOnSuccessConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageOnSuccessConditionArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['PipelineStageOnSuccessConditionRuleArgs']]],
+                 result: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageOnSuccessConditionRuleArgs']]] rules: The rules that make up the condition. Defined as a `rule` block below.
+        :param pulumi.Input[str] result: The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+        """
+        pulumi.set(__self__, "rules", rules)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineStageOnSuccessConditionRuleArgs']]]:
+        """
+        The rules that make up the condition. Defined as a `rule` block below.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['PipelineStageOnSuccessConditionRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def result(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "result", value)
+
+
+if not MYPY:
+    class PipelineStageOnSuccessConditionRuleArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the rule that is created for the condition, such as `VariableCheck`.
+        """
+        rule_type_id: pulumi.Input['PipelineStageOnSuccessConditionRuleRuleTypeIdArgsDict']
+        """
+        The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+        """
+        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+        """
+        configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        """
+        input_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        The Region for the condition associated with the rule.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The pipeline role ARN associated with the rule.
+        """
+        timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The action timeout for the rule.
+        """
+elif False:
+    PipelineStageOnSuccessConditionRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageOnSuccessConditionRuleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 rule_type_id: pulumi.Input['PipelineStageOnSuccessConditionRuleRuleTypeIdArgs'],
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 input_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 timeout_in_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the rule that is created for the condition, such as `VariableCheck`.
+        :param pulumi.Input['PipelineStageOnSuccessConditionRuleRuleTypeIdArgs'] rule_type_id: The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration: The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] input_artifacts: The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+        :param pulumi.Input[str] region: The Region for the condition associated with the rule.
+        :param pulumi.Input[str] role_arn: The pipeline role ARN associated with the rule.
+        :param pulumi.Input[int] timeout_in_minutes: The action timeout for the rule.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "rule_type_id", rule_type_id)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if input_artifacts is not None:
+            pulumi.set(__self__, "input_artifacts", input_artifacts)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if timeout_in_minutes is not None:
+            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the rule that is created for the condition, such as `VariableCheck`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ruleTypeId")
+    def rule_type_id(self) -> pulumi.Input['PipelineStageOnSuccessConditionRuleRuleTypeIdArgs']:
+        """
+        The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
+        """
+        return pulumi.get(self, "rule_type_id")
+
+    @rule_type_id.setter
+    def rule_type_id(self, value: pulumi.Input['PipelineStageOnSuccessConditionRuleRuleTypeIdArgs']):
+        pulumi.set(self, "rule_type_id", value)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "commands", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter(name="inputArtifacts")
+    def input_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
+        """
+        return pulumi.get(self, "input_artifacts")
+
+    @input_artifacts.setter
+    def input_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "input_artifacts", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Region for the condition associated with the rule.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The pipeline role ARN associated with the rule.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="timeoutInMinutes")
+    def timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The action timeout for the rule.
+        """
+        return pulumi.get(self, "timeout_in_minutes")
+
+    @timeout_in_minutes.setter
+    def timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_minutes", value)
+
+
+if not MYPY:
+    class PipelineStageOnSuccessConditionRuleRuleTypeIdArgsDict(TypedDict):
+        category: pulumi.Input[str]
+        """
+        A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+        """
+        provider: pulumi.Input[str]
+        """
+        The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        """
+        owner: NotRequired[pulumi.Input[str]]
+        """
+        The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        A string that describes the rule version.
+        """
+elif False:
+    PipelineStageOnSuccessConditionRuleRuleTypeIdArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineStageOnSuccessConditionRuleRuleTypeIdArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input[str],
+                 provider: pulumi.Input[str],
+                 owner: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] category: A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+        :param pulumi.Input[str] provider: The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        :param pulumi.Input[str] owner: The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+        :param pulumi.Input[str] version: A string that describes the rule version.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "provider", provider)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[str]:
+        """
+        A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[str]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input[str]:
+        """
+        The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that describes the rule version.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 if not MYPY:

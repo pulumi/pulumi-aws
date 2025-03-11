@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker App resource.
+ * Provides a SageMaker AI App resource.
  *
  * ## Example Usage
  *
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import SageMaker Apps using the `id`. For example:
+ * Using `pulumi import`, import SageMaker AI Apps using the `id`. For example:
  *
  * ```sh
  * $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
@@ -79,7 +79,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly domainId!: pulumi.Output<string>;
     /**
-     * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+     * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
      */
     public readonly resourceSpec!: pulumi.Output<outputs.sagemaker.AppResourceSpec>;
     /**
@@ -170,7 +170,7 @@ export interface AppState {
      */
     domainId?: pulumi.Input<string>;
     /**
-     * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+     * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
      */
     resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec>;
     /**
@@ -210,7 +210,7 @@ export interface AppArgs {
      */
     domainId: pulumi.Input<string>;
     /**
-     * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+     * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
      */
     resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec>;
     /**

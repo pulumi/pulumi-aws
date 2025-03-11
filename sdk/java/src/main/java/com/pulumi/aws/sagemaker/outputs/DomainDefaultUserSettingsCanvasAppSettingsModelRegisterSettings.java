@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings {
     /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+     * @return The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
      * 
      */
     private @Nullable String crossAccountModelRegisterRoleArn;
@@ -24,7 +24,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettin
 
     private DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+     * @return The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
      * 
      */
     public Optional<String> crossAccountModelRegisterRoleArn() {

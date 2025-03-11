@@ -43,10 +43,10 @@ public final class GetUserResult {
     private List<GetUserExternalId> externalIds;
     /**
      * @deprecated
-     * Use the alternate_identifier attribute instead.
+     * filter is deprecated. Use alternate_identifier instead.
      * 
      */
-    @Deprecated /* Use the alternate_identifier attribute instead. */
+    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
     private @Nullable GetUserFilter filter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -140,10 +140,10 @@ public final class GetUserResult {
     }
     /**
      * @deprecated
-     * Use the alternate_identifier attribute instead.
+     * filter is deprecated. Use alternate_identifier instead.
      * 
      */
-    @Deprecated /* Use the alternate_identifier attribute instead. */
+    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
     public Optional<GetUserFilter> filter() {
         return Optional.ofNullable(this.filter);
     }

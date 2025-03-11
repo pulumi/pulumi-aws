@@ -47,11 +47,27 @@ public final class PipelineVpcOptionsArgs extends com.pulumi.resources.ResourceA
         return this.subnetIds;
     }
 
+    /**
+     * Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+     * 
+     */
+    @Import(name="vpcEndpointManagement")
+    private @Nullable Output<String> vpcEndpointManagement;
+
+    /**
+     * @return Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+     * 
+     */
+    public Optional<Output<String>> vpcEndpointManagement() {
+        return Optional.ofNullable(this.vpcEndpointManagement);
+    }
+
     private PipelineVpcOptionsArgs() {}
 
     private PipelineVpcOptionsArgs(PipelineVpcOptionsArgs $) {
         this.securityGroupIds = $.securityGroupIds;
         this.subnetIds = $.subnetIds;
+        this.vpcEndpointManagement = $.vpcEndpointManagement;
     }
 
     public static Builder builder() {
@@ -132,6 +148,27 @@ public final class PipelineVpcOptionsArgs extends com.pulumi.resources.ResourceA
          */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
+        }
+
+        /**
+         * @param vpcEndpointManagement Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcEndpointManagement(@Nullable Output<String> vpcEndpointManagement) {
+            $.vpcEndpointManagement = vpcEndpointManagement;
+            return this;
+        }
+
+        /**
+         * @param vpcEndpointManagement Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcEndpointManagement(String vpcEndpointManagement) {
+            return vpcEndpointManagement(Output.of(vpcEndpointManagement));
         }
 
         public PipelineVpcOptionsArgs build() {

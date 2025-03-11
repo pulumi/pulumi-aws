@@ -125,6 +125,10 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The continuous deployment policy ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Whether this continuous deployment policy is enabled.
      */
     public readonly enabled!: pulumi.Output<boolean>;
@@ -158,6 +162,7 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContinuousDeploymentPolicyState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["etag"] = state ? state.etag : undefined;
             resourceInputs["lastModifiedTime"] = state ? state.lastModifiedTime : undefined;
@@ -171,6 +176,7 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["stagingDistributionDnsNames"] = args ? args.stagingDistributionDnsNames : undefined;
             resourceInputs["trafficConfig"] = args ? args.trafficConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         }
@@ -183,6 +189,10 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ContinuousDeploymentPolicy resources.
  */
 export interface ContinuousDeploymentPolicyState {
+    /**
+     * The continuous deployment policy ARN.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Whether this continuous deployment policy is enabled.
      */

@@ -36,15 +36,15 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
      * Number of days an object is noncurrent before Amazon S3 can perform the associated action.
      * 
      */
-    @Import(name="noncurrentDays")
-    private @Nullable Output<Integer> noncurrentDays;
+    @Import(name="noncurrentDays", required=true)
+    private Output<Integer> noncurrentDays;
 
     /**
      * @return Number of days an object is noncurrent before Amazon S3 can perform the associated action.
      * 
      */
-    public Optional<Output<Integer>> noncurrentDays() {
-        return Optional.ofNullable(this.noncurrentDays);
+    public Output<Integer> noncurrentDays() {
+        return this.noncurrentDays;
     }
 
     /**
@@ -115,7 +115,7 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
          * @return builder
          * 
          */
-        public Builder noncurrentDays(@Nullable Output<Integer> noncurrentDays) {
+        public Builder noncurrentDays(Output<Integer> noncurrentDays) {
             $.noncurrentDays = noncurrentDays;
             return this;
         }
@@ -152,6 +152,9 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition
         }
 
         public BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs build() {
+            if ($.noncurrentDays == null) {
+                throw new MissingRequiredPropertyException("BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs", "noncurrentDays");
+            }
             if ($.storageClass == null) {
                 throw new MissingRequiredPropertyException("BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs", "storageClass");
             }

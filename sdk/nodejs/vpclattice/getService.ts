@@ -72,7 +72,7 @@ export interface GetServiceResult {
      */
     readonly customDomainName: string;
     /**
-     * DNS name of the service.
+     * List of objects with DNS names.
      */
     readonly dnsEntries: outputs.vpclattice.GetServiceDnsEntry[];
     /**

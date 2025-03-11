@@ -87,14 +87,14 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> EbsOptimized { get; private set; } = null!;
 
         /// <summary>
-        /// The elastic GPU to attach to the instance. See Elastic GPU
+        /// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
         /// below for more details.
         /// </summary>
         [Output("elasticGpuSpecifications")]
         public Output<ImmutableArray<Outputs.LaunchTemplateElasticGpuSpecification>> ElasticGpuSpecifications { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        /// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         /// </summary>
         [Output("elasticInferenceAccelerator")]
         public Output<Outputs.LaunchTemplateElasticInferenceAccelerator?> ElasticInferenceAccelerator { get; private set; } = null!;
@@ -385,9 +385,10 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs>? _elasticGpuSpecifications;
 
         /// <summary>
-        /// The elastic GPU to attach to the instance. See Elastic GPU
+        /// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
         /// below for more details.
         /// </summary>
+        [Obsolete(@"elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.")]
         public InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs> ElasticGpuSpecifications
         {
             get => _elasticGpuSpecifications ?? (_elasticGpuSpecifications = new InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs>());
@@ -395,7 +396,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        /// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         /// </summary>
         [Input("elasticInferenceAccelerator")]
         public Input<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs>? ElasticInferenceAccelerator { get; set; }
@@ -678,9 +679,10 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.LaunchTemplateElasticGpuSpecificationGetArgs>? _elasticGpuSpecifications;
 
         /// <summary>
-        /// The elastic GPU to attach to the instance. See Elastic GPU
+        /// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
         /// below for more details.
         /// </summary>
+        [Obsolete(@"elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.")]
         public InputList<Inputs.LaunchTemplateElasticGpuSpecificationGetArgs> ElasticGpuSpecifications
         {
             get => _elasticGpuSpecifications ?? (_elasticGpuSpecifications = new InputList<Inputs.LaunchTemplateElasticGpuSpecificationGetArgs>());
@@ -688,7 +690,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        /// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         /// </summary>
         [Input("elasticInferenceAccelerator")]
         public Input<Inputs.LaunchTemplateElasticInferenceAcceleratorGetArgs>? ElasticInferenceAccelerator { get; set; }

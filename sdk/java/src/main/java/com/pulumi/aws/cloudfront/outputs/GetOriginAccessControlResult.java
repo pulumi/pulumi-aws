@@ -11,6 +11,11 @@ import java.util.Objects;
 @CustomType
 public final class GetOriginAccessControlResult {
     /**
+     * @return The origin access control ARN.
+     * 
+     */
+    private String arn;
+    /**
      * @return A description of the origin access control.
      * 
      */
@@ -43,6 +48,13 @@ public final class GetOriginAccessControlResult {
     private String signingProtocol;
 
     private GetOriginAccessControlResult() {}
+    /**
+     * @return The origin access control ARN.
+     * 
+     */
+    public String arn() {
+        return this.arn;
+    }
     /**
      * @return A description of the origin access control.
      * 
@@ -98,6 +110,7 @@ public final class GetOriginAccessControlResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
         private String description;
         private String etag;
         private String id;
@@ -108,6 +121,7 @@ public final class GetOriginAccessControlResult {
         public Builder() {}
         public Builder(GetOriginAccessControlResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.description = defaults.description;
     	      this.etag = defaults.etag;
     	      this.id = defaults.id;
@@ -117,6 +131,14 @@ public final class GetOriginAccessControlResult {
     	      this.signingProtocol = defaults.signingProtocol;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetOriginAccessControlResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder description(String description) {
             if (description == null) {
@@ -175,6 +197,7 @@ public final class GetOriginAccessControlResult {
         }
         public GetOriginAccessControlResult build() {
             final var _resultValue = new GetOriginAccessControlResult();
+            _resultValue.arn = arn;
             _resultValue.description = description;
             _resultValue.etag = etag;
             _resultValue.id = id;

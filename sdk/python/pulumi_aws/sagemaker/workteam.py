@@ -321,7 +321,7 @@ class Workteam(pulumi.CustomResource):
                  workteam_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Workteam resource.
+        Provides a SageMaker AI Workteam resource.
 
         ## Example Usage
 
@@ -363,7 +363,7 @@ class Workteam(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
+        Using `pulumi import`, import SageMaker AI Workteams using the `workteam_name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/workteam:Workteam example example
@@ -386,7 +386,7 @@ class Workteam(pulumi.CustomResource):
                  args: WorkteamArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Workteam resource.
+        Provides a SageMaker AI Workteam resource.
 
         ## Example Usage
 
@@ -428,7 +428,7 @@ class Workteam(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
+        Using `pulumi import`, import SageMaker AI Workteams using the `workteam_name`. For example:
 
         ```sh
         $ pulumi import aws:sagemaker/workteam:Workteam example example

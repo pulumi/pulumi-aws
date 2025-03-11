@@ -5699,7 +5699,7 @@ func (o EventTargetRunCommandTargetArrayOutput) Index(i pulumi.IntInput) EventTa
 }
 
 type EventTargetSagemakerPipelineTarget struct {
-	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+	// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 	PipelineParameterLists []EventTargetSagemakerPipelineTargetPipelineParameterList `pulumi:"pipelineParameterLists"`
 }
 
@@ -5715,7 +5715,7 @@ type EventTargetSagemakerPipelineTargetInput interface {
 }
 
 type EventTargetSagemakerPipelineTargetArgs struct {
-	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+	// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 	PipelineParameterLists EventTargetSagemakerPipelineTargetPipelineParameterListArrayInput `pulumi:"pipelineParameterLists"`
 }
 
@@ -5796,7 +5796,7 @@ func (o EventTargetSagemakerPipelineTargetOutput) ToEventTargetSagemakerPipeline
 	}).(EventTargetSagemakerPipelineTargetPtrOutput)
 }
 
-// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 func (o EventTargetSagemakerPipelineTargetOutput) PipelineParameterLists() EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
 	return o.ApplyT(func(v EventTargetSagemakerPipelineTarget) []EventTargetSagemakerPipelineTargetPipelineParameterList {
 		return v.PipelineParameterLists
@@ -5827,7 +5827,7 @@ func (o EventTargetSagemakerPipelineTargetPtrOutput) Elem() EventTargetSagemaker
 	}).(EventTargetSagemakerPipelineTargetOutput)
 }
 
-// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 func (o EventTargetSagemakerPipelineTargetPtrOutput) PipelineParameterLists() EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
 	return o.ApplyT(func(v *EventTargetSagemakerPipelineTarget) []EventTargetSagemakerPipelineTargetPipelineParameterList {
 		if v == nil {
@@ -5838,9 +5838,9 @@ func (o EventTargetSagemakerPipelineTargetPtrOutput) PipelineParameterLists() Ev
 }
 
 type EventTargetSagemakerPipelineTargetPipelineParameterList struct {
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Name string `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Value string `pulumi:"value"`
 }
 
@@ -5856,9 +5856,9 @@ type EventTargetSagemakerPipelineTargetPipelineParameterListInput interface {
 }
 
 type EventTargetSagemakerPipelineTargetPipelineParameterListArgs struct {
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5913,12 +5913,12 @@ func (o EventTargetSagemakerPipelineTargetPipelineParameterListOutput) ToEventTa
 	return o
 }
 
-// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 func (o EventTargetSagemakerPipelineTargetPipelineParameterListOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetSagemakerPipelineTargetPipelineParameterList) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 func (o EventTargetSagemakerPipelineTargetPipelineParameterListOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetSagemakerPipelineTargetPipelineParameterList) string { return v.Value }).(pulumi.StringOutput)
 }

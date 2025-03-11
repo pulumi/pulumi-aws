@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Scheduler.Inputs
         private InputList<Inputs.ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs>? _pipelineParameters;
 
         /// <summary>
-        /// Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+        /// Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
         /// </summary>
         public InputList<Inputs.ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs> PipelineParameters
         {

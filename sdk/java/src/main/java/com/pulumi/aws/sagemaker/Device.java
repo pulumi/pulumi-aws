@@ -15,7 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker Device resource.
+ * Provides a SageMaker AI Device resource.
  * 
  * ## Example Usage
  * 
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For example:
+ * Using `pulumi import`, import SageMaker AI Devices using the `device-fleet-name/device-name`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
@@ -90,14 +90,14 @@ public class Device extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The device to register with SageMaker Edge Manager. See Device details below.
+     * The device to register with SageMaker AI Edge Manager. See Device details below.
      * 
      */
     @Export(name="device", refs={DeviceDevice.class}, tree="[0]")
     private Output<DeviceDevice> device;
 
     /**
-     * @return The device to register with SageMaker Edge Manager. See Device details below.
+     * @return The device to register with SageMaker AI Edge Manager. See Device details below.
      * 
      */
     public Output<DeviceDevice> device() {

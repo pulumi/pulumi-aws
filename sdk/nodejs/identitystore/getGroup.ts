@@ -50,7 +50,7 @@ export interface GetGroupArgs {
     /**
      * Configuration block for filtering by a unique attribute of the group. Detailed below.
      *
-     * @deprecated Use the alternateIdentifier attribute instead.
+     * @deprecated filter is deprecated. Use alternateIdentifier instead.
      */
     filter?: inputs.identitystore.GetGroupFilter;
     /**
@@ -85,7 +85,7 @@ export interface GetGroupResult {
      */
     readonly externalIds: outputs.identitystore.GetGroupExternalId[];
     /**
-     * @deprecated Use the alternateIdentifier attribute instead.
+     * @deprecated filter is deprecated. Use alternateIdentifier instead.
      */
     readonly filter?: outputs.identitystore.GetGroupFilter;
     readonly groupId: string;
@@ -138,7 +138,7 @@ export interface GetGroupOutputArgs {
     /**
      * Configuration block for filtering by a unique attribute of the group. Detailed below.
      *
-     * @deprecated Use the alternateIdentifier attribute instead.
+     * @deprecated filter is deprecated. Use alternateIdentifier instead.
      */
     filter?: pulumi.Input<inputs.identitystore.GetGroupFilterArgs>;
     /**

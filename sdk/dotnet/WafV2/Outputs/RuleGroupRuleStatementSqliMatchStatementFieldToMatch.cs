@@ -33,7 +33,14 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// Inspect the request headers. See Headers below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader> Headers;
+        /// <summary>
+        /// Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint? Ja3Fingerprint;
+        /// <summary>
+        /// Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint? Ja4Fingerprint;
         /// <summary>
         /// Inspect the request body as JSON. See JSON Body for details.
         /// </summary>
@@ -73,6 +80,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint? ja3Fingerprint,
 
+            Outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint? ja4Fingerprint,
+
             Outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody? jsonBody,
 
             Outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod? method,
@@ -91,6 +100,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             HeaderOrders = headerOrders;
             Headers = headers;
             Ja3Fingerprint = ja3Fingerprint;
+            Ja4Fingerprint = ja4Fingerprint;
             JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;

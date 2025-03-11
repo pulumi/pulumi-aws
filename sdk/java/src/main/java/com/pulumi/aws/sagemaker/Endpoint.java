@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker Endpoint resource.
+ * Provides a SageMaker AI Endpoint resource.
  * 
  * ## Example Usage
  * 

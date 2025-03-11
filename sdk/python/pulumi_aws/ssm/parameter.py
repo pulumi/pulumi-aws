@@ -65,8 +65,8 @@ class ParameterArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if overwrite is not None:
-            warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
-            pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
+            warnings.warn("""overwrite is deprecated. This argument will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""overwrite is deprecated: overwrite is deprecated. This argument will be removed in a future major version.""")
         if overwrite is not None:
             pulumi.set(__self__, "overwrite", overwrite)
         if tags is not None:
@@ -176,7 +176,7 @@ class ParameterArgs:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""this attribute has been deprecated""")
+    @_utilities.deprecated("""overwrite is deprecated. This argument will be removed in a future major version.""")
     def overwrite(self) -> Optional[pulumi.Input[bool]]:
         """
         Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
@@ -275,8 +275,8 @@ class _ParameterState:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if overwrite is not None:
-            warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
-            pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
+            warnings.warn("""overwrite is deprecated. This argument will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""overwrite is deprecated: overwrite is deprecated. This argument will be removed in a future major version.""")
         if overwrite is not None:
             pulumi.set(__self__, "overwrite", overwrite)
         if tags is not None:
@@ -381,7 +381,7 @@ class _ParameterState:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""this attribute has been deprecated""")
+    @_utilities.deprecated("""overwrite is deprecated. This argument will be removed in a future major version.""")
     def overwrite(self) -> Optional[pulumi.Input[bool]]:
         """
         Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
@@ -797,7 +797,7 @@ class Parameter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""this attribute has been deprecated""")
+    @_utilities.deprecated("""overwrite is deprecated. This argument will be removed in a future major version.""")
     def overwrite(self) -> pulumi.Output[Optional[bool]]:
         """
         Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).

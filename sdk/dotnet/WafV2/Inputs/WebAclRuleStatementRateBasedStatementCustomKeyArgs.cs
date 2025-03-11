@@ -43,6 +43,18 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyIpArgs>? Ip { get; set; }
 
         /// <summary>
+        /// Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        /// </summary>
+        [Input("ja3Fingerprint")]
+        public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs>? Ja3Fingerprint { get; set; }
+
+        /// <summary>
+        /// Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        /// </summary>
+        [Input("ja4Fingerprint")]
+        public Input<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs>? Ja4Fingerprint { get; set; }
+
+        /// <summary>
         /// Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
         /// </summary>
         [Input("labelNamespace")]

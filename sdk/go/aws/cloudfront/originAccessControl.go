@@ -58,6 +58,8 @@ import (
 type OriginAccessControl struct {
 	pulumi.CustomResourceState
 
+	// The Origin Access Control ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The current version of this Origin Access Control.
@@ -111,6 +113,8 @@ func GetOriginAccessControl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OriginAccessControl resources.
 type originAccessControlState struct {
+	// The Origin Access Control ARN.
+	Arn *string `pulumi:"arn"`
 	// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
 	Description *string `pulumi:"description"`
 	// The current version of this Origin Access Control.
@@ -126,6 +130,8 @@ type originAccessControlState struct {
 }
 
 type OriginAccessControlState struct {
+	// The Origin Access Control ARN.
+	Arn pulumi.StringPtrInput
 	// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
 	Description pulumi.StringPtrInput
 	// The current version of this Origin Access Control.
@@ -256,6 +262,11 @@ func (o OriginAccessControlOutput) ToOriginAccessControlOutput() OriginAccessCon
 
 func (o OriginAccessControlOutput) ToOriginAccessControlOutputWithContext(ctx context.Context) OriginAccessControlOutput {
 	return o
+}
+
+// The Origin Access Control ARN.
+func (o OriginAccessControlOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.

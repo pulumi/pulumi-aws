@@ -87,7 +87,7 @@ export interface GetBucketObjectArgs {
     /**
      * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      *
-     * @deprecated Use the aws.s3.BucketObjectv2 data source instead
+     * @deprecated bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
      */
     bucket: string;
     /**
@@ -115,7 +115,7 @@ export interface GetBucketObjectResult {
      */
     readonly body: string;
     /**
-     * @deprecated Use the aws.s3.BucketObjectv2 data source instead
+     * @deprecated bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
      */
     readonly bucket: string;
     /**
@@ -292,7 +292,7 @@ export interface GetBucketObjectOutputArgs {
     /**
      * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      *
-     * @deprecated Use the aws.s3.BucketObjectv2 data source instead
+     * @deprecated bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
      */
     bucket: pulumi.Input<string>;
     /**

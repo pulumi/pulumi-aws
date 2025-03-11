@@ -26,7 +26,7 @@ class GetConnectionResult:
     """
     A collection of values returned by getConnection.
     """
-    def __init__(__self__, arn=None, aws_device=None, bandwidth=None, id=None, location=None, name=None, owner_account_id=None, partner_name=None, provider_name=None, tags=None, vlan_id=None):
+    def __init__(__self__, arn=None, aws_device=None, bandwidth=None, id=None, location=None, name=None, owner_account_id=None, partner_name=None, provider_name=None, state=None, tags=None, vlan_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,6 +54,9 @@ class GetConnectionResult:
         if provider_name and not isinstance(provider_name, str):
             raise TypeError("Expected argument 'provider_name' to be a str")
         pulumi.set(__self__, "provider_name", provider_name)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -132,6 +135,14 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
+    def state(self) -> str:
+        """
+        State of the connection.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
         Map of tags for the resource.
@@ -162,6 +173,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             owner_account_id=self.owner_account_id,
             partner_name=self.partner_name,
             provider_name=self.provider_name,
+            state=self.state,
             tags=self.tags,
             vlan_id=self.vlan_id)
 
@@ -201,6 +213,7 @@ def get_connection(name: Optional[str] = None,
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
         partner_name=pulumi.get(__ret__, 'partner_name'),
         provider_name=pulumi.get(__ret__, 'provider_name'),
+        state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
 def get_connection_output(name: Optional[pulumi.Input[str]] = None,
@@ -237,5 +250,6 @@ def get_connection_output(name: Optional[pulumi.Input[str]] = None,
         owner_account_id=pulumi.get(__response__, 'owner_account_id'),
         partner_name=pulumi.get(__response__, 'partner_name'),
         provider_name=pulumi.get(__response__, 'provider_name'),
+        state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags'),
         vlan_id=pulumi.get(__response__, 'vlan_id')))

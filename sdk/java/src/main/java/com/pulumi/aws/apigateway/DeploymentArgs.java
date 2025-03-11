@@ -24,10 +24,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
      * Has no effect when `stage_name` is not set.
      * 
      * @deprecated
-     * The attribute &#34;canary_settings&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+     * canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
      * 
      */
-    @Deprecated /* The attribute ""canary_settings"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+    @Deprecated /* canary_settings is deprecated. Use the aws.apigateway.Stage resource instead. */
     @Import(name="canarySettings")
     private @Nullable Output<DeploymentCanarySettingsArgs> canarySettings;
 
@@ -37,10 +37,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
      * Has no effect when `stage_name` is not set.
      * 
      * @deprecated
-     * The attribute &#34;canary_settings&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+     * canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
      * 
      */
-    @Deprecated /* The attribute ""canary_settings"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+    @Deprecated /* canary_settings is deprecated. Use the aws.apigateway.Stage resource instead. */
     public Optional<Output<DeploymentCanarySettingsArgs>> canarySettings() {
         return Optional.ofNullable(this.canarySettings);
     }
@@ -80,10 +80,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
      * Has no effect when `stage_name` is not set.
      * 
      * @deprecated
-     * The attribute &#34;stage_description&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+     * stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
      * 
      */
-    @Deprecated /* The attribute ""stage_description"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+    @Deprecated /* stage_description is deprecated. Use the aws.apigateway.Stage resource instead. */
     @Import(name="stageDescription")
     private @Nullable Output<String> stageDescription;
 
@@ -92,10 +92,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
      * Has no effect when `stage_name` is not set.
      * 
      * @deprecated
-     * The attribute &#34;stage_description&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+     * stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
      * 
      */
-    @Deprecated /* The attribute ""stage_description"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+    @Deprecated /* stage_description is deprecated. Use the aws.apigateway.Stage resource instead. */
     public Optional<Output<String>> stageDescription() {
         return Optional.ofNullable(this.stageDescription);
     }
@@ -106,10 +106,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
      * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      * 
      * @deprecated
-     * The attribute &#34;stage_name&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+     * stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
      * 
      */
-    @Deprecated /* The attribute ""stage_name"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+    @Deprecated /* stage_name is deprecated. Use the aws.apigateway.Stage resource instead. */
     @Import(name="stageName")
     private @Nullable Output<String> stageName;
 
@@ -119,10 +119,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
      * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      * 
      * @deprecated
-     * The attribute &#34;stage_name&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+     * stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
      * 
      */
-    @Deprecated /* The attribute ""stage_name"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+    @Deprecated /* stage_name is deprecated. Use the aws.apigateway.Stage resource instead. */
     public Optional<Output<String>> stageName() {
         return Optional.ofNullable(this.stageName);
     }
@@ -195,10 +195,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The attribute &#34;canary_settings&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+         * canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
          * 
          */
-        @Deprecated /* The attribute ""canary_settings"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+        @Deprecated /* canary_settings is deprecated. Use the aws.apigateway.Stage resource instead. */
         public Builder canarySettings(@Nullable Output<DeploymentCanarySettingsArgs> canarySettings) {
             $.canarySettings = canarySettings;
             return this;
@@ -212,10 +212,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The attribute &#34;canary_settings&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+         * canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
          * 
          */
-        @Deprecated /* The attribute ""canary_settings"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+        @Deprecated /* canary_settings is deprecated. Use the aws.apigateway.Stage resource instead. */
         public Builder canarySettings(DeploymentCanarySettingsArgs canarySettings) {
             return canarySettings(Output.of(canarySettings));
         }
@@ -269,10 +269,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The attribute &#34;stage_description&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+         * stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
          * 
          */
-        @Deprecated /* The attribute ""stage_description"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+        @Deprecated /* stage_description is deprecated. Use the aws.apigateway.Stage resource instead. */
         public Builder stageDescription(@Nullable Output<String> stageDescription) {
             $.stageDescription = stageDescription;
             return this;
@@ -285,10 +285,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The attribute &#34;stage_description&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+         * stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
          * 
          */
-        @Deprecated /* The attribute ""stage_description"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+        @Deprecated /* stage_description is deprecated. Use the aws.apigateway.Stage resource instead. */
         public Builder stageDescription(String stageDescription) {
             return stageDescription(Output.of(stageDescription));
         }
@@ -301,10 +301,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The attribute &#34;stage_name&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+         * stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
          * 
          */
-        @Deprecated /* The attribute ""stage_name"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+        @Deprecated /* stage_name is deprecated. Use the aws.apigateway.Stage resource instead. */
         public Builder stageName(@Nullable Output<String> stageName) {
             $.stageName = stageName;
             return this;
@@ -318,10 +318,10 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The attribute &#34;stage_name&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
+         * stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
          * 
          */
-        @Deprecated /* The attribute ""stage_name"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
+        @Deprecated /* stage_name is deprecated. Use the aws.apigateway.Stage resource instead. */
         public Builder stageName(String stageName) {
             return stageName(Output.of(stageName));
         }

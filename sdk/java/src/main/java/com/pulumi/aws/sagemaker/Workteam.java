@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SageMaker Workteam resource.
+ * Provides a SageMaker AI Workteam resource.
  * 
  * ## Example Usage
  * 
@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
+ * Using `pulumi import`, import SageMaker AI Workteams using the `workteam_name`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sagemaker/workteam:Workteam example example

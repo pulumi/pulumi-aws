@@ -42,6 +42,10 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly bool? MultiAzWithStandbyEnabled;
         /// <summary>
+        /// List of node options for the domain.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DomainClusterConfigNodeOption> NodeOptions;
+        /// <summary>
         /// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         /// </summary>
         public readonly int? WarmCount;
@@ -78,6 +82,8 @@ namespace Pulumi.Aws.OpenSearch.Outputs
 
             bool? multiAzWithStandbyEnabled,
 
+            ImmutableArray<Outputs.DomainClusterConfigNodeOption> nodeOptions,
+
             int? warmCount,
 
             bool? warmEnabled,
@@ -95,6 +101,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
             InstanceCount = instanceCount;
             InstanceType = instanceType;
             MultiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
+            NodeOptions = nodeOptions;
             WarmCount = warmCount;
             WarmEnabled = warmEnabled;
             WarmType = warmType;

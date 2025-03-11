@@ -199,11 +199,13 @@ class GetLaunchTemplateResult:
 
     @property
     @pulumi.getter(name="elasticGpuSpecifications")
+    @_utilities.deprecated("""elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""")
     def elastic_gpu_specifications(self) -> Sequence['outputs.GetLaunchTemplateElasticGpuSpecificationResult']:
         return pulumi.get(self, "elastic_gpu_specifications")
 
     @property
     @pulumi.getter(name="elasticInferenceAccelerators")
+    @_utilities.deprecated("""elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""")
     def elastic_inference_accelerators(self) -> Sequence['outputs.GetLaunchTemplateElasticInferenceAcceleratorResult']:
         return pulumi.get(self, "elastic_inference_accelerators")
 

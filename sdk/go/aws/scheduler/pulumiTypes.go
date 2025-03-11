@@ -188,7 +188,7 @@ type ScheduleTarget struct {
 	//
 	// The following arguments are optional:
 	RoleArn string `pulumi:"roleArn"`
-	// Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+	// Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
 	SagemakerPipelineParameters *ScheduleTargetSagemakerPipelineParameters `pulumi:"sagemakerPipelineParameters"`
 	// The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
 	SqsParameters *ScheduleTargetSqsParameters `pulumi:"sqsParameters"`
@@ -224,7 +224,7 @@ type ScheduleTargetArgs struct {
 	//
 	// The following arguments are optional:
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+	// Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
 	SagemakerPipelineParameters ScheduleTargetSagemakerPipelineParametersPtrInput `pulumi:"sagemakerPipelineParameters"`
 	// The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
 	SqsParameters ScheduleTargetSqsParametersPtrInput `pulumi:"sqsParameters"`
@@ -349,7 +349,7 @@ func (o ScheduleTargetOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTarget) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+// Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
 func (o ScheduleTargetOutput) SagemakerPipelineParameters() ScheduleTargetSagemakerPipelineParametersPtrOutput {
 	return o.ApplyT(func(v ScheduleTarget) *ScheduleTargetSagemakerPipelineParameters {
 		return v.SagemakerPipelineParameters
@@ -467,7 +467,7 @@ func (o ScheduleTargetPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+// Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
 func (o ScheduleTargetPtrOutput) SagemakerPipelineParameters() ScheduleTargetSagemakerPipelineParametersPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *ScheduleTargetSagemakerPipelineParameters {
 		if v == nil {
@@ -1976,7 +1976,7 @@ func (o ScheduleTargetRetryPolicyPtrOutput) MaximumRetryAttempts() pulumi.IntPtr
 }
 
 type ScheduleTargetSagemakerPipelineParameters struct {
-	// Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+	// Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
 	PipelineParameters []ScheduleTargetSagemakerPipelineParametersPipelineParameter `pulumi:"pipelineParameters"`
 }
 
@@ -1992,7 +1992,7 @@ type ScheduleTargetSagemakerPipelineParametersInput interface {
 }
 
 type ScheduleTargetSagemakerPipelineParametersArgs struct {
-	// Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+	// Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
 	PipelineParameters ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayInput `pulumi:"pipelineParameters"`
 }
 
@@ -2073,7 +2073,7 @@ func (o ScheduleTargetSagemakerPipelineParametersOutput) ToScheduleTargetSagemak
 	}).(ScheduleTargetSagemakerPipelineParametersPtrOutput)
 }
 
-// Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+// Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
 func (o ScheduleTargetSagemakerPipelineParametersOutput) PipelineParameters() ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput {
 	return o.ApplyT(func(v ScheduleTargetSagemakerPipelineParameters) []ScheduleTargetSagemakerPipelineParametersPipelineParameter {
 		return v.PipelineParameters
@@ -2104,7 +2104,7 @@ func (o ScheduleTargetSagemakerPipelineParametersPtrOutput) Elem() ScheduleTarge
 	}).(ScheduleTargetSagemakerPipelineParametersOutput)
 }
 
-// Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+// Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
 func (o ScheduleTargetSagemakerPipelineParametersPtrOutput) PipelineParameters() ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput {
 	return o.ApplyT(func(v *ScheduleTargetSagemakerPipelineParameters) []ScheduleTargetSagemakerPipelineParametersPipelineParameter {
 		if v == nil {
@@ -2115,9 +2115,9 @@ func (o ScheduleTargetSagemakerPipelineParametersPtrOutput) PipelineParameters()
 }
 
 type ScheduleTargetSagemakerPipelineParametersPipelineParameter struct {
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Name string `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Value string `pulumi:"value"`
 }
 
@@ -2133,9 +2133,9 @@ type ScheduleTargetSagemakerPipelineParametersPipelineParameterInput interface {
 }
 
 type ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs struct {
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2190,12 +2190,12 @@ func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput) ToSche
 	return o
 }
 
-// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetSagemakerPipelineParametersPipelineParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetSagemakerPipelineParametersPipelineParameter) string { return v.Value }).(pulumi.StringOutput)
 }

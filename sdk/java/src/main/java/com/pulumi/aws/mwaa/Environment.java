@@ -349,14 +349,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.endpointManagement;
     }
     /**
-     * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+     * Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      * 
      */
     @Export(name="environmentClass", refs={String.class}, tree="[0]")
     private Output<String> environmentClass;
 
     /**
-     * @return Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
+     * @return Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      * 
      */
     public Output<String> environmentClass() {
@@ -411,14 +411,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.loggingConfiguration;
     }
     /**
-     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
      * 
      */
     @Export(name="maxWebservers", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxWebservers;
 
     /**
-     * @return The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * @return The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
      * 
      */
     public Output<Integer> maxWebservers() {
@@ -439,14 +439,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.maxWorkers;
     }
     /**
-     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
      * 
      */
     @Export(name="minWebservers", refs={Integer.class}, tree="[0]")
     private Output<Integer> minWebservers;
 
     /**
-     * @return The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * @return The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
      * 
      */
     public Output<Integer> minWebservers() {

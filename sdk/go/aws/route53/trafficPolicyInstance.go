@@ -54,6 +54,8 @@ import (
 type TrafficPolicyInstance struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the traffic policy instance.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 	// Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
@@ -108,6 +110,8 @@ func GetTrafficPolicyInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficPolicyInstance resources.
 type trafficPolicyInstanceState struct {
+	// Amazon Resource Name (ARN) of the traffic policy instance.
+	Arn *string `pulumi:"arn"`
 	// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
@@ -121,6 +125,8 @@ type trafficPolicyInstanceState struct {
 }
 
 type TrafficPolicyInstanceState struct {
+	// Amazon Resource Name (ARN) of the traffic policy instance.
+	Arn pulumi.StringPtrInput
 	// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
 	HostedZoneId pulumi.StringPtrInput
 	// Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
@@ -249,6 +255,11 @@ func (o TrafficPolicyInstanceOutput) ToTrafficPolicyInstanceOutput() TrafficPoli
 
 func (o TrafficPolicyInstanceOutput) ToTrafficPolicyInstanceOutputWithContext(ctx context.Context) TrafficPolicyInstanceOutput {
 	return o
+}
+
+// Amazon Resource Name (ARN) of the traffic policy instance.
+func (o TrafficPolicyInstanceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficPolicyInstance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.

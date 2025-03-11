@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a SageMaker Image resource.
+    /// Provides a SageMaker AI Image resource.
     /// 
     /// ## Example Usage
     /// 
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
+    /// Using `pulumi import`, import SageMaker AI Code Images using the `name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> ImageName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> ImageName { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? ImageName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+        /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

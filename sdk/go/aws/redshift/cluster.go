@@ -94,7 +94,7 @@ type Cluster struct {
 	// No longer supported by the AWS API.
 	// Always returns `auto`.
 	//
-	// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+	// Deprecated: aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus pulumi.StringOutput `pulumi:"aquaConfigurationStatus"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -146,7 +146,7 @@ type Cluster struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Logging, documented below.
 	//
-	// Deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.
+	// Deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.
 	Logging ClusterLoggingOutput `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrOutput `pulumi:"maintenanceTrackName"`
@@ -194,7 +194,7 @@ type Cluster struct {
 	SnapshotClusterIdentifier pulumi.StringPtrOutput `pulumi:"snapshotClusterIdentifier"`
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
 	//
-	// Deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+	// Deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
 	SnapshotCopy ClusterSnapshotCopyOutput `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
@@ -259,7 +259,7 @@ type clusterState struct {
 	// No longer supported by the AWS API.
 	// Always returns `auto`.
 	//
-	// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+	// Deprecated: aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus *string `pulumi:"aquaConfigurationStatus"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn *string `pulumi:"arn"`
@@ -311,7 +311,7 @@ type clusterState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Logging, documented below.
 	//
-	// Deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.
+	// Deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.
 	Logging *ClusterLogging `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
@@ -359,7 +359,7 @@ type clusterState struct {
 	SnapshotClusterIdentifier *string `pulumi:"snapshotClusterIdentifier"`
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
 	//
-	// Deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+	// Deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
 	SnapshotCopy *ClusterSnapshotCopy `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
@@ -382,7 +382,7 @@ type ClusterState struct {
 	// No longer supported by the AWS API.
 	// Always returns `auto`.
 	//
-	// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+	// Deprecated: aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringPtrInput
@@ -434,7 +434,7 @@ type ClusterState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Logging, documented below.
 	//
-	// Deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.
+	// Deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.
 	Logging ClusterLoggingPtrInput
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrInput
@@ -482,7 +482,7 @@ type ClusterState struct {
 	SnapshotClusterIdentifier pulumi.StringPtrInput
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
 	//
-	// Deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+	// Deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
 	SnapshotCopy ClusterSnapshotCopyPtrInput
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrInput
@@ -509,7 +509,7 @@ type clusterArgs struct {
 	// No longer supported by the AWS API.
 	// Always returns `auto`.
 	//
-	// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+	// Deprecated: aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus *string `pulumi:"aquaConfigurationStatus"`
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod *int `pulumi:"automatedSnapshotRetentionPeriod"`
@@ -553,7 +553,7 @@ type clusterArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Logging, documented below.
 	//
-	// Deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.
+	// Deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.
 	Logging *ClusterLogging `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
@@ -599,7 +599,7 @@ type clusterArgs struct {
 	SnapshotClusterIdentifier *string `pulumi:"snapshotClusterIdentifier"`
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
 	//
-	// Deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+	// Deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
 	SnapshotCopy *ClusterSnapshotCopy `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
@@ -619,7 +619,7 @@ type ClusterArgs struct {
 	// No longer supported by the AWS API.
 	// Always returns `auto`.
 	//
-	// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+	// Deprecated: aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus pulumi.StringPtrInput
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod pulumi.IntPtrInput
@@ -663,7 +663,7 @@ type ClusterArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Logging, documented below.
 	//
-	// Deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.
+	// Deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.
 	Logging ClusterLoggingPtrInput
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrInput
@@ -709,7 +709,7 @@ type ClusterArgs struct {
 	SnapshotClusterIdentifier pulumi.StringPtrInput
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
 	//
-	// Deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+	// Deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
 	SnapshotCopy ClusterSnapshotCopyPtrInput
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrInput
@@ -820,7 +820,7 @@ func (o ClusterOutput) ApplyImmediately() pulumi.BoolPtrOutput {
 // No longer supported by the AWS API.
 // Always returns `auto`.
 //
-// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+// Deprecated: aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 func (o ClusterOutput) AquaConfigurationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AquaConfigurationStatus }).(pulumi.StringOutput)
 }
@@ -944,7 +944,7 @@ func (o ClusterOutput) KmsKeyId() pulumi.StringOutput {
 
 // Logging, documented below.
 //
-// Deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.
+// Deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.
 func (o ClusterOutput) Logging() ClusterLoggingOutput {
 	return o.ApplyT(func(v *Cluster) ClusterLoggingOutput { return v.Logging }).(ClusterLoggingOutput)
 }
@@ -1046,7 +1046,7 @@ func (o ClusterOutput) SnapshotClusterIdentifier() pulumi.StringPtrOutput {
 
 // Configuration of automatic copy of snapshots from one region to another. Documented below.
 //
-// Deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+// Deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
 func (o ClusterOutput) SnapshotCopy() ClusterSnapshotCopyOutput {
 	return o.ApplyT(func(v *Cluster) ClusterSnapshotCopyOutput { return v.SnapshotCopy }).(ClusterSnapshotCopyOutput)
 }

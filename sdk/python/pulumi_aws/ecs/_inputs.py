@@ -3664,7 +3664,7 @@ if not MYPY:
         """
         inference_accelerator_overrides: NotRequired[Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgsDict']]
         """
-        Elastic Inference accelerator override for the task. See below.
+        **DEPRECATED** Elastic Inference accelerator override for the task. See below.
         """
         memory: NotRequired[str]
         """
@@ -3690,7 +3690,7 @@ class GetTaskExecutionOverridesArgs:
         :param Sequence['GetTaskExecutionOverridesContainerOverrideArgs'] container_overrides: One or more container overrides that are sent to a task. See below.
         :param str cpu: The CPU override for the task.
         :param str execution_role_arn: Amazon Resource Name (ARN) of the task execution role override for the task.
-        :param Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs'] inference_accelerator_overrides: Elastic Inference accelerator override for the task. See below.
+        :param Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs'] inference_accelerator_overrides: **DEPRECATED** Elastic Inference accelerator override for the task. See below.
         :param str memory: The memory override for the task.
         :param str task_role_arn: Amazon Resource Name (ARN) of the role that containers in this task can assume.
         """
@@ -3700,6 +3700,9 @@ class GetTaskExecutionOverridesArgs:
             pulumi.set(__self__, "cpu", cpu)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if inference_accelerator_overrides is not None:
+            warnings.warn("""inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.""", DeprecationWarning)
+            pulumi.log.warn("""inference_accelerator_overrides is deprecated: inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.""")
         if inference_accelerator_overrides is not None:
             pulumi.set(__self__, "inference_accelerator_overrides", inference_accelerator_overrides)
         if memory is not None:
@@ -3745,9 +3748,10 @@ class GetTaskExecutionOverridesArgs:
 
     @property
     @pulumi.getter(name="inferenceAcceleratorOverrides")
+    @_utilities.deprecated("""inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.""")
     def inference_accelerator_overrides(self) -> Optional[Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs']]:
         """
-        Elastic Inference accelerator override for the task. See below.
+        **DEPRECATED** Elastic Inference accelerator override for the task. See below.
         """
         return pulumi.get(self, "inference_accelerator_overrides")
 

@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DocumentClassifierInputDataConfig struct {
-	// List of training datasets produced by Amazon SageMaker Ground Truth.
+	// List of training datasets produced by Amazon SageMaker AI Ground Truth.
 	// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
 	// See the `augmentedManifests` Configuration Block section below.
 	AugmentedManifests []DocumentClassifierInputDataConfigAugmentedManifest `pulumi:"augmentedManifests"`
@@ -43,7 +43,7 @@ type DocumentClassifierInputDataConfigInput interface {
 }
 
 type DocumentClassifierInputDataConfigArgs struct {
-	// List of training datasets produced by Amazon SageMaker Ground Truth.
+	// List of training datasets produced by Amazon SageMaker AI Ground Truth.
 	// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
 	// See the `augmentedManifests` Configuration Block section below.
 	AugmentedManifests DocumentClassifierInputDataConfigAugmentedManifestArrayInput `pulumi:"augmentedManifests"`
@@ -137,7 +137,7 @@ func (o DocumentClassifierInputDataConfigOutput) ToDocumentClassifierInputDataCo
 	}).(DocumentClassifierInputDataConfigPtrOutput)
 }
 
-// List of training datasets produced by Amazon SageMaker Ground Truth.
+// List of training datasets produced by Amazon SageMaker AI Ground Truth.
 // Used if `dataFormat` is `AUGMENTED_MANIFEST`.
 // See the `augmentedManifests` Configuration Block section below.
 func (o DocumentClassifierInputDataConfigOutput) AugmentedManifests() DocumentClassifierInputDataConfigAugmentedManifestArrayOutput {
@@ -193,7 +193,7 @@ func (o DocumentClassifierInputDataConfigPtrOutput) Elem() DocumentClassifierInp
 	}).(DocumentClassifierInputDataConfigOutput)
 }
 
-// List of training datasets produced by Amazon SageMaker Ground Truth.
+// List of training datasets produced by Amazon SageMaker AI Ground Truth.
 // Used if `dataFormat` is `AUGMENTED_MANIFEST`.
 // See the `augmentedManifests` Configuration Block section below.
 func (o DocumentClassifierInputDataConfigPtrOutput) AugmentedManifests() DocumentClassifierInputDataConfigAugmentedManifestArrayOutput {
@@ -740,7 +740,7 @@ type EntityRecognizerInputDataConfig struct {
 	// See the `annotations` Configuration Block section below.
 	// One of `annotations` or `entityList` is required.
 	Annotations *EntityRecognizerInputDataConfigAnnotations `pulumi:"annotations"`
-	// List of training datasets produced by Amazon SageMaker Ground Truth.
+	// List of training datasets produced by Amazon SageMaker AI Ground Truth.
 	// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
 	// See the `augmentedManifests` Configuration Block section below.
 	AugmentedManifests []EntityRecognizerInputDataConfigAugmentedManifest `pulumi:"augmentedManifests"`
@@ -777,7 +777,7 @@ type EntityRecognizerInputDataConfigArgs struct {
 	// See the `annotations` Configuration Block section below.
 	// One of `annotations` or `entityList` is required.
 	Annotations EntityRecognizerInputDataConfigAnnotationsPtrInput `pulumi:"annotations"`
-	// List of training datasets produced by Amazon SageMaker Ground Truth.
+	// List of training datasets produced by Amazon SageMaker AI Ground Truth.
 	// Used if `dataFormat` is `AUGMENTED_MANIFEST`.
 	// See the `augmentedManifests` Configuration Block section below.
 	AugmentedManifests EntityRecognizerInputDataConfigAugmentedManifestArrayInput `pulumi:"augmentedManifests"`
@@ -884,7 +884,7 @@ func (o EntityRecognizerInputDataConfigOutput) Annotations() EntityRecognizerInp
 	}).(EntityRecognizerInputDataConfigAnnotationsPtrOutput)
 }
 
-// List of training datasets produced by Amazon SageMaker Ground Truth.
+// List of training datasets produced by Amazon SageMaker AI Ground Truth.
 // Used if `dataFormat` is `AUGMENTED_MANIFEST`.
 // See the `augmentedManifests` Configuration Block section below.
 func (o EntityRecognizerInputDataConfigOutput) AugmentedManifests() EntityRecognizerInputDataConfigAugmentedManifestArrayOutput {
@@ -960,7 +960,7 @@ func (o EntityRecognizerInputDataConfigPtrOutput) Annotations() EntityRecognizer
 	}).(EntityRecognizerInputDataConfigAnnotationsPtrOutput)
 }
 
-// List of training datasets produced by Amazon SageMaker Ground Truth.
+// List of training datasets produced by Amazon SageMaker AI Ground Truth.
 // Used if `dataFormat` is `AUGMENTED_MANIFEST`.
 // See the `augmentedManifests` Configuration Block section below.
 func (o EntityRecognizerInputDataConfigPtrOutput) AugmentedManifests() EntityRecognizerInputDataConfigAugmentedManifestArrayOutput {

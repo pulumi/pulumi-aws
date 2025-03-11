@@ -62,7 +62,7 @@ public final class ScheduleTarget {
      */
     private String roleArn;
     /**
-     * @return Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+     * @return Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
      * 
      */
     private @Nullable ScheduleTargetSagemakerPipelineParameters sagemakerPipelineParameters;
@@ -132,7 +132,7 @@ public final class ScheduleTarget {
         return this.roleArn;
     }
     /**
-     * @return Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+     * @return Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
      * 
      */
     public Optional<ScheduleTargetSagemakerPipelineParameters> sagemakerPipelineParameters() {

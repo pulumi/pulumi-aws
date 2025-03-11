@@ -80,6 +80,8 @@ import (
 type CachePolicy struct {
 	pulumi.CustomResourceState
 
+	// The cache policy ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description for the cache policy.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
@@ -129,6 +131,8 @@ func GetCachePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CachePolicy resources.
 type cachePolicyState struct {
+	// The cache policy ARN.
+	Arn *string `pulumi:"arn"`
 	// Description for the cache policy.
 	Comment *string `pulumi:"comment"`
 	// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
@@ -146,6 +150,8 @@ type cachePolicyState struct {
 }
 
 type CachePolicyState struct {
+	// The cache policy ARN.
+	Arn pulumi.StringPtrInput
 	// Description for the cache policy.
 	Comment pulumi.StringPtrInput
 	// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
@@ -282,6 +288,11 @@ func (o CachePolicyOutput) ToCachePolicyOutput() CachePolicyOutput {
 
 func (o CachePolicyOutput) ToCachePolicyOutputWithContext(ctx context.Context) CachePolicyOutput {
 	return o
+}
+
+// The cache policy ARN.
+func (o CachePolicyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CachePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Description for the cache policy.

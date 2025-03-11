@@ -66,10 +66,10 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
      * (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
-     * this attribute has been deprecated
+     * tags_all is deprecated. This argument will be removed in a future major version.
      * 
      */
-    @Deprecated /* this attribute has been deprecated */
+    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
@@ -77,10 +77,10 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
      * @return (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
-     * this attribute has been deprecated
+     * tags_all is deprecated. This argument will be removed in a future major version.
      * 
      */
-    @Deprecated /* this attribute has been deprecated */
+    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -181,10 +181,10 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          * @deprecated
-         * this attribute has been deprecated
+         * tags_all is deprecated. This argument will be removed in a future major version.
          * 
          */
-        @Deprecated /* this attribute has been deprecated */
+        @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -196,10 +196,10 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          * @deprecated
-         * this attribute has been deprecated
+         * tags_all is deprecated. This argument will be removed in a future major version.
          * 
          */
-        @Deprecated /* this attribute has been deprecated */
+        @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

@@ -5857,8 +5857,11 @@ func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool
 func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	attrWithSeparator := func(state resource.PropertyMap, sep string, attrs ...resource.PropertyKey) resource.ID {
 		parts := []string{}
+		stateResource := resource.NewObjectProperty(state)
 		for _, a := range attrs {
-			if v, ok := state[a]; ok {
+			path, err := resource.ParsePropertyPath(string(a))
+			contract.AssertNoErrorf(err, "failed to parse property path %s", a)
+			if v, ok := path.Get(stateResource); ok {
 				if v.IsString() && v.StringValue() != "" {
 					parts = append(parts, v.StringValue())
 				}
@@ -6064,6 +6067,10 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attr(state, "dbShardGroupIdentifier"), nil
+	}
+
+	prov.Resources["aws_lakeformation_opt_in"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "principal.dataLakePrincipalIdentifier"), nil
 	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{

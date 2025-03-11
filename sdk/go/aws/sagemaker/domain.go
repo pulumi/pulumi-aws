@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Domain resource.
+// Provides a SageMaker AI Domain resource.
 //
 // ## Example Usage
 //
@@ -81,7 +81,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SageMaker Domains using the `id`. For example:
+// Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -113,7 +113,7 @@ type Domain struct {
 	RetentionPolicy DomainRetentionPolicyPtrOutput `pulumi:"retentionPolicy"`
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 	SecurityGroupIdForDomainBoundary pulumi.StringOutput `pulumi:"securityGroupIdForDomainBoundary"`
-	// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+	// The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
 	SingleSignOnApplicationArn pulumi.StringOutput `pulumi:"singleSignOnApplicationArn"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId pulumi.StringOutput `pulumi:"singleSignOnManagedApplicationInstanceId"`
@@ -204,7 +204,7 @@ type domainState struct {
 	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 	SecurityGroupIdForDomainBoundary *string `pulumi:"securityGroupIdForDomainBoundary"`
-	// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+	// The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
 	SingleSignOnApplicationArn *string `pulumi:"singleSignOnApplicationArn"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId *string `pulumi:"singleSignOnManagedApplicationInstanceId"`
@@ -251,7 +251,7 @@ type DomainState struct {
 	RetentionPolicy DomainRetentionPolicyPtrInput
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 	SecurityGroupIdForDomainBoundary pulumi.StringPtrInput
-	// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+	// The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
 	SingleSignOnApplicationArn pulumi.StringPtrInput
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId pulumi.StringPtrInput
@@ -487,7 +487,7 @@ func (o DomainOutput) SecurityGroupIdForDomainBoundary() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SecurityGroupIdForDomainBoundary }).(pulumi.StringOutput)
 }
 
-// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
+// The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
 func (o DomainOutput) SingleSignOnApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SingleSignOnApplicationArn }).(pulumi.StringOutput)
 }

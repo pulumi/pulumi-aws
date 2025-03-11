@@ -62,6 +62,10 @@ export interface GetOriginRequestPolicyArgs {
  */
 export interface GetOriginRequestPolicyResult {
     /**
+     * The origin request policy ARN.
+     */
+    readonly arn: string;
+    /**
      * Comment to describe the origin request policy.
      */
     readonly comment: string;

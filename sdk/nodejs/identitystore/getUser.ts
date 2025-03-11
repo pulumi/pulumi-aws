@@ -50,7 +50,7 @@ export interface GetUserArgs {
     /**
      * Configuration block for filtering by a unique attribute of the user. Detailed below.
      *
-     * @deprecated Use the alternateIdentifier attribute instead.
+     * @deprecated filter is deprecated. Use alternateIdentifier instead.
      */
     filter?: inputs.identitystore.GetUserFilter;
     /**
@@ -89,7 +89,7 @@ export interface GetUserResult {
      */
     readonly externalIds: outputs.identitystore.GetUserExternalId[];
     /**
-     * @deprecated Use the alternateIdentifier attribute instead.
+     * @deprecated filter is deprecated. Use alternateIdentifier instead.
      */
     readonly filter?: outputs.identitystore.GetUserFilter;
     /**
@@ -182,7 +182,7 @@ export interface GetUserOutputArgs {
     /**
      * Configuration block for filtering by a unique attribute of the user. Detailed below.
      *
-     * @deprecated Use the alternateIdentifier attribute instead.
+     * @deprecated filter is deprecated. Use alternateIdentifier instead.
      */
     filter?: pulumi.Input<inputs.identitystore.GetUserFilterArgs>;
     /**

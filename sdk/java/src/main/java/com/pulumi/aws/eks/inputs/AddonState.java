@@ -166,10 +166,10 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
      * Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      * 
      * @deprecated
-     * The &#34;resolve_conflicts&#34; attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use &#34;resolve_conflicts_on_create&#34; and/or &#34;resolve_conflicts_on_update&#34; instead
+     * resolve_conflicts is deprecated. The resolve_conflicts attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead.
      * 
      */
-    @Deprecated /* The ""resolve_conflicts"" attribute can't be set to ""PRESERVE"" on initial resource creation. Use ""resolve_conflicts_on_create"" and/or ""resolve_conflicts_on_update"" instead */
+    @Deprecated /* resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to ""PRESERVE"" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead. */
     @Import(name="resolveConflicts")
     private @Nullable Output<String> resolveConflicts;
 
@@ -177,10 +177,10 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
      * @return Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      * 
      * @deprecated
-     * The &#34;resolve_conflicts&#34; attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use &#34;resolve_conflicts_on_create&#34; and/or &#34;resolve_conflicts_on_update&#34; instead
+     * resolve_conflicts is deprecated. The resolve_conflicts attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead.
      * 
      */
-    @Deprecated /* The ""resolve_conflicts"" attribute can't be set to ""PRESERVE"" on initial resource creation. Use ""resolve_conflicts_on_create"" and/or ""resolve_conflicts_on_update"" instead */
+    @Deprecated /* resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to ""PRESERVE"" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead. */
     public Optional<Output<String>> resolveConflicts() {
         return Optional.ofNullable(this.resolveConflicts);
     }
@@ -539,10 +539,10 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The &#34;resolve_conflicts&#34; attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use &#34;resolve_conflicts_on_create&#34; and/or &#34;resolve_conflicts_on_update&#34; instead
+         * resolve_conflicts is deprecated. The resolve_conflicts attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead.
          * 
          */
-        @Deprecated /* The ""resolve_conflicts"" attribute can't be set to ""PRESERVE"" on initial resource creation. Use ""resolve_conflicts_on_create"" and/or ""resolve_conflicts_on_update"" instead */
+        @Deprecated /* resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to ""PRESERVE"" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead. */
         public Builder resolveConflicts(@Nullable Output<String> resolveConflicts) {
             $.resolveConflicts = resolveConflicts;
             return this;
@@ -554,10 +554,10 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The &#34;resolve_conflicts&#34; attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use &#34;resolve_conflicts_on_create&#34; and/or &#34;resolve_conflicts_on_update&#34; instead
+         * resolve_conflicts is deprecated. The resolve_conflicts attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead.
          * 
          */
-        @Deprecated /* The ""resolve_conflicts"" attribute can't be set to ""PRESERVE"" on initial resource creation. Use ""resolve_conflicts_on_create"" and/or ""resolve_conflicts_on_update"" instead */
+        @Deprecated /* resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to ""PRESERVE"" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead. */
         public Builder resolveConflicts(String resolveConflicts) {
             return resolveConflicts(Output.of(resolveConflicts));
         }

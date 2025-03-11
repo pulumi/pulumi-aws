@@ -21,15 +21,22 @@ namespace Pulumi.Aws.OpenSearchIngest.Outputs
         /// A list of subnet IDs associated with the VPC endpoint.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
+        /// </summary>
+        public readonly string? VpcEndpointManagement;
 
         [OutputConstructor]
         private PipelineVpcOptions(
             ImmutableArray<string> securityGroupIds,
 
-            ImmutableArray<string> subnetIds)
+            ImmutableArray<string> subnetIds,
+
+            string? vpcEndpointManagement)
         {
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
+            VpcEndpointManagement = vpcEndpointManagement;
         }
     }
 }

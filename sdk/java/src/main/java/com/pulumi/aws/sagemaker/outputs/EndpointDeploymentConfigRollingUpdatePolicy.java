@@ -30,7 +30,7 @@ public final class EndpointDeploymentConfigRollingUpdatePolicy {
      */
     private @Nullable EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize rollbackMaximumBatchSize;
     /**
-     * @return The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+     * @return The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
      * 
      */
     private Integer waitIntervalInSeconds;
@@ -58,7 +58,7 @@ public final class EndpointDeploymentConfigRollingUpdatePolicy {
         return Optional.ofNullable(this.rollbackMaximumBatchSize);
     }
     /**
-     * @return The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+     * @return The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
      * 
      */
     public Integer waitIntervalInSeconds() {

@@ -91,7 +91,7 @@ export class Cluster extends pulumi.CustomResource {
      * No longer supported by the AWS API.
      * Always returns `auto`.
      *
-     * @deprecated This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+     * @deprecated aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      */
     public readonly aquaConfigurationStatus!: pulumi.Output<string>;
     /**
@@ -191,7 +191,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Logging, documented below.
      *
-     * @deprecated Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
+     * @deprecated logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
      */
     public readonly logging!: pulumi.Output<outputs.redshift.ClusterLogging>;
     /**
@@ -275,7 +275,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
      *
-     * @deprecated Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+     * @deprecated snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
      */
     public readonly snapshotCopy!: pulumi.Output<outputs.redshift.ClusterSnapshotCopy>;
     /**
@@ -441,7 +441,7 @@ export interface ClusterState {
      * No longer supported by the AWS API.
      * Always returns `auto`.
      *
-     * @deprecated This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+     * @deprecated aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      */
     aquaConfigurationStatus?: pulumi.Input<string>;
     /**
@@ -541,7 +541,7 @@ export interface ClusterState {
     /**
      * Logging, documented below.
      *
-     * @deprecated Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
+     * @deprecated logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
      */
     logging?: pulumi.Input<inputs.redshift.ClusterLogging>;
     /**
@@ -625,7 +625,7 @@ export interface ClusterState {
     /**
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
      *
-     * @deprecated Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+     * @deprecated snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
      */
     snapshotCopy?: pulumi.Input<inputs.redshift.ClusterSnapshotCopy>;
     /**
@@ -665,7 +665,7 @@ export interface ClusterArgs {
      * No longer supported by the AWS API.
      * Always returns `auto`.
      *
-     * @deprecated This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+     * @deprecated aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      */
     aquaConfigurationStatus?: pulumi.Input<string>;
     /**
@@ -749,7 +749,7 @@ export interface ClusterArgs {
     /**
      * Logging, documented below.
      *
-     * @deprecated Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
+     * @deprecated logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
      */
     logging?: pulumi.Input<inputs.redshift.ClusterLogging>;
     /**
@@ -829,7 +829,7 @@ export interface ClusterArgs {
     /**
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
      *
-     * @deprecated Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+     * @deprecated snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
      */
     snapshotCopy?: pulumi.Input<inputs.redshift.ClusterSnapshotCopy>;
     /**

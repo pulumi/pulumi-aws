@@ -144,19 +144,19 @@ public final class GatewayAssociationState extends com.pulumi.resources.Resource
 
     /**
      * @deprecated
-     * use &#39;associated_gateway_id&#39; argument instead
+     * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
      * 
      */
-    @Deprecated /* use 'associated_gateway_id' argument instead */
+    @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
     @Import(name="vpnGatewayId")
     private @Nullable Output<String> vpnGatewayId;
 
     /**
      * @deprecated
-     * use &#39;associated_gateway_id&#39; argument instead
+     * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
      * 
      */
-    @Deprecated /* use 'associated_gateway_id' argument instead */
+    @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
     public Optional<Output<String>> vpnGatewayId() {
         return Optional.ofNullable(this.vpnGatewayId);
     }
@@ -381,10 +381,10 @@ public final class GatewayAssociationState extends com.pulumi.resources.Resource
          * @return builder
          * 
          * @deprecated
-         * use &#39;associated_gateway_id&#39; argument instead
+         * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
          * 
          */
-        @Deprecated /* use 'associated_gateway_id' argument instead */
+        @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
         public Builder vpnGatewayId(@Nullable Output<String> vpnGatewayId) {
             $.vpnGatewayId = vpnGatewayId;
             return this;
@@ -394,10 +394,10 @@ public final class GatewayAssociationState extends com.pulumi.resources.Resource
          * @return builder
          * 
          * @deprecated
-         * use &#39;associated_gateway_id&#39; argument instead
+         * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
          * 
          */
-        @Deprecated /* use 'associated_gateway_id' argument instead */
+        @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
         public Builder vpnGatewayId(String vpnGatewayId) {
             return vpnGatewayId(Output.of(vpnGatewayId));
         }

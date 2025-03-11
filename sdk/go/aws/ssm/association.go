@@ -184,7 +184,7 @@ type Association struct {
 	DocumentVersion pulumi.StringOutput `pulumi:"documentVersion"`
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 	//
-	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
+	// Deprecated: instance_id is deprecated. Use targets instead.
 	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency pulumi.StringPtrOutput `pulumi:"maxConcurrency"`
@@ -260,7 +260,7 @@ type associationState struct {
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 	//
-	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
+	// Deprecated: instance_id is deprecated. Use targets instead.
 	InstanceId *string `pulumi:"instanceId"`
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency *string `pulumi:"maxConcurrency"`
@@ -307,7 +307,7 @@ type AssociationState struct {
 	DocumentVersion pulumi.StringPtrInput
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 	//
-	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
+	// Deprecated: instance_id is deprecated. Use targets instead.
 	InstanceId pulumi.StringPtrInput
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency pulumi.StringPtrInput
@@ -354,7 +354,7 @@ type associationArgs struct {
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 	//
-	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
+	// Deprecated: instance_id is deprecated. Use targets instead.
 	InstanceId *string `pulumi:"instanceId"`
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency *string `pulumi:"maxConcurrency"`
@@ -394,7 +394,7 @@ type AssociationArgs struct {
 	DocumentVersion pulumi.StringPtrInput
 	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 	//
-	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
+	// Deprecated: instance_id is deprecated. Use targets instead.
 	InstanceId pulumi.StringPtrInput
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency pulumi.StringPtrInput
@@ -544,7 +544,7 @@ func (o AssociationOutput) DocumentVersion() pulumi.StringOutput {
 
 // The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 //
-// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
+// Deprecated: instance_id is deprecated. Use targets instead.
 func (o AssociationOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
 }

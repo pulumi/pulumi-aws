@@ -162,14 +162,14 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using a SageMaker pipeline as a target. Detailed below.
+     * The parameters for using a SageMaker AI pipeline as a target. Detailed below.
      * 
      */
     @Import(name="sagemakerPipelineParameters")
     private @Nullable Output<PipeTargetParametersSagemakerPipelineParametersArgs> sagemakerPipelineParameters;
 
     /**
-     * @return The parameters for using a SageMaker pipeline as a target. Detailed below.
+     * @return The parameters for using a SageMaker AI pipeline as a target. Detailed below.
      * 
      */
     public Optional<Output<PipeTargetParametersSagemakerPipelineParametersArgs>> sagemakerPipelineParameters() {
@@ -431,7 +431,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sagemakerPipelineParameters The parameters for using a SageMaker pipeline as a target. Detailed below.
+         * @param sagemakerPipelineParameters The parameters for using a SageMaker AI pipeline as a target. Detailed below.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sagemakerPipelineParameters The parameters for using a SageMaker pipeline as a target. Detailed below.
+         * @param sagemakerPipelineParameters The parameters for using a SageMaker AI pipeline as a target. Detailed below.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
+ * Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker AI projects.
  * 
  * ## Example Usage
  * 

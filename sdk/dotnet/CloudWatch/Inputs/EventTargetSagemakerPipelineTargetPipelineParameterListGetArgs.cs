@@ -13,13 +13,13 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     public sealed class EventTargetSagemakerPipelineTargetPipelineParameterListGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        /// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        /// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

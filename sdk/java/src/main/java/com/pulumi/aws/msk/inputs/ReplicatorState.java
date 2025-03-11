@@ -20,14 +20,14 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
     public static final ReplicatorState Empty = new ReplicatorState();
 
     /**
-     * ARN of the Replicator. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * ARN of the Replicator.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the Replicator. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * @return ARN of the Replicator.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -116,14 +116,24 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.serviceExecutionRoleArn);
     }
 
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
      * @deprecated
      * Please use `tags` instead.
      * 
@@ -133,6 +143,8 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
      * @deprecated
      * Please use `tags` instead.
      * 
@@ -175,7 +187,7 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the Replicator. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+         * @param arn ARN of the Replicator.
          * 
          * @return builder
          * 
@@ -186,7 +198,7 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the Replicator. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+         * @param arn ARN of the Replicator.
          * 
          * @return builder
          * 
@@ -319,16 +331,30 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
             return serviceExecutionRoleArn(Output.of(serviceExecutionRoleArn));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
         /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -342,6 +368,8 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
          * @return builder
          * 
          * @deprecated

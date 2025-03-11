@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/paymentcryptography/key.go b/internal/service/paymentcryptography/key.go
-index c9e4cc77ec..c7b69214a1 100644
+index ed8f19735e..53eccda79f 100644
 --- a/internal/service/paymentcryptography/key.go
 +++ b/internal/service/paymentcryptography/key.go
 @@ -113,7 +113,7 @@ func (r *resourceKey) Schema(ctx context.Context, request resource.SchemaRequest
@@ -16,4 +16,4 @@ index c9e4cc77ec..c7b69214a1 100644
 +			names.AttrTagsAll: tftags.TagsAttribute(),
  		},
  		Blocks: map[string]schema.Block{
- 			"key_attributes": schema.SingleNestedBlock{
+ 			"key_attributes": schema.SingleNestedBlock{ // nosemgrep:ci.avoid-SingleNestedBlock pre-existing, will be converted

@@ -142,10 +142,10 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
      * **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
      * 
      * @deprecated
-     * use &#39;log_destination&#39; argument instead
+     * log_group_name is deprecated. Use log_destination instead.
      * 
      */
-    @Deprecated /* use 'log_destination' argument instead */
+    @Deprecated /* log_group_name is deprecated. Use log_destination instead. */
     @Import(name="logGroupName")
     private @Nullable Output<String> logGroupName;
 
@@ -153,10 +153,10 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
      * @return **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
      * 
      * @deprecated
-     * use &#39;log_destination&#39; argument instead
+     * log_group_name is deprecated. Use log_destination instead.
      * 
      */
-    @Deprecated /* use 'log_destination' argument instead */
+    @Deprecated /* log_group_name is deprecated. Use log_destination instead. */
     public Optional<Output<String>> logGroupName() {
         return Optional.ofNullable(this.logGroupName);
     }
@@ -509,10 +509,10 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * use &#39;log_destination&#39; argument instead
+         * log_group_name is deprecated. Use log_destination instead.
          * 
          */
-        @Deprecated /* use 'log_destination' argument instead */
+        @Deprecated /* log_group_name is deprecated. Use log_destination instead. */
         public Builder logGroupName(@Nullable Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
@@ -524,10 +524,10 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * use &#39;log_destination&#39; argument instead
+         * log_group_name is deprecated. Use log_destination instead.
          * 
          */
-        @Deprecated /* use 'log_destination' argument instead */
+        @Deprecated /* log_group_name is deprecated. Use log_destination instead. */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }

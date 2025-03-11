@@ -65,19 +65,35 @@ class ByteMatchSetArgs:
 @pulumi.input_type
 class _ByteMatchSetState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  byte_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ByteMatchSet resources.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the byte match set.
         :param pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]] byte_match_tuples: Specifies the bytes (typically a string that corresponds
                with ASCII characters) that you want to search for in web requests,
                the location in requests that you want to search, and other settings.
         :param pulumi.Input[str] name: The name or description of the Byte Match Set.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if byte_match_tuples is not None:
             pulumi.set(__self__, "byte_match_tuples", byte_match_tuples)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the byte match set.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="byteMatchTuples")
@@ -215,6 +231,7 @@ class ByteMatchSet(pulumi.CustomResource):
 
             __props__.__dict__["byte_match_tuples"] = byte_match_tuples
             __props__.__dict__["name"] = name
+            __props__.__dict__["arn"] = None
         super(ByteMatchSet, __self__).__init__(
             'aws:waf/byteMatchSet:ByteMatchSet',
             resource_name,
@@ -225,6 +242,7 @@ class ByteMatchSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             byte_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ByteMatchSetByteMatchTupleArgs', 'ByteMatchSetByteMatchTupleArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'ByteMatchSet':
         """
@@ -234,6 +252,7 @@ class ByteMatchSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the byte match set.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ByteMatchSetByteMatchTupleArgs', 'ByteMatchSetByteMatchTupleArgsDict']]]] byte_match_tuples: Specifies the bytes (typically a string that corresponds
                with ASCII characters) that you want to search for in web requests,
                the location in requests that you want to search, and other settings.
@@ -243,9 +262,18 @@ class ByteMatchSet(pulumi.CustomResource):
 
         __props__ = _ByteMatchSetState.__new__(_ByteMatchSetState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["byte_match_tuples"] = byte_match_tuples
         __props__.__dict__["name"] = name
         return ByteMatchSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the byte match set.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="byteMatchTuples")

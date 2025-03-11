@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
-    /// Provides an OpsWorks haproxy layer resource.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

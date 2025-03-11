@@ -25,10 +25,28 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         }
 
         /// <summary>
+        /// The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
+        /// </summary>
+        [Input("beforeEntry")]
+        public Input<Inputs.PipelineStageBeforeEntryGetArgs>? BeforeEntry { get; set; }
+
+        /// <summary>
         /// The name of the stage.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
+        /// </summary>
+        [Input("onFailure")]
+        public Input<Inputs.PipelineStageOnFailureGetArgs>? OnFailure { get; set; }
+
+        /// <summary>
+        /// The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
+        /// </summary>
+        [Input("onSuccess")]
+        public Input<Inputs.PipelineStageOnSuccessGetArgs>? OnSuccess { get; set; }
 
         public PipelineStageGetArgs()
         {

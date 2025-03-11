@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint
     {
+        /// <summary>
+        /// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        /// </summary>
         public readonly string FallbackBehavior;
 
         [OutputConstructor]

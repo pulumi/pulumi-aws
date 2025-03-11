@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker model resource.
+// Provides a SageMaker AI model resource.
 //
 // ## Example Usage
 //
@@ -99,7 +99,7 @@ type Model struct {
 	Containers ModelContainerArrayOutput `pulumi:"containers"`
 	// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
 	EnableNetworkIsolation pulumi.BoolPtrOutput `pulumi:"enableNetworkIsolation"`
-	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
+	// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
 	InferenceExecutionConfig ModelInferenceExecutionConfigOutput `pulumi:"inferenceExecutionConfig"`
@@ -156,7 +156,7 @@ type modelState struct {
 	Containers []ModelContainer `pulumi:"containers"`
 	// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
 	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
-	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
+	// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
 	InferenceExecutionConfig *ModelInferenceExecutionConfig `pulumi:"inferenceExecutionConfig"`
@@ -181,7 +181,7 @@ type ModelState struct {
 	Containers ModelContainerArrayInput
 	// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
 	EnableNetworkIsolation pulumi.BoolPtrInput
-	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
+	// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn pulumi.StringPtrInput
 	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
 	InferenceExecutionConfig ModelInferenceExecutionConfigPtrInput
@@ -208,7 +208,7 @@ type modelArgs struct {
 	Containers []ModelContainer `pulumi:"containers"`
 	// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
 	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
-	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
+	// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
 	InferenceExecutionConfig *ModelInferenceExecutionConfig `pulumi:"inferenceExecutionConfig"`
@@ -228,7 +228,7 @@ type ModelArgs struct {
 	Containers ModelContainerArrayInput
 	// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
 	EnableNetworkIsolation pulumi.BoolPtrInput
-	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
+	// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn pulumi.StringInput
 	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
 	InferenceExecutionConfig ModelInferenceExecutionConfigPtrInput
@@ -344,7 +344,7 @@ func (o ModelOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Model) pulumi.BoolPtrOutput { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
 }
 
-// A role that SageMaker can assume to access model artifacts and docker images for deployment.
+// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
 func (o ModelOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }

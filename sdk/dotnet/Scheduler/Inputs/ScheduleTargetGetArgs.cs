@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Scheduler.Inputs
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+        /// Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
         /// </summary>
         [Input("sagemakerPipelineParameters")]
         public Input<Inputs.ScheduleTargetSagemakerPipelineParametersGetArgs>? SagemakerPipelineParameters { get; set; }

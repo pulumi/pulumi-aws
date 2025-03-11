@@ -180,33 +180,49 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The elastic GPU to attach to the instance. See Elastic GPU
+     * **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
      * 
+     * @deprecated
+     * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
+     * 
      */
+    @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
     @Import(name="elasticGpuSpecifications")
     private @Nullable Output<List<LaunchTemplateElasticGpuSpecificationArgs>> elasticGpuSpecifications;
 
     /**
-     * @return The elastic GPU to attach to the instance. See Elastic GPU
+     * @return **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
      * below for more details.
      * 
+     * @deprecated
+     * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
+     * 
      */
+    @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
     public Optional<Output<List<LaunchTemplateElasticGpuSpecificationArgs>>> elasticGpuSpecifications() {
         return Optional.ofNullable(this.elasticGpuSpecifications);
     }
 
     /**
-     * Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     * **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     * 
+     * @deprecated
+     * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
      * 
      */
+    @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
     @Import(name="elasticInferenceAccelerator")
     private @Nullable Output<LaunchTemplateElasticInferenceAcceleratorArgs> elasticInferenceAccelerator;
 
     /**
-     * @return Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     * @return **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+     * 
+     * @deprecated
+     * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
      * 
      */
+    @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
     public Optional<Output<LaunchTemplateElasticInferenceAcceleratorArgs>> elasticInferenceAccelerator() {
         return Optional.ofNullable(this.elasticInferenceAccelerator);
     }
@@ -878,56 +894,76 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param elasticGpuSpecifications The elastic GPU to attach to the instance. See Elastic GPU
+         * @param elasticGpuSpecifications **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
          * below for more details.
          * 
          * @return builder
          * 
+         * @deprecated
+         * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
+         * 
          */
+        @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
         public Builder elasticGpuSpecifications(@Nullable Output<List<LaunchTemplateElasticGpuSpecificationArgs>> elasticGpuSpecifications) {
             $.elasticGpuSpecifications = elasticGpuSpecifications;
             return this;
         }
 
         /**
-         * @param elasticGpuSpecifications The elastic GPU to attach to the instance. See Elastic GPU
+         * @param elasticGpuSpecifications **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
          * below for more details.
          * 
          * @return builder
          * 
+         * @deprecated
+         * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
+         * 
          */
+        @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
         public Builder elasticGpuSpecifications(List<LaunchTemplateElasticGpuSpecificationArgs> elasticGpuSpecifications) {
             return elasticGpuSpecifications(Output.of(elasticGpuSpecifications));
         }
 
         /**
-         * @param elasticGpuSpecifications The elastic GPU to attach to the instance. See Elastic GPU
+         * @param elasticGpuSpecifications **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
          * below for more details.
          * 
          * @return builder
          * 
+         * @deprecated
+         * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
+         * 
          */
+        @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
         public Builder elasticGpuSpecifications(LaunchTemplateElasticGpuSpecificationArgs... elasticGpuSpecifications) {
             return elasticGpuSpecifications(List.of(elasticGpuSpecifications));
         }
 
         /**
-         * @param elasticInferenceAccelerator Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+         * @param elasticInferenceAccelerator **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
          * 
          * @return builder
          * 
+         * @deprecated
+         * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
+         * 
          */
+        @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
         public Builder elasticInferenceAccelerator(@Nullable Output<LaunchTemplateElasticInferenceAcceleratorArgs> elasticInferenceAccelerator) {
             $.elasticInferenceAccelerator = elasticInferenceAccelerator;
             return this;
         }
 
         /**
-         * @param elasticInferenceAccelerator Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+         * @param elasticInferenceAccelerator **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
          * 
          * @return builder
          * 
+         * @deprecated
+         * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
+         * 
          */
+        @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
         public Builder elasticInferenceAccelerator(LaunchTemplateElasticInferenceAcceleratorArgs elasticInferenceAccelerator) {
             return elasticInferenceAccelerator(Output.of(elasticInferenceAccelerator));
         }

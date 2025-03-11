@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Pipeline resource.
+// Provides a SageMaker AI Pipeline resource.
 //
 // ## Example Usage
 //
@@ -79,7 +79,7 @@ type Pipeline struct {
 	ParallelismConfiguration PipelineParallelismConfigurationPtrOutput `pulumi:"parallelismConfiguration"`
 	// The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
 	PipelineDefinition pulumi.StringPtrOutput `pulumi:"pipelineDefinition"`
-	// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+	// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
 	PipelineDefinitionS3Location PipelinePipelineDefinitionS3LocationPtrOutput `pulumi:"pipelineDefinitionS3Location"`
 	// A description of the pipeline.
 	PipelineDescription pulumi.StringPtrOutput `pulumi:"pipelineDescription"`
@@ -139,7 +139,7 @@ type pipelineState struct {
 	ParallelismConfiguration *PipelineParallelismConfiguration `pulumi:"parallelismConfiguration"`
 	// The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
 	PipelineDefinition *string `pulumi:"pipelineDefinition"`
-	// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+	// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
 	PipelineDefinitionS3Location *PipelinePipelineDefinitionS3Location `pulumi:"pipelineDefinitionS3Location"`
 	// A description of the pipeline.
 	PipelineDescription *string `pulumi:"pipelineDescription"`
@@ -164,7 +164,7 @@ type PipelineState struct {
 	ParallelismConfiguration PipelineParallelismConfigurationPtrInput
 	// The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
 	PipelineDefinition pulumi.StringPtrInput
-	// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+	// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
 	PipelineDefinitionS3Location PipelinePipelineDefinitionS3LocationPtrInput
 	// A description of the pipeline.
 	PipelineDescription pulumi.StringPtrInput
@@ -191,7 +191,7 @@ type pipelineArgs struct {
 	ParallelismConfiguration *PipelineParallelismConfiguration `pulumi:"parallelismConfiguration"`
 	// The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
 	PipelineDefinition *string `pulumi:"pipelineDefinition"`
-	// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+	// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
 	PipelineDefinitionS3Location *PipelinePipelineDefinitionS3Location `pulumi:"pipelineDefinitionS3Location"`
 	// A description of the pipeline.
 	PipelineDescription *string `pulumi:"pipelineDescription"`
@@ -211,7 +211,7 @@ type PipelineArgs struct {
 	ParallelismConfiguration PipelineParallelismConfigurationPtrInput
 	// The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
 	PipelineDefinition pulumi.StringPtrInput
-	// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+	// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
 	PipelineDefinitionS3Location PipelinePipelineDefinitionS3LocationPtrInput
 	// A description of the pipeline.
 	PipelineDescription pulumi.StringPtrInput
@@ -327,7 +327,7 @@ func (o PipelineOutput) PipelineDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.PipelineDefinition }).(pulumi.StringPtrOutput)
 }
 
-// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
 func (o PipelineOutput) PipelineDefinitionS3Location() PipelinePipelineDefinitionS3LocationPtrOutput {
 	return o.ApplyT(func(v *Pipeline) PipelinePipelineDefinitionS3LocationPtrOutput { return v.PipelineDefinitionS3Location }).(PipelinePipelineDefinitionS3LocationPtrOutput)
 }

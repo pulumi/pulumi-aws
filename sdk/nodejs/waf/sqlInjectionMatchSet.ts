@@ -64,6 +64,10 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the SQL injection match set.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The name or description of the SQL Injection Match Set.
      */
     public readonly name!: pulumi.Output<string>;
@@ -85,12 +89,14 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlInjectionMatchSetState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["sqlInjectionMatchTuples"] = state ? state.sqlInjectionMatchTuples : undefined;
         } else {
             const args = argsOrState as SqlInjectionMatchSetArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["sqlInjectionMatchTuples"] = args ? args.sqlInjectionMatchTuples : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SqlInjectionMatchSet.__pulumiType, name, resourceInputs, opts);
@@ -101,6 +107,10 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SqlInjectionMatchSet resources.
  */
 export interface SqlInjectionMatchSetState {
+    /**
+     * Amazon Resource Name (ARN) of the SQL injection match set.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The name or description of the SQL Injection Match Set.
      */

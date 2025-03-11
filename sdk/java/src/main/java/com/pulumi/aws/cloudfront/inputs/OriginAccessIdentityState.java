@@ -16,6 +16,21 @@ public final class OriginAccessIdentityState extends com.pulumi.resources.Resour
     public static final OriginAccessIdentityState Empty = new OriginAccessIdentityState();
 
     /**
+     * The origin access identity ARN.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The origin access identity ARN.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Internal value used by CloudFront to allow future
      * updates to the origin access identity.
      * 
@@ -122,6 +137,7 @@ public final class OriginAccessIdentityState extends com.pulumi.resources.Resour
     private OriginAccessIdentityState() {}
 
     private OriginAccessIdentityState(OriginAccessIdentityState $) {
+        this.arn = $.arn;
         this.callerReference = $.callerReference;
         this.cloudfrontAccessIdentityPath = $.cloudfrontAccessIdentityPath;
         this.comment = $.comment;
@@ -146,6 +162,27 @@ public final class OriginAccessIdentityState extends com.pulumi.resources.Resour
 
         public Builder(OriginAccessIdentityState defaults) {
             $ = new OriginAccessIdentityState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The origin access identity ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The origin access identity ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

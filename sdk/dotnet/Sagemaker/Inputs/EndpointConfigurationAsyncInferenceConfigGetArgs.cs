@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class EndpointConfigurationAsyncInferenceConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+        /// Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
         /// </summary>
         [Input("clientConfig")]
         public Input<Inputs.EndpointConfigurationAsyncInferenceConfigClientConfigGetArgs>? ClientConfig { get; set; }

@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
+    /**
+     * @return The match status to assign to the web request if the request doesn&#39;t have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+     * 
+     */
     private String fallbackBehavior;
 
     private RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint() {}
+    /**
+     * @return The match status to assign to the web request if the request doesn&#39;t have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+     * 
+     */
     public String fallbackBehavior() {
         return this.fallbackBehavior;
     }

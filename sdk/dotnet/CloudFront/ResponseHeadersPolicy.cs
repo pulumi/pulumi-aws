@@ -155,6 +155,12 @@ namespace Pulumi.Aws.CloudFront
     public partial class ResponseHeadersPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The response headers policy ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         /// </summary>
         [Output("comment")]
@@ -304,6 +310,12 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class ResponseHeadersPolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The response headers policy ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         /// </summary>

@@ -4,6 +4,7 @@
 package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.aws.opensearch.outputs.GetDomainClusterConfigColdStorageOption;
+import com.pulumi.aws.opensearch.outputs.GetDomainClusterConfigNodeOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainClusterConfigZoneAwarenessConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -52,6 +53,11 @@ public final class GetDomainClusterConfig {
      * 
      */
     private Boolean multiAzWithStandbyEnabled;
+    /**
+     * @return List of node options for the domain.
+     * 
+     */
+    private List<GetDomainClusterConfigNodeOption> nodeOptions;
     /**
      * @return Number of warm nodes in the cluster.
      * 
@@ -129,6 +135,13 @@ public final class GetDomainClusterConfig {
         return this.multiAzWithStandbyEnabled;
     }
     /**
+     * @return List of node options for the domain.
+     * 
+     */
+    public List<GetDomainClusterConfigNodeOption> nodeOptions() {
+        return this.nodeOptions;
+    }
+    /**
      * @return Number of warm nodes in the cluster.
      * 
      */
@@ -180,6 +193,7 @@ public final class GetDomainClusterConfig {
         private Integer instanceCount;
         private String instanceType;
         private Boolean multiAzWithStandbyEnabled;
+        private List<GetDomainClusterConfigNodeOption> nodeOptions;
         private Integer warmCount;
         private @Nullable Boolean warmEnabled;
         private String warmType;
@@ -195,6 +209,7 @@ public final class GetDomainClusterConfig {
     	      this.instanceCount = defaults.instanceCount;
     	      this.instanceType = defaults.instanceType;
     	      this.multiAzWithStandbyEnabled = defaults.multiAzWithStandbyEnabled;
+    	      this.nodeOptions = defaults.nodeOptions;
     	      this.warmCount = defaults.warmCount;
     	      this.warmEnabled = defaults.warmEnabled;
     	      this.warmType = defaults.warmType;
@@ -262,6 +277,17 @@ public final class GetDomainClusterConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder nodeOptions(List<GetDomainClusterConfigNodeOption> nodeOptions) {
+            if (nodeOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainClusterConfig", "nodeOptions");
+            }
+            this.nodeOptions = nodeOptions;
+            return this;
+        }
+        public Builder nodeOptions(GetDomainClusterConfigNodeOption... nodeOptions) {
+            return nodeOptions(List.of(nodeOptions));
+        }
+        @CustomType.Setter
         public Builder warmCount(Integer warmCount) {
             if (warmCount == null) {
               throw new MissingRequiredPropertyException("GetDomainClusterConfig", "warmCount");
@@ -311,6 +337,7 @@ public final class GetDomainClusterConfig {
             _resultValue.instanceCount = instanceCount;
             _resultValue.instanceType = instanceType;
             _resultValue.multiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
+            _resultValue.nodeOptions = nodeOptions;
             _resultValue.warmCount = warmCount;
             _resultValue.warmEnabled = warmEnabled;
             _resultValue.warmType = warmType;

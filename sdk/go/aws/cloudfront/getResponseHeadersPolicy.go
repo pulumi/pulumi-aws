@@ -88,6 +88,8 @@ type LookupResponseHeadersPolicyArgs struct {
 
 // A collection of values returned by getResponseHeadersPolicy.
 type LookupResponseHeadersPolicyResult struct {
+	// The response headers policy ARN.
+	Arn string `pulumi:"arn"`
 	// Comment to describe the response headers policy. The comment cannot be longer than 128 characters.
 	Comment string `pulumi:"comment"`
 	// Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
@@ -140,6 +142,11 @@ func (o LookupResponseHeadersPolicyResultOutput) ToLookupResponseHeadersPolicyRe
 
 func (o LookupResponseHeadersPolicyResultOutput) ToLookupResponseHeadersPolicyResultOutputWithContext(ctx context.Context) LookupResponseHeadersPolicyResultOutput {
 	return o
+}
+
+// The response headers policy ARN.
+func (o LookupResponseHeadersPolicyResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Comment to describe the response headers policy. The comment cannot be longer than 128 characters.

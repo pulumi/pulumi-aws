@@ -148,14 +148,14 @@ public final class ScheduleTargetArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+     * Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
      * 
      */
     @Import(name="sagemakerPipelineParameters")
     private @Nullable Output<ScheduleTargetSagemakerPipelineParametersArgs> sagemakerPipelineParameters;
 
     /**
-     * @return Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+     * @return Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
      * 
      */
     public Optional<Output<ScheduleTargetSagemakerPipelineParametersArgs>> sagemakerPipelineParameters() {
@@ -383,7 +383,7 @@ public final class ScheduleTargetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sagemakerPipelineParameters Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+         * @param sagemakerPipelineParameters Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class ScheduleTargetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sagemakerPipelineParameters Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+         * @param sagemakerPipelineParameters Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
          * 
          * @return builder
          * 

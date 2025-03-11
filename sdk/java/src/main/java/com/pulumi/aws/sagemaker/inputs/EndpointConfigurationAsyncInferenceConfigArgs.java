@@ -18,14 +18,14 @@ public final class EndpointConfigurationAsyncInferenceConfigArgs extends com.pul
     public static final EndpointConfigurationAsyncInferenceConfigArgs Empty = new EndpointConfigurationAsyncInferenceConfigArgs();
 
     /**
-     * Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+     * Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
      * 
      */
     @Import(name="clientConfig")
     private @Nullable Output<EndpointConfigurationAsyncInferenceConfigClientConfigArgs> clientConfig;
 
     /**
-     * @return Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+     * @return Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
      * 
      */
     public Optional<Output<EndpointConfigurationAsyncInferenceConfigClientConfigArgs>> clientConfig() {
@@ -73,7 +73,7 @@ public final class EndpointConfigurationAsyncInferenceConfigArgs extends com.pul
         }
 
         /**
-         * @param clientConfig Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+         * @param clientConfig Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class EndpointConfigurationAsyncInferenceConfigArgs extends com.pul
         }
 
         /**
-         * @param clientConfig Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+         * @param clientConfig Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
          * 
          * @return builder
          * 

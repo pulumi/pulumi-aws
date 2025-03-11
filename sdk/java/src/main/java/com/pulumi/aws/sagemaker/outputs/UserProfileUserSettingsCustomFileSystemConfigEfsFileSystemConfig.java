@@ -18,7 +18,7 @@ public final class UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemCon
      */
     private String fileSystemId;
     /**
-     * @return The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+     * @return The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
      * 
      */
     private @Nullable String fileSystemPath;
@@ -32,7 +32,7 @@ public final class UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemCon
         return this.fileSystemId;
     }
     /**
-     * @return The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+     * @return The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
      * 
      */
     public Optional<String> fileSystemPath() {

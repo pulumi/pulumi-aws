@@ -63,6 +63,10 @@ export class OriginAccessControl extends pulumi.CustomResource {
     }
 
     /**
+     * The Origin Access Control ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -100,6 +104,7 @@ export class OriginAccessControl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OriginAccessControlState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["etag"] = state ? state.etag : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -122,6 +127,7 @@ export class OriginAccessControl extends pulumi.CustomResource {
             resourceInputs["originAccessControlOriginType"] = args ? args.originAccessControlOriginType : undefined;
             resourceInputs["signingBehavior"] = args ? args.signingBehavior : undefined;
             resourceInputs["signingProtocol"] = args ? args.signingProtocol : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -133,6 +139,10 @@ export class OriginAccessControl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OriginAccessControl resources.
  */
 export interface OriginAccessControlState {
+    /**
+     * The Origin Access Control ARN.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
      */

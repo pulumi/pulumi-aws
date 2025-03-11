@@ -63,8 +63,8 @@ class EventRuleArgs:
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
         if is_enabled is not None:
-            warnings.warn("""Use \"state\" instead""", DeprecationWarning)
-            pulumi.log.warn("""is_enabled is deprecated: Use \"state\" instead""")
+            warnings.warn("""is_enabled is deprecated. Use state instead.""", DeprecationWarning)
+            pulumi.log.warn("""is_enabled is deprecated: is_enabled is deprecated. Use state instead.""")
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
@@ -131,7 +131,7 @@ class EventRuleArgs:
 
     @property
     @pulumi.getter(name="isEnabled")
-    @_utilities.deprecated("""Use \"state\" instead""")
+    @_utilities.deprecated("""is_enabled is deprecated. Use state instead.""")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether the rule should be enabled.
@@ -277,8 +277,8 @@ class _EventRuleState:
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
         if is_enabled is not None:
-            warnings.warn("""Use \"state\" instead""", DeprecationWarning)
-            pulumi.log.warn("""is_enabled is deprecated: Use \"state\" instead""")
+            warnings.warn("""is_enabled is deprecated. Use state instead.""", DeprecationWarning)
+            pulumi.log.warn("""is_enabled is deprecated: is_enabled is deprecated. Use state instead.""")
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
@@ -362,7 +362,7 @@ class _EventRuleState:
 
     @property
     @pulumi.getter(name="isEnabled")
-    @_utilities.deprecated("""Use \"state\" instead""")
+    @_utilities.deprecated("""is_enabled is deprecated. Use state instead.""")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether the rule should be enabled.
@@ -769,7 +769,7 @@ class EventRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isEnabled")
-    @_utilities.deprecated("""Use \"state\" instead""")
+    @_utilities.deprecated("""is_enabled is deprecated. Use state instead.""")
     def is_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the rule should be enabled.

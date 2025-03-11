@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UserProfileUserSettingsJupyterServerAppSettings {
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
      * 
      */
     private @Nullable List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepository> codeRepositories;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     private @Nullable UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -32,14 +32,14 @@ public final class UserProfileUserSettingsJupyterServerAppSettings {
 
     private UserProfileUserSettingsJupyterServerAppSettings() {}
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+     * @return A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
      * 
      */
     public List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepository> codeRepositories() {
         return this.codeRepositories == null ? List.of() : this.codeRepositories;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     public Optional<UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec> defaultResourceSpec() {

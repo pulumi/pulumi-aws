@@ -1813,8 +1813,8 @@ class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs:
         if edge_sets is not None:
             pulumi.set(__self__, "edge_sets", edge_sets)
         if use_edge is not None:
-            warnings.warn("""Use use_edge_location""", DeprecationWarning)
-            pulumi.log.warn("""use_edge is deprecated: Use use_edge_location""")
+            warnings.warn("""use_edge is deprecated. Use use_edge_location instead.""", DeprecationWarning)
+            pulumi.log.warn("""use_edge is deprecated: use_edge is deprecated. Use use_edge_location instead.""")
         if use_edge is not None:
             pulumi.set(__self__, "use_edge", use_edge)
         if use_edge_location is not None:
@@ -1834,7 +1834,7 @@ class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs:
 
     @property
     @pulumi.getter(name="useEdge")
-    @_utilities.deprecated("""Use use_edge_location""")
+    @_utilities.deprecated("""use_edge is deprecated. Use use_edge_location instead.""")
     def use_edge(self) -> Optional[str]:
         """
         The preferred edge to use.

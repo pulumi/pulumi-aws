@@ -59,6 +59,10 @@ export class TrafficPolicyInstance extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the traffic policy instance.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
      */
     public readonly hostedZoneId!: pulumi.Output<string>;
@@ -92,6 +96,7 @@ export class TrafficPolicyInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficPolicyInstanceState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["trafficPolicyId"] = state ? state.trafficPolicyId : undefined;
@@ -116,6 +121,7 @@ export class TrafficPolicyInstance extends pulumi.CustomResource {
             resourceInputs["trafficPolicyId"] = args ? args.trafficPolicyId : undefined;
             resourceInputs["trafficPolicyVersion"] = args ? args.trafficPolicyVersion : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TrafficPolicyInstance.__pulumiType, name, resourceInputs, opts);
@@ -126,6 +132,10 @@ export class TrafficPolicyInstance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrafficPolicyInstance resources.
  */
 export interface TrafficPolicyInstanceState {
+    /**
+     * Amazon Resource Name (ARN) of the traffic policy instance.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
      */

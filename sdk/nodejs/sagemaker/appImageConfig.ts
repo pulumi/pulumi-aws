@@ -8,13 +8,13 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a SageMaker App Image Config resource.
+ * Provides a SageMaker AI App Image Config resource.
  *
  * ## Example Usage
  *
  * ## Import
  *
- * Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
+ * Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
  *
  * ```sh
  * $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
@@ -65,7 +65,7 @@ export class AppImageConfig extends pulumi.CustomResource {
      */
     public readonly jupyterLabImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigJupyterLabImageConfig | undefined>;
     /**
-     * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+     * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      */
     public readonly kernelGatewayImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
     /**
@@ -138,7 +138,7 @@ export interface AppImageConfigState {
      */
     jupyterLabImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfig>;
     /**
-     * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+     * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      */
     kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
     /**
@@ -170,7 +170,7 @@ export interface AppImageConfigArgs {
      */
     jupyterLabImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfig>;
     /**
-     * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+     * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      */
     kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
     /**

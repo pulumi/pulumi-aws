@@ -336,13 +336,13 @@ type Instance struct {
 	CapacityReservationSpecification InstanceCapacityReservationSpecificationOutput `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
-	// Deprecated: use 'cpu_options' argument instead
+	// Deprecated: cpu_core_count is deprecated. Use cpuOptions instead.
 	CpuCoreCount pulumi.IntOutput `pulumi:"cpuCoreCount"`
 	// The CPU options for the instance. See CPU Options below for more details.
 	CpuOptions InstanceCpuOptionsOutput `pulumi:"cpuOptions"`
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	//
-	// Deprecated: use 'cpu_options' argument instead
+	// Deprecated: cpu_threads_per_core is deprecated. Use cpuOptions instead.
 	CpuThreadsPerCore pulumi.IntOutput `pulumi:"cpuThreadsPerCore"`
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification InstanceCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
@@ -498,13 +498,13 @@ type instanceState struct {
 	CapacityReservationSpecification *InstanceCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
-	// Deprecated: use 'cpu_options' argument instead
+	// Deprecated: cpu_core_count is deprecated. Use cpuOptions instead.
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// The CPU options for the instance. See CPU Options below for more details.
 	CpuOptions *InstanceCpuOptions `pulumi:"cpuOptions"`
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	//
-	// Deprecated: use 'cpu_options' argument instead
+	// Deprecated: cpu_threads_per_core is deprecated. Use cpuOptions instead.
 	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification *InstanceCreditSpecification `pulumi:"creditSpecification"`
@@ -631,13 +631,13 @@ type InstanceState struct {
 	CapacityReservationSpecification InstanceCapacityReservationSpecificationPtrInput
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
-	// Deprecated: use 'cpu_options' argument instead
+	// Deprecated: cpu_core_count is deprecated. Use cpuOptions instead.
 	CpuCoreCount pulumi.IntPtrInput
 	// The CPU options for the instance. See CPU Options below for more details.
 	CpuOptions InstanceCpuOptionsPtrInput
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	//
-	// Deprecated: use 'cpu_options' argument instead
+	// Deprecated: cpu_threads_per_core is deprecated. Use cpuOptions instead.
 	CpuThreadsPerCore pulumi.IntPtrInput
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification InstanceCreditSpecificationPtrInput
@@ -766,13 +766,13 @@ type instanceArgs struct {
 	CapacityReservationSpecification *InstanceCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
-	// Deprecated: use 'cpu_options' argument instead
+	// Deprecated: cpu_core_count is deprecated. Use cpuOptions instead.
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// The CPU options for the instance. See CPU Options below for more details.
 	CpuOptions *InstanceCpuOptions `pulumi:"cpuOptions"`
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	//
-	// Deprecated: use 'cpu_options' argument instead
+	// Deprecated: cpu_threads_per_core is deprecated. Use cpuOptions instead.
 	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification *InstanceCreditSpecification `pulumi:"creditSpecification"`
@@ -876,13 +876,13 @@ type InstanceArgs struct {
 	CapacityReservationSpecification InstanceCapacityReservationSpecificationPtrInput
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
-	// Deprecated: use 'cpu_options' argument instead
+	// Deprecated: cpu_core_count is deprecated. Use cpuOptions instead.
 	CpuCoreCount pulumi.IntPtrInput
 	// The CPU options for the instance. See CPU Options below for more details.
 	CpuOptions InstanceCpuOptionsPtrInput
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	//
-	// Deprecated: use 'cpu_options' argument instead
+	// Deprecated: cpu_threads_per_core is deprecated. Use cpuOptions instead.
 	CpuThreadsPerCore pulumi.IntPtrInput
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification InstanceCreditSpecificationPtrInput
@@ -1090,7 +1090,7 @@ func (o InstanceOutput) CapacityReservationSpecification() InstanceCapacityReser
 
 // Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 //
-// Deprecated: use 'cpu_options' argument instead
+// Deprecated: cpu_core_count is deprecated. Use cpuOptions instead.
 func (o InstanceOutput) CpuCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.CpuCoreCount }).(pulumi.IntOutput)
 }
@@ -1102,7 +1102,7 @@ func (o InstanceOutput) CpuOptions() InstanceCpuOptionsOutput {
 
 // If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 //
-// Deprecated: use 'cpu_options' argument instead
+// Deprecated: cpu_threads_per_core is deprecated. Use cpuOptions instead.
 func (o InstanceOutput) CpuThreadsPerCore() pulumi.IntOutput {
 	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.CpuThreadsPerCore }).(pulumi.IntOutput)
 }

@@ -184,9 +184,17 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.runOrder);
     }
 
+    /**
+     * The action timeout for the rule.
+     * 
+     */
     @Import(name="timeoutInMinutes")
     private @Nullable Output<Integer> timeoutInMinutes;
 
+    /**
+     * @return The action timeout for the rule.
+     * 
+     */
     public Optional<Output<Integer>> timeoutInMinutes() {
         return Optional.ofNullable(this.timeoutInMinutes);
     }
@@ -493,11 +501,23 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
             return runOrder(Output.of(runOrder));
         }
 
+        /**
+         * @param timeoutInMinutes The action timeout for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeoutInMinutes(@Nullable Output<Integer> timeoutInMinutes) {
             $.timeoutInMinutes = timeoutInMinutes;
             return this;
         }
 
+        /**
+         * @param timeoutInMinutes The action timeout for the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeoutInMinutes(Integer timeoutInMinutes) {
             return timeoutInMinutes(Output.of(timeoutInMinutes));
         }

@@ -136,7 +136,7 @@ export interface GetDomainResult {
     /**
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
      *
-     * @deprecated use 'dashboard_endpoint' attribute instead
+     * @deprecated kibana_endpoint is deprecated. Use dashboardEndpoint instead.
      */
     readonly kibanaEndpoint: string;
     /**

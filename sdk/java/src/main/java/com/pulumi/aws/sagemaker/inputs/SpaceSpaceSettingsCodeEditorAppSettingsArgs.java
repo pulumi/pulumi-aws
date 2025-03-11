@@ -33,14 +33,14 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsArgs extends com.pulum
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     @Import(name="defaultResourceSpec", required=true)
     private Output<SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
      * 
      */
     public Output<SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> defaultResourceSpec() {
@@ -94,7 +94,7 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
          * 
          * @return builder
          * 

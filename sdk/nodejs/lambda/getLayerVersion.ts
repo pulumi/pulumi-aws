@@ -106,7 +106,7 @@ export interface GetLayerVersionResult {
     /**
      * (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
      *
-     * @deprecated This attribute is deprecated and will be removed in a future major version. Use `codeSha256` instead.
+     * @deprecated source_code_hash is deprecated. Use codeSha256 instead.
      */
     readonly sourceCodeHash: string;
     /**

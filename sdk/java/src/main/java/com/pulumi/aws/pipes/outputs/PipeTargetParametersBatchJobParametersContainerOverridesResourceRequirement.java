@@ -16,7 +16,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesResou
      */
     private String type;
     /**
-     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+     * @return Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
      * 
      */
     private String value;
@@ -30,7 +30,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesResou
         return this.type;
     }
     /**
-     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+     * @return Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
      * 
      */
     public String value() {

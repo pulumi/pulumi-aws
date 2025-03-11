@@ -45,7 +45,19 @@ public final class GetLaunchTemplateResult {
     private Boolean disableApiStop;
     private Boolean disableApiTermination;
     private String ebsOptimized;
+    /**
+     * @deprecated
+     * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
+     * 
+     */
+    @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
     private List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications;
+    /**
+     * @deprecated
+     * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
+     * 
+     */
+    @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
     private List<GetLaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerators;
     private List<GetLaunchTemplateEnclaveOption> enclaveOptions;
     private @Nullable List<GetLaunchTemplateFilter> filters;
@@ -110,9 +122,21 @@ public final class GetLaunchTemplateResult {
     public String ebsOptimized() {
         return this.ebsOptimized;
     }
+    /**
+     * @deprecated
+     * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
+     * 
+     */
+    @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
     public List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications() {
         return this.elasticGpuSpecifications;
     }
+    /**
+     * @deprecated
+     * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
+     * 
+     */
+    @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
     public List<GetLaunchTemplateElasticInferenceAccelerator> elasticInferenceAccelerators() {
         return this.elasticInferenceAccelerators;
     }

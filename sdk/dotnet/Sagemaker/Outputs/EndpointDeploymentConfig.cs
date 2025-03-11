@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.EndpointDeploymentConfigAutoRollbackConfiguration? AutoRollbackConfiguration;
         /// <summary>
-        /// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+        /// Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
         /// </summary>
         public readonly Outputs.EndpointDeploymentConfigBlueGreenUpdatePolicy? BlueGreenUpdatePolicy;
         /// <summary>
-        /// Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+        /// Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
         /// </summary>
         public readonly Outputs.EndpointDeploymentConfigRollingUpdatePolicy? RollingUpdatePolicy;
 
