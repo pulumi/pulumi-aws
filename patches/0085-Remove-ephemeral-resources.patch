@@ -5,7 +5,7 @@ Subject: [PATCH] Remove ephemeral resources
 
 
 diff --git a/internal/service/docdb/cluster.go b/internal/service/docdb/cluster.go
-index 18a68dc755..2829510891 100644
+index 18a68dc755..af18ff5d6f 100644
 --- a/internal/service/docdb/cluster.go
 +++ b/internal/service/docdb/cluster.go
 @@ -15,7 +15,6 @@ import (
@@ -79,14 +79,10 @@ index 18a68dc755..2829510891 100644
  			}
  		}
  
-@@ -540,14 +514,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
- 			input.KmsKeyId = aws.String(v.(string))
+@@ -544,10 +518,6 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+ 			input.MasterUserPassword = aws.String(v.(string))
  		}
  
--		if v, ok := d.GetOk("master_password"); ok {
--			input.MasterUserPassword = aws.String(v.(string))
--		}
--
 -		if masterPasswordWO != "" {
 -			input.MasterUserPassword = aws.String(masterPasswordWO)
 -		}
@@ -94,7 +90,7 @@ index 18a68dc755..2829510891 100644
  		if v, ok := d.GetOk(names.AttrPort); ok {
  			input.Port = aws.Int32(int32(v.(int)))
  		}
-@@ -704,18 +670,6 @@ func resourceClusterUpdate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -704,18 +674,6 @@ func resourceClusterUpdate(ctx context.Context, d *schema.ResourceData, meta int
  			input.MasterUserPassword = aws.String(d.Get("master_password").(string))
  		}
  
@@ -113,6 +109,61 @@ index 18a68dc755..2829510891 100644
  		if d.HasChange("preferred_backup_window") {
  			input.PreferredBackupWindow = aws.String(d.Get("preferred_backup_window").(string))
  		}
+diff --git a/internal/service/docdb/cluster_test.go b/internal/service/docdb/cluster_test.go
+index ffb51ec6f2..a0838200f5 100644
+--- a/internal/service/docdb/cluster_test.go
++++ b/internal/service/docdb/cluster_test.go
+@@ -13,12 +13,10 @@ import (
+ 	"github.com/aws/aws-sdk-go-v2/aws"
+ 	"github.com/aws/aws-sdk-go-v2/service/docdb"
+ 	awstypes "github.com/aws/aws-sdk-go-v2/service/docdb/types"
+-	"github.com/hashicorp/go-version"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+ 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
+ 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
+ 	"github.com/hashicorp/terraform-plugin-testing/terraform"
+-	"github.com/hashicorp/terraform-plugin-testing/tfversion"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+ 	tfdocdb "github.com/hashicorp/terraform-provider-aws/internal/service/docdb"
+@@ -927,37 +925,6 @@ func TestAccDocDBCluster_storageType(t *testing.T) {
+ 	})
+ }
+ 
+-func TestAccDocDBCluster_passwordWriteOnly(t *testing.T) {
+-	ctx := acctest.Context(t)
+-	var dbCluster awstypes.DBCluster
+-	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
+-	resourceName := "aws_docdb_cluster.test"
+-
+-	resource.ParallelTest(t, resource.TestCase{
+-		PreCheck:   func() { acctest.PreCheck(ctx, t) },
+-		ErrorCheck: acctest.ErrorCheck(t, names.DocDBServiceID),
+-		TerraformVersionChecks: []tfversion.TerraformVersionCheck{
+-			tfversion.SkipBelow(version.Must(version.NewVersion("1.11.0"))),
+-		},
+-		ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
+-		CheckDestroy:             testAccCheckClusterDestroy(ctx),
+-		Steps: []resource.TestStep{
+-			{
+-				Config: testAccClusterConfig_passwordWriteOnly(rName, "avoid-plaintext-passwords", 1),
+-				Check: resource.ComposeTestCheckFunc(
+-					testAccCheckClusterExists(ctx, resourceName, &dbCluster),
+-				),
+-			},
+-			{
+-				Config: testAccClusterConfig_passwordWriteOnly(rName, "avoid-plaintext-updated", 2),
+-				Check: resource.ComposeTestCheckFunc(
+-					testAccCheckClusterExists(ctx, resourceName, &dbCluster),
+-				),
+-			},
+-		},
+-	})
+-}
+-
+ func testAccCheckClusterDestroy(ctx context.Context) resource.TestCheckFunc {
+ 	return func(s *terraform.State) error {
+ 		conn := acctest.Provider.Meta().(*conns.AWSClient).DocDBClient(ctx)
 diff --git a/internal/service/rds/blue_green.go b/internal/service/rds/blue_green.go
 index 5b77bc91bc..8d37d35b94 100644
 --- a/internal/service/rds/blue_green.go
@@ -526,7 +577,7 @@ index 5105adf126..a2c81bec8f 100644
  			input.MasterPasswordSecretKmsKeyId = aws.String(d.Get("master_password_secret_kms_key_id").(string))
  		}
 diff --git a/internal/service/redshiftserverless/namespace.go b/internal/service/redshiftserverless/namespace.go
-index 45cb36632a..d3c2c71065 100644
+index 45cb36632a..9d23dc755c 100644
 --- a/internal/service/redshiftserverless/namespace.go
 +++ b/internal/service/redshiftserverless/namespace.go
 @@ -14,7 +14,6 @@ import (
@@ -591,17 +642,17 @@ index 45cb36632a..d3c2c71065 100644
  	if v, ok := d.GetOk("admin_username"); ok {
  		input.AdminUsername = aws.String(v.(string))
  	}
-@@ -246,22 +223,8 @@ func resourceNamespaceUpdate(ctx context.Context, d *schema.ResourceData, meta i
+@@ -246,22 +223,12 @@ func resourceNamespaceUpdate(ctx context.Context, d *schema.ResourceData, meta i
  			input.AdminPasswordSecretKmsKeyId = aws.String(d.Get("admin_password_secret_kms_key_id").(string))
  		}
  
 -		if d.HasChanges("admin_username", "admin_user_password", "admin_user_password_wo_version") {
 +		if d.HasChanges("admin_username", "admin_user_password") {
  			input.AdminUsername = aws.String(d.Get("admin_username").(string))
--
--			if v, ok := d.Get("admin_user_password").(string); ok {
--				input.AdminUserPassword = aws.String(v)
--			}
+ 
+ 			if v, ok := d.Get("admin_user_password").(string); ok {
+ 				input.AdminUserPassword = aws.String(v)
+ 			}
 -
 -			adminUserPasswordWO, di := flex.GetWriteOnlyStringValue(d, cty.GetAttrPath("admin_user_password_wo"))
 -			diags = append(diags, di...)
@@ -615,6 +666,59 @@ index 45cb36632a..d3c2c71065 100644
  		}
  
  		if d.HasChange("default_iam_role_arn") {
+diff --git a/internal/service/redshiftserverless/namespace_test.go b/internal/service/redshiftserverless/namespace_test.go
+index 7ffef0cb5c..0534a0155f 100644
+--- a/internal/service/redshiftserverless/namespace_test.go
++++ b/internal/service/redshiftserverless/namespace_test.go
+@@ -9,11 +9,9 @@ import (
+ 	"testing"
+ 
+ 	"github.com/YakDriver/regexache"
+-	"github.com/hashicorp/go-version"
+ 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
+ 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
+ 	"github.com/hashicorp/terraform-plugin-testing/terraform"
+-	"github.com/hashicorp/terraform-plugin-testing/tfversion"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+ 	tfredshiftserverless "github.com/hashicorp/terraform-provider-aws/internal/service/redshiftserverless"
+@@ -128,36 +126,6 @@ func TestAccRedshiftServerlessNamespace_user(t *testing.T) {
+ 	})
+ }
+ 
+-func TestAccRedshiftServerlessNamespace_userPasswordWriteOnly(t *testing.T) {
+-	ctx := acctest.Context(t)
+-	resourceName := "aws_redshiftserverless_namespace.test"
+-	rName := sdkacctest.RandomWithPrefix(acctest.ResourcePrefix)
+-
+-	resource.ParallelTest(t, resource.TestCase{
+-		PreCheck:   func() { acctest.PreCheck(ctx, t) },
+-		ErrorCheck: acctest.ErrorCheck(t, names.RedshiftServerlessServiceID),
+-		TerraformVersionChecks: []tfversion.TerraformVersionCheck{
+-			tfversion.SkipBelow(version.Must(version.NewVersion("1.11.0"))),
+-		},
+-		ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
+-		CheckDestroy:             testAccCheckNamespaceDestroy(ctx),
+-		Steps: []resource.TestStep{
+-			{
+-				Config: testAccNamespaceConfig_userPasswordWriteOnly(rName, "Password123", 1),
+-				Check: resource.ComposeTestCheckFunc(
+-					testAccCheckNamespaceExists(ctx, resourceName),
+-				),
+-			},
+-			{
+-				Config: testAccNamespaceConfig_userPasswordWriteOnly(rName, "Password123updated", 2),
+-				Check: resource.ComposeTestCheckFunc(
+-					testAccCheckNamespaceExists(ctx, resourceName),
+-				),
+-			},
+-		},
+-	})
+-}
+-
+ func TestAccRedshiftServerlessNamespace_tags(t *testing.T) {
+ 	ctx := acctest.Context(t)
+ 	resourceName := "aws_redshiftserverless_namespace.test"
 diff --git a/internal/service/secretsmanager/secret_version.go b/internal/service/secretsmanager/secret_version.go
 index 6ded7ef7b2..b6ec344a65 100644
 --- a/internal/service/secretsmanager/secret_version.go
