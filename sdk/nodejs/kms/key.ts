@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {PolicyDocument} from "../iam";
+
 /**
  * Manages a single-Region or multi-Region primary KMS key.
  *
@@ -535,7 +537,7 @@ export interface KeyState {
      *
      * > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
      */
@@ -608,7 +610,7 @@ export interface KeyArgs {
      *
      * > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
      */
