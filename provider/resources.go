@@ -2869,12 +2869,30 @@ compatibility shim in favor of the new "name" field.`)
 					}),
 				},
 			},
-			"aws_kms_ciphertext":           {Tok: awsResource(kmsMod, "Ciphertext")},
-			"aws_kms_custom_key_store":     {Tok: awsResource(kmsMod, "CustomKeyStore")},
-			"aws_kms_external_key":         {Tok: awsResource(kmsMod, "ExternalKey")},
-			"aws_kms_grant":                {Tok: awsResource(kmsMod, "Grant")},
-			"aws_kms_key":                  {Tok: awsResource(kmsMod, "Key")},
-			"aws_kms_key_policy":           {Tok: awsResource(kmsMod, "KeyPolicy")},
+			"aws_kms_ciphertext":       {Tok: awsResource(kmsMod, "Ciphertext")},
+			"aws_kms_custom_key_store": {Tok: awsResource(kmsMod, "CustomKeyStore")},
+			"aws_kms_external_key":     {Tok: awsResource(kmsMod, "ExternalKey")},
+			"aws_kms_grant":            {Tok: awsResource(kmsMod, "Grant")},
+			"aws_kms_key": {
+				Tok: awsResource(kmsMod, "Key"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
+			"aws_kms_key_policy": {
+				Tok: awsResource(kmsMod, "KeyPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
 			"aws_kms_replica_external_key": {Tok: awsResource(kmsMod, "ReplicaExternalKey")},
 			"aws_kms_replica_key":          {Tok: awsResource(kmsMod, "ReplicaKey")},
 			// Lambda

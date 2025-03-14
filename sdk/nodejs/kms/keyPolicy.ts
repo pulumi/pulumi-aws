@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {PolicyDocument} from "../iam";
+
 /**
  * Attaches a policy to a KMS Key.
  *
@@ -137,7 +139,7 @@ export interface KeyPolicyState {
      *
      * > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | PolicyDocument>;
 }
 
 /**
@@ -159,5 +161,5 @@ export interface KeyPolicyArgs {
      *
      * > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      */
-    policy: pulumi.Input<string>;
+    policy: pulumi.Input<string | PolicyDocument>;
 }
