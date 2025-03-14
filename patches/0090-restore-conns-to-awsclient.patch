@@ -7,10 +7,10 @@ Subject: [PATCH] restore conns to awsclient
 patches that still use sdkv1 so this is still needed.
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index 2b6de1c8cc..224e49fc00 100644
+index ded698bbca..1afb6343bb 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
-@@ -30,6 +30,7 @@ type AWSClient struct {
+@@ -31,6 +31,7 @@ type AWSClient struct {
  	accountID                 string
  	awsConfig                 *aws.Config
  	clients                   map[string]any
