@@ -91,9 +91,25 @@ public final class ProjectEnvironmentArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.fleet);
     }
 
+    /**
+     * Docker image to use for this build project. Valid values
+     * include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
+     * e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
+     * `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
+     * `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+     * 
+     */
     @Import(name="image", required=true)
     private Output<String> image;
 
+    /**
+     * @return Docker image to use for this build project. Valid values
+     * include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
+     * e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
+     * `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
+     * `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+     * 
+     */
     public Output<String> image() {
         return this.image;
     }
@@ -306,11 +322,31 @@ public final class ProjectEnvironmentArgs extends com.pulumi.resources.ResourceA
             return fleet(Output.of(fleet));
         }
 
+        /**
+         * @param image Docker image to use for this build project. Valid values
+         * include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
+         * e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
+         * `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
+         * `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder image(Output<String> image) {
             $.image = image;
             return this;
         }
 
+        /**
+         * @param image Docker image to use for this build project. Valid values
+         * include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
+         * e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
+         * `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
+         * `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder image(String image) {
             return image(Output.of(image));
         }

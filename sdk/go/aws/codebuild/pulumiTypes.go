@@ -1650,7 +1650,12 @@ type ProjectEnvironment struct {
 	EnvironmentVariables []ProjectEnvironmentEnvironmentVariable `pulumi:"environmentVariables"`
 	// Configuration block. Detailed below.
 	Fleet *ProjectEnvironmentFleet `pulumi:"fleet"`
-	Image string                   `pulumi:"image"`
+	// Docker image to use for this build project. Valid values
+	// include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
+	// e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
+	// `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
+	// `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+	Image string `pulumi:"image"`
 	// Type of credentials AWS CodeBuild uses to pull images in your build. Valid
 	// values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE
 	// credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
@@ -1692,7 +1697,12 @@ type ProjectEnvironmentArgs struct {
 	EnvironmentVariables ProjectEnvironmentEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
 	// Configuration block. Detailed below.
 	Fleet ProjectEnvironmentFleetPtrInput `pulumi:"fleet"`
-	Image pulumi.StringInput              `pulumi:"image"`
+	// Docker image to use for this build project. Valid values
+	// include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
+	// e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
+	// `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
+	// `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+	Image pulumi.StringInput `pulumi:"image"`
 	// Type of credentials AWS CodeBuild uses to pull images in your build. Valid
 	// values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE
 	// credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
@@ -1811,6 +1821,11 @@ func (o ProjectEnvironmentOutput) Fleet() ProjectEnvironmentFleetPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironment) *ProjectEnvironmentFleet { return v.Fleet }).(ProjectEnvironmentFleetPtrOutput)
 }
 
+// Docker image to use for this build project. Valid values
+// include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
+// e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
+// `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
+// `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 func (o ProjectEnvironmentOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.Image }).(pulumi.StringOutput)
 }
@@ -1910,6 +1925,11 @@ func (o ProjectEnvironmentPtrOutput) Fleet() ProjectEnvironmentFleetPtrOutput {
 	}).(ProjectEnvironmentFleetPtrOutput)
 }
 
+// Docker image to use for this build project. Valid values
+// include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
+// e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
+// `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
+// `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 func (o ProjectEnvironmentPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectEnvironment) *string {
 		if v == nil {
