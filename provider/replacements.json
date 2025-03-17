@@ -420,7 +420,7 @@
     },
     {
       "old": "  `hashicorp/terraform:latest`), and full Docker repository URIs such as those for ECR (e.g.,\n",
-      "new": "  `hashicorp/TODO:latest`), and full Docker repository URIs such as those for ECR (e.g.,\n"
+      "new": "  `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,\n"
     }
   ],
   "codecatalyst_project.html.markdown": [
