@@ -34,8 +34,10 @@ type WebAcl struct {
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
-	// Friendly name of the WebACL.
+	// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson pulumi.StringPtrOutput `pulumi:"ruleJson"`
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
@@ -112,8 +114,10 @@ type webAclState struct {
 	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
-	// Friendly name of the WebACL.
+	// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson *string `pulumi:"ruleJson"`
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
@@ -152,8 +156,10 @@ type WebAclState struct {
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
-	// Friendly name of the WebACL.
+	// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson pulumi.StringPtrInput
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
@@ -189,8 +195,10 @@ type webAclArgs struct {
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
-	// Friendly name of the WebACL.
+	// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson *string `pulumi:"ruleJson"`
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
@@ -219,8 +227,10 @@ type WebAclArgs struct {
 	DefaultAction WebAclDefaultActionInput
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
-	// Friendly name of the WebACL.
+	// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
 	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
 	RuleJson pulumi.StringPtrInput
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
@@ -371,9 +381,14 @@ func (o WebAclOutput) LockToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
 }
 
-// Friendly name of the WebACL.
+// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o WebAclOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+func (o WebAclOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
 // Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `ruleJson` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.

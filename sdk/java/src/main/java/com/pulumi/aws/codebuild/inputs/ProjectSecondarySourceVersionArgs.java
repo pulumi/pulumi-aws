@@ -30,14 +30,18 @@ public final class ProjectSecondarySourceVersionArgs extends com.pulumi.resource
     }
 
     /**
-     * The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+     * The source version for the corresponding source identifier.
+     * See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
+     * for more details.
      * 
      */
     @Import(name="sourceVersion", required=true)
     private Output<String> sourceVersion;
 
     /**
-     * @return The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+     * @return The source version for the corresponding source identifier.
+     * See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
+     * for more details.
      * 
      */
     public Output<String> sourceVersion() {
@@ -91,7 +95,9 @@ public final class ProjectSecondarySourceVersionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sourceVersion The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+         * @param sourceVersion The source version for the corresponding source identifier.
+         * See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
+         * for more details.
          * 
          * @return builder
          * 
@@ -102,7 +108,9 @@ public final class ProjectSecondarySourceVersionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sourceVersion The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+         * @param sourceVersion The source version for the corresponding source identifier.
+         * See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
+         * for more details.
          * 
          * @return builder
          * 

@@ -19,7 +19,8 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string> Credential { get; set; } = null!;
 
         /// <summary>
-        /// Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
+        /// Service that created the credentials to access a private Docker registry. Valid
+        /// value: `SECRETS_MANAGER` (AWS Secrets Manager).
         /// </summary>
         [Input("credentialProvider", required: true)]
         public Input<string> CredentialProvider { get; set; } = null!;

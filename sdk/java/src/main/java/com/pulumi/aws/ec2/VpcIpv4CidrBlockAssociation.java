@@ -65,10 +65,24 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR Association ID. For example:
+ * or
+ * 
+ * or
+ * 
+ * Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR association ID and optionally the IPv4 IPAM pool ID and netmask length. For example:
  * 
  * ```sh
- * $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
+ * $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be
+ * ```
+ * or
+ * 
+ * ```sh
+ * $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be,ipam-pool-0a07c432810393463
+ * ```
+ * or
+ * 
+ * ```sh
+ * $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be,ipam-pool-0a07c432810393463,28
  * ```
  * 
  */

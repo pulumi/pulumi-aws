@@ -69,8 +69,10 @@ type RegexPatternSet struct {
 	// A friendly description of the regular expression pattern set.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
-	// A friendly name of the regular expression pattern set.
+	// A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
 	RegularExpressions RegexPatternSetRegularExpressionArrayOutput `pulumi:"regularExpressions"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -121,8 +123,10 @@ type regexPatternSetState struct {
 	// A friendly description of the regular expression pattern set.
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
-	// A friendly name of the regular expression pattern set.
+	// A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
 	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
 	RegularExpressions []RegexPatternSetRegularExpression `pulumi:"regularExpressions"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -141,8 +145,10 @@ type RegexPatternSetState struct {
 	// A friendly description of the regular expression pattern set.
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
-	// A friendly name of the regular expression pattern set.
+	// A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
 	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
 	RegularExpressions RegexPatternSetRegularExpressionArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -162,8 +168,10 @@ func (RegexPatternSetState) ElementType() reflect.Type {
 type regexPatternSetArgs struct {
 	// A friendly description of the regular expression pattern set.
 	Description *string `pulumi:"description"`
-	// A friendly name of the regular expression pattern set.
+	// A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
 	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
 	RegularExpressions []RegexPatternSetRegularExpression `pulumi:"regularExpressions"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -176,8 +184,10 @@ type regexPatternSetArgs struct {
 type RegexPatternSetArgs struct {
 	// A friendly description of the regular expression pattern set.
 	Description pulumi.StringPtrInput
-	// A friendly name of the regular expression pattern set.
+	// A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
 	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
 	RegularExpressions RegexPatternSetRegularExpressionArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -287,9 +297,14 @@ func (o RegexPatternSetOutput) LockToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
 }
 
-// A friendly name of the regular expression pattern set.
+// A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o RegexPatternSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+func (o RegexPatternSetOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
 // One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.

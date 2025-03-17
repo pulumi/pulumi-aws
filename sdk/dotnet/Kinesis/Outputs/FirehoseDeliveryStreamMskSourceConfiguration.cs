@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string MskClusterArn;
         /// <summary>
+        /// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+        /// </summary>
+        public readonly string? ReadFromTimestamp;
+        /// <summary>
         /// The topic name within the Amazon MSK cluster.
         /// </summary>
         public readonly string TopicName;
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             string mskClusterArn,
 
+            string? readFromTimestamp,
+
             string topicName)
         {
             AuthenticationConfiguration = authenticationConfiguration;
             MskClusterArn = mskClusterArn;
+            ReadFromTimestamp = readFromTimestamp;
             TopicName = topicName;
         }
     }

@@ -19,7 +19,9 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string> SourceIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+        /// The source version for the corresponding source identifier.
+        /// See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
+        /// for more details.
         /// </summary>
         [Input("sourceVersion", required: true)]
         public Input<string> SourceVersion { get; set; } = null!;

@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     dbInstanceType: "db.influx.medium",
  *     username: "admin",
  *     password: "example-password",
+ *     port: 8086,
  *     organization: "organization",
  *     vpcSubnetIds: [exampleid],
  *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
@@ -69,7 +70,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example-s3-bucket"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ *     bucket: "example-s3-bucket",
+ *     forceDestroy: true,
+ * });
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: ["s3:PutObject"],
@@ -96,7 +100,7 @@ import * as utilities from "../utilities";
  *     name: "example-db-instance",
  *     logDeliveryConfiguration: {
  *         s3Configuration: {
- *             bucketName: exampleBucketV2.name,
+ *             bucketName: exampleBucketV2.bucket,
  *             enabled: true,
  *         },
  *     },
@@ -175,7 +179,7 @@ export class DbInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
+     * Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `dbStorageType` places restrictions on this argument's minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
      */
     public readonly allocatedStorage!: pulumi.Output<number>;
     /**
@@ -191,19 +195,19 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`.
+     * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
      */
     public readonly dbInstanceType!: pulumi.Output<string>;
     /**
-     * ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `dbParameterGroupIdentifier`, removing `dbParameterGroupIdentifier` will cause the instance to be destroyed and recreated.
+     * ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `dbParameterGroupIdentifier`, removing `dbParameterGroupIdentifier` will cause the instance to be destroyed and recreated.
      */
     public readonly dbParameterGroupIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocatedStorage` is 400.
+     * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
      */
     public readonly dbStorageType!: pulumi.Output<string>;
     /**
-     * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`.
+     * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`. This argument is updatable.
      */
     public readonly deploymentType!: pulumi.Output<string>;
     /**
@@ -215,13 +219,17 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly influxAuthParametersSecretArn!: pulumi.Output<string>;
     /**
-     * Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+     * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      */
     public readonly logDeliveryConfiguration!: pulumi.Output<outputs.timestreaminfluxdb.DbInstanceLogDeliveryConfiguration | undefined>;
     /**
      * Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     */
+    public readonly networkType!: pulumi.Output<string>;
     /**
      * Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
      */
@@ -230,6 +238,10 @@ export class DbInstance extends pulumi.CustomResource {
      * Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
      */
     public readonly password!: pulumi.Output<string>;
+    /**
+     * The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     */
+    public readonly port!: pulumi.Output<number>;
     /**
      * Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
      */
@@ -289,8 +301,10 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["influxAuthParametersSecretArn"] = state ? state.influxAuthParametersSecretArn : undefined;
             resourceInputs["logDeliveryConfiguration"] = state ? state.logDeliveryConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkType"] = state ? state.networkType : undefined;
             resourceInputs["organization"] = state ? state.organization : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             resourceInputs["secondaryAvailabilityZone"] = state ? state.secondaryAvailabilityZone : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -333,8 +347,10 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
             resourceInputs["logDeliveryConfiguration"] = args ? args.logDeliveryConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["organization"] = args ? args.organization : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -360,7 +376,7 @@ export class DbInstance extends pulumi.CustomResource {
  */
 export interface DbInstanceState {
     /**
-     * Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
+     * Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `dbStorageType` places restrictions on this argument's minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
      */
     allocatedStorage?: pulumi.Input<number>;
     /**
@@ -376,19 +392,19 @@ export interface DbInstanceState {
      */
     bucket?: pulumi.Input<string>;
     /**
-     * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`.
+     * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
      */
     dbInstanceType?: pulumi.Input<string>;
     /**
-     * ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `dbParameterGroupIdentifier`, removing `dbParameterGroupIdentifier` will cause the instance to be destroyed and recreated.
+     * ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `dbParameterGroupIdentifier`, removing `dbParameterGroupIdentifier` will cause the instance to be destroyed and recreated.
      */
     dbParameterGroupIdentifier?: pulumi.Input<string>;
     /**
-     * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocatedStorage` is 400.
+     * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
      */
     dbStorageType?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`.
+     * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`. This argument is updatable.
      */
     deploymentType?: pulumi.Input<string>;
     /**
@@ -400,13 +416,17 @@ export interface DbInstanceState {
      */
     influxAuthParametersSecretArn?: pulumi.Input<string>;
     /**
-     * Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+     * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      */
     logDeliveryConfiguration?: pulumi.Input<inputs.timestreaminfluxdb.DbInstanceLogDeliveryConfiguration>;
     /**
      * Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
      */
@@ -415,6 +435,10 @@ export interface DbInstanceState {
      * Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
      */
     password?: pulumi.Input<string>;
+    /**
+     * The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     */
+    port?: pulumi.Input<number>;
     /**
      * Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
      */
@@ -455,7 +479,7 @@ export interface DbInstanceState {
  */
 export interface DbInstanceArgs {
     /**
-     * Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
+     * Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `dbStorageType` places restrictions on this argument's minimum value. The following is a list of `dbStorageType` values and the corresponding minimum value for `allocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
      */
     allocatedStorage: pulumi.Input<number>;
     /**
@@ -463,29 +487,33 @@ export interface DbInstanceArgs {
      */
     bucket: pulumi.Input<string>;
     /**
-     * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`.
+     * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
      */
     dbInstanceType: pulumi.Input<string>;
     /**
-     * ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `dbParameterGroupIdentifier`, removing `dbParameterGroupIdentifier` will cause the instance to be destroyed and recreated.
+     * ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `dbParameterGroupIdentifier`, removing `dbParameterGroupIdentifier` will cause the instance to be destroyed and recreated.
      */
     dbParameterGroupIdentifier?: pulumi.Input<string>;
     /**
-     * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocatedStorage` is 400.
+     * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocatedStorage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
      */
     dbStorageType?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`.
+     * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`. This argument is updatable.
      */
     deploymentType?: pulumi.Input<string>;
     /**
-     * Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+     * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      */
     logDeliveryConfiguration?: pulumi.Input<inputs.timestreaminfluxdb.DbInstanceLogDeliveryConfiguration>;
     /**
      * Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
      */
@@ -494,6 +522,10 @@ export interface DbInstanceArgs {
      * Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influxAuthParametersSecretArn` attribute.
      */
     password: pulumi.Input<string>;
+    /**
+     * The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     */
+    port?: pulumi.Input<number>;
     /**
      * Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
      */

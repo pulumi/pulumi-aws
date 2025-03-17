@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleAction;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleCaptchaConfig;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleChallengeConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleOverrideAction;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleRuleLabel;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
@@ -30,6 +31,11 @@ public final class WebAclRule {
      * 
      */
     private @Nullable WebAclRuleCaptchaConfig captchaConfig;
+    /**
+     * @return Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleChallengeConfig challengeConfig;
     /**
      * @return Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
      * 
@@ -75,6 +81,13 @@ public final class WebAclRule {
      */
     public Optional<WebAclRuleCaptchaConfig> captchaConfig() {
         return Optional.ofNullable(this.captchaConfig);
+    }
+    /**
+     * @return Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+     * 
+     */
+    public Optional<WebAclRuleChallengeConfig> challengeConfig() {
+        return Optional.ofNullable(this.challengeConfig);
     }
     /**
      * @return Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
@@ -130,6 +143,7 @@ public final class WebAclRule {
     public static final class Builder {
         private @Nullable WebAclRuleAction action;
         private @Nullable WebAclRuleCaptchaConfig captchaConfig;
+        private @Nullable WebAclRuleChallengeConfig challengeConfig;
         private String name;
         private @Nullable WebAclRuleOverrideAction overrideAction;
         private Integer priority;
@@ -141,6 +155,7 @@ public final class WebAclRule {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.captchaConfig = defaults.captchaConfig;
+    	      this.challengeConfig = defaults.challengeConfig;
     	      this.name = defaults.name;
     	      this.overrideAction = defaults.overrideAction;
     	      this.priority = defaults.priority;
@@ -159,6 +174,12 @@ public final class WebAclRule {
         public Builder captchaConfig(@Nullable WebAclRuleCaptchaConfig captchaConfig) {
 
             this.captchaConfig = captchaConfig;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder challengeConfig(@Nullable WebAclRuleChallengeConfig challengeConfig) {
+
+            this.challengeConfig = challengeConfig;
             return this;
         }
         @CustomType.Setter
@@ -212,6 +233,7 @@ public final class WebAclRule {
             final var _resultValue = new WebAclRule();
             _resultValue.action = action;
             _resultValue.captchaConfig = captchaConfig;
+            _resultValue.challengeConfig = challengeConfig;
             _resultValue.name = name;
             _resultValue.overrideAction = overrideAction;
             _resultValue.priority = priority;

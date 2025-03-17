@@ -30,14 +30,16 @@ public final class ProjectEnvironmentRegistryCredentialArgs extends com.pulumi.r
     }
 
     /**
-     * Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
+     * Service that created the credentials to access a private Docker registry. Valid
+     * value: `SECRETS_MANAGER` (AWS Secrets Manager).
      * 
      */
     @Import(name="credentialProvider", required=true)
     private Output<String> credentialProvider;
 
     /**
-     * @return Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
+     * @return Service that created the credentials to access a private Docker registry. Valid
+     * value: `SECRETS_MANAGER` (AWS Secrets Manager).
      * 
      */
     public Output<String> credentialProvider() {
@@ -91,7 +93,8 @@ public final class ProjectEnvironmentRegistryCredentialArgs extends com.pulumi.r
         }
 
         /**
-         * @param credentialProvider Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
+         * @param credentialProvider Service that created the credentials to access a private Docker registry. Valid
+         * value: `SECRETS_MANAGER` (AWS Secrets Manager).
          * 
          * @return builder
          * 
@@ -102,7 +105,8 @@ public final class ProjectEnvironmentRegistryCredentialArgs extends com.pulumi.r
         }
 
         /**
-         * @param credentialProvider Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
+         * @param credentialProvider Service that created the credentials to access a private Docker registry. Valid
+         * value: `SECRETS_MANAGER` (AWS Secrets Manager).
          * 
          * @return builder
          * 

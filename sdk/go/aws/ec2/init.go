@@ -107,6 +107,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkInterface{}
 	case "aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment":
 		r = &NetworkInterfaceAttachment{}
+	case "aws:ec2/networkInterfacePermission:NetworkInterfacePermission":
+		r = &NetworkInterfacePermission{}
 	case "aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment":
 		r = &NetworkInterfaceSecurityGroupAttachment{}
 	case "aws:ec2/peeringConnectionOptions:PeeringConnectionOptions":
@@ -443,6 +445,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/networkInterfaceAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/networkInterfacePermission",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

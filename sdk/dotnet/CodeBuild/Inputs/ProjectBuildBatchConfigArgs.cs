@@ -13,7 +13,8 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectBuildBatchConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+        /// Specifies if the build artifacts for the batch build should be combined into a single
+        /// artifact location.
         /// </summary>
         [Input("combineArtifacts")]
         public Input<bool>? CombineArtifacts { get; set; }
@@ -31,7 +32,8 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string> ServiceRole { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+        /// Specifies the maximum amount of time, in minutes, that the batch build must be
+        /// completed in.
         /// </summary>
         [Input("timeoutInMins")]
         public Input<int>? TimeoutInMins { get; set; }

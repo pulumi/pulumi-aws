@@ -31,6 +31,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///         DbInstanceType = "db.influx.medium",
     ///         Username = "admin",
     ///         Password = "example-password",
+    ///         Port = 8086,
     ///         Organization = "organization",
     ///         VpcSubnetIds = new[]
     ///         {
@@ -112,6 +113,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
     ///     {
     ///         Bucket = "example-s3-bucket",
+    ///         ForceDestroy = true,
     ///     });
     /// 
     ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -170,7 +172,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///         {
     ///             S3Configuration = new Aws.TimestreamInfluxDB.Inputs.DbInstanceLogDeliveryConfigurationS3ConfigurationArgs
     ///             {
-    ///                 BucketName = exampleBucketV2.Name,
+    ///                 BucketName = exampleBucketV2.Bucket,
     ///                 Enabled = true,
     ///             },
     ///         },
@@ -241,7 +243,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     public partial class DbInstance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
+        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
         /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
@@ -265,25 +267,25 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`.
+        /// Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
         /// </summary>
         [Output("dbInstanceType")]
         public Output<string> DbInstanceType { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
+        /// ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
         /// </summary>
         [Output("dbParameterGroupIdentifier")]
         public Output<string?> DbParameterGroupIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400.
+        /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
         /// </summary>
         [Output("dbStorageType")]
         public Output<string> DbStorageType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`.
+        /// Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`. This argument is updatable.
         /// </summary>
         [Output("deploymentType")]
         public Output<string> DeploymentType { get; private set; } = null!;
@@ -301,7 +303,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<string> InfluxAuthParametersSecretArn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+        /// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
         /// </summary>
         [Output("logDeliveryConfiguration")]
         public Output<Outputs.DbInstanceLogDeliveryConfiguration?> LogDeliveryConfiguration { get; private set; } = null!;
@@ -311,6 +313,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+        /// </summary>
+        [Output("networkType")]
+        public Output<string> NetworkType { get; private set; } = null!;
 
         /// <summary>
         /// Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
@@ -323,6 +331,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
+
+        /// <summary>
+        /// The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+        /// </summary>
+        [Output("port")]
+        public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
         /// Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
@@ -422,7 +436,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     public sealed class DbInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
+        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
         /// </summary>
         [Input("allocatedStorage", required: true)]
         public Input<int> AllocatedStorage { get; set; } = null!;
@@ -434,31 +448,31 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`.
+        /// Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
         /// </summary>
         [Input("dbInstanceType", required: true)]
         public Input<string> DbInstanceType { get; set; } = null!;
 
         /// <summary>
-        /// ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
+        /// ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
         /// </summary>
         [Input("dbParameterGroupIdentifier")]
         public Input<string>? DbParameterGroupIdentifier { get; set; }
 
         /// <summary>
-        /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400.
+        /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
         /// </summary>
         [Input("dbStorageType")]
         public Input<string>? DbStorageType { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`.
+        /// Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`. This argument is updatable.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+        /// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
         /// </summary>
         [Input("logDeliveryConfiguration")]
         public Input<Inputs.DbInstanceLogDeliveryConfigurationArgs>? LogDeliveryConfiguration { get; set; }
@@ -468,6 +482,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         /// <summary>
         /// Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
@@ -490,6 +510,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
 
         /// <summary>
         /// Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
@@ -553,7 +579,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     public sealed class DbInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
+        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -577,25 +603,25 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`.
+        /// Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
         /// </summary>
         [Input("dbInstanceType")]
         public Input<string>? DbInstanceType { get; set; }
 
         /// <summary>
-        /// ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
+        /// ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
         /// </summary>
         [Input("dbParameterGroupIdentifier")]
         public Input<string>? DbParameterGroupIdentifier { get; set; }
 
         /// <summary>
-        /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400.
+        /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
         /// </summary>
         [Input("dbStorageType")]
         public Input<string>? DbStorageType { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`.
+        /// Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`. This argument is updatable.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
@@ -613,7 +639,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? InfluxAuthParametersSecretArn { get; set; }
 
         /// <summary>
-        /// Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+        /// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
         /// </summary>
         [Input("logDeliveryConfiguration")]
         public Input<Inputs.DbInstanceLogDeliveryConfigurationGetArgs>? LogDeliveryConfiguration { get; set; }
@@ -623,6 +649,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         /// <summary>
         /// Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
@@ -645,6 +677,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
 
         /// <summary>
         /// Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.

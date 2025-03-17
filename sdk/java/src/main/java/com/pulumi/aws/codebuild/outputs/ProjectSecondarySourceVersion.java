@@ -16,7 +16,9 @@ public final class ProjectSecondarySourceVersion {
      */
     private String sourceIdentifier;
     /**
-     * @return The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+     * @return The source version for the corresponding source identifier.
+     * See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
+     * for more details.
      * 
      */
     private String sourceVersion;
@@ -30,7 +32,9 @@ public final class ProjectSecondarySourceVersion {
         return this.sourceIdentifier;
     }
     /**
-     * @return The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+     * @return The source version for the corresponding source identifier.
+     * See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
+     * for more details.
      * 
      */
     public String sourceVersion() {

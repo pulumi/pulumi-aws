@@ -18,7 +18,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string Credential;
         /// <summary>
-        /// Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
+        /// Service that created the credentials to access a private Docker registry. Valid
+        /// value: `SECRETS_MANAGER` (AWS Secrets Manager).
         /// </summary>
         public readonly string CredentialProvider;
 

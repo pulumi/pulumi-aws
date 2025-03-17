@@ -56,6 +56,7 @@ import javax.annotation.Nullable;
  *             .dbInstanceType("db.influx.medium")
  *             .username("admin")
  *             .password("example-password")
+ *             .port(8086)
  *             .organization("organization")
  *             .vpcSubnetIds(exampleid)
  *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
@@ -170,6 +171,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
  *             .bucket("example-s3-bucket")
+ *             .forceDestroy(true)
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -200,7 +202,7 @@ import javax.annotation.Nullable;
  *             .name("example-db-instance")
  *             .logDeliveryConfiguration(DbInstanceLogDeliveryConfigurationArgs.builder()
  *                 .s3Configuration(DbInstanceLogDeliveryConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(exampleBucketV2.name())
+ *                     .bucketName(exampleBucketV2.bucket())
  *                     .enabled(true)
  *                     .build())
  *                 .build())
@@ -286,14 +288,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:timestreaminfluxdb/dbInstance:DbInstance")
 public class DbInstance extends com.pulumi.resources.CustomResource {
     /**
-     * Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
+     * Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `db_storage_type` places restrictions on this argument&#39;s minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
      * 
      */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
     private Output<Integer> allocatedStorage;
 
     /**
-     * @return Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
+     * @return Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `db_storage_type` places restrictions on this argument&#39;s minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
      * 
      */
     public Output<Integer> allocatedStorage() {
@@ -342,56 +344,56 @@ public class DbInstance extends com.pulumi.resources.CustomResource {
         return this.bucket;
     }
     /**
-     * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`.
+     * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`. This argument is updatable.
      * 
      */
     @Export(name="dbInstanceType", refs={String.class}, tree="[0]")
     private Output<String> dbInstanceType;
 
     /**
-     * @return Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`.
+     * @return Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`. This argument is updatable.
      * 
      */
     public Output<String> dbInstanceType() {
         return this.dbInstanceType;
     }
     /**
-     * ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
+     * ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
      * 
      */
     @Export(name="dbParameterGroupIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dbParameterGroupIdentifier;
 
     /**
-     * @return ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
+     * @return ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
      * 
      */
     public Output<Optional<String>> dbParameterGroupIdentifier() {
         return Codegen.optional(this.dbParameterGroupIdentifier);
     }
     /**
-     * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400.
+     * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
      * 
      */
     @Export(name="dbStorageType", refs={String.class}, tree="[0]")
     private Output<String> dbStorageType;
 
     /**
-     * @return Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400.
+     * @return Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
      * 
      */
     public Output<String> dbStorageType() {
         return this.dbStorageType;
     }
     /**
-     * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`.
+     * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
      * 
      */
     @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output<String> deploymentType;
 
     /**
-     * @return Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`.
+     * @return Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
      * 
      */
     public Output<String> deploymentType() {
@@ -426,14 +428,14 @@ public class DbInstance extends com.pulumi.resources.CustomResource {
         return this.influxAuthParametersSecretArn;
     }
     /**
-     * Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+     * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      * 
      */
     @Export(name="logDeliveryConfiguration", refs={DbInstanceLogDeliveryConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DbInstanceLogDeliveryConfiguration> logDeliveryConfiguration;
 
     /**
-     * @return Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+     * @return Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      * 
      */
     public Output<Optional<DbInstanceLogDeliveryConfiguration>> logDeliveryConfiguration() {
@@ -452,6 +454,20 @@ public class DbInstance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * 
+     */
+    @Export(name="networkType", refs={String.class}, tree="[0]")
+    private Output<String> networkType;
+
+    /**
+     * @return Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * 
+     */
+    public Output<String> networkType() {
+        return this.networkType;
     }
     /**
      * Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
@@ -480,6 +496,20 @@ public class DbInstance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> password() {
         return this.password;
+    }
+    /**
+     * The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * 
+     */
+    @Export(name="port", refs={Integer.class}, tree="[0]")
+    private Output<Integer> port;
+
+    /**
+     * @return The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * 
+     */
+    public Output<Integer> port() {
+        return this.port;
     }
     /**
      * Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.

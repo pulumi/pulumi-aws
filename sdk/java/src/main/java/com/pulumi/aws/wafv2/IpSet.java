@@ -138,18 +138,32 @@ public class IpSet extends com.pulumi.resources.CustomResource {
         return this.lockToken;
     }
     /**
-     * A friendly name of the IP set.
+     * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A friendly name of the IP set.
+     * @return A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
+    private Output<String> namePrefix;
+
+    /**
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    public Output<String> namePrefix() {
+        return this.namePrefix;
     }
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).

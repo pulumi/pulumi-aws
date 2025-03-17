@@ -128,7 +128,6 @@ import {Topic} from "../sns";
  *             id: "e1",
  *             expression: "ANOMALY_DETECTION_BAND(m1)",
  *             label: "CPUUtilization (Expected)",
- *             returnData: true,
  *         },
  *         {
  *             id: "m1",

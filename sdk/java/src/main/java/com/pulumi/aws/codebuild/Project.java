@@ -30,7 +30,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a CodeBuild Project resource. See also the `aws.codebuild.Webhook` resource, which manages the webhook to the source (e.g., the &#34;rebuild every time a code change is pushed&#34; option in the CodeBuild web console).
+ * Provides a CodeBuild Project resource. See also the
+ * `aws.codebuild.Webhook` resource, which manages the webhook to the
+ * source (e.g., the &#34;rebuild every time a code change is pushed&#34; option in the CodeBuild web console).
  * 
  * ## Example Usage
  * 
@@ -63,6 +65,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codebuild.inputs.ProjectSourceArgs;
  * import com.pulumi.aws.codebuild.inputs.ProjectSourceGitSubmodulesConfigArgs;
  * import com.pulumi.aws.codebuild.inputs.ProjectVpcConfigArgs;
+ * import com.pulumi.aws.codebuild.inputs.ProjectSourceAuthArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -147,6 +150,13 @@ import javax.annotation.Nullable;
  *                     .resources(                    
  *                         exampleBucketV2.arn(),
  *                         exampleBucketV2.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .effect("Allow")
+ *                     .actions(                    
+ *                         "codeconnections:GetConnectionToken",
+ *                         "codeconnections:GetConnection")
+ *                     .resources("arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string")
  *                     .build())
  *             .build());
  * 
@@ -247,6 +257,29 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Environment", "Test"))
  *             .build());
  * 
+ *         var project_using_github_app = new Project("project-using-github-app", ProjectArgs.builder()
+ *             .name("project-using-github-app")
+ *             .description("gets_source_from_github_via_the_github_app")
+ *             .serviceRole(exampleRole.arn())
+ *             .artifacts(ProjectArtifactsArgs.builder()
+ *                 .type("NO_ARTIFACTS")
+ *                 .build())
+ *             .environment(ProjectEnvironmentArgs.builder()
+ *                 .computeType("BUILD_GENERAL1_SMALL")
+ *                 .image("aws/codebuild/amazonlinux2-x86_64-standard:4.0")
+ *                 .type("LINUX_CONTAINER")
+ *                 .imagePullCredentialsType("CODEBUILD")
+ *                 .build())
+ *             .source(ProjectSourceArgs.builder()
+ *                 .type("GITHUB")
+ *                 .location("https://github.com/example/example.git")
+ *                 .auth(ProjectSourceAuthArgs.builder()
+ *                     .type("CODECONNECTIONS")
+ *                     .resource("arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
  *     }
  * }
  * }
@@ -293,14 +326,16 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.artifacts;
     }
     /**
-     * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+     * Generates a publicly-accessible URL for the projects build badge. Available as
+     * `badge_url` attribute when enabled.
      * 
      */
     @Export(name="badgeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> badgeEnabled;
 
     /**
-     * @return Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+     * @return Generates a publicly-accessible URL for the projects build badge. Available as
+     * `badge_url` attribute when enabled.
      * 
      */
     public Output<Optional<Boolean>> badgeEnabled() {
@@ -335,14 +370,18 @@ public class Project extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.buildBatchConfig);
     }
     /**
-     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
+     * any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
+     * not available on the `Lambda` compute type.
      * 
      */
     @Export(name="buildTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> buildTimeout;
 
     /**
-     * @return Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+     * @return Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
+     * any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
+     * not available on the `Lambda` compute type.
      * 
      */
     public Output<Optional<Integer>> buildTimeout() {
@@ -363,14 +402,16 @@ public class Project extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cache);
     }
     /**
-     * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+     * Specify a maximum number of concurrent builds for the project. The value
+     * specified must be greater than 0 and less than the account concurrent running builds limit.
      * 
      */
     @Export(name="concurrentBuildLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> concurrentBuildLimit;
 
     /**
-     * @return Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+     * @return Specify a maximum number of concurrent builds for the project. The value
+     * specified must be greater than 0 and less than the account concurrent running builds limit.
      * 
      */
     public Output<Optional<Integer>> concurrentBuildLimit() {
@@ -391,14 +432,16 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project&#39;s build output artifacts.
+     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * the build project&#39;s build output artifacts.
      * 
      */
     @Export(name="encryptionKey", refs={String.class}, tree="[0]")
     private Output<String> encryptionKey;
 
     /**
-     * @return AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project&#39;s build output artifacts.
+     * @return AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * the build project&#39;s build output artifacts.
      * 
      */
     public Output<String> encryptionKey() {
@@ -419,14 +462,16 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.environment;
     }
     /**
-     * A set of file system locations to mount inside the build. File system locations are documented below.
+     * A set of file system locations to mount inside the build. File system locations
+     * are documented below.
      * 
      */
     @Export(name="fileSystemLocations", refs={List.class,ProjectFileSystemLocation.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProjectFileSystemLocation>> fileSystemLocations;
 
     /**
-     * @return A set of file system locations to mount inside the build. File system locations are documented below.
+     * @return A set of file system locations to mount inside the build. File system locations
+     * are documented below.
      * 
      */
     public Output<Optional<List<ProjectFileSystemLocation>>> fileSystemLocations() {
@@ -461,14 +506,16 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+     * Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ`
+     * and `PRIVATE`. Default value is `PRIVATE`.
      * 
      */
     @Export(name="projectVisibility", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectVisibility;
 
     /**
-     * @return Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+     * @return Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ`
+     * and `PRIVATE`. Default value is `PRIVATE`.
      * 
      */
     public Output<Optional<String>> projectVisibility() {
@@ -489,28 +536,34 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.publicProjectAlias;
     }
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
+     * times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     @Export(name="queuedTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> queuedTimeout;
 
     /**
-     * @return Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+     * @return Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
+     * times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     public Output<Optional<Integer>> queuedTimeout() {
         return Codegen.optional(this.queuedTimeout);
     }
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
+     * Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if
+     * `project_visibility` is `PUBLIC_READ`.
      * 
      */
     @Export(name="resourceAccessRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceAccessRole;
 
     /**
-     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
+     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
+     * Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if
+     * `project_visibility` is `PUBLIC_READ`.
      * 
      */
     public Output<Optional<String>> resourceAccessRole() {
@@ -559,14 +612,16 @@ public class Project extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.secondarySources);
     }
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
     @Export(name="serviceRole", refs={String.class}, tree="[0]")
     private Output<String> serviceRole;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     * @return Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
     public Output<String> serviceRole() {
@@ -591,35 +646,42 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.source;
     }
     /**
-     * Version of the build input to be built for this project. If not specified, the latest version is used.
+     * Version of the build input to be built for this project. If not specified, the latest
+     * version is used.
      * 
      */
     @Export(name="sourceVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceVersion;
 
     /**
-     * @return Version of the build input to be built for this project. If not specified, the latest version is used.
+     * @return Version of the build input to be built for this project. If not specified, the latest
+     * version is used.
      * 
      */
     public Output<Optional<String>> sourceVersion() {
         return Codegen.optional(this.sourceVersion);
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider
+     * `default_tags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider
+     * `default_tags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider
+     * `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -630,7 +692,8 @@ public class Project extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider
+     * `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

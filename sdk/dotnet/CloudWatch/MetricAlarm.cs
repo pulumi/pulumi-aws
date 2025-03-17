@@ -170,7 +170,6 @@ namespace Pulumi.Aws.CloudWatch
     ///                 Id = "e1",
     ///                 Expression = "ANOMALY_DETECTION_BAND(m1)",
     ///                 Label = "CPUUtilization (Expected)",
-    ///                 ReturnData = true,
     ///             },
     ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
     ///             {

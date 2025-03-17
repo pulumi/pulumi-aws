@@ -951,7 +951,6 @@ class MetricAlarm(pulumi.CustomResource):
                     "id": "e1",
                     "expression": "ANOMALY_DETECTION_BAND(m1)",
                     "label": "CPUUtilization (Expected)",
-                    "return_data": True,
                 },
                 {
                     "id": "m1",
@@ -1161,7 +1160,6 @@ class MetricAlarm(pulumi.CustomResource):
                     "id": "e1",
                     "expression": "ANOMALY_DETECTION_BAND(m1)",
                     "label": "CPUUtilization (Expected)",
-                    "return_data": True,
                 },
                 {
                     "id": "m1",

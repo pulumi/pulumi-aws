@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.codebuild.inputs;
 
+import com.pulumi.aws.codebuild.inputs.ProjectSourceAuthArgs;
 import com.pulumi.aws.codebuild.inputs.ProjectSourceBuildStatusConfigArgs;
 import com.pulumi.aws.codebuild.inputs.ProjectSourceGitSubmodulesConfigArgs;
 import com.pulumi.core.Output;
@@ -21,14 +22,35 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProjectSourceArgs Empty = new ProjectSourceArgs();
 
     /**
-     * Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+     * Information about the strategy CodeBuild should use when authenticating with the source code host.
+     * Detailed below.
+     * 
+     */
+    @Import(name="auth")
+    private @Nullable Output<ProjectSourceAuthArgs> auth;
+
+    /**
+     * @return Information about the strategy CodeBuild should use when authenticating with the source code host.
+     * Detailed below.
+     * 
+     */
+    public Optional<Output<ProjectSourceAuthArgs>> auth() {
+        return Optional.ofNullable(this.auth);
+    }
+
+    /**
+     * Configuration block that contains information that defines how the build project
+     * reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
+     * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
      * 
      */
     @Import(name="buildStatusConfig")
     private @Nullable Output<ProjectSourceBuildStatusConfigArgs> buildStatusConfig;
 
     /**
-     * @return Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+     * @return Configuration block that contains information that defines how the build project
+     * reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
+     * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
      * 
      */
     public Optional<Output<ProjectSourceBuildStatusConfigArgs>> buildStatusConfig() {
@@ -36,14 +58,18 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
+     * Build specification to use for this build project&#39;s related builds. This must be set when
+     * `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be
+     * specified.
      * 
      */
     @Import(name="buildspec")
     private @Nullable Output<String> buildspec;
 
     /**
-     * @return Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
+     * @return Build specification to use for this build project&#39;s related builds. This must be set when
+     * `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be
+     * specified.
      * 
      */
     public Optional<Output<String>> buildspec() {
@@ -51,14 +77,20 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
+     * Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
+     * to run commands like `git branch --show-current`.
+     * See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
+     * for details.
      * 
      */
     @Import(name="gitCloneDepth")
     private @Nullable Output<Integer> gitCloneDepth;
 
     /**
-     * @return Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
+     * @return Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
+     * to run commands like `git branch --show-current`.
+     * See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
+     * for details.
      * 
      */
     public Optional<Output<Integer>> gitCloneDepth() {
@@ -111,14 +143,18 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to report the status of a build&#39;s start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
+     * Whether to report the status of a build&#39;s start and finish to your source provider.
+     * This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
+     * Bitbucket.
      * 
      */
     @Import(name="reportBuildStatus")
     private @Nullable Output<Boolean> reportBuildStatus;
 
     /**
-     * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
+     * @return Whether to report the status of a build&#39;s start and finish to your source provider.
+     * This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
+     * Bitbucket.
      * 
      */
     public Optional<Output<Boolean>> reportBuildStatus() {
@@ -126,14 +162,16 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
+     * Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
+     * `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
+     * @return Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
+     * `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
      * 
      */
     public Output<String> type() {
@@ -143,6 +181,7 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
     private ProjectSourceArgs() {}
 
     private ProjectSourceArgs(ProjectSourceArgs $) {
+        this.auth = $.auth;
         this.buildStatusConfig = $.buildStatusConfig;
         this.buildspec = $.buildspec;
         this.gitCloneDepth = $.gitCloneDepth;
@@ -172,7 +211,32 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildStatusConfig Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+         * @param auth Information about the strategy CodeBuild should use when authenticating with the source code host.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auth(@Nullable Output<ProjectSourceAuthArgs> auth) {
+            $.auth = auth;
+            return this;
+        }
+
+        /**
+         * @param auth Information about the strategy CodeBuild should use when authenticating with the source code host.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auth(ProjectSourceAuthArgs auth) {
+            return auth(Output.of(auth));
+        }
+
+        /**
+         * @param buildStatusConfig Configuration block that contains information that defines how the build project
+         * reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
+         * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
          * 
          * @return builder
          * 
@@ -183,7 +247,9 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildStatusConfig Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+         * @param buildStatusConfig Configuration block that contains information that defines how the build project
+         * reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
+         * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
          * 
          * @return builder
          * 
@@ -193,7 +259,9 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildspec Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
+         * @param buildspec Build specification to use for this build project&#39;s related builds. This must be set when
+         * `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be
+         * specified.
          * 
          * @return builder
          * 
@@ -204,7 +272,9 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildspec Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
+         * @param buildspec Build specification to use for this build project&#39;s related builds. This must be set when
+         * `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be
+         * specified.
          * 
          * @return builder
          * 
@@ -214,7 +284,10 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gitCloneDepth Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
+         * @param gitCloneDepth Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
+         * to run commands like `git branch --show-current`.
+         * See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
+         * for details.
          * 
          * @return builder
          * 
@@ -225,7 +298,10 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gitCloneDepth Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
+         * @param gitCloneDepth Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
+         * to run commands like `git branch --show-current`.
+         * See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
+         * for details.
          * 
          * @return builder
          * 
@@ -298,7 +374,9 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
+         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider.
+         * This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
+         * Bitbucket.
          * 
          * @return builder
          * 
@@ -309,7 +387,9 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
+         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider.
+         * This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
+         * Bitbucket.
          * 
          * @return builder
          * 
@@ -319,7 +399,8 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
+         * @param type Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
+         * `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
          * 
          * @return builder
          * 
@@ -330,7 +411,8 @@ public final class ProjectSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
+         * @param type Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
+         * `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
          * 
          * @return builder
          * 

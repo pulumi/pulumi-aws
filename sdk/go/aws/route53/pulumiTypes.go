@@ -1511,6 +1511,1403 @@ func (o RecordWeightedRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordW
 	}).(RecordWeightedRoutingPolicyOutput)
 }
 
+type RecordsExclusiveResourceRecordSet struct {
+	// Alias target block.
+	// See `aliasTarget` below.
+	AliasTarget       *RecordsExclusiveResourceRecordSetAliasTarget       `pulumi:"aliasTarget"`
+	CidrRoutingConfig *RecordsExclusiveResourceRecordSetCidrRoutingConfig `pulumi:"cidrRoutingConfig"`
+	// Type of failover resource record.
+	// Valid values are `PRIMARY` and `SECONDARY`.
+	// See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
+	Failover *string `pulumi:"failover"`
+	// Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+	// See `geolocation` below.
+	Geolocation *RecordsExclusiveResourceRecordSetGeolocation `pulumi:"geolocation"`
+	// Geoproximity location block.
+	// See `geoproximityLocation` below.
+	GeoproximityLocation *RecordsExclusiveResourceRecordSetGeoproximityLocation `pulumi:"geoproximityLocation"`
+	// Health check the record should be associated with.
+	HealthCheckId    *string `pulumi:"healthCheckId"`
+	MultiValueAnswer *bool   `pulumi:"multiValueAnswer"`
+	// Name of the record.
+	Name string `pulumi:"name"`
+	// AWS region of the resource this record set refers to.
+	// Must be a valid AWS region name.
+	// See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
+	Region *string `pulumi:"region"`
+	// Information about the resource records to act upon.
+	// See `resourceRecords` below.
+	ResourceRecords []RecordsExclusiveResourceRecordSetResourceRecord `pulumi:"resourceRecords"`
+	// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
+	// Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
+	SetIdentifier           *string `pulumi:"setIdentifier"`
+	TrafficPolicyInstanceId *string `pulumi:"trafficPolicyInstanceId"`
+	// Resource record cache time to live (TTL), in seconds.
+	Ttl *int `pulumi:"ttl"`
+	// Record type.
+	// Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
+	//
+	// The following arguments are optional:
+	//
+	// > Exactly one of `resourceRecords` or `aliasTarget` must be specified.
+	Type *string `pulumi:"type"`
+	// Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+	Weight *int `pulumi:"weight"`
+}
+
+// RecordsExclusiveResourceRecordSetInput is an input type that accepts RecordsExclusiveResourceRecordSetArgs and RecordsExclusiveResourceRecordSetOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetInput` via:
+//
+//	RecordsExclusiveResourceRecordSetArgs{...}
+type RecordsExclusiveResourceRecordSetInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetOutput() RecordsExclusiveResourceRecordSetOutput
+	ToRecordsExclusiveResourceRecordSetOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetOutput
+}
+
+type RecordsExclusiveResourceRecordSetArgs struct {
+	// Alias target block.
+	// See `aliasTarget` below.
+	AliasTarget       RecordsExclusiveResourceRecordSetAliasTargetPtrInput       `pulumi:"aliasTarget"`
+	CidrRoutingConfig RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrInput `pulumi:"cidrRoutingConfig"`
+	// Type of failover resource record.
+	// Valid values are `PRIMARY` and `SECONDARY`.
+	// See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
+	Failover pulumi.StringPtrInput `pulumi:"failover"`
+	// Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+	// See `geolocation` below.
+	Geolocation RecordsExclusiveResourceRecordSetGeolocationPtrInput `pulumi:"geolocation"`
+	// Geoproximity location block.
+	// See `geoproximityLocation` below.
+	GeoproximityLocation RecordsExclusiveResourceRecordSetGeoproximityLocationPtrInput `pulumi:"geoproximityLocation"`
+	// Health check the record should be associated with.
+	HealthCheckId    pulumi.StringPtrInput `pulumi:"healthCheckId"`
+	MultiValueAnswer pulumi.BoolPtrInput   `pulumi:"multiValueAnswer"`
+	// Name of the record.
+	Name pulumi.StringInput `pulumi:"name"`
+	// AWS region of the resource this record set refers to.
+	// Must be a valid AWS region name.
+	// See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Information about the resource records to act upon.
+	// See `resourceRecords` below.
+	ResourceRecords RecordsExclusiveResourceRecordSetResourceRecordArrayInput `pulumi:"resourceRecords"`
+	// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
+	// Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
+	SetIdentifier           pulumi.StringPtrInput `pulumi:"setIdentifier"`
+	TrafficPolicyInstanceId pulumi.StringPtrInput `pulumi:"trafficPolicyInstanceId"`
+	// Resource record cache time to live (TTL), in seconds.
+	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
+	// Record type.
+	// Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
+	//
+	// The following arguments are optional:
+	//
+	// > Exactly one of `resourceRecords` or `aliasTarget` must be specified.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (RecordsExclusiveResourceRecordSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSet)(nil)).Elem()
+}
+
+func (i RecordsExclusiveResourceRecordSetArgs) ToRecordsExclusiveResourceRecordSetOutput() RecordsExclusiveResourceRecordSetOutput {
+	return i.ToRecordsExclusiveResourceRecordSetOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetArgs) ToRecordsExclusiveResourceRecordSetOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetOutput)
+}
+
+// RecordsExclusiveResourceRecordSetArrayInput is an input type that accepts RecordsExclusiveResourceRecordSetArray and RecordsExclusiveResourceRecordSetArrayOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetArrayInput` via:
+//
+//	RecordsExclusiveResourceRecordSetArray{ RecordsExclusiveResourceRecordSetArgs{...} }
+type RecordsExclusiveResourceRecordSetArrayInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetArrayOutput() RecordsExclusiveResourceRecordSetArrayOutput
+	ToRecordsExclusiveResourceRecordSetArrayOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetArrayOutput
+}
+
+type RecordsExclusiveResourceRecordSetArray []RecordsExclusiveResourceRecordSetInput
+
+func (RecordsExclusiveResourceRecordSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecordsExclusiveResourceRecordSet)(nil)).Elem()
+}
+
+func (i RecordsExclusiveResourceRecordSetArray) ToRecordsExclusiveResourceRecordSetArrayOutput() RecordsExclusiveResourceRecordSetArrayOutput {
+	return i.ToRecordsExclusiveResourceRecordSetArrayOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetArray) ToRecordsExclusiveResourceRecordSetArrayOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetArrayOutput)
+}
+
+type RecordsExclusiveResourceRecordSetOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSet)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetOutput) ToRecordsExclusiveResourceRecordSetOutput() RecordsExclusiveResourceRecordSetOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetOutput) ToRecordsExclusiveResourceRecordSetOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetOutput {
+	return o
+}
+
+// Alias target block.
+// See `aliasTarget` below.
+func (o RecordsExclusiveResourceRecordSetOutput) AliasTarget() RecordsExclusiveResourceRecordSetAliasTargetPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *RecordsExclusiveResourceRecordSetAliasTarget {
+		return v.AliasTarget
+	}).(RecordsExclusiveResourceRecordSetAliasTargetPtrOutput)
+}
+
+func (o RecordsExclusiveResourceRecordSetOutput) CidrRoutingConfig() RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *RecordsExclusiveResourceRecordSetCidrRoutingConfig {
+		return v.CidrRoutingConfig
+	}).(RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput)
+}
+
+// Type of failover resource record.
+// Valid values are `PRIMARY` and `SECONDARY`.
+// See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
+func (o RecordsExclusiveResourceRecordSetOutput) Failover() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *string { return v.Failover }).(pulumi.StringPtrOutput)
+}
+
+// Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+// See `geolocation` below.
+func (o RecordsExclusiveResourceRecordSetOutput) Geolocation() RecordsExclusiveResourceRecordSetGeolocationPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *RecordsExclusiveResourceRecordSetGeolocation {
+		return v.Geolocation
+	}).(RecordsExclusiveResourceRecordSetGeolocationPtrOutput)
+}
+
+// Geoproximity location block.
+// See `geoproximityLocation` below.
+func (o RecordsExclusiveResourceRecordSetOutput) GeoproximityLocation() RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *RecordsExclusiveResourceRecordSetGeoproximityLocation {
+		return v.GeoproximityLocation
+	}).(RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput)
+}
+
+// Health check the record should be associated with.
+func (o RecordsExclusiveResourceRecordSetOutput) HealthCheckId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *string { return v.HealthCheckId }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordsExclusiveResourceRecordSetOutput) MultiValueAnswer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *bool { return v.MultiValueAnswer }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the record.
+func (o RecordsExclusiveResourceRecordSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// AWS region of the resource this record set refers to.
+// Must be a valid AWS region name.
+// See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
+func (o RecordsExclusiveResourceRecordSetOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// Information about the resource records to act upon.
+// See `resourceRecords` below.
+func (o RecordsExclusiveResourceRecordSetOutput) ResourceRecords() RecordsExclusiveResourceRecordSetResourceRecordArrayOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) []RecordsExclusiveResourceRecordSetResourceRecord {
+		return v.ResourceRecords
+	}).(RecordsExclusiveResourceRecordSetResourceRecordArrayOutput)
+}
+
+// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
+// Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
+func (o RecordsExclusiveResourceRecordSetOutput) SetIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *string { return v.SetIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordsExclusiveResourceRecordSetOutput) TrafficPolicyInstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *string { return v.TrafficPolicyInstanceId }).(pulumi.StringPtrOutput)
+}
+
+// Resource record cache time to live (TTL), in seconds.
+func (o RecordsExclusiveResourceRecordSetOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *int { return v.Ttl }).(pulumi.IntPtrOutput)
+}
+
+// Record type.
+// Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
+//
+// The following arguments are optional:
+//
+// > Exactly one of `resourceRecords` or `aliasTarget` must be specified.
+func (o RecordsExclusiveResourceRecordSetOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+func (o RecordsExclusiveResourceRecordSetOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetArrayOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecordsExclusiveResourceRecordSet)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetArrayOutput) ToRecordsExclusiveResourceRecordSetArrayOutput() RecordsExclusiveResourceRecordSetArrayOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetArrayOutput) ToRecordsExclusiveResourceRecordSetArrayOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetArrayOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetArrayOutput) Index(i pulumi.IntInput) RecordsExclusiveResourceRecordSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecordsExclusiveResourceRecordSet {
+		return vs[0].([]RecordsExclusiveResourceRecordSet)[vs[1].(int)]
+	}).(RecordsExclusiveResourceRecordSetOutput)
+}
+
+type RecordsExclusiveResourceRecordSetAliasTarget struct {
+	// DNS domain name for another resource record set in this hosted zone.
+	DnsName string `pulumi:"dnsName"`
+	// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
+	EvaluateTargetHealth bool `pulumi:"evaluateTargetHealth"`
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
+	HostedZoneId string `pulumi:"hostedZoneId"`
+}
+
+// RecordsExclusiveResourceRecordSetAliasTargetInput is an input type that accepts RecordsExclusiveResourceRecordSetAliasTargetArgs and RecordsExclusiveResourceRecordSetAliasTargetOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetAliasTargetInput` via:
+//
+//	RecordsExclusiveResourceRecordSetAliasTargetArgs{...}
+type RecordsExclusiveResourceRecordSetAliasTargetInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetAliasTargetOutput() RecordsExclusiveResourceRecordSetAliasTargetOutput
+	ToRecordsExclusiveResourceRecordSetAliasTargetOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetAliasTargetOutput
+}
+
+type RecordsExclusiveResourceRecordSetAliasTargetArgs struct {
+	// DNS domain name for another resource record set in this hosted zone.
+	DnsName pulumi.StringInput `pulumi:"dnsName"`
+	// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
+	EvaluateTargetHealth pulumi.BoolInput `pulumi:"evaluateTargetHealth"`
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
+	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
+}
+
+func (RecordsExclusiveResourceRecordSetAliasTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSetAliasTarget)(nil)).Elem()
+}
+
+func (i RecordsExclusiveResourceRecordSetAliasTargetArgs) ToRecordsExclusiveResourceRecordSetAliasTargetOutput() RecordsExclusiveResourceRecordSetAliasTargetOutput {
+	return i.ToRecordsExclusiveResourceRecordSetAliasTargetOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetAliasTargetArgs) ToRecordsExclusiveResourceRecordSetAliasTargetOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetAliasTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetAliasTargetOutput)
+}
+
+func (i RecordsExclusiveResourceRecordSetAliasTargetArgs) ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutput() RecordsExclusiveResourceRecordSetAliasTargetPtrOutput {
+	return i.ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetAliasTargetArgs) ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetAliasTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetAliasTargetOutput).ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutputWithContext(ctx)
+}
+
+// RecordsExclusiveResourceRecordSetAliasTargetPtrInput is an input type that accepts RecordsExclusiveResourceRecordSetAliasTargetArgs, RecordsExclusiveResourceRecordSetAliasTargetPtr and RecordsExclusiveResourceRecordSetAliasTargetPtrOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetAliasTargetPtrInput` via:
+//
+//	        RecordsExclusiveResourceRecordSetAliasTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordsExclusiveResourceRecordSetAliasTargetPtrInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutput() RecordsExclusiveResourceRecordSetAliasTargetPtrOutput
+	ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetAliasTargetPtrOutput
+}
+
+type recordsExclusiveResourceRecordSetAliasTargetPtrType RecordsExclusiveResourceRecordSetAliasTargetArgs
+
+func RecordsExclusiveResourceRecordSetAliasTargetPtr(v *RecordsExclusiveResourceRecordSetAliasTargetArgs) RecordsExclusiveResourceRecordSetAliasTargetPtrInput {
+	return (*recordsExclusiveResourceRecordSetAliasTargetPtrType)(v)
+}
+
+func (*recordsExclusiveResourceRecordSetAliasTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordsExclusiveResourceRecordSetAliasTarget)(nil)).Elem()
+}
+
+func (i *recordsExclusiveResourceRecordSetAliasTargetPtrType) ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutput() RecordsExclusiveResourceRecordSetAliasTargetPtrOutput {
+	return i.ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *recordsExclusiveResourceRecordSetAliasTargetPtrType) ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetAliasTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetAliasTargetPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetAliasTargetOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetAliasTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSetAliasTarget)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetAliasTargetOutput) ToRecordsExclusiveResourceRecordSetAliasTargetOutput() RecordsExclusiveResourceRecordSetAliasTargetOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetAliasTargetOutput) ToRecordsExclusiveResourceRecordSetAliasTargetOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetAliasTargetOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetAliasTargetOutput) ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutput() RecordsExclusiveResourceRecordSetAliasTargetPtrOutput {
+	return o.ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutputWithContext(context.Background())
+}
+
+func (o RecordsExclusiveResourceRecordSetAliasTargetOutput) ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetAliasTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordsExclusiveResourceRecordSetAliasTarget) *RecordsExclusiveResourceRecordSetAliasTarget {
+		return &v
+	}).(RecordsExclusiveResourceRecordSetAliasTargetPtrOutput)
+}
+
+// DNS domain name for another resource record set in this hosted zone.
+func (o RecordsExclusiveResourceRecordSetAliasTargetOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetAliasTarget) string { return v.DnsName }).(pulumi.StringOutput)
+}
+
+// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
+func (o RecordsExclusiveResourceRecordSetAliasTargetOutput) EvaluateTargetHealth() pulumi.BoolOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetAliasTarget) bool { return v.EvaluateTargetHealth }).(pulumi.BoolOutput)
+}
+
+// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
+func (o RecordsExclusiveResourceRecordSetAliasTargetOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetAliasTarget) string { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+type RecordsExclusiveResourceRecordSetAliasTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetAliasTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordsExclusiveResourceRecordSetAliasTarget)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetAliasTargetPtrOutput) ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutput() RecordsExclusiveResourceRecordSetAliasTargetPtrOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetAliasTargetPtrOutput) ToRecordsExclusiveResourceRecordSetAliasTargetPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetAliasTargetPtrOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetAliasTargetPtrOutput) Elem() RecordsExclusiveResourceRecordSetAliasTargetOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetAliasTarget) RecordsExclusiveResourceRecordSetAliasTarget {
+		if v != nil {
+			return *v
+		}
+		var ret RecordsExclusiveResourceRecordSetAliasTarget
+		return ret
+	}).(RecordsExclusiveResourceRecordSetAliasTargetOutput)
+}
+
+// DNS domain name for another resource record set in this hosted zone.
+func (o RecordsExclusiveResourceRecordSetAliasTargetPtrOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetAliasTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
+func (o RecordsExclusiveResourceRecordSetAliasTargetPtrOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetAliasTarget) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EvaluateTargetHealth
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
+func (o RecordsExclusiveResourceRecordSetAliasTargetPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetAliasTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HostedZoneId
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetCidrRoutingConfig struct {
+	// CIDR collection ID.
+	// See the `route53.CidrCollection` resource for more details.
+	CollectionId string `pulumi:"collectionId"`
+	// CIDR collection location name.
+	// See the `route53.CidrLocation` resource for more details.
+	// A `locationName` with an asterisk `"*"` can be used to create a default CIDR record.
+	// `collectionId` is still required for a default record.
+	LocationName string `pulumi:"locationName"`
+}
+
+// RecordsExclusiveResourceRecordSetCidrRoutingConfigInput is an input type that accepts RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs and RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetCidrRoutingConfigInput` via:
+//
+//	RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs{...}
+type RecordsExclusiveResourceRecordSetCidrRoutingConfigInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetCidrRoutingConfigOutput() RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput
+	ToRecordsExclusiveResourceRecordSetCidrRoutingConfigOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput
+}
+
+type RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs struct {
+	// CIDR collection ID.
+	// See the `route53.CidrCollection` resource for more details.
+	CollectionId pulumi.StringInput `pulumi:"collectionId"`
+	// CIDR collection location name.
+	// See the `route53.CidrLocation` resource for more details.
+	// A `locationName` with an asterisk `"*"` can be used to create a default CIDR record.
+	// `collectionId` is still required for a default record.
+	LocationName pulumi.StringInput `pulumi:"locationName"`
+}
+
+func (RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (i RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs) ToRecordsExclusiveResourceRecordSetCidrRoutingConfigOutput() RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput {
+	return i.ToRecordsExclusiveResourceRecordSetCidrRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs) ToRecordsExclusiveResourceRecordSetCidrRoutingConfigOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput)
+}
+
+func (i RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs) ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput() RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput {
+	return i.ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs) ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput).ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutputWithContext(ctx)
+}
+
+// RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrInput is an input type that accepts RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs, RecordsExclusiveResourceRecordSetCidrRoutingConfigPtr and RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrInput` via:
+//
+//	        RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput() RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput
+	ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput
+}
+
+type recordsExclusiveResourceRecordSetCidrRoutingConfigPtrType RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs
+
+func RecordsExclusiveResourceRecordSetCidrRoutingConfigPtr(v *RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs) RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrInput {
+	return (*recordsExclusiveResourceRecordSetCidrRoutingConfigPtrType)(v)
+}
+
+func (*recordsExclusiveResourceRecordSetCidrRoutingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordsExclusiveResourceRecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (i *recordsExclusiveResourceRecordSetCidrRoutingConfigPtrType) ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput() RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput {
+	return i.ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *recordsExclusiveResourceRecordSetCidrRoutingConfigPtrType) ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput) ToRecordsExclusiveResourceRecordSetCidrRoutingConfigOutput() RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput) ToRecordsExclusiveResourceRecordSetCidrRoutingConfigOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput) ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput() RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput {
+	return o.ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput) ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordsExclusiveResourceRecordSetCidrRoutingConfig) *RecordsExclusiveResourceRecordSetCidrRoutingConfig {
+		return &v
+	}).(RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput)
+}
+
+// CIDR collection ID.
+// See the `route53.CidrCollection` resource for more details.
+func (o RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput) CollectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetCidrRoutingConfig) string { return v.CollectionId }).(pulumi.StringOutput)
+}
+
+// CIDR collection location name.
+// See the `route53.CidrLocation` resource for more details.
+// A `locationName` with an asterisk `"*"` can be used to create a default CIDR record.
+// `collectionId` is still required for a default record.
+func (o RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput) LocationName() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetCidrRoutingConfig) string { return v.LocationName }).(pulumi.StringOutput)
+}
+
+type RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordsExclusiveResourceRecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput) ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput() RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput) ToRecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput) Elem() RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetCidrRoutingConfig) RecordsExclusiveResourceRecordSetCidrRoutingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RecordsExclusiveResourceRecordSetCidrRoutingConfig
+		return ret
+	}).(RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput)
+}
+
+// CIDR collection ID.
+// See the `route53.CidrCollection` resource for more details.
+func (o RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput) CollectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetCidrRoutingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CollectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// CIDR collection location name.
+// See the `route53.CidrLocation` resource for more details.
+// A `locationName` with an asterisk `"*"` can be used to create a default CIDR record.
+// `collectionId` is still required for a default record.
+func (o RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput) LocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetCidrRoutingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocationName
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetGeolocation struct {
+	ContinentCode   *string `pulumi:"continentCode"`
+	CountryCode     *string `pulumi:"countryCode"`
+	SubdivisionCode *string `pulumi:"subdivisionCode"`
+}
+
+// RecordsExclusiveResourceRecordSetGeolocationInput is an input type that accepts RecordsExclusiveResourceRecordSetGeolocationArgs and RecordsExclusiveResourceRecordSetGeolocationOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetGeolocationInput` via:
+//
+//	RecordsExclusiveResourceRecordSetGeolocationArgs{...}
+type RecordsExclusiveResourceRecordSetGeolocationInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetGeolocationOutput() RecordsExclusiveResourceRecordSetGeolocationOutput
+	ToRecordsExclusiveResourceRecordSetGeolocationOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetGeolocationOutput
+}
+
+type RecordsExclusiveResourceRecordSetGeolocationArgs struct {
+	ContinentCode   pulumi.StringPtrInput `pulumi:"continentCode"`
+	CountryCode     pulumi.StringPtrInput `pulumi:"countryCode"`
+	SubdivisionCode pulumi.StringPtrInput `pulumi:"subdivisionCode"`
+}
+
+func (RecordsExclusiveResourceRecordSetGeolocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSetGeolocation)(nil)).Elem()
+}
+
+func (i RecordsExclusiveResourceRecordSetGeolocationArgs) ToRecordsExclusiveResourceRecordSetGeolocationOutput() RecordsExclusiveResourceRecordSetGeolocationOutput {
+	return i.ToRecordsExclusiveResourceRecordSetGeolocationOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetGeolocationArgs) ToRecordsExclusiveResourceRecordSetGeolocationOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeolocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetGeolocationOutput)
+}
+
+func (i RecordsExclusiveResourceRecordSetGeolocationArgs) ToRecordsExclusiveResourceRecordSetGeolocationPtrOutput() RecordsExclusiveResourceRecordSetGeolocationPtrOutput {
+	return i.ToRecordsExclusiveResourceRecordSetGeolocationPtrOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetGeolocationArgs) ToRecordsExclusiveResourceRecordSetGeolocationPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeolocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetGeolocationOutput).ToRecordsExclusiveResourceRecordSetGeolocationPtrOutputWithContext(ctx)
+}
+
+// RecordsExclusiveResourceRecordSetGeolocationPtrInput is an input type that accepts RecordsExclusiveResourceRecordSetGeolocationArgs, RecordsExclusiveResourceRecordSetGeolocationPtr and RecordsExclusiveResourceRecordSetGeolocationPtrOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetGeolocationPtrInput` via:
+//
+//	        RecordsExclusiveResourceRecordSetGeolocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordsExclusiveResourceRecordSetGeolocationPtrInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetGeolocationPtrOutput() RecordsExclusiveResourceRecordSetGeolocationPtrOutput
+	ToRecordsExclusiveResourceRecordSetGeolocationPtrOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetGeolocationPtrOutput
+}
+
+type recordsExclusiveResourceRecordSetGeolocationPtrType RecordsExclusiveResourceRecordSetGeolocationArgs
+
+func RecordsExclusiveResourceRecordSetGeolocationPtr(v *RecordsExclusiveResourceRecordSetGeolocationArgs) RecordsExclusiveResourceRecordSetGeolocationPtrInput {
+	return (*recordsExclusiveResourceRecordSetGeolocationPtrType)(v)
+}
+
+func (*recordsExclusiveResourceRecordSetGeolocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordsExclusiveResourceRecordSetGeolocation)(nil)).Elem()
+}
+
+func (i *recordsExclusiveResourceRecordSetGeolocationPtrType) ToRecordsExclusiveResourceRecordSetGeolocationPtrOutput() RecordsExclusiveResourceRecordSetGeolocationPtrOutput {
+	return i.ToRecordsExclusiveResourceRecordSetGeolocationPtrOutputWithContext(context.Background())
+}
+
+func (i *recordsExclusiveResourceRecordSetGeolocationPtrType) ToRecordsExclusiveResourceRecordSetGeolocationPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeolocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetGeolocationPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetGeolocationOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetGeolocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSetGeolocation)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationOutput) ToRecordsExclusiveResourceRecordSetGeolocationOutput() RecordsExclusiveResourceRecordSetGeolocationOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationOutput) ToRecordsExclusiveResourceRecordSetGeolocationOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeolocationOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationOutput) ToRecordsExclusiveResourceRecordSetGeolocationPtrOutput() RecordsExclusiveResourceRecordSetGeolocationPtrOutput {
+	return o.ToRecordsExclusiveResourceRecordSetGeolocationPtrOutputWithContext(context.Background())
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationOutput) ToRecordsExclusiveResourceRecordSetGeolocationPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeolocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordsExclusiveResourceRecordSetGeolocation) *RecordsExclusiveResourceRecordSetGeolocation {
+		return &v
+	}).(RecordsExclusiveResourceRecordSetGeolocationPtrOutput)
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationOutput) ContinentCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeolocation) *string { return v.ContinentCode }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeolocation) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationOutput) SubdivisionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeolocation) *string { return v.SubdivisionCode }).(pulumi.StringPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetGeolocationPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetGeolocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordsExclusiveResourceRecordSetGeolocation)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationPtrOutput) ToRecordsExclusiveResourceRecordSetGeolocationPtrOutput() RecordsExclusiveResourceRecordSetGeolocationPtrOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationPtrOutput) ToRecordsExclusiveResourceRecordSetGeolocationPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeolocationPtrOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationPtrOutput) Elem() RecordsExclusiveResourceRecordSetGeolocationOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeolocation) RecordsExclusiveResourceRecordSetGeolocation {
+		if v != nil {
+			return *v
+		}
+		var ret RecordsExclusiveResourceRecordSetGeolocation
+		return ret
+	}).(RecordsExclusiveResourceRecordSetGeolocationOutput)
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationPtrOutput) ContinentCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeolocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContinentCode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationPtrOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeolocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CountryCode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecordsExclusiveResourceRecordSetGeolocationPtrOutput) SubdivisionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeolocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubdivisionCode
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetGeoproximityLocation struct {
+	// AWS region of the resource where DNS traffic is directed to.
+	AwsRegion *string `pulumi:"awsRegion"`
+	// Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
+	// To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
+	// To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
+	// See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
+	Bias *int `pulumi:"bias"`
+	// Coordinates for a geoproximity resource record.
+	// See `coordinates` below.
+	Coordinates *RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates `pulumi:"coordinates"`
+	// AWS local zone group.
+	// Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
+	LocalZoneGroup *string `pulumi:"localZoneGroup"`
+}
+
+// RecordsExclusiveResourceRecordSetGeoproximityLocationInput is an input type that accepts RecordsExclusiveResourceRecordSetGeoproximityLocationArgs and RecordsExclusiveResourceRecordSetGeoproximityLocationOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetGeoproximityLocationInput` via:
+//
+//	RecordsExclusiveResourceRecordSetGeoproximityLocationArgs{...}
+type RecordsExclusiveResourceRecordSetGeoproximityLocationInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetGeoproximityLocationOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationOutput
+	ToRecordsExclusiveResourceRecordSetGeoproximityLocationOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationOutput
+}
+
+type RecordsExclusiveResourceRecordSetGeoproximityLocationArgs struct {
+	// AWS region of the resource where DNS traffic is directed to.
+	AwsRegion pulumi.StringPtrInput `pulumi:"awsRegion"`
+	// Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
+	// To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
+	// To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
+	// See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
+	Bias pulumi.IntPtrInput `pulumi:"bias"`
+	// Coordinates for a geoproximity resource record.
+	// See `coordinates` below.
+	Coordinates RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrInput `pulumi:"coordinates"`
+	// AWS local zone group.
+	// Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
+	LocalZoneGroup pulumi.StringPtrInput `pulumi:"localZoneGroup"`
+}
+
+func (RecordsExclusiveResourceRecordSetGeoproximityLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSetGeoproximityLocation)(nil)).Elem()
+}
+
+func (i RecordsExclusiveResourceRecordSetGeoproximityLocationArgs) ToRecordsExclusiveResourceRecordSetGeoproximityLocationOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationOutput {
+	return i.ToRecordsExclusiveResourceRecordSetGeoproximityLocationOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetGeoproximityLocationArgs) ToRecordsExclusiveResourceRecordSetGeoproximityLocationOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetGeoproximityLocationOutput)
+}
+
+func (i RecordsExclusiveResourceRecordSetGeoproximityLocationArgs) ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput {
+	return i.ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetGeoproximityLocationArgs) ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetGeoproximityLocationOutput).ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutputWithContext(ctx)
+}
+
+// RecordsExclusiveResourceRecordSetGeoproximityLocationPtrInput is an input type that accepts RecordsExclusiveResourceRecordSetGeoproximityLocationArgs, RecordsExclusiveResourceRecordSetGeoproximityLocationPtr and RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetGeoproximityLocationPtrInput` via:
+//
+//	        RecordsExclusiveResourceRecordSetGeoproximityLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordsExclusiveResourceRecordSetGeoproximityLocationPtrInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput
+	ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput
+}
+
+type recordsExclusiveResourceRecordSetGeoproximityLocationPtrType RecordsExclusiveResourceRecordSetGeoproximityLocationArgs
+
+func RecordsExclusiveResourceRecordSetGeoproximityLocationPtr(v *RecordsExclusiveResourceRecordSetGeoproximityLocationArgs) RecordsExclusiveResourceRecordSetGeoproximityLocationPtrInput {
+	return (*recordsExclusiveResourceRecordSetGeoproximityLocationPtrType)(v)
+}
+
+func (*recordsExclusiveResourceRecordSetGeoproximityLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordsExclusiveResourceRecordSetGeoproximityLocation)(nil)).Elem()
+}
+
+func (i *recordsExclusiveResourceRecordSetGeoproximityLocationPtrType) ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput {
+	return i.ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *recordsExclusiveResourceRecordSetGeoproximityLocationPtrType) ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetGeoproximityLocationOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetGeoproximityLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSetGeoproximityLocation)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationOutput) ToRecordsExclusiveResourceRecordSetGeoproximityLocationOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationOutput) ToRecordsExclusiveResourceRecordSetGeoproximityLocationOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationOutput) ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput {
+	return o.ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutputWithContext(context.Background())
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationOutput) ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordsExclusiveResourceRecordSetGeoproximityLocation) *RecordsExclusiveResourceRecordSetGeoproximityLocation {
+		return &v
+	}).(RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput)
+}
+
+// AWS region of the resource where DNS traffic is directed to.
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeoproximityLocation) *string { return v.AwsRegion }).(pulumi.StringPtrOutput)
+}
+
+// Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
+// To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
+// To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
+// See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationOutput) Bias() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeoproximityLocation) *int { return v.Bias }).(pulumi.IntPtrOutput)
+}
+
+// Coordinates for a geoproximity resource record.
+// See `coordinates` below.
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationOutput) Coordinates() RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeoproximityLocation) *RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates {
+		return v.Coordinates
+	}).(RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput)
+}
+
+// AWS local zone group.
+// Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationOutput) LocalZoneGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeoproximityLocation) *string { return v.LocalZoneGroup }).(pulumi.StringPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordsExclusiveResourceRecordSetGeoproximityLocation)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput) ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput) ToRecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput) Elem() RecordsExclusiveResourceRecordSetGeoproximityLocationOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeoproximityLocation) RecordsExclusiveResourceRecordSetGeoproximityLocation {
+		if v != nil {
+			return *v
+		}
+		var ret RecordsExclusiveResourceRecordSetGeoproximityLocation
+		return ret
+	}).(RecordsExclusiveResourceRecordSetGeoproximityLocationOutput)
+}
+
+// AWS region of the resource where DNS traffic is directed to.
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeoproximityLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
+// To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
+// To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
+// See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput) Bias() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeoproximityLocation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Bias
+	}).(pulumi.IntPtrOutput)
+}
+
+// Coordinates for a geoproximity resource record.
+// See `coordinates` below.
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput) Coordinates() RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeoproximityLocation) *RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates {
+		if v == nil {
+			return nil
+		}
+		return v.Coordinates
+	}).(RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput)
+}
+
+// AWS local zone group.
+// Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput) LocalZoneGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeoproximityLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalZoneGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates struct {
+	// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+	Latitude  string `pulumi:"latitude"`
+	Longitude string `pulumi:"longitude"`
+}
+
+// RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesInput is an input type that accepts RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs and RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesInput` via:
+//
+//	RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs{...}
+type RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput
+	ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput
+}
+
+type RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs struct {
+	// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+	Latitude  pulumi.StringInput `pulumi:"latitude"`
+	Longitude pulumi.StringInput `pulumi:"longitude"`
+}
+
+func (RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates)(nil)).Elem()
+}
+
+func (i RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs) ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput {
+	return i.ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs) ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput)
+}
+
+func (i RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs) ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput {
+	return i.ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs) ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput).ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutputWithContext(ctx)
+}
+
+// RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrInput is an input type that accepts RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs, RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtr and RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrInput` via:
+//
+//	        RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput
+	ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput
+}
+
+type recordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrType RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs
+
+func RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtr(v *RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs) RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrInput {
+	return (*recordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrType)(v)
+}
+
+func (*recordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates)(nil)).Elem()
+}
+
+func (i *recordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrType) ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput {
+	return i.ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutputWithContext(context.Background())
+}
+
+func (i *recordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrType) ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput) ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput) ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput) ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput {
+	return o.ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutputWithContext(context.Background())
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput) ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates) *RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates {
+		return &v
+	}).(RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput)
+}
+
+// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput) Latitude() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates) string { return v.Latitude }).(pulumi.StringOutput)
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput) Longitude() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates) string { return v.Longitude }).(pulumi.StringOutput)
+}
+
+type RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput) ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput() RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput) ToRecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput) Elem() RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates) RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates {
+		if v != nil {
+			return *v
+		}
+		var ret RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates
+		return ret
+	}).(RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput)
+}
+
+// A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput) Latitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Latitude
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput) Longitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Longitude
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordsExclusiveResourceRecordSetResourceRecord struct {
+	// DNS record value.
+	Value string `pulumi:"value"`
+}
+
+// RecordsExclusiveResourceRecordSetResourceRecordInput is an input type that accepts RecordsExclusiveResourceRecordSetResourceRecordArgs and RecordsExclusiveResourceRecordSetResourceRecordOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetResourceRecordInput` via:
+//
+//	RecordsExclusiveResourceRecordSetResourceRecordArgs{...}
+type RecordsExclusiveResourceRecordSetResourceRecordInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetResourceRecordOutput() RecordsExclusiveResourceRecordSetResourceRecordOutput
+	ToRecordsExclusiveResourceRecordSetResourceRecordOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetResourceRecordOutput
+}
+
+type RecordsExclusiveResourceRecordSetResourceRecordArgs struct {
+	// DNS record value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RecordsExclusiveResourceRecordSetResourceRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSetResourceRecord)(nil)).Elem()
+}
+
+func (i RecordsExclusiveResourceRecordSetResourceRecordArgs) ToRecordsExclusiveResourceRecordSetResourceRecordOutput() RecordsExclusiveResourceRecordSetResourceRecordOutput {
+	return i.ToRecordsExclusiveResourceRecordSetResourceRecordOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetResourceRecordArgs) ToRecordsExclusiveResourceRecordSetResourceRecordOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetResourceRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetResourceRecordOutput)
+}
+
+// RecordsExclusiveResourceRecordSetResourceRecordArrayInput is an input type that accepts RecordsExclusiveResourceRecordSetResourceRecordArray and RecordsExclusiveResourceRecordSetResourceRecordArrayOutput values.
+// You can construct a concrete instance of `RecordsExclusiveResourceRecordSetResourceRecordArrayInput` via:
+//
+//	RecordsExclusiveResourceRecordSetResourceRecordArray{ RecordsExclusiveResourceRecordSetResourceRecordArgs{...} }
+type RecordsExclusiveResourceRecordSetResourceRecordArrayInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveResourceRecordSetResourceRecordArrayOutput() RecordsExclusiveResourceRecordSetResourceRecordArrayOutput
+	ToRecordsExclusiveResourceRecordSetResourceRecordArrayOutputWithContext(context.Context) RecordsExclusiveResourceRecordSetResourceRecordArrayOutput
+}
+
+type RecordsExclusiveResourceRecordSetResourceRecordArray []RecordsExclusiveResourceRecordSetResourceRecordInput
+
+func (RecordsExclusiveResourceRecordSetResourceRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecordsExclusiveResourceRecordSetResourceRecord)(nil)).Elem()
+}
+
+func (i RecordsExclusiveResourceRecordSetResourceRecordArray) ToRecordsExclusiveResourceRecordSetResourceRecordArrayOutput() RecordsExclusiveResourceRecordSetResourceRecordArrayOutput {
+	return i.ToRecordsExclusiveResourceRecordSetResourceRecordArrayOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveResourceRecordSetResourceRecordArray) ToRecordsExclusiveResourceRecordSetResourceRecordArrayOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetResourceRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveResourceRecordSetResourceRecordArrayOutput)
+}
+
+type RecordsExclusiveResourceRecordSetResourceRecordOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetResourceRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveResourceRecordSetResourceRecord)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetResourceRecordOutput) ToRecordsExclusiveResourceRecordSetResourceRecordOutput() RecordsExclusiveResourceRecordSetResourceRecordOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetResourceRecordOutput) ToRecordsExclusiveResourceRecordSetResourceRecordOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetResourceRecordOutput {
+	return o
+}
+
+// DNS record value.
+func (o RecordsExclusiveResourceRecordSetResourceRecordOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordsExclusiveResourceRecordSetResourceRecord) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RecordsExclusiveResourceRecordSetResourceRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveResourceRecordSetResourceRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecordsExclusiveResourceRecordSetResourceRecord)(nil)).Elem()
+}
+
+func (o RecordsExclusiveResourceRecordSetResourceRecordArrayOutput) ToRecordsExclusiveResourceRecordSetResourceRecordArrayOutput() RecordsExclusiveResourceRecordSetResourceRecordArrayOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetResourceRecordArrayOutput) ToRecordsExclusiveResourceRecordSetResourceRecordArrayOutputWithContext(ctx context.Context) RecordsExclusiveResourceRecordSetResourceRecordArrayOutput {
+	return o
+}
+
+func (o RecordsExclusiveResourceRecordSetResourceRecordArrayOutput) Index(i pulumi.IntInput) RecordsExclusiveResourceRecordSetResourceRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecordsExclusiveResourceRecordSetResourceRecord {
+		return vs[0].([]RecordsExclusiveResourceRecordSetResourceRecord)[vs[1].(int)]
+	}).(RecordsExclusiveResourceRecordSetResourceRecordOutput)
+}
+
+type RecordsExclusiveTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// RecordsExclusiveTimeoutsInput is an input type that accepts RecordsExclusiveTimeoutsArgs and RecordsExclusiveTimeoutsOutput values.
+// You can construct a concrete instance of `RecordsExclusiveTimeoutsInput` via:
+//
+//	RecordsExclusiveTimeoutsArgs{...}
+type RecordsExclusiveTimeoutsInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveTimeoutsOutput() RecordsExclusiveTimeoutsOutput
+	ToRecordsExclusiveTimeoutsOutputWithContext(context.Context) RecordsExclusiveTimeoutsOutput
+}
+
+type RecordsExclusiveTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (RecordsExclusiveTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveTimeouts)(nil)).Elem()
+}
+
+func (i RecordsExclusiveTimeoutsArgs) ToRecordsExclusiveTimeoutsOutput() RecordsExclusiveTimeoutsOutput {
+	return i.ToRecordsExclusiveTimeoutsOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveTimeoutsArgs) ToRecordsExclusiveTimeoutsOutputWithContext(ctx context.Context) RecordsExclusiveTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveTimeoutsOutput)
+}
+
+func (i RecordsExclusiveTimeoutsArgs) ToRecordsExclusiveTimeoutsPtrOutput() RecordsExclusiveTimeoutsPtrOutput {
+	return i.ToRecordsExclusiveTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i RecordsExclusiveTimeoutsArgs) ToRecordsExclusiveTimeoutsPtrOutputWithContext(ctx context.Context) RecordsExclusiveTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveTimeoutsOutput).ToRecordsExclusiveTimeoutsPtrOutputWithContext(ctx)
+}
+
+// RecordsExclusiveTimeoutsPtrInput is an input type that accepts RecordsExclusiveTimeoutsArgs, RecordsExclusiveTimeoutsPtr and RecordsExclusiveTimeoutsPtrOutput values.
+// You can construct a concrete instance of `RecordsExclusiveTimeoutsPtrInput` via:
+//
+//	        RecordsExclusiveTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordsExclusiveTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToRecordsExclusiveTimeoutsPtrOutput() RecordsExclusiveTimeoutsPtrOutput
+	ToRecordsExclusiveTimeoutsPtrOutputWithContext(context.Context) RecordsExclusiveTimeoutsPtrOutput
+}
+
+type recordsExclusiveTimeoutsPtrType RecordsExclusiveTimeoutsArgs
+
+func RecordsExclusiveTimeoutsPtr(v *RecordsExclusiveTimeoutsArgs) RecordsExclusiveTimeoutsPtrInput {
+	return (*recordsExclusiveTimeoutsPtrType)(v)
+}
+
+func (*recordsExclusiveTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordsExclusiveTimeouts)(nil)).Elem()
+}
+
+func (i *recordsExclusiveTimeoutsPtrType) ToRecordsExclusiveTimeoutsPtrOutput() RecordsExclusiveTimeoutsPtrOutput {
+	return i.ToRecordsExclusiveTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *recordsExclusiveTimeoutsPtrType) ToRecordsExclusiveTimeoutsPtrOutputWithContext(ctx context.Context) RecordsExclusiveTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordsExclusiveTimeoutsPtrOutput)
+}
+
+type RecordsExclusiveTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordsExclusiveTimeouts)(nil)).Elem()
+}
+
+func (o RecordsExclusiveTimeoutsOutput) ToRecordsExclusiveTimeoutsOutput() RecordsExclusiveTimeoutsOutput {
+	return o
+}
+
+func (o RecordsExclusiveTimeoutsOutput) ToRecordsExclusiveTimeoutsOutputWithContext(ctx context.Context) RecordsExclusiveTimeoutsOutput {
+	return o
+}
+
+func (o RecordsExclusiveTimeoutsOutput) ToRecordsExclusiveTimeoutsPtrOutput() RecordsExclusiveTimeoutsPtrOutput {
+	return o.ToRecordsExclusiveTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o RecordsExclusiveTimeoutsOutput) ToRecordsExclusiveTimeoutsPtrOutputWithContext(ctx context.Context) RecordsExclusiveTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordsExclusiveTimeouts) *RecordsExclusiveTimeouts {
+		return &v
+	}).(RecordsExclusiveTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RecordsExclusiveTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RecordsExclusiveTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordsExclusiveTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type RecordsExclusiveTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordsExclusiveTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordsExclusiveTimeouts)(nil)).Elem()
+}
+
+func (o RecordsExclusiveTimeoutsPtrOutput) ToRecordsExclusiveTimeoutsPtrOutput() RecordsExclusiveTimeoutsPtrOutput {
+	return o
+}
+
+func (o RecordsExclusiveTimeoutsPtrOutput) ToRecordsExclusiveTimeoutsPtrOutputWithContext(ctx context.Context) RecordsExclusiveTimeoutsPtrOutput {
+	return o
+}
+
+func (o RecordsExclusiveTimeoutsPtrOutput) Elem() RecordsExclusiveTimeoutsOutput {
+	return o.ApplyT(func(v *RecordsExclusiveTimeouts) RecordsExclusiveTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret RecordsExclusiveTimeouts
+		return ret
+	}).(RecordsExclusiveTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RecordsExclusiveTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RecordsExclusiveTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordsExclusiveTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ResolverEndpointIpAddress struct {
 	// IPv4 address in the subnet that you want to use for DNS queries.
 	Ip   *string `pulumi:"ip"`
@@ -4285,6 +5682,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordLatencyRoutingPolicyArrayInput)(nil)).Elem(), RecordLatencyRoutingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordWeightedRoutingPolicyInput)(nil)).Elem(), RecordWeightedRoutingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordWeightedRoutingPolicyArrayInput)(nil)).Elem(), RecordWeightedRoutingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetArrayInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetAliasTargetInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetAliasTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetAliasTargetPtrInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetAliasTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetCidrRoutingConfigInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetGeolocationInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetGeolocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetGeolocationPtrInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetGeolocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetGeoproximityLocationInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetGeoproximityLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetGeoproximityLocationPtrInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetGeoproximityLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetResourceRecordInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetResourceRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveResourceRecordSetResourceRecordArrayInput)(nil)).Elem(), RecordsExclusiveResourceRecordSetResourceRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveTimeoutsInput)(nil)).Elem(), RecordsExclusiveTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordsExclusiveTimeoutsPtrInput)(nil)).Elem(), RecordsExclusiveTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressInput)(nil)).Elem(), ResolverEndpointIpAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressArrayInput)(nil)).Elem(), ResolverEndpointIpAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetIpInput)(nil)).Elem(), ResolverRuleTargetIpArgs{})
@@ -4346,6 +5759,22 @@ func init() {
 	pulumi.RegisterOutputType(RecordLatencyRoutingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(RecordWeightedRoutingPolicyOutput{})
 	pulumi.RegisterOutputType(RecordWeightedRoutingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetArrayOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetAliasTargetOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetAliasTargetPtrOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetCidrRoutingConfigOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetCidrRoutingConfigPtrOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetGeolocationOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetGeolocationPtrOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetGeoproximityLocationOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetGeoproximityLocationPtrOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesPtrOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetResourceRecordOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveResourceRecordSetResourceRecordArrayOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveTimeoutsOutput{})
+	pulumi.RegisterOutputType(RecordsExclusiveTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointIpAddressOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointIpAddressArrayOutput{})
 	pulumi.RegisterOutputType(ResolverRuleTargetIpOutput{})

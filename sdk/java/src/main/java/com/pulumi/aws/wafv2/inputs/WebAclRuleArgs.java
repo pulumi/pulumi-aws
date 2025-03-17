@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.WebAclRuleActionArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleCaptchaConfigArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleChallengeConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleRuleLabelArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
@@ -52,6 +53,21 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<WebAclRuleCaptchaConfigArgs>> captchaConfig() {
         return Optional.ofNullable(this.captchaConfig);
+    }
+
+    /**
+     * Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+     * 
+     */
+    @Import(name="challengeConfig")
+    private @Nullable Output<WebAclRuleChallengeConfigArgs> challengeConfig;
+
+    /**
+     * @return Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleChallengeConfigArgs>> challengeConfig() {
+        return Optional.ofNullable(this.challengeConfig);
     }
 
     /**
@@ -149,6 +165,7 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
     private WebAclRuleArgs(WebAclRuleArgs $) {
         this.action = $.action;
         this.captchaConfig = $.captchaConfig;
+        this.challengeConfig = $.challengeConfig;
         this.name = $.name;
         this.overrideAction = $.overrideAction;
         this.priority = $.priority;
@@ -215,6 +232,27 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder captchaConfig(WebAclRuleCaptchaConfigArgs captchaConfig) {
             return captchaConfig(Output.of(captchaConfig));
+        }
+
+        /**
+         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder challengeConfig(@Nullable Output<WebAclRuleChallengeConfigArgs> challengeConfig) {
+            $.challengeConfig = challengeConfig;
+            return this;
+        }
+
+        /**
+         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder challengeConfig(WebAclRuleChallengeConfigArgs challengeConfig) {
+            return challengeConfig(Output.of(challengeConfig));
         }
 
         /**

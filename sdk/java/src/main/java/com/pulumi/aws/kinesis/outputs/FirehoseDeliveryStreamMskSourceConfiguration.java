@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamMskSourceConfiguration {
@@ -21,6 +23,11 @@ public final class FirehoseDeliveryStreamMskSourceConfiguration {
      * 
      */
     private String mskClusterArn;
+    /**
+     * @return The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+     * 
+     */
+    private @Nullable String readFromTimestamp;
     /**
      * @return The topic name within the Amazon MSK cluster.
      * 
@@ -43,6 +50,13 @@ public final class FirehoseDeliveryStreamMskSourceConfiguration {
         return this.mskClusterArn;
     }
     /**
+     * @return The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+     * 
+     */
+    public Optional<String> readFromTimestamp() {
+        return Optional.ofNullable(this.readFromTimestamp);
+    }
+    /**
      * @return The topic name within the Amazon MSK cluster.
      * 
      */
@@ -61,12 +75,14 @@ public final class FirehoseDeliveryStreamMskSourceConfiguration {
     public static final class Builder {
         private FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration authenticationConfiguration;
         private String mskClusterArn;
+        private @Nullable String readFromTimestamp;
         private String topicName;
         public Builder() {}
         public Builder(FirehoseDeliveryStreamMskSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationConfiguration = defaults.authenticationConfiguration;
     	      this.mskClusterArn = defaults.mskClusterArn;
+    	      this.readFromTimestamp = defaults.readFromTimestamp;
     	      this.topicName = defaults.topicName;
         }
 
@@ -87,6 +103,12 @@ public final class FirehoseDeliveryStreamMskSourceConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder readFromTimestamp(@Nullable String readFromTimestamp) {
+
+            this.readFromTimestamp = readFromTimestamp;
+            return this;
+        }
+        @CustomType.Setter
         public Builder topicName(String topicName) {
             if (topicName == null) {
               throw new MissingRequiredPropertyException("FirehoseDeliveryStreamMskSourceConfiguration", "topicName");
@@ -98,6 +120,7 @@ public final class FirehoseDeliveryStreamMskSourceConfiguration {
             final var _resultValue = new FirehoseDeliveryStreamMskSourceConfiguration();
             _resultValue.authenticationConfiguration = authenticationConfiguration;
             _resultValue.mskClusterArn = mskClusterArn;
+            _resultValue.readFromTimestamp = readFromTimestamp;
             _resultValue.topicName = topicName;
             return _resultValue;
         }

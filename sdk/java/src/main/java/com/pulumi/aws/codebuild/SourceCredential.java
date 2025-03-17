@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
 /**
  * Provides a CodeBuild Source Credentials Resource.
  * 
- * &gt; **NOTE:** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html). Therefore, when you define `aws.codebuild.SourceCredential`, `aws.codebuild.Project` resource defined in the same module will use it.
+ * &gt; **NOTE:
+ * ** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
+ * Therefore, when you define `aws.codebuild.SourceCredential`,
+ * `aws.codebuild.Project` resource defined in the same module will use it.
  * 
  * ## Example Usage
  * 
@@ -95,6 +98,43 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### AWS CodeStar Connection Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codebuild.SourceCredential;
+ * import com.pulumi.aws.codebuild.SourceCredentialArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new SourceCredential("example", SourceCredentialArgs.builder()
+ *             .authType("CODECONNECTIONS")
+ *             .serverType("GITHUB")
+ *             .token("arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
@@ -121,14 +161,18 @@ public class SourceCredential extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+     * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+     * repository. Valid values are `BASIC_AUTH`,
+     * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
      * 
      */
     @Export(name="authType", refs={String.class}, tree="[0]")
     private Output<String> authType;
 
     /**
-     * @return The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+     * @return The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+     * repository. Valid values are `BASIC_AUTH`,
+     * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
      * 
      */
     public Output<String> authType() {
@@ -149,28 +193,34 @@ public class SourceCredential extends com.pulumi.resources.CustomResource {
         return this.serverType;
     }
     /**
-     * For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+     * For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+     * app password. When using an AWS CodeStar connection (`auth_type = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
+     * Connection ARN.
      * 
      */
     @Export(name="token", refs={String.class}, tree="[0]")
     private Output<String> token;
 
     /**
-     * @return For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+     * @return For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+     * app password. When using an AWS CodeStar connection (`auth_type = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
+     * Connection ARN.
      * 
      */
     public Output<String> token() {
         return this.token;
     }
     /**
-     * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+     * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+     * other types of source providers or connections.
      * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userName;
 
     /**
-     * @return The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+     * @return The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+     * other types of source providers or connections.
      * 
      */
     public Output<Optional<String>> userName() {

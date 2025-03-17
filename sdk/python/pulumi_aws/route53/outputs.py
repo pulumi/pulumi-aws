@@ -28,6 +28,14 @@ __all__ = [
     'RecordGeoproximityRoutingPolicyCoordinate',
     'RecordLatencyRoutingPolicy',
     'RecordWeightedRoutingPolicy',
+    'RecordsExclusiveResourceRecordSet',
+    'RecordsExclusiveResourceRecordSetAliasTarget',
+    'RecordsExclusiveResourceRecordSetCidrRoutingConfig',
+    'RecordsExclusiveResourceRecordSetGeolocation',
+    'RecordsExclusiveResourceRecordSetGeoproximityLocation',
+    'RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates',
+    'RecordsExclusiveResourceRecordSetResourceRecord',
+    'RecordsExclusiveTimeouts',
     'ResolverEndpointIpAddress',
     'ResolverRuleTargetIp',
     'ZoneVpc',
@@ -476,6 +484,564 @@ class RecordWeightedRoutingPolicy(dict):
         A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
         """
         return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class RecordsExclusiveResourceRecordSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aliasTarget":
+            suggest = "alias_target"
+        elif key == "cidrRoutingConfig":
+            suggest = "cidr_routing_config"
+        elif key == "geoproximityLocation":
+            suggest = "geoproximity_location"
+        elif key == "healthCheckId":
+            suggest = "health_check_id"
+        elif key == "multiValueAnswer":
+            suggest = "multi_value_answer"
+        elif key == "resourceRecords":
+            suggest = "resource_records"
+        elif key == "setIdentifier":
+            suggest = "set_identifier"
+        elif key == "trafficPolicyInstanceId":
+            suggest = "traffic_policy_instance_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordsExclusiveResourceRecordSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordsExclusiveResourceRecordSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordsExclusiveResourceRecordSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 alias_target: Optional['outputs.RecordsExclusiveResourceRecordSetAliasTarget'] = None,
+                 cidr_routing_config: Optional['outputs.RecordsExclusiveResourceRecordSetCidrRoutingConfig'] = None,
+                 failover: Optional[str] = None,
+                 geolocation: Optional['outputs.RecordsExclusiveResourceRecordSetGeolocation'] = None,
+                 geoproximity_location: Optional['outputs.RecordsExclusiveResourceRecordSetGeoproximityLocation'] = None,
+                 health_check_id: Optional[str] = None,
+                 multi_value_answer: Optional[bool] = None,
+                 region: Optional[str] = None,
+                 resource_records: Optional[Sequence['outputs.RecordsExclusiveResourceRecordSetResourceRecord']] = None,
+                 set_identifier: Optional[str] = None,
+                 traffic_policy_instance_id: Optional[str] = None,
+                 ttl: Optional[int] = None,
+                 type: Optional[str] = None,
+                 weight: Optional[int] = None):
+        """
+        :param str name: Name of the record.
+        :param 'RecordsExclusiveResourceRecordSetAliasTargetArgs' alias_target: Alias target block.
+               See `alias_target` below.
+        :param str failover: Type of failover resource record.
+               Valid values are `PRIMARY` and `SECONDARY`.
+               See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
+        :param 'RecordsExclusiveResourceRecordSetGeolocationArgs' geolocation: Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+               See `geolocation` below.
+        :param 'RecordsExclusiveResourceRecordSetGeoproximityLocationArgs' geoproximity_location: Geoproximity location block.
+               See `geoproximity_location` below.
+        :param str health_check_id: Health check the record should be associated with.
+        :param str region: AWS region of the resource this record set refers to.
+               Must be a valid AWS region name.
+               See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
+        :param Sequence['RecordsExclusiveResourceRecordSetResourceRecordArgs'] resource_records: Information about the resource records to act upon.
+               See `resource_records` below.
+        :param str set_identifier: An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
+               Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
+        :param int ttl: Resource record cache time to live (TTL), in seconds.
+        :param str type: Record type.
+               Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
+               
+               The following arguments are optional:
+               
+               > Exactly one of `resource_records` or `alias_target` must be specified.
+        :param int weight: Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+        """
+        pulumi.set(__self__, "name", name)
+        if alias_target is not None:
+            pulumi.set(__self__, "alias_target", alias_target)
+        if cidr_routing_config is not None:
+            pulumi.set(__self__, "cidr_routing_config", cidr_routing_config)
+        if failover is not None:
+            pulumi.set(__self__, "failover", failover)
+        if geolocation is not None:
+            pulumi.set(__self__, "geolocation", geolocation)
+        if geoproximity_location is not None:
+            pulumi.set(__self__, "geoproximity_location", geoproximity_location)
+        if health_check_id is not None:
+            pulumi.set(__self__, "health_check_id", health_check_id)
+        if multi_value_answer is not None:
+            pulumi.set(__self__, "multi_value_answer", multi_value_answer)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if resource_records is not None:
+            pulumi.set(__self__, "resource_records", resource_records)
+        if set_identifier is not None:
+            pulumi.set(__self__, "set_identifier", set_identifier)
+        if traffic_policy_instance_id is not None:
+            pulumi.set(__self__, "traffic_policy_instance_id", traffic_policy_instance_id)
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the record.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="aliasTarget")
+    def alias_target(self) -> Optional['outputs.RecordsExclusiveResourceRecordSetAliasTarget']:
+        """
+        Alias target block.
+        See `alias_target` below.
+        """
+        return pulumi.get(self, "alias_target")
+
+    @property
+    @pulumi.getter(name="cidrRoutingConfig")
+    def cidr_routing_config(self) -> Optional['outputs.RecordsExclusiveResourceRecordSetCidrRoutingConfig']:
+        return pulumi.get(self, "cidr_routing_config")
+
+    @property
+    @pulumi.getter
+    def failover(self) -> Optional[str]:
+        """
+        Type of failover resource record.
+        Valid values are `PRIMARY` and `SECONDARY`.
+        See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
+        """
+        return pulumi.get(self, "failover")
+
+    @property
+    @pulumi.getter
+    def geolocation(self) -> Optional['outputs.RecordsExclusiveResourceRecordSetGeolocation']:
+        """
+        Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+        See `geolocation` below.
+        """
+        return pulumi.get(self, "geolocation")
+
+    @property
+    @pulumi.getter(name="geoproximityLocation")
+    def geoproximity_location(self) -> Optional['outputs.RecordsExclusiveResourceRecordSetGeoproximityLocation']:
+        """
+        Geoproximity location block.
+        See `geoproximity_location` below.
+        """
+        return pulumi.get(self, "geoproximity_location")
+
+    @property
+    @pulumi.getter(name="healthCheckId")
+    def health_check_id(self) -> Optional[str]:
+        """
+        Health check the record should be associated with.
+        """
+        return pulumi.get(self, "health_check_id")
+
+    @property
+    @pulumi.getter(name="multiValueAnswer")
+    def multi_value_answer(self) -> Optional[bool]:
+        return pulumi.get(self, "multi_value_answer")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        AWS region of the resource this record set refers to.
+        Must be a valid AWS region name.
+        See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="resourceRecords")
+    def resource_records(self) -> Optional[Sequence['outputs.RecordsExclusiveResourceRecordSetResourceRecord']]:
+        """
+        Information about the resource records to act upon.
+        See `resource_records` below.
+        """
+        return pulumi.get(self, "resource_records")
+
+    @property
+    @pulumi.getter(name="setIdentifier")
+    def set_identifier(self) -> Optional[str]:
+        """
+        An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
+        Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
+        """
+        return pulumi.get(self, "set_identifier")
+
+    @property
+    @pulumi.getter(name="trafficPolicyInstanceId")
+    def traffic_policy_instance_id(self) -> Optional[str]:
+        return pulumi.get(self, "traffic_policy_instance_id")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[int]:
+        """
+        Resource record cache time to live (TTL), in seconds.
+        """
+        return pulumi.get(self, "ttl")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Record type.
+        Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
+
+        The following arguments are optional:
+
+        > Exactly one of `resource_records` or `alias_target` must be specified.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[int]:
+        """
+        Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+        """
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class RecordsExclusiveResourceRecordSetAliasTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "evaluateTargetHealth":
+            suggest = "evaluate_target_health"
+        elif key == "hostedZoneId":
+            suggest = "hosted_zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordsExclusiveResourceRecordSetAliasTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordsExclusiveResourceRecordSetAliasTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordsExclusiveResourceRecordSetAliasTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_name: str,
+                 evaluate_target_health: bool,
+                 hosted_zone_id: str):
+        """
+        :param str dns_name: DNS domain name for another resource record set in this hosted zone.
+        :param bool evaluate_target_health: Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
+        :param str hosted_zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
+        """
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        """
+        DNS domain name for another resource record set in this hosted zone.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="evaluateTargetHealth")
+    def evaluate_target_health(self) -> bool:
+        """
+        Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
+        """
+        return pulumi.get(self, "evaluate_target_health")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> str:
+        """
+        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class RecordsExclusiveResourceRecordSetCidrRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionId":
+            suggest = "collection_id"
+        elif key == "locationName":
+            suggest = "location_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordsExclusiveResourceRecordSetCidrRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordsExclusiveResourceRecordSetCidrRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordsExclusiveResourceRecordSetCidrRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collection_id: str,
+                 location_name: str):
+        """
+        :param str collection_id: CIDR collection ID.
+               See the `route53.CidrCollection` resource for more details.
+        :param str location_name: CIDR collection location name.
+               See the `route53.CidrLocation` resource for more details.
+               A `location_name` with an asterisk `"*"` can be used to create a default CIDR record.
+               `collection_id` is still required for a default record.
+        """
+        pulumi.set(__self__, "collection_id", collection_id)
+        pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="collectionId")
+    def collection_id(self) -> str:
+        """
+        CIDR collection ID.
+        See the `route53.CidrCollection` resource for more details.
+        """
+        return pulumi.get(self, "collection_id")
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> str:
+        """
+        CIDR collection location name.
+        See the `route53.CidrLocation` resource for more details.
+        A `location_name` with an asterisk `"*"` can be used to create a default CIDR record.
+        `collection_id` is still required for a default record.
+        """
+        return pulumi.get(self, "location_name")
+
+
+@pulumi.output_type
+class RecordsExclusiveResourceRecordSetGeolocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "continentCode":
+            suggest = "continent_code"
+        elif key == "countryCode":
+            suggest = "country_code"
+        elif key == "subdivisionCode":
+            suggest = "subdivision_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordsExclusiveResourceRecordSetGeolocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordsExclusiveResourceRecordSetGeolocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordsExclusiveResourceRecordSetGeolocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 continent_code: Optional[str] = None,
+                 country_code: Optional[str] = None,
+                 subdivision_code: Optional[str] = None):
+        if continent_code is not None:
+            pulumi.set(__self__, "continent_code", continent_code)
+        if country_code is not None:
+            pulumi.set(__self__, "country_code", country_code)
+        if subdivision_code is not None:
+            pulumi.set(__self__, "subdivision_code", subdivision_code)
+
+    @property
+    @pulumi.getter(name="continentCode")
+    def continent_code(self) -> Optional[str]:
+        return pulumi.get(self, "continent_code")
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> Optional[str]:
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter(name="subdivisionCode")
+    def subdivision_code(self) -> Optional[str]:
+        return pulumi.get(self, "subdivision_code")
+
+
+@pulumi.output_type
+class RecordsExclusiveResourceRecordSetGeoproximityLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "localZoneGroup":
+            suggest = "local_zone_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordsExclusiveResourceRecordSetGeoproximityLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordsExclusiveResourceRecordSetGeoproximityLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordsExclusiveResourceRecordSetGeoproximityLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: Optional[str] = None,
+                 bias: Optional[int] = None,
+                 coordinates: Optional['outputs.RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates'] = None,
+                 local_zone_group: Optional[str] = None):
+        """
+        :param str aws_region: AWS region of the resource where DNS traffic is directed to.
+        :param int bias: Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
+               To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
+               To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
+               See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
+        :param 'RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs' coordinates: Coordinates for a geoproximity resource record.
+               See `coordinates` below.
+        :param str local_zone_group: AWS local zone group.
+               Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
+        """
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if bias is not None:
+            pulumi.set(__self__, "bias", bias)
+        if coordinates is not None:
+            pulumi.set(__self__, "coordinates", coordinates)
+        if local_zone_group is not None:
+            pulumi.set(__self__, "local_zone_group", local_zone_group)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[str]:
+        """
+        AWS region of the resource where DNS traffic is directed to.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter
+    def bias(self) -> Optional[int]:
+        """
+        Increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
+        To expand the size of the geographic region from which Route 53 routes traffic to a resource, specify a positive integer from `1` to `99`.
+        To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
+        See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
+        """
+        return pulumi.get(self, "bias")
+
+    @property
+    @pulumi.getter
+    def coordinates(self) -> Optional['outputs.RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates']:
+        """
+        Coordinates for a geoproximity resource record.
+        See `coordinates` below.
+        """
+        return pulumi.get(self, "coordinates")
+
+    @property
+    @pulumi.getter(name="localZoneGroup")
+    def local_zone_group(self) -> Optional[str]:
+        """
+        AWS local zone group.
+        Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
+        """
+        return pulumi.get(self, "local_zone_group")
+
+
+@pulumi.output_type
+class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates(dict):
+    def __init__(__self__, *,
+                 latitude: str,
+                 longitude: str):
+        """
+        :param str latitude: A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        """
+        pulumi.set(__self__, "latitude", latitude)
+        pulumi.set(__self__, "longitude", longitude)
+
+    @property
+    @pulumi.getter
+    def latitude(self) -> str:
+        """
+        A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
+        """
+        return pulumi.get(self, "latitude")
+
+    @property
+    @pulumi.getter
+    def longitude(self) -> str:
+        return pulumi.get(self, "longitude")
+
+
+@pulumi.output_type
+class RecordsExclusiveResourceRecordSetResourceRecord(dict):
+    def __init__(__self__, *,
+                 value: str):
+        """
+        :param str value: DNS record value.
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        DNS record value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RecordsExclusiveTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

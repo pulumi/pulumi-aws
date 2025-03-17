@@ -13,19 +13,33 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+        /// Information about the strategy CodeBuild should use when authenticating with the source code host.
+        /// Detailed below.
+        /// </summary>
+        [Input("auth")]
+        public Input<Inputs.ProjectSourceAuthGetArgs>? Auth { get; set; }
+
+        /// <summary>
+        /// Configuration block that contains information that defines how the build project
+        /// reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
+        /// Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
         /// </summary>
         [Input("buildStatusConfig")]
         public Input<Inputs.ProjectSourceBuildStatusConfigGetArgs>? BuildStatusConfig { get; set; }
 
         /// <summary>
-        /// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be specified.
+        /// Build specification to use for this build project's related builds. This must be set when
+        /// `type` is `NO_SOURCE`. Also, if a non-default buildspec file name or file path aside from the root is used, it must be
+        /// specified.
         /// </summary>
         [Input("buildspec")]
         public Input<string>? Buildspec { get; set; }
 
         /// <summary>
-        /// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
+        /// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
+        /// to run commands like `git branch --show-current`.
+        /// See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
+        /// for details.
         /// </summary>
         [Input("gitCloneDepth")]
         public Input<int>? GitCloneDepth { get; set; }
@@ -49,13 +63,16 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Whether to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
+        /// Whether to report the status of a build's start and finish to your source provider.
+        /// This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
+        /// Bitbucket.
         /// </summary>
         [Input("reportBuildStatus")]
         public Input<bool>? ReportBuildStatus { get; set; }
 
         /// <summary>
-        /// Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
+        /// Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
+        /// `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

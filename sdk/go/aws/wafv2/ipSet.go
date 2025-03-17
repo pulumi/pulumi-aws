@@ -70,8 +70,10 @@ type IpSet struct {
 	// Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
 	IpAddressVersion pulumi.StringOutput `pulumi:"ipAddressVersion"`
 	LockToken        pulumi.StringOutput `pulumi:"lockToken"`
-	// A friendly name of the IP set.
+	// A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
 	Scope pulumi.StringOutput `pulumi:"scope"`
 	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -127,8 +129,10 @@ type ipSetState struct {
 	// Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
 	IpAddressVersion *string `pulumi:"ipAddressVersion"`
 	LockToken        *string `pulumi:"lockToken"`
-	// A friendly name of the IP set.
+	// A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
 	Scope *string `pulumi:"scope"`
 	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -149,8 +153,10 @@ type IpSetState struct {
 	// Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
 	IpAddressVersion pulumi.StringPtrInput
 	LockToken        pulumi.StringPtrInput
-	// A friendly name of the IP set.
+	// A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
 	Scope pulumi.StringPtrInput
 	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -172,8 +178,10 @@ type ipSetArgs struct {
 	Description *string `pulumi:"description"`
 	// Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
 	IpAddressVersion string `pulumi:"ipAddressVersion"`
-	// A friendly name of the IP set.
+	// A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix *string `pulumi:"namePrefix"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
 	Scope string `pulumi:"scope"`
 	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -188,8 +196,10 @@ type IpSetArgs struct {
 	Description pulumi.StringPtrInput
 	// Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
 	IpAddressVersion pulumi.StringInput
-	// A friendly name of the IP set.
+	// A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	NamePrefix pulumi.StringPtrInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
 	Scope pulumi.StringInput
 	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -307,9 +317,14 @@ func (o IpSetOutput) LockToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
 }
 
-// A friendly name of the IP set.
+// A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o IpSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+func (o IpSetOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
 // Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).

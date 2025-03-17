@@ -389,6 +389,8 @@ __all__ = [
     'WebAclRuleActionCountCustomRequestHandlingInsertHeader',
     'WebAclRuleCaptchaConfig',
     'WebAclRuleCaptchaConfigImmunityTimeProperty',
+    'WebAclRuleChallengeConfig',
+    'WebAclRuleChallengeConfigImmunityTimeProperty',
     'WebAclRuleOverrideAction',
     'WebAclRuleOverrideActionCount',
     'WebAclRuleOverrideActionNone',
@@ -15092,6 +15094,8 @@ class WebAclRule(dict):
             suggest = "visibility_config"
         elif key == "captchaConfig":
             suggest = "captcha_config"
+        elif key == "challengeConfig":
+            suggest = "challenge_config"
         elif key == "overrideAction":
             suggest = "override_action"
         elif key == "ruleLabels":
@@ -15115,6 +15119,7 @@ class WebAclRule(dict):
                  visibility_config: 'outputs.WebAclRuleVisibilityConfig',
                  action: Optional['outputs.WebAclRuleAction'] = None,
                  captcha_config: Optional['outputs.WebAclRuleCaptchaConfig'] = None,
+                 challenge_config: Optional['outputs.WebAclRuleChallengeConfig'] = None,
                  override_action: Optional['outputs.WebAclRuleOverrideAction'] = None,
                  rule_labels: Optional[Sequence['outputs.WebAclRuleRuleLabel']] = None):
         """
@@ -15124,6 +15129,7 @@ class WebAclRule(dict):
         :param 'WebAclRuleVisibilityConfigArgs' visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         :param 'WebAclRuleActionArgs' action: Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
         :param 'WebAclRuleCaptchaConfigArgs' captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        :param 'WebAclRuleChallengeConfigArgs' challenge_config: Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
         :param 'WebAclRuleOverrideActionArgs' override_action: Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
         :param Sequence['WebAclRuleRuleLabelArgs'] rule_labels: Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
         """
@@ -15135,6 +15141,8 @@ class WebAclRule(dict):
             pulumi.set(__self__, "action", action)
         if captcha_config is not None:
             pulumi.set(__self__, "captcha_config", captcha_config)
+        if challenge_config is not None:
+            pulumi.set(__self__, "challenge_config", challenge_config)
         if override_action is not None:
             pulumi.set(__self__, "override_action", override_action)
         if rule_labels is not None:
@@ -15187,6 +15195,14 @@ class WebAclRule(dict):
         Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         """
         return pulumi.get(self, "captcha_config")
+
+    @property
+    @pulumi.getter(name="challengeConfig")
+    def challenge_config(self) -> Optional['outputs.WebAclRuleChallengeConfig']:
+        """
+        Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+        """
+        return pulumi.get(self, "challenge_config")
 
     @property
     @pulumi.getter(name="overrideAction")
@@ -15853,6 +15869,78 @@ class WebAclRuleCaptchaConfigImmunityTimeProperty(dict):
 
     def get(self, key: str, default = None) -> Any:
         WebAclRuleCaptchaConfigImmunityTimeProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 immunity_time: Optional[int] = None):
+        """
+        :param int immunity_time: The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        """
+        if immunity_time is not None:
+            pulumi.set(__self__, "immunity_time", immunity_time)
+
+    @property
+    @pulumi.getter(name="immunityTime")
+    def immunity_time(self) -> Optional[int]:
+        """
+        The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        """
+        return pulumi.get(self, "immunity_time")
+
+
+@pulumi.output_type
+class WebAclRuleChallengeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immunityTimeProperty":
+            suggest = "immunity_time_property"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleChallengeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleChallengeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleChallengeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 immunity_time_property: Optional['outputs.WebAclRuleChallengeConfigImmunityTimeProperty'] = None):
+        """
+        :param 'WebAclRuleChallengeConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
+        """
+        if immunity_time_property is not None:
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+
+    @property
+    @pulumi.getter(name="immunityTimeProperty")
+    def immunity_time_property(self) -> Optional['outputs.WebAclRuleChallengeConfigImmunityTimeProperty']:
+        """
+        Defines custom immunity time. See `immunity_time_property` below for details.
+        """
+        return pulumi.get(self, "immunity_time_property")
+
+
+@pulumi.output_type
+class WebAclRuleChallengeConfigImmunityTimeProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immunityTime":
+            suggest = "immunity_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleChallengeConfigImmunityTimeProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleChallengeConfigImmunityTimeProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleChallengeConfigImmunityTimeProperty.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

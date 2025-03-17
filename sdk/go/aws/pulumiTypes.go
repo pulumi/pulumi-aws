@@ -892,6 +892,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Ds *string `pulumi:"ds"`
 	// Use this to override the default service endpoint URL
+	Dsql *string `pulumi:"dsql"`
+	// Use this to override the default service endpoint URL
 	Dynamodb *string `pulumi:"dynamodb"`
 	// Use this to override the default service endpoint URL
 	Ec2 *string `pulumi:"ec2"`
@@ -1503,6 +1505,8 @@ type ProviderEndpointArgs struct {
 	Drs pulumi.StringPtrInput `pulumi:"drs"`
 	// Use this to override the default service endpoint URL
 	Ds pulumi.StringPtrInput `pulumi:"ds"`
+	// Use this to override the default service endpoint URL
+	Dsql pulumi.StringPtrInput `pulumi:"dsql"`
 	// Use this to override the default service endpoint URL
 	Dynamodb pulumi.StringPtrInput `pulumi:"dynamodb"`
 	// Use this to override the default service endpoint URL
@@ -2464,6 +2468,11 @@ func (o ProviderEndpointOutput) Drs() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Ds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Ds }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Dsql() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Dsql }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

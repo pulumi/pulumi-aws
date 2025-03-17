@@ -82,10 +82,16 @@ namespace Pulumi.Aws.WafV2
         public Output<string> LockToken { get; private set; } = null!;
 
         /// <summary>
-        /// A friendly name of the IP set.
+        /// A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Output("namePrefix")]
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
@@ -176,10 +182,16 @@ namespace Pulumi.Aws.WafV2
         public Input<string> IpAddressVersion { get; set; } = null!;
 
         /// <summary>
-        /// A friendly name of the IP set.
+        /// A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
@@ -241,10 +253,16 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? LockToken { get; set; }
 
         /// <summary>
-        /// A friendly name of the IP set.
+        /// A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).

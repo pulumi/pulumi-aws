@@ -16,14 +16,18 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
     public static final ProjectFileSystemLocationArgs Empty = new ProjectFileSystemLocationArgs();
 
     /**
-     * The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
+     * The name used to access a file system created by Amazon EFS. CodeBuild creates an
+     * environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify
+     * my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
      * 
      */
     @Import(name="identifier")
     private @Nullable Output<String> identifier;
 
     /**
-     * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
+     * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an
+     * environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify
+     * my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
      * 
      */
     public Optional<Output<String>> identifier() {
@@ -31,14 +35,16 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+     * A string that specifies the location of the file system created by Amazon EFS. Its format is
+     * `efs-dns-name:/directory-path`.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+     * @return A string that specifies the location of the file system created by Amazon EFS. Its format is
+     * `efs-dns-name:/directory-path`.
      * 
      */
     public Optional<Output<String>> location() {
@@ -119,7 +125,9 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param identifier The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
+         * @param identifier The name used to access a file system created by Amazon EFS. CodeBuild creates an
+         * environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify
+         * my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
          * 
          * @return builder
          * 
@@ -130,7 +138,9 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param identifier The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
+         * @param identifier The name used to access a file system created by Amazon EFS. CodeBuild creates an
+         * environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify
+         * my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
          * 
          * @return builder
          * 
@@ -140,7 +150,8 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param location A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+         * @param location A string that specifies the location of the file system created by Amazon EFS. Its format is
+         * `efs-dns-name:/directory-path`.
          * 
          * @return builder
          * 
@@ -151,7 +162,8 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param location A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+         * @param location A string that specifies the location of the file system created by Amazon EFS. Its format is
+         * `efs-dns-name:/directory-path`.
          * 
          * @return builder
          * 

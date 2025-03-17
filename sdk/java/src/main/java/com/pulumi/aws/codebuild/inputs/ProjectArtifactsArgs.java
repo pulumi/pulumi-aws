@@ -18,14 +18,16 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
     public static final ProjectArtifactsArgs Empty = new ProjectArtifactsArgs();
 
     /**
-     * Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
+     * Artifact identifier. Must be the same specified inside the AWS CodeBuild build
+     * specification.
      * 
      */
     @Import(name="artifactIdentifier")
     private @Nullable Output<String> artifactIdentifier;
 
     /**
-     * @return Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
+     * @return Artifact identifier. Must be the same specified inside the AWS CodeBuild build
+     * specification.
      * 
      */
     public Optional<Output<String>> artifactIdentifier() {
@@ -33,14 +35,22 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+     * Specifies the bucket owner&#39;s access for objects that another account uploads to
+     * their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
+     * objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
+     * `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
+     * allows CodeBuild to modify the access control list for the bucket.
      * 
      */
     @Import(name="bucketOwnerAccess")
     private @Nullable Output<String> bucketOwnerAccess;
 
     /**
-     * @return Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+     * @return Specifies the bucket owner&#39;s access for objects that another account uploads to
+     * their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
+     * objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
+     * `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
+     * allows CodeBuild to modify the access control list for the bucket.
      * 
      */
     public Optional<Output<String>> bucketOwnerAccess() {
@@ -48,14 +58,16 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+     * Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
+     * this value is ignored. Defaults to `false`.
      * 
      */
     @Import(name="encryptionDisabled")
     private @Nullable Output<Boolean> encryptionDisabled;
 
     /**
-     * @return Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+     * @return Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
+     * this value is ignored. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> encryptionDisabled() {
@@ -63,14 +75,16 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+     * Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
+     * `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
+     * `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
      * 
      */
     public Optional<Output<String>> location() {
@@ -93,14 +107,16 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
+     * Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values
+     * are `BUILD_ID`, `NONE`.
      * 
      */
     @Import(name="namespaceType")
     private @Nullable Output<String> namespaceType;
 
     /**
-     * @return Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
+     * @return Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values
+     * are `BUILD_ID`, `NONE`.
      * 
      */
     public Optional<Output<String>> namespaceType() {
@@ -123,14 +139,16 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
+     * Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`,
+     * `ZIP`
      * 
      */
     @Import(name="packaging")
     private @Nullable Output<String> packaging;
 
     /**
-     * @return Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
+     * @return Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`,
+     * `ZIP`
      * 
      */
     public Optional<Output<String>> packaging() {
@@ -201,7 +219,8 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param artifactIdentifier Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
+         * @param artifactIdentifier Artifact identifier. Must be the same specified inside the AWS CodeBuild build
+         * specification.
          * 
          * @return builder
          * 
@@ -212,7 +231,8 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param artifactIdentifier Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
+         * @param artifactIdentifier Artifact identifier. Must be the same specified inside the AWS CodeBuild build
+         * specification.
          * 
          * @return builder
          * 
@@ -222,7 +242,11 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bucketOwnerAccess Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+         * @param bucketOwnerAccess Specifies the bucket owner&#39;s access for objects that another account uploads to
+         * their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
+         * objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
+         * `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
+         * allows CodeBuild to modify the access control list for the bucket.
          * 
          * @return builder
          * 
@@ -233,7 +257,11 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bucketOwnerAccess Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+         * @param bucketOwnerAccess Specifies the bucket owner&#39;s access for objects that another account uploads to
+         * their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
+         * objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
+         * `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
+         * allows CodeBuild to modify the access control list for the bucket.
          * 
          * @return builder
          * 
@@ -243,7 +271,8 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param encryptionDisabled Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+         * @param encryptionDisabled Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
+         * this value is ignored. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -254,7 +283,8 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param encryptionDisabled Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+         * @param encryptionDisabled Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
+         * this value is ignored. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -264,7 +294,8 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param location Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+         * @param location Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
+         * `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
          * 
          * @return builder
          * 
@@ -275,7 +306,8 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param location Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+         * @param location Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
+         * `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
          * 
          * @return builder
          * 
@@ -306,7 +338,8 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param namespaceType Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
+         * @param namespaceType Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values
+         * are `BUILD_ID`, `NONE`.
          * 
          * @return builder
          * 
@@ -317,7 +350,8 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param namespaceType Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
+         * @param namespaceType Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values
+         * are `BUILD_ID`, `NONE`.
          * 
          * @return builder
          * 
@@ -348,7 +382,8 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param packaging Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
+         * @param packaging Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`,
+         * `ZIP`
          * 
          * @return builder
          * 
@@ -359,7 +394,8 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param packaging Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
+         * @param packaging Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`,
+         * `ZIP`
          * 
          * @return builder
          * 

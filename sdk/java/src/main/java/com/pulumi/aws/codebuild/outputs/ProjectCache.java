@@ -13,38 +13,44 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProjectCache {
     /**
-     * @return Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
+     * @return Location where the AWS CodeBuild project stores cached resources. For
+     * type `S3`, the value must be a valid S3 bucket name/prefix.
      * 
      */
     private @Nullable String location;
     /**
-     * @return Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
+     * @return Specifies settings that AWS CodeBuild uses to store and reuse build
+     * dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
      * 
      */
     private @Nullable List<String> modes;
     /**
-     * @return Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
+     * @return Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`,
+     * `LOCAL`, `S3`. Defaults to `NO_CACHE`.
      * 
      */
     private @Nullable String type;
 
     private ProjectCache() {}
     /**
-     * @return Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
+     * @return Location where the AWS CodeBuild project stores cached resources. For
+     * type `S3`, the value must be a valid S3 bucket name/prefix.
      * 
      */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
     /**
-     * @return Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
+     * @return Specifies settings that AWS CodeBuild uses to store and reuse build
+     * dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
      * 
      */
     public List<String> modes() {
         return this.modes == null ? List.of() : this.modes;
     }
     /**
-     * @return Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
+     * @return Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`,
+     * `LOCAL`, `S3`. Defaults to `NO_CACHE`.
      * 
      */
     public Optional<String> type() {

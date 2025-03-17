@@ -23,14 +23,14 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     public static final DbInstanceArgs Empty = new DbInstanceArgs();
 
     /**
-     * Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
+     * Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `db_storage_type` places restrictions on this argument&#39;s minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
      * 
      */
     @Import(name="allocatedStorage", required=true)
     private Output<Integer> allocatedStorage;
 
     /**
-     * @return Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
+     * @return Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `db_storage_type` places restrictions on this argument&#39;s minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
      * 
      */
     public Output<Integer> allocatedStorage() {
@@ -53,14 +53,14 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`.
+     * Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`. This argument is updatable.
      * 
      */
     @Import(name="dbInstanceType", required=true)
     private Output<String> dbInstanceType;
 
     /**
-     * @return Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`.
+     * @return Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`. This argument is updatable.
      * 
      */
     public Output<String> dbInstanceType() {
@@ -68,14 +68,14 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
+     * ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
      * 
      */
     @Import(name="dbParameterGroupIdentifier")
     private @Nullable Output<String> dbParameterGroupIdentifier;
 
     /**
-     * @return ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
+     * @return ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
      * 
      */
     public Optional<Output<String>> dbParameterGroupIdentifier() {
@@ -83,14 +83,14 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400.
+     * Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
      * 
      */
     @Import(name="dbStorageType")
     private @Nullable Output<String> dbStorageType;
 
     /**
-     * @return Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400.
+     * @return Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
      * 
      */
     public Optional<Output<String>> dbStorageType() {
@@ -98,14 +98,14 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`.
+     * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
      * 
      */
     @Import(name="deploymentType")
     private @Nullable Output<String> deploymentType;
 
     /**
-     * @return Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`.
+     * @return Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
      * 
      */
     public Optional<Output<String>> deploymentType() {
@@ -113,14 +113,14 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+     * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      * 
      */
     @Import(name="logDeliveryConfiguration")
     private @Nullable Output<DbInstanceLogDeliveryConfigurationArgs> logDeliveryConfiguration;
 
     /**
-     * @return Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+     * @return Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      * 
      */
     public Optional<Output<DbInstanceLogDeliveryConfigurationArgs>> logDeliveryConfiguration() {
@@ -140,6 +140,21 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
     }
 
     /**
@@ -170,6 +185,21 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> password() {
         return this.password;
+    }
+
+    /**
+     * The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * 
+     */
+    @Import(name="port")
+    private @Nullable Output<Integer> port;
+
+    /**
+     * @return The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * 
+     */
+    public Optional<Output<Integer>> port() {
+        return Optional.ofNullable(this.port);
     }
 
     /**
@@ -269,8 +299,10 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.deploymentType = $.deploymentType;
         this.logDeliveryConfiguration = $.logDeliveryConfiguration;
         this.name = $.name;
+        this.networkType = $.networkType;
         this.organization = $.organization;
         this.password = $.password;
+        this.port = $.port;
         this.publiclyAccessible = $.publiclyAccessible;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
@@ -298,7 +330,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocatedStorage Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
+         * @param allocatedStorage Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `db_storage_type` places restrictions on this argument&#39;s minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
          * 
          * @return builder
          * 
@@ -309,7 +341,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocatedStorage Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
+         * @param allocatedStorage Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `db_storage_type` places restrictions on this argument&#39;s minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: ` &#34;InfluxIOIncludedT1&#34;:  `20` ,  `&#34;InfluxIOIncludedT2&#34; and ` &#34;InfluxIOIncludedT3&#34;:  `400`.
          * 
          * @return builder
          * 
@@ -340,7 +372,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbInstanceType Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`.
+         * @param dbInstanceType Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`. This argument is updatable.
          * 
          * @return builder
          * 
@@ -351,7 +383,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbInstanceType Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`.
+         * @param dbInstanceType Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `&#34;db.influx.medium&#34;`, `&#34;db.influx.large&#34;`, `&#34;db.influx.xlarge&#34;`, `&#34;db.influx.2xlarge&#34;`, `&#34;db.influx.4xlarge&#34;`, `&#34;db.influx.8xlarge&#34;`, `&#34;db.influx.12xlarge&#34;`, and `&#34;db.influx.16xlarge&#34;`. This argument is updatable.
          * 
          * @return builder
          * 
@@ -361,7 +393,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbParameterGroupIdentifier ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
+         * @param dbParameterGroupIdentifier ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
          * 
          * @return builder
          * 
@@ -372,7 +404,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbParameterGroupIdentifier ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
+         * @param dbParameterGroupIdentifier ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
          * 
          * @return builder
          * 
@@ -382,7 +414,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbStorageType Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400.
+         * @param dbStorageType Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
          * 
          * @return builder
          * 
@@ -393,7 +425,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbStorageType Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400.
+         * @param dbStorageType Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `&#34;InfluxIOIncludedT1&#34;`, `&#34;InfluxIOIncludedT2&#34;`, and `&#34;InfluxIOIncludedT3&#34;`. If you use ` &#34;InfluxIOIncludedT2&#34; or &#34;InfluxIOIncludedT3&#34;, the minimum value for  `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
          * 
          * @return builder
          * 
@@ -403,7 +435,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentType Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`.
+         * @param deploymentType Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
          * 
          * @return builder
          * 
@@ -414,7 +446,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentType Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`.
+         * @param deploymentType Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
          * 
          * @return builder
          * 
@@ -424,7 +456,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDeliveryConfiguration Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+         * @param logDeliveryConfiguration Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
          * 
          * @return builder
          * 
@@ -435,7 +467,7 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logDeliveryConfiguration Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+         * @param logDeliveryConfiguration Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
          * 
          * @return builder
          * 
@@ -463,6 +495,27 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param networkType Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
         }
 
         /**
@@ -505,6 +558,27 @@ public final class DbInstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param port The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(@Nullable Output<Integer> port) {
+            $.port = port;
+            return this;
+        }
+
+        /**
+         * @param port The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(Integer port) {
+            return port(Output.of(port));
         }
 
         /**

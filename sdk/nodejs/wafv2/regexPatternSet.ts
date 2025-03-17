@@ -81,9 +81,13 @@ export class RegexPatternSet extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly lockToken!: pulumi.Output<string>;
     /**
-     * A friendly name of the regular expression pattern set.
+     * A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
      */
@@ -120,6 +124,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["lockToken"] = state ? state.lockToken : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["regularExpressions"] = state ? state.regularExpressions : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -131,6 +136,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["regularExpressions"] = args ? args.regularExpressions : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -157,9 +163,13 @@ export interface RegexPatternSetState {
     description?: pulumi.Input<string>;
     lockToken?: pulumi.Input<string>;
     /**
-     * A friendly name of the regular expression pattern set.
+     * A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    namePrefix?: pulumi.Input<string>;
     /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
      */
@@ -189,9 +199,13 @@ export interface RegexPatternSetArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A friendly name of the regular expression pattern set.
+     * A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    namePrefix?: pulumi.Input<string>;
     /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
      */

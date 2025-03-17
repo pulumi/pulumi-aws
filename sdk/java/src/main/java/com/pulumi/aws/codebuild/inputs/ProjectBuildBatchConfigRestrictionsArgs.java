@@ -18,14 +18,20 @@ public final class ProjectBuildBatchConfigRestrictionsArgs extends com.pulumi.re
     public static final ProjectBuildBatchConfigRestrictionsArgs Empty = new ProjectBuildBatchConfigRestrictionsArgs();
 
     /**
-     * An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+     * An array of strings that specify the compute types that are allowed for the batch
+     * build.
+     * See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
+     * in the AWS CodeBuild User Guide for these values.
      * 
      */
     @Import(name="computeTypesAlloweds")
     private @Nullable Output<List<String>> computeTypesAlloweds;
 
     /**
-     * @return An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+     * @return An array of strings that specify the compute types that are allowed for the batch
+     * build.
+     * See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
+     * in the AWS CodeBuild User Guide for these values.
      * 
      */
     public Optional<Output<List<String>>> computeTypesAlloweds() {
@@ -73,7 +79,10 @@ public final class ProjectBuildBatchConfigRestrictionsArgs extends com.pulumi.re
         }
 
         /**
-         * @param computeTypesAlloweds An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+         * @param computeTypesAlloweds An array of strings that specify the compute types that are allowed for the batch
+         * build.
+         * See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
+         * in the AWS CodeBuild User Guide for these values.
          * 
          * @return builder
          * 
@@ -84,7 +93,10 @@ public final class ProjectBuildBatchConfigRestrictionsArgs extends com.pulumi.re
         }
 
         /**
-         * @param computeTypesAlloweds An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+         * @param computeTypesAlloweds An array of strings that specify the compute types that are allowed for the batch
+         * build.
+         * See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
+         * in the AWS CodeBuild User Guide for these values.
          * 
          * @return builder
          * 
@@ -94,7 +106,10 @@ public final class ProjectBuildBatchConfigRestrictionsArgs extends com.pulumi.re
         }
 
         /**
-         * @param computeTypesAlloweds An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+         * @param computeTypesAlloweds An array of strings that specify the compute types that are allowed for the batch
+         * build.
+         * See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
+         * in the AWS CodeBuild User Guide for these values.
          * 
          * @return builder
          * 

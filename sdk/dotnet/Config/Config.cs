@@ -858,6 +858,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Dsql { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Dynamodb { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL

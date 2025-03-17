@@ -32,6 +32,7 @@ from .profiles_profile import *
 from .profiles_resource_association import *
 from .query_log import *
 from .record import *
+from .records_exclusive import *
 from .resolver_config import *
 from .resolver_dns_sec_config import *
 from .resolver_endpoint import *

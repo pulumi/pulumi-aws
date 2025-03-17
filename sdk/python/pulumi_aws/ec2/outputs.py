@@ -188,6 +188,7 @@ __all__ = [
     'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute',
     'NetworkInsightsAnalysisReturnPathComponentVpc',
     'NetworkInterfaceAttachment',
+    'NetworkInterfacePermissionTimeouts',
     'PeeringConnectionOptionsAccepter',
     'PeeringConnectionOptionsRequester',
     'RouteTableRoute',
@@ -12001,6 +12002,37 @@ class NetworkInterfaceAttachment(dict):
     @pulumi.getter(name="attachmentId")
     def attachment_id(self) -> Optional[str]:
         return pulumi.get(self, "attachment_id")
+
+
+@pulumi.output_type
+class NetworkInterfacePermissionTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
 
 
 @pulumi.output_type

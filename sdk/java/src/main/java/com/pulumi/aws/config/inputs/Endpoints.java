@@ -535,6 +535,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String dsql;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String dynamodb;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2240,6 +2245,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> dsql() {
+        return Optional.ofNullable(this.dsql);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> dynamodb() {
         return Optional.ofNullable(this.dynamodb);
     }
@@ -3715,6 +3727,7 @@ public final class Endpoints {
         private @Nullable String docdbelastic;
         private @Nullable String drs;
         private @Nullable String ds;
+        private @Nullable String dsql;
         private @Nullable String dynamodb;
         private @Nullable String ec2;
         private @Nullable String ecr;
@@ -4017,6 +4030,7 @@ public final class Endpoints {
     	      this.docdbelastic = defaults.docdbelastic;
     	      this.drs = defaults.drs;
     	      this.ds = defaults.ds;
+    	      this.dsql = defaults.dsql;
     	      this.dynamodb = defaults.dynamodb;
     	      this.ec2 = defaults.ec2;
     	      this.ecr = defaults.ecr;
@@ -4836,6 +4850,12 @@ public final class Endpoints {
         public Builder ds(@Nullable String ds) {
 
             this.ds = ds;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dsql(@Nullable String dsql) {
+
+            this.dsql = dsql;
             return this;
         }
         @CustomType.Setter
@@ -6114,6 +6134,7 @@ public final class Endpoints {
             _resultValue.docdbelastic = docdbelastic;
             _resultValue.drs = drs;
             _resultValue.ds = ds;
+            _resultValue.dsql = dsql;
             _resultValue.dynamodb = dynamodb;
             _resultValue.ec2 = ec2;
             _resultValue.ecr = ecr;

@@ -816,6 +816,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        dsql: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         dynamodb: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1706,6 +1710,7 @@ class ProviderEndpointArgs:
                  docdbelastic: Optional[pulumi.Input[str]] = None,
                  drs: Optional[pulumi.Input[str]] = None,
                  ds: Optional[pulumi.Input[str]] = None,
+                 dsql: Optional[pulumi.Input[str]] = None,
                  dynamodb: Optional[pulumi.Input[str]] = None,
                  ec2: Optional[pulumi.Input[str]] = None,
                  ecr: Optional[pulumi.Input[str]] = None,
@@ -2006,6 +2011,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] docdbelastic: Use this to override the default service endpoint URL
         :param pulumi.Input[str] drs: Use this to override the default service endpoint URL
         :param pulumi.Input[str] ds: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] dsql: Use this to override the default service endpoint URL
         :param pulumi.Input[str] dynamodb: Use this to override the default service endpoint URL
         :param pulumi.Input[str] ec2: Use this to override the default service endpoint URL
         :param pulumi.Input[str] ecr: Use this to override the default service endpoint URL
@@ -2410,6 +2416,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "drs", drs)
         if ds is not None:
             pulumi.set(__self__, "ds", ds)
+        if dsql is not None:
+            pulumi.set(__self__, "dsql", dsql)
         if dynamodb is not None:
             pulumi.set(__self__, "dynamodb", dynamodb)
         if ec2 is not None:
@@ -4048,6 +4056,18 @@ class ProviderEndpointArgs:
     @ds.setter
     def ds(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ds", value)
+
+    @property
+    @pulumi.getter
+    def dsql(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "dsql")
+
+    @dsql.setter
+    def dsql(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dsql", value)
 
     @property
     @pulumi.getter

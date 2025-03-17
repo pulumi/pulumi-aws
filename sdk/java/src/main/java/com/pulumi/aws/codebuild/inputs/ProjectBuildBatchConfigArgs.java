@@ -20,14 +20,16 @@ public final class ProjectBuildBatchConfigArgs extends com.pulumi.resources.Reso
     public static final ProjectBuildBatchConfigArgs Empty = new ProjectBuildBatchConfigArgs();
 
     /**
-     * Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+     * Specifies if the build artifacts for the batch build should be combined into a single
+     * artifact location.
      * 
      */
     @Import(name="combineArtifacts")
     private @Nullable Output<Boolean> combineArtifacts;
 
     /**
-     * @return Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+     * @return Specifies if the build artifacts for the batch build should be combined into a single
+     * artifact location.
      * 
      */
     public Optional<Output<Boolean>> combineArtifacts() {
@@ -65,14 +67,16 @@ public final class ProjectBuildBatchConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+     * Specifies the maximum amount of time, in minutes, that the batch build must be
+     * completed in.
      * 
      */
     @Import(name="timeoutInMins")
     private @Nullable Output<Integer> timeoutInMins;
 
     /**
-     * @return Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+     * @return Specifies the maximum amount of time, in minutes, that the batch build must be
+     * completed in.
      * 
      */
     public Optional<Output<Integer>> timeoutInMins() {
@@ -107,7 +111,8 @@ public final class ProjectBuildBatchConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param combineArtifacts Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+         * @param combineArtifacts Specifies if the build artifacts for the batch build should be combined into a single
+         * artifact location.
          * 
          * @return builder
          * 
@@ -118,7 +123,8 @@ public final class ProjectBuildBatchConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param combineArtifacts Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+         * @param combineArtifacts Specifies if the build artifacts for the batch build should be combined into a single
+         * artifact location.
          * 
          * @return builder
          * 
@@ -170,7 +176,8 @@ public final class ProjectBuildBatchConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param timeoutInMins Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+         * @param timeoutInMins Specifies the maximum amount of time, in minutes, that the batch build must be
+         * completed in.
          * 
          * @return builder
          * 
@@ -181,7 +188,8 @@ public final class ProjectBuildBatchConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param timeoutInMins Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+         * @param timeoutInMins Specifies the maximum amount of time, in minutes, that the batch build must be
+         * completed in.
          * 
          * @return builder
          * 

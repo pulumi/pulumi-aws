@@ -83,9 +83,13 @@ export class IpSet extends pulumi.CustomResource {
     public readonly ipAddressVersion!: pulumi.Output<string>;
     public /*out*/ readonly lockToken!: pulumi.Output<string>;
     /**
-     * A friendly name of the IP set.
+     * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
      */
@@ -120,6 +124,7 @@ export class IpSet extends pulumi.CustomResource {
             resourceInputs["ipAddressVersion"] = state ? state.ipAddressVersion : undefined;
             resourceInputs["lockToken"] = state ? state.lockToken : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -135,6 +140,7 @@ export class IpSet extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["ipAddressVersion"] = args ? args.ipAddressVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -168,9 +174,13 @@ export interface IpSetState {
     ipAddressVersion?: pulumi.Input<string>;
     lockToken?: pulumi.Input<string>;
     /**
-     * A friendly name of the IP set.
+     * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    namePrefix?: pulumi.Input<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
      */
@@ -204,9 +214,13 @@ export interface IpSetArgs {
      */
     ipAddressVersion: pulumi.Input<string>;
     /**
-     * A friendly name of the IP set.
+     * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
+    namePrefix?: pulumi.Input<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
      */

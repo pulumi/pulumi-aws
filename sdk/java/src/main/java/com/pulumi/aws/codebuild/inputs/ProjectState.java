@@ -61,14 +61,16 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+     * Generates a publicly-accessible URL for the projects build badge. Available as
+     * `badge_url` attribute when enabled.
      * 
      */
     @Import(name="badgeEnabled")
     private @Nullable Output<Boolean> badgeEnabled;
 
     /**
-     * @return Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+     * @return Generates a publicly-accessible URL for the projects build badge. Available as
+     * `badge_url` attribute when enabled.
      * 
      */
     public Optional<Output<Boolean>> badgeEnabled() {
@@ -106,14 +108,18 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
+     * any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
+     * not available on the `Lambda` compute type.
      * 
      */
     @Import(name="buildTimeout")
     private @Nullable Output<Integer> buildTimeout;
 
     /**
-     * @return Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+     * @return Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
+     * any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
+     * not available on the `Lambda` compute type.
      * 
      */
     public Optional<Output<Integer>> buildTimeout() {
@@ -136,14 +142,16 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+     * Specify a maximum number of concurrent builds for the project. The value
+     * specified must be greater than 0 and less than the account concurrent running builds limit.
      * 
      */
     @Import(name="concurrentBuildLimit")
     private @Nullable Output<Integer> concurrentBuildLimit;
 
     /**
-     * @return Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+     * @return Specify a maximum number of concurrent builds for the project. The value
+     * specified must be greater than 0 and less than the account concurrent running builds limit.
      * 
      */
     public Optional<Output<Integer>> concurrentBuildLimit() {
@@ -166,14 +174,16 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project&#39;s build output artifacts.
+     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * the build project&#39;s build output artifacts.
      * 
      */
     @Import(name="encryptionKey")
     private @Nullable Output<String> encryptionKey;
 
     /**
-     * @return AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project&#39;s build output artifacts.
+     * @return AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * the build project&#39;s build output artifacts.
      * 
      */
     public Optional<Output<String>> encryptionKey() {
@@ -196,14 +206,16 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of file system locations to mount inside the build. File system locations are documented below.
+     * A set of file system locations to mount inside the build. File system locations
+     * are documented below.
      * 
      */
     @Import(name="fileSystemLocations")
     private @Nullable Output<List<ProjectFileSystemLocationArgs>> fileSystemLocations;
 
     /**
-     * @return A set of file system locations to mount inside the build. File system locations are documented below.
+     * @return A set of file system locations to mount inside the build. File system locations
+     * are documented below.
      * 
      */
     public Optional<Output<List<ProjectFileSystemLocationArgs>>> fileSystemLocations() {
@@ -241,14 +253,16 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+     * Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ`
+     * and `PRIVATE`. Default value is `PRIVATE`.
      * 
      */
     @Import(name="projectVisibility")
     private @Nullable Output<String> projectVisibility;
 
     /**
-     * @return Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+     * @return Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ`
+     * and `PRIVATE`. Default value is `PRIVATE`.
      * 
      */
     public Optional<Output<String>> projectVisibility() {
@@ -271,14 +285,16 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
+     * times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     @Import(name="queuedTimeout")
     private @Nullable Output<Integer> queuedTimeout;
 
     /**
-     * @return Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+     * @return Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
+     * times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     public Optional<Output<Integer>> queuedTimeout() {
@@ -286,14 +302,18 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
+     * Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if
+     * `project_visibility` is `PUBLIC_READ`.
      * 
      */
     @Import(name="resourceAccessRole")
     private @Nullable Output<String> resourceAccessRole;
 
     /**
-     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
+     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
+     * Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if
+     * `project_visibility` is `PUBLIC_READ`.
      * 
      */
     public Optional<Output<String>> resourceAccessRole() {
@@ -346,14 +366,16 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
     @Import(name="serviceRole")
     private @Nullable Output<String> serviceRole;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     * @return Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
     public Optional<Output<String>> serviceRole() {
@@ -380,14 +402,16 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Version of the build input to be built for this project. If not specified, the latest version is used.
+     * Version of the build input to be built for this project. If not specified, the latest
+     * version is used.
      * 
      */
     @Import(name="sourceVersion")
     private @Nullable Output<String> sourceVersion;
 
     /**
-     * @return Version of the build input to be built for this project. If not specified, the latest version is used.
+     * @return Version of the build input to be built for this project. If not specified, the latest
+     * version is used.
      * 
      */
     public Optional<Output<String>> sourceVersion() {
@@ -395,14 +419,18 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider
+     * `default_tags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider
+     * `default_tags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -410,7 +438,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider
+     * `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -421,7 +450,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return A map of tags assigned to the resource, including those inherited from the provider
+     * `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -540,7 +570,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param badgeEnabled Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+         * @param badgeEnabled Generates a publicly-accessible URL for the projects build badge. Available as
+         * `badge_url` attribute when enabled.
          * 
          * @return builder
          * 
@@ -551,7 +582,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param badgeEnabled Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
+         * @param badgeEnabled Generates a publicly-accessible URL for the projects build badge. Available as
+         * `badge_url` attribute when enabled.
          * 
          * @return builder
          * 
@@ -603,7 +635,9 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildTimeout Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+         * @param buildTimeout Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
+         * any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
+         * not available on the `Lambda` compute type.
          * 
          * @return builder
          * 
@@ -614,7 +648,9 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param buildTimeout Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+         * @param buildTimeout Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
+         * any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
+         * not available on the `Lambda` compute type.
          * 
          * @return builder
          * 
@@ -645,7 +681,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param concurrentBuildLimit Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+         * @param concurrentBuildLimit Specify a maximum number of concurrent builds for the project. The value
+         * specified must be greater than 0 and less than the account concurrent running builds limit.
          * 
          * @return builder
          * 
@@ -656,7 +693,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param concurrentBuildLimit Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+         * @param concurrentBuildLimit Specify a maximum number of concurrent builds for the project. The value
+         * specified must be greater than 0 and less than the account concurrent running builds limit.
          * 
          * @return builder
          * 
@@ -687,7 +725,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionKey AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project&#39;s build output artifacts.
+         * @param encryptionKey AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+         * the build project&#39;s build output artifacts.
          * 
          * @return builder
          * 
@@ -698,7 +737,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionKey AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project&#39;s build output artifacts.
+         * @param encryptionKey AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+         * the build project&#39;s build output artifacts.
          * 
          * @return builder
          * 
@@ -729,7 +769,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemLocations A set of file system locations to mount inside the build. File system locations are documented below.
+         * @param fileSystemLocations A set of file system locations to mount inside the build. File system locations
+         * are documented below.
          * 
          * @return builder
          * 
@@ -740,7 +781,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemLocations A set of file system locations to mount inside the build. File system locations are documented below.
+         * @param fileSystemLocations A set of file system locations to mount inside the build. File system locations
+         * are documented below.
          * 
          * @return builder
          * 
@@ -750,7 +792,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemLocations A set of file system locations to mount inside the build. File system locations are documented below.
+         * @param fileSystemLocations A set of file system locations to mount inside the build. File system locations
+         * are documented below.
          * 
          * @return builder
          * 
@@ -802,7 +845,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectVisibility Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+         * @param projectVisibility Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ`
+         * and `PRIVATE`. Default value is `PRIVATE`.
          * 
          * @return builder
          * 
@@ -813,7 +857,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectVisibility Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+         * @param projectVisibility Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ`
+         * and `PRIVATE`. Default value is `PRIVATE`.
          * 
          * @return builder
          * 
@@ -844,7 +889,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queuedTimeout Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+         * @param queuedTimeout Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
+         * times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
          * 
          * @return builder
          * 
@@ -855,7 +901,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queuedTimeout Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+         * @param queuedTimeout Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
+         * times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
          * 
          * @return builder
          * 
@@ -865,7 +912,9 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceAccessRole The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
+         * @param resourceAccessRole The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
+         * Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if
+         * `project_visibility` is `PUBLIC_READ`.
          * 
          * @return builder
          * 
@@ -876,7 +925,9 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceAccessRole The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
+         * @param resourceAccessRole The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
+         * Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if
+         * `project_visibility` is `PUBLIC_READ`.
          * 
          * @return builder
          * 
@@ -979,7 +1030,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRole Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+         * @param serviceRole Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+         * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
          * 
          * @return builder
          * 
@@ -990,7 +1042,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRole Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+         * @param serviceRole Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+         * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
          * 
          * @return builder
          * 
@@ -1025,7 +1078,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceVersion Version of the build input to be built for this project. If not specified, the latest version is used.
+         * @param sourceVersion Version of the build input to be built for this project. If not specified, the latest
+         * version is used.
          * 
          * @return builder
          * 
@@ -1036,7 +1090,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceVersion Version of the build input to be built for this project. If not specified, the latest version is used.
+         * @param sourceVersion Version of the build input to be built for this project. If not specified, the latest
+         * version is used.
          * 
          * @return builder
          * 
@@ -1046,7 +1101,9 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider
+         * `default_tags` configuration block
+         * present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1057,7 +1114,9 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider
+         * `default_tags` configuration block
+         * present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1067,7 +1126,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider
+         * `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -1082,7 +1142,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider
+         * `default_tags` configuration block.
          * 
          * @return builder
          * 

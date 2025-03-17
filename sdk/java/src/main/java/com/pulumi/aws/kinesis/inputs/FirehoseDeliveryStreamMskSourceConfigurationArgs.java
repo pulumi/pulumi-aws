@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -46,6 +48,21 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
     }
 
     /**
+     * The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+     * 
+     */
+    @Import(name="readFromTimestamp")
+    private @Nullable Output<String> readFromTimestamp;
+
+    /**
+     * @return The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+     * 
+     */
+    public Optional<Output<String>> readFromTimestamp() {
+        return Optional.ofNullable(this.readFromTimestamp);
+    }
+
+    /**
      * The topic name within the Amazon MSK cluster.
      * 
      */
@@ -65,6 +82,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
     private FirehoseDeliveryStreamMskSourceConfigurationArgs(FirehoseDeliveryStreamMskSourceConfigurationArgs $) {
         this.authenticationConfiguration = $.authenticationConfiguration;
         this.mskClusterArn = $.mskClusterArn;
+        this.readFromTimestamp = $.readFromTimestamp;
         this.topicName = $.topicName;
     }
 
@@ -126,6 +144,27 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
          */
         public Builder mskClusterArn(String mskClusterArn) {
             return mskClusterArn(Output.of(mskClusterArn));
+        }
+
+        /**
+         * @param readFromTimestamp The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readFromTimestamp(@Nullable Output<String> readFromTimestamp) {
+            $.readFromTimestamp = readFromTimestamp;
+            return this;
+        }
+
+        /**
+         * @param readFromTimestamp The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readFromTimestamp(String readFromTimestamp) {
+            return readFromTimestamp(Output.of(readFromTimestamp));
         }
 
         /**

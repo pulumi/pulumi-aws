@@ -230,7 +230,6 @@ import javax.annotation.Nullable;
  *                     .id("e1")
  *                     .expression("ANOMALY_DETECTION_BAND(m1)")
  *                     .label("CPUUtilization (Expected)")
- *                     .returnData("true")
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
  *                     .id("m1")

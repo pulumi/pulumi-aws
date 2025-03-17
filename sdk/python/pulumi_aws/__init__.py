@@ -4638,6 +4638,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/networkInterfacePermission",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/networkInterfacePermission:NetworkInterfacePermission": "NetworkInterfacePermission"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/networkInterfaceSecurityGroupAttachment",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -9906,6 +9914,14 @@ _utilities.register(
   "fqn": "pulumi_aws.route53",
   "classes": {
    "aws:route53/record:Record": "Record"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53/recordsExclusive",
+  "fqn": "pulumi_aws.route53",
+  "classes": {
+   "aws:route53/recordsExclusive:RecordsExclusive": "RecordsExclusive"
   }
  },
  {

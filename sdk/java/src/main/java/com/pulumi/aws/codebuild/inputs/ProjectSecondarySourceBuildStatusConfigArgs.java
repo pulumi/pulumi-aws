@@ -16,14 +16,16 @@ public final class ProjectSecondarySourceBuildStatusConfigArgs extends com.pulum
     public static final ProjectSecondarySourceBuildStatusConfigArgs Empty = new ProjectSecondarySourceBuildStatusConfigArgs();
 
     /**
-     * Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+     * Specifies the context of the build status CodeBuild sends to the source provider. The usage of
+     * this parameter depends on the source provider.
      * 
      */
     @Import(name="context")
     private @Nullable Output<String> context;
 
     /**
-     * @return Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+     * @return Specifies the context of the build status CodeBuild sends to the source provider. The usage of
+     * this parameter depends on the source provider.
      * 
      */
     public Optional<Output<String>> context() {
@@ -31,14 +33,16 @@ public final class ProjectSecondarySourceBuildStatusConfigArgs extends com.pulum
     }
 
     /**
-     * Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+     * Specifies the target url of the build status CodeBuild sends to the source provider. The
+     * usage of this parameter depends on the source provider.
      * 
      */
     @Import(name="targetUrl")
     private @Nullable Output<String> targetUrl;
 
     /**
-     * @return Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+     * @return Specifies the target url of the build status CodeBuild sends to the source provider. The
+     * usage of this parameter depends on the source provider.
      * 
      */
     public Optional<Output<String>> targetUrl() {
@@ -71,7 +75,8 @@ public final class ProjectSecondarySourceBuildStatusConfigArgs extends com.pulum
         }
 
         /**
-         * @param context Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         * @param context Specifies the context of the build status CodeBuild sends to the source provider. The usage of
+         * this parameter depends on the source provider.
          * 
          * @return builder
          * 
@@ -82,7 +87,8 @@ public final class ProjectSecondarySourceBuildStatusConfigArgs extends com.pulum
         }
 
         /**
-         * @param context Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         * @param context Specifies the context of the build status CodeBuild sends to the source provider. The usage of
+         * this parameter depends on the source provider.
          * 
          * @return builder
          * 
@@ -92,7 +98,8 @@ public final class ProjectSecondarySourceBuildStatusConfigArgs extends com.pulum
         }
 
         /**
-         * @param targetUrl Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         * @param targetUrl Specifies the target url of the build status CodeBuild sends to the source provider. The
+         * usage of this parameter depends on the source provider.
          * 
          * @return builder
          * 
@@ -103,7 +110,8 @@ public final class ProjectSecondarySourceBuildStatusConfigArgs extends com.pulum
         }
 
         /**
-         * @param targetUrl Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+         * @param targetUrl Specifies the target url of the build status CodeBuild sends to the source provider. The
+         * usage of this parameter depends on the source provider.
          * 
          * @return builder
          * 
