@@ -13,25 +13,32 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectArtifactsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
+        /// Artifact identifier. Must be the same specified inside the AWS CodeBuild build
+        /// specification.
         /// </summary>
         [Input("artifactIdentifier")]
         public Input<string>? ArtifactIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+        /// Specifies the bucket owner's access for objects that another account uploads to
+        /// their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
+        /// objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
+        /// `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
+        /// allows CodeBuild to modify the access control list for the bucket.
         /// </summary>
         [Input("bucketOwnerAccess")]
         public Input<string>? BucketOwnerAccess { get; set; }
 
         /// <summary>
-        /// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+        /// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
+        /// this value is ignored. Defaults to `false`.
         /// </summary>
         [Input("encryptionDisabled")]
         public Input<bool>? EncryptionDisabled { get; set; }
 
         /// <summary>
-        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
+        /// `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -43,7 +50,8 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
+        /// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values
+        /// are `BUILD_ID`, `NONE`.
         /// </summary>
         [Input("namespaceType")]
         public Input<string>? NamespaceType { get; set; }
@@ -55,7 +63,8 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<bool>? OverrideArtifactName { get; set; }
 
         /// <summary>
-        /// Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
+        /// Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`,
+        /// `ZIP`
         /// </summary>
         [Input("packaging")]
         public Input<string>? Packaging { get; set; }

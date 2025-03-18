@@ -16,7 +16,8 @@ public final class ProjectEnvironmentRegistryCredential {
      */
     private String credential;
     /**
-     * @return Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
+     * @return Service that created the credentials to access a private Docker registry. Valid
+     * value: `SECRETS_MANAGER` (AWS Secrets Manager).
      * 
      */
     private String credentialProvider;
@@ -30,7 +31,8 @@ public final class ProjectEnvironmentRegistryCredential {
         return this.credential;
     }
     /**
-     * @return Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
+     * @return Service that created the credentials to access a private Docker registry. Valid
+     * value: `SECRETS_MANAGER` (AWS Secrets Manager).
      * 
      */
     public String credentialProvider() {

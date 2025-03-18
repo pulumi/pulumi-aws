@@ -1977,6 +1977,7 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_network_acl_association":      {Tok: awsResource(ec2Mod, "NetworkAclAssociation")},
 			"aws_network_interface":            {Tok: awsResource(ec2Mod, "NetworkInterface")},
 			"aws_network_interface_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceAttachment")},
+			"aws_network_interface_permission": {Tok: awsResource(ec2Mod, "NetworkInterfacePermission")},
 			"aws_placement_group": {
 				Tok: awsResource(ec2Mod, "PlacementGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -6071,6 +6072,14 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 
 	prov.Resources["aws_lakeformation_opt_in"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "principal.dataLakePrincipalIdentifier"), nil
+	}
+
+	prov.Resources["aws_network_interface_permission"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "networkInterfacePermissionId"), nil
+	}
+
+	prov.Resources["aws_route53_records_exclusive"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "zoneId"), nil
 	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{

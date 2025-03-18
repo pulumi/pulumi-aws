@@ -13,13 +13,15 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectSourceBuildStatusConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+        /// Specifies the context of the build status CodeBuild sends to the source provider. The usage of
+        /// this parameter depends on the source provider.
         /// </summary>
         [Input("context")]
         public Input<string>? Context { get; set; }
 
         /// <summary>
-        /// Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+        /// Specifies the target url of the build status CodeBuild sends to the source provider. The
+        /// usage of this parameter depends on the source provider.
         /// </summary>
         [Input("targetUrl")]
         public Input<string>? TargetUrl { get; set; }

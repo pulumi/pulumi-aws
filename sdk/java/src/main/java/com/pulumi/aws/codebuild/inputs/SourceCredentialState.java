@@ -31,14 +31,18 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+     * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+     * repository. Valid values are `BASIC_AUTH`,
+     * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
      * 
      */
     @Import(name="authType")
     private @Nullable Output<String> authType;
 
     /**
-     * @return The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+     * @return The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+     * repository. Valid values are `BASIC_AUTH`,
+     * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
      * 
      */
     public Optional<Output<String>> authType() {
@@ -61,14 +65,18 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+     * For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+     * app password. When using an AWS CodeStar connection (`auth_type = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
+     * Connection ARN.
      * 
      */
     @Import(name="token")
     private @Nullable Output<String> token;
 
     /**
-     * @return For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+     * @return For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+     * app password. When using an AWS CodeStar connection (`auth_type = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
+     * Connection ARN.
      * 
      */
     public Optional<Output<String>> token() {
@@ -76,14 +84,16 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+     * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+     * other types of source providers or connections.
      * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
-     * @return The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+     * @return The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+     * other types of source providers or connections.
      * 
      */
     public Optional<Output<String>> userName() {
@@ -140,7 +150,9 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authType The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+         * @param authType The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+         * repository. Valid values are `BASIC_AUTH`,
+         * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
          * 
          * @return builder
          * 
@@ -151,7 +163,9 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authType The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+         * @param authType The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+         * repository. Valid values are `BASIC_AUTH`,
+         * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
          * 
          * @return builder
          * 
@@ -182,7 +196,9 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param token For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+         * @param token For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+         * app password. When using an AWS CodeStar connection (`auth_type = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
+         * Connection ARN.
          * 
          * @return builder
          * 
@@ -193,7 +209,9 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param token For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+         * @param token For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+         * app password. When using an AWS CodeStar connection (`auth_type = &#34;CODECONNECTIONS&#34;)`, this is an AWS CodeStar
+         * Connection ARN.
          * 
          * @return builder
          * 
@@ -203,7 +221,8 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userName The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+         * @param userName The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+         * other types of source providers or connections.
          * 
          * @return builder
          * 
@@ -214,7 +233,8 @@ public final class SourceCredentialState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userName The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+         * @param userName The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+         * other types of source providers or connections.
          * 
          * @return builder
          * 

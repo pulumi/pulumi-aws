@@ -12,12 +12,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProjectFileSystemLocation {
     /**
-     * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
+     * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an
+     * environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify
+     * my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
      * 
      */
     private @Nullable String identifier;
     /**
-     * @return A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+     * @return A string that specifies the location of the file system created by Amazon EFS. Its format is
+     * `efs-dns-name:/directory-path`.
      * 
      */
     private @Nullable String location;
@@ -39,14 +42,17 @@ public final class ProjectFileSystemLocation {
 
     private ProjectFileSystemLocation() {}
     /**
-     * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
+     * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an
+     * environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify
+     * my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
      * 
      */
     public Optional<String> identifier() {
         return Optional.ofNullable(this.identifier);
     }
     /**
-     * @return A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
+     * @return A string that specifies the location of the file system created by Amazon EFS. Its format is
+     * `efs-dns-name:/directory-path`.
      * 
      */
     public Optional<String> location() {

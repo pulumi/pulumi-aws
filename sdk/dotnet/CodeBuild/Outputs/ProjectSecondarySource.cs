@@ -14,15 +14,27 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class ProjectSecondarySource
     {
         /// <summary>
-        /// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+        /// Information about the strategy CodeBuild should use when authenticating with the source code host.
+        /// Detailed below.
+        /// </summary>
+        public readonly Outputs.ProjectSecondarySourceAuth? Auth;
+        /// <summary>
+        /// Configuration block that contains information that defines how the build project
+        /// reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
+        /// Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
         /// </summary>
         public readonly Outputs.ProjectSecondarySourceBuildStatusConfig? BuildStatusConfig;
         /// <summary>
-        /// The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
+        /// The build spec declaration to use for this build project's related builds. This must be set
+        /// when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file
+        /// path leveraging the `file()` built-in.
         /// </summary>
         public readonly string? Buildspec;
         /// <summary>
-        /// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
+        /// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
+        /// to run commands like `git branch --show-current`.
+        /// See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
+        /// for details.
         /// </summary>
         public readonly int? GitCloneDepth;
         /// <summary>
@@ -38,20 +50,26 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Whether to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
+        /// Whether to report the status of a build's start and finish to your source provider.
+        /// This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
+        /// Bitbucket.
         /// </summary>
         public readonly bool? ReportBuildStatus;
         /// <summary>
-        /// An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+        /// An identifier for this project source. The identifier can only contain alphanumeric
+        /// characters and underscores, and must be less than 128 characters in length.
         /// </summary>
         public readonly string SourceIdentifier;
         /// <summary>
-        /// Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
+        /// Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
+        /// `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private ProjectSecondarySource(
+            Outputs.ProjectSecondarySourceAuth? auth,
+
             Outputs.ProjectSecondarySourceBuildStatusConfig? buildStatusConfig,
 
             string? buildspec,
@@ -70,6 +88,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
 
             string type)
         {
+            Auth = auth;
             BuildStatusConfig = buildStatusConfig;
             Buildspec = buildspec;
             GitCloneDepth = gitCloneDepth;

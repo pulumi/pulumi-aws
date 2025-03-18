@@ -14,7 +14,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class ProjectBuildBatchConfig
     {
         /// <summary>
-        /// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+        /// Specifies if the build artifacts for the batch build should be combined into a single
+        /// artifact location.
         /// </summary>
         public readonly bool? CombineArtifacts;
         /// <summary>
@@ -26,7 +27,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string ServiceRole;
         /// <summary>
-        /// Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+        /// Specifies the maximum amount of time, in minutes, that the batch build must be
+        /// completed in.
         /// </summary>
         public readonly int? TimeoutInMins;
 

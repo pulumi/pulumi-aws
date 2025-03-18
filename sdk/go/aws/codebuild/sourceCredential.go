@@ -14,7 +14,10 @@ import (
 
 // Provides a CodeBuild Source Credentials Resource.
 //
-// > **NOTE:** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html). Therefore, when you define `codebuild.SourceCredential`, `codebuild.Project` resource defined in the same module will use it.
+// > **NOTE:
+// ** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
+// Therefore, when you define `codebuild.SourceCredential`,
+// `codebuild.Project` resource defined in the same module will use it.
 //
 // ## Example Usage
 //
@@ -73,6 +76,34 @@ import (
 //
 // ```
 //
+// ### AWS CodeStar Connection Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codebuild.NewSourceCredential(ctx, "example", &codebuild.SourceCredentialArgs{
+//				AuthType:   pulumi.String("CODECONNECTIONS"),
+//				ServerType: pulumi.String("GITHUB"),
+//				Token:      pulumi.String("arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
@@ -85,13 +116,18 @@ type SourceCredential struct {
 
 	// The ARN of Source Credential.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+	// repository. Valid values are `BASIC_AUTH`,
+	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType pulumi.StringOutput `pulumi:"authType"`
 	// The source provider used for this project.
 	ServerType pulumi.StringOutput `pulumi:"serverType"`
-	// For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+	// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
+	// Connection ARN.
 	Token pulumi.StringOutput `pulumi:"token"`
-	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+	// other types of source providers or connections.
 	UserName pulumi.StringPtrOutput `pulumi:"userName"`
 }
 
@@ -143,26 +179,36 @@ func GetSourceCredential(ctx *pulumi.Context,
 type sourceCredentialState struct {
 	// The ARN of Source Credential.
 	Arn *string `pulumi:"arn"`
-	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+	// repository. Valid values are `BASIC_AUTH`,
+	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType *string `pulumi:"authType"`
 	// The source provider used for this project.
 	ServerType *string `pulumi:"serverType"`
-	// For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+	// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
+	// Connection ARN.
 	Token *string `pulumi:"token"`
-	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+	// other types of source providers or connections.
 	UserName *string `pulumi:"userName"`
 }
 
 type SourceCredentialState struct {
 	// The ARN of Source Credential.
 	Arn pulumi.StringPtrInput
-	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+	// repository. Valid values are `BASIC_AUTH`,
+	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType pulumi.StringPtrInput
 	// The source provider used for this project.
 	ServerType pulumi.StringPtrInput
-	// For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+	// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
+	// Connection ARN.
 	Token pulumi.StringPtrInput
-	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+	// other types of source providers or connections.
 	UserName pulumi.StringPtrInput
 }
 
@@ -171,25 +217,35 @@ func (SourceCredentialState) ElementType() reflect.Type {
 }
 
 type sourceCredentialArgs struct {
-	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+	// repository. Valid values are `BASIC_AUTH`,
+	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType string `pulumi:"authType"`
 	// The source provider used for this project.
 	ServerType string `pulumi:"serverType"`
-	// For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+	// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
+	// Connection ARN.
 	Token string `pulumi:"token"`
-	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+	// other types of source providers or connections.
 	UserName *string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a SourceCredential resource.
 type SourceCredentialArgs struct {
-	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+	// repository. Valid values are `BASIC_AUTH`,
+	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType pulumi.StringInput
 	// The source provider used for this project.
 	ServerType pulumi.StringInput
-	// For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+	// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
+	// Connection ARN.
 	Token pulumi.StringInput
-	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+	// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+	// other types of source providers or connections.
 	UserName pulumi.StringPtrInput
 }
 
@@ -285,7 +341,9 @@ func (o SourceCredentialOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
+// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+// repository. Valid values are `BASIC_AUTH`,
+// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 func (o SourceCredentialOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
 }
@@ -295,12 +353,15 @@ func (o SourceCredentialOutput) ServerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.ServerType }).(pulumi.StringOutput)
 }
 
-// For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
+// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+// app password. When using an AWS CodeStar connection (`authType = "CODECONNECTIONS")`, this is an AWS CodeStar
+// Connection ARN.
 func (o SourceCredentialOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.Token }).(pulumi.StringOutput)
 }
 
-// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
+// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+// other types of source providers or connections.
 func (o SourceCredentialOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringPtrOutput { return v.UserName }).(pulumi.StringPtrOutput)
 }

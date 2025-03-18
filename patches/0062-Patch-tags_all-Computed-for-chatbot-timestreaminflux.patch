@@ -31,11 +31,11 @@ index 1346daf756..38ea5807ae 100644
  				Required: true,
  			},
 diff --git a/internal/service/timestreaminfluxdb/db_instance.go b/internal/service/timestreaminfluxdb/db_instance.go
-index abe717425e..6beb67a764 100644
+index 7490c9ca7e..1a6dc071f9 100644
 --- a/internal/service/timestreaminfluxdb/db_instance.go
 +++ b/internal/service/timestreaminfluxdb/db_instance.go
-@@ -184,7 +184,7 @@ func (r *resourceDBInstance) Schema(ctx context.Context, req resource.SchemaRequ
- 					and per region.`,
+@@ -191,7 +191,7 @@ func (r *resourceDBInstance) Schema(ctx context.Context, req resource.SchemaRequ
+ 					over both IPv4 and IPv6 protocols.`,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),

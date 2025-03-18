@@ -5,7 +5,7 @@ Subject: [PATCH] Do not compute tags_all at TF level
 
 
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index ba02c7346f..625c5ca7d1 100644
+index 1bfa22c88b..9f08eec23b 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
 @@ -422,8 +422,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
@@ -111,7 +111,7 @@ index c18a27c103..caf5b73210 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/ec2/vpc_security_group_ingress_rule.go b/internal/service/ec2/vpc_security_group_ingress_rule.go
-index 0572498f92..a1c1120c81 100644
+index 6b991afb0a..133991c9aa 100644
 --- a/internal/service/ec2/vpc_security_group_ingress_rule.go
 +++ b/internal/service/ec2/vpc_security_group_ingress_rule.go
 @@ -225,7 +225,7 @@ func (r *securityGroupRuleResource) Schema(ctx context.Context, request resource

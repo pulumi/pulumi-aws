@@ -14,7 +14,10 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class ProjectBuildBatchConfigRestrictions
     {
         /// <summary>
-        /// An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
+        /// An array of strings that specify the compute types that are allowed for the batch
+        /// build.
+        /// See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
+        /// in the AWS CodeBuild User Guide for these values.
         /// </summary>
         public readonly ImmutableArray<string> ComputeTypesAlloweds;
         /// <summary>

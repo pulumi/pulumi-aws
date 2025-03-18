@@ -16,7 +16,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProjectBuildBatchConfig {
     /**
-     * @return Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+     * @return Specifies if the build artifacts for the batch build should be combined into a single
+     * artifact location.
      * 
      */
     private @Nullable Boolean combineArtifacts;
@@ -31,14 +32,16 @@ public final class ProjectBuildBatchConfig {
      */
     private String serviceRole;
     /**
-     * @return Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+     * @return Specifies the maximum amount of time, in minutes, that the batch build must be
+     * completed in.
      * 
      */
     private @Nullable Integer timeoutInMins;
 
     private ProjectBuildBatchConfig() {}
     /**
-     * @return Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+     * @return Specifies if the build artifacts for the batch build should be combined into a single
+     * artifact location.
      * 
      */
     public Optional<Boolean> combineArtifacts() {
@@ -59,7 +62,8 @@ public final class ProjectBuildBatchConfig {
         return this.serviceRole;
     }
     /**
-     * @return Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
+     * @return Specifies the maximum amount of time, in minutes, that the batch build must be
+     * completed in.
      * 
      */
     public Optional<Integer> timeoutInMins() {

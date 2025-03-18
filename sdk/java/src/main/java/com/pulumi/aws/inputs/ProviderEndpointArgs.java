@@ -1579,6 +1579,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="dsql")
+    private @Nullable Output<String> dsql;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> dsql() {
+        return Optional.ofNullable(this.dsql);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="dynamodb")
     private @Nullable Output<String> dynamodb;
 
@@ -4607,6 +4622,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.docdbelastic = $.docdbelastic;
         this.drs = $.drs;
         this.ds = $.ds;
+        this.dsql = $.dsql;
         this.dynamodb = $.dynamodb;
         this.ec2 = $.ec2;
         this.ecr = $.ecr;
@@ -7004,6 +7020,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder ds(String ds) {
             return ds(Output.of(ds));
+        }
+
+        /**
+         * @param dsql Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dsql(@Nullable Output<String> dsql) {
+            $.dsql = dsql;
+            return this;
+        }
+
+        /**
+         * @param dsql Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dsql(String dsql) {
+            return dsql(Output.of(dsql));
         }
 
         /**

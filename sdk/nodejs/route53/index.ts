@@ -136,6 +136,11 @@ export const Record: typeof import("./record").Record = null as any;
 utilities.lazyLoad(exports, ["Record"], () => require("./record"));
 
 export * from "./recordType";
+export { RecordsExclusiveArgs, RecordsExclusiveState } from "./recordsExclusive";
+export type RecordsExclusive = import("./recordsExclusive").RecordsExclusive;
+export const RecordsExclusive: typeof import("./recordsExclusive").RecordsExclusive = null as any;
+utilities.lazyLoad(exports, ["RecordsExclusive"], () => require("./recordsExclusive"));
+
 export { ResolverConfigArgs, ResolverConfigState } from "./resolverConfig";
 export type ResolverConfig = import("./resolverConfig").ResolverConfig;
 export const ResolverConfig: typeof import("./resolverConfig").ResolverConfig = null as any;
@@ -251,6 +256,8 @@ const _module = {
                 return new QueryLog(name, <any>undefined, { urn })
             case "aws:route53/record:Record":
                 return new Record(name, <any>undefined, { urn })
+            case "aws:route53/recordsExclusive:RecordsExclusive":
+                return new RecordsExclusive(name, <any>undefined, { urn })
             case "aws:route53/resolverConfig:ResolverConfig":
                 return new ResolverConfig(name, <any>undefined, { urn })
             case "aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig":
@@ -301,6 +308,7 @@ pulumi.runtime.registerResourceModule("aws", "route53/profilesProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/profilesResourceAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/queryLog", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/record", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/recordsExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverDnsSecConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverEndpoint", _module)

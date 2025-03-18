@@ -193,7 +193,6 @@ import (
 //						Id:         pulumi.String("e1"),
 //						Expression: pulumi.String("ANOMALY_DETECTION_BAND(m1)"),
 //						Label:      pulumi.String("CPUUtilization (Expected)"),
-//						ReturnData: pulumi.Bool(true),
 //					},
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Id:         pulumi.String("m1"),

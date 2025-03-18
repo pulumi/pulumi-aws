@@ -5,10 +5,10 @@ Subject: [PATCH] Restore legacy bucket
 
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 7b816b3be1..8cf17f7846 100644
+index f92b95e508..471cebfd8f 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
-@@ -17,7 +17,6 @@ import (
+@@ -18,7 +18,6 @@ import (
  
  	"github.com/hashicorp/terraform-provider-aws/internal/service/ecr"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/gamelift"
@@ -16,7 +16,7 @@ index 7b816b3be1..8cf17f7846 100644
  
  	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
  	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
-@@ -270,8 +269,6 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -271,8 +270,6 @@ func New(ctx context.Context) (*schema.Provider, error) {
  		},
  
  		ResourcesMap: map[string]*schema.Resource{
@@ -25,7 +25,7 @@ index 7b816b3be1..8cf17f7846 100644
  			"aws_gamelift_matchmaking_configuration": gamelift.ResourceMatchMakingConfiguration(),
  			"aws_gamelift_matchmaking_rule_set":      gamelift.ResourceMatchmakingRuleSet(),
  		},
-@@ -284,7 +281,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -285,7 +282,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
  	var errs []error
  	servicePackageMap := make(map[string]conns.ServicePackage)
  

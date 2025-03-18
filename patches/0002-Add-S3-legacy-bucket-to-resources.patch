@@ -14,10 +14,10 @@ scheme for registration: see
 https://github.com/hashicorp/terraform-provider-aws/pull/29717.
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 061b275d56..a4e6635364 100644
+index e597d8c296..76f9ed4b32 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
-@@ -14,6 +14,8 @@ import (
+@@ -15,6 +15,8 @@ import (
  
  	"github.com/YakDriver/regexache"
  	"github.com/aws/aws-sdk-go-v2/aws"
@@ -26,7 +26,7 @@ index 061b275d56..a4e6635364 100644
  	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
  	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
  	"github.com/hashicorp/go-cty/cty"
-@@ -261,7 +263,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -262,7 +264,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
  		// should use the @SDKDataSource and @SDKResource function-level annotations
  		// rather than adding directly to these maps.
  		DataSourcesMap: make(map[string]*schema.Resource),
@@ -36,7 +36,7 @@ index 061b275d56..a4e6635364 100644
 +		},
  	}
  
- 	provider.ConfigureContextFunc = func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
+ 	provider.ConfigureContextFunc = func(ctx context.Context, d *schema.ResourceData) (any, diag.Diagnostics) {
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
 new file mode 100644
 index 0000000000..1c19c2a4c1

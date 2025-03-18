@@ -639,6 +639,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("dsql")]
+        public Input<string>? Dsql { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("dynamodb")]
         public Input<string>? Dynamodb { get; set; }
 

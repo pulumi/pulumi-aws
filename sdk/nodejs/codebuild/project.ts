@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a CodeBuild Project resource. See also the `aws.codebuild.Webhook` resource, which manages the webhook to the source (e.g., the "rebuild every time a code change is pushed" option in the CodeBuild web console).
+ * Provides a CodeBuild Project resource. See also the
+ * `aws.codebuild.Webhook` resource, which manages the webhook to the
+ * source (e.g., the "rebuild every time a code change is pushed" option in the CodeBuild web console).
  *
  * ## Example Usage
  *
@@ -86,6 +88,14 @@ import * as utilities from "../utilities";
  *                 exampleBucketV2Arn,
  *                 `${exampleBucketV2Arn1}/*`,
  *             ],
+ *         },
+ *         {
+ *             effect: "Allow",
+ *             actions: [
+ *                 "codeconnections:GetConnectionToken",
+ *                 "codeconnections:GetConnection",
+ *             ],
+ *             resources: ["arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string"],
  *         },
  *     ],
  * }));
@@ -191,6 +201,28 @@ import * as utilities from "../utilities";
  *         Environment: "Test",
  *     },
  * });
+ * const project_using_github_app = new aws.codebuild.Project("project-using-github-app", {
+ *     name: "project-using-github-app",
+ *     description: "gets_source_from_github_via_the_github_app",
+ *     serviceRole: exampleRole.arn,
+ *     artifacts: {
+ *         type: "NO_ARTIFACTS",
+ *     },
+ *     environment: {
+ *         computeType: "BUILD_GENERAL1_SMALL",
+ *         image: "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+ *         type: "LINUX_CONTAINER",
+ *         imagePullCredentialsType: "CODEBUILD",
+ *     },
+ *     source: {
+ *         type: "GITHUB",
+ *         location: "https://github.com/example/example.git",
+ *         auth: {
+ *             type: "CODECONNECTIONS",
+ *             resource: "arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string",
+ *         },
+ *     },
+ * });
  * ```
  *
  * ## Import
@@ -238,7 +270,8 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly artifacts!: pulumi.Output<outputs.codebuild.ProjectArtifacts>;
     /**
-     * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
+     * Generates a publicly-accessible URL for the projects build badge. Available as
+     * `badgeUrl` attribute when enabled.
      */
     public readonly badgeEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -250,7 +283,9 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly buildBatchConfig!: pulumi.Output<outputs.codebuild.ProjectBuildBatchConfig | undefined>;
     /**
-     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
+     * any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is
+     * not available on the `Lambda` compute type.
      */
     public readonly buildTimeout!: pulumi.Output<number | undefined>;
     /**
@@ -258,7 +293,8 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly cache!: pulumi.Output<outputs.codebuild.ProjectCache | undefined>;
     /**
-     * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+     * Specify a maximum number of concurrent builds for the project. The value
+     * specified must be greater than 0 and less than the account concurrent running builds limit.
      */
     public readonly concurrentBuildLimit!: pulumi.Output<number | undefined>;
     /**
@@ -266,7 +302,8 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * the build project's build output artifacts.
      */
     public readonly encryptionKey!: pulumi.Output<string>;
     /**
@@ -274,7 +311,8 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<outputs.codebuild.ProjectEnvironment>;
     /**
-     * A set of file system locations to mount inside the build. File system locations are documented below.
+     * A set of file system locations to mount inside the build. File system locations
+     * are documented below.
      */
     public readonly fileSystemLocations!: pulumi.Output<outputs.codebuild.ProjectFileSystemLocation[] | undefined>;
     /**
@@ -286,7 +324,8 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+     * Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ`
+     * and `PRIVATE`. Default value is `PRIVATE`.
      */
     public readonly projectVisibility!: pulumi.Output<string | undefined>;
     /**
@@ -294,11 +333,14 @@ export class Project extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicProjectAlias!: pulumi.Output<string>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
+     * times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
     public readonly queuedTimeout!: pulumi.Output<number | undefined>;
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
+     * Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
+     * `projectVisibility` is `PUBLIC_READ`.
      */
     public readonly resourceAccessRole!: pulumi.Output<string | undefined>;
     /**
@@ -314,7 +356,8 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly secondarySources!: pulumi.Output<outputs.codebuild.ProjectSecondarySource[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     public readonly serviceRole!: pulumi.Output<string>;
     /**
@@ -324,15 +367,19 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.codebuild.ProjectSource>;
     /**
-     * Version of the build input to be built for this project. If not specified, the latest version is used.
+     * Version of the build input to be built for this project. If not specified, the latest
+     * version is used.
      */
     public readonly sourceVersion!: pulumi.Output<string | undefined>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider 
+     * `defaultTags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider 
+     * `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -442,7 +489,8 @@ export interface ProjectState {
      */
     artifacts?: pulumi.Input<inputs.codebuild.ProjectArtifacts>;
     /**
-     * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
+     * Generates a publicly-accessible URL for the projects build badge. Available as
+     * `badgeUrl` attribute when enabled.
      */
     badgeEnabled?: pulumi.Input<boolean>;
     /**
@@ -454,7 +502,9 @@ export interface ProjectState {
      */
     buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
     /**
-     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
+     * any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is
+     * not available on the `Lambda` compute type.
      */
     buildTimeout?: pulumi.Input<number>;
     /**
@@ -462,7 +512,8 @@ export interface ProjectState {
      */
     cache?: pulumi.Input<inputs.codebuild.ProjectCache>;
     /**
-     * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+     * Specify a maximum number of concurrent builds for the project. The value
+     * specified must be greater than 0 and less than the account concurrent running builds limit.
      */
     concurrentBuildLimit?: pulumi.Input<number>;
     /**
@@ -470,7 +521,8 @@ export interface ProjectState {
      */
     description?: pulumi.Input<string>;
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * the build project's build output artifacts.
      */
     encryptionKey?: pulumi.Input<string>;
     /**
@@ -478,7 +530,8 @@ export interface ProjectState {
      */
     environment?: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
     /**
-     * A set of file system locations to mount inside the build. File system locations are documented below.
+     * A set of file system locations to mount inside the build. File system locations
+     * are documented below.
      */
     fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
     /**
@@ -490,7 +543,8 @@ export interface ProjectState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+     * Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ`
+     * and `PRIVATE`. Default value is `PRIVATE`.
      */
     projectVisibility?: pulumi.Input<string>;
     /**
@@ -498,11 +552,14 @@ export interface ProjectState {
      */
     publicProjectAlias?: pulumi.Input<string>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
+     * times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
     queuedTimeout?: pulumi.Input<number>;
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
+     * Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
+     * `projectVisibility` is `PUBLIC_READ`.
      */
     resourceAccessRole?: pulumi.Input<string>;
     /**
@@ -518,7 +575,8 @@ export interface ProjectState {
      */
     secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     serviceRole?: pulumi.Input<string>;
     /**
@@ -528,15 +586,19 @@ export interface ProjectState {
      */
     source?: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**
-     * Version of the build input to be built for this project. If not specified, the latest version is used.
+     * Version of the build input to be built for this project. If not specified, the latest
+     * version is used.
      */
     sourceVersion?: pulumi.Input<string>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider 
+     * `defaultTags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider 
+     * `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -556,7 +618,8 @@ export interface ProjectArgs {
      */
     artifacts: pulumi.Input<inputs.codebuild.ProjectArtifacts>;
     /**
-     * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
+     * Generates a publicly-accessible URL for the projects build badge. Available as
+     * `badgeUrl` attribute when enabled.
      */
     badgeEnabled?: pulumi.Input<boolean>;
     /**
@@ -564,7 +627,9 @@ export interface ProjectArgs {
      */
     buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
     /**
-     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
+     * any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is
+     * not available on the `Lambda` compute type.
      */
     buildTimeout?: pulumi.Input<number>;
     /**
@@ -572,7 +637,8 @@ export interface ProjectArgs {
      */
     cache?: pulumi.Input<inputs.codebuild.ProjectCache>;
     /**
-     * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
+     * Specify a maximum number of concurrent builds for the project. The value
+     * specified must be greater than 0 and less than the account concurrent running builds limit.
      */
     concurrentBuildLimit?: pulumi.Input<number>;
     /**
@@ -580,7 +646,8 @@ export interface ProjectArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * the build project's build output artifacts.
      */
     encryptionKey?: pulumi.Input<string>;
     /**
@@ -588,7 +655,8 @@ export interface ProjectArgs {
      */
     environment: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
     /**
-     * A set of file system locations to mount inside the build. File system locations are documented below.
+     * A set of file system locations to mount inside the build. File system locations
+     * are documented below.
      */
     fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
     /**
@@ -600,15 +668,19 @@ export interface ProjectArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
+     * Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ`
+     * and `PRIVATE`. Default value is `PRIVATE`.
      */
     projectVisibility?: pulumi.Input<string>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
+     * times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
     queuedTimeout?: pulumi.Input<number>;
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `projectVisibility` is `PUBLIC_READ`.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
+     * Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
+     * `projectVisibility` is `PUBLIC_READ`.
      */
     resourceAccessRole?: pulumi.Input<string>;
     /**
@@ -624,7 +696,8 @@ export interface ProjectArgs {
      */
     secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     serviceRole: pulumi.Input<string>;
     /**
@@ -634,11 +707,14 @@ export interface ProjectArgs {
      */
     source: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**
-     * Version of the build input to be built for this project. If not specified, the latest version is used.
+     * Version of the build input to be built for this project. If not specified, the latest
+     * version is used.
      */
     sourceVersion?: pulumi.Input<string>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider 
+     * `defaultTags` configuration block
+     * present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

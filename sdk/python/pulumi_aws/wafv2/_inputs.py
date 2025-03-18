@@ -761,6 +761,10 @@ __all__ = [
     'WebAclRuleCaptchaConfigArgsDict',
     'WebAclRuleCaptchaConfigImmunityTimePropertyArgs',
     'WebAclRuleCaptchaConfigImmunityTimePropertyArgsDict',
+    'WebAclRuleChallengeConfigArgs',
+    'WebAclRuleChallengeConfigArgsDict',
+    'WebAclRuleChallengeConfigImmunityTimePropertyArgs',
+    'WebAclRuleChallengeConfigImmunityTimePropertyArgsDict',
     'WebAclRuleOverrideActionArgs',
     'WebAclRuleOverrideActionArgsDict',
     'WebAclRuleOverrideActionCountArgs',
@@ -19270,6 +19274,10 @@ if not MYPY:
         """
         Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         """
+        challenge_config: NotRequired[pulumi.Input['WebAclRuleChallengeConfigArgsDict']]
+        """
+        Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+        """
         override_action: NotRequired[pulumi.Input['WebAclRuleOverrideActionArgsDict']]
         """
         Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
@@ -19290,6 +19298,7 @@ class WebAclRuleArgs:
                  visibility_config: pulumi.Input['WebAclRuleVisibilityConfigArgs'],
                  action: Optional[pulumi.Input['WebAclRuleActionArgs']] = None,
                  captcha_config: Optional[pulumi.Input['WebAclRuleCaptchaConfigArgs']] = None,
+                 challenge_config: Optional[pulumi.Input['WebAclRuleChallengeConfigArgs']] = None,
                  override_action: Optional[pulumi.Input['WebAclRuleOverrideActionArgs']] = None,
                  rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]]] = None):
         """
@@ -19299,6 +19308,7 @@ class WebAclRuleArgs:
         :param pulumi.Input['WebAclRuleVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         :param pulumi.Input['WebAclRuleActionArgs'] action: Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
         :param pulumi.Input['WebAclRuleCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        :param pulumi.Input['WebAclRuleChallengeConfigArgs'] challenge_config: Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
         :param pulumi.Input['WebAclRuleOverrideActionArgs'] override_action: Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleRuleLabelArgs']]] rule_labels: Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
         """
@@ -19310,6 +19320,8 @@ class WebAclRuleArgs:
             pulumi.set(__self__, "action", action)
         if captcha_config is not None:
             pulumi.set(__self__, "captcha_config", captcha_config)
+        if challenge_config is not None:
+            pulumi.set(__self__, "challenge_config", challenge_config)
         if override_action is not None:
             pulumi.set(__self__, "override_action", override_action)
         if rule_labels is not None:
@@ -19386,6 +19398,18 @@ class WebAclRuleArgs:
     @captcha_config.setter
     def captcha_config(self, value: Optional[pulumi.Input['WebAclRuleCaptchaConfigArgs']]):
         pulumi.set(self, "captcha_config", value)
+
+    @property
+    @pulumi.getter(name="challengeConfig")
+    def challenge_config(self) -> Optional[pulumi.Input['WebAclRuleChallengeConfigArgs']]:
+        """
+        Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+        """
+        return pulumi.get(self, "challenge_config")
+
+    @challenge_config.setter
+    def challenge_config(self, value: Optional[pulumi.Input['WebAclRuleChallengeConfigArgs']]):
+        pulumi.set(self, "challenge_config", value)
 
     @property
     @pulumi.getter(name="overrideAction")
@@ -20172,6 +20196,70 @@ elif False:
 
 @pulumi.input_type
 class WebAclRuleCaptchaConfigImmunityTimePropertyArgs:
+    def __init__(__self__, *,
+                 immunity_time: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] immunity_time: The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        """
+        if immunity_time is not None:
+            pulumi.set(__self__, "immunity_time", immunity_time)
+
+    @property
+    @pulumi.getter(name="immunityTime")
+    def immunity_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        """
+        return pulumi.get(self, "immunity_time")
+
+    @immunity_time.setter
+    def immunity_time(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "immunity_time", value)
+
+
+if not MYPY:
+    class WebAclRuleChallengeConfigArgsDict(TypedDict):
+        immunity_time_property: NotRequired[pulumi.Input['WebAclRuleChallengeConfigImmunityTimePropertyArgsDict']]
+        """
+        Defines custom immunity time. See `immunity_time_property` below for details.
+        """
+elif False:
+    WebAclRuleChallengeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleChallengeConfigArgs:
+    def __init__(__self__, *,
+                 immunity_time_property: Optional[pulumi.Input['WebAclRuleChallengeConfigImmunityTimePropertyArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleChallengeConfigImmunityTimePropertyArgs'] immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
+        """
+        if immunity_time_property is not None:
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+
+    @property
+    @pulumi.getter(name="immunityTimeProperty")
+    def immunity_time_property(self) -> Optional[pulumi.Input['WebAclRuleChallengeConfigImmunityTimePropertyArgs']]:
+        """
+        Defines custom immunity time. See `immunity_time_property` below for details.
+        """
+        return pulumi.get(self, "immunity_time_property")
+
+    @immunity_time_property.setter
+    def immunity_time_property(self, value: Optional[pulumi.Input['WebAclRuleChallengeConfigImmunityTimePropertyArgs']]):
+        pulumi.set(self, "immunity_time_property", value)
+
+
+if not MYPY:
+    class WebAclRuleChallengeConfigImmunityTimePropertyArgsDict(TypedDict):
+        immunity_time: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        """
+elif False:
+    WebAclRuleChallengeConfigImmunityTimePropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleChallengeConfigImmunityTimePropertyArgs:
     def __init__(__self__, *,
                  immunity_time: Optional[pulumi.Input[int]] = None):
         """

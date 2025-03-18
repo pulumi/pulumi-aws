@@ -64,18 +64,33 @@ public final class IpSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A friendly name of the IP set.
+     * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A friendly name of the IP set.
+     * @return A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    @Import(name="namePrefix")
+    private @Nullable Output<String> namePrefix;
+
+    /**
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    public Optional<Output<String>> namePrefix() {
+        return Optional.ofNullable(this.namePrefix);
     }
 
     /**
@@ -115,6 +130,7 @@ public final class IpSetArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.ipAddressVersion = $.ipAddressVersion;
         this.name = $.name;
+        this.namePrefix = $.namePrefix;
         this.scope = $.scope;
         this.tags = $.tags;
     }
@@ -211,7 +227,7 @@ public final class IpSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name of the IP set.
+         * @param name A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 
@@ -222,13 +238,34 @@ public final class IpSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name of the IP set.
+         * @param name A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder namePrefix(@Nullable Output<String> namePrefix) {
+            $.namePrefix = namePrefix;
+            return this;
+        }
+
+        /**
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder namePrefix(String namePrefix) {
+            return namePrefix(Output.of(namePrefix));
         }
 
         /**

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.codebuild.outputs;
 
+import com.pulumi.aws.codebuild.outputs.ProjectSecondarySourceAuth;
 import com.pulumi.aws.codebuild.outputs.ProjectSecondarySourceBuildStatusConfig;
 import com.pulumi.aws.codebuild.outputs.ProjectSecondarySourceGitSubmodulesConfig;
 import com.pulumi.core.annotations.CustomType;
@@ -17,17 +18,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProjectSecondarySource {
     /**
-     * @return Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+     * @return Information about the strategy CodeBuild should use when authenticating with the source code host.
+     * Detailed below.
+     * 
+     */
+    private @Nullable ProjectSecondarySourceAuth auth;
+    /**
+     * @return Configuration block that contains information that defines how the build project
+     * reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
+     * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
      * 
      */
     private @Nullable ProjectSecondarySourceBuildStatusConfig buildStatusConfig;
     /**
-     * @return The build spec declaration to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
+     * @return The build spec declaration to use for this build project&#39;s related builds. This must be set
+     * when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file
+     * path leveraging the `file()` built-in.
      * 
      */
     private @Nullable String buildspec;
     /**
-     * @return Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
+     * @return Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
+     * to run commands like `git branch --show-current`.
+     * See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
+     * for details.
      * 
      */
     private @Nullable Integer gitCloneDepth;
@@ -47,38 +61,57 @@ public final class ProjectSecondarySource {
      */
     private @Nullable String location;
     /**
-     * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
+     * @return Whether to report the status of a build&#39;s start and finish to your source provider.
+     * This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
+     * Bitbucket.
      * 
      */
     private @Nullable Boolean reportBuildStatus;
     /**
-     * @return An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+     * @return An identifier for this project source. The identifier can only contain alphanumeric
+     * characters and underscores, and must be less than 128 characters in length.
      * 
      */
     private String sourceIdentifier;
     /**
-     * @return Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
+     * @return Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
+     * `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
      * 
      */
     private String type;
 
     private ProjectSecondarySource() {}
     /**
-     * @return Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
+     * @return Information about the strategy CodeBuild should use when authenticating with the source code host.
+     * Detailed below.
+     * 
+     */
+    public Optional<ProjectSecondarySourceAuth> auth() {
+        return Optional.ofNullable(this.auth);
+    }
+    /**
+     * @return Configuration block that contains information that defines how the build project
+     * reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
+     * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
      * 
      */
     public Optional<ProjectSecondarySourceBuildStatusConfig> buildStatusConfig() {
         return Optional.ofNullable(this.buildStatusConfig);
     }
     /**
-     * @return The build spec declaration to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
+     * @return The build spec declaration to use for this build project&#39;s related builds. This must be set
+     * when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file
+     * path leveraging the `file()` built-in.
      * 
      */
     public Optional<String> buildspec() {
         return Optional.ofNullable(this.buildspec);
     }
     /**
-     * @return Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
+     * @return Truncate git history to this many commits. Use `0` for a `Full` checkout which you need
+     * to run commands like `git branch --show-current`.
+     * See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
+     * for details.
      * 
      */
     public Optional<Integer> gitCloneDepth() {
@@ -106,21 +139,25 @@ public final class ProjectSecondarySource {
         return Optional.ofNullable(this.location);
     }
     /**
-     * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
+     * @return Whether to report the status of a build&#39;s start and finish to your source provider.
+     * This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or
+     * Bitbucket.
      * 
      */
     public Optional<Boolean> reportBuildStatus() {
         return Optional.ofNullable(this.reportBuildStatus);
     }
     /**
-     * @return An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
+     * @return An identifier for this project source. The identifier can only contain alphanumeric
+     * characters and underscores, and must be less than 128 characters in length.
      * 
      */
     public String sourceIdentifier() {
         return this.sourceIdentifier;
     }
     /**
-     * @return Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
+     * @return Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
+     * `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
      * 
      */
     public String type() {
@@ -136,6 +173,7 @@ public final class ProjectSecondarySource {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ProjectSecondarySourceAuth auth;
         private @Nullable ProjectSecondarySourceBuildStatusConfig buildStatusConfig;
         private @Nullable String buildspec;
         private @Nullable Integer gitCloneDepth;
@@ -148,6 +186,7 @@ public final class ProjectSecondarySource {
         public Builder() {}
         public Builder(ProjectSecondarySource defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.auth = defaults.auth;
     	      this.buildStatusConfig = defaults.buildStatusConfig;
     	      this.buildspec = defaults.buildspec;
     	      this.gitCloneDepth = defaults.gitCloneDepth;
@@ -159,6 +198,12 @@ public final class ProjectSecondarySource {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder auth(@Nullable ProjectSecondarySourceAuth auth) {
+
+            this.auth = auth;
+            return this;
+        }
         @CustomType.Setter
         public Builder buildStatusConfig(@Nullable ProjectSecondarySourceBuildStatusConfig buildStatusConfig) {
 
@@ -219,6 +264,7 @@ public final class ProjectSecondarySource {
         }
         public ProjectSecondarySource build() {
             final var _resultValue = new ProjectSecondarySource();
+            _resultValue.auth = auth;
             _resultValue.buildStatusConfig = buildStatusConfig;
             _resultValue.buildspec = buildspec;
             _resultValue.gitCloneDepth = gitCloneDepth;

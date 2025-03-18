@@ -17,14 +17,22 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
     public static final ProjectLogsConfigS3LogsArgs Empty = new ProjectLogsConfigS3LogsArgs();
 
     /**
-     * Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+     * Specifies the bucket owner&#39;s access for objects that another account uploads to
+     * their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
+     * objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
+     * `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
+     * allows CodeBuild to modify the access control list for the bucket.
      * 
      */
     @Import(name="bucketOwnerAccess")
     private @Nullable Output<String> bucketOwnerAccess;
 
     /**
-     * @return Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+     * @return Specifies the bucket owner&#39;s access for objects that another account uploads to
+     * their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
+     * objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
+     * `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
+     * allows CodeBuild to modify the access control list for the bucket.
      * 
      */
     public Optional<Output<String>> bucketOwnerAccess() {
@@ -47,14 +55,16 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
+     * Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`,
+     * otherwise it must be empty.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
+     * @return Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`,
+     * otherwise it must be empty.
      * 
      */
     public Optional<Output<String>> location() {
@@ -62,14 +72,16 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+     * Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults
+     * to `DISABLED`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+     * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults
+     * to `DISABLED`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -104,7 +116,11 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param bucketOwnerAccess Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+         * @param bucketOwnerAccess Specifies the bucket owner&#39;s access for objects that another account uploads to
+         * their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
+         * objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
+         * `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
+         * allows CodeBuild to modify the access control list for the bucket.
          * 
          * @return builder
          * 
@@ -115,7 +131,11 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param bucketOwnerAccess Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
+         * @param bucketOwnerAccess Specifies the bucket owner&#39;s access for objects that another account uploads to
+         * their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these
+         * objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`,
+         * `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
+         * allows CodeBuild to modify the access control list for the bucket.
          * 
          * @return builder
          * 
@@ -146,7 +166,8 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param location Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
+         * @param location Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`,
+         * otherwise it must be empty.
          * 
          * @return builder
          * 
@@ -157,7 +178,8 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param location Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
+         * @param location Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`,
+         * otherwise it must be empty.
          * 
          * @return builder
          * 
@@ -167,7 +189,8 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param status Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+         * @param status Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults
+         * to `DISABLED`.
          * 
          * @return builder
          * 
@@ -178,7 +201,8 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param status Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+         * @param status Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults
+         * to `DISABLED`.
          * 
          * @return builder
          * 

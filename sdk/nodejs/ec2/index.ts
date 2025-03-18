@@ -552,6 +552,11 @@ export type NetworkInterfaceAttachment = import("./networkInterfaceAttachment").
 export const NetworkInterfaceAttachment: typeof import("./networkInterfaceAttachment").NetworkInterfaceAttachment = null as any;
 utilities.lazyLoad(exports, ["NetworkInterfaceAttachment"], () => require("./networkInterfaceAttachment"));
 
+export { NetworkInterfacePermissionArgs, NetworkInterfacePermissionState } from "./networkInterfacePermission";
+export type NetworkInterfacePermission = import("./networkInterfacePermission").NetworkInterfacePermission;
+export const NetworkInterfacePermission: typeof import("./networkInterfacePermission").NetworkInterfacePermission = null as any;
+utilities.lazyLoad(exports, ["NetworkInterfacePermission"], () => require("./networkInterfacePermission"));
+
 export { NetworkInterfaceSecurityGroupAttachmentArgs, NetworkInterfaceSecurityGroupAttachmentState } from "./networkInterfaceSecurityGroupAttachment";
 export type NetworkInterfaceSecurityGroupAttachment = import("./networkInterfaceSecurityGroupAttachment").NetworkInterfaceSecurityGroupAttachment;
 export const NetworkInterfaceSecurityGroupAttachment: typeof import("./networkInterfaceSecurityGroupAttachment").NetworkInterfaceSecurityGroupAttachment = null as any;
@@ -924,6 +929,8 @@ const _module = {
                 return new NetworkInterface(name, <any>undefined, { urn })
             case "aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment":
                 return new NetworkInterfaceAttachment(name, <any>undefined, { urn })
+            case "aws:ec2/networkInterfacePermission:NetworkInterfacePermission":
+                return new NetworkInterfacePermission(name, <any>undefined, { urn })
             case "aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment":
                 return new NetworkInterfaceSecurityGroupAttachment(name, <any>undefined, { urn })
             case "aws:ec2/peeringConnectionOptions:PeeringConnectionOptions":
@@ -1082,6 +1089,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/networkInsightsAnalysis", _mod
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInsightsPath", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInterface", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInterfaceAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/networkInterfacePermission", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkInterfaceSecurityGroupAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/peeringConnectionOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/placementGroup", _module)

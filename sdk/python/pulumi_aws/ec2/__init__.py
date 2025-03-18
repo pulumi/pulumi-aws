@@ -115,6 +115,7 @@ from .network_insights_analysis import *
 from .network_insights_path import *
 from .network_interface import *
 from .network_interface_attachment import *
+from .network_interface_permission import *
 from .network_interface_security_group_attachment import *
 from .peering_connection_options import *
 from .placement_group import *

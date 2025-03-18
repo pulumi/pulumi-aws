@@ -17,14 +17,16 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProjectCacheArgs Empty = new ProjectCacheArgs();
 
     /**
-     * Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
+     * Location where the AWS CodeBuild project stores cached resources. For
+     * type `S3`, the value must be a valid S3 bucket name/prefix.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
+     * @return Location where the AWS CodeBuild project stores cached resources. For
+     * type `S3`, the value must be a valid S3 bucket name/prefix.
      * 
      */
     public Optional<Output<String>> location() {
@@ -32,14 +34,16 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
+     * Specifies settings that AWS CodeBuild uses to store and reuse build
+     * dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
      * 
      */
     @Import(name="modes")
     private @Nullable Output<List<String>> modes;
 
     /**
-     * @return Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
+     * @return Specifies settings that AWS CodeBuild uses to store and reuse build
+     * dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
      * 
      */
     public Optional<Output<List<String>>> modes() {
@@ -47,14 +51,16 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
+     * Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`,
+     * `LOCAL`, `S3`. Defaults to `NO_CACHE`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
+     * @return Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`,
+     * `LOCAL`, `S3`. Defaults to `NO_CACHE`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -88,7 +94,8 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
+         * @param location Location where the AWS CodeBuild project stores cached resources. For
+         * type `S3`, the value must be a valid S3 bucket name/prefix.
          * 
          * @return builder
          * 
@@ -99,7 +106,8 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
+         * @param location Location where the AWS CodeBuild project stores cached resources. For
+         * type `S3`, the value must be a valid S3 bucket name/prefix.
          * 
          * @return builder
          * 
@@ -109,7 +117,8 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param modes Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
+         * @param modes Specifies settings that AWS CodeBuild uses to store and reuse build
+         * dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
          * 
          * @return builder
          * 
@@ -120,7 +129,8 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param modes Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
+         * @param modes Specifies settings that AWS CodeBuild uses to store and reuse build
+         * dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
          * 
          * @return builder
          * 
@@ -130,7 +140,8 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param modes Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
+         * @param modes Specifies settings that AWS CodeBuild uses to store and reuse build
+         * dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
          * 
          * @return builder
          * 
@@ -140,7 +151,8 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
+         * @param type Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`,
+         * `LOCAL`, `S3`. Defaults to `NO_CACHE`.
          * 
          * @return builder
          * 
@@ -151,7 +163,8 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
+         * @param type Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`,
+         * `LOCAL`, `S3`. Defaults to `NO_CACHE`.
          * 
          * @return builder
          * 

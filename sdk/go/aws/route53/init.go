@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &QueryLog{}
 	case "aws:route53/record:Record":
 		r = &Record{}
+	case "aws:route53/recordsExclusive:RecordsExclusive":
+		r = &RecordsExclusive{}
 	case "aws:route53/resolverConfig:ResolverConfig":
 		r = &ResolverConfig{}
 	case "aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig":
@@ -143,6 +145,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"route53/record",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/recordsExclusive",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

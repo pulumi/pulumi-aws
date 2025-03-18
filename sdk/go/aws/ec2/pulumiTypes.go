@@ -25615,6 +25615,162 @@ func (o NetworkInterfaceAttachmentTypeArrayOutput) Index(i pulumi.IntInput) Netw
 	}).(NetworkInterfaceAttachmentTypeOutput)
 }
 
+type NetworkInterfacePermissionTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// NetworkInterfacePermissionTimeoutsInput is an input type that accepts NetworkInterfacePermissionTimeoutsArgs and NetworkInterfacePermissionTimeoutsOutput values.
+// You can construct a concrete instance of `NetworkInterfacePermissionTimeoutsInput` via:
+//
+//	NetworkInterfacePermissionTimeoutsArgs{...}
+type NetworkInterfacePermissionTimeoutsInput interface {
+	pulumi.Input
+
+	ToNetworkInterfacePermissionTimeoutsOutput() NetworkInterfacePermissionTimeoutsOutput
+	ToNetworkInterfacePermissionTimeoutsOutputWithContext(context.Context) NetworkInterfacePermissionTimeoutsOutput
+}
+
+type NetworkInterfacePermissionTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (NetworkInterfacePermissionTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfacePermissionTimeouts)(nil)).Elem()
+}
+
+func (i NetworkInterfacePermissionTimeoutsArgs) ToNetworkInterfacePermissionTimeoutsOutput() NetworkInterfacePermissionTimeoutsOutput {
+	return i.ToNetworkInterfacePermissionTimeoutsOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfacePermissionTimeoutsArgs) ToNetworkInterfacePermissionTimeoutsOutputWithContext(ctx context.Context) NetworkInterfacePermissionTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfacePermissionTimeoutsOutput)
+}
+
+func (i NetworkInterfacePermissionTimeoutsArgs) ToNetworkInterfacePermissionTimeoutsPtrOutput() NetworkInterfacePermissionTimeoutsPtrOutput {
+	return i.ToNetworkInterfacePermissionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfacePermissionTimeoutsArgs) ToNetworkInterfacePermissionTimeoutsPtrOutputWithContext(ctx context.Context) NetworkInterfacePermissionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfacePermissionTimeoutsOutput).ToNetworkInterfacePermissionTimeoutsPtrOutputWithContext(ctx)
+}
+
+// NetworkInterfacePermissionTimeoutsPtrInput is an input type that accepts NetworkInterfacePermissionTimeoutsArgs, NetworkInterfacePermissionTimeoutsPtr and NetworkInterfacePermissionTimeoutsPtrOutput values.
+// You can construct a concrete instance of `NetworkInterfacePermissionTimeoutsPtrInput` via:
+//
+//	        NetworkInterfacePermissionTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInterfacePermissionTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInterfacePermissionTimeoutsPtrOutput() NetworkInterfacePermissionTimeoutsPtrOutput
+	ToNetworkInterfacePermissionTimeoutsPtrOutputWithContext(context.Context) NetworkInterfacePermissionTimeoutsPtrOutput
+}
+
+type networkInterfacePermissionTimeoutsPtrType NetworkInterfacePermissionTimeoutsArgs
+
+func NetworkInterfacePermissionTimeoutsPtr(v *NetworkInterfacePermissionTimeoutsArgs) NetworkInterfacePermissionTimeoutsPtrInput {
+	return (*networkInterfacePermissionTimeoutsPtrType)(v)
+}
+
+func (*networkInterfacePermissionTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfacePermissionTimeouts)(nil)).Elem()
+}
+
+func (i *networkInterfacePermissionTimeoutsPtrType) ToNetworkInterfacePermissionTimeoutsPtrOutput() NetworkInterfacePermissionTimeoutsPtrOutput {
+	return i.ToNetworkInterfacePermissionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInterfacePermissionTimeoutsPtrType) ToNetworkInterfacePermissionTimeoutsPtrOutputWithContext(ctx context.Context) NetworkInterfacePermissionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfacePermissionTimeoutsPtrOutput)
+}
+
+type NetworkInterfacePermissionTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfacePermissionTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfacePermissionTimeouts)(nil)).Elem()
+}
+
+func (o NetworkInterfacePermissionTimeoutsOutput) ToNetworkInterfacePermissionTimeoutsOutput() NetworkInterfacePermissionTimeoutsOutput {
+	return o
+}
+
+func (o NetworkInterfacePermissionTimeoutsOutput) ToNetworkInterfacePermissionTimeoutsOutputWithContext(ctx context.Context) NetworkInterfacePermissionTimeoutsOutput {
+	return o
+}
+
+func (o NetworkInterfacePermissionTimeoutsOutput) ToNetworkInterfacePermissionTimeoutsPtrOutput() NetworkInterfacePermissionTimeoutsPtrOutput {
+	return o.ToNetworkInterfacePermissionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInterfacePermissionTimeoutsOutput) ToNetworkInterfacePermissionTimeoutsPtrOutputWithContext(ctx context.Context) NetworkInterfacePermissionTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfacePermissionTimeouts) *NetworkInterfacePermissionTimeouts {
+		return &v
+	}).(NetworkInterfacePermissionTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o NetworkInterfacePermissionTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfacePermissionTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o NetworkInterfacePermissionTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfacePermissionTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type NetworkInterfacePermissionTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfacePermissionTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfacePermissionTimeouts)(nil)).Elem()
+}
+
+func (o NetworkInterfacePermissionTimeoutsPtrOutput) ToNetworkInterfacePermissionTimeoutsPtrOutput() NetworkInterfacePermissionTimeoutsPtrOutput {
+	return o
+}
+
+func (o NetworkInterfacePermissionTimeoutsPtrOutput) ToNetworkInterfacePermissionTimeoutsPtrOutputWithContext(ctx context.Context) NetworkInterfacePermissionTimeoutsPtrOutput {
+	return o
+}
+
+func (o NetworkInterfacePermissionTimeoutsPtrOutput) Elem() NetworkInterfacePermissionTimeoutsOutput {
+	return o.ApplyT(func(v *NetworkInterfacePermissionTimeouts) NetworkInterfacePermissionTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfacePermissionTimeouts
+		return ret
+	}).(NetworkInterfacePermissionTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o NetworkInterfacePermissionTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfacePermissionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o NetworkInterfacePermissionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfacePermissionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type PeeringConnectionOptionsAccepter struct {
 	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
@@ -60098,6 +60254,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisReturnPathComponentVpcArrayInput)(nil)).Elem(), NetworkInsightsAnalysisReturnPathComponentVpcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentTypeInput)(nil)).Elem(), NetworkInterfaceAttachmentTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentTypeArrayInput)(nil)).Elem(), NetworkInterfaceAttachmentTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePermissionTimeoutsInput)(nil)).Elem(), NetworkInterfacePermissionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePermissionTimeoutsPtrInput)(nil)).Elem(), NetworkInterfacePermissionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringConnectionOptionsAccepterInput)(nil)).Elem(), PeeringConnectionOptionsAccepterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringConnectionOptionsAccepterPtrInput)(nil)).Elem(), PeeringConnectionOptionsAccepterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringConnectionOptionsRequesterInput)(nil)).Elem(), PeeringConnectionOptionsRequesterArgs{})
@@ -60977,6 +61135,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisReturnPathComponentVpcArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttachmentTypeOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttachmentTypeArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfacePermissionTimeoutsOutput{})
+	pulumi.RegisterOutputType(NetworkInterfacePermissionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(PeeringConnectionOptionsAccepterOutput{})
 	pulumi.RegisterOutputType(PeeringConnectionOptionsAccepterPtrOutput{})
 	pulumi.RegisterOutputType(PeeringConnectionOptionsRequesterOutput{})
