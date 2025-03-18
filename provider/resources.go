@@ -5438,7 +5438,7 @@ compatibility shim in favor of the new "name" field.`)
 
 	rAlias := func(token string, prev, current tokens.Type, info *tfbridge.ResourceInfo) {
 		_, ok := prov.Resources[token]
-		contract.Assertf(!ok, fmt.Sprintf("We don't alias an existing resource: %s"), token)
+		contract.Assertf(!ok, "We don't alias an existing resource")
 		if info == nil {
 			info = new(tfbridge.ResourceInfo)
 		}
