@@ -111,11 +111,11 @@ import javax.annotation.Nullable;
  *             .target(ScheduleTargetArgs.builder()
  *                 .arn("arn:aws:scheduler:::aws-sdk:sqs:sendMessage")
  *                 .roleArn(exampleAwsIamRole.arn())
- *                 .input(example.url().applyValue(url -> serializeJson(
+ *                 .input(serializeJson(
  *                     jsonObject(
  *                         jsonProperty("MessageBody", "Greetings, programs!"),
- *                         jsonProperty("QueueUrl", url)
- *                     ))))
+ *                         jsonProperty("QueueUrl", example.url())
+ *                     )))
  *                 .build())
  *             .build());
  * 

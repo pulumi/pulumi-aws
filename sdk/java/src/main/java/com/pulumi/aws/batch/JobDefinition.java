@@ -284,7 +284,7 @@ import javax.annotation.Nullable;
  *             .name("my_test_batch_job_definition")
  *             .type("container")
  *             .platformCapabilities("FARGATE")
- *             .containerProperties(ecsTaskExecutionRole.arn().applyValue(arn -> serializeJson(
+ *             .containerProperties(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("command", jsonArray(
  *                         "echo", 
@@ -305,8 +305,8 @@ import javax.annotation.Nullable;
  *                             jsonProperty("value", "512")
  *                         )
  *                     )),
- *                     jsonProperty("executionRoleArn", arn)
- *                 ))))
+ *                     jsonProperty("executionRoleArn", ecsTaskExecutionRole.arn())
+ *                 )))
  *             .build());
  * 
  *     }

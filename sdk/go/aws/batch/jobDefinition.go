@@ -210,42 +210,39 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"command": []string{
+//					"echo",
+//					"test",
+//				},
+//				"image":      "busybox",
+//				"jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
+//				"fargatePlatformConfiguration": map[string]interface{}{
+//					"platformVersion": "LATEST",
+//				},
+//				"resourceRequirements": []map[string]interface{}{
+//					map[string]interface{}{
+//						"type":  "VCPU",
+//						"value": "0.25",
+//					},
+//					map[string]interface{}{
+//						"type":  "MEMORY",
+//						"value": "512",
+//					},
+//				},
+//				"executionRoleArn": ecsTaskExecutionRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
 //				Name: pulumi.String("my_test_batch_job_definition"),
 //				Type: pulumi.String("container"),
 //				PlatformCapabilities: pulumi.StringArray{
 //					pulumi.String("FARGATE"),
 //				},
-//				ContainerProperties: ecsTaskExecutionRole.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"command": []string{
-//							"echo",
-//							"test",
-//						},
-//						"image":      "busybox",
-//						"jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
-//						"fargatePlatformConfiguration": map[string]interface{}{
-//							"platformVersion": "LATEST",
-//						},
-//						"resourceRequirements": []map[string]interface{}{
-//							map[string]interface{}{
-//								"type":  "VCPU",
-//								"value": "0.25",
-//							},
-//							map[string]interface{}{
-//								"type":  "MEMORY",
-//								"value": "512",
-//							},
-//						},
-//						"executionRoleArn": arn,
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
+//				ContainerProperties: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

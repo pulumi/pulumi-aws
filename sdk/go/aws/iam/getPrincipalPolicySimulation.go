@@ -126,59 +126,53 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewUserPolicy(ctx, "s3_access", &iam.UserPolicyArgs{
-//				Name: pulumi.String("example_s3_access"),
-//				User: example.Name,
-//				Policy: exampleBucketV2.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Action":   "s3:GetObject",
-//								"Effect":   "Allow",
-//								"Resource": arn,
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action":   "s3:GetObject",
+//						"Effect":   "Allow",
+//						"Resource": exampleBucketV2.Arn,
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			json0 := string(tmpJSON0)
+//			_, err = iam.NewUserPolicy(ctx, "s3_access", &iam.UserPolicyArgs{
+//				Name:   pulumi.String("example_s3_access"),
+//				User:   example.Name,
+//				Policy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": "s3:*",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": current.AccountId,
+//						},
+//						"Resource": pulumi.StringArray{
+//							exampleBucketV2.Arn,
+//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
 //			accountAccess, err := s3.NewBucketPolicy(ctx, "account_access", &s3.BucketPolicyArgs{
 //				Bucket: exampleBucketV2.Bucket,
-//				Policy: pulumi.All(exampleBucketV2.Arn, exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleBucketV2Arn := _args[0].(string)
-//					exampleBucketV2Arn1 := _args[1].(string)
-//					var _zero string
-//					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Action": "s3:*",
-//								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
-//									"AWS": current.AccountId,
-//								},
-//								"Resource": []string{
-//									exampleBucketV2Arn,
-//									fmt.Sprintf("%v/*", exampleBucketV2Arn1),
-//								},
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json1 := string(tmpJSON1)
-//					return json1, nil
-//				}).(pulumi.StringOutput),
+//				Policy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err

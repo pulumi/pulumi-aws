@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  *     bucket: billingLogs.id,
  *     acl: "private",
  * });
- * const allowBillingLogging = pulumi.all([main, billingLogs.arn, main, billingLogs.arn]).apply(([main, billingLogsArn, main1, billingLogsArn1]) => aws.iam.getPolicyDocumentOutput({
+ * const allowBillingLogging = pulumi.all([main, billingLogs.arn, main, billingLogs.arn]).apply(([main, billingLogsArn, main1, billingLogsArn1]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -46,7 +46,7 @@ import * as utilities from "./utilities";
  * }));
  * const allowBillingLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_billing_logging", {
  *     bucket: billingLogs.id,
- *     policy: allowBillingLogging.apply(allowBillingLogging => allowBillingLogging.json),
+ *     policy: allowBillingLogging.then(allowBillingLogging => allowBillingLogging.json),
  * });
  * ```
  */
@@ -96,7 +96,7 @@ export interface GetBillingServiceAccountResult {
  *     bucket: billingLogs.id,
  *     acl: "private",
  * });
- * const allowBillingLogging = pulumi.all([main, billingLogs.arn, main, billingLogs.arn]).apply(([main, billingLogsArn, main1, billingLogsArn1]) => aws.iam.getPolicyDocumentOutput({
+ * const allowBillingLogging = pulumi.all([main, billingLogs.arn, main, billingLogs.arn]).apply(([main, billingLogsArn, main1, billingLogsArn1]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -123,7 +123,7 @@ export interface GetBillingServiceAccountResult {
  * }));
  * const allowBillingLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_billing_logging", {
  *     bucket: billingLogs.id,
- *     policy: allowBillingLogging.apply(allowBillingLogging => allowBillingLogging.json),
+ *     policy: allowBillingLogging.then(allowBillingLogging => allowBillingLogging.json),
  * });
  * ```
  */

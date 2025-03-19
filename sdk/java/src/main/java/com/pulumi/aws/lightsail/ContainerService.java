@@ -166,7 +166,7 @@ import javax.annotation.Nullable;
  * 
  *         var defaultRepositoryPolicy = new RepositoryPolicy("defaultRepositoryPolicy", RepositoryPolicyArgs.builder()
  *             .repository(defaultAwsEcrRepository.name())
- *             .policy(default_.applyValue(default_ -> default_.json()))
+ *             .policy(default_.json())
  *             .build());
  * 
  *     }

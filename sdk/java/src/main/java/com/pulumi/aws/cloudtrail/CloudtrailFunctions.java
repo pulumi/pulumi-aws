@@ -85,7 +85,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -168,7 +168,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -251,7 +251,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -334,7 +334,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -417,7 +417,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -500,7 +500,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -583,7 +583,7 @@ public final class CloudtrailFunctions {
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }

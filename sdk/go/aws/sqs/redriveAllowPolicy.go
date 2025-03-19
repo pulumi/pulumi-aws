@@ -36,40 +36,34 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			src, err := sqs.NewQueue(ctx, "src", &sqs.QueueArgs{
-//				Name: pulumi.String("srcqueue"),
-//				RedrivePolicy: example.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"deadLetterTargetArn": arn,
-//						"maxReceiveCount":     4,
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"deadLetterTargetArn": example.Arn,
+//				"maxReceiveCount":     4,
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			json0 := string(tmpJSON0)
+//			src, err := sqs.NewQueue(ctx, "src", &sqs.QueueArgs{
+//				Name:          pulumi.String("srcqueue"),
+//				RedrivePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"redrivePermission": "byQueue",
+//				"sourceQueueArns": pulumi.StringArray{
+//					src.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
 //			_, err = sqs.NewRedriveAllowPolicy(ctx, "example", &sqs.RedriveAllowPolicyArgs{
-//				QueueUrl: example.ID(),
-//				RedriveAllowPolicy: src.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"redrivePermission": "byQueue",
-//						"sourceQueueArns": []string{
-//							arn,
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json1 := string(tmpJSON1)
-//					return pulumi.String(json1), nil
-//				}).(pulumi.StringOutput),
+//				QueueUrl:           example.ID(),
+//				RedriveAllowPolicy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err

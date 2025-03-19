@@ -114,16 +114,17 @@ import (
 // if err != nil {
 // return err
 // }
-// _default := defaultContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// _default, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
 // Identifiers: interface{}{
-// privateRegistryAccess.EcrImagePullerRole.PrincipalArn,
+// defaultContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (*string, error) {
+// return &privateRegistryAccess.EcrImagePullerRole.PrincipalArn, nil
+// }).(pulumi.StringPtrOutput),
 // },
 // },
 // },
@@ -133,13 +134,13 @@ import (
 // },
 // },
 // },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
+// }, nil);
+// if err != nil {
+// return err
+// }
 // _, err = ecr.NewRepositoryPolicy(ctx, "default", &ecr.RepositoryPolicyArgs{
 // Repository: pulumi.Any(defaultAwsEcrRepository.Name),
-// Policy: pulumi.String(_default.ApplyT(func(_default iam.GetPolicyDocumentResult) (*string, error) {
-// return &default.Json, nil
-// }).(pulumi.StringPtrOutput)),
+// Policy: pulumi.String(_default.Json),
 // })
 // if err != nil {
 // return err

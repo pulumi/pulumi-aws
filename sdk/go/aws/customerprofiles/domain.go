@@ -52,7 +52,6 @@ import (
 //	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/customerprofiles"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
@@ -103,39 +102,36 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Sid":    "Customer Profiles S3 policy",
+//						"Effect": "Allow",
+//						"Action": []string{
+//							"s3:GetObject",
+//							"s3:PutObject",
+//							"s3:ListBucket",
+//						},
+//						"Resource": pulumi.StringArray{
+//							exampleBucketV2.Arn,
+//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//						"Principal": map[string]interface{}{
+//							"Service": "profile.amazonaws.com",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
 //			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 //				Bucket: exampleBucketV2.ID(),
-//				Policy: pulumi.All(exampleBucketV2.Arn, exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleBucketV2Arn := _args[0].(string)
-//					exampleBucketV2Arn1 := _args[1].(string)
-//					var _zero string
-//					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Sid":    "Customer Profiles S3 policy",
-//								"Effect": "Allow",
-//								"Action": []string{
-//									"s3:GetObject",
-//									"s3:PutObject",
-//									"s3:ListBucket",
-//								},
-//								"Resource": []string{
-//									exampleBucketV2Arn,
-//									fmt.Sprintf("%v/*", exampleBucketV2Arn1),
-//								},
-//								"Principal": map[string]interface{}{
-//									"Service": "profile.amazonaws.com",
-//								},
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json1 := string(tmpJSON1)
-//					return json1, nil
-//				}).(pulumi.StringOutput),
+//				Policy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // get the details of each resource
- * const pc = .map(__index => (aws.ec2.getVpcPeeringConnection({
+ * const pc = (new Array(pcs.then(pcs => pcs.ids).length)).map((_, i) => i).map(__index => (aws.ec2.getVpcPeeringConnection({
  *     id: _arg0_.ids[__index],
  * })));
  * ```
@@ -96,7 +96,7 @@ export interface GetVpcPeeringConnectionsResult {
  *     }],
  * });
  * // get the details of each resource
- * const pc = .map(__index => (aws.ec2.getVpcPeeringConnection({
+ * const pc = (new Array(pcs.then(pcs => pcs.ids).length)).map((_, i) => i).map(__index => (aws.ec2.getVpcPeeringConnection({
  *     id: _arg0_.ids[__index],
  * })));
  * ```

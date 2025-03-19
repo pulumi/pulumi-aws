@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleObjectLambdaAccessPointPolicy = new ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", ObjectLambdaAccessPointPolicyArgs.builder()
  *             .name(exampleObjectLambdaAccessPoint.name())
- *             .policy(exampleObjectLambdaAccessPoint.arn().applyValue(arn -> serializeJson(
+ *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2008-10-17"),
  *                     jsonProperty("Statement", jsonArray(jsonObject(
@@ -85,9 +85,9 @@ import javax.annotation.Nullable;
  *                         jsonProperty("Principal", jsonObject(
  *                             jsonProperty("AWS", current.accountId())
  *                         )),
- *                         jsonProperty("Resource", arn)
+ *                         jsonProperty("Resource", exampleObjectLambdaAccessPoint.arn())
  *                     )))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *     }

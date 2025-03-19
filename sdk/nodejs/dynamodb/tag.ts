@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     regionName: replica.then(replica => replica.name),
  * }]});
  * const test = new aws.dynamodb.Tag("test", {
- *     resourceArn: pulumi.all([example.arn, current, replica]).apply(([arn, current, replica]) => std.replaceOutput({
+ *     resourceArn: pulumi.all([example.arn, current, replica]).apply(([arn, current, replica]) => std.replace({
  *         text: arn,
  *         search: current.name,
  *         replace: replica.name,

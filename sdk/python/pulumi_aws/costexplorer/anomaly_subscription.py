@@ -402,10 +402,7 @@ class AnomalySubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cost_anomaly_updates = aws.sns.Topic("cost_anomaly_updates", name="CostAnomalyUpdates")
-        sns_topic_policy = pulumi.Output.all(
-            costAnomalyUpdatesArn=cost_anomaly_updates.arn,
-            costAnomalyUpdatesArn1=cost_anomaly_updates.arn
-        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+        sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
             statements=[
                 {
                     "sid": "AWSAnomalyDetectionSNSPublishingPermissions",
@@ -415,7 +412,7 @@ class AnomalySubscription(pulumi.CustomResource):
                         "type": "Service",
                         "identifiers": ["costalerts.amazonaws.com"],
                     }],
-                    "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
+                    "resources": [cost_anomaly_updates.arn],
                 },
                 {
                     "sid": "__default_statement_ID",
@@ -440,10 +437,9 @@ class AnomalySubscription(pulumi.CustomResource):
                         "type": "AWS",
                         "identifiers": ["*"],
                     }],
-                    "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
+                    "resources": [cost_anomaly_updates.arn],
                 },
-            ]))
-
+            ])
         default = aws.sns.TopicPolicy("default",
             arn=cost_anomaly_updates.arn,
             policy=sns_topic_policy.json)
@@ -584,10 +580,7 @@ class AnomalySubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cost_anomaly_updates = aws.sns.Topic("cost_anomaly_updates", name="CostAnomalyUpdates")
-        sns_topic_policy = pulumi.Output.all(
-            costAnomalyUpdatesArn=cost_anomaly_updates.arn,
-            costAnomalyUpdatesArn1=cost_anomaly_updates.arn
-        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+        sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
             statements=[
                 {
                     "sid": "AWSAnomalyDetectionSNSPublishingPermissions",
@@ -597,7 +590,7 @@ class AnomalySubscription(pulumi.CustomResource):
                         "type": "Service",
                         "identifiers": ["costalerts.amazonaws.com"],
                     }],
-                    "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
+                    "resources": [cost_anomaly_updates.arn],
                 },
                 {
                     "sid": "__default_statement_ID",
@@ -622,10 +615,9 @@ class AnomalySubscription(pulumi.CustomResource):
                         "type": "AWS",
                         "identifiers": ["*"],
                     }],
-                    "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
+                    "resources": [cost_anomaly_updates.arn],
                 },
-            ]))
-
+            ])
         default = aws.sns.TopicPolicy("default",
             arn=cost_anomaly_updates.arn,
             policy=sns_topic_policy.json)

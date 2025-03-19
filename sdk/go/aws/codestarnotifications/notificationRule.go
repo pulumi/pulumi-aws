@@ -42,8 +42,7 @@ import (
 // if err != nil {
 // return err
 // }
-// notifAccess := notif.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// notifAccess, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Actions: []string{
@@ -58,17 +57,17 @@ import (
 // },
 // },
 // Resources: interface{}{
-// arn,
+// notif.Arn,
 // },
 // },
 // },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
+// }, nil);
+// if err != nil {
+// return err
+// }
 // _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 // Arn: notif.Arn,
-// Policy: pulumi.String(notifAccess.ApplyT(func(notifAccess iam.GetPolicyDocumentResult) (*string, error) {
-// return &notifAccess.Json, nil
-// }).(pulumi.StringPtrOutput)),
+// Policy: pulumi.String(notifAccess.Json),
 // })
 // if err != nil {
 // return err

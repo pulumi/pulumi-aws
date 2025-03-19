@@ -93,27 +93,26 @@ import (
 // if err != nil {
 // return err
 // }
-// mypolicy := mytopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// mypolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Actions: []string{
 // "sns:Publish",
 // },
 // Resources: interface{}{
-// arn,
+// mytopic.Arn,
 // },
 // },
 // },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
+// }, nil);
+// if err != nil {
+// return err
+// }
 // _, err = iam.NewRolePolicy(ctx, "mypolicy", &iam.RolePolicyArgs{
 // Name: pulumi.String("mypolicy"),
 // Role: myrole.ID(),
-// Policy: pulumi.String(mypolicy.ApplyT(func(mypolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &mypolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
+// Policy: pulumi.String(mypolicy.Json),
 // })
 // if err != nil {
 // return err

@@ -1483,7 +1483,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1567,7 +1567,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1651,7 +1651,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1735,7 +1735,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1819,7 +1819,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1903,7 +1903,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1987,7 +1987,7 @@ public final class RedshiftFunctions {
      * 
      *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }

@@ -724,7 +724,7 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
@@ -820,7 +820,7 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
@@ -916,7 +916,7 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
@@ -1012,7 +1012,7 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
@@ -1108,7 +1108,7 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
@@ -1204,7 +1204,7 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
@@ -1300,7 +1300,7 @@ public final class ElbFunctions {
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()

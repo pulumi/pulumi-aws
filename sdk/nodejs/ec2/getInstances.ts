@@ -22,24 +22,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * export = async () => {
- *     const test = await aws.ec2.getInstances({
- *         instanceTags: {
- *             Role: "HardWorker",
- *         },
- *         filters: [{
- *             name: "instance.group-id",
- *             values: ["sg-12345678"],
- *         }],
- *         instanceStateNames: [
- *             "running",
- *             "stopped",
- *         ],
- *     });
- *     const testEip: aws.ec2.Eip[] = [];
- *     for (const range = {value: 0}; range.value < test.ids.length; range.value++) {
- *         testEip.push(new aws.ec2.Eip(`test-${range.value}`, {instance: test.ids[range.value]}));
- *     }
+ * const test = aws.ec2.getInstances({
+ *     instanceTags: {
+ *         Role: "HardWorker",
+ *     },
+ *     filters: [{
+ *         name: "instance.group-id",
+ *         values: ["sg-12345678"],
+ *     }],
+ *     instanceStateNames: [
+ *         "running",
+ *         "stopped",
+ *     ],
+ * });
+ * const testEip: aws.ec2.Eip[] = [];
+ * for (const range = {value: 0}; range.value < test.ids.length; range.value++) {
+ *     testEip.push(new aws.ec2.Eip(`test-${range.value}`, {instance: test.then(test => test.ids[range.value])}));
  * }
  * ```
  */
@@ -117,24 +115,22 @@ export interface GetInstancesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * export = async () => {
- *     const test = await aws.ec2.getInstances({
- *         instanceTags: {
- *             Role: "HardWorker",
- *         },
- *         filters: [{
- *             name: "instance.group-id",
- *             values: ["sg-12345678"],
- *         }],
- *         instanceStateNames: [
- *             "running",
- *             "stopped",
- *         ],
- *     });
- *     const testEip: aws.ec2.Eip[] = [];
- *     for (const range = {value: 0}; range.value < test.ids.length; range.value++) {
- *         testEip.push(new aws.ec2.Eip(`test-${range.value}`, {instance: test.ids[range.value]}));
- *     }
+ * const test = aws.ec2.getInstances({
+ *     instanceTags: {
+ *         Role: "HardWorker",
+ *     },
+ *     filters: [{
+ *         name: "instance.group-id",
+ *         values: ["sg-12345678"],
+ *     }],
+ *     instanceStateNames: [
+ *         "running",
+ *         "stopped",
+ *     ],
+ * });
+ * const testEip: aws.ec2.Eip[] = [];
+ * for (const range = {value: 0}; range.value < test.ids.length; range.value++) {
+ *     testEip.push(new aws.ec2.Eip(`test-${range.value}`, {instance: test.then(test => test.ids[range.value])}));
  * }
  * ```
  */

@@ -88,32 +88,31 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"fileLocations": []map[string]interface{}{
+//					map[string]interface{}{
+//						"URIPrefixes": pulumi.StringArray{
+//							example.ID().ApplyT(func(id string) (string, error) {
+//								return fmt.Sprintf("https://%v.s3-%v.%v", id, currentGetRegion.Name, currentGetPartition.DnsSuffix), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//				},
+//				"globalUploadSettings": map[string]interface{}{
+//					"format":         "CSV",
+//					"delimiter":      ",",
+//					"textqualifier":  "\"",
+//					"containsHeader": true,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
-//				Bucket: example.Bucket,
-//				Key:    pulumi.String("manifest.json"),
-//				Content: example.ID().ApplyT(func(id string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"fileLocations": []map[string]interface{}{
-//							map[string]interface{}{
-//								"URIPrefixes": []string{
-//									fmt.Sprintf("https://%v.s3-%v.%v", id, currentGetRegion.Name, currentGetPartition.DnsSuffix),
-//								},
-//							},
-//						},
-//						"globalUploadSettings": map[string]interface{}{
-//							"format":         "CSV",
-//							"delimiter":      ",",
-//							"textqualifier":  "\"",
-//							"containsHeader": true,
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
+//				Bucket:  example.Bucket,
+//				Key:     pulumi.String("manifest.json"),
+//				Content: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -146,39 +145,37 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON2, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": []string{
+//							"s3:GetObject",
+//						},
+//						"Effect": "Allow",
+//						"Resource": pulumi.All(example.Arn, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
+//							arn := _args[0].(string)
+//							key := _args[1].(string)
+//							return fmt.Sprintf("%v/%v", arn, key), nil
+//						}).(pulumi.StringOutput),
+//					},
+//					map[string]interface{}{
+//						"Action": []string{
+//							"s3:ListBucket",
+//						},
+//						"Effect":   "Allow",
+//						"Resource": example.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json2 := string(tmpJSON2)
 //			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
 //				Name:        pulumi.String("example"),
 //				Description: pulumi.String("Policy to allow QuickSight access to S3 bucket"),
-//				Policy: pulumi.All(example.Arn, exampleBucketObjectv2.Key, example.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleArn := _args[0].(string)
-//					key := _args[1].(string)
-//					exampleArn1 := _args[2].(string)
-//					var _zero string
-//					tmpJSON2, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Action": []string{
-//									"s3:GetObject",
-//								},
-//								"Effect":   "Allow",
-//								"Resource": fmt.Sprintf("%v/%v", exampleArn, key),
-//							},
-//							map[string]interface{}{
-//								"Action": []string{
-//									"s3:ListBucket",
-//								},
-//								"Effect":   "Allow",
-//								"Resource": exampleArn1,
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json2 := string(tmpJSON2)
-//					return json2, nil
-//				}).(pulumi.StringOutput),
+//				Policy:      pulumi.String(json2),
 //			})
 //			if err != nil {
 //				return err

@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  *         var source = new RolePolicy("source", RolePolicyArgs.builder()
  *             .role(example.id())
- *             .policy(sourceQueue.arn().applyValue(arn -> serializeJson(
+ *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
  *                     jsonProperty("Statement", jsonArray(jsonObject(
@@ -99,24 +99,24 @@ import javax.annotation.Nullable;
  *                             "sqs:GetQueueAttributes", 
  *                             "sqs:ReceiveMessage"
  *                         )),
- *                         jsonProperty("Resource", jsonArray(arn))
+ *                         jsonProperty("Resource", jsonArray(sourceQueue.arn()))
  *                     )))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *         var targetQueue = new Queue("targetQueue");
  * 
  *         var target = new RolePolicy("target", RolePolicyArgs.builder()
  *             .role(example.id())
- *             .policy(targetQueue.arn().applyValue(arn -> serializeJson(
+ *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
  *                     jsonProperty("Statement", jsonArray(jsonObject(
  *                         jsonProperty("Effect", "Allow"),
  *                         jsonProperty("Action", jsonArray("sqs:SendMessage")),
- *                         jsonProperty("Resource", jsonArray(arn))
+ *                         jsonProperty("Resource", jsonArray(targetQueue.arn()))
  *                     )))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *         var examplePipe = new Pipe("examplePipe", PipeArgs.builder()

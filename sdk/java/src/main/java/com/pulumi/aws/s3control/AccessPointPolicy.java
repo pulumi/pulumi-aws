@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAccessPointPolicy = new AccessPointPolicy("exampleAccessPointPolicy", AccessPointPolicyArgs.builder()
  *             .accessPointArn(exampleAccessPoint.arn())
- *             .policy(exampleAccessPoint.arn().applyValue(arn -> serializeJson(
+ *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2008-10-17"),
  *                     jsonProperty("Statement", jsonArray(jsonObject(
@@ -76,9 +76,9 @@ import javax.annotation.Nullable;
  *                         jsonProperty("Principal", jsonObject(
  *                             jsonProperty("AWS", "*")
  *                         )),
- *                         jsonProperty("Resource", String.format("%s/object/*", arn))
+ *                         jsonProperty("Resource", exampleAccessPoint.arn().applyValue(arn -> String.format("%s/object/*", arn)))
  *                     )))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *     }

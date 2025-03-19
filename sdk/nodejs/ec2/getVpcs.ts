@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * export = async () => {
  *     const foo = await aws.ec2.getVpcs({});
- *     const fooGetVpc = .map(__index => (await aws.ec2.getVpc({
+ *     const fooGetVpc = (new Array(foo.ids.length)).map((_, i) => i).map(__index => (await aws.ec2.getVpc({
  *         id: foo.ids[__index],
  *     })));
  *     const testFlowLog: aws.ec2.FlowLog[] = [];
@@ -128,7 +128,7 @@ export interface GetVpcsResult {
  *
  * export = async () => {
  *     const foo = await aws.ec2.getVpcs({});
- *     const fooGetVpc = .map(__index => (await aws.ec2.getVpc({
+ *     const fooGetVpc = (new Array(foo.ids.length)).map((_, i) => i).map(__index => (await aws.ec2.getVpc({
  *         id: foo.ids[__index],
  *     })));
  *     const testFlowLog: aws.ec2.FlowLog[] = [];

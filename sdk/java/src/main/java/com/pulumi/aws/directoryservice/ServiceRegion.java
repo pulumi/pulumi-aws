@@ -77,7 +77,11 @@ import javax.annotation.Nullable;
  *             new Subnet("exampleSubnet-" + i, SubnetArgs.builder()
  *                 .vpcId(exampleVpc.id())
  *                 .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names())[range.value()])
- *                 .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+ *                 .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                     .input(exampleVpc.cidrBlock())
+ *                     .newbits(8)
+ *                     .netnum(range.value())
+ *                     .build()).result())
  *                 .tags(Map.of("Name", "Primary"))
  *                 .build());
  * 
@@ -110,7 +114,11 @@ import javax.annotation.Nullable;
  *             new Subnet("example-secondarySubnet-" + i, SubnetArgs.builder()
  *                 .vpcId(example_secondary.id())
  *                 .availabilityZone(available_secondary.names()[range.value()])
- *                 .cidrBlock(example_secondary.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+ *                 .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                     .input(example_secondary.cidrBlock())
+ *                     .newbits(8)
+ *                     .netnum(range.value())
+ *                     .build()).result())
  *                 .tags(Map.of("Name", "Secondary"))
  *                 .build());
  * 

@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  *         var mypolicyRolePolicy = new RolePolicy("mypolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("mypolicy")
  *             .role(myrole.id())
- *             .policy(mypolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(mypolicy -> mypolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(mypolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

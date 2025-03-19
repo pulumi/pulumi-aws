@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *         values: ["pendingAcceptance"],
  *     }],
  * });
- * const unit = .map(__index => (aws.ec2transitgateway.getVpcAttachment({
+ * const unit = (new Array(filtered.then(filtered => filtered.ids).length)).map((_, i) => i).map(__index => (aws.ec2transitgateway.getVpcAttachment({
  *     id: _arg0_.ids[__index],
  * })));
  * ```
@@ -78,7 +78,7 @@ export interface GetVpcAttachmentsResult {
  *         values: ["pendingAcceptance"],
  *     }],
  * });
- * const unit = .map(__index => (aws.ec2transitgateway.getVpcAttachment({
+ * const unit = (new Array(filtered.then(filtered => filtered.ids).length)).map((_, i) => i).map(__index => (aws.ec2transitgateway.getVpcAttachment({
  *     id: _arg0_.ids[__index],
  * })));
  * ```

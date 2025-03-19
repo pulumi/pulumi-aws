@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  *             .resourceType("AWS::ElasticLoadBalancingV2::LoadBalancer")
  *             .securityServicePolicyData(PolicySecurityServicePolicyDataArgs.builder()
  *                 .type("WAF")
- *                 .managedServiceData(exampleRuleGroup.id().applyValue(id -> serializeJson(
+ *                 .managedServiceData(serializeJson(
  *                     jsonObject(
  *                         jsonProperty("type", "WAF"),
  *                         jsonProperty("ruleGroups", jsonArray(jsonObject(
- *                             jsonProperty("id", id),
+ *                             jsonProperty("id", exampleRuleGroup.id()),
  *                             jsonProperty("overrideAction", jsonObject(
  *                                 jsonProperty("type", "COUNT")
  *                             ))
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("type", "BLOCK")
  *                         )),
  *                         jsonProperty("overrideCustomerWebACLAssociation", false)
- *                     ))))
+ *                     )))
  *                 .build())
  *             .tags(Map.of("Name", "example-fms-policy"))
  *             .build());

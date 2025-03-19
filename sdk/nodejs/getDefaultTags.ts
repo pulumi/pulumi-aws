@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.getDefaultTags({});
- * const exampleGroup = new aws.autoscaling.Group("example", {tags: .map(entry => ({
+ * const exampleGroup = new aws.autoscaling.Group("example", {tags: Object.entries(example.then(example => example.tags)).map(([k, v]) => ({key: k, value: v})).map(entry => ({
  *     key: entry.key,
  *     value: entry.value,
  *     propagateAtLaunch: true,
@@ -82,7 +82,7 @@ export interface GetDefaultTagsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.getDefaultTags({});
- * const exampleGroup = new aws.autoscaling.Group("example", {tags: .map(entry => ({
+ * const exampleGroup = new aws.autoscaling.Group("example", {tags: Object.entries(example.then(example => example.tags)).map(([k, v]) => ({key: k, value: v})).map(entry => ({
  *     key: entry.key,
  *     value: entry.value,
  *     propagateAtLaunch: true,

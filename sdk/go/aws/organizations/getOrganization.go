@@ -65,11 +65,10 @@ import (
 // if err != nil {
 // return err
 // }
-// snsTopicPolicy := snsTopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// snsTopicPolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Actions: []string{
 // "SNS:Subscribe",
 // "SNS:Publish",
@@ -92,17 +91,17 @@ import (
 // },
 // },
 // Resources: interface{}{
-// arn,
+// snsTopic.Arn,
 // },
 // },
 // },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
+// }, nil);
+// if err != nil {
+// return err
+// }
 // _, err = sns.NewTopicPolicy(ctx, "sns_topic_policy", &sns.TopicPolicyArgs{
 // Arn: snsTopic.Arn,
-// Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &snsTopicPolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
+// Policy: pulumi.String(snsTopicPolicy.Json),
 // })
 // if err != nil {
 // return err

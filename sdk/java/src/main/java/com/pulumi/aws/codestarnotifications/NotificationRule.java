@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()
  *             .arn(notif.arn())
- *             .policy(notifAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(notifAccess -> notifAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(notifAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var commits = new NotificationRule("commits", NotificationRuleArgs.builder()

@@ -74,32 +74,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			source, err := iam.NewRolePolicy(ctx, "source", &iam.RolePolicyArgs{
-//				Role: example.ID(),
-//				Policy: sourceQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": []string{
-//									"sqs:DeleteMessage",
-//									"sqs:GetQueueAttributes",
-//									"sqs:ReceiveMessage",
-//								},
-//								"Resource": []string{
-//									arn,
-//								},
-//							},
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Effect": "Allow",
+//						"Action": []string{
+//							"sqs:DeleteMessage",
+//							"sqs:GetQueueAttributes",
+//							"sqs:ReceiveMessage",
 //						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json1 := string(tmpJSON1)
-//					return pulumi.String(json1), nil
-//				}).(pulumi.StringOutput),
+//						"Resource": pulumi.StringArray{
+//							sourceQueue.Arn,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			source, err := iam.NewRolePolicy(ctx, "source", &iam.RolePolicyArgs{
+//				Role:   example.ID(),
+//				Policy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err
@@ -108,30 +105,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			target, err := iam.NewRolePolicy(ctx, "target", &iam.RolePolicyArgs{
-//				Role: example.ID(),
-//				Policy: targetQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON2, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": []string{
-//									"sqs:SendMessage",
-//								},
-//								"Resource": []string{
-//									arn,
-//								},
-//							},
+//			tmpJSON2, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Effect": "Allow",
+//						"Action": []string{
+//							"sqs:SendMessage",
 //						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json2 := string(tmpJSON2)
-//					return pulumi.String(json2), nil
-//				}).(pulumi.StringOutput),
+//						"Resource": pulumi.StringArray{
+//							targetQueue.Arn,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json2 := string(tmpJSON2)
+//			target, err := iam.NewRolePolicy(ctx, "target", &iam.RolePolicyArgs{
+//				Role:   example.ID(),
+//				Policy: pulumi.String(json2),
 //			})
 //			if err != nil {
 //				return err

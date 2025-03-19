@@ -6045,38 +6045,34 @@ public final class IamFunctions {
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
+     *             .policy(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
      *                         jsonProperty("Action", "s3:GetObject"),
      *                         jsonProperty("Effect", "Allow"),
-     *                         jsonProperty("Resource", arn)
+     *                         jsonProperty("Resource", exampleBucketV2.arn())
      *                     )))
-     *                 ))))
+     *                 )))
      *             .build());
      * 
      *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
      *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
-     *                 var exampleBucketV2Arn = values.t1;
-     *                 var exampleBucketV2Arn1 = values.t2;
-     *                 return serializeJson(
-     *                     jsonObject(
-     *                         jsonProperty("Version", "2012-10-17"),
-     *                         jsonProperty("Statement", jsonArray(jsonObject(
-     *                             jsonProperty("Action", "s3:*"),
-     *                             jsonProperty("Effect", "Allow"),
-     *                             jsonProperty("Principal", jsonObject(
-     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *                             )),
-     *                             jsonProperty("Resource", jsonArray(
-     *                                 exampleBucketV2Arn, 
-     *                                 String.format("%s/*", exampleBucketV2Arn1)
-     *                             ))
-     *                         )))
-     *                     ));
-     *             }))
+     *             .policy(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("Version", "2012-10-17"),
+     *                     jsonProperty("Statement", jsonArray(jsonObject(
+     *                         jsonProperty("Action", "s3:*"),
+     *                         jsonProperty("Effect", "Allow"),
+     *                         jsonProperty("Principal", jsonObject(
+     *                             jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *                         )),
+     *                         jsonProperty("Resource", jsonArray(
+     *                             exampleBucketV2.arn(), 
+     *                             exampleBucketV2.arn().applyValue(arn -> String.format("%s/*", arn))
+     *                         ))
+     *                     )))
+     *                 )))
      *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
@@ -6243,38 +6239,34 @@ public final class IamFunctions {
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
+     *             .policy(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
      *                         jsonProperty("Action", "s3:GetObject"),
      *                         jsonProperty("Effect", "Allow"),
-     *                         jsonProperty("Resource", arn)
+     *                         jsonProperty("Resource", exampleBucketV2.arn())
      *                     )))
-     *                 ))))
+     *                 )))
      *             .build());
      * 
      *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
      *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
-     *                 var exampleBucketV2Arn = values.t1;
-     *                 var exampleBucketV2Arn1 = values.t2;
-     *                 return serializeJson(
-     *                     jsonObject(
-     *                         jsonProperty("Version", "2012-10-17"),
-     *                         jsonProperty("Statement", jsonArray(jsonObject(
-     *                             jsonProperty("Action", "s3:*"),
-     *                             jsonProperty("Effect", "Allow"),
-     *                             jsonProperty("Principal", jsonObject(
-     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *                             )),
-     *                             jsonProperty("Resource", jsonArray(
-     *                                 exampleBucketV2Arn, 
-     *                                 String.format("%s/*", exampleBucketV2Arn1)
-     *                             ))
-     *                         )))
-     *                     ));
-     *             }))
+     *             .policy(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("Version", "2012-10-17"),
+     *                     jsonProperty("Statement", jsonArray(jsonObject(
+     *                         jsonProperty("Action", "s3:*"),
+     *                         jsonProperty("Effect", "Allow"),
+     *                         jsonProperty("Principal", jsonObject(
+     *                             jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *                         )),
+     *                         jsonProperty("Resource", jsonArray(
+     *                             exampleBucketV2.arn(), 
+     *                             exampleBucketV2.arn().applyValue(arn -> String.format("%s/*", arn))
+     *                         ))
+     *                     )))
+     *                 )))
      *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
@@ -6441,38 +6433,34 @@ public final class IamFunctions {
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
+     *             .policy(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
      *                         jsonProperty("Action", "s3:GetObject"),
      *                         jsonProperty("Effect", "Allow"),
-     *                         jsonProperty("Resource", arn)
+     *                         jsonProperty("Resource", exampleBucketV2.arn())
      *                     )))
-     *                 ))))
+     *                 )))
      *             .build());
      * 
      *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
      *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
-     *                 var exampleBucketV2Arn = values.t1;
-     *                 var exampleBucketV2Arn1 = values.t2;
-     *                 return serializeJson(
-     *                     jsonObject(
-     *                         jsonProperty("Version", "2012-10-17"),
-     *                         jsonProperty("Statement", jsonArray(jsonObject(
-     *                             jsonProperty("Action", "s3:*"),
-     *                             jsonProperty("Effect", "Allow"),
-     *                             jsonProperty("Principal", jsonObject(
-     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *                             )),
-     *                             jsonProperty("Resource", jsonArray(
-     *                                 exampleBucketV2Arn, 
-     *                                 String.format("%s/*", exampleBucketV2Arn1)
-     *                             ))
-     *                         )))
-     *                     ));
-     *             }))
+     *             .policy(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("Version", "2012-10-17"),
+     *                     jsonProperty("Statement", jsonArray(jsonObject(
+     *                         jsonProperty("Action", "s3:*"),
+     *                         jsonProperty("Effect", "Allow"),
+     *                         jsonProperty("Principal", jsonObject(
+     *                             jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *                         )),
+     *                         jsonProperty("Resource", jsonArray(
+     *                             exampleBucketV2.arn(), 
+     *                             exampleBucketV2.arn().applyValue(arn -> String.format("%s/*", arn))
+     *                         ))
+     *                     )))
+     *                 )))
      *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
@@ -6639,38 +6627,34 @@ public final class IamFunctions {
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
+     *             .policy(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
      *                         jsonProperty("Action", "s3:GetObject"),
      *                         jsonProperty("Effect", "Allow"),
-     *                         jsonProperty("Resource", arn)
+     *                         jsonProperty("Resource", exampleBucketV2.arn())
      *                     )))
-     *                 ))))
+     *                 )))
      *             .build());
      * 
      *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
      *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
-     *                 var exampleBucketV2Arn = values.t1;
-     *                 var exampleBucketV2Arn1 = values.t2;
-     *                 return serializeJson(
-     *                     jsonObject(
-     *                         jsonProperty("Version", "2012-10-17"),
-     *                         jsonProperty("Statement", jsonArray(jsonObject(
-     *                             jsonProperty("Action", "s3:*"),
-     *                             jsonProperty("Effect", "Allow"),
-     *                             jsonProperty("Principal", jsonObject(
-     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *                             )),
-     *                             jsonProperty("Resource", jsonArray(
-     *                                 exampleBucketV2Arn, 
-     *                                 String.format("%s/*", exampleBucketV2Arn1)
-     *                             ))
-     *                         )))
-     *                     ));
-     *             }))
+     *             .policy(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("Version", "2012-10-17"),
+     *                     jsonProperty("Statement", jsonArray(jsonObject(
+     *                         jsonProperty("Action", "s3:*"),
+     *                         jsonProperty("Effect", "Allow"),
+     *                         jsonProperty("Principal", jsonObject(
+     *                             jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *                         )),
+     *                         jsonProperty("Resource", jsonArray(
+     *                             exampleBucketV2.arn(), 
+     *                             exampleBucketV2.arn().applyValue(arn -> String.format("%s/*", arn))
+     *                         ))
+     *                     )))
+     *                 )))
      *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()
@@ -6837,38 +6821,34 @@ public final class IamFunctions {
      *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
-     *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
+     *             .policy(serializeJson(
      *                 jsonObject(
      *                     jsonProperty("Version", "2012-10-17"),
      *                     jsonProperty("Statement", jsonArray(jsonObject(
      *                         jsonProperty("Action", "s3:GetObject"),
      *                         jsonProperty("Effect", "Allow"),
-     *                         jsonProperty("Resource", arn)
+     *                         jsonProperty("Resource", exampleBucketV2.arn())
      *                     )))
-     *                 ))))
+     *                 )))
      *             .build());
      * 
      *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
      *             .bucket(exampleBucketV2.bucket())
-     *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
-     *                 var exampleBucketV2Arn = values.t1;
-     *                 var exampleBucketV2Arn1 = values.t2;
-     *                 return serializeJson(
-     *                     jsonObject(
-     *                         jsonProperty("Version", "2012-10-17"),
-     *                         jsonProperty("Statement", jsonArray(jsonObject(
-     *                             jsonProperty("Action", "s3:*"),
-     *                             jsonProperty("Effect", "Allow"),
-     *                             jsonProperty("Principal", jsonObject(
-     *                                 jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
-     *                             )),
-     *                             jsonProperty("Resource", jsonArray(
-     *                                 exampleBucketV2Arn, 
-     *                                 String.format("%s/*", exampleBucketV2Arn1)
-     *                             ))
-     *                         )))
-     *                     ));
-     *             }))
+     *             .policy(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("Version", "2012-10-17"),
+     *                     jsonProperty("Statement", jsonArray(jsonObject(
+     *                         jsonProperty("Action", "s3:*"),
+     *                         jsonProperty("Effect", "Allow"),
+     *                         jsonProperty("Principal", jsonObject(
+     *                             jsonProperty("AWS", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+     *                         )),
+     *                         jsonProperty("Resource", jsonArray(
+     *                             exampleBucketV2.arn(), 
+     *                             exampleBucketV2.arn().applyValue(arn -> String.format("%s/*", arn))
+     *                         ))
+     *                     )))
+     *                 )))
      *             .build());
      * 
      *         final var s3ObjectAccess = IamFunctions.getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs.builder()

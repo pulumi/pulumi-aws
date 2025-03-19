@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const code = new aws.codecommit.Repository("code", {repositoryName: "example-code-repo"});
  * const notif = new aws.sns.Topic("notif", {name: "notification"});
- * const notifAccess = notif.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const notifAccess = notif.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sns:Publish"],
  *         principals: [{
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * }));
  * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: notif.arn,
- *     policy: notifAccess.apply(notifAccess => notifAccess.json),
+ *     policy: notifAccess.then(notifAccess => notifAccess.json),
  * });
  * const commits = new aws.codestarnotifications.NotificationRule("commits", {
  *     detailType: "BASIC",

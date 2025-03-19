@@ -53,29 +53,28 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2008-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Effect": "Allow",
+//						"Action": "s3:GetObjectTagging",
+//						"Principal": map[string]interface{}{
+//							"AWS": "*",
+//						},
+//						"Resource": exampleAccessPoint.Arn.ApplyT(func(arn string) (string, error) {
+//							return fmt.Sprintf("%v/object/*", arn), nil
+//						}).(pulumi.StringOutput),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			_, err = s3control.NewAccessPointPolicy(ctx, "example", &s3control.AccessPointPolicyArgs{
 //				AccessPointArn: exampleAccessPoint.Arn,
-//				Policy: exampleAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2008-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": "s3:GetObjectTagging",
-//								"Principal": map[string]interface{}{
-//									"AWS": "*",
-//								},
-//								"Resource": fmt.Sprintf("%v/object/*", arn),
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
+//				Policy:         pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

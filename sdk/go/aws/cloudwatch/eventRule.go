@@ -63,11 +63,10 @@ import (
 // if err != nil {
 // return err
 // }
-// snsTopicPolicy := awsLogins.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// snsTopicPolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Actions: []string{
 // "SNS:Publish",
 // },
@@ -80,17 +79,17 @@ import (
 // },
 // },
 // Resources: interface{}{
-// arn,
+// awsLogins.Arn,
 // },
 // },
 // },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
+// }, nil);
+// if err != nil {
+// return err
+// }
 // _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 // Arn: awsLogins.Arn,
-// Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &snsTopicPolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
+// Policy: pulumi.String(snsTopicPolicy.Json),
 // })
 // if err != nil {
 // return err

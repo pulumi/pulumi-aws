@@ -92,14 +92,14 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var pls = new Aws.Ec2.ManagedPrefixList("pls", new()
         ///     {
-        ///         Entries = mycidrs.Select((v, k) =&gt; new { Key = k, Value = v }).Apply(entries =&gt; entries.Select(entry =&gt; 
+        ///         Entries = mycidrs.Select((v, k) =&gt; new { Key = k, Value = v }).Select(entry =&gt; 
         ///         {
-        ///             return 
+        ///             return new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
         ///             {
-        ///                 { "cidr", entry.Value },
-        ///                 { "description", entry.Value },
+        ///                 Cidr = entry.Value,
+        ///                 Description = entry.Value,
         ///             };
-        ///         }).ToList()),
+        ///         }).ToList(),
         ///         Name = $"IPAM Pool ({test.Id}) Cidrs",
         ///         AddressFamily = "IPv4",
         ///         MaxEntries = mycidrs.Length,
@@ -192,14 +192,14 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var pls = new Aws.Ec2.ManagedPrefixList("pls", new()
         ///     {
-        ///         Entries = mycidrs.Select((v, k) =&gt; new { Key = k, Value = v }).Apply(entries =&gt; entries.Select(entry =&gt; 
+        ///         Entries = mycidrs.Select((v, k) =&gt; new { Key = k, Value = v }).Select(entry =&gt; 
         ///         {
-        ///             return 
+        ///             return new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
         ///             {
-        ///                 { "cidr", entry.Value },
-        ///                 { "description", entry.Value },
+        ///                 Cidr = entry.Value,
+        ///                 Description = entry.Value,
         ///             };
-        ///         }).ToList()),
+        ///         }).ToList(),
         ///         Name = $"IPAM Pool ({test.Id}) Cidrs",
         ///         AddressFamily = "IPv4",
         ///         MaxEntries = mycidrs.Length,
@@ -292,14 +292,14 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var pls = new Aws.Ec2.ManagedPrefixList("pls", new()
         ///     {
-        ///         Entries = mycidrs.Select((v, k) =&gt; new { Key = k, Value = v }).Apply(entries =&gt; entries.Select(entry =&gt; 
+        ///         Entries = mycidrs.Select((v, k) =&gt; new { Key = k, Value = v }).Select(entry =&gt; 
         ///         {
-        ///             return 
+        ///             return new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
         ///             {
-        ///                 { "cidr", entry.Value },
-        ///                 { "description", entry.Value },
+        ///                 Cidr = entry.Value,
+        ///                 Description = entry.Value,
         ///             };
-        ///         }).ToList()),
+        ///         }).ToList(),
         ///         Name = $"IPAM Pool ({test.Id}) Cidrs",
         ///         AddressFamily = "IPv4",
         ///         MaxEntries = mycidrs.Length,

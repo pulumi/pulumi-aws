@@ -249,9 +249,9 @@ class ServiceRegion(pulumi.CustomResource):
             example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
                 vpc_id=example_vpc.id,
                 availability_zone=available.names[range["value"]],
-                cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                cidr_block=std.cidrsubnet(input=example_vpc.cidr_block,
                     newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
+                    netnum=range["value"]).result,
                 tags={
                     "Name": "Primary",
                 }))
@@ -278,9 +278,9 @@ class ServiceRegion(pulumi.CustomResource):
             example_secondary_subnet.append(aws.ec2.Subnet(f"example-secondary-{range['value']}",
                 vpc_id=example_secondary.id,
                 availability_zone=available_secondary.names[range["value"]],
-                cidr_block=example_secondary.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                cidr_block=std.cidrsubnet(input=example_secondary.cidr_block,
                     newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
+                    netnum=range["value"]).result,
                 tags={
                     "Name": "Secondary",
                 }))
@@ -345,9 +345,9 @@ class ServiceRegion(pulumi.CustomResource):
             example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
                 vpc_id=example_vpc.id,
                 availability_zone=available.names[range["value"]],
-                cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                cidr_block=std.cidrsubnet(input=example_vpc.cidr_block,
                     newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
+                    netnum=range["value"]).result,
                 tags={
                     "Name": "Primary",
                 }))
@@ -374,9 +374,9 @@ class ServiceRegion(pulumi.CustomResource):
             example_secondary_subnet.append(aws.ec2.Subnet(f"example-secondary-{range['value']}",
                 vpc_id=example_secondary.id,
                 availability_zone=available_secondary.names[range["value"]],
-                cidr_block=example_secondary.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                cidr_block=std.cidrsubnet(input=example_secondary.cidr_block,
                     newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
+                    netnum=range["value"]).result,
                 tags={
                     "Name": "Secondary",
                 }))

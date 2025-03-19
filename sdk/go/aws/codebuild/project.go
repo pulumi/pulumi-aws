@@ -74,13 +74,10 @@ import (
 // if err != nil {
 // return err
 // }
-// example := pulumi.All(exampleBucketV2.Arn,exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// exampleBucketV2Arn := _args[0].(string)
-// exampleBucketV2Arn1 := _args[1].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Actions: []string{
 // "logs:CreateLogGroup",
 // "logs:CreateLogStream",
@@ -91,7 +88,7 @@ import (
 // },
 // },
 // {
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Actions: []string{
 // "ec2:CreateNetworkInterface",
 // "ec2:DescribeDhcpOptions",
@@ -106,7 +103,7 @@ import (
 // },
 // },
 // {
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Actions: []string{
 // "ec2:CreateNetworkInterfacePermission",
 // },
@@ -132,17 +129,19 @@ import (
 // },
 // },
 // {
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Actions: []string{
 // "s3:*",
 // },
-// Resources: []string{
-// exampleBucketV2Arn,
-// fmt.Sprintf("%v/*", exampleBucketV2Arn1),
+// Resources: pulumi.StringArray{
+// exampleBucketV2.Arn,
+// exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+// return fmt.Sprintf("%v/*", arn), nil
+// }).(pulumi.StringOutput),
 // },
 // },
 // {
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Actions: []string{
 // "codeconnections:GetConnectionToken",
 // "codeconnections:GetConnection",
@@ -152,13 +151,13 @@ import (
 // },
 // },
 // },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
+// }, nil);
+// if err != nil {
+// return err
+// }
 // _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 // Role: exampleRole.Name,
-// Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-// return &example.Json, nil
-// }).(pulumi.StringPtrOutput)),
+// Policy: pulumi.String(example.Json),
 // })
 // if err != nil {
 // return err

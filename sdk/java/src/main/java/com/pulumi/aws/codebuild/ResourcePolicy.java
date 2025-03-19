@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()
  *             .resourceArn(example.arn())
- *             .policy(example.arn().applyValue(arn -> serializeJson(
+ *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
  *                     jsonProperty("Id", "default"),
@@ -78,9 +78,9 @@ import javax.annotation.Nullable;
  *                             "codebuild:ListReportsForReportGroup", 
  *                             "codebuild:DescribeTestCases"
  *                         )),
- *                         jsonProperty("Resource", arn)
+ *                         jsonProperty("Resource", example.arn())
  *                     )))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *     }

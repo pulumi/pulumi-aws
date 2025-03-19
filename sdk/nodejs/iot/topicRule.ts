@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     name: "myrole",
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const mypolicy = mytopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const mypolicy = mytopic.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["sns:Publish"],
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  * const mypolicyRolePolicy = new aws.iam.RolePolicy("mypolicy", {
  *     name: "mypolicy",
  *     role: myrole.id,
- *     policy: mypolicy.apply(mypolicy => mypolicy.json),
+ *     policy: mypolicy.then(mypolicy => mypolicy.json),
  * });
  * ```
  *

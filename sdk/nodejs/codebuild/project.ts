@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const example = pulumi.all([exampleBucketV2.arn, exampleBucketV2.arn]).apply(([exampleBucketV2Arn, exampleBucketV2Arn1]) => aws.iam.getPolicyDocumentOutput({
+ * const example = pulumi.all([exampleBucketV2.arn, exampleBucketV2.arn]).apply(([exampleBucketV2Arn, exampleBucketV2Arn1]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -101,7 +101,7 @@ import * as utilities from "../utilities";
  * }));
  * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
  *     role: exampleRole.name,
- *     policy: example.apply(example => example.json),
+ *     policy: example.then(example => example.json),
  * });
  * const exampleProject = new aws.codebuild.Project("example", {
  *     name: "test-project",

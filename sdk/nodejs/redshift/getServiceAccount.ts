@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     bucket: "tf-redshift-logging-test-bucket",
  *     forceDestroy: true,
  * });
- * const allowAuditLogging = pulumi.all([main, bucket.arn, main]).apply(([main, arn, main1]) => aws.iam.getPolicyDocumentOutput({
+ * const allowAuditLogging = pulumi.all([main, bucket.arn, main]).apply(([main, arn, main1]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             sid: "Put bucket policy needed for audit logging",
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * }));
  * const allowAuditLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_audit_logging", {
  *     bucket: bucket.id,
- *     policy: allowAuditLogging.apply(allowAuditLogging => allowAuditLogging.json),
+ *     policy: allowAuditLogging.then(allowAuditLogging => allowAuditLogging.json),
  * });
  * ```
  */
@@ -103,7 +103,7 @@ export interface GetServiceAccountResult {
  *     bucket: "tf-redshift-logging-test-bucket",
  *     forceDestroy: true,
  * });
- * const allowAuditLogging = pulumi.all([main, bucket.arn, main]).apply(([main, arn, main1]) => aws.iam.getPolicyDocumentOutput({
+ * const allowAuditLogging = pulumi.all([main, bucket.arn, main]).apply(([main, arn, main1]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             sid: "Put bucket policy needed for audit logging",
@@ -129,7 +129,7 @@ export interface GetServiceAccountResult {
  * }));
  * const allowAuditLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_audit_logging", {
  *     bucket: bucket.id,
- *     policy: allowAuditLogging.apply(allowAuditLogging => allowAuditLogging.json),
+ *     policy: allowAuditLogging.then(allowAuditLogging => allowAuditLogging.json),
  * });
  * ```
  */

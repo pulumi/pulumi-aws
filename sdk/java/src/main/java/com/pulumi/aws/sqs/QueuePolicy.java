@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  *         var testQueuePolicy = new QueuePolicy("testQueuePolicy", QueuePolicyArgs.builder()
  *             .queueUrl(q.id())
- *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
@@ -124,28 +124,24 @@ import javax.annotation.Nullable;
  * 
  *         var exampleQueuePolicy = new QueuePolicy("exampleQueuePolicy", QueuePolicyArgs.builder()
  *             .queueUrl(exampleQueue.id())
- *             .policy(Output.tuple(exampleQueue.arn(), example.arn()).applyValue(values -> {
- *                 var exampleQueueArn = values.t1;
- *                 var exampleArn = values.t2;
- *                 return serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Sid", "Cejuwdam"),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("Service", "s3.amazonaws.com")
- *                             )),
- *                             jsonProperty("Action", "SQS:SendMessage"),
- *                             jsonProperty("Resource", exampleQueueArn),
- *                             jsonProperty("Condition", jsonObject(
- *                                 jsonProperty("ArnLike", jsonObject(
- *                                     jsonProperty("aws:SourceArn", exampleArn)
- *                                 ))
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Sid", "Cejuwdam"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "s3.amazonaws.com")
+ *                         )),
+ *                         jsonProperty("Action", "SQS:SendMessage"),
+ *                         jsonProperty("Resource", exampleQueue.arn()),
+ *                         jsonProperty("Condition", jsonObject(
+ *                             jsonProperty("ArnLike", jsonObject(
+ *                                 jsonProperty("aws:SourceArn", example.arn())
  *                             ))
- *                         )))
- *                     ));
- *             }))
+ *                         ))
+ *                     )))
+ *                 )))
  *             .build());
  * 
  *     }

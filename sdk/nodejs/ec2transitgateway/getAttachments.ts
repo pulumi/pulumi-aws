@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const unit = .map(__index => (aws.ec2transitgateway.getAttachment({
+ * const unit = (new Array(filtered.then(filtered => filtered.ids).length)).map((_, i) => i).map(__index => (aws.ec2transitgateway.getAttachment({
  *     transitGatewayAttachmentId: _arg0_.ids[__index],
  * })));
  * ```
@@ -93,7 +93,7 @@ export interface GetAttachmentsResult {
  *         },
  *     ],
  * });
- * const unit = .map(__index => (aws.ec2transitgateway.getAttachment({
+ * const unit = (new Array(filtered.then(filtered => filtered.ids).length)).map((_, i) => i).map(__index => (aws.ec2transitgateway.getAttachment({
  *     transitGatewayAttachmentId: _arg0_.ids[__index],
  * })));
  * ```

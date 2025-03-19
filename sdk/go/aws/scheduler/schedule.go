@@ -76,6 +76,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"MessageBody": "Greetings, programs!",
+//				"QueueUrl":    example.Url,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			_, err = scheduler.NewSchedule(ctx, "example", &scheduler.ScheduleArgs{
 //				Name: pulumi.String("my-schedule"),
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
@@ -85,18 +93,7 @@ import (
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.String("arn:aws:scheduler:::aws-sdk:sqs:sendMessage"),
 //					RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//					Input: example.Url.ApplyT(func(url string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON0, err := json.Marshal(map[string]interface{}{
-//							"MessageBody": "Greetings, programs!",
-//							"QueueUrl":    url,
-//						})
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json0 := string(tmpJSON0)
-//						return pulumi.String(json0), nil
-//					}).(pulumi.StringOutput),
+//					Input:   pulumi.String(json0),
 //				},
 //			})
 //			if err != nil {

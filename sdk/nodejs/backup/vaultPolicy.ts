@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getCallerIdentity({});
  * const exampleVault = new aws.backup.Vault("example", {name: "example"});
- * const example = pulumi.all([current, exampleVault.arn]).apply(([current, arn]) => aws.iam.getPolicyDocumentOutput({
+ * const example = pulumi.all([current, exampleVault.arn]).apply(([current, arn]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * }));
  * const exampleVaultPolicy = new aws.backup.VaultPolicy("example", {
  *     backupVaultName: exampleVault.name,
- *     policy: example.apply(example => example.json),
+ *     policy: example.then(example => example.json),
  * });
  * ```
  *

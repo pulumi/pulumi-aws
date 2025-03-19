@@ -52,10 +52,10 @@ import * as utilities from "../utilities";
  * });
  * const mycidrs = c.then(c => .filter(cidr => cidr.state == "provisioned").map(cidr => (cidr.cidr)));
  * const pls = new aws.ec2.ManagedPrefixList("pls", {
- *     entries: mycidrs.map((v, k) => ({key: k, value: v})).then(entries => entries.map(entry => ({
+ *     entries: mycidrs.map((v, k) => ({key: k, value: v})).map(entry => ({
  *         cidr: entry.value,
  *         description: entry.value,
- *     }))),
+ *     })),
  *     name: `IPAM Pool (${test.id}) Cidrs`,
  *     addressFamily: "IPv4",
  *     maxEntries: mycidrs.length,
@@ -146,10 +146,10 @@ export interface GetVpcIamPoolCidrsResult {
  * });
  * const mycidrs = c.then(c => .filter(cidr => cidr.state == "provisioned").map(cidr => (cidr.cidr)));
  * const pls = new aws.ec2.ManagedPrefixList("pls", {
- *     entries: mycidrs.map((v, k) => ({key: k, value: v})).then(entries => entries.map(entry => ({
+ *     entries: mycidrs.map((v, k) => ({key: k, value: v})).map(entry => ({
  *         cidr: entry.value,
  *         description: entry.value,
- *     }))),
+ *     })),
  *     name: `IPAM Pool (${test.id}) Cidrs`,
  *     addressFamily: "IPv4",
  *     maxEntries: mycidrs.length,

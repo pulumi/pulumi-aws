@@ -61,7 +61,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Tag("test", TagArgs.builder()
- *             .resourceArn(example.arn().applyValue(arn -> StdFunctions.replace()).applyValue(invoke -> invoke.result()))
+ *             .resourceArn(StdFunctions.replace(ReplaceArgs.builder()
+ *                 .text(example.arn())
+ *                 .search(current.applyValue(getRegionResult -> getRegionResult.name()))
+ *                 .replace(replica.applyValue(getRegionResult -> getRegionResult.name()))
+ *                 .build()).result())
  *             .key("testkey")
  *             .value("testvalue")
  *             .build());

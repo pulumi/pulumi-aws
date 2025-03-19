@@ -142,7 +142,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleTag = new aws.dynamodb.Tag("example", {
- *     resourceArn: pulumi.all([example.arn, current, alternate]).apply(([arn, current, alternate]) => std.replaceOutput({
+ *     resourceArn: pulumi.all([example.arn, current, alternate]).apply(([arn, current, alternate]) => std.replace({
  *         text: arn,
  *         search: current.name,
  *         replace: alternate.name,

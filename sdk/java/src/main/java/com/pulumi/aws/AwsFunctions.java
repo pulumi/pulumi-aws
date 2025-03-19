@@ -324,7 +324,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.nameSuffix())])
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -403,7 +407,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.nameSuffix())])
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -482,7 +490,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.nameSuffix())])
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -561,7 +573,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.nameSuffix())])
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -640,7 +656,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.nameSuffix())])
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -719,7 +739,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.nameSuffix())])
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -798,7 +822,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.nameSuffix())])
+     *                 .build()).result())
      *             .build());
      * 
      *     }
@@ -1892,7 +1920,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1978,7 +2006,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -2064,7 +2092,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -2150,7 +2178,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -2236,7 +2264,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -2322,7 +2350,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -2408,7 +2436,7 @@ public final class AwsFunctions {
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }

@@ -20,7 +20,7 @@ import {PolicyDocument} from "../iam";
  * import * as aws from "@pulumi/aws";
  *
  * const q = new aws.sqs.Queue("q", {name: "examplequeue"});
- * const test = q.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const test = q.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "First",
  *         effect: "Allow",
@@ -39,7 +39,7 @@ import {PolicyDocument} from "../iam";
  * }));
  * const testQueuePolicy = new aws.sqs.QueuePolicy("test", {
  *     queueUrl: q.id,
- *     policy: test.apply(test => test.json),
+ *     policy: test.then(test => test.json),
  * });
  * ```
  *

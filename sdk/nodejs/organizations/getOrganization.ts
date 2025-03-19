@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * const example = aws.organizations.getOrganization({});
  * const snsTopic = new aws.sns.Topic("sns_topic", {name: "my-sns-topic"});
- * const snsTopicPolicy = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocumentOutput({
+ * const snsTopicPolicy = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * }));
  * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("sns_topic_policy", {
  *     arn: snsTopic.arn,
- *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
+ *     policy: snsTopicPolicy.then(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * ```
  */
@@ -137,7 +137,7 @@ export interface GetOrganizationResult {
  *
  * const example = aws.organizations.getOrganization({});
  * const snsTopic = new aws.sns.Topic("sns_topic", {name: "my-sns-topic"});
- * const snsTopicPolicy = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocumentOutput({
+ * const snsTopicPolicy = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: [
@@ -158,7 +158,7 @@ export interface GetOrganizationResult {
  * }));
  * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("sns_topic_policy", {
  *     arn: snsTopic.arn,
- *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
+ *     policy: snsTopicPolicy.then(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * ```
  */

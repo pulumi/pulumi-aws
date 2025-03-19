@@ -270,11 +270,11 @@ import javax.annotation.Nullable;
  *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
  *             .name("example")
  *             .connectionType("AZURECOSMOS")
- *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *             .connectionProperties(Map.of("SparkProperties", serializeJson(
  *                 jsonObject(
- *                     jsonProperty("secretId", name),
+ *                     jsonProperty("secretId", example.name()),
  *                     jsonProperty("spark.cosmos.accountEndpoint", "https://exampledbaccount.documents.azure.com:443/")
- *                 )))))
+ *                 ))))
  *             .build());
  * 
  *     }
@@ -331,11 +331,11 @@ import javax.annotation.Nullable;
  *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
  *             .name("example")
  *             .connectionType("AZURECOSMOS")
- *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *             .connectionProperties(Map.of("SparkProperties", serializeJson(
  *                 jsonObject(
- *                     jsonProperty("secretId", name),
+ *                     jsonProperty("secretId", example.name()),
  *                     jsonProperty("url", "jdbc:sqlserver:exampledbserver.database.windows.net:1433;database=exampledatabase")
- *                 )))))
+ *                 ))))
  *             .build());
  * 
  *     }
@@ -407,10 +407,10 @@ import javax.annotation.Nullable;
  *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
  *             .name("example")
  *             .connectionType("BIGQUERY")
- *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *             .connectionProperties(Map.of("SparkProperties", serializeJson(
  *                 jsonObject(
- *                     jsonProperty("secretId", name)
- *                 )))))
+ *                     jsonProperty("secretId", example.name())
+ *                 ))))
  *             .build());
  * 
  *     }}{@code
@@ -467,15 +467,15 @@ import javax.annotation.Nullable;
  *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
  *             .name("example")
  *             .connectionType("OPENSEARCH")
- *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *             .connectionProperties(Map.of("SparkProperties", serializeJson(
  *                 jsonObject(
- *                     jsonProperty("secretId", name),
+ *                     jsonProperty("secretId", example.name()),
  *                     jsonProperty("opensearch.nodes", "https://search-exampledomain-ixlmh4jieahrau3bfebcgp8cnm.us-east-1.es.amazonaws.com"),
  *                     jsonProperty("opensearch.port", "443"),
  *                     jsonProperty("opensearch.aws.sigv4.region", "us-east-1"),
  *                     jsonProperty("opensearch.nodes.wan.only", "true"),
  *                     jsonProperty("opensearch.aws.sigv4.enabled", "true")
- *                 )))))
+ *                 ))))
  *             .build());
  * 
  *     }
@@ -532,12 +532,12 @@ import javax.annotation.Nullable;
  *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
  *             .name("example")
  *             .connectionType("SNOWFLAKE")
- *             .connectionProperties(Map.of("SparkProperties", example.name().applyValue(name -> serializeJson(
+ *             .connectionProperties(Map.of("SparkProperties", serializeJson(
  *                 jsonObject(
- *                     jsonProperty("secretId", name),
+ *                     jsonProperty("secretId", example.name()),
  *                     jsonProperty("sfRole", "EXAMPLEETLROLE"),
  *                     jsonProperty("sfUrl", "exampleorg-exampleconnection.snowflakecomputing.com")
- *                 )))))
+ *                 ))))
  *             .build());
  * 
  *     }

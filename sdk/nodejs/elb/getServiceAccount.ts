@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     bucket: elbLogs.id,
  *     acl: "private",
  * });
- * const allowElbLogging = pulumi.all([main, elbLogs.arn]).apply(([main, arn]) => aws.iam.getPolicyDocumentOutput({
+ * const allowElbLogging = pulumi.all([main, elbLogs.arn]).apply(([main, arn]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * }));
  * const allowElbLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_elb_logging", {
  *     bucket: elbLogs.id,
- *     policy: allowElbLogging.apply(allowElbLogging => allowElbLogging.json),
+ *     policy: allowElbLogging.then(allowElbLogging => allowElbLogging.json),
  * });
  * const bar = new aws.elb.LoadBalancer("bar", {
  *     name: "my-foobar-elb",
@@ -104,7 +104,7 @@ export interface GetServiceAccountResult {
  *     bucket: elbLogs.id,
  *     acl: "private",
  * });
- * const allowElbLogging = pulumi.all([main, elbLogs.arn]).apply(([main, arn]) => aws.iam.getPolicyDocumentOutput({
+ * const allowElbLogging = pulumi.all([main, elbLogs.arn]).apply(([main, arn]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -117,7 +117,7 @@ export interface GetServiceAccountResult {
  * }));
  * const allowElbLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_elb_logging", {
  *     bucket: elbLogs.id,
- *     policy: allowElbLogging.apply(allowElbLogging => allowElbLogging.json),
+ *     policy: allowElbLogging.then(allowElbLogging => allowElbLogging.json),
  * });
  * const bar = new aws.elb.LoadBalancer("bar", {
  *     name: "my-foobar-elb",

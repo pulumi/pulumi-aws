@@ -129,7 +129,7 @@ class VaultPolicy(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example_vault = aws.backup.Vault("example", name="example")
-        example = example_vault.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        example = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
                 "type": "AWS",
@@ -145,8 +145,8 @@ class VaultPolicy(pulumi.CustomResource):
                 "backup:GetBackupVaultNotifications",
                 "backup:PutBackupVaultNotifications",
             ],
-            "resources": [arn],
-        }]))
+            "resources": [example_vault.arn],
+        }])
         example_vault_policy = aws.backup.VaultPolicy("example",
             backup_vault_name=example_vault.name,
             policy=example.json)
@@ -182,7 +182,7 @@ class VaultPolicy(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example_vault = aws.backup.Vault("example", name="example")
-        example = example_vault.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        example = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
                 "type": "AWS",
@@ -198,8 +198,8 @@ class VaultPolicy(pulumi.CustomResource):
                 "backup:GetBackupVaultNotifications",
                 "backup:PutBackupVaultNotifications",
             ],
-            "resources": [arn],
-        }]))
+            "resources": [example_vault.arn],
+        }])
         example_vault_policy = aws.backup.VaultPolicy("example",
             backup_vault_name=example_vault.name,
             policy=example.json)

@@ -171,38 +171,33 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
-//				QueueUrl: testQueue.ID(),
-//				Policy: pulumi.All(testQueue.Arn, testTopic.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					testQueueArn := _args[0].(string)
-//					testTopicArn := _args[1].(string)
-//					var _zero string
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
-//									"AWS": "*",
-//								},
-//								"Action": []string{
-//									"sqs:SendMessage",
-//								},
-//								"Resource": testQueueArn,
-//								"Condition": map[string]interface{}{
-//									"ArnEquals": map[string]interface{}{
-//										"aws:SourceArn": testTopicArn,
-//									},
-//								},
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": "*",
+//						},
+//						"Action": []string{
+//							"sqs:SendMessage",
+//						},
+//						"Resource": testQueue.Arn,
+//						"Condition": map[string]interface{}{
+//							"ArnEquals": map[string]interface{}{
+//								"aws:SourceArn": testTopic.Arn,
 //							},
 //						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return json0, nil
-//				}).(pulumi.StringOutput),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
+//				QueueUrl: testQueue.ID(),
+//				Policy:   pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

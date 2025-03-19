@@ -15,44 +15,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Get information on EC2 Transit Gateway Attachments.
         /// 
         /// ## Example Usage
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "resource-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "vpc",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Task<GetAttachmentsResult> InvokeAsync(GetAttachmentsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachmentsResult>("aws:ec2transitgateway/getAttachments:getAttachments", args ?? new GetAttachmentsArgs(), options.WithDefaults());
@@ -61,44 +23,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Get information on EC2 Transit Gateway Attachments.
         /// 
         /// ## Example Usage
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "resource-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "vpc",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Output<GetAttachmentsResult> Invoke(GetAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachmentsResult>("aws:ec2transitgateway/getAttachments:getAttachments", args ?? new GetAttachmentsInvokeArgs(), options.WithDefaults());
@@ -107,44 +31,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Get information on EC2 Transit Gateway Attachments.
         /// 
         /// ## Example Usage
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "resource-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "vpc",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Output<GetAttachmentsResult> Invoke(GetAttachmentsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachmentsResult>("aws:ec2transitgateway/getAttachments:getAttachments", args ?? new GetAttachmentsInvokeArgs(), options.WithDefaults());

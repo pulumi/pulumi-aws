@@ -130,7 +130,7 @@ class TopicPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sns.Topic("test", name="my-topic-with-policy")
-        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+        sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
             statements=[{
                 "actions": [
                     "SNS:Subscribe",
@@ -153,9 +153,9 @@ class TopicPolicy(pulumi.CustomResource):
                     "type": "AWS",
                     "identifiers": ["*"],
                 }],
-                "resources": [arn],
+                "resources": [test.arn],
                 "sid": "__default_statement_ID",
-            }]))
+            }])
         default = aws.sns.TopicPolicy("default",
             arn=test.arn,
             policy=sns_topic_policy.json)
@@ -192,7 +192,7 @@ class TopicPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sns.Topic("test", name="my-topic-with-policy")
-        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+        sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
             statements=[{
                 "actions": [
                     "SNS:Subscribe",
@@ -215,9 +215,9 @@ class TopicPolicy(pulumi.CustomResource):
                     "type": "AWS",
                     "identifiers": ["*"],
                 }],
-                "resources": [arn],
+                "resources": [test.arn],
                 "sid": "__default_statement_ID",
-            }]))
+            }])
         default = aws.sns.TopicPolicy("default",
             arn=test.arn,
             policy=sns_topic_policy.json)

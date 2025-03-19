@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *         values: ["pendingAcceptance"],
  *     }],
  * });
- * const unit = .map(__index => (aws.ec2transitgateway.getPeeringAttachment({
+ * const unit = (new Array(filtered.then(filtered => filtered.ids).length)).map((_, i) => i).map(__index => (aws.ec2transitgateway.getPeeringAttachment({
  *     id: _arg0_.ids[__index],
  * })));
  * ```
@@ -96,7 +96,7 @@ export interface GetPeeringAttachmentsResult {
  *         values: ["pendingAcceptance"],
  *     }],
  * });
- * const unit = .map(__index => (aws.ec2transitgateway.getPeeringAttachment({
+ * const unit = (new Array(filtered.then(filtered => filtered.ids).length)).map((_, i) => i).map(__index => (aws.ec2transitgateway.getPeeringAttachment({
  *     id: _arg0_.ids[__index],
  * })));
  * ```

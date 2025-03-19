@@ -168,24 +168,20 @@ import javax.annotation.Nullable;
  *         var amplifyAppMasterEventRule = new EventRule("amplifyAppMasterEventRule", EventRuleArgs.builder()
  *             .name(master.branchName().applyValue(branchName -> String.format("amplify-%s-%s-branch-notification", app.id(),branchName)))
  *             .description(master.branchName().applyValue(branchName -> String.format("AWS Amplify build notifications for :  App: %s Branch: %s", app.id(),branchName)))
- *             .eventPattern(Output.tuple(example.id(), master.branchName()).applyValue(values -> }{{@code
- *                 var id = values.t1;
- *                 var branchName = values.t2;
- *                 return serializeJson(
- *                     jsonObject(
- *                         jsonProperty("detail", jsonObject(
- *                             jsonProperty("appId", jsonArray(id)),
- *                             jsonProperty("branchName", jsonArray(branchName)),
- *                             jsonProperty("jobStatus", jsonArray(
- *                                 "SUCCEED", 
- *                                 "FAILED", 
- *                                 "STARTED"
- *                             ))
- *                         )),
- *                         jsonProperty("detail-type", jsonArray("Amplify Deployment Status Change")),
- *                         jsonProperty("source", jsonArray("aws.amplify"))
- *                     ));
- *             }}{@code ))
+ *             .eventPattern(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("detail", jsonObject(
+ *                         jsonProperty("appId", jsonArray(example.id())),
+ *                         jsonProperty("branchName", jsonArray(master.branchName())),
+ *                         jsonProperty("jobStatus", jsonArray(
+ *                             "SUCCEED", 
+ *                             "FAILED", 
+ *                             "STARTED"
+ *                         ))
+ *                     )),
+ *                     jsonProperty("detail-type", jsonArray("Amplify Deployment Status Change")),
+ *                     jsonProperty("source", jsonArray("aws.amplify"))
+ *                 )))
  *             .build());
  * 
  *         // SNS Topic for Amplify notifications
@@ -224,7 +220,7 @@ import javax.annotation.Nullable;
  * 
  *         var amplifyAppMasterTopicPolicy = new TopicPolicy("amplifyAppMasterTopicPolicy", TopicPolicyArgs.builder()
  *             .arn(amplifyAppMasterTopic.arn())
- *             .policy(amplifyAppMaster.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(amplifyAppMaster -> amplifyAppMaster.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(amplifyAppMaster.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var this_ = new TopicSubscription("this", TopicSubscriptionArgs.builder()

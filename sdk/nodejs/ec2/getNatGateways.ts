@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *         values: ["available"],
  *     }],
  * });
- * const ngw = .map(__index => (aws.ec2.getNatGateway({
+ * const ngw = (new Array(ngws.then(ngws => ngws.ids).length)).map((_, i) => i).map(__index => (aws.ec2.getNatGateway({
  *     id: _arg0_.ids[__index],
  * })));
  * ```
@@ -96,7 +96,7 @@ export interface GetNatGatewaysResult {
  *         values: ["available"],
  *     }],
  * });
- * const ngw = .map(__index => (aws.ec2.getNatGateway({
+ * const ngw = (new Array(ngws.then(ngws => ngws.ids).length)).map((_, i) => i).map(__index => (aws.ec2.getNatGateway({
  *     id: _arg0_.ids[__index],
  * })));
  * ```

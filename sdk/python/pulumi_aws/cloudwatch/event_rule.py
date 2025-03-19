@@ -508,15 +508,15 @@ class EventRule(pulumi.CustomResource):
             rule=console.name,
             target_id="SendToSNS",
             arn=aws_logins.arn)
-        sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        sns_topic_policy = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "actions": ["SNS:Publish"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
-            "resources": [arn],
-        }]))
+            "resources": [aws_logins.arn],
+        }])
         default = aws.sns.TopicPolicy("default",
             arn=aws_logins.arn,
             policy=sns_topic_policy.json)
@@ -583,15 +583,15 @@ class EventRule(pulumi.CustomResource):
             rule=console.name,
             target_id="SendToSNS",
             arn=aws_logins.arn)
-        sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        sns_topic_policy = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "actions": ["SNS:Publish"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
-            "resources": [arn],
-        }]))
+            "resources": [aws_logins.arn],
+        }])
         default = aws.sns.TopicPolicy("default",
             arn=aws_logins.arn,
             policy=sns_topic_policy.json)

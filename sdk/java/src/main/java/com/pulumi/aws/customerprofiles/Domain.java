@@ -120,30 +120,26 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(exampleBucketV2.id())
- *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
- *                 var exampleBucketV2Arn = values.t1;
- *                 var exampleBucketV2Arn1 = values.t2;
- *                 return serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Sid", "Customer Profiles S3 policy"),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Action", jsonArray(
- *                                 "s3:GetObject", 
- *                                 "s3:PutObject", 
- *                                 "s3:ListBucket"
- *                             )),
- *                             jsonProperty("Resource", jsonArray(
- *                                 exampleBucketV2Arn, 
- *                                 String.format("%s/*", exampleBucketV2Arn1)
- *                             )),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("Service", "profile.amazonaws.com")
- *                             ))
- *                         )))
- *                     ));
- *             }))
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Sid", "Customer Profiles S3 policy"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Action", jsonArray(
+ *                             "s3:GetObject", 
+ *                             "s3:PutObject", 
+ *                             "s3:ListBucket"
+ *                         )),
+ *                         jsonProperty("Resource", jsonArray(
+ *                             exampleBucketV2.arn(), 
+ *                             exampleBucketV2.arn().applyValue(arn -> String.format("%s/*", arn))
+ *                         )),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "profile.amazonaws.com")
+ *                         ))
+ *                     )))
+ *                 )))
  *             .build());
  * 
  *         var test = new Domain("test", DomainArgs.builder()

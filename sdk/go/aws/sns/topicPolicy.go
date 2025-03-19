@@ -36,9 +36,8 @@ import (
 // if err != nil {
 // return err
 // }
-// snsTopicPolicy := test.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// PolicyId: "__default_policy_ID",
+// snsTopicPolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// PolicyId: pulumi.StringRef("__default_policy_ID"),
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
 // Actions: []string{
@@ -61,7 +60,7 @@ import (
 // },
 // },
 // },
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
@@ -71,18 +70,18 @@ import (
 // },
 // },
 // Resources: interface{}{
-// arn,
+// test.Arn,
 // },
-// Sid: "__default_statement_ID",
+// Sid: pulumi.StringRef("__default_statement_ID"),
 // },
 // },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
+// }, nil);
+// if err != nil {
+// return err
+// }
 // _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 // Arn: test.Arn,
-// Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &snsTopicPolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
+// Policy: pulumi.String(snsTopicPolicy.Json),
 // })
 // if err != nil {
 // return err

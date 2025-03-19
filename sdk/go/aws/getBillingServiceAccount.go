@@ -48,13 +48,10 @@ import (
 // if err != nil {
 // return err
 // }
-// allowBillingLogging := pulumi.All(billingLogs.Arn,billingLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// billingLogsArn := _args[0].(string)
-// billingLogsArn1 := _args[1].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// allowBillingLogging, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
@@ -67,12 +64,12 @@ import (
 // "s3:GetBucketAcl",
 // "s3:GetBucketPolicy",
 // },
-// Resources: []string{
-// billingLogsArn,
+// Resources: pulumi.StringArray{
+// billingLogs.Arn,
 // },
 // },
 // {
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
@@ -84,18 +81,20 @@ import (
 // Actions: []string{
 // "s3:PutObject",
 // },
-// Resources: []string{
-// fmt.Sprintf("%v/*", billingLogsArn1),
+// Resources: pulumi.StringArray{
+// billingLogs.Arn.ApplyT(func(arn string) (string, error) {
+// return fmt.Sprintf("%v/*", arn), nil
+// }).(pulumi.StringOutput),
 // },
 // },
 // },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
+// }, nil);
+// if err != nil {
+// return err
+// }
 // _, err = s3.NewBucketPolicy(ctx, "allow_billing_logging", &s3.BucketPolicyArgs{
 // Bucket: billingLogs.ID(),
-// Policy: pulumi.String(allowBillingLogging.ApplyT(func(allowBillingLogging iam.GetPolicyDocumentResult) (*string, error) {
-// return &allowBillingLogging.Json, nil
-// }).(pulumi.StringPtrOutput)),
+// Policy: pulumi.String(allowBillingLogging.Json),
 // })
 // if err != nil {
 // return err

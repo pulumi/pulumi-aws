@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  *         var testTopicPolicy = new TopicPolicy("testTopicPolicy", TopicPolicyArgs.builder()
  *             .arn(testTopic.arn())
- *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var testVaultNotifications = new VaultNotifications("testVaultNotifications", VaultNotificationsArgs.builder()

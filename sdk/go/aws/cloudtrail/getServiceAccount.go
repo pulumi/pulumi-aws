@@ -45,14 +45,11 @@ import (
 // if err != nil {
 // return err
 // }
-// allowCloudtrailLogging := pulumi.All(bucket.Arn,bucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// bucketArn := _args[0].(string)
-// bucketArn1 := _args[1].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// allowCloudtrailLogging, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
-// Sid: "Put bucket policy needed for trails",
-// Effect: "Allow",
+// Sid: pulumi.StringRef("Put bucket policy needed for trails"),
+// Effect: pulumi.StringRef("Allow"),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
@@ -64,13 +61,15 @@ import (
 // Actions: []string{
 // "s3:PutObject",
 // },
-// Resources: []string{
-// fmt.Sprintf("%v/*", bucketArn),
+// Resources: pulumi.StringArray{
+// bucket.Arn.ApplyT(func(arn string) (string, error) {
+// return fmt.Sprintf("%v/*", arn), nil
+// }).(pulumi.StringOutput),
 // },
 // },
 // {
-// Sid: "Get bucket policy needed for trails",
-// Effect: "Allow",
+// Sid: pulumi.StringRef("Get bucket policy needed for trails"),
+// Effect: pulumi.StringRef("Allow"),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
@@ -82,18 +81,18 @@ import (
 // Actions: []string{
 // "s3:GetBucketAcl",
 // },
-// Resources: []string{
-// bucketArn1,
+// Resources: pulumi.StringArray{
+// bucket.Arn,
 // },
 // },
 // },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
+// }, nil);
+// if err != nil {
+// return err
+// }
 // _, err = s3.NewBucketPolicy(ctx, "allow_cloudtrail_logging", &s3.BucketPolicyArgs{
 // Bucket: bucket.ID(),
-// Policy: pulumi.String(allowCloudtrailLogging.ApplyT(func(allowCloudtrailLogging iam.GetPolicyDocumentResult) (*string, error) {
-// return &allowCloudtrailLogging.Json, nil
-// }).(pulumi.StringPtrOutput)),
+// Policy: pulumi.String(allowCloudtrailLogging.Json),
 // })
 // if err != nil {
 // return err

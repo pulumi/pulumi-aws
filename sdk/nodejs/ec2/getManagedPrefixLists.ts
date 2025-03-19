@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *         Env: "test",
  *     },
  * });
- * const testEnvGetManagedPrefixList = .map(__index => (aws.ec2.getManagedPrefixList({
+ * const testEnvGetManagedPrefixList = (new Array(testEnv.then(testEnv => testEnv.ids).length)).map((_, i) => i).map(__index => (aws.ec2.getManagedPrefixList({
  *     id: _arg0_.ids[__index],
  * })));
  * ```
@@ -86,7 +86,7 @@ export interface GetManagedPrefixListsResult {
  *         Env: "test",
  *     },
  * });
- * const testEnvGetManagedPrefixList = .map(__index => (aws.ec2.getManagedPrefixList({
+ * const testEnvGetManagedPrefixList = (new Array(testEnv.then(testEnv => testEnv.ids).length)).map((_, i) => i).map(__index => (aws.ec2.getManagedPrefixList({
  *     id: _arg0_.ids[__index],
  * })));
  * ```

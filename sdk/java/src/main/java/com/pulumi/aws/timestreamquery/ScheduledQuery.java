@@ -215,27 +215,23 @@ import javax.annotation.Nullable;
  * 
  *         var testQueuePolicy = new QueuePolicy("testQueuePolicy", QueuePolicyArgs.builder()
  *             .queueUrl(testQueue.id())
- *             .policy(Output.tuple(testQueue.arn(), testTopic.arn()).applyValue(values -> {
- *                 var testQueueArn = values.t1;
- *                 var testTopicArn = values.t2;
- *                 return serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Principal", jsonObject(
- *                                 jsonProperty("AWS", "*")
- *                             )),
- *                             jsonProperty("Action", jsonArray("sqs:SendMessage")),
- *                             jsonProperty("Resource", testQueueArn),
- *                             jsonProperty("Condition", jsonObject(
- *                                 jsonProperty("ArnEquals", jsonObject(
- *                                     jsonProperty("aws:SourceArn", testTopicArn)
- *                                 ))
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("AWS", "*")
+ *                         )),
+ *                         jsonProperty("Action", jsonArray("sqs:SendMessage")),
+ *                         jsonProperty("Resource", testQueue.arn()),
+ *                         jsonProperty("Condition", jsonObject(
+ *                             jsonProperty("ArnEquals", jsonObject(
+ *                                 jsonProperty("aws:SourceArn", testTopic.arn())
  *                             ))
- *                         )))
- *                     ));
- *             }))
+ *                         ))
+ *                     )))
+ *                 )))
  *             .build());
  * 
  *         var testRole = new Role("testRole", RoleArgs.builder()

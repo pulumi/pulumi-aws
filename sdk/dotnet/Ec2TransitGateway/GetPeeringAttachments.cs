@@ -30,36 +30,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetPeeringAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetPeeringAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Task<GetPeeringAttachmentsResult> InvokeAsync(GetPeeringAttachmentsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeeringAttachmentsResult>("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", args ?? new GetPeeringAttachmentsArgs(), options.WithDefaults());
@@ -83,36 +53,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetPeeringAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetPeeringAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public static Output<GetPeeringAttachmentsResult> Invoke(GetPeeringAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringAttachmentsResult>("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", args ?? new GetPeeringAttachmentsInvokeArgs(), options.WithDefaults());
@@ -133,36 +73,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     var test = Aws.Ec2TransitGateway.GetPeeringAttachments.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetPeeringAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetPeeringAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
         /// 
         /// });
         /// ```

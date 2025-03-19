@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     targetId: "SendToSNS",
  *     arn: awsLogins.arn,
  * });
- * const snsTopicPolicy = awsLogins.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const snsTopicPolicy = awsLogins.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["SNS:Publish"],
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * }));
  * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: awsLogins.arn,
- *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
+ *     policy: snsTopicPolicy.then(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * ```
  *

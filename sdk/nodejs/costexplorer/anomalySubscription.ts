@@ -109,7 +109,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const costAnomalyUpdates = new aws.sns.Topic("cost_anomaly_updates", {name: "CostAnomalyUpdates"});
- * const snsTopicPolicy = pulumi.all([costAnomalyUpdates.arn, costAnomalyUpdates.arn]).apply(([costAnomalyUpdatesArn, costAnomalyUpdatesArn1]) => aws.iam.getPolicyDocumentOutput({
+ * const snsTopicPolicy = pulumi.all([costAnomalyUpdates.arn, costAnomalyUpdates.arn]).apply(([costAnomalyUpdatesArn, costAnomalyUpdatesArn1]) => aws.iam.getPolicyDocument({
  *     policyId: "__default_policy_ID",
  *     statements: [
  *         {
@@ -151,7 +151,7 @@ import * as utilities from "../utilities";
  * }));
  * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: costAnomalyUpdates.arn,
- *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
+ *     policy: snsTopicPolicy.then(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * const anomalyMonitor = new aws.costexplorer.AnomalyMonitor("anomaly_monitor", {
  *     name: "AWSServiceMonitor",

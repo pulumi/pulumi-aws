@@ -45,48 +45,45 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewLogDataProtectionPolicy(ctx, "example", &cloudwatch.LogDataProtectionPolicyArgs{
-//				LogGroupName: example.Name,
-//				PolicyDocument: exampleBucketV2.Bucket.ApplyT(func(bucket string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Name":    "Example",
-//						"Version": "2021-06-01",
-//						"Statement": []interface{}{
-//							map[string]interface{}{
-//								"Sid": "Audit",
-//								"DataIdentifier": []string{
-//									"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-//								},
-//								"Operation": map[string]interface{}{
-//									"Audit": map[string]interface{}{
-//										"FindingsDestination": map[string]interface{}{
-//											"S3": map[string]interface{}{
-//												"Bucket": bucket,
-//											},
-//										},
-//									},
-//								},
-//							},
-//							map[string]interface{}{
-//								"Sid": "Redact",
-//								"DataIdentifier": []string{
-//									"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-//								},
-//								"Operation": map[string]interface{}{
-//									"Deidentify": map[string]interface{}{
-//										"MaskConfig": map[string]interface{}{},
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Name":    "Example",
+//				"Version": "2021-06-01",
+//				"Statement": []interface{}{
+//					map[string]interface{}{
+//						"Sid": "Audit",
+//						"DataIdentifier": []string{
+//							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+//						},
+//						"Operation": map[string]interface{}{
+//							"Audit": map[string]interface{}{
+//								"FindingsDestination": map[string]interface{}{
+//									"S3": map[string]interface{}{
+//										"Bucket": exampleBucketV2.Bucket,
 //									},
 //								},
 //							},
 //						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
+//					},
+//					map[string]interface{}{
+//						"Sid": "Redact",
+//						"DataIdentifier": []string{
+//							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+//						},
+//						"Operation": map[string]interface{}{
+//							"Deidentify": map[string]interface{}{
+//								"MaskConfig": map[string]interface{}{},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = cloudwatch.NewLogDataProtectionPolicy(ctx, "example", &cloudwatch.LogDataProtectionPolicyArgs{
+//				LogGroupName:   example.Name,
+//				PolicyDocument: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

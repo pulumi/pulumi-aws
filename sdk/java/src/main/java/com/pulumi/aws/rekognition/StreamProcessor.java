@@ -94,35 +94,30 @@ import javax.annotation.Nullable;
  *             .name("example-role")
  *             .inlinePolicies(RoleInlinePolicyArgs.builder()
  *                 .name("Rekognition-Access")
- *                 .policy(Output.tuple(example.arn(), exampleTopic.arn(), exampleVideoStream.arn()).applyValue(values -> {
- *                     var exampleArn = values.t1;
- *                     var exampleTopicArn = values.t2;
- *                     var exampleVideoStreamArn = values.t3;
- *                     return serializeJson(
- *                         jsonObject(
- *                             jsonProperty("Version", "2012-10-17"),
- *                             jsonProperty("Statement", jsonArray(
- *                                 jsonObject(
- *                                     jsonProperty("Action", jsonArray("s3:PutObject")),
- *                                     jsonProperty("Effect", "Allow"),
- *                                     jsonProperty("Resource", jsonArray(String.format("%s/*", exampleArn)))
- *                                 ), 
- *                                 jsonObject(
- *                                     jsonProperty("Action", jsonArray("sns:Publish")),
- *                                     jsonProperty("Effect", "Allow"),
- *                                     jsonProperty("Resource", jsonArray(exampleTopicArn))
- *                                 ), 
- *                                 jsonObject(
- *                                     jsonProperty("Action", jsonArray(
- *                                         "kinesis:Get*", 
- *                                         "kinesis:DescribeStreamSummary"
- *                                     )),
- *                                     jsonProperty("Effect", "Allow"),
- *                                     jsonProperty("Resource", jsonArray(exampleVideoStreamArn))
- *                                 )
- *                             ))
- *                         ));
- *                 }))
+ *                 .policy(serializeJson(
+ *                     jsonObject(
+ *                         jsonProperty("Version", "2012-10-17"),
+ *                         jsonProperty("Statement", jsonArray(
+ *                             jsonObject(
+ *                                 jsonProperty("Action", jsonArray("s3:PutObject")),
+ *                                 jsonProperty("Effect", "Allow"),
+ *                                 jsonProperty("Resource", jsonArray(example.arn().applyValue(arn -> String.format("%s/*", arn))))
+ *                             ), 
+ *                             jsonObject(
+ *                                 jsonProperty("Action", jsonArray("sns:Publish")),
+ *                                 jsonProperty("Effect", "Allow"),
+ *                                 jsonProperty("Resource", jsonArray(exampleTopic.arn()))
+ *                             ), 
+ *                             jsonObject(
+ *                                 jsonProperty("Action", jsonArray(
+ *                                     "kinesis:Get*", 
+ *                                     "kinesis:DescribeStreamSummary"
+ *                                 )),
+ *                                 jsonProperty("Effect", "Allow"),
+ *                                 jsonProperty("Resource", jsonArray(exampleVideoStream.arn()))
+ *                             )
+ *                         ))
+ *                     )))
  *                 .build())
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -230,29 +225,25 @@ import javax.annotation.Nullable;
  *             .name("example-role")
  *             .inlinePolicies(RoleInlinePolicyArgs.builder()
  *                 .name("Rekognition-Access")
- *                 .policy(Output.tuple(example.arn(), exampleStream.arn()).applyValue(values -> {
- *                     var exampleArn = values.t1;
- *                     var exampleStreamArn = values.t2;
- *                     return serializeJson(
- *                         jsonObject(
- *                             jsonProperty("Version", "2012-10-17"),
- *                             jsonProperty("Statement", jsonArray(
- *                                 jsonObject(
- *                                     jsonProperty("Action", jsonArray(
- *                                         "kinesis:Get*", 
- *                                         "kinesis:DescribeStreamSummary"
- *                                     )),
- *                                     jsonProperty("Effect", "Allow"),
- *                                     jsonProperty("Resource", jsonArray(exampleArn))
- *                                 ), 
- *                                 jsonObject(
- *                                     jsonProperty("Action", jsonArray("kinesis:PutRecord")),
- *                                     jsonProperty("Effect", "Allow"),
- *                                     jsonProperty("Resource", jsonArray(exampleStreamArn))
- *                                 )
- *                             ))
- *                         ));
- *                 }))
+ *                 .policy(serializeJson(
+ *                     jsonObject(
+ *                         jsonProperty("Version", "2012-10-17"),
+ *                         jsonProperty("Statement", jsonArray(
+ *                             jsonObject(
+ *                                 jsonProperty("Action", jsonArray(
+ *                                     "kinesis:Get*", 
+ *                                     "kinesis:DescribeStreamSummary"
+ *                                 )),
+ *                                 jsonProperty("Effect", "Allow"),
+ *                                 jsonProperty("Resource", jsonArray(example.arn()))
+ *                             ), 
+ *                             jsonObject(
+ *                                 jsonProperty("Action", jsonArray("kinesis:PutRecord")),
+ *                                 jsonProperty("Effect", "Allow"),
+ *                                 jsonProperty("Resource", jsonArray(exampleStream.arn()))
+ *                             )
+ *                         ))
+ *                     )))
  *                 .build())
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(

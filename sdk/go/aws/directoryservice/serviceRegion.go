@@ -59,6 +59,14 @@ import (
 // if err != nil {
 // return err
 // }
+// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+// Input: exampleVpc.CidrBlock,
+// Newbits: 8,
+// Netnum: val0,
+// }, nil)
+// if err != nil {
+// return err
+// }
 // var exampleSubnet []*ec2.Subnet
 //
 //	for index := 0; index < 2; index++ {
@@ -68,15 +76,7 @@ import (
 // __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
 // VpcId: exampleVpc.ID(),
 // AvailabilityZone: pulumi.String(available.Names[val0]),
-// CidrBlock: pulumi.String(exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// return std.CidrsubnetResult(interface{}(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
-// Input: cidrBlock,
-// Newbits: 8,
-// Netnum: val0,
-// }, nil))), nil
-// }).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// return invoke.Result, nil
-// }).(pulumi.StringPtrOutput)),
+// CidrBlock: pulumi.String(invokeCidrsubnet.Result),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("Primary"),
 // },
@@ -121,6 +121,14 @@ import (
 // if err != nil {
 // return err
 // }
+// invokeCidrsubnet1, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+// Input: example_secondary.CidrBlock,
+// Newbits: 8,
+// Netnum: val0,
+// }, nil)
+// if err != nil {
+// return err
+// }
 // var example_secondarySubnet []*ec2.Subnet
 //
 //	for index := 0; index < 2; index++ {
@@ -130,15 +138,7 @@ import (
 // __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-secondary-%v", key0), &ec2.SubnetArgs{
 // VpcId: example_secondary.ID(),
 // AvailabilityZone: pulumi.String(available_secondary.Names[val0]),
-// CidrBlock: pulumi.String(example_secondary.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// return std.CidrsubnetResult(interface{}(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
-// Input: cidrBlock,
-// Newbits: 8,
-// Netnum: val0,
-// }, nil))), nil
-// }).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// return invoke.Result, nil
-// }).(pulumi.StringPtrOutput)),
+// CidrBlock: pulumi.String(invokeCidrsubnet1.Result),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("Secondary"),
 // },

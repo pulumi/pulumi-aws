@@ -819,11 +819,11 @@ class TopicRule(pulumi.CustomResource):
         myrole = aws.iam.Role("myrole",
             name="myrole",
             assume_role_policy=assume_role.json)
-        mypolicy = mytopic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        mypolicy = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "actions": ["sns:Publish"],
-            "resources": [arn],
-        }]))
+            "resources": [mytopic.arn],
+        }])
         mypolicy_role_policy = aws.iam.RolePolicy("mypolicy",
             name="mypolicy",
             role=myrole.id,
@@ -894,11 +894,11 @@ class TopicRule(pulumi.CustomResource):
         myrole = aws.iam.Role("myrole",
             name="myrole",
             assume_role_policy=assume_role.json)
-        mypolicy = mytopic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        mypolicy = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "actions": ["sns:Publish"],
-            "resources": [arn],
-        }]))
+            "resources": [mytopic.arn],
+        }])
         mypolicy_role_policy = aws.iam.RolePolicy("mypolicy",
             name="mypolicy",
             role=myrole.id,

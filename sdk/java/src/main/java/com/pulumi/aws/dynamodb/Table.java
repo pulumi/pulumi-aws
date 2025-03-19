@@ -240,7 +240,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTag = new Tag("exampleTag", TagArgs.builder()
- *             .resourceArn(example.arn().applyValue(arn -> StdFunctions.replace()).applyValue(invoke -> invoke.result()))
+ *             .resourceArn(StdFunctions.replace(ReplaceArgs.builder()
+ *                 .text(example.arn())
+ *                 .search(current.applyValue(getRegionResult -> getRegionResult.name()))
+ *                 .replace(alternate.applyValue(getRegionResult -> getRegionResult.name()))
+ *                 .build()).result())
  *             .key("Architect")
  *             .value("Gigi")
  *             .build());

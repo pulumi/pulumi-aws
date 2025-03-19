@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *             .description("My provisioning template")
  *             .provisioningRoleArn(iotFleetProvisioning.arn())
  *             .enabled(true)
- *             .templateBody(devicePolicyPolicy.name().applyValue(name -> serializeJson(
+ *             .templateBody(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Parameters", jsonObject(
  *                         jsonProperty("SerialNumber", jsonObject(
@@ -112,12 +112,12 @@ import javax.annotation.Nullable;
  *                         )),
  *                         jsonProperty("policy", jsonObject(
  *                             jsonProperty("Properties", jsonObject(
- *                                 jsonProperty("PolicyName", name)
+ *                                 jsonProperty("PolicyName", devicePolicyPolicy.name())
  *                             )),
  *                             jsonProperty("Type", "AWS::IoT::Policy")
  *                         ))
  *                     ))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *     }

@@ -89,7 +89,7 @@ def get_service_account(region: Optional[str] = None,
     bucket = aws.s3.BucketV2("bucket",
         bucket="tf-redshift-logging-test-bucket",
         force_destroy=True)
-    allow_audit_logging = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[
+    allow_audit_logging = aws.iam.get_policy_document(statements=[
         {
             "sid": "Put bucket policy needed for audit logging",
             "effect": "Allow",
@@ -98,7 +98,7 @@ def get_service_account(region: Optional[str] = None,
                 "identifiers": [main.arn],
             }],
             "actions": ["s3:PutObject"],
-            "resources": [f"{arn}/*"],
+            "resources": [bucket.arn.apply(lambda arn: f"{arn}/*")],
         },
         {
             "sid": "Get bucket policy needed for audit logging",
@@ -110,7 +110,7 @@ def get_service_account(region: Optional[str] = None,
             "actions": ["s3:GetBucketAcl"],
             "resources": bucket_aws_s3_bucket["arn"],
         },
-    ]))
+    ])
     allow_audit_logging_bucket_policy = aws.s3.BucketPolicy("allow_audit_logging",
         bucket=bucket.id,
         policy=allow_audit_logging.json)
@@ -148,7 +148,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     bucket = aws.s3.BucketV2("bucket",
         bucket="tf-redshift-logging-test-bucket",
         force_destroy=True)
-    allow_audit_logging = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[
+    allow_audit_logging = aws.iam.get_policy_document(statements=[
         {
             "sid": "Put bucket policy needed for audit logging",
             "effect": "Allow",
@@ -157,7 +157,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
                 "identifiers": [main.arn],
             }],
             "actions": ["s3:PutObject"],
-            "resources": [f"{arn}/*"],
+            "resources": [bucket.arn.apply(lambda arn: f"{arn}/*")],
         },
         {
             "sid": "Get bucket policy needed for audit logging",
@@ -169,7 +169,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
             "actions": ["s3:GetBucketAcl"],
             "resources": bucket_aws_s3_bucket["arn"],
         },
-    ]))
+    ])
     allow_audit_logging_bucket_policy = aws.s3.BucketPolicy("allow_audit_logging",
         bucket=bucket.id,
         policy=allow_audit_logging.json)

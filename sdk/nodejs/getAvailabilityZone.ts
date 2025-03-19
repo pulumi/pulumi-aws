@@ -60,7 +60,7 @@ import * as utilities from "./utilities";
  * // Create a subnet for the AZ within the regional VPC
  * const exampleSubnet = new aws.ec2.Subnet("example", {
  *     vpcId: exampleVpc.id,
- *     cidrBlock: pulumi.all([exampleVpc.cidrBlock, example]).apply(([cidrBlock, example]) => std.cidrsubnetOutput({
+ *     cidrBlock: pulumi.all([exampleVpc.cidrBlock, example]).apply(([cidrBlock, example]) => std.cidrsubnet({
  *         input: cidrBlock,
  *         newbits: 4,
  *         netnum: azNumber[example.nameSuffix],
@@ -207,7 +207,7 @@ export interface GetAvailabilityZoneResult {
  * // Create a subnet for the AZ within the regional VPC
  * const exampleSubnet = new aws.ec2.Subnet("example", {
  *     vpcId: exampleVpc.id,
- *     cidrBlock: pulumi.all([exampleVpc.cidrBlock, example]).apply(([cidrBlock, example]) => std.cidrsubnetOutput({
+ *     cidrBlock: pulumi.all([exampleVpc.cidrBlock, example]).apply(([cidrBlock, example]) => std.cidrsubnet({
  *         input: cidrBlock,
  *         newbits: 4,
  *         netnum: azNumber[example.nameSuffix],

@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()
  *             .resourceArn(example.arn())
- *             .policy(example.arn().applyValue(arn -> serializeJson(
+ *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
  *                     jsonProperty("Statement", jsonArray(jsonObject(
@@ -73,9 +73,9 @@ import javax.annotation.Nullable;
  *                             "vpc-lattice:CreateServiceNetworkServiceAssociation", 
  *                             "vpc-lattice:GetServiceNetwork"
  *                         )),
- *                         jsonProperty("Resource", arn)
+ *                         jsonProperty("Resource", example.arn())
  *                     )))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *     }

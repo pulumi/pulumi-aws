@@ -203,18 +203,15 @@ import (
 // if err != nil {
 // return err
 // }
-// snsTopicPolicy := pulumi.All(costAnomalyUpdates.Arn,costAnomalyUpdates.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// costAnomalyUpdatesArn := _args[0].(string)
-// costAnomalyUpdatesArn1 := _args[1].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// PolicyId: "__default_policy_ID",
+// snsTopicPolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// PolicyId: pulumi.StringRef("__default_policy_ID"),
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
-// Sid: "AWSAnomalyDetectionSNSPublishingPermissions",
+// Sid: pulumi.StringRef("AWSAnomalyDetectionSNSPublishingPermissions"),
 // Actions: []string{
 // "SNS:Publish",
 // },
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "Service",
@@ -224,11 +221,11 @@ import (
 // },
 // },
 // Resources: interface{}{
-// costAnomalyUpdatesArn,
+// costAnomalyUpdates.Arn,
 // },
 // },
 // {
-// Sid: "__default_statement_ID",
+// Sid: pulumi.StringRef("__default_statement_ID"),
 // Actions: []string{
 // "SNS:Subscribe",
 // "SNS:SetTopicAttributes",
@@ -249,7 +246,7 @@ import (
 // },
 // },
 // },
-// Effect: "Allow",
+// Effect: pulumi.StringRef("Allow"),
 // Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // {
 // Type: "AWS",
@@ -259,17 +256,17 @@ import (
 // },
 // },
 // Resources: interface{}{
-// costAnomalyUpdatesArn1,
+// costAnomalyUpdates.Arn,
 // },
 // },
 // },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
+// }, nil);
+// if err != nil {
+// return err
+// }
 // _default, err := sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 // Arn: costAnomalyUpdates.Arn,
-// Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &snsTopicPolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
+// Policy: pulumi.String(snsTopicPolicy.Json),
 // })
 // if err != nil {
 // return err

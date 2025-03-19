@@ -88,43 +88,40 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Parameters": map[string]interface{}{
+//					"SerialNumber": map[string]interface{}{
+//						"Type": "String",
+//					},
+//				},
+//				"Resources": map[string]interface{}{
+//					"certificate": map[string]interface{}{
+//						"Properties": map[string]interface{}{
+//							"CertificateId": map[string]interface{}{
+//								"Ref": "AWS::IoT::Certificate::Id",
+//							},
+//							"Status": "Active",
+//						},
+//						"Type": "AWS::IoT::Certificate",
+//					},
+//					"policy": map[string]interface{}{
+//						"Properties": map[string]interface{}{
+//							"PolicyName": devicePolicyPolicy.Name,
+//						},
+//						"Type": "AWS::IoT::Policy",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			_, err = iot.NewProvisioningTemplate(ctx, "fleet", &iot.ProvisioningTemplateArgs{
 //				Name:                pulumi.String("FleetTemplate"),
 //				Description:         pulumi.String("My provisioning template"),
 //				ProvisioningRoleArn: iotFleetProvisioning.Arn,
 //				Enabled:             pulumi.Bool(true),
-//				TemplateBody: devicePolicyPolicy.Name.ApplyT(func(name string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Parameters": map[string]interface{}{
-//							"SerialNumber": map[string]interface{}{
-//								"Type": "String",
-//							},
-//						},
-//						"Resources": map[string]interface{}{
-//							"certificate": map[string]interface{}{
-//								"Properties": map[string]interface{}{
-//									"CertificateId": map[string]interface{}{
-//										"Ref": "AWS::IoT::Certificate::Id",
-//									},
-//									"Status": "Active",
-//								},
-//								"Type": "AWS::IoT::Certificate",
-//							},
-//							"policy": map[string]interface{}{
-//								"Properties": map[string]interface{}{
-//									"PolicyName": name,
-//								},
-//								"Type": "AWS::IoT::Policy",
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
+//				TemplateBody:        pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

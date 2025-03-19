@@ -229,22 +229,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"secretId":                     example.Name,
+//				"spark.cosmos.accountEndpoint": "https://exampledbaccount.documents.azure.com:443/",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
 //			_, err = glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
 //				Name:           pulumi.String("example"),
 //				ConnectionType: pulumi.String("AZURECOSMOS"),
 //				ConnectionProperties: pulumi.StringMap{
-//					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(map[string]interface{}{
-//							"secretId":                     name,
-//							"spark.cosmos.accountEndpoint": "https://exampledbaccount.documents.azure.com:443/",
-//						})
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json1 := string(tmpJSON1)
-//						return pulumi.String(json1), nil
-//					}).(pulumi.StringOutput),
+//					"SparkProperties": pulumi.String(json1),
 //				},
 //			})
 //			if err != nil {
@@ -296,22 +293,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"secretId": example.Name,
+//				"url":      "jdbc:sqlserver:exampledbserver.database.windows.net:1433;database=exampledatabase",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
 //			_, err = glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
 //				Name:           pulumi.String("example"),
 //				ConnectionType: pulumi.String("AZURECOSMOS"),
 //				ConnectionProperties: pulumi.StringMap{
-//					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(map[string]interface{}{
-//							"secretId": name,
-//							"url":      "jdbc:sqlserver:exampledbserver.database.windows.net:1433;database=exampledatabase",
-//						})
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json1 := string(tmpJSON1)
-//						return pulumi.String(json1), nil
-//					}).(pulumi.StringOutput),
+//					"SparkProperties": pulumi.String(json1),
 //				},
 //			})
 //			if err != nil {
@@ -380,21 +374,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"secretId": example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
 //			_, err = glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
 //				Name:           pulumi.String("example"),
 //				ConnectionType: pulumi.String("BIGQUERY"),
 //				ConnectionProperties: pulumi.StringMap{
-//					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(map[string]interface{}{
-//							"secretId": name,
-//						})
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json1 := string(tmpJSON1)
-//						return pulumi.String(json1), nil
-//					}).(pulumi.StringOutput),
+//					"SparkProperties": pulumi.String(json1),
 //				},
 //			})
 //			if err != nil {
@@ -446,26 +437,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"secretId":                     example.Name,
+//				"opensearch.nodes":             "https://search-exampledomain-ixlmh4jieahrau3bfebcgp8cnm.us-east-1.es.amazonaws.com",
+//				"opensearch.port":              "443",
+//				"opensearch.aws.sigv4.region":  "us-east-1",
+//				"opensearch.nodes.wan.only":    "true",
+//				"opensearch.aws.sigv4.enabled": "true",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
 //			_, err = glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
 //				Name:           pulumi.String("example"),
 //				ConnectionType: pulumi.String("OPENSEARCH"),
 //				ConnectionProperties: pulumi.StringMap{
-//					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(map[string]interface{}{
-//							"secretId":                     name,
-//							"opensearch.nodes":             "https://search-exampledomain-ixlmh4jieahrau3bfebcgp8cnm.us-east-1.es.amazonaws.com",
-//							"opensearch.port":              "443",
-//							"opensearch.aws.sigv4.region":  "us-east-1",
-//							"opensearch.nodes.wan.only":    "true",
-//							"opensearch.aws.sigv4.enabled": "true",
-//						})
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json1 := string(tmpJSON1)
-//						return pulumi.String(json1), nil
-//					}).(pulumi.StringOutput),
+//					"SparkProperties": pulumi.String(json1),
 //				},
 //			})
 //			if err != nil {
@@ -517,23 +505,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"secretId": example.Name,
+//				"sfRole":   "EXAMPLEETLROLE",
+//				"sfUrl":    "exampleorg-exampleconnection.snowflakecomputing.com",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
 //			_, err = glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
 //				Name:           pulumi.String("example"),
 //				ConnectionType: pulumi.String("SNOWFLAKE"),
 //				ConnectionProperties: pulumi.StringMap{
-//					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(map[string]interface{}{
-//							"secretId": name,
-//							"sfRole":   "EXAMPLEETLROLE",
-//							"sfUrl":    "exampleorg-exampleconnection.snowflakecomputing.com",
-//						})
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json1 := string(tmpJSON1)
-//						return pulumi.String(json1), nil
-//					}).(pulumi.StringOutput),
+//					"SparkProperties": pulumi.String(json1),
 //				},
 //			})
 //			if err != nil {

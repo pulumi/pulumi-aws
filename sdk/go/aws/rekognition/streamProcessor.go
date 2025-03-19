@@ -64,6 +64,45 @@ import (
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"Version": "2012-10-17",
+//				"Statement": []interface{}{
+//					map[string]interface{}{
+//						"Action": []string{
+//							"s3:PutObject",
+//						},
+//						"Effect": "Allow",
+//						"Resource": pulumi.StringArray{
+//							example.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//					map[string]interface{}{
+//						"Action": []string{
+//							"sns:Publish",
+//						},
+//						"Effect": "Allow",
+//						"Resource": pulumi.StringArray{
+//							exampleTopic.Arn,
+//						},
+//					},
+//					map[string]interface{}{
+//						"Action": []string{
+//							"kinesis:Get*",
+//							"kinesis:DescribeStreamSummary",
+//						},
+//						"Effect": "Allow",
+//						"Resource": pulumi.StringArray{
+//							exampleVideoStream.Arn,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
 //				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
 //						"Action": "sts:AssumeRole",
@@ -77,59 +116,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			json0 := string(tmpJSON0)
+//			json1 := string(tmpJSON1)
 //			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				Name: pulumi.String("example-role"),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
-//						Name: pulumi.String("Rekognition-Access"),
-//						Policy: pulumi.All(example.Arn, exampleTopic.Arn, exampleVideoStream.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//							exampleArn := _args[0].(string)
-//							exampleTopicArn := _args[1].(string)
-//							exampleVideoStreamArn := _args[2].(string)
-//							var _zero string
-//							tmpJSON1, err := json.Marshal(map[string]interface{}{
-//								"Version": "2012-10-17",
-//								"Statement": []interface{}{
-//									map[string]interface{}{
-//										"Action": []string{
-//											"s3:PutObject",
-//										},
-//										"Effect": "Allow",
-//										"Resource": []string{
-//											fmt.Sprintf("%v/*", exampleArn),
-//										},
-//									},
-//									map[string]interface{}{
-//										"Action": []string{
-//											"sns:Publish",
-//										},
-//										"Effect": "Allow",
-//										"Resource": []string{
-//											exampleTopicArn,
-//										},
-//									},
-//									map[string]interface{}{
-//										"Action": []string{
-//											"kinesis:Get*",
-//											"kinesis:DescribeStreamSummary",
-//										},
-//										"Effect": "Allow",
-//										"Resource": []string{
-//											exampleVideoStreamArn,
-//										},
-//									},
-//								},
-//							})
-//							if err != nil {
-//								return _zero, err
-//							}
-//							json1 := string(tmpJSON1)
-//							return json1, nil
-//						}).(pulumi.StringOutput),
+//						Name:   pulumi.String("Rekognition-Access"),
+//						Policy: pulumi.String(json0),
 //					},
 //				},
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err
@@ -207,6 +203,34 @@ import (
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"Version": "2012-10-17",
+//				"Statement": []interface{}{
+//					map[string]interface{}{
+//						"Action": []string{
+//							"kinesis:Get*",
+//							"kinesis:DescribeStreamSummary",
+//						},
+//						"Effect": "Allow",
+//						"Resource": pulumi.StringArray{
+//							example.Arn,
+//						},
+//					},
+//					map[string]interface{}{
+//						"Action": []string{
+//							"kinesis:PutRecord",
+//						},
+//						"Effect": "Allow",
+//						"Resource": pulumi.StringArray{
+//							exampleStream.Arn,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
 //				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
 //						"Action": "sts:AssumeRole",
@@ -220,49 +244,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			json0 := string(tmpJSON0)
+//			json1 := string(tmpJSON1)
 //			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				Name: pulumi.String("example-role"),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
-//						Name: pulumi.String("Rekognition-Access"),
-//						Policy: pulumi.All(example.Arn, exampleStream.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//							exampleArn := _args[0].(string)
-//							exampleStreamArn := _args[1].(string)
-//							var _zero string
-//							tmpJSON1, err := json.Marshal(map[string]interface{}{
-//								"Version": "2012-10-17",
-//								"Statement": []interface{}{
-//									map[string]interface{}{
-//										"Action": []string{
-//											"kinesis:Get*",
-//											"kinesis:DescribeStreamSummary",
-//										},
-//										"Effect": "Allow",
-//										"Resource": []string{
-//											exampleArn,
-//										},
-//									},
-//									map[string]interface{}{
-//										"Action": []string{
-//											"kinesis:PutRecord",
-//										},
-//										"Effect": "Allow",
-//										"Resource": []string{
-//											exampleStreamArn,
-//										},
-//									},
-//								},
-//							})
-//							if err != nil {
-//								return _zero, err
-//							}
-//							json1 := string(tmpJSON1)
-//							return json1, nil
-//						}).(pulumi.StringOutput),
+//						Name:   pulumi.String("Rekognition-Access"),
+//						Policy: pulumi.String(json0),
 //					},
 //				},
-//				AssumeRolePolicy: pulumi.String(json0),
+//				AssumeRolePolicy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err

@@ -955,10 +955,7 @@ class Project(pulumi.CustomResource):
         example_role = aws.iam.Role("example",
             name="example",
             assume_role_policy=assume_role.json)
-        example = pulumi.Output.all(
-            exampleBucketV2Arn=example_bucket_v2.arn,
-            exampleBucketV2Arn1=example_bucket_v2.arn
-        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
+        example = aws.iam.get_policy_document(statements=[
             {
                 "effect": "Allow",
                 "actions": [
@@ -1005,8 +1002,8 @@ class Project(pulumi.CustomResource):
                 "effect": "Allow",
                 "actions": ["s3:*"],
                 "resources": [
-                    resolved_outputs['exampleBucketV2Arn'],
-                    f"{resolved_outputs['exampleBucketV2Arn1']}/*",
+                    example_bucket_v2.arn,
+                    example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
                 ],
             },
             {
@@ -1017,8 +1014,7 @@ class Project(pulumi.CustomResource):
                 ],
                 "resources": ["arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string"],
             },
-        ]))
-
+        ])
         example_role_policy = aws.iam.RolePolicy("example",
             role=example_role.name,
             policy=example.json)
@@ -1223,10 +1219,7 @@ class Project(pulumi.CustomResource):
         example_role = aws.iam.Role("example",
             name="example",
             assume_role_policy=assume_role.json)
-        example = pulumi.Output.all(
-            exampleBucketV2Arn=example_bucket_v2.arn,
-            exampleBucketV2Arn1=example_bucket_v2.arn
-        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
+        example = aws.iam.get_policy_document(statements=[
             {
                 "effect": "Allow",
                 "actions": [
@@ -1273,8 +1266,8 @@ class Project(pulumi.CustomResource):
                 "effect": "Allow",
                 "actions": ["s3:*"],
                 "resources": [
-                    resolved_outputs['exampleBucketV2Arn'],
-                    f"{resolved_outputs['exampleBucketV2Arn1']}/*",
+                    example_bucket_v2.arn,
+                    example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
                 ],
             },
             {
@@ -1285,8 +1278,7 @@ class Project(pulumi.CustomResource):
                 ],
                 "resources": ["arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string"],
             },
-        ]))
-
+        ])
         example_role_policy = aws.iam.RolePolicy("example",
             role=example_role.name,
             policy=example.json)

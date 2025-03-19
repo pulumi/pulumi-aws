@@ -1048,9 +1048,9 @@ class Table(pulumi.CustomResource):
                 "Zone": "SW",
             })
         example_tag = aws.dynamodb.Tag("example",
-            resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
+            resource_arn=std.replace(text=example.arn,
                 search=current.name,
-                replace=alternate.name)).apply(lambda invoke: invoke.result),
+                replace=alternate.name).result,
             key="Architect",
             value="Gigi")
         ```
@@ -1232,9 +1232,9 @@ class Table(pulumi.CustomResource):
                 "Zone": "SW",
             })
         example_tag = aws.dynamodb.Tag("example",
-            resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
+            resource_arn=std.replace(text=example.arn,
                 search=current.name,
-                replace=alternate.name)).apply(lambda invoke: invoke.result),
+                replace=alternate.name).result,
             key="Architect",
             value="Gigi")
         ```

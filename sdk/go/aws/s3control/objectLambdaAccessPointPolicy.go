@@ -65,29 +65,26 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3control.NewObjectLambdaAccessPointPolicy(ctx, "example", &s3control.ObjectLambdaAccessPointPolicyArgs{
-//				Name: exampleObjectLambdaAccessPoint.Name,
-//				Policy: exampleObjectLambdaAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2008-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": "s3-object-lambda:GetObject",
-//								"Principal": map[string]interface{}{
-//									"AWS": current.AccountId,
-//								},
-//								"Resource": arn,
-//							},
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2008-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Effect": "Allow",
+//						"Action": "s3-object-lambda:GetObject",
+//						"Principal": map[string]interface{}{
+//							"AWS": current.AccountId,
 //						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
+//						"Resource": exampleObjectLambdaAccessPoint.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = s3control.NewObjectLambdaAccessPointPolicy(ctx, "example", &s3control.ObjectLambdaAccessPointPolicyArgs{
+//				Name:   exampleObjectLambdaAccessPoint.Name,
+//				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

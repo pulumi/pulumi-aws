@@ -89,15 +89,15 @@ def get_service_account(region: Optional[str] = None,
     elb_logs_acl = aws.s3.BucketAclV2("elb_logs_acl",
         bucket=elb_logs.id,
         acl="private")
-    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+    allow_elb_logging = aws.iam.get_policy_document(statements=[{
         "effect": "Allow",
         "principals": [{
             "type": "AWS",
             "identifiers": [main.arn],
         }],
         "actions": ["s3:PutObject"],
-        "resources": [f"{arn}/AWSLogs/*"],
-    }]))
+        "resources": [elb_logs.arn.apply(lambda arn: f"{arn}/AWSLogs/*")],
+    }])
     allow_elb_logging_bucket_policy = aws.s3.BucketPolicy("allow_elb_logging",
         bucket=elb_logs.id,
         policy=allow_elb_logging.json)
@@ -148,15 +148,15 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     elb_logs_acl = aws.s3.BucketAclV2("elb_logs_acl",
         bucket=elb_logs.id,
         acl="private")
-    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+    allow_elb_logging = aws.iam.get_policy_document(statements=[{
         "effect": "Allow",
         "principals": [{
             "type": "AWS",
             "identifiers": [main.arn],
         }],
         "actions": ["s3:PutObject"],
-        "resources": [f"{arn}/AWSLogs/*"],
-    }]))
+        "resources": [elb_logs.arn.apply(lambda arn: f"{arn}/AWSLogs/*")],
+    }])
     allow_elb_logging_bucket_policy = aws.s3.BucketPolicy("allow_elb_logging",
         bucket=elb_logs.id,
         policy=allow_elb_logging.json)

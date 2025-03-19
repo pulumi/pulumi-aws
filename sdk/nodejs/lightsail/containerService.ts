@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *         isActive: true,
  *     },
  * }});
- * const _default = defaultContainerService.privateRegistryAccess.apply(privateRegistryAccess => aws.iam.getPolicyDocumentOutput({
+ * const _default = defaultContainerService.privateRegistryAccess.apply(privateRegistryAccess => aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -75,7 +75,7 @@ import * as utilities from "../utilities";
  * }));
  * const defaultRepositoryPolicy = new aws.ecr.RepositoryPolicy("default", {
  *     repository: defaultAwsEcrRepository.name,
- *     policy: _default.apply(_default => _default.json),
+ *     policy: _default.then(_default => _default.json),
  * });
  * ```
  *

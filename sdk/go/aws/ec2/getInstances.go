@@ -54,7 +54,7 @@ import (
 //				return err
 //			}
 //			var testEip []*ec2.Eip
-//			for index := 0; index < int(len(test.Ids)); index++ {
+//			for index := 0; index < len(test.Ids); index++ {
 //				key0 := index
 //				val0 := index
 //				__res, err := ec2.NewEip(ctx, fmt.Sprintf("test-%v", key0), &ec2.EipArgs{

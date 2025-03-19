@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			var r []*ec2.Route
-//			for index := 0; index < int(len(rts.Ids)); index++ {
+//			for index := 0; index < len(rts.Ids); index++ {
 //				key0 := index
 //				val0 := index
 //				__res, err := ec2.NewRoute(ctx, fmt.Sprintf("r-%v", key0), &ec2.RouteArgs{
