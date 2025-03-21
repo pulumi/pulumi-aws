@@ -83,12 +83,16 @@ jobs:
         pip3 install pipenv
     - name: Install dependencies
       run: make install_${{ matrix.language}}_sdk
-    - name: Generate Pulumi Access Token
+    - id: generate_pulumi_token
+      name: Generate Pulumi Access Token
       uses: pulumi/auth-actions@v1
       with:
+        export-environment-variables: false
         organization: pulumi
         requested-token-type: urn:pulumi:token-type:access_token:organization
-    - uses: pulumi/esc-action@v1
+    - env:
+        PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
+      uses: pulumi/esc-action@v1
       with:
         environment: logins/pulumi-ci
     - name: Run tests

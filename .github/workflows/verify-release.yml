@@ -78,12 +78,16 @@ jobs:
         uses: ./.github/actions/setup-tools
         with:
           tools: pulumicli, nodejs, python, dotnet, go, java
-      - name: Generate Pulumi Access Token
+      - id: generate_pulumi_token
+        name: Generate Pulumi Access Token
         uses: pulumi/auth-actions@v1
         with:
+          export-environment-variables: false
           organization: pulumi
           requested-token-type: urn:pulumi:token-type:access_token:organization
-      - uses: pulumi/esc-action@v1
+      - env:
+          PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
+        uses: pulumi/esc-action@v1
         with:
           environment: logins/pulumi-ci
       - name: Verify nodejs release
