@@ -23,7 +23,7 @@ jobs:
 
         # These labels are required
         stale-issue-label: awaiting-feedback # somewhat confusingly, this is also used for when labeling "ancient" issues
-        exempt-issue-labels: kind/enhancement,kind/task,kind/epic, kind/engineering # only run on kind/bug for now
+        exempt-issue-labels: kind/enhancement,kind/task,kind/epic,kind/engineering # only run on kind/bug for now
         stale-pr-label: no-pr-activity # unused because we aren't processing PRs
         exempt-pr-labels: awaiting-approval # unused because we aren't processing PRs
         response-requested-label: response-requested # unused because we don't set a "stale-issue-message" above
