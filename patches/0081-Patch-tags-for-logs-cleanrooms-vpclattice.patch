@@ -5,7 +5,7 @@ Subject: [PATCH] Patch tags for logs, cleanrooms, vpclattice
 
 
 diff --git a/internal/service/cleanrooms/membership.go b/internal/service/cleanrooms/membership.go
-index ee4f03039e..991000a637 100644
+index 1fa5d36703..52ae08c582 100644
 --- a/internal/service/cleanrooms/membership.go
 +++ b/internal/service/cleanrooms/membership.go
 @@ -111,7 +111,7 @@ func (r *resourceMembership) Schema(ctx context.Context, _ resource.SchemaReques
@@ -57,7 +57,7 @@ index 3b172ef95a..16b9173d00 100644
  	}
  }
 diff --git a/internal/service/vpclattice/resource_gateway.go b/internal/service/vpclattice/resource_gateway.go
-index f5c0174c72..38f775fb8f 100644
+index 8804bbffbc..7ad2a4e5c1 100644
 --- a/internal/service/vpclattice/resource_gateway.go
 +++ b/internal/service/vpclattice/resource_gateway.go
 @@ -98,7 +98,7 @@ func (r *resourceGatewayResource) Schema(ctx context.Context, request resource.S

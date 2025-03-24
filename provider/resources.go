@@ -6101,6 +6101,9 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_route53_records_exclusive"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "zoneId"), nil
 	}
+	prov.Resources["aws_athena_capacity_reservation"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "name"), nil
+	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
 		"aws_cloudwatch_log_index_policy":                {"logGroupName"},

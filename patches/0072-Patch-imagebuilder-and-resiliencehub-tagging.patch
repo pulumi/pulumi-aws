@@ -5,7 +5,7 @@ Subject: [PATCH] Patch imagebuilder and resiliencehub tagging
 
 
 diff --git a/internal/service/imagebuilder/lifecycle_policy.go b/internal/service/imagebuilder/lifecycle_policy.go
-index 00d0567a29..0b4142a476 100644
+index 3af7466167..cec5d52e0b 100644
 --- a/internal/service/imagebuilder/lifecycle_policy.go
 +++ b/internal/service/imagebuilder/lifecycle_policy.go
 @@ -85,7 +85,7 @@ func (r *lifecyclePolicyResource) Schema(ctx context.Context, request resource.S
@@ -18,7 +18,7 @@ index 00d0567a29..0b4142a476 100644
  		Blocks: map[string]schema.Block{
  			"policy_detail": schema.SetNestedBlock{
 diff --git a/internal/service/resiliencehub/resiliency_policy.go b/internal/service/resiliencehub/resiliency_policy.go
-index 38c67dcced..823c917fa7 100644
+index 2e557a2fe5..bacd699eca 100644
 --- a/internal/service/resiliencehub/resiliency_policy.go
 +++ b/internal/service/resiliencehub/resiliency_policy.go
 @@ -126,7 +126,7 @@ func (r *resourceResiliencyPolicy) Schema(ctx context.Context, req resource.Sche

@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
-index ca1ee5ff7f..86836570d4 100644
+index f9fd2f689e..01ac2dd965 100644
 --- a/internal/service/amp/scraper.go
 +++ b/internal/service/amp/scraper.go
 @@ -80,7 +80,7 @@ func (r *scraperResource) Schema(ctx context.Context, req resource.SchemaRequest
@@ -18,7 +18,7 @@ index ca1ee5ff7f..86836570d4 100644
  		Blocks: map[string]schema.Block{
  			names.AttrDestination: schema.ListNestedBlock{
 diff --git a/internal/service/bedrock/custom_model.go b/internal/service/bedrock/custom_model.go
-index 03fd502583..20e94cb997 100644
+index 8ceb2c254c..c0dd56e718 100644
 --- a/internal/service/bedrock/custom_model.go
 +++ b/internal/service/bedrock/custom_model.go
 @@ -135,7 +135,7 @@ func (r *customModelResource) Schema(ctx context.Context, request resource.Schem
@@ -44,7 +44,7 @@ index ba3d204d75..b16fc33f0b 100644
  		Blocks: map[string]schema.Block{
  			"agent_orchestration_config": schema.ListNestedBlock{
 diff --git a/internal/service/elasticache/serverless_cache.go b/internal/service/elasticache/serverless_cache.go
-index 9bd724a2e8..76e91e3f9f 100644
+index 9cf3b004ac..efb90c5a09 100644
 --- a/internal/service/elasticache/serverless_cache.go
 +++ b/internal/service/elasticache/serverless_cache.go
 @@ -177,7 +177,7 @@ func (r *serverlessCacheResource) Schema(ctx context.Context, request resource.S
@@ -57,7 +57,7 @@ index 9bd724a2e8..76e91e3f9f 100644
  				Optional: true,
  			},
 diff --git a/internal/service/rekognition/collection.go b/internal/service/rekognition/collection.go
-index 7c2b8e76f4..6ce3b64678 100644
+index 5561f7ecff..07a3c8d32d 100644
 --- a/internal/service/rekognition/collection.go
 +++ b/internal/service/rekognition/collection.go
 @@ -73,7 +73,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ
@@ -83,7 +83,7 @@ index 6360711508..75e0a82ccb 100644
  		Blocks: map[string]schema.Block{
  			names.AttrActions: schema.SetNestedBlock{
 diff --git a/internal/service/securitylake/data_lake.go b/internal/service/securitylake/data_lake.go
-index b751e4dedc..da8129d4e8 100644
+index cffe692c0a..47bbf10176 100644
 --- a/internal/service/securitylake/data_lake.go
 +++ b/internal/service/securitylake/data_lake.go
 @@ -71,7 +71,7 @@ func (r *dataLakeResource) Schema(ctx context.Context, request resource.SchemaRe
@@ -96,7 +96,7 @@ index b751e4dedc..da8129d4e8 100644
  		Blocks: map[string]schema.Block{
  			names.AttrConfiguration: schema.ListNestedBlock{
 diff --git a/internal/service/ssmcontacts/rotation.go b/internal/service/ssmcontacts/rotation.go
-index acbb82b58c..06f9363a43 100644
+index 8c90e48854..ff5c702ea9 100644
 --- a/internal/service/ssmcontacts/rotation.go
 +++ b/internal/service/ssmcontacts/rotation.go
 @@ -68,7 +68,7 @@ func (r *resourceRotation) Schema(ctx context.Context, request resource.SchemaRe

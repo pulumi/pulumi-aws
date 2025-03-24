@@ -5,7 +5,7 @@ Subject: [PATCH] Patch tags ComputedOnly for m2 resources
 
 
 diff --git a/internal/service/m2/application.go b/internal/service/m2/application.go
-index e0c6ae3428..c436d2db84 100644
+index 8f7232da00..a6c940b3f8 100644
 --- a/internal/service/m2/application.go
 +++ b/internal/service/m2/application.go
 @@ -101,7 +101,7 @@ func (r *applicationResource) Schema(ctx context.Context, request resource.Schem
@@ -18,7 +18,7 @@ index e0c6ae3428..c436d2db84 100644
  		Blocks: map[string]schema.Block{
  			"definition": schema.ListNestedBlock{
 diff --git a/internal/service/m2/environment.go b/internal/service/m2/environment.go
-index 30b763d8cf..e8e50bdd55 100644
+index 5811a6d41a..7927c04604 100644
 --- a/internal/service/m2/environment.go
 +++ b/internal/service/m2/environment.go
 @@ -170,7 +170,7 @@ func (r *environmentResource) Schema(ctx context.Context, request resource.Schem

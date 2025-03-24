@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/bedrock/inference_profile.go b/internal/service/bedrock/inference_profile.go
-index f797ba7013..fee74d9e3c 100644
+index d845419991..09e450421a 100644
 --- a/internal/service/bedrock/inference_profile.go
 +++ b/internal/service/bedrock/inference_profile.go
 @@ -115,7 +115,7 @@ func (r *resourceInferenceProfile) Schema(ctx context.Context, req resource.Sche
@@ -18,7 +18,7 @@ index f797ba7013..fee74d9e3c 100644
  		Blocks: map[string]schema.Block{
  			"model_source": schema.ListNestedBlock{
 diff --git a/internal/service/drs/replication_configuration_template.go b/internal/service/drs/replication_configuration_template.go
-index c3f407f845..6d68b9719b 100644
+index 3f8448d649..a6fee1ea7e 100644
 --- a/internal/service/drs/replication_configuration_template.go
 +++ b/internal/service/drs/replication_configuration_template.go
 @@ -99,7 +99,7 @@ func (r *replicationConfigurationTemplateResource) Schema(ctx context.Context, r

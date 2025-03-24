@@ -31,7 +31,7 @@ index b1bd5bcd79..2a7e5669b7 100644
  	}
  }
 diff --git a/internal/service/route53profiles/association.go b/internal/service/route53profiles/association.go
-index de1a8c940b..ca347ab4ad 100644
+index 77ad722ee8..b827a6ba7f 100644
 --- a/internal/service/route53profiles/association.go
 +++ b/internal/service/route53profiles/association.go
 @@ -109,7 +109,7 @@ func (r *resourceAssociation) Schema(ctx context.Context, req resource.SchemaReq
@@ -44,7 +44,7 @@ index de1a8c940b..ca347ab4ad 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/route53profiles/profile.go b/internal/service/route53profiles/profile.go
-index 693cd38cb2..089da8f033 100644
+index 6c0b3d3e0a..3f90c6dc65 100644
 --- a/internal/service/route53profiles/profile.go
 +++ b/internal/service/route53profiles/profile.go
 @@ -90,7 +90,7 @@ func (r *resourceProfile) Schema(ctx context.Context, req resource.SchemaRequest

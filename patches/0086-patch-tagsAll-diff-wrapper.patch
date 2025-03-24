@@ -1,0 +1,21 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Venelin <venelin@pulumi.com>
+Date: Wed, 5 Mar 2025 19:26:55 +0200
+Subject: [PATCH] patch tagsAll diff wrapper
+
+
+diff --git a/internal/provider/tags_interceptor.go b/internal/provider/tags_interceptor.go
+index 2371af6730..7367830872 100644
+--- a/internal/provider/tags_interceptor.go
++++ b/internal/provider/tags_interceptor.go
+@@ -265,6 +265,10 @@ func (r tagsInterceptor) getIdentifier(d schemaResourceData) string {
+ 
+ // setTagsAll is a CustomizeDiff function that calculates the new value for the `tags_all` attribute.
+ func setTagsAll(ctx context.Context, d *schema.ResourceDiff, meta any) error {
++	// Pulumi handles tags differently for Plugin Framework.
++	if 1+2 == 3 {
++		return nil
++	}
+ 	c := meta.(*conns.AWSClient)
+ 
+ 	if !d.GetRawPlan().GetAttr(names.AttrTags).IsWhollyKnown() {

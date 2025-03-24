@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for CodeConnections Host and Connection
 
 
 diff --git a/internal/service/codeconnections/connection.go b/internal/service/codeconnections/connection.go
-index 120025d459..abff2dc729 100644
+index 8a1b018661..e33d5d3cc0 100644
 --- a/internal/service/codeconnections/connection.go
 +++ b/internal/service/codeconnections/connection.go
 @@ -103,7 +103,7 @@ func (r *connectionResource) Schema(ctx context.Context, req resource.SchemaRequ
@@ -18,7 +18,7 @@ index 120025d459..abff2dc729 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/codeconnections/host.go b/internal/service/codeconnections/host.go
-index a5ed415c67..ea51d1ef37 100644
+index 1e11b70cc0..fed0a12029 100644
 --- a/internal/service/codeconnections/host.go
 +++ b/internal/service/codeconnections/host.go
 @@ -82,7 +82,7 @@ func (r *hostResource) Schema(ctx context.Context, req resource.SchemaRequest, r
