@@ -70,7 +70,7 @@ type LookupVolumeArgs struct {
 	// [describe-volumes in the AWS CLI reference][1].
 	Filters []GetVolumeFilter `pulumi:"filters"`
 	// If more than one result is returned, use the most
-	// recent Volume.
+	// recent volume.
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -80,8 +80,10 @@ type LookupVolumeArgs struct {
 type LookupVolumeResult struct {
 	// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
 	Arn string `pulumi:"arn"`
-	// AZ where the EBS volume exists.
+	// Availability zone where the EBS volume exists.
 	AvailabilityZone string `pulumi:"availabilityZone"`
+	// Timestamp when volume creation was initiated.
+	CreateTime string `pulumi:"createTime"`
 	// Whether the disk is encrypted.
 	Encrypted bool              `pulumi:"encrypted"`
 	Filters   []GetVolumeFilter `pulumi:"filters"`
@@ -126,7 +128,7 @@ type LookupVolumeOutputArgs struct {
 	// [describe-volumes in the AWS CLI reference][1].
 	Filters GetVolumeFilterArrayInput `pulumi:"filters"`
 	// If more than one result is returned, use the most
-	// recent Volume.
+	// recent volume.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -156,9 +158,14 @@ func (o LookupVolumeResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// AZ where the EBS volume exists.
+// Availability zone where the EBS volume exists.
 func (o LookupVolumeResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// Timestamp when volume creation was initiated.
+func (o LookupVolumeResultOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.CreateTime }).(pulumi.StringOutput)
 }
 
 // Whether the disk is encrypted.

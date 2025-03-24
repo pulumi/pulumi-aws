@@ -35,10 +35,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Name:        pulumi.String("example"),
+//				GlueVersion: pulumi.String("5.0"),
+//				RoleArn:     pulumi.Any(exampleAwsIamRole.Arn),
 //				Command: &glue.JobCommandArgs{
 //					ScriptLocation: pulumi.Sprintf("s3://%v/example.py", exampleAwsS3Bucket.Bucket),
+//					PythonVersion:  pulumi.String("3"),
 //				},
 //			})
 //			if err != nil {

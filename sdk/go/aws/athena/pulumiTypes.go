@@ -13,6 +13,181 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type CapacityReservationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// CapacityReservationTimeoutsInput is an input type that accepts CapacityReservationTimeoutsArgs and CapacityReservationTimeoutsOutput values.
+// You can construct a concrete instance of `CapacityReservationTimeoutsInput` via:
+//
+//	CapacityReservationTimeoutsArgs{...}
+type CapacityReservationTimeoutsInput interface {
+	pulumi.Input
+
+	ToCapacityReservationTimeoutsOutput() CapacityReservationTimeoutsOutput
+	ToCapacityReservationTimeoutsOutputWithContext(context.Context) CapacityReservationTimeoutsOutput
+}
+
+type CapacityReservationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (CapacityReservationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationTimeouts)(nil)).Elem()
+}
+
+func (i CapacityReservationTimeoutsArgs) ToCapacityReservationTimeoutsOutput() CapacityReservationTimeoutsOutput {
+	return i.ToCapacityReservationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationTimeoutsArgs) ToCapacityReservationTimeoutsOutputWithContext(ctx context.Context) CapacityReservationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTimeoutsOutput)
+}
+
+func (i CapacityReservationTimeoutsArgs) ToCapacityReservationTimeoutsPtrOutput() CapacityReservationTimeoutsPtrOutput {
+	return i.ToCapacityReservationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationTimeoutsArgs) ToCapacityReservationTimeoutsPtrOutputWithContext(ctx context.Context) CapacityReservationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTimeoutsOutput).ToCapacityReservationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// CapacityReservationTimeoutsPtrInput is an input type that accepts CapacityReservationTimeoutsArgs, CapacityReservationTimeoutsPtr and CapacityReservationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `CapacityReservationTimeoutsPtrInput` via:
+//
+//	        CapacityReservationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityReservationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToCapacityReservationTimeoutsPtrOutput() CapacityReservationTimeoutsPtrOutput
+	ToCapacityReservationTimeoutsPtrOutputWithContext(context.Context) CapacityReservationTimeoutsPtrOutput
+}
+
+type capacityReservationTimeoutsPtrType CapacityReservationTimeoutsArgs
+
+func CapacityReservationTimeoutsPtr(v *CapacityReservationTimeoutsArgs) CapacityReservationTimeoutsPtrInput {
+	return (*capacityReservationTimeoutsPtrType)(v)
+}
+
+func (*capacityReservationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationTimeouts)(nil)).Elem()
+}
+
+func (i *capacityReservationTimeoutsPtrType) ToCapacityReservationTimeoutsPtrOutput() CapacityReservationTimeoutsPtrOutput {
+	return i.ToCapacityReservationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityReservationTimeoutsPtrType) ToCapacityReservationTimeoutsPtrOutputWithContext(ctx context.Context) CapacityReservationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTimeoutsPtrOutput)
+}
+
+type CapacityReservationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationTimeouts)(nil)).Elem()
+}
+
+func (o CapacityReservationTimeoutsOutput) ToCapacityReservationTimeoutsOutput() CapacityReservationTimeoutsOutput {
+	return o
+}
+
+func (o CapacityReservationTimeoutsOutput) ToCapacityReservationTimeoutsOutputWithContext(ctx context.Context) CapacityReservationTimeoutsOutput {
+	return o
+}
+
+func (o CapacityReservationTimeoutsOutput) ToCapacityReservationTimeoutsPtrOutput() CapacityReservationTimeoutsPtrOutput {
+	return o.ToCapacityReservationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationTimeoutsOutput) ToCapacityReservationTimeoutsPtrOutputWithContext(ctx context.Context) CapacityReservationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityReservationTimeouts) *CapacityReservationTimeouts {
+		return &v
+	}).(CapacityReservationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapacityReservationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityReservationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o CapacityReservationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityReservationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapacityReservationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityReservationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type CapacityReservationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationTimeouts)(nil)).Elem()
+}
+
+func (o CapacityReservationTimeoutsPtrOutput) ToCapacityReservationTimeoutsPtrOutput() CapacityReservationTimeoutsPtrOutput {
+	return o
+}
+
+func (o CapacityReservationTimeoutsPtrOutput) ToCapacityReservationTimeoutsPtrOutputWithContext(ctx context.Context) CapacityReservationTimeoutsPtrOutput {
+	return o
+}
+
+func (o CapacityReservationTimeoutsPtrOutput) Elem() CapacityReservationTimeoutsOutput {
+	return o.ApplyT(func(v *CapacityReservationTimeouts) CapacityReservationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityReservationTimeouts
+		return ret
+	}).(CapacityReservationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapacityReservationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o CapacityReservationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapacityReservationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityReservationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type DatabaseAclConfiguration struct {
 	// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
 	//
@@ -1217,6 +1392,8 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationTimeoutsInput)(nil)).Elem(), CapacityReservationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationTimeoutsPtrInput)(nil)).Elem(), CapacityReservationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAclConfigurationInput)(nil)).Elem(), DatabaseAclConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseAclConfigurationPtrInput)(nil)).Elem(), DatabaseAclConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseEncryptionConfigurationInput)(nil)).Elem(), DatabaseEncryptionConfigurationArgs{})
@@ -1231,6 +1408,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationAclConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationAclConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{})
+	pulumi.RegisterOutputType(CapacityReservationTimeoutsOutput{})
+	pulumi.RegisterOutputType(CapacityReservationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseAclConfigurationOutput{})
 	pulumi.RegisterOutputType(DatabaseAclConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseEncryptionConfigurationOutput{})

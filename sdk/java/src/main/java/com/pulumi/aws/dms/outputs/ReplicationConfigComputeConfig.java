@@ -31,12 +31,12 @@ public final class ReplicationConfigComputeConfig {
      */
     private @Nullable String kmsKeyId;
     /**
-     * @return Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+     * @return Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
      * 
      */
     private @Nullable Integer maxCapacityUnits;
     /**
-     * @return Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn&#39;t set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+     * @return Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn&#39;t set DMS sets the lowest allowed value, 1.
      * 
      */
     private @Nullable Integer minCapacityUnits;
@@ -89,14 +89,14 @@ public final class ReplicationConfigComputeConfig {
         return Optional.ofNullable(this.kmsKeyId);
     }
     /**
-     * @return Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+     * @return Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
      * 
      */
     public Optional<Integer> maxCapacityUnits() {
         return Optional.ofNullable(this.maxCapacityUnits);
     }
     /**
-     * @return Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn&#39;t set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+     * @return Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn&#39;t set DMS sets the lowest allowed value, 1.
      * 
      */
     public Optional<Integer> minCapacityUnits() {

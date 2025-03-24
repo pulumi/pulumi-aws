@@ -21,6 +21,12 @@ namespace Pulumi.Aws.Kendra.Inputs
         /// <summary>
         /// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
         /// </summary>
+        [Input("templateConfiguration")]
+        public Input<Inputs.DataSourceConfigurationTemplateConfigurationArgs>? TemplateConfiguration { get; set; }
+
+        /// <summary>
+        /// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+        /// </summary>
         [Input("webCrawlerConfiguration")]
         public Input<Inputs.DataSourceConfigurationWebCrawlerConfigurationArgs>? WebCrawlerConfiguration { get; set; }
 

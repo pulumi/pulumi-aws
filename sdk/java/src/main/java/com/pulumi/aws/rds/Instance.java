@@ -760,6 +760,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customerOwnedIpEnabled);
     }
     /**
+     * The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+     * 
+     */
+    @Export(name="databaseInsightsMode", refs={String.class}, tree="[0]")
+    private Output<String> databaseInsightsMode;
+
+    /**
+     * @return The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+     * 
+     */
+    public Output<String> databaseInsightsMode() {
+        return this.databaseInsightsMode;
+    }
+    /**
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
      * 
      */

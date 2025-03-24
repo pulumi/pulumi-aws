@@ -2308,6 +2308,181 @@ func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
+type GetApiKeysItem struct {
+	// Date and time when the API Key was created.
+	CreatedDate string `pulumi:"createdDate"`
+	// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+	CustomerId string `pulumi:"customerId"`
+	// Description of the API Key.
+	Description string `pulumi:"description"`
+	// Whether the API Key is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// ID of the API Key.
+	Id string `pulumi:"id"`
+	// Date and time when the API Key was last updated.
+	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
+	// Name of the API Key.
+	Name      string   `pulumi:"name"`
+	StageKeys []string `pulumi:"stageKeys"`
+	// Map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Value of the API Key.
+	Value string `pulumi:"value"`
+}
+
+// GetApiKeysItemInput is an input type that accepts GetApiKeysItemArgs and GetApiKeysItemOutput values.
+// You can construct a concrete instance of `GetApiKeysItemInput` via:
+//
+//	GetApiKeysItemArgs{...}
+type GetApiKeysItemInput interface {
+	pulumi.Input
+
+	ToGetApiKeysItemOutput() GetApiKeysItemOutput
+	ToGetApiKeysItemOutputWithContext(context.Context) GetApiKeysItemOutput
+}
+
+type GetApiKeysItemArgs struct {
+	// Date and time when the API Key was created.
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
+	// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+	CustomerId pulumi.StringInput `pulumi:"customerId"`
+	// Description of the API Key.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Whether the API Key is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// ID of the API Key.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Date and time when the API Key was last updated.
+	LastUpdatedDate pulumi.StringInput `pulumi:"lastUpdatedDate"`
+	// Name of the API Key.
+	Name      pulumi.StringInput      `pulumi:"name"`
+	StageKeys pulumi.StringArrayInput `pulumi:"stageKeys"`
+	// Map of tags for the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Value of the API Key.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetApiKeysItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApiKeysItem)(nil)).Elem()
+}
+
+func (i GetApiKeysItemArgs) ToGetApiKeysItemOutput() GetApiKeysItemOutput {
+	return i.ToGetApiKeysItemOutputWithContext(context.Background())
+}
+
+func (i GetApiKeysItemArgs) ToGetApiKeysItemOutputWithContext(ctx context.Context) GetApiKeysItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApiKeysItemOutput)
+}
+
+// GetApiKeysItemArrayInput is an input type that accepts GetApiKeysItemArray and GetApiKeysItemArrayOutput values.
+// You can construct a concrete instance of `GetApiKeysItemArrayInput` via:
+//
+//	GetApiKeysItemArray{ GetApiKeysItemArgs{...} }
+type GetApiKeysItemArrayInput interface {
+	pulumi.Input
+
+	ToGetApiKeysItemArrayOutput() GetApiKeysItemArrayOutput
+	ToGetApiKeysItemArrayOutputWithContext(context.Context) GetApiKeysItemArrayOutput
+}
+
+type GetApiKeysItemArray []GetApiKeysItemInput
+
+func (GetApiKeysItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApiKeysItem)(nil)).Elem()
+}
+
+func (i GetApiKeysItemArray) ToGetApiKeysItemArrayOutput() GetApiKeysItemArrayOutput {
+	return i.ToGetApiKeysItemArrayOutputWithContext(context.Background())
+}
+
+func (i GetApiKeysItemArray) ToGetApiKeysItemArrayOutputWithContext(ctx context.Context) GetApiKeysItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApiKeysItemArrayOutput)
+}
+
+type GetApiKeysItemOutput struct{ *pulumi.OutputState }
+
+func (GetApiKeysItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApiKeysItem)(nil)).Elem()
+}
+
+func (o GetApiKeysItemOutput) ToGetApiKeysItemOutput() GetApiKeysItemOutput {
+	return o
+}
+
+func (o GetApiKeysItemOutput) ToGetApiKeysItemOutputWithContext(ctx context.Context) GetApiKeysItemOutput {
+	return o
+}
+
+// Date and time when the API Key was created.
+func (o GetApiKeysItemOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApiKeysItem) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+func (o GetApiKeysItemOutput) CustomerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApiKeysItem) string { return v.CustomerId }).(pulumi.StringOutput)
+}
+
+// Description of the API Key.
+func (o GetApiKeysItemOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApiKeysItem) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Whether the API Key is enabled.
+func (o GetApiKeysItemOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApiKeysItem) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// ID of the API Key.
+func (o GetApiKeysItemOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApiKeysItem) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Date and time when the API Key was last updated.
+func (o GetApiKeysItemOutput) LastUpdatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApiKeysItem) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
+}
+
+// Name of the API Key.
+func (o GetApiKeysItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApiKeysItem) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetApiKeysItemOutput) StageKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApiKeysItem) []string { return v.StageKeys }).(pulumi.StringArrayOutput)
+}
+
+// Map of tags for the resource.
+func (o GetApiKeysItemOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetApiKeysItem) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Value of the API Key.
+func (o GetApiKeysItemOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApiKeysItem) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetApiKeysItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApiKeysItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApiKeysItem)(nil)).Elem()
+}
+
+func (o GetApiKeysItemArrayOutput) ToGetApiKeysItemArrayOutput() GetApiKeysItemArrayOutput {
+	return o
+}
+
+func (o GetApiKeysItemArrayOutput) ToGetApiKeysItemArrayOutputWithContext(ctx context.Context) GetApiKeysItemArrayOutput {
+	return o
+}
+
+func (o GetApiKeysItemArrayOutput) Index(i pulumi.IntInput) GetApiKeysItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApiKeysItem {
+		return vs[0].([]GetApiKeysItem)[vs[1].(int)]
+	}).(GetApiKeysItemOutput)
+}
+
 type GetDomainNameEndpointConfiguration struct {
 	// List of endpoint types.
 	Types []string `pulumi:"types"`
@@ -2534,6 +2709,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanQuotaSettingsPtrInput)(nil)).Elem(), UsagePlanQuotaSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanThrottleSettingsInput)(nil)).Elem(), UsagePlanThrottleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanThrottleSettingsPtrInput)(nil)).Elem(), UsagePlanThrottleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApiKeysItemInput)(nil)).Elem(), GetApiKeysItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApiKeysItemArrayInput)(nil)).Elem(), GetApiKeysItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNameEndpointConfigurationInput)(nil)).Elem(), GetDomainNameEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNameEndpointConfigurationArrayInput)(nil)).Elem(), GetDomainNameEndpointConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRestApiEndpointConfigurationInput)(nil)).Elem(), GetRestApiEndpointConfigurationArgs{})
@@ -2566,6 +2743,8 @@ func init() {
 	pulumi.RegisterOutputType(UsagePlanQuotaSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetApiKeysItemOutput{})
+	pulumi.RegisterOutputType(GetApiKeysItemArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainNameEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(GetDomainNameEndpointConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetRestApiEndpointConfigurationOutput{})

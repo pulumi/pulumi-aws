@@ -561,6 +561,65 @@ import (
 //
 // ```
 //
+// ### With `WEBCRAWLERV2` Template
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"connectionConfiguration": map[string]interface{}{
+//					"repositoryEndpointMetadata": map[string]interface{}{
+//						"seedUrlConnections": []map[string]interface{}{
+//							map[string]interface{}{
+//								"seedUrl": "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kendra_index",
+//							},
+//						},
+//					},
+//				},
+//				"additionalProperties": map[string]interface{}{
+//					"inclusionURLIndexPatterns": []string{
+//						"https:\\/\\/registry[.]terraform[.]io\\/providers\\/hashicorp\\/aws\\/latest\\/docs\\/resources\\/kendra_index",
+//					},
+//				},
+//				"version":  "1.0.0",
+//				"syncMode": "FULL_CRAWL",
+//				"type":     "WEBCRAWLERV2",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("example"),
+//				Type:    pulumi.String("TEMPLATE"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Configuration: &kendra.DataSourceConfigurationArgs{
+//					TemplateConfiguration: &kendra.DataSourceConfigurationTemplateConfigurationArgs{
+//						Template: pulumi.String(json0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Kendra Data Source using the unique identifiers of the data_source and index separated by a slash (`/`). For example:
@@ -575,7 +634,7 @@ type DataSource struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
 	Configuration DataSourceConfigurationPtrOutput `pulumi:"configuration"`
-	// The Unix timestamp of when the Data Source was created.
+	// The Unix time stamp of when the Data Source was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
 	CustomDocumentEnrichmentConfiguration DataSourceCustomDocumentEnrichmentConfigurationPtrOutput `pulumi:"customDocumentEnrichmentConfiguration"`
@@ -583,7 +642,7 @@ type DataSource struct {
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
 	// A description for the Data Source connector.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+	// When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
 	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
 	// The identifier of the index for your Amazon Kendra data source.
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
@@ -607,7 +666,7 @@ type DataSource struct {
 	//
 	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The Unix timestamp of when the Data Source was last updated.
+	// The Unix time stamp of when the Data Source was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
@@ -651,7 +710,7 @@ type dataSourceState struct {
 	Arn *string `pulumi:"arn"`
 	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
 	Configuration *DataSourceConfiguration `pulumi:"configuration"`
-	// The Unix timestamp of when the Data Source was created.
+	// The Unix time stamp of when the Data Source was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
 	CustomDocumentEnrichmentConfiguration *DataSourceCustomDocumentEnrichmentConfiguration `pulumi:"customDocumentEnrichmentConfiguration"`
@@ -659,7 +718,7 @@ type dataSourceState struct {
 	DataSourceId *string `pulumi:"dataSourceId"`
 	// A description for the Data Source connector.
 	Description *string `pulumi:"description"`
-	// When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+	// When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
 	ErrorMessage *string `pulumi:"errorMessage"`
 	// The identifier of the index for your Amazon Kendra data source.
 	IndexId *string `pulumi:"indexId"`
@@ -683,7 +742,7 @@ type dataSourceState struct {
 	//
 	// The following arguments are optional:
 	Type *string `pulumi:"type"`
-	// The Unix timestamp of when the Data Source was last updated.
+	// The Unix time stamp of when the Data Source was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
@@ -692,7 +751,7 @@ type DataSourceState struct {
 	Arn pulumi.StringPtrInput
 	// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
 	Configuration DataSourceConfigurationPtrInput
-	// The Unix timestamp of when the Data Source was created.
+	// The Unix time stamp of when the Data Source was created.
 	CreatedAt pulumi.StringPtrInput
 	// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
 	CustomDocumentEnrichmentConfiguration DataSourceCustomDocumentEnrichmentConfigurationPtrInput
@@ -700,7 +759,7 @@ type DataSourceState struct {
 	DataSourceId pulumi.StringPtrInput
 	// A description for the Data Source connector.
 	Description pulumi.StringPtrInput
-	// When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+	// When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
 	ErrorMessage pulumi.StringPtrInput
 	// The identifier of the index for your Amazon Kendra data source.
 	IndexId pulumi.StringPtrInput
@@ -724,7 +783,7 @@ type DataSourceState struct {
 	//
 	// The following arguments are optional:
 	Type pulumi.StringPtrInput
-	// The Unix timestamp of when the Data Source was last updated.
+	// The Unix time stamp of when the Data Source was last updated.
 	UpdatedAt pulumi.StringPtrInput
 }
 
@@ -880,7 +939,7 @@ func (o DataSourceOutput) Configuration() DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceConfigurationPtrOutput { return v.Configuration }).(DataSourceConfigurationPtrOutput)
 }
 
-// The Unix timestamp of when the Data Source was created.
+// The Unix time stamp of when the Data Source was created.
 func (o DataSourceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -902,7 +961,7 @@ func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+// When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
 func (o DataSourceOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
 }
@@ -956,7 +1015,7 @@ func (o DataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The Unix timestamp of when the Data Source was last updated.
+// The Unix time stamp of when the Data Source was last updated.
 func (o DataSourceOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

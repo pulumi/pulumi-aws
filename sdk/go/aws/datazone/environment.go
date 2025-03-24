@@ -81,7 +81,8 @@ type Environment struct {
 	// The time the environment was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The user who created the environment.
-	CreatedBy   pulumi.StringOutput    `pulumi:"createdBy"`
+	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
+	// The description of the environment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the domain where the environment exists.
 	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
@@ -153,7 +154,8 @@ type environmentState struct {
 	// The time the environment was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The user who created the environment.
-	CreatedBy   *string `pulumi:"createdBy"`
+	CreatedBy *string `pulumi:"createdBy"`
+	// The description of the environment.
 	Description *string `pulumi:"description"`
 	// The ID of the domain where the environment exists.
 	DomainIdentifier *string `pulumi:"domainIdentifier"`
@@ -187,7 +189,8 @@ type EnvironmentState struct {
 	// The time the environment was created.
 	CreatedAt pulumi.StringPtrInput
 	// The user who created the environment.
-	CreatedBy   pulumi.StringPtrInput
+	CreatedBy pulumi.StringPtrInput
+	// The description of the environment.
 	Description pulumi.StringPtrInput
 	// The ID of the domain where the environment exists.
 	DomainIdentifier pulumi.StringPtrInput
@@ -222,7 +225,8 @@ type environmentArgs struct {
 	AccountRegion *string `pulumi:"accountRegion"`
 	// The blueprint with which the environment is created.
 	BlueprintIdentifier *string `pulumi:"blueprintIdentifier"`
-	Description         *string `pulumi:"description"`
+	// The description of the environment.
+	Description *string `pulumi:"description"`
 	// The ID of the domain where the environment exists.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
 	// The business glossary terms that can be used in this environment.
@@ -248,7 +252,8 @@ type EnvironmentArgs struct {
 	AccountRegion pulumi.StringPtrInput
 	// The blueprint with which the environment is created.
 	BlueprintIdentifier pulumi.StringPtrInput
-	Description         pulumi.StringPtrInput
+	// The description of the environment.
+	Description pulumi.StringPtrInput
 	// The ID of the domain where the environment exists.
 	DomainIdentifier pulumi.StringInput
 	// The business glossary terms that can be used in this environment.
@@ -378,6 +383,7 @@ func (o EnvironmentOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
+// The description of the environment.
 func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

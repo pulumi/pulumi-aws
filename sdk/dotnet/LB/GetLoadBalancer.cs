@@ -212,6 +212,7 @@ namespace Pulumi.Aws.LB
         public readonly int IdleTimeout;
         public readonly bool Internal;
         public readonly string IpAddressType;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerIpamPoolResult> IpamPools;
         public readonly string LoadBalancerType;
         public readonly string Name;
         public readonly bool PreserveHostHeader;
@@ -269,6 +270,8 @@ namespace Pulumi.Aws.LB
 
             string ipAddressType,
 
+            ImmutableArray<Outputs.GetLoadBalancerIpamPoolResult> ipamPools,
+
             string loadBalancerType,
 
             string name,
@@ -311,6 +314,7 @@ namespace Pulumi.Aws.LB
             IdleTimeout = idleTimeout;
             Internal = @internal;
             IpAddressType = ipAddressType;
+            IpamPools = ipamPools;
             LoadBalancerType = loadBalancerType;
             Name = name;
             PreserveHostHeader = preserveHostHeader;

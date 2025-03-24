@@ -102,6 +102,7 @@ type LookupLoadBalancerResult struct {
 	IdleTimeout             int                            `pulumi:"idleTimeout"`
 	Internal                bool                           `pulumi:"internal"`
 	IpAddressType           string                         `pulumi:"ipAddressType"`
+	IpamPools               []GetLoadBalancerIpamPool      `pulumi:"ipamPools"`
 	LoadBalancerType        string                         `pulumi:"loadBalancerType"`
 	Name                    string                         `pulumi:"name"`
 	PreserveHostHeader      bool                           `pulumi:"preserveHostHeader"`
@@ -241,6 +242,10 @@ func (o LookupLoadBalancerResultOutput) Internal() pulumi.BoolOutput {
 
 func (o LookupLoadBalancerResultOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.IpAddressType }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) IpamPools() GetLoadBalancerIpamPoolArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []GetLoadBalancerIpamPool { return v.IpamPools }).(GetLoadBalancerIpamPoolArrayOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) LoadBalancerType() pulumi.StringOutput {

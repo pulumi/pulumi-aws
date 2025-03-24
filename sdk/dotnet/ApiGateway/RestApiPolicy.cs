@@ -55,7 +55,7 @@ namespace Pulumi.Aws.ApiGateway
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     testRestApi.ExecutionArn,
+    ///                     $"{testRestApi.ExecutionArn}/*",
     ///                 },
     ///                 Conditions = new[]
     ///                 {

@@ -23,10 +23,15 @@ public final class GetVolumeResult {
      */
     private String arn;
     /**
-     * @return AZ where the EBS volume exists.
+     * @return Availability zone where the EBS volume exists.
      * 
      */
     private String availabilityZone;
+    /**
+     * @return Timestamp when volume creation was initiated.
+     * 
+     */
+    private String createTime;
     /**
      * @return Whether the disk is encrypted.
      * 
@@ -99,11 +104,18 @@ public final class GetVolumeResult {
         return this.arn;
     }
     /**
-     * @return AZ where the EBS volume exists.
+     * @return Availability zone where the EBS volume exists.
      * 
      */
     public String availabilityZone() {
         return this.availabilityZone;
+    }
+    /**
+     * @return Timestamp when volume creation was initiated.
+     * 
+     */
+    public String createTime() {
+        return this.createTime;
     }
     /**
      * @return Whether the disk is encrypted.
@@ -207,6 +219,7 @@ public final class GetVolumeResult {
     public static final class Builder {
         private String arn;
         private String availabilityZone;
+        private String createTime;
         private Boolean encrypted;
         private @Nullable List<GetVolumeFilter> filters;
         private String id;
@@ -226,6 +239,7 @@ public final class GetVolumeResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.availabilityZone = defaults.availabilityZone;
+    	      this.createTime = defaults.createTime;
     	      this.encrypted = defaults.encrypted;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
@@ -256,6 +270,14 @@ public final class GetVolumeResult {
               throw new MissingRequiredPropertyException("GetVolumeResult", "availabilityZone");
             }
             this.availabilityZone = availabilityZone;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder createTime(String createTime) {
+            if (createTime == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "createTime");
+            }
+            this.createTime = createTime;
             return this;
         }
         @CustomType.Setter
@@ -373,6 +395,7 @@ public final class GetVolumeResult {
             final var _resultValue = new GetVolumeResult();
             _resultValue.arn = arn;
             _resultValue.availabilityZone = availabilityZone;
+            _resultValue.createTime = createTime;
             _resultValue.encrypted = encrypted;
             _resultValue.filters = filters;
             _resultValue.id = id;

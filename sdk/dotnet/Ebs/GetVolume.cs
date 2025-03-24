@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// If more than one result is returned, use the most
-        /// recent Volume.
+        /// recent volume.
         /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// If more than one result is returned, use the most
-        /// recent Volume.
+        /// recent volume.
         /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
@@ -236,9 +236,13 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// AZ where the EBS volume exists.
+        /// Availability zone where the EBS volume exists.
         /// </summary>
         public readonly string AvailabilityZone;
+        /// <summary>
+        /// Timestamp when volume creation was initiated.
+        /// </summary>
+        public readonly string CreateTime;
         /// <summary>
         /// Whether the disk is encrypted.
         /// </summary>
@@ -296,6 +300,8 @@ namespace Pulumi.Aws.Ebs
 
             string availabilityZone,
 
+            string createTime,
+
             bool encrypted,
 
             ImmutableArray<Outputs.GetVolumeFilterResult> filters,
@@ -326,6 +332,7 @@ namespace Pulumi.Aws.Ebs
         {
             Arn = arn;
             AvailabilityZone = availabilityZone;
+            CreateTime = createTime;
             Encrypted = encrypted;
             Filters = filters;
             Id = id;

@@ -111,6 +111,7 @@ namespace Pulumi.Aws.Connect
     ///             Email = "example@example.com",
     ///             FirstName = "example",
     ///             LastName = "example2",
+    ///             SecondaryEmail = "secondary@example.com",
     ///         },
     ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
     ///         {

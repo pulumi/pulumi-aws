@@ -25,6 +25,10 @@ namespace Pulumi.Aws.Connect.Outputs
         /// The last name.
         /// </summary>
         public readonly string LastName;
+        /// <summary>
+        /// The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+        /// </summary>
+        public readonly string SecondaryEmail;
 
         [OutputConstructor]
         private GetUserIdentityInfoResult(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.Connect.Outputs
 
             string firstName,
 
-            string lastName)
+            string lastName,
+
+            string secondaryEmail)
         {
             Email = email;
             FirstName = firstName;
             LastName = lastName;
+            SecondaryEmail = secondaryEmail;
         }
     }
 }

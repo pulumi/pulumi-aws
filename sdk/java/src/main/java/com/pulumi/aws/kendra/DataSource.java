@@ -698,6 +698,67 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### With `WEBCRAWLERV2` Template
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kendra.DataSource;
+ * import com.pulumi.aws.kendra.DataSourceArgs;
+ * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
+ * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationTemplateConfigurationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DataSource("example", DataSourceArgs.builder()
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name("example")
+ *             .type("TEMPLATE")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .configuration(DataSourceConfigurationArgs.builder()
+ *                 .templateConfiguration(DataSourceConfigurationTemplateConfigurationArgs.builder()
+ *                     .template(serializeJson(
+ *                         jsonObject(
+ *                             jsonProperty("connectionConfiguration", jsonObject(
+ *                                 jsonProperty("repositoryEndpointMetadata", jsonObject(
+ *                                     jsonProperty("seedUrlConnections", jsonArray(jsonObject(
+ *                                         jsonProperty("seedUrl", "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kendra_index")
+ *                                     )))
+ *                                 ))
+ *                             )),
+ *                             jsonProperty("additionalProperties", jsonObject(
+ *                                 jsonProperty("inclusionURLIndexPatterns", jsonArray("https:\\/\\/registry[.]terraform[.]io\\/providers\\/hashicorp\\/aws\\/latest\\/docs\\/resources\\/kendra_index"))
+ *                             )),
+ *                             jsonProperty("version", "1.0.0"),
+ *                             jsonProperty("syncMode", "FULL_CRAWL"),
+ *                             jsonProperty("type", "WEBCRAWLERV2")
+ *                         )))
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Kendra Data Source using the unique identifiers of the data_source and index separated by a slash (`/`). For example:
@@ -738,14 +799,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.configuration);
     }
     /**
-     * The Unix timestamp of when the Data Source was created.
+     * The Unix time stamp of when the Data Source was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The Unix timestamp of when the Data Source was created.
+     * @return The Unix time stamp of when the Data Source was created.
      * 
      */
     public Output<String> createdAt() {
@@ -794,14 +855,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+     * When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
      * 
      */
     @Export(name="errorMessage", refs={String.class}, tree="[0]")
     private Output<String> errorMessage;
 
     /**
-     * @return When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+     * @return When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
      * 
      */
     public Output<String> errorMessage() {
@@ -942,14 +1003,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.type;
     }
     /**
-     * The Unix timestamp of when the Data Source was last updated.
+     * The Unix time stamp of when the Data Source was last updated.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return The Unix timestamp of when the Data Source was last updated.
+     * @return The Unix time stamp of when the Data Source was last updated.
      * 
      */
     public Output<String> updatedAt() {

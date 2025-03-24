@@ -4,6 +4,8 @@
 package com.pulumi.aws.apigateway;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.apigateway.inputs.GetApiKeysArgs;
+import com.pulumi.aws.apigateway.inputs.GetApiKeysPlainArgs;
 import com.pulumi.aws.apigateway.inputs.GetAuthorizerArgs;
 import com.pulumi.aws.apigateway.inputs.GetAuthorizerPlainArgs;
 import com.pulumi.aws.apigateway.inputs.GetAuthorizersArgs;
@@ -22,6 +24,7 @@ import com.pulumi.aws.apigateway.inputs.GetSdkArgs;
 import com.pulumi.aws.apigateway.inputs.GetSdkPlainArgs;
 import com.pulumi.aws.apigateway.inputs.GetVpcLinkArgs;
 import com.pulumi.aws.apigateway.inputs.GetVpcLinkPlainArgs;
+import com.pulumi.aws.apigateway.outputs.GetApiKeysResult;
 import com.pulumi.aws.apigateway.outputs.GetAuthorizerResult;
 import com.pulumi.aws.apigateway.outputs.GetAuthorizersResult;
 import com.pulumi.aws.apigateway.outputs.GetDomainNameResult;
@@ -39,6 +42,286 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ApigatewayFunctions {
+    /**
+     * Data source for managing AWS API Gateway API Keys.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetApiKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getApiKeys();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetApiKeysResult> getApiKeys() {
+        return getApiKeys(GetApiKeysArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS API Gateway API Keys.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetApiKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getApiKeys();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetApiKeysResult> getApiKeysPlain() {
+        return getApiKeysPlain(GetApiKeysPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS API Gateway API Keys.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetApiKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getApiKeys();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetApiKeysResult> getApiKeys(GetApiKeysArgs args) {
+        return getApiKeys(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS API Gateway API Keys.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetApiKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getApiKeys();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetApiKeysResult> getApiKeysPlain(GetApiKeysPlainArgs args) {
+        return getApiKeysPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS API Gateway API Keys.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetApiKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getApiKeys();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetApiKeysResult> getApiKeys(GetApiKeysArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:apigateway/getApiKeys:getApiKeys", TypeShape.of(GetApiKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS API Gateway API Keys.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetApiKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getApiKeys();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetApiKeysResult> getApiKeys(GetApiKeysArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:apigateway/getApiKeys:getApiKeys", TypeShape.of(GetApiKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS API Gateway API Keys.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetApiKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getApiKeys();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetApiKeysResult> getApiKeysPlain(GetApiKeysPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:apigateway/getApiKeys:getApiKeys", TypeShape.of(GetApiKeysResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Provides details about a specific API Gateway Authorizer.
      * 

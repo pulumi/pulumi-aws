@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.outputs;
 
 import com.pulumi.aws.kendra.outputs.DataSourceConfigurationS3Configuration;
+import com.pulumi.aws.kendra.outputs.DataSourceConfigurationTemplateConfiguration;
 import com.pulumi.aws.kendra.outputs.DataSourceConfigurationWebCrawlerConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -15,19 +16,36 @@ public final class DataSourceConfiguration {
     /**
      * @return A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
      * 
+     * @deprecated
+     * s3_configuration is deprecated. Use template_configuration instead.
+     * 
      */
+    @Deprecated /* s3_configuration is deprecated. Use template_configuration instead. */
     private @Nullable DataSourceConfigurationS3Configuration s3Configuration;
     /**
      * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
      * 
      */
+    private @Nullable DataSourceConfigurationTemplateConfiguration templateConfiguration;
+    /**
+     * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * 
+     * @deprecated
+     * web_crawler_configuration is deprecated. Use template_configuration instead.
+     * 
+     */
+    @Deprecated /* web_crawler_configuration is deprecated. Use template_configuration instead. */
     private @Nullable DataSourceConfigurationWebCrawlerConfiguration webCrawlerConfiguration;
 
     private DataSourceConfiguration() {}
     /**
      * @return A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
      * 
+     * @deprecated
+     * s3_configuration is deprecated. Use template_configuration instead.
+     * 
      */
+    @Deprecated /* s3_configuration is deprecated. Use template_configuration instead. */
     public Optional<DataSourceConfigurationS3Configuration> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }
@@ -35,6 +53,17 @@ public final class DataSourceConfiguration {
      * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
      * 
      */
+    public Optional<DataSourceConfigurationTemplateConfiguration> templateConfiguration() {
+        return Optional.ofNullable(this.templateConfiguration);
+    }
+    /**
+     * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * 
+     * @deprecated
+     * web_crawler_configuration is deprecated. Use template_configuration instead.
+     * 
+     */
+    @Deprecated /* web_crawler_configuration is deprecated. Use template_configuration instead. */
     public Optional<DataSourceConfigurationWebCrawlerConfiguration> webCrawlerConfiguration() {
         return Optional.ofNullable(this.webCrawlerConfiguration);
     }
@@ -49,11 +78,13 @@ public final class DataSourceConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DataSourceConfigurationS3Configuration s3Configuration;
+        private @Nullable DataSourceConfigurationTemplateConfiguration templateConfiguration;
         private @Nullable DataSourceConfigurationWebCrawlerConfiguration webCrawlerConfiguration;
         public Builder() {}
         public Builder(DataSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.s3Configuration = defaults.s3Configuration;
+    	      this.templateConfiguration = defaults.templateConfiguration;
     	      this.webCrawlerConfiguration = defaults.webCrawlerConfiguration;
         }
 
@@ -61,6 +92,12 @@ public final class DataSourceConfiguration {
         public Builder s3Configuration(@Nullable DataSourceConfigurationS3Configuration s3Configuration) {
 
             this.s3Configuration = s3Configuration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder templateConfiguration(@Nullable DataSourceConfigurationTemplateConfiguration templateConfiguration) {
+
+            this.templateConfiguration = templateConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -72,6 +109,7 @@ public final class DataSourceConfiguration {
         public DataSourceConfiguration build() {
             final var _resultValue = new DataSourceConfiguration();
             _resultValue.s3Configuration = s3Configuration;
+            _resultValue.templateConfiguration = templateConfiguration;
             _resultValue.webCrawlerConfiguration = webCrawlerConfiguration;
             return _resultValue;
         }

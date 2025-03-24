@@ -32,14 +32,14 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
+     * The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glue_version` is set to 5.0.
      * 
      */
     @Import(name="pythonVersion")
     private @Nullable Output<String> pythonVersion;
 
     /**
-     * @return The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
+     * @return The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glue_version` is set to 5.0.
      * 
      */
     public Optional<Output<String>> pythonVersion() {
@@ -125,7 +125,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pythonVersion The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
+         * @param pythonVersion The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glue_version` is set to 5.0.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pythonVersion The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
+         * @param pythonVersion The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glue_version` is set to 5.0.
          * 
          * @return builder
          * 

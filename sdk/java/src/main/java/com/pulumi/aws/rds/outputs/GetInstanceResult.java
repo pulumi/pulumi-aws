@@ -46,6 +46,11 @@ public final class GetInstanceResult {
      */
     private String caCertIdentifier;
     /**
+     * @return The mode of Database Insights that is enabled for the DB instance.
+     * 
+     */
+    private String databaseInsightsMode;
+    /**
      * @return If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
      * 
      */
@@ -265,6 +270,13 @@ public final class GetInstanceResult {
      */
     public String caCertIdentifier() {
         return this.caCertIdentifier;
+    }
+    /**
+     * @return The mode of Database Insights that is enabled for the DB instance.
+     * 
+     */
+    public String databaseInsightsMode() {
+        return this.databaseInsightsMode;
     }
     /**
      * @return If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
@@ -533,6 +545,7 @@ public final class GetInstanceResult {
         private String availabilityZone;
         private Integer backupRetentionPeriod;
         private String caCertIdentifier;
+        private String databaseInsightsMode;
         private String dbClusterIdentifier;
         private String dbInstanceArn;
         private String dbInstanceClass;
@@ -579,6 +592,7 @@ public final class GetInstanceResult {
     	      this.availabilityZone = defaults.availabilityZone;
     	      this.backupRetentionPeriod = defaults.backupRetentionPeriod;
     	      this.caCertIdentifier = defaults.caCertIdentifier;
+    	      this.databaseInsightsMode = defaults.databaseInsightsMode;
     	      this.dbClusterIdentifier = defaults.dbClusterIdentifier;
     	      this.dbInstanceArn = defaults.dbInstanceArn;
     	      this.dbInstanceClass = defaults.dbInstanceClass;
@@ -664,6 +678,14 @@ public final class GetInstanceResult {
               throw new MissingRequiredPropertyException("GetInstanceResult", "caCertIdentifier");
             }
             this.caCertIdentifier = caCertIdentifier;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder databaseInsightsMode(String databaseInsightsMode) {
+            if (databaseInsightsMode == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "databaseInsightsMode");
+            }
+            this.databaseInsightsMode = databaseInsightsMode;
             return this;
         }
         @CustomType.Setter
@@ -985,6 +1007,7 @@ public final class GetInstanceResult {
             _resultValue.availabilityZone = availabilityZone;
             _resultValue.backupRetentionPeriod = backupRetentionPeriod;
             _resultValue.caCertIdentifier = caCertIdentifier;
+            _resultValue.databaseInsightsMode = databaseInsightsMode;
             _resultValue.dbClusterIdentifier = dbClusterIdentifier;
             _resultValue.dbInstanceArn = dbInstanceArn;
             _resultValue.dbInstanceClass = dbInstanceClass;

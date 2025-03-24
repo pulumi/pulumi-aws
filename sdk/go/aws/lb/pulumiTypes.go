@@ -4755,6 +4755,143 @@ func (o LoadBalancerConnectionLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type LoadBalancerIpamPools struct {
+	// The ID of the IPv4 IPAM pool.
+	Ipv4IpamPoolId string `pulumi:"ipv4IpamPoolId"`
+}
+
+// LoadBalancerIpamPoolsInput is an input type that accepts LoadBalancerIpamPoolsArgs and LoadBalancerIpamPoolsOutput values.
+// You can construct a concrete instance of `LoadBalancerIpamPoolsInput` via:
+//
+//	LoadBalancerIpamPoolsArgs{...}
+type LoadBalancerIpamPoolsInput interface {
+	pulumi.Input
+
+	ToLoadBalancerIpamPoolsOutput() LoadBalancerIpamPoolsOutput
+	ToLoadBalancerIpamPoolsOutputWithContext(context.Context) LoadBalancerIpamPoolsOutput
+}
+
+type LoadBalancerIpamPoolsArgs struct {
+	// The ID of the IPv4 IPAM pool.
+	Ipv4IpamPoolId pulumi.StringInput `pulumi:"ipv4IpamPoolId"`
+}
+
+func (LoadBalancerIpamPoolsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerIpamPools)(nil)).Elem()
+}
+
+func (i LoadBalancerIpamPoolsArgs) ToLoadBalancerIpamPoolsOutput() LoadBalancerIpamPoolsOutput {
+	return i.ToLoadBalancerIpamPoolsOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerIpamPoolsArgs) ToLoadBalancerIpamPoolsOutputWithContext(ctx context.Context) LoadBalancerIpamPoolsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerIpamPoolsOutput)
+}
+
+func (i LoadBalancerIpamPoolsArgs) ToLoadBalancerIpamPoolsPtrOutput() LoadBalancerIpamPoolsPtrOutput {
+	return i.ToLoadBalancerIpamPoolsPtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerIpamPoolsArgs) ToLoadBalancerIpamPoolsPtrOutputWithContext(ctx context.Context) LoadBalancerIpamPoolsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerIpamPoolsOutput).ToLoadBalancerIpamPoolsPtrOutputWithContext(ctx)
+}
+
+// LoadBalancerIpamPoolsPtrInput is an input type that accepts LoadBalancerIpamPoolsArgs, LoadBalancerIpamPoolsPtr and LoadBalancerIpamPoolsPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerIpamPoolsPtrInput` via:
+//
+//	        LoadBalancerIpamPoolsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LoadBalancerIpamPoolsPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerIpamPoolsPtrOutput() LoadBalancerIpamPoolsPtrOutput
+	ToLoadBalancerIpamPoolsPtrOutputWithContext(context.Context) LoadBalancerIpamPoolsPtrOutput
+}
+
+type loadBalancerIpamPoolsPtrType LoadBalancerIpamPoolsArgs
+
+func LoadBalancerIpamPoolsPtr(v *LoadBalancerIpamPoolsArgs) LoadBalancerIpamPoolsPtrInput {
+	return (*loadBalancerIpamPoolsPtrType)(v)
+}
+
+func (*loadBalancerIpamPoolsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerIpamPools)(nil)).Elem()
+}
+
+func (i *loadBalancerIpamPoolsPtrType) ToLoadBalancerIpamPoolsPtrOutput() LoadBalancerIpamPoolsPtrOutput {
+	return i.ToLoadBalancerIpamPoolsPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerIpamPoolsPtrType) ToLoadBalancerIpamPoolsPtrOutputWithContext(ctx context.Context) LoadBalancerIpamPoolsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerIpamPoolsPtrOutput)
+}
+
+type LoadBalancerIpamPoolsOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerIpamPoolsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerIpamPools)(nil)).Elem()
+}
+
+func (o LoadBalancerIpamPoolsOutput) ToLoadBalancerIpamPoolsOutput() LoadBalancerIpamPoolsOutput {
+	return o
+}
+
+func (o LoadBalancerIpamPoolsOutput) ToLoadBalancerIpamPoolsOutputWithContext(ctx context.Context) LoadBalancerIpamPoolsOutput {
+	return o
+}
+
+func (o LoadBalancerIpamPoolsOutput) ToLoadBalancerIpamPoolsPtrOutput() LoadBalancerIpamPoolsPtrOutput {
+	return o.ToLoadBalancerIpamPoolsPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerIpamPoolsOutput) ToLoadBalancerIpamPoolsPtrOutputWithContext(ctx context.Context) LoadBalancerIpamPoolsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerIpamPools) *LoadBalancerIpamPools {
+		return &v
+	}).(LoadBalancerIpamPoolsPtrOutput)
+}
+
+// The ID of the IPv4 IPAM pool.
+func (o LoadBalancerIpamPoolsOutput) Ipv4IpamPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerIpamPools) string { return v.Ipv4IpamPoolId }).(pulumi.StringOutput)
+}
+
+type LoadBalancerIpamPoolsPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerIpamPoolsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerIpamPools)(nil)).Elem()
+}
+
+func (o LoadBalancerIpamPoolsPtrOutput) ToLoadBalancerIpamPoolsPtrOutput() LoadBalancerIpamPoolsPtrOutput {
+	return o
+}
+
+func (o LoadBalancerIpamPoolsPtrOutput) ToLoadBalancerIpamPoolsPtrOutputWithContext(ctx context.Context) LoadBalancerIpamPoolsPtrOutput {
+	return o
+}
+
+func (o LoadBalancerIpamPoolsPtrOutput) Elem() LoadBalancerIpamPoolsOutput {
+	return o.ApplyT(func(v *LoadBalancerIpamPools) LoadBalancerIpamPools {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerIpamPools
+		return ret
+	}).(LoadBalancerIpamPoolsOutput)
+}
+
+// The ID of the IPv4 IPAM pool.
+func (o LoadBalancerIpamPoolsPtrOutput) Ipv4IpamPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerIpamPools) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Ipv4IpamPoolId
+	}).(pulumi.StringPtrOutput)
+}
+
 type LoadBalancerSubnetMapping struct {
 	// Allocation ID of the Elastic IP address for an internet-facing load balancer.
 	AllocationId *string `pulumi:"allocationId"`
@@ -10052,6 +10189,100 @@ func (o GetLoadBalancerConnectionLogArrayOutput) Index(i pulumi.IntInput) GetLoa
 	}).(GetLoadBalancerConnectionLogOutput)
 }
 
+type GetLoadBalancerIpamPool struct {
+	Ipv4IpamPoolId string `pulumi:"ipv4IpamPoolId"`
+}
+
+// GetLoadBalancerIpamPoolInput is an input type that accepts GetLoadBalancerIpamPoolArgs and GetLoadBalancerIpamPoolOutput values.
+// You can construct a concrete instance of `GetLoadBalancerIpamPoolInput` via:
+//
+//	GetLoadBalancerIpamPoolArgs{...}
+type GetLoadBalancerIpamPoolInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerIpamPoolOutput() GetLoadBalancerIpamPoolOutput
+	ToGetLoadBalancerIpamPoolOutputWithContext(context.Context) GetLoadBalancerIpamPoolOutput
+}
+
+type GetLoadBalancerIpamPoolArgs struct {
+	Ipv4IpamPoolId pulumi.StringInput `pulumi:"ipv4IpamPoolId"`
+}
+
+func (GetLoadBalancerIpamPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerIpamPool)(nil)).Elem()
+}
+
+func (i GetLoadBalancerIpamPoolArgs) ToGetLoadBalancerIpamPoolOutput() GetLoadBalancerIpamPoolOutput {
+	return i.ToGetLoadBalancerIpamPoolOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerIpamPoolArgs) ToGetLoadBalancerIpamPoolOutputWithContext(ctx context.Context) GetLoadBalancerIpamPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerIpamPoolOutput)
+}
+
+// GetLoadBalancerIpamPoolArrayInput is an input type that accepts GetLoadBalancerIpamPoolArray and GetLoadBalancerIpamPoolArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerIpamPoolArrayInput` via:
+//
+//	GetLoadBalancerIpamPoolArray{ GetLoadBalancerIpamPoolArgs{...} }
+type GetLoadBalancerIpamPoolArrayInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerIpamPoolArrayOutput() GetLoadBalancerIpamPoolArrayOutput
+	ToGetLoadBalancerIpamPoolArrayOutputWithContext(context.Context) GetLoadBalancerIpamPoolArrayOutput
+}
+
+type GetLoadBalancerIpamPoolArray []GetLoadBalancerIpamPoolInput
+
+func (GetLoadBalancerIpamPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerIpamPool)(nil)).Elem()
+}
+
+func (i GetLoadBalancerIpamPoolArray) ToGetLoadBalancerIpamPoolArrayOutput() GetLoadBalancerIpamPoolArrayOutput {
+	return i.ToGetLoadBalancerIpamPoolArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerIpamPoolArray) ToGetLoadBalancerIpamPoolArrayOutputWithContext(ctx context.Context) GetLoadBalancerIpamPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerIpamPoolArrayOutput)
+}
+
+type GetLoadBalancerIpamPoolOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerIpamPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerIpamPool)(nil)).Elem()
+}
+
+func (o GetLoadBalancerIpamPoolOutput) ToGetLoadBalancerIpamPoolOutput() GetLoadBalancerIpamPoolOutput {
+	return o
+}
+
+func (o GetLoadBalancerIpamPoolOutput) ToGetLoadBalancerIpamPoolOutputWithContext(ctx context.Context) GetLoadBalancerIpamPoolOutput {
+	return o
+}
+
+func (o GetLoadBalancerIpamPoolOutput) Ipv4IpamPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerIpamPool) string { return v.Ipv4IpamPoolId }).(pulumi.StringOutput)
+}
+
+type GetLoadBalancerIpamPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerIpamPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerIpamPool)(nil)).Elem()
+}
+
+func (o GetLoadBalancerIpamPoolArrayOutput) ToGetLoadBalancerIpamPoolArrayOutput() GetLoadBalancerIpamPoolArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerIpamPoolArrayOutput) ToGetLoadBalancerIpamPoolArrayOutputWithContext(ctx context.Context) GetLoadBalancerIpamPoolArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerIpamPoolArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerIpamPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerIpamPool {
+		return vs[0].([]GetLoadBalancerIpamPool)[vs[1].(int)]
+	}).(GetLoadBalancerIpamPoolOutput)
+}
+
 type GetLoadBalancerSubnetMapping struct {
 	AllocationId       string `pulumi:"allocationId"`
 	Ipv6Address        string `pulumi:"ipv6Address"`
@@ -10387,6 +10618,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAccessLogsPtrInput)(nil)).Elem(), LoadBalancerAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerConnectionLogsInput)(nil)).Elem(), LoadBalancerConnectionLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerConnectionLogsPtrInput)(nil)).Elem(), LoadBalancerConnectionLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerIpamPoolsInput)(nil)).Elem(), LoadBalancerIpamPoolsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerIpamPoolsPtrInput)(nil)).Elem(), LoadBalancerIpamPoolsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSubnetMappingInput)(nil)).Elem(), LoadBalancerSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSubnetMappingArrayInput)(nil)).Elem(), LoadBalancerSubnetMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckInput)(nil)).Elem(), TargetGroupHealthCheckArgs{})
@@ -10456,6 +10689,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerConnectionLogInput)(nil)).Elem(), GetLoadBalancerConnectionLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerConnectionLogArrayInput)(nil)).Elem(), GetLoadBalancerConnectionLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerIpamPoolInput)(nil)).Elem(), GetLoadBalancerIpamPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerIpamPoolArrayInput)(nil)).Elem(), GetLoadBalancerIpamPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingArrayInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupHealthCheckInput)(nil)).Elem(), GetTargetGroupHealthCheckArgs{})
@@ -10512,6 +10747,8 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerAccessLogsPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConnectionLogsOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConnectionLogsPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerIpamPoolsOutput{})
+	pulumi.RegisterOutputType(LoadBalancerIpamPoolsPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(TargetGroupHealthCheckOutput{})
@@ -10581,6 +10818,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLoadBalancerAccessLogsOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerConnectionLogOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerConnectionLogArrayOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerIpamPoolOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerIpamPoolArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(GetTargetGroupHealthCheckOutput{})

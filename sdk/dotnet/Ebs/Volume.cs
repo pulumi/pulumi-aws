@@ -35,8 +35,6 @@ namespace Pulumi.Aws.Ebs
     /// });
     /// ```
     /// 
-    /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EBS Volumes using the `id`. For example:
@@ -49,16 +47,22 @@ namespace Pulumi.Aws.Ebs
     public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
+        /// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The AZ where the EBS volume will exist.
+        /// Availability zone where the EBS volume will exist.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// Timestamp when volume creation was initiated.
+        /// </summary>
+        [Output("createTime")]
+        public Output<string> CreateTime { get; private set; } = null!;
 
         /// <summary>
         /// If true, the disk will be encrypted.
@@ -73,14 +77,11 @@ namespace Pulumi.Aws.Ebs
         public Output<bool?> FinalSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        /// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         /// </summary>
         [Output("iops")]
         public Output<int> Iops { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
@@ -91,13 +92,13 @@ namespace Pulumi.Aws.Ebs
         public Output<bool?> MultiAttachEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// Amazon Resource Name (ARN) of the Outpost.
         /// </summary>
         [Output("outpostArn")]
         public Output<string?> OutpostArn { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the drive in GiBs.
+        /// Size of the drive in GiBs.
         /// </summary>
         [Output("size")]
         public Output<int> Size { get; private set; } = null!;
@@ -121,15 +122,15 @@ namespace Pulumi.Aws.Ebs
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-        /// 
-        /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+        /// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
 
         /// <summary>
-        /// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// 
+        /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -181,7 +182,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AZ where the EBS volume will exist.
+        /// Availability zone where the EBS volume will exist.
         /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
@@ -199,14 +200,11 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? FinalSnapshot { get; set; }
 
         /// <summary>
-        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        /// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
-        /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
@@ -217,13 +215,13 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? MultiAttachEnabled { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// Amazon Resource Name (ARN) of the Outpost.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
-        /// The size of the drive in GiBs.
+        /// Size of the drive in GiBs.
         /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
@@ -247,15 +245,15 @@ namespace Pulumi.Aws.Ebs
         }
 
         /// <summary>
-        /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-        /// 
-        /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+        /// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
         /// <summary>
-        /// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// 
+        /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -269,16 +267,22 @@ namespace Pulumi.Aws.Ebs
     public sealed class VolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
+        /// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The AZ where the EBS volume will exist.
+        /// Availability zone where the EBS volume will exist.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
+
+        /// <summary>
+        /// Timestamp when volume creation was initiated.
+        /// </summary>
+        [Input("createTime")]
+        public Input<string>? CreateTime { get; set; }
 
         /// <summary>
         /// If true, the disk will be encrypted.
@@ -293,14 +297,11 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? FinalSnapshot { get; set; }
 
         /// <summary>
-        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        /// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
-        /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
@@ -311,13 +312,13 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? MultiAttachEnabled { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// Amazon Resource Name (ARN) of the Outpost.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
-        /// The size of the drive in GiBs.
+        /// Size of the drive in GiBs.
         /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
@@ -354,15 +355,15 @@ namespace Pulumi.Aws.Ebs
         }
 
         /// <summary>
-        /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-        /// 
-        /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+        /// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
         /// <summary>
-        /// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        /// 
+        /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

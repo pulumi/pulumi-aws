@@ -25,7 +25,8 @@ type RuleGroup struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
 	// A friendly name of the rule group.
-	Name       pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayOutput `pulumi:"rules"`
@@ -90,7 +91,8 @@ type ruleGroupState struct {
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
 	// A friendly name of the rule group.
-	Name       *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []RuleGroupRule `pulumi:"rules"`
@@ -117,7 +119,8 @@ type RuleGroupState struct {
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
 	// A friendly name of the rule group.
-	Name       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayInput
@@ -145,7 +148,8 @@ type ruleGroupArgs struct {
 	// A friendly description of the rule group.
 	Description *string `pulumi:"description"`
 	// A friendly name of the rule group.
-	Name       *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []RuleGroupRule `pulumi:"rules"`
@@ -166,7 +170,8 @@ type RuleGroupArgs struct {
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrInput
 	// A friendly name of the rule group.
-	Name       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayInput
@@ -294,6 +299,7 @@ func (o RuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o RuleGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }

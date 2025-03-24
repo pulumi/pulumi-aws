@@ -20,14 +20,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     public static final VolumeArgs Empty = new VolumeArgs();
 
     /**
-     * The AZ where the EBS volume will exist.
+     * Availability zone where the EBS volume will exist.
      * 
      */
     @Import(name="availabilityZone", required=true)
     private Output<String> availabilityZone;
 
     /**
-     * @return The AZ where the EBS volume will exist.
+     * @return Availability zone where the EBS volume will exist.
      * 
      */
     public Output<String> availabilityZone() {
@@ -65,31 +65,23 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+     * Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      * 
      */
     @Import(name="iops")
     private @Nullable Output<Integer> iops;
 
     /**
-     * @return The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+     * @return Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      * 
      */
     public Optional<Output<Integer>> iops() {
         return Optional.ofNullable(this.iops);
     }
 
-    /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
@@ -110,14 +102,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * Amazon Resource Name (ARN) of the Outpost.
      * 
      */
     @Import(name="outpostArn")
     private @Nullable Output<String> outpostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Outpost.
+     * @return Amazon Resource Name (ARN) of the Outpost.
      * 
      */
     public Optional<Output<String>> outpostArn() {
@@ -125,14 +117,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The size of the drive in GiBs.
+     * Size of the drive in GiBs.
      * 
      */
     @Import(name="size")
     private @Nullable Output<Integer> size;
 
     /**
-     * @return The size of the drive in GiBs.
+     * @return Size of the drive in GiBs.
      * 
      */
     public Optional<Output<Integer>> size() {
@@ -170,18 +162,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-     * 
-     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+     * Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      * 
      */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
     /**
-     * @return The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-     * 
-     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+     * @return Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      * 
      */
     public Optional<Output<Integer>> throughput() {
@@ -189,14 +177,18 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * 
+     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * @return Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * 
+     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
     public Optional<Output<String>> type() {
@@ -239,7 +231,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The AZ where the EBS volume will exist.
+         * @param availabilityZone Availability zone where the EBS volume will exist.
          * 
          * @return builder
          * 
@@ -250,7 +242,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The AZ where the EBS volume will exist.
+         * @param availabilityZone Availability zone where the EBS volume will exist.
          * 
          * @return builder
          * 
@@ -302,7 +294,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iops The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+         * @param iops Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
          * 
          * @return builder
          * 
@@ -313,7 +305,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iops The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+         * @param iops Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
          * 
          * @return builder
          * 
@@ -322,23 +314,11 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
             return iops(Output.of(iops));
         }
 
-        /**
-         * @param kmsKeyId The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
@@ -365,7 +345,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outpostArn The Amazon Resource Name (ARN) of the Outpost.
+         * @param outpostArn Amazon Resource Name (ARN) of the Outpost.
          * 
          * @return builder
          * 
@@ -376,7 +356,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outpostArn The Amazon Resource Name (ARN) of the Outpost.
+         * @param outpostArn Amazon Resource Name (ARN) of the Outpost.
          * 
          * @return builder
          * 
@@ -386,7 +366,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param size The size of the drive in GiBs.
+         * @param size Size of the drive in GiBs.
          * 
          * @return builder
          * 
@@ -397,7 +377,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param size The size of the drive in GiBs.
+         * @param size Size of the drive in GiBs.
          * 
          * @return builder
          * 
@@ -449,9 +429,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throughput The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-         * 
-         * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+         * @param throughput Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
          * 
          * @return builder
          * 
@@ -462,9 +440,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throughput The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-         * 
-         * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+         * @param throughput Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
          * 
          * @return builder
          * 
@@ -474,7 +450,9 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+         * @param type Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+         * 
+         * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
          * 
          * @return builder
          * 
@@ -485,7 +463,9 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+         * @param type Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+         * 
+         * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
          * 
          * @return builder
          * 

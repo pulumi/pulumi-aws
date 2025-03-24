@@ -6364,6 +6364,181 @@ func (o GetClusterUpgradePolicyArrayOutput) Index(i pulumi.IntInput) GetClusterU
 	}).(GetClusterUpgradePolicyOutput)
 }
 
+type GetClusterVersionsClusterVersion struct {
+	// Type of clusters to filter by.
+	// Currently, the only valid value is `eks`.
+	ClusterType string `pulumi:"clusterType"`
+	// Kubernetes version supported by EKS.
+	ClusterVersion string `pulumi:"clusterVersion"`
+	// Default eks platform version for the cluster version.
+	DefaultPlatformVersion string `pulumi:"defaultPlatformVersion"`
+	// Default Kubernetes version for the cluster version.
+	DefaultVersion bool `pulumi:"defaultVersion"`
+	// End of extended support date for the cluster version.
+	EndOfExtendedSupportDate string `pulumi:"endOfExtendedSupportDate"`
+	// End of standard support date for the cluster version.
+	EndOfStandardSupportDate string `pulumi:"endOfStandardSupportDate"`
+	// Kubernetes patch version for the cluster version.
+	KubernetesPatchVersion string `pulumi:"kubernetesPatchVersion"`
+	// Release date of the cluster version.
+	ReleaseDate string `pulumi:"releaseDate"`
+	// Status of the EKS cluster versions to list.
+	// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
+	VersionStatus string `pulumi:"versionStatus"`
+}
+
+// GetClusterVersionsClusterVersionInput is an input type that accepts GetClusterVersionsClusterVersionArgs and GetClusterVersionsClusterVersionOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionInput` via:
+//
+//	GetClusterVersionsClusterVersionArgs{...}
+type GetClusterVersionsClusterVersionInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionOutput() GetClusterVersionsClusterVersionOutput
+	ToGetClusterVersionsClusterVersionOutputWithContext(context.Context) GetClusterVersionsClusterVersionOutput
+}
+
+type GetClusterVersionsClusterVersionArgs struct {
+	// Type of clusters to filter by.
+	// Currently, the only valid value is `eks`.
+	ClusterType pulumi.StringInput `pulumi:"clusterType"`
+	// Kubernetes version supported by EKS.
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
+	// Default eks platform version for the cluster version.
+	DefaultPlatformVersion pulumi.StringInput `pulumi:"defaultPlatformVersion"`
+	// Default Kubernetes version for the cluster version.
+	DefaultVersion pulumi.BoolInput `pulumi:"defaultVersion"`
+	// End of extended support date for the cluster version.
+	EndOfExtendedSupportDate pulumi.StringInput `pulumi:"endOfExtendedSupportDate"`
+	// End of standard support date for the cluster version.
+	EndOfStandardSupportDate pulumi.StringInput `pulumi:"endOfStandardSupportDate"`
+	// Kubernetes patch version for the cluster version.
+	KubernetesPatchVersion pulumi.StringInput `pulumi:"kubernetesPatchVersion"`
+	// Release date of the cluster version.
+	ReleaseDate pulumi.StringInput `pulumi:"releaseDate"`
+	// Status of the EKS cluster versions to list.
+	// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
+	VersionStatus pulumi.StringInput `pulumi:"versionStatus"`
+}
+
+func (GetClusterVersionsClusterVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersion)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionArgs) ToGetClusterVersionsClusterVersionOutput() GetClusterVersionsClusterVersionOutput {
+	return i.ToGetClusterVersionsClusterVersionOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionArgs) ToGetClusterVersionsClusterVersionOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionOutput)
+}
+
+// GetClusterVersionsClusterVersionArrayInput is an input type that accepts GetClusterVersionsClusterVersionArray and GetClusterVersionsClusterVersionArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionArray{ GetClusterVersionsClusterVersionArgs{...} }
+type GetClusterVersionsClusterVersionArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionArrayOutput() GetClusterVersionsClusterVersionArrayOutput
+	ToGetClusterVersionsClusterVersionArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionArrayOutput
+}
+
+type GetClusterVersionsClusterVersionArray []GetClusterVersionsClusterVersionInput
+
+func (GetClusterVersionsClusterVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersion)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionArray) ToGetClusterVersionsClusterVersionArrayOutput() GetClusterVersionsClusterVersionArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionArray) ToGetClusterVersionsClusterVersionArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersion)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionOutput) ToGetClusterVersionsClusterVersionOutput() GetClusterVersionsClusterVersionOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionOutput) ToGetClusterVersionsClusterVersionOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionOutput {
+	return o
+}
+
+// Type of clusters to filter by.
+// Currently, the only valid value is `eks`.
+func (o GetClusterVersionsClusterVersionOutput) ClusterType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersion) string { return v.ClusterType }).(pulumi.StringOutput)
+}
+
+// Kubernetes version supported by EKS.
+func (o GetClusterVersionsClusterVersionOutput) ClusterVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersion) string { return v.ClusterVersion }).(pulumi.StringOutput)
+}
+
+// Default eks platform version for the cluster version.
+func (o GetClusterVersionsClusterVersionOutput) DefaultPlatformVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersion) string { return v.DefaultPlatformVersion }).(pulumi.StringOutput)
+}
+
+// Default Kubernetes version for the cluster version.
+func (o GetClusterVersionsClusterVersionOutput) DefaultVersion() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersion) bool { return v.DefaultVersion }).(pulumi.BoolOutput)
+}
+
+// End of extended support date for the cluster version.
+func (o GetClusterVersionsClusterVersionOutput) EndOfExtendedSupportDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersion) string { return v.EndOfExtendedSupportDate }).(pulumi.StringOutput)
+}
+
+// End of standard support date for the cluster version.
+func (o GetClusterVersionsClusterVersionOutput) EndOfStandardSupportDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersion) string { return v.EndOfStandardSupportDate }).(pulumi.StringOutput)
+}
+
+// Kubernetes patch version for the cluster version.
+func (o GetClusterVersionsClusterVersionOutput) KubernetesPatchVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersion) string { return v.KubernetesPatchVersion }).(pulumi.StringOutput)
+}
+
+// Release date of the cluster version.
+func (o GetClusterVersionsClusterVersionOutput) ReleaseDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersion) string { return v.ReleaseDate }).(pulumi.StringOutput)
+}
+
+// Status of the EKS cluster versions to list.
+// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
+func (o GetClusterVersionsClusterVersionOutput) VersionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersion) string { return v.VersionStatus }).(pulumi.StringOutput)
+}
+
+type GetClusterVersionsClusterVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersion)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionArrayOutput) ToGetClusterVersionsClusterVersionArrayOutput() GetClusterVersionsClusterVersionArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionArrayOutput) ToGetClusterVersionsClusterVersionArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersion {
+		return vs[0].([]GetClusterVersionsClusterVersion)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionOutput)
+}
+
 type GetClusterVpcConfig struct {
 	// The cluster security group that was created by Amazon EKS for the cluster.
 	ClusterSecurityGroupId string `pulumi:"clusterSecurityGroupId"`
@@ -7317,6 +7492,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterStorageConfigBlockStorageArrayInput)(nil)).Elem(), GetClusterStorageConfigBlockStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterUpgradePolicyInput)(nil)).Elem(), GetClusterUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterUpgradePolicyArrayInput)(nil)).Elem(), GetClusterUpgradePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionInput)(nil)).Elem(), GetClusterVersionsClusterVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVpcConfigInput)(nil)).Elem(), GetClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterZonalShiftConfigInput)(nil)).Elem(), GetClusterZonalShiftConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterZonalShiftConfigArrayInput)(nil)).Elem(), GetClusterZonalShiftConfigArray{})
@@ -7427,6 +7604,8 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterStorageConfigBlockStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(GetClusterUpgradePolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterZonalShiftConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterZonalShiftConfigArrayOutput{})

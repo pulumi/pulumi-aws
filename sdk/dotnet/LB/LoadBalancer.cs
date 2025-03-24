@@ -286,6 +286,12 @@ namespace Pulumi.Aws.LB
         public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
+        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+        /// </summary>
+        [Output("ipamPools")]
+        public Output<Outputs.LoadBalancerIpamPools?> IpamPools { get; private set; } = null!;
+
+        /// <summary>
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Output("loadBalancerType")]
@@ -513,6 +519,12 @@ namespace Pulumi.Aws.LB
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
+        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+        /// </summary>
+        [Input("ipamPools")]
+        public Input<Inputs.LoadBalancerIpamPoolsArgs>? IpamPools { get; set; }
+
+        /// <summary>
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Input("loadBalancerType")]
@@ -723,6 +735,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
+        /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+        /// </summary>
+        [Input("ipamPools")]
+        public Input<Inputs.LoadBalancerIpamPoolsGetArgs>? IpamPools { get; set; }
 
         /// <summary>
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.

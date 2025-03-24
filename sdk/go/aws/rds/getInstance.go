@@ -70,6 +70,8 @@ type LookupInstanceResult struct {
 	BackupRetentionPeriod int `pulumi:"backupRetentionPeriod"`
 	// Identifier of the CA certificate for the DB instance.
 	CaCertIdentifier string `pulumi:"caCertIdentifier"`
+	// The mode of Database Insights that is enabled for the DB instance.
+	DatabaseInsightsMode string `pulumi:"databaseInsightsMode"`
 	// If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
 	// ARN for the DB instance.
@@ -208,6 +210,11 @@ func (o LookupInstanceResultOutput) BackupRetentionPeriod() pulumi.IntOutput {
 // Identifier of the CA certificate for the DB instance.
 func (o LookupInstanceResultOutput) CaCertIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.CaCertIdentifier }).(pulumi.StringOutput)
+}
+
+// The mode of Database Insights that is enabled for the DB instance.
+func (o LookupInstanceResultOutput) DatabaseInsightsMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.DatabaseInsightsMode }).(pulumi.StringOutput)
 }
 
 // If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.

@@ -49,14 +49,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Unix timestamp of when the Data Source was created.
+     * The Unix time stamp of when the Data Source was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The Unix timestamp of when the Data Source was created.
+     * @return The Unix time stamp of when the Data Source was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -109,14 +109,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+     * When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
      * 
      */
     @Import(name="errorMessage")
     private @Nullable Output<String> errorMessage;
 
     /**
-     * @return When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+     * @return When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
      * 
      */
     public Optional<Output<String>> errorMessage() {
@@ -271,14 +271,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Unix timestamp of when the Data Source was last updated.
+     * The Unix time stamp of when the Data Source was last updated.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return The Unix timestamp of when the Data Source was last updated.
+     * @return The Unix time stamp of when the Data Source was last updated.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -368,7 +368,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The Unix timestamp of when the Data Source was created.
+         * @param createdAt The Unix time stamp of when the Data Source was created.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The Unix timestamp of when the Data Source was created.
+         * @param createdAt The Unix time stamp of when the Data Source was created.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorMessage When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+         * @param errorMessage When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorMessage When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+         * @param errorMessage When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
          * 
          * @return builder
          * 
@@ -674,7 +674,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedAt The Unix timestamp of when the Data Source was last updated.
+         * @param updatedAt The Unix time stamp of when the Data Source was last updated.
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedAt The Unix timestamp of when the Data Source was last updated.
+         * @param updatedAt The Unix time stamp of when the Data Source was last updated.
          * 
          * @return builder
          * 

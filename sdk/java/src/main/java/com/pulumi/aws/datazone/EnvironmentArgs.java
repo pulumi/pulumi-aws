@@ -64,9 +64,17 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.blueprintIdentifier);
     }
 
+    /**
+     * The description of the environment.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return The description of the environment.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -269,11 +277,23 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
             return blueprintIdentifier(Output.of(blueprintIdentifier));
         }
 
+        /**
+         * @param description The description of the environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description The description of the environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

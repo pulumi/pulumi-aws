@@ -97,6 +97,9 @@ namespace Pulumi.Aws.DataZone
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the environment.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -220,6 +223,9 @@ namespace Pulumi.Aws.DataZone
         [Input("blueprintIdentifier")]
         public Input<string>? BlueprintIdentifier { get; set; }
 
+        /// <summary>
+        /// The description of the environment.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -314,6 +320,9 @@ namespace Pulumi.Aws.DataZone
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
 
+        /// <summary>
+        /// The description of the environment.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

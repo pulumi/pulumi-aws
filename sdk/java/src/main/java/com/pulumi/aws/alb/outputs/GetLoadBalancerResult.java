@@ -5,6 +5,7 @@ package com.pulumi.aws.alb.outputs;
 
 import com.pulumi.aws.alb.outputs.GetLoadBalancerAccessLogs;
 import com.pulumi.aws.alb.outputs.GetLoadBalancerConnectionLog;
+import com.pulumi.aws.alb.outputs.GetLoadBalancerIpamPool;
 import com.pulumi.aws.alb.outputs.GetLoadBalancerSubnetMapping;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -43,6 +44,7 @@ public final class GetLoadBalancerResult {
     private Integer idleTimeout;
     private Boolean internal;
     private String ipAddressType;
+    private List<GetLoadBalancerIpamPool> ipamPools;
     private String loadBalancerType;
     private String name;
     private Boolean preserveHostHeader;
@@ -125,6 +127,9 @@ public final class GetLoadBalancerResult {
     public String ipAddressType() {
         return this.ipAddressType;
     }
+    public List<GetLoadBalancerIpamPool> ipamPools() {
+        return this.ipamPools;
+    }
     public String loadBalancerType() {
         return this.loadBalancerType;
     }
@@ -187,6 +192,7 @@ public final class GetLoadBalancerResult {
         private Integer idleTimeout;
         private Boolean internal;
         private String ipAddressType;
+        private List<GetLoadBalancerIpamPool> ipamPools;
         private String loadBalancerType;
         private String name;
         private Boolean preserveHostHeader;
@@ -222,6 +228,7 @@ public final class GetLoadBalancerResult {
     	      this.idleTimeout = defaults.idleTimeout;
     	      this.internal = defaults.internal;
     	      this.ipAddressType = defaults.ipAddressType;
+    	      this.ipamPools = defaults.ipamPools;
     	      this.loadBalancerType = defaults.loadBalancerType;
     	      this.name = defaults.name;
     	      this.preserveHostHeader = defaults.preserveHostHeader;
@@ -414,6 +421,17 @@ public final class GetLoadBalancerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ipamPools(List<GetLoadBalancerIpamPool> ipamPools) {
+            if (ipamPools == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "ipamPools");
+            }
+            this.ipamPools = ipamPools;
+            return this;
+        }
+        public Builder ipamPools(GetLoadBalancerIpamPool... ipamPools) {
+            return ipamPools(List.of(ipamPools));
+        }
+        @CustomType.Setter
         public Builder loadBalancerType(String loadBalancerType) {
             if (loadBalancerType == null) {
               throw new MissingRequiredPropertyException("GetLoadBalancerResult", "loadBalancerType");
@@ -526,6 +544,7 @@ public final class GetLoadBalancerResult {
             _resultValue.idleTimeout = idleTimeout;
             _resultValue.internal = internal;
             _resultValue.ipAddressType = ipAddressType;
+            _resultValue.ipamPools = ipamPools;
             _resultValue.loadBalancerType = loadBalancerType;
             _resultValue.name = name;
             _resultValue.preserveHostHeader = preserveHostHeader;

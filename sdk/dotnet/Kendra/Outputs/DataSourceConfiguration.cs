@@ -20,15 +20,22 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// <summary>
         /// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
         /// </summary>
+        public readonly Outputs.DataSourceConfigurationTemplateConfiguration? TemplateConfiguration;
+        /// <summary>
+        /// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+        /// </summary>
         public readonly Outputs.DataSourceConfigurationWebCrawlerConfiguration? WebCrawlerConfiguration;
 
         [OutputConstructor]
         private DataSourceConfiguration(
             Outputs.DataSourceConfigurationS3Configuration? s3Configuration,
 
+            Outputs.DataSourceConfigurationTemplateConfiguration? templateConfiguration,
+
             Outputs.DataSourceConfigurationWebCrawlerConfiguration? webCrawlerConfiguration)
         {
             S3Configuration = s3Configuration;
+            TemplateConfiguration = templateConfiguration;
             WebCrawlerConfiguration = webCrawlerConfiguration;
         }
     }
