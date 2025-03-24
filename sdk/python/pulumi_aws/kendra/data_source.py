@@ -212,11 +212,11 @@ class _DataSourceState:
         Input properties used for looking up and filtering DataSource resources.
         :param pulumi.Input[str] arn: ARN of the Data Source.
         :param pulumi.Input['DataSourceConfigurationArgs'] configuration: A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
-        :param pulumi.Input[str] created_at: The Unix timestamp of when the Data Source was created.
+        :param pulumi.Input[str] created_at: The Unix time stamp of when the Data Source was created.
         :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs'] custom_document_enrichment_configuration: A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
         :param pulumi.Input[str] data_source_id: The unique identifiers of the Data Source.
         :param pulumi.Input[str] description: A description for the Data Source connector.
-        :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+        :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
         :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra data source.
         :param pulumi.Input[str] language_code: The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         :param pulumi.Input[str] name: A name for your data source connector.
@@ -228,7 +228,7 @@ class _DataSourceState:
         :param pulumi.Input[str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
                
                The following arguments are optional:
-        :param pulumi.Input[str] updated_at: The Unix timestamp of when the Data Source was last updated.
+        :param pulumi.Input[str] updated_at: The Unix time stamp of when the Data Source was last updated.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -296,7 +296,7 @@ class _DataSourceState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
         """
-        The Unix timestamp of when the Data Source was created.
+        The Unix time stamp of when the Data Source was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -344,7 +344,7 @@ class _DataSourceState:
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> Optional[pulumi.Input[str]]:
         """
-        When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+        When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
         """
         return pulumi.get(self, "error_message")
 
@@ -467,7 +467,7 @@ class _DataSourceState:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[str]]:
         """
-        The Unix timestamp of when the Data Source was last updated.
+        The Unix time stamp of when the Data Source was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -796,6 +796,39 @@ class DataSource(pulumi.CustomResource):
                             "seed_urls": ["REPLACE_WITH_YOUR_URL"],
                         },
                     },
+                },
+            })
+        ```
+
+        ### With `WEBCRAWLERV2` Template
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=example_aws_kendra_index["id"],
+            name="example",
+            type="TEMPLATE",
+            role_arn=example_aws_iam_role["arn"],
+            configuration={
+                "template_configuration": {
+                    "template": json.dumps({
+                        "connectionConfiguration": {
+                            "repositoryEndpointMetadata": {
+                                "seedUrlConnections": [{
+                                    "seedUrl": "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kendra_index",
+                                }],
+                            },
+                        },
+                        "additionalProperties": {
+                            "inclusionURLIndexPatterns": ["https:\\\\/\\\\/registry[.]terraform[.]io\\\\/providers\\\\/hashicorp\\\\/aws\\\\/latest\\\\/docs\\\\/resources\\\\/kendra_index"],
+                        },
+                        "version": "1.0.0",
+                        "syncMode": "FULL_CRAWL",
+                        "type": "WEBCRAWLERV2",
+                    }),
                 },
             })
         ```
@@ -1137,6 +1170,39 @@ class DataSource(pulumi.CustomResource):
             })
         ```
 
+        ### With `WEBCRAWLERV2` Template
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.kendra.DataSource("example",
+            index_id=example_aws_kendra_index["id"],
+            name="example",
+            type="TEMPLATE",
+            role_arn=example_aws_iam_role["arn"],
+            configuration={
+                "template_configuration": {
+                    "template": json.dumps({
+                        "connectionConfiguration": {
+                            "repositoryEndpointMetadata": {
+                                "seedUrlConnections": [{
+                                    "seedUrl": "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kendra_index",
+                                }],
+                            },
+                        },
+                        "additionalProperties": {
+                            "inclusionURLIndexPatterns": ["https:\\\\/\\\\/registry[.]terraform[.]io\\\\/providers\\\\/hashicorp\\\\/aws\\\\/latest\\\\/docs\\\\/resources\\\\/kendra_index"],
+                        },
+                        "version": "1.0.0",
+                        "syncMode": "FULL_CRAWL",
+                        "type": "WEBCRAWLERV2",
+                    }),
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Kendra Data Source using the unique identifiers of the data_source and index separated by a slash (`/`). For example:
@@ -1236,11 +1302,11 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Data Source.
         :param pulumi.Input[Union['DataSourceConfigurationArgs', 'DataSourceConfigurationArgsDict']] configuration: A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
-        :param pulumi.Input[str] created_at: The Unix timestamp of when the Data Source was created.
+        :param pulumi.Input[str] created_at: The Unix time stamp of when the Data Source was created.
         :param pulumi.Input[Union['DataSourceCustomDocumentEnrichmentConfigurationArgs', 'DataSourceCustomDocumentEnrichmentConfigurationArgsDict']] custom_document_enrichment_configuration: A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
         :param pulumi.Input[str] data_source_id: The unique identifiers of the Data Source.
         :param pulumi.Input[str] description: A description for the Data Source connector.
-        :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+        :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
         :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra data source.
         :param pulumi.Input[str] language_code: The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         :param pulumi.Input[str] name: A name for your data source connector.
@@ -1252,7 +1318,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
                
                The following arguments are optional:
-        :param pulumi.Input[str] updated_at: The Unix timestamp of when the Data Source was last updated.
+        :param pulumi.Input[str] updated_at: The Unix time stamp of when the Data Source was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1297,7 +1363,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
         """
-        The Unix timestamp of when the Data Source was created.
+        The Unix time stamp of when the Data Source was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -1329,7 +1395,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> pulumi.Output[str]:
         """
-        When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+        When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
         """
         return pulumi.get(self, "error_message")
 
@@ -1412,7 +1478,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
         """
-        The Unix timestamp of when the Data Source was last updated.
+        The Unix time stamp of when the Data Source was last updated.
         """
         return pulumi.get(self, "updated_at")
 

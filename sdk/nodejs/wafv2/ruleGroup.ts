@@ -56,6 +56,9 @@ export class RuleGroup extends pulumi.CustomResource {
      * A friendly name of the rule group.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
@@ -159,6 +162,9 @@ export interface RuleGroupState {
      * A friendly name of the rule group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
@@ -204,6 +210,9 @@ export interface RuleGroupArgs {
      * A friendly name of the rule group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     */
     namePrefix?: pulumi.Input<string>;
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.

@@ -38,6 +38,7 @@ class RuleGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[str] description: A friendly description of the rule group.
         :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -132,6 +133,9 @@ class RuleGroupArgs:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -185,6 +189,7 @@ class _RuleGroupState:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[str] description: A friendly description of the rule group.
         :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -291,6 +296,9 @@ class _RuleGroupState:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -382,6 +390,7 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[str] description: A friendly description of the rule group.
         :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -480,6 +489,7 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[str] description: A friendly description of the rule group.
         :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -552,6 +562,9 @@ class RuleGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[str]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
         return pulumi.get(self, "name_prefix")
 
     @property

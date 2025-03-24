@@ -10,6 +10,11 @@ export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
+export { GetGroupMembershipsArgs, GetGroupMembershipsResult, GetGroupMembershipsOutputArgs } from "./getGroupMemberships";
+export const getGroupMemberships: typeof import("./getGroupMemberships").getGroupMemberships = null as any;
+export const getGroupMembershipsOutput: typeof import("./getGroupMemberships").getGroupMembershipsOutput = null as any;
+utilities.lazyLoad(exports, ["getGroupMemberships","getGroupMembershipsOutput"], () => require("./getGroupMemberships"));
+
 export { GetGroupsArgs, GetGroupsResult, GetGroupsOutputArgs } from "./getGroups";
 export const getGroups: typeof import("./getGroups").getGroups = null as any;
 export const getGroupsOutput: typeof import("./getGroups").getGroupsOutput = null as any;
@@ -19,6 +24,11 @@ export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+
+export { GetUsersArgs, GetUsersResult, GetUsersOutputArgs } from "./getUsers";
+export const getUsers: typeof import("./getUsers").getUsers = null as any;
+export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
 
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;

@@ -30,6 +30,7 @@ __all__ = [
     'UsagePlanApiStageThrottle',
     'UsagePlanQuotaSettings',
     'UsagePlanThrottleSettings',
+    'GetApiKeysItemResult',
     'GetDomainNameEndpointConfigurationResult',
     'GetRestApiEndpointConfigurationResult',
 ]
@@ -864,6 +865,119 @@ class UsagePlanThrottleSettings(dict):
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> Optional[float]:
         return pulumi.get(self, "rate_limit")
+
+
+@pulumi.output_type
+class GetApiKeysItemResult(dict):
+    def __init__(__self__, *,
+                 created_date: str,
+                 customer_id: str,
+                 description: str,
+                 enabled: bool,
+                 id: str,
+                 last_updated_date: str,
+                 name: str,
+                 stage_keys: Sequence[str],
+                 tags: Mapping[str, str],
+                 value: str):
+        """
+        :param str created_date: Date and time when the API Key was created.
+        :param str customer_id: Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        :param str description: Description of the API Key.
+        :param bool enabled: Whether the API Key is enabled.
+        :param str id: ID of the API Key.
+        :param str last_updated_date: Date and time when the API Key was last updated.
+        :param str name: Name of the API Key.
+        :param Mapping[str, str] tags: Map of tags for the resource.
+        :param str value: Value of the API Key.
+        """
+        pulumi.set(__self__, "created_date", created_date)
+        pulumi.set(__self__, "customer_id", customer_id)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_updated_date", last_updated_date)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "stage_keys", stage_keys)
+        pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        Date and time when the API Key was created.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter(name="customerId")
+    def customer_id(self) -> str:
+        """
+        Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        """
+        return pulumi.get(self, "customer_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the API Key.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether the API Key is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ID of the API Key.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastUpdatedDate")
+    def last_updated_date(self) -> str:
+        """
+        Date and time when the API Key was last updated.
+        """
+        return pulumi.get(self, "last_updated_date")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the API Key.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="stageKeys")
+    def stage_keys(self) -> Sequence[str]:
+        return pulumi.get(self, "stage_keys")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags for the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the API Key.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

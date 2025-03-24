@@ -42,6 +42,7 @@ class EnvironmentArgs:
         :param pulumi.Input[str] account_identifier: The ID of the Amazon Web Services account where the environment exists
         :param pulumi.Input[str] account_region: The Amazon Web Services region where the environment exists.
         :param pulumi.Input[str] blueprint_identifier: The blueprint with which the environment is created.
+        :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: The business glossary terms that can be used in this environment.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
@@ -143,6 +144,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the environment.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -221,6 +225,7 @@ class _EnvironmentState:
         :param pulumi.Input[str] blueprint_identifier: The blueprint with which the environment is created.
         :param pulumi.Input[str] created_at: The time the environment was created.
         :param pulumi.Input[str] created_by: The user who created the environment.
+        :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] domain_identifier: The ID of the domain where the environment exists.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: The business glossary terms that can be used in this environment.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentLastDeploymentArgs']]] last_deployments: The details of the last deployment of the environment.
@@ -328,6 +333,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the environment.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -516,6 +524,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] account_identifier: The ID of the Amazon Web Services account where the environment exists
         :param pulumi.Input[str] account_region: The Amazon Web Services region where the environment exists.
         :param pulumi.Input[str] blueprint_identifier: The blueprint with which the environment is created.
+        :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] domain_identifier: The ID of the domain where the environment exists.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: The business glossary terms that can be used in this environment.
         :param pulumi.Input[str] name: The name of the environment.
@@ -669,6 +678,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] blueprint_identifier: The blueprint with which the environment is created.
         :param pulumi.Input[str] created_at: The time the environment was created.
         :param pulumi.Input[str] created_by: The user who created the environment.
+        :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] domain_identifier: The ID of the domain where the environment exists.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: The business glossary terms that can be used in this environment.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentLastDeploymentArgs', 'EnvironmentLastDeploymentArgsDict']]]] last_deployments: The details of the last deployment of the environment.
@@ -745,6 +755,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the environment.
+        """
         return pulumi.get(self, "description")
 
     @property

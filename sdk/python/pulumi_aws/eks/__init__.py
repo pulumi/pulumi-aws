@@ -15,6 +15,7 @@ from .get_addon import *
 from .get_addon_version import *
 from .get_cluster import *
 from .get_cluster_auth import *
+from .get_cluster_versions import *
 from .get_clusters import *
 from .get_node_group import *
 from .get_node_groups import *

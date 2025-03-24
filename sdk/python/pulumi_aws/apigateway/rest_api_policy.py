@@ -123,7 +123,7 @@ class RestApiPolicy(pulumi.CustomResource):
                 "identifiers": ["*"],
             }],
             "actions": ["execute-api:Invoke"],
-            "resources": [test_rest_api.execution_arn],
+            "resources": [test_rest_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*")],
             "conditions": [{
                 "test": "IpAddress",
                 "variable": "aws:SourceIp",
@@ -175,7 +175,7 @@ class RestApiPolicy(pulumi.CustomResource):
                 "identifiers": ["*"],
             }],
             "actions": ["execute-api:Invoke"],
-            "resources": [test_rest_api.execution_arn],
+            "resources": [test_rest_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*")],
             "conditions": [{
                 "test": "IpAddress",
                 "variable": "aws:SourceIp",

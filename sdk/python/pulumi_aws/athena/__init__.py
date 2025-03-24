@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .capacity_reservation import *
 from .data_catalog import *
 from .database import *
 from .get_named_query import *

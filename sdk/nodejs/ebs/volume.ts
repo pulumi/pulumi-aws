@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > **NOTE:** At least one of `size` or `snapshotId` is required when specifying an EBS volume
- *
  * ## Import
  *
  * Using `pulumi import`, import EBS Volumes using the `id`. For example:
@@ -61,13 +59,17 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /**
-     * The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
+     * Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The AZ where the EBS volume will exist.
+     * Availability zone where the EBS volume will exist.
      */
     public readonly availabilityZone!: pulumi.Output<string>;
+    /**
+     * Timestamp when volume creation was initiated.
+     */
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * If true, the disk will be encrypted.
      */
@@ -77,23 +79,20 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly finalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
-     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+     * Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     public readonly iops!: pulumi.Output<number>;
-    /**
-     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-     */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
      */
     public readonly multiAttachEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * Amazon Resource Name (ARN) of the Outpost.
      */
     public readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
-     * The size of the drive in GiBs.
+     * Size of the drive in GiBs.
      */
     public readonly size!: pulumi.Output<number>;
     /**
@@ -111,13 +110,13 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-     *
-     * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+     * Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      */
     public readonly throughput!: pulumi.Output<number>;
     /**
-     * The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     *
+     * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -136,6 +135,7 @@ export class Volume extends pulumi.CustomResource {
             const state = argsOrState as VolumeState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
             resourceInputs["encrypted"] = state ? state.encrypted : undefined;
             resourceInputs["finalSnapshot"] = state ? state.finalSnapshot : undefined;
             resourceInputs["iops"] = state ? state.iops : undefined;
@@ -166,6 +166,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["throughput"] = args ? args.throughput : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -178,13 +179,17 @@ export class Volume extends pulumi.CustomResource {
  */
 export interface VolumeState {
     /**
-     * The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
+     * Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      */
     arn?: pulumi.Input<string>;
     /**
-     * The AZ where the EBS volume will exist.
+     * Availability zone where the EBS volume will exist.
      */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * Timestamp when volume creation was initiated.
+     */
+    createTime?: pulumi.Input<string>;
     /**
      * If true, the disk will be encrypted.
      */
@@ -194,23 +199,20 @@ export interface VolumeState {
      */
     finalSnapshot?: pulumi.Input<boolean>;
     /**
-     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+     * Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     iops?: pulumi.Input<number>;
-    /**
-     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-     */
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
      */
     multiAttachEnabled?: pulumi.Input<boolean>;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * Amazon Resource Name (ARN) of the Outpost.
      */
     outpostArn?: pulumi.Input<string>;
     /**
-     * The size of the drive in GiBs.
+     * Size of the drive in GiBs.
      */
     size?: pulumi.Input<number>;
     /**
@@ -228,13 +230,13 @@ export interface VolumeState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-     *
-     * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+     * Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      */
     throughput?: pulumi.Input<number>;
     /**
-     * The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     *
+     * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */
     type?: pulumi.Input<string>;
 }
@@ -244,7 +246,7 @@ export interface VolumeState {
  */
 export interface VolumeArgs {
     /**
-     * The AZ where the EBS volume will exist.
+     * Availability zone where the EBS volume will exist.
      */
     availabilityZone: pulumi.Input<string>;
     /**
@@ -256,23 +258,20 @@ export interface VolumeArgs {
      */
     finalSnapshot?: pulumi.Input<boolean>;
     /**
-     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+     * Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     iops?: pulumi.Input<number>;
-    /**
-     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-     */
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
      */
     multiAttachEnabled?: pulumi.Input<boolean>;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * Amazon Resource Name (ARN) of the Outpost.
      */
     outpostArn?: pulumi.Input<string>;
     /**
-     * The size of the drive in GiBs.
+     * Size of the drive in GiBs.
      */
     size?: pulumi.Input<number>;
     /**
@@ -284,13 +283,13 @@ export interface VolumeArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-     *
-     * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+     * Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      */
     throughput?: pulumi.Input<number>;
     /**
-     * The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     *
+     * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */
     type?: pulumi.Input<string>;
 }

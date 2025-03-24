@@ -396,6 +396,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly customerOwnedIpEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+     */
+    public readonly databaseInsightsMode!: pulumi.Output<string>;
+    /**
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
      */
     public readonly dbName!: pulumi.Output<string>;
@@ -740,6 +744,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
             resourceInputs["customIamInstanceProfile"] = state ? state.customIamInstanceProfile : undefined;
             resourceInputs["customerOwnedIpEnabled"] = state ? state.customerOwnedIpEnabled : undefined;
+            resourceInputs["databaseInsightsMode"] = state ? state.databaseInsightsMode : undefined;
             resourceInputs["dbName"] = state ? state.dbName : undefined;
             resourceInputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
             resourceInputs["dedicatedLogVolume"] = state ? state.dedicatedLogVolume : undefined;
@@ -824,6 +829,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             resourceInputs["customIamInstanceProfile"] = args ? args.customIamInstanceProfile : undefined;
             resourceInputs["customerOwnedIpEnabled"] = args ? args.customerOwnedIpEnabled : undefined;
+            resourceInputs["databaseInsightsMode"] = args ? args.databaseInsightsMode : undefined;
             resourceInputs["dbName"] = args ? args.dbName : undefined;
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["dedicatedLogVolume"] = args ? args.dedicatedLogVolume : undefined;
@@ -989,6 +995,10 @@ export interface InstanceState {
      * standalone database.
      */
     customerOwnedIpEnabled?: pulumi.Input<boolean>;
+    /**
+     * The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+     */
+    databaseInsightsMode?: pulumi.Input<string>;
     /**
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
      */
@@ -1388,6 +1398,10 @@ export interface InstanceArgs {
      * standalone database.
      */
     customerOwnedIpEnabled?: pulumi.Input<boolean>;
+    /**
+     * The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+     */
+    databaseInsightsMode?: pulumi.Input<string>;
     /**
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
      */

@@ -37,6 +37,7 @@ class InstanceArgs:
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
+                 database_insights_mode: Optional[pulumi.Input[str]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
@@ -130,6 +131,7 @@ class InstanceArgs:
                > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
+        :param pulumi.Input[str] database_insights_mode: The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group.
                DB instance will be created in the VPC associated with the DB subnet group.
@@ -269,6 +271,8 @@ class InstanceArgs:
             pulumi.set(__self__, "custom_iam_instance_profile", custom_iam_instance_profile)
         if customer_owned_ip_enabled is not None:
             pulumi.set(__self__, "customer_owned_ip_enabled", customer_owned_ip_enabled)
+        if database_insights_mode is not None:
+            pulumi.set(__self__, "database_insights_mode", database_insights_mode)
         if db_name is not None:
             pulumi.set(__self__, "db_name", db_name)
         if db_subnet_group_name is not None:
@@ -582,6 +586,18 @@ class InstanceArgs:
     @customer_owned_ip_enabled.setter
     def customer_owned_ip_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "customer_owned_ip_enabled", value)
+
+    @property
+    @pulumi.getter(name="databaseInsightsMode")
+    def database_insights_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+        """
+        return pulumi.get(self, "database_insights_mode")
+
+    @database_insights_mode.setter
+    def database_insights_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_insights_mode", value)
 
     @property
     @pulumi.getter(name="dbName")
@@ -1305,6 +1321,7 @@ class _InstanceState:
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
+                 database_insights_mode: Optional[pulumi.Input[str]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
@@ -1410,6 +1427,7 @@ class _InstanceState:
                > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
+        :param pulumi.Input[str] database_insights_mode: The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group.
                DB instance will be created in the VPC associated with the DB subnet group.
@@ -1562,6 +1580,8 @@ class _InstanceState:
             pulumi.set(__self__, "custom_iam_instance_profile", custom_iam_instance_profile)
         if customer_owned_ip_enabled is not None:
             pulumi.set(__self__, "customer_owned_ip_enabled", customer_owned_ip_enabled)
+        if database_insights_mode is not None:
+            pulumi.set(__self__, "database_insights_mode", database_insights_mode)
         if db_name is not None:
             pulumi.set(__self__, "db_name", db_name)
         if db_subnet_group_name is not None:
@@ -1912,6 +1932,18 @@ class _InstanceState:
     @customer_owned_ip_enabled.setter
     def customer_owned_ip_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "customer_owned_ip_enabled", value)
+
+    @property
+    @pulumi.getter(name="databaseInsightsMode")
+    def database_insights_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+        """
+        return pulumi.get(self, "database_insights_mode")
+
+    @database_insights_mode.setter
+    def database_insights_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_insights_mode", value)
 
     @property
     @pulumi.getter(name="dbName")
@@ -2765,6 +2797,7 @@ class Instance(pulumi.CustomResource):
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
+                 database_insights_mode: Optional[pulumi.Input[str]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
@@ -3112,6 +3145,7 @@ class Instance(pulumi.CustomResource):
                > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
+        :param pulumi.Input[str] database_insights_mode: The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group.
                DB instance will be created in the VPC associated with the DB subnet group.
@@ -3511,6 +3545,7 @@ class Instance(pulumi.CustomResource):
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
+                 database_insights_mode: Optional[pulumi.Input[str]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
@@ -3589,6 +3624,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
             __props__.__dict__["custom_iam_instance_profile"] = custom_iam_instance_profile
             __props__.__dict__["customer_owned_ip_enabled"] = customer_owned_ip_enabled
+            __props__.__dict__["database_insights_mode"] = database_insights_mode
             __props__.__dict__["db_name"] = db_name
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             __props__.__dict__["dedicated_log_volume"] = dedicated_log_volume
@@ -3686,6 +3722,7 @@ class Instance(pulumi.CustomResource):
             copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
             custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
             customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
+            database_insights_mode: Optional[pulumi.Input[str]] = None,
             db_name: Optional[pulumi.Input[str]] = None,
             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
             dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
@@ -3796,6 +3833,7 @@ class Instance(pulumi.CustomResource):
                > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
+        :param pulumi.Input[str] database_insights_mode: The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group.
                DB instance will be created in the VPC associated with the DB subnet group.
@@ -3936,6 +3974,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         __props__.__dict__["custom_iam_instance_profile"] = custom_iam_instance_profile
         __props__.__dict__["customer_owned_ip_enabled"] = customer_owned_ip_enabled
+        __props__.__dict__["database_insights_mode"] = database_insights_mode
         __props__.__dict__["db_name"] = db_name
         __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
         __props__.__dict__["dedicated_log_volume"] = dedicated_log_volume
@@ -4152,6 +4191,14 @@ class Instance(pulumi.CustomResource):
         standalone database.
         """
         return pulumi.get(self, "customer_owned_ip_enabled")
+
+    @property
+    @pulumi.getter(name="databaseInsightsMode")
+    def database_insights_mode(self) -> pulumi.Output[str]:
+        """
+        The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+        """
+        return pulumi.get(self, "database_insights_mode")
 
     @property
     @pulumi.getter(name="dbName")

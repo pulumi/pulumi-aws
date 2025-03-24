@@ -1638,6 +1638,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "athena/capacityReservation",
+  "fqn": "pulumi_aws.athena",
+  "classes": {
+   "aws:athena/capacityReservation:CapacityReservation": "CapacityReservation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "athena/dataCatalog",
   "fqn": "pulumi_aws.athena",
   "classes": {

@@ -489,6 +489,7 @@ class User(pulumi.CustomResource):
                 "email": "example@example.com",
                 "first_name": "example",
                 "last_name": "example2",
+                "secondary_email": "secondary@example.com",
             },
             phone_config={
                 "after_contact_work_time_limit": 0,
@@ -632,6 +633,7 @@ class User(pulumi.CustomResource):
                 "email": "example@example.com",
                 "first_name": "example",
                 "last_name": "example2",
+                "secondary_email": "secondary@example.com",
             },
             phone_config={
                 "after_contact_work_time_limit": 0,

@@ -20,6 +20,7 @@ __all__ = [
     'DataSourceConfigurationS3Configuration',
     'DataSourceConfigurationS3ConfigurationAccessControlListConfiguration',
     'DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration',
+    'DataSourceConfigurationTemplateConfiguration',
     'DataSourceConfigurationWebCrawlerConfiguration',
     'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration',
     'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication',
@@ -86,6 +87,8 @@ class DataSourceConfiguration(dict):
         suggest = None
         if key == "s3Configuration":
             suggest = "s3_configuration"
+        elif key == "templateConfiguration":
+            suggest = "template_configuration"
         elif key == "webCrawlerConfiguration":
             suggest = "web_crawler_configuration"
 
@@ -102,18 +105,23 @@ class DataSourceConfiguration(dict):
 
     def __init__(__self__, *,
                  s3_configuration: Optional['outputs.DataSourceConfigurationS3Configuration'] = None,
+                 template_configuration: Optional['outputs.DataSourceConfigurationTemplateConfiguration'] = None,
                  web_crawler_configuration: Optional['outputs.DataSourceConfigurationWebCrawlerConfiguration'] = None):
         """
         :param 'DataSourceConfigurationS3ConfigurationArgs' s3_configuration: A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+        :param 'DataSourceConfigurationTemplateConfigurationArgs' template_configuration: A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
         :param 'DataSourceConfigurationWebCrawlerConfigurationArgs' web_crawler_configuration: A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
         """
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if template_configuration is not None:
+            pulumi.set(__self__, "template_configuration", template_configuration)
         if web_crawler_configuration is not None:
             pulumi.set(__self__, "web_crawler_configuration", web_crawler_configuration)
 
     @property
     @pulumi.getter(name="s3Configuration")
+    @_utilities.deprecated("""s3_configuration is deprecated. Use template_configuration instead.""")
     def s3_configuration(self) -> Optional['outputs.DataSourceConfigurationS3Configuration']:
         """
         A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
@@ -121,7 +129,16 @@ class DataSourceConfiguration(dict):
         return pulumi.get(self, "s3_configuration")
 
     @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> Optional['outputs.DataSourceConfigurationTemplateConfiguration']:
+        """
+        A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+        """
+        return pulumi.get(self, "template_configuration")
+
+    @property
     @pulumi.getter(name="webCrawlerConfiguration")
+    @_utilities.deprecated("""web_crawler_configuration is deprecated. Use template_configuration instead.""")
     def web_crawler_configuration(self) -> Optional['outputs.DataSourceConfigurationWebCrawlerConfiguration']:
         """
         A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
@@ -304,6 +321,24 @@ class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration(dict)
         A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3_prefix` to include only the desired metadata files.
         """
         return pulumi.get(self, "s3_prefix")
+
+
+@pulumi.output_type
+class DataSourceConfigurationTemplateConfiguration(dict):
+    def __init__(__self__, *,
+                 template: str):
+        """
+        :param str template: JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
+        """
+        pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def template(self) -> str:
+        """
+        JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
+        """
+        return pulumi.get(self, "template")
 
 
 @pulumi.output_type

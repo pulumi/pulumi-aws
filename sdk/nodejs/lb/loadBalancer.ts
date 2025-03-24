@@ -221,6 +221,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly ipAddressType!: pulumi.Output<string>;
     /**
+     * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
+     */
+    public readonly ipamPools!: pulumi.Output<outputs.lb.LoadBalancerIpamPools | undefined>;
+    /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
     public readonly loadBalancerType!: pulumi.Output<string | undefined>;
@@ -302,6 +306,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
             resourceInputs["internal"] = state ? state.internal : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
+            resourceInputs["ipamPools"] = state ? state.ipamPools : undefined;
             resourceInputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
@@ -334,6 +339,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
             resourceInputs["internal"] = args ? args.internal : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["ipamPools"] = args ? args.ipamPools : undefined;
             resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
@@ -445,6 +451,10 @@ export interface LoadBalancerState {
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
     ipAddressType?: pulumi.Input<string>;
+    /**
+     * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
+     */
+    ipamPools?: pulumi.Input<inputs.lb.LoadBalancerIpamPools>;
     /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
@@ -570,6 +580,10 @@ export interface LoadBalancerArgs {
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
     ipAddressType?: pulumi.Input<string>;
+    /**
+     * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
+     */
+    ipamPools?: pulumi.Input<inputs.lb.LoadBalancerIpamPools>;
     /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */

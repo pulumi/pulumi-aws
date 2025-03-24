@@ -73,6 +73,10 @@ export interface GetInstanceResult {
      */
     readonly caCertIdentifier: string;
     /**
+     * The mode of Database Insights that is enabled for the DB instance.
+     */
+    readonly databaseInsightsMode: string;
+    /**
      * If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
      */
     readonly dbClusterIdentifier: string;

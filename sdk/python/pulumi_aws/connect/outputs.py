@@ -1675,6 +1675,8 @@ class UserIdentityInfo(dict):
             suggest = "first_name"
         elif key == "lastName":
             suggest = "last_name"
+        elif key == "secondaryEmail":
+            suggest = "secondary_email"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserIdentityInfo. Access the value via the '{suggest}' property getter instead.")
@@ -1690,11 +1692,13 @@ class UserIdentityInfo(dict):
     def __init__(__self__, *,
                  email: Optional[str] = None,
                  first_name: Optional[str] = None,
-                 last_name: Optional[str] = None):
+                 last_name: Optional[str] = None,
+                 secondary_email: Optional[str] = None):
         """
         :param str email: The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         :param str first_name: The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
         :param str last_name: The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+        :param str secondary_email: The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -1702,6 +1706,8 @@ class UserIdentityInfo(dict):
             pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
+        if secondary_email is not None:
+            pulumi.set(__self__, "secondary_email", secondary_email)
 
     @property
     @pulumi.getter
@@ -1726,6 +1732,14 @@ class UserIdentityInfo(dict):
         The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
         """
         return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter(name="secondaryEmail")
+    def secondary_email(self) -> Optional[str]:
+        """
+        The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+        """
+        return pulumi.get(self, "secondary_email")
 
 
 @pulumi.output_type
@@ -2966,15 +2980,18 @@ class GetUserIdentityInfoResult(dict):
     def __init__(__self__, *,
                  email: str,
                  first_name: str,
-                 last_name: str):
+                 last_name: str,
+                 secondary_email: str):
         """
         :param str email: The email address.
         :param str first_name: The first name.
         :param str last_name: The last name.
+        :param str secondary_email: The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
         """
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "first_name", first_name)
         pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "secondary_email", secondary_email)
 
     @property
     @pulumi.getter
@@ -2999,6 +3016,14 @@ class GetUserIdentityInfoResult(dict):
         The last name.
         """
         return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter(name="secondaryEmail")
+    def secondary_email(self) -> str:
+        """
+        The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+        """
+        return pulumi.get(self, "secondary_email")
 
 
 @pulumi.output_type

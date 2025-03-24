@@ -55,6 +55,11 @@ export const getClusterAuth: typeof import("./getClusterAuth").getClusterAuth = 
 export const getClusterAuthOutput: typeof import("./getClusterAuth").getClusterAuthOutput = null as any;
 utilities.lazyLoad(exports, ["getClusterAuth","getClusterAuthOutput"], () => require("./getClusterAuth"));
 
+export { GetClusterVersionsArgs, GetClusterVersionsResult, GetClusterVersionsOutputArgs } from "./getClusterVersions";
+export const getClusterVersions: typeof import("./getClusterVersions").getClusterVersions = null as any;
+export const getClusterVersionsOutput: typeof import("./getClusterVersions").getClusterVersionsOutput = null as any;
+utilities.lazyLoad(exports, ["getClusterVersions","getClusterVersionsOutput"], () => require("./getClusterVersions"));
+
 export { GetClustersResult } from "./getClusters";
 export const getClusters: typeof import("./getClusters").getClusters = null as any;
 export const getClustersOutput: typeof import("./getClusters").getClustersOutput = null as any;

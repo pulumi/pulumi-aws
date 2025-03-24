@@ -28,13 +28,16 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, arn=None, availability_zone=None, encrypted=None, filters=None, id=None, iops=None, kms_key_id=None, most_recent=None, multi_attach_enabled=None, outpost_arn=None, size=None, snapshot_id=None, tags=None, throughput=None, volume_id=None, volume_type=None):
+    def __init__(__self__, arn=None, availability_zone=None, create_time=None, encrypted=None, filters=None, id=None, iops=None, kms_key_id=None, most_recent=None, multi_attach_enabled=None, outpost_arn=None, size=None, snapshot_id=None, tags=None, throughput=None, volume_id=None, volume_type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
+        if create_time and not isinstance(create_time, str):
+            raise TypeError("Expected argument 'create_time' to be a str")
+        pulumi.set(__self__, "create_time", create_time)
         if encrypted and not isinstance(encrypted, bool):
             raise TypeError("Expected argument 'encrypted' to be a bool")
         pulumi.set(__self__, "encrypted", encrypted)
@@ -90,9 +93,17 @@ class GetVolumeResult:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
         """
-        AZ where the EBS volume exists.
+        Availability zone where the EBS volume exists.
         """
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> str:
+        """
+        Timestamp when volume creation was initiated.
+        """
+        return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
@@ -209,6 +220,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         return GetVolumeResult(
             arn=self.arn,
             availability_zone=self.availability_zone,
+            create_time=self.create_time,
             encrypted=self.encrypted,
             filters=self.filters,
             id=self.id,
@@ -257,7 +269,7 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
            several valid keys, for a full reference, check out
            [describe-volumes in the AWS CLI reference][1].
     :param bool most_recent: If more than one result is returned, use the most
-           recent Volume.
+           recent volume.
     :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
@@ -270,6 +282,7 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
     return AwaitableGetVolumeResult(
         arn=pulumi.get(__ret__, 'arn'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        create_time=pulumi.get(__ret__, 'create_time'),
         encrypted=pulumi.get(__ret__, 'encrypted'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
@@ -316,7 +329,7 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['Ge
            several valid keys, for a full reference, check out
            [describe-volumes in the AWS CLI reference][1].
     :param bool most_recent: If more than one result is returned, use the most
-           recent Volume.
+           recent volume.
     :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
@@ -328,6 +341,7 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['Ge
     return __ret__.apply(lambda __response__: GetVolumeResult(
         arn=pulumi.get(__response__, 'arn'),
         availability_zone=pulumi.get(__response__, 'availability_zone'),
+        create_time=pulumi.get(__response__, 'create_time'),
         encrypted=pulumi.get(__response__, 'encrypted'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),

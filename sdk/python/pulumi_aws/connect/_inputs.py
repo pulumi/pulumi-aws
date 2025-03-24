@@ -2202,6 +2202,10 @@ if not MYPY:
         """
         The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
         """
+        secondary_email: NotRequired[pulumi.Input[str]]
+        """
+        The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+        """
 elif False:
     UserIdentityInfoArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2210,11 +2214,13 @@ class UserIdentityInfoArgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
-                 last_name: Optional[pulumi.Input[str]] = None):
+                 last_name: Optional[pulumi.Input[str]] = None,
+                 secondary_email: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] email: The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         :param pulumi.Input[str] first_name: The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
         :param pulumi.Input[str] last_name: The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+        :param pulumi.Input[str] secondary_email: The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -2222,6 +2228,8 @@ class UserIdentityInfoArgs:
             pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
+        if secondary_email is not None:
+            pulumi.set(__self__, "secondary_email", secondary_email)
 
     @property
     @pulumi.getter
@@ -2258,6 +2266,18 @@ class UserIdentityInfoArgs:
     @last_name.setter
     def last_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryEmail")
+    def secondary_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+        """
+        return pulumi.get(self, "secondary_email")
+
+    @secondary_email.setter
+    def secondary_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_email", value)
 
 
 if not MYPY:
