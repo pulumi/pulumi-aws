@@ -55,15 +55,19 @@ allowMissingDocs: false
 goBuildParallelism: 2
 actions:
   preTest:
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
+    - name: Generate Pulumi Access Token
+      id: generate_pulumi_token
+      uses: pulumi/auth-actions@v1
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-region: ${{ env.AWS_REGION }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-duration-seconds: 7200
-        role-session-name: aws@githubActions
-        role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+        organization: pulumi
+        requested-token-type: urn:pulumi:token-type:access_token:organization
+        export-environment-variables: false
+    - uses: pulumi/esc-action@v1
+      env:
+        PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
+      with:
+        environment: logins/pulumi-ci
+
 releaseVerification:
   nodejs: examples/release-verification
   python: examples/webserver-py

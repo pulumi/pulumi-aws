@@ -78,15 +78,18 @@ jobs:
         uses: ./.github/actions/setup-tools
         with:
           tools: pulumicli, nodejs, python, dotnet, go, java
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+      - id: generate_pulumi_token
+        name: Generate Pulumi Access Token
+        uses: pulumi/auth-actions@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-region: ${{ env.AWS_REGION }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          role-duration-seconds: 7200
-          role-session-name: aws@githubActions
-          role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+          export-environment-variables: false
+          organization: pulumi
+          requested-token-type: urn:pulumi:token-type:access_token:organization
+      - env:
+          PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
+        uses: pulumi/esc-action@v1
+        with:
+          environment: logins/pulumi-ci
       - name: Verify nodejs release
         uses: pulumi/verify-provider-release@v1
         with:
