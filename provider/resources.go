@@ -18,7 +18,6 @@ import (
 	"context"
 	_ "embed"
 	"fmt"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/walk"
 	"log"
 	"os"
 	"path/filepath"
@@ -28,6 +27,8 @@ import (
 	"sync/atomic"
 	"time"
 	"unicode"
+
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/walk"
 
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
