@@ -108,9 +108,17 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.iops);
     }
 
+    /**
+     * ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+     * 
+     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
+    /**
+     * @return ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+     * 
+     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
@@ -411,11 +419,23 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
             return iops(Output.of(iops));
         }
 
+        /**
+         * @param kmsKeyId ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
+        /**
+         * @param kmsKeyId ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }

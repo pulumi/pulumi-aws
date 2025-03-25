@@ -82,6 +82,9 @@ export class Volume extends pulumi.CustomResource {
      * Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     public readonly iops!: pulumi.Output<number>;
+    /**
+     * ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+     */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
@@ -202,6 +205,9 @@ export interface VolumeState {
      * Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     iops?: pulumi.Input<number>;
+    /**
+     * ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+     */
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
@@ -261,6 +267,9 @@ export interface VolumeArgs {
      * Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     iops?: pulumi.Input<number>;
+    /**
+     * ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+     */
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.

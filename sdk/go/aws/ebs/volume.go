@@ -65,7 +65,8 @@ type Volume struct {
 	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
 	FinalSnapshot pulumi.BoolPtrOutput `pulumi:"finalSnapshot"`
 	// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops     pulumi.IntOutput    `pulumi:"iops"`
+	Iops pulumi.IntOutput `pulumi:"iops"`
+	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled pulumi.BoolPtrOutput `pulumi:"multiAttachEnabled"`
@@ -133,7 +134,8 @@ type volumeState struct {
 	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
 	FinalSnapshot *bool `pulumi:"finalSnapshot"`
 	// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops     *int    `pulumi:"iops"`
+	Iops *int `pulumi:"iops"`
+	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
@@ -169,7 +171,8 @@ type VolumeState struct {
 	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
 	FinalSnapshot pulumi.BoolPtrInput
 	// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops     pulumi.IntPtrInput
+	Iops pulumi.IntPtrInput
+	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled pulumi.BoolPtrInput
@@ -205,7 +208,8 @@ type volumeArgs struct {
 	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
 	FinalSnapshot *bool `pulumi:"finalSnapshot"`
 	// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops     *int    `pulumi:"iops"`
+	Iops *int `pulumi:"iops"`
+	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
@@ -234,7 +238,8 @@ type VolumeArgs struct {
 	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
 	FinalSnapshot pulumi.BoolPtrInput
 	// Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops     pulumi.IntPtrInput
+	Iops pulumi.IntPtrInput
+	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled pulumi.BoolPtrInput
@@ -371,6 +376,7 @@ func (o VolumeOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v *Volume) pulumi.IntOutput { return v.Iops }).(pulumi.IntOutput)
 }
 
+// ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
 func (o VolumeOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
