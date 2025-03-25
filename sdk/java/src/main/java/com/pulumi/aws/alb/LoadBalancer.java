@@ -8,6 +8,7 @@ import com.pulumi.aws.alb.LoadBalancerArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerState;
 import com.pulumi.aws.alb.outputs.LoadBalancerAccessLogs;
 import com.pulumi.aws.alb.outputs.LoadBalancerConnectionLogs;
+import com.pulumi.aws.alb.outputs.LoadBalancerIpamPools;
 import com.pulumi.aws.alb.outputs.LoadBalancerSubnetMapping;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
@@ -435,6 +436,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      */
     public Output<String> ipAddressType() {
         return this.ipAddressType;
+    }
+    /**
+     * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+     * 
+     */
+    @Export(name="ipamPools", refs={LoadBalancerIpamPools.class}, tree="[0]")
+    private Output</* @Nullable */ LoadBalancerIpamPools> ipamPools;
+
+    /**
+     * @return . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+     * 
+     */
+    public Output<Optional<LoadBalancerIpamPools>> ipamPools() {
+        return Codegen.optional(this.ipamPools);
     }
     /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.

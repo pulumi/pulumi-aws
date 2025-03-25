@@ -166,6 +166,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string CaCertIdentifier;
         /// <summary>
+        /// The mode of Database Insights that is enabled for the DB instance.
+        /// </summary>
+        public readonly string DatabaseInsightsMode;
+        /// <summary>
         /// If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
         /// </summary>
         public readonly string DbClusterIdentifier;
@@ -322,6 +326,8 @@ namespace Pulumi.Aws.Rds
 
             string caCertIdentifier,
 
+            string databaseInsightsMode,
+
             string dbClusterIdentifier,
 
             string dbInstanceArn,
@@ -402,6 +408,7 @@ namespace Pulumi.Aws.Rds
             AvailabilityZone = availabilityZone;
             BackupRetentionPeriod = backupRetentionPeriod;
             CaCertIdentifier = caCertIdentifier;
+            DatabaseInsightsMode = databaseInsightsMode;
             DbClusterIdentifier = dbClusterIdentifier;
             DbInstanceArn = dbInstanceArn;
             DbInstanceClass = dbInstanceClass;

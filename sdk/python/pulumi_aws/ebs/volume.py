@@ -33,20 +33,20 @@ class VolumeArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Volume resource.
-        :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
+        :param pulumi.Input[str] availability_zone: Availability zone where the EBS volume will exist.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-        :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+        :param pulumi.Input[int] iops: Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        :param pulumi.Input[str] kms_key_id: ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
-        :param pulumi.Input[int] size: The size of the drive in GiBs.
+        :param pulumi.Input[str] outpost_arn: Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[int] size: Size of the drive in GiBs.
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        :param pulumi.Input[int] throughput: Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        :param pulumi.Input[str] type: Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
                
                > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-        :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         if encrypted is not None:
@@ -76,7 +76,7 @@ class VolumeArgs:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[str]:
         """
-        The AZ where the EBS volume will exist.
+        Availability zone where the EBS volume will exist.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -112,7 +112,7 @@ class VolumeArgs:
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         """
         return pulumi.get(self, "iops")
 
@@ -124,7 +124,7 @@ class VolumeArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+        ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -148,7 +148,7 @@ class VolumeArgs:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost.
+        Amazon Resource Name (ARN) of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -160,7 +160,7 @@ class VolumeArgs:
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of the drive in GiBs.
+        Size of the drive in GiBs.
         """
         return pulumi.get(self, "size")
 
@@ -196,9 +196,7 @@ class VolumeArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-
-        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+        Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         """
         return pulumi.get(self, "throughput")
 
@@ -210,7 +208,9 @@ class VolumeArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+
+        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
         return pulumi.get(self, "type")
 
@@ -224,6 +224,7 @@ class _VolumeState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 create_time: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  final_snapshot: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
@@ -238,27 +239,30 @@ class _VolumeState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Volume resources.
-        :param pulumi.Input[str] arn: The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
-        :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
+        :param pulumi.Input[str] arn: Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
+        :param pulumi.Input[str] availability_zone: Availability zone where the EBS volume will exist.
+        :param pulumi.Input[str] create_time: Timestamp when volume creation was initiated.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-        :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+        :param pulumi.Input[int] iops: Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        :param pulumi.Input[str] kms_key_id: ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
-        :param pulumi.Input[int] size: The size of the drive in GiBs.
+        :param pulumi.Input[str] outpost_arn: Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[int] size: Size of the drive in GiBs.
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        :param pulumi.Input[int] throughput: Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        :param pulumi.Input[str] type: Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
                
                > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-        :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if create_time is not None:
+            pulumi.set(__self__, "create_time", create_time)
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
         if final_snapshot is not None:
@@ -291,7 +295,7 @@ class _VolumeState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
+        Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         """
         return pulumi.get(self, "arn")
 
@@ -303,13 +307,25 @@ class _VolumeState:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The AZ where the EBS volume will exist.
+        Availability zone where the EBS volume will exist.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timestamp when volume creation was initiated.
+        """
+        return pulumi.get(self, "create_time")
+
+    @create_time.setter
+    def create_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_time", value)
 
     @property
     @pulumi.getter
@@ -339,7 +355,7 @@ class _VolumeState:
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         """
         return pulumi.get(self, "iops")
 
@@ -351,7 +367,7 @@ class _VolumeState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+        ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -375,7 +391,7 @@ class _VolumeState:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost.
+        Amazon Resource Name (ARN) of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -387,7 +403,7 @@ class _VolumeState:
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of the drive in GiBs.
+        Size of the drive in GiBs.
         """
         return pulumi.get(self, "size")
 
@@ -436,9 +452,7 @@ class _VolumeState:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-
-        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+        Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         """
         return pulumi.get(self, "throughput")
 
@@ -450,7 +464,9 @@ class _VolumeState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+
+        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
         return pulumi.get(self, "type")
 
@@ -494,8 +510,6 @@ class Volume(pulumi.CustomResource):
             })
         ```
 
-        > **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
-
         ## Import
 
         Using `pulumi import`, import EBS Volumes using the `id`. For example:
@@ -506,20 +520,20 @@ class Volume(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
+        :param pulumi.Input[str] availability_zone: Availability zone where the EBS volume will exist.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-        :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+        :param pulumi.Input[int] iops: Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        :param pulumi.Input[str] kms_key_id: ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
-        :param pulumi.Input[int] size: The size of the drive in GiBs.
+        :param pulumi.Input[str] outpost_arn: Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[int] size: Size of the drive in GiBs.
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        :param pulumi.Input[int] throughput: Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        :param pulumi.Input[str] type: Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
                
                > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-        :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
         ...
     @overload
@@ -543,8 +557,6 @@ class Volume(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
-
-        > **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
 
         ## Import
 
@@ -605,6 +617,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["throughput"] = throughput
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+            __props__.__dict__["create_time"] = None
             __props__.__dict__["tags_all"] = None
         super(Volume, __self__).__init__(
             'aws:ebs/volume:Volume',
@@ -618,6 +631,7 @@ class Volume(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
+            create_time: Optional[pulumi.Input[str]] = None,
             encrypted: Optional[pulumi.Input[bool]] = None,
             final_snapshot: Optional[pulumi.Input[bool]] = None,
             iops: Optional[pulumi.Input[int]] = None,
@@ -637,22 +651,23 @@ class Volume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
-        :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
+        :param pulumi.Input[str] arn: Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
+        :param pulumi.Input[str] availability_zone: Availability zone where the EBS volume will exist.
+        :param pulumi.Input[str] create_time: Timestamp when volume creation was initiated.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-        :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+        :param pulumi.Input[int] iops: Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        :param pulumi.Input[str] kms_key_id: ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
-        :param pulumi.Input[int] size: The size of the drive in GiBs.
+        :param pulumi.Input[str] outpost_arn: Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[int] size: Size of the drive in GiBs.
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        :param pulumi.Input[int] throughput: Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        :param pulumi.Input[str] type: Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
                
                > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-        :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -660,6 +675,7 @@ class Volume(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["availability_zone"] = availability_zone
+        __props__.__dict__["create_time"] = create_time
         __props__.__dict__["encrypted"] = encrypted
         __props__.__dict__["final_snapshot"] = final_snapshot
         __props__.__dict__["iops"] = iops
@@ -678,7 +694,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
+        Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         """
         return pulumi.get(self, "arn")
 
@@ -686,9 +702,17 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
         """
-        The AZ where the EBS volume will exist.
+        Availability zone where the EBS volume will exist.
         """
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> pulumi.Output[str]:
+        """
+        Timestamp when volume creation was initiated.
+        """
+        return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
@@ -710,7 +734,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def iops(self) -> pulumi.Output[int]:
         """
-        The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+        Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         """
         return pulumi.get(self, "iops")
 
@@ -718,7 +742,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[str]:
         """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+        ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -734,7 +758,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost.
+        Amazon Resource Name (ARN) of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -742,7 +766,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def size(self) -> pulumi.Output[int]:
         """
-        The size of the drive in GiBs.
+        Size of the drive in GiBs.
         """
         return pulumi.get(self, "size")
 
@@ -775,9 +799,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def throughput(self) -> pulumi.Output[int]:
         """
-        The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-
-        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+        Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         """
         return pulumi.get(self, "throughput")
 
@@ -785,7 +807,9 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+        Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+
+        > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         """
         return pulumi.get(self, "type")
 

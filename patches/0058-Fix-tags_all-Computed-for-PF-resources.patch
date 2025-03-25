@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/drs/replication_configuration_template.go b/internal/service/drs/replication_configuration_template.go
-index 13c972b3db..c3f407f845 100644
+index 1046d96871..3f8448d649 100644
 --- a/internal/service/drs/replication_configuration_template.go
 +++ b/internal/service/drs/replication_configuration_template.go
 @@ -99,7 +99,7 @@ func (r *replicationConfigurationTemplateResource) Schema(ctx context.Context, r
@@ -44,7 +44,7 @@ index 6fe1f2daa7..8684b9a0d2 100644
  	}
  }
 diff --git a/internal/service/pinpointsmsvoicev2/phone_number.go b/internal/service/pinpointsmsvoicev2/phone_number.go
-index 2b7f3ba41f..a18b25f3be 100644
+index b95bd9ddbb..40ec333341 100644
 --- a/internal/service/pinpointsmsvoicev2/phone_number.go
 +++ b/internal/service/pinpointsmsvoicev2/phone_number.go
 @@ -120,7 +120,7 @@ func (r *phoneNumberResource) Schema(ctx context.Context, request resource.Schem

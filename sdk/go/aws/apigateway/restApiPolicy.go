@@ -25,6 +25,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -55,7 +57,9 @@ import (
 //							pulumi.String("execute-api:Invoke"),
 //						},
 //						Resources: pulumi.StringArray{
-//							testRestApi.ExecutionArn,
+//							testRestApi.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
+//								return fmt.Sprintf("%v/*", executionArn), nil
+//							}).(pulumi.StringOutput),
 //						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{

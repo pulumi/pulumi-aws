@@ -5,10 +5,10 @@ Subject: [PATCH] Add EKS cluster certificate_authorities (plural)
 
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index bcf8897c6f..421b97b5e0 100644
+index 637cba2cf1..37dfefef59 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
-@@ -121,9 +121,24 @@ func resourceCluster() *schema.Resource {
+@@ -122,9 +122,24 @@ func resourceCluster() *schema.Resource {
  				ForceNew: true,
  				Default:  true,
  			},
@@ -33,7 +33,7 @@ index bcf8897c6f..421b97b5e0 100644
  				Elem: &schema.Resource{
  					Schema: map[string]*schema.Schema{
  						"data": {
-@@ -627,6 +642,13 @@ func resourceClusterRead(ctx context.Context, d *schema.ResourceData, meta inter
+@@ -628,6 +643,13 @@ func resourceClusterRead(ctx context.Context, d *schema.ResourceData, meta any)
  	}
  	d.Set(names.AttrARN, cluster.Arn)
  	d.Set("bootstrap_self_managed_addons", d.Get("bootstrap_self_managed_addons"))

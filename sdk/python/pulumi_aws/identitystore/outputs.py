@@ -27,6 +27,8 @@ __all__ = [
     'GetGroupAlternateIdentifierUniqueAttributeResult',
     'GetGroupExternalIdResult',
     'GetGroupFilterResult',
+    'GetGroupMembershipsGroupMembershipResult',
+    'GetGroupMembershipsGroupMembershipMemberIdResult',
     'GetGroupsGroupResult',
     'GetGroupsGroupExternalIdResult',
     'GetUserAddressResult',
@@ -38,6 +40,12 @@ __all__ = [
     'GetUserFilterResult',
     'GetUserNameResult',
     'GetUserPhoneNumberResult',
+    'GetUsersUserResult',
+    'GetUsersUserAddressResult',
+    'GetUsersUserEmailResult',
+    'GetUsersUserExternalIdResult',
+    'GetUsersUserNameResult',
+    'GetUsersUserPhoneNumberResult',
 ]
 
 @pulumi.output_type
@@ -568,6 +576,71 @@ class GetGroupFilterResult(dict):
 
 
 @pulumi.output_type
+class GetGroupMembershipsGroupMembershipResult(dict):
+    def __init__(__self__, *,
+                 group_id: str,
+                 identity_store_id: str,
+                 member_id: 'outputs.GetGroupMembershipsGroupMembershipMemberIdResult',
+                 membership_id: str):
+        """
+        :param str group_id: The identifier for a group in the Identity Store.
+        :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+        :param 'GetGroupMembershipsGroupMembershipMemberIdArgs' member_id: An object containing the identifier of a group member. See `member_id` below.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "identity_store_id", identity_store_id)
+        pulumi.set(__self__, "member_id", member_id)
+        pulumi.set(__self__, "membership_id", membership_id)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        The identifier for a group in the Identity Store.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="identityStoreId")
+    def identity_store_id(self) -> str:
+        """
+        Identity Store ID associated with the Single Sign-On Instance.
+        """
+        return pulumi.get(self, "identity_store_id")
+
+    @property
+    @pulumi.getter(name="memberId")
+    def member_id(self) -> 'outputs.GetGroupMembershipsGroupMembershipMemberIdResult':
+        """
+        An object containing the identifier of a group member. See `member_id` below.
+        """
+        return pulumi.get(self, "member_id")
+
+    @property
+    @pulumi.getter(name="membershipId")
+    def membership_id(self) -> str:
+        return pulumi.get(self, "membership_id")
+
+
+@pulumi.output_type
+class GetGroupMembershipsGroupMembershipMemberIdResult(dict):
+    def __init__(__self__, *,
+                 user_id: str):
+        """
+        :param str user_id: User identifier of the group member.
+        """
+        pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> str:
+        """
+        User identifier of the group member.
+        """
+        return pulumi.get(self, "user_id")
+
+
+@pulumi.output_type
 class GetGroupsGroupResult(dict):
     def __init__(__self__, *,
                  description: str,
@@ -1053,6 +1126,466 @@ class GetUserPhoneNumberResult(dict):
     def value(self) -> str:
         """
         The user's phone number.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetUsersUserResult(dict):
+    def __init__(__self__, *,
+                 addresses: Sequence['outputs.GetUsersUserAddressResult'],
+                 display_name: str,
+                 emails: Sequence['outputs.GetUsersUserEmailResult'],
+                 external_ids: Sequence['outputs.GetUsersUserExternalIdResult'],
+                 identity_store_id: str,
+                 locale: str,
+                 names: Sequence['outputs.GetUsersUserNameResult'],
+                 nickname: str,
+                 phone_numbers: Sequence['outputs.GetUsersUserPhoneNumberResult'],
+                 preferred_language: str,
+                 profile_url: str,
+                 timezone: str,
+                 title: str,
+                 user_id: str,
+                 user_name: str,
+                 user_type: str):
+        """
+        :param Sequence['GetUsersUserAddressArgs'] addresses: List of details about the user's address.
+        :param str display_name: Name that is typically displayed when the user is referenced.
+        :param Sequence['GetUsersUserEmailArgs'] emails: List of details about the user's email.
+        :param Sequence['GetUsersUserExternalIdArgs'] external_ids: List of identifiers issued to this resource by an external identity provider.
+        :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+        :param str locale: User's geographical region or location.
+        :param Sequence['GetUsersUserNameArgs'] names: Details about the user's full name.
+        :param str nickname: An alternate name for the user.
+        :param Sequence['GetUsersUserPhoneNumberArgs'] phone_numbers: List of details about the user's phone number.
+        :param str preferred_language: Preferred language of the user.
+        :param str profile_url: An URL that may be associated with the user.
+        :param str timezone: User's time zone.
+        :param str title: User's title.
+        :param str user_id: Identifier of the user in the Identity Store.
+        :param str user_name: User's user name value.
+        :param str user_type: User type.
+        """
+        pulumi.set(__self__, "addresses", addresses)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "emails", emails)
+        pulumi.set(__self__, "external_ids", external_ids)
+        pulumi.set(__self__, "identity_store_id", identity_store_id)
+        pulumi.set(__self__, "locale", locale)
+        pulumi.set(__self__, "names", names)
+        pulumi.set(__self__, "nickname", nickname)
+        pulumi.set(__self__, "phone_numbers", phone_numbers)
+        pulumi.set(__self__, "preferred_language", preferred_language)
+        pulumi.set(__self__, "profile_url", profile_url)
+        pulumi.set(__self__, "timezone", timezone)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "user_id", user_id)
+        pulumi.set(__self__, "user_name", user_name)
+        pulumi.set(__self__, "user_type", user_type)
+
+    @property
+    @pulumi.getter
+    def addresses(self) -> Sequence['outputs.GetUsersUserAddressResult']:
+        """
+        List of details about the user's address.
+        """
+        return pulumi.get(self, "addresses")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Name that is typically displayed when the user is referenced.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Sequence['outputs.GetUsersUserEmailResult']:
+        """
+        List of details about the user's email.
+        """
+        return pulumi.get(self, "emails")
+
+    @property
+    @pulumi.getter(name="externalIds")
+    def external_ids(self) -> Sequence['outputs.GetUsersUserExternalIdResult']:
+        """
+        List of identifiers issued to this resource by an external identity provider.
+        """
+        return pulumi.get(self, "external_ids")
+
+    @property
+    @pulumi.getter(name="identityStoreId")
+    def identity_store_id(self) -> str:
+        """
+        Identity Store ID associated with the Single Sign-On Instance.
+        """
+        return pulumi.get(self, "identity_store_id")
+
+    @property
+    @pulumi.getter
+    def locale(self) -> str:
+        """
+        User's geographical region or location.
+        """
+        return pulumi.get(self, "locale")
+
+    @property
+    @pulumi.getter
+    def names(self) -> Sequence['outputs.GetUsersUserNameResult']:
+        """
+        Details about the user's full name.
+        """
+        return pulumi.get(self, "names")
+
+    @property
+    @pulumi.getter
+    def nickname(self) -> str:
+        """
+        An alternate name for the user.
+        """
+        return pulumi.get(self, "nickname")
+
+    @property
+    @pulumi.getter(name="phoneNumbers")
+    def phone_numbers(self) -> Sequence['outputs.GetUsersUserPhoneNumberResult']:
+        """
+        List of details about the user's phone number.
+        """
+        return pulumi.get(self, "phone_numbers")
+
+    @property
+    @pulumi.getter(name="preferredLanguage")
+    def preferred_language(self) -> str:
+        """
+        Preferred language of the user.
+        """
+        return pulumi.get(self, "preferred_language")
+
+    @property
+    @pulumi.getter(name="profileUrl")
+    def profile_url(self) -> str:
+        """
+        An URL that may be associated with the user.
+        """
+        return pulumi.get(self, "profile_url")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> str:
+        """
+        User's time zone.
+        """
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        User's title.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> str:
+        """
+        Identifier of the user in the Identity Store.
+        """
+        return pulumi.get(self, "user_id")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        User's user name value.
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> str:
+        """
+        User type.
+        """
+        return pulumi.get(self, "user_type")
+
+
+@pulumi.output_type
+class GetUsersUserAddressResult(dict):
+    def __init__(__self__, *,
+                 country: str,
+                 formatted: str,
+                 locality: str,
+                 postal_code: str,
+                 primary: bool,
+                 region: str,
+                 street_address: str,
+                 type: str):
+        """
+        :param str country: Country that this address is in.
+        :param str formatted: Name that is typically displayed when the name is shown for display.
+        :param str locality: Address locality.
+        :param str postal_code: Postal code of the address.
+        :param bool primary: When `true`, this is the primary phone number associated with the user.
+        :param str region: Region of the address.
+        :param str street_address: Street of the address.
+        :param str type: Type of phone number.
+        """
+        pulumi.set(__self__, "country", country)
+        pulumi.set(__self__, "formatted", formatted)
+        pulumi.set(__self__, "locality", locality)
+        pulumi.set(__self__, "postal_code", postal_code)
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "street_address", street_address)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def country(self) -> str:
+        """
+        Country that this address is in.
+        """
+        return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter
+    def formatted(self) -> str:
+        """
+        Name that is typically displayed when the name is shown for display.
+        """
+        return pulumi.get(self, "formatted")
+
+    @property
+    @pulumi.getter
+    def locality(self) -> str:
+        """
+        Address locality.
+        """
+        return pulumi.get(self, "locality")
+
+    @property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> str:
+        """
+        Postal code of the address.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> bool:
+        """
+        When `true`, this is the primary phone number associated with the user.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        Region of the address.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="streetAddress")
+    def street_address(self) -> str:
+        """
+        Street of the address.
+        """
+        return pulumi.get(self, "street_address")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of phone number.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetUsersUserEmailResult(dict):
+    def __init__(__self__, *,
+                 primary: bool,
+                 type: str,
+                 value: str):
+        """
+        :param bool primary: When `true`, this is the primary phone number associated with the user.
+        :param str type: Type of phone number.
+        :param str value: User's phone number.
+        """
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> bool:
+        """
+        When `true`, this is the primary phone number associated with the user.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of phone number.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        User's phone number.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetUsersUserExternalIdResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 issuer: str):
+        """
+        :param str id: Identifier issued to this resource by an external identity provider.
+        :param str issuer: Issuer for an external identifier.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "issuer", issuer)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Identifier issued to this resource by an external identity provider.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        """
+        Issuer for an external identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+
+@pulumi.output_type
+class GetUsersUserNameResult(dict):
+    def __init__(__self__, *,
+                 family_name: str,
+                 formatted: str,
+                 given_name: str,
+                 honorific_prefix: str,
+                 honorific_suffix: str,
+                 middle_name: str):
+        """
+        :param str family_name: Family name of the user.
+        :param str formatted: Name that is typically displayed when the name is shown for display.
+        :param str given_name: Given name of the user.
+        :param str honorific_prefix: Honorific prefix of the user.
+        :param str honorific_suffix: Honorific suffix of the user.
+        :param str middle_name: Middle name of the user.
+        """
+        pulumi.set(__self__, "family_name", family_name)
+        pulumi.set(__self__, "formatted", formatted)
+        pulumi.set(__self__, "given_name", given_name)
+        pulumi.set(__self__, "honorific_prefix", honorific_prefix)
+        pulumi.set(__self__, "honorific_suffix", honorific_suffix)
+        pulumi.set(__self__, "middle_name", middle_name)
+
+    @property
+    @pulumi.getter(name="familyName")
+    def family_name(self) -> str:
+        """
+        Family name of the user.
+        """
+        return pulumi.get(self, "family_name")
+
+    @property
+    @pulumi.getter
+    def formatted(self) -> str:
+        """
+        Name that is typically displayed when the name is shown for display.
+        """
+        return pulumi.get(self, "formatted")
+
+    @property
+    @pulumi.getter(name="givenName")
+    def given_name(self) -> str:
+        """
+        Given name of the user.
+        """
+        return pulumi.get(self, "given_name")
+
+    @property
+    @pulumi.getter(name="honorificPrefix")
+    def honorific_prefix(self) -> str:
+        """
+        Honorific prefix of the user.
+        """
+        return pulumi.get(self, "honorific_prefix")
+
+    @property
+    @pulumi.getter(name="honorificSuffix")
+    def honorific_suffix(self) -> str:
+        """
+        Honorific suffix of the user.
+        """
+        return pulumi.get(self, "honorific_suffix")
+
+    @property
+    @pulumi.getter(name="middleName")
+    def middle_name(self) -> str:
+        """
+        Middle name of the user.
+        """
+        return pulumi.get(self, "middle_name")
+
+
+@pulumi.output_type
+class GetUsersUserPhoneNumberResult(dict):
+    def __init__(__self__, *,
+                 primary: bool,
+                 type: str,
+                 value: str):
+        """
+        :param bool primary: When `true`, this is the primary phone number associated with the user.
+        :param str type: Type of phone number.
+        :param str value: User's phone number.
+        """
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> bool:
+        """
+        When `true`, this is the primary phone number associated with the user.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of phone number.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        User's phone number.
         """
         return pulumi.get(self, "value")
 

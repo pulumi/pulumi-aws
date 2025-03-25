@@ -30,6 +30,12 @@ namespace Pulumi.Aws.Connect.Inputs
         [Input("lastName")]
         public Input<string>? LastName { get; set; }
 
+        /// <summary>
+        /// The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+        /// </summary>
+        [Input("secondaryEmail")]
+        public Input<string>? SecondaryEmail { get; set; }
+
         public UserIdentityInfoArgs()
         {
         }

@@ -39,7 +39,7 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * If more than one result is returned, use the most
-     * recent Volume.
+     * recent volume.
      * 
      */
     @Import(name="mostRecent")
@@ -47,7 +47,7 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return If more than one result is returned, use the most
-     * recent Volume.
+     * recent volume.
      * 
      */
     public Optional<Boolean> mostRecent() {
@@ -122,7 +122,7 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param mostRecent If more than one result is returned, use the most
-         * recent Volume.
+         * recent volume.
          * 
          * @return builder
          * 

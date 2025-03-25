@@ -22,9 +22,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glue.Job("example", {
  *     name: "example",
+ *     glueVersion: "5.0",
  *     roleArn: exampleAwsIamRole.arn,
  *     command: {
  *         scriptLocation: `s3://${exampleAwsS3Bucket.bucket}/example.py`,
+ *         pythonVersion: "3",
  *     },
  * });
  * ```

@@ -27,7 +27,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, database_insights_mode=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
@@ -46,6 +46,9 @@ class GetInstanceResult:
         if ca_cert_identifier and not isinstance(ca_cert_identifier, str):
             raise TypeError("Expected argument 'ca_cert_identifier' to be a str")
         pulumi.set(__self__, "ca_cert_identifier", ca_cert_identifier)
+        if database_insights_mode and not isinstance(database_insights_mode, str):
+            raise TypeError("Expected argument 'database_insights_mode' to be a str")
+        pulumi.set(__self__, "database_insights_mode", database_insights_mode)
         if db_cluster_identifier and not isinstance(db_cluster_identifier, str):
             raise TypeError("Expected argument 'db_cluster_identifier' to be a str")
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
@@ -205,6 +208,14 @@ class GetInstanceResult:
         Identifier of the CA certificate for the DB instance.
         """
         return pulumi.get(self, "ca_cert_identifier")
+
+    @property
+    @pulumi.getter(name="databaseInsightsMode")
+    def database_insights_mode(self) -> str:
+        """
+        The mode of Database Insights that is enabled for the DB instance.
+        """
+        return pulumi.get(self, "database_insights_mode")
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")
@@ -509,6 +520,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             availability_zone=self.availability_zone,
             backup_retention_period=self.backup_retention_period,
             ca_cert_identifier=self.ca_cert_identifier,
+            database_insights_mode=self.database_insights_mode,
             db_cluster_identifier=self.db_cluster_identifier,
             db_instance_arn=self.db_instance_arn,
             db_instance_class=self.db_instance_class,
@@ -580,6 +592,7 @@ def get_instance(db_instance_identifier: Optional[str] = None,
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
         backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
         ca_cert_identifier=pulumi.get(__ret__, 'ca_cert_identifier'),
+        database_insights_mode=pulumi.get(__ret__, 'database_insights_mode'),
         db_cluster_identifier=pulumi.get(__ret__, 'db_cluster_identifier'),
         db_instance_arn=pulumi.get(__ret__, 'db_instance_arn'),
         db_instance_class=pulumi.get(__ret__, 'db_instance_class'),
@@ -648,6 +661,7 @@ def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
         availability_zone=pulumi.get(__response__, 'availability_zone'),
         backup_retention_period=pulumi.get(__response__, 'backup_retention_period'),
         ca_cert_identifier=pulumi.get(__response__, 'ca_cert_identifier'),
+        database_insights_mode=pulumi.get(__response__, 'database_insights_mode'),
         db_cluster_identifier=pulumi.get(__response__, 'db_cluster_identifier'),
         db_instance_arn=pulumi.get(__response__, 'db_instance_arn'),
         db_instance_class=pulumi.get(__response__, 'db_instance_class'),

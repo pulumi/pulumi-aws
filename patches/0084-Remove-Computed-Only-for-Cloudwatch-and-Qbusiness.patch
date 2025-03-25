@@ -31,7 +31,7 @@ index b4e1a4de14..ff346c07ec 100644
  	}
  }
 diff --git a/internal/service/qbusiness/application.go b/internal/service/qbusiness/application.go
-index 0ddf636ff1..48ded15cc3 100644
+index 358f57c369..cce782b4e7 100644
 --- a/internal/service/qbusiness/application.go
 +++ b/internal/service/qbusiness/application.go
 @@ -89,7 +89,7 @@ func (r *resourceApplication) Schema(ctx context.Context, req resource.SchemaReq

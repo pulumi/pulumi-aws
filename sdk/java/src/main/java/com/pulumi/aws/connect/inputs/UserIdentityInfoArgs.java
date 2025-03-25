@@ -60,12 +60,28 @@ public final class UserIdentityInfoArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.lastName);
     }
 
+    /**
+     * The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+     * 
+     */
+    @Import(name="secondaryEmail")
+    private @Nullable Output<String> secondaryEmail;
+
+    /**
+     * @return The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+     * 
+     */
+    public Optional<Output<String>> secondaryEmail() {
+        return Optional.ofNullable(this.secondaryEmail);
+    }
+
     private UserIdentityInfoArgs() {}
 
     private UserIdentityInfoArgs(UserIdentityInfoArgs $) {
         this.email = $.email;
         this.firstName = $.firstName;
         this.lastName = $.lastName;
+        this.secondaryEmail = $.secondaryEmail;
     }
 
     public static Builder builder() {
@@ -147,6 +163,27 @@ public final class UserIdentityInfoArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder lastName(String lastName) {
             return lastName(Output.of(lastName));
+        }
+
+        /**
+         * @param secondaryEmail The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryEmail(@Nullable Output<String> secondaryEmail) {
+            $.secondaryEmail = secondaryEmail;
+            return this;
+        }
+
+        /**
+         * @param secondaryEmail The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryEmail(String secondaryEmail) {
+            return secondaryEmail(Output.of(secondaryEmail));
         }
 
         public UserIdentityInfoArgs build() {

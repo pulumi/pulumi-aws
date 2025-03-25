@@ -27,7 +27,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, client_keep_alive=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enable_zonal_shift=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, client_keep_alive=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enable_zonal_shift=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, ipam_pools=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -94,6 +94,9 @@ class GetLoadBalancerResult:
         if ip_address_type and not isinstance(ip_address_type, str):
             raise TypeError("Expected argument 'ip_address_type' to be a str")
         pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ipam_pools and not isinstance(ipam_pools, list):
+            raise TypeError("Expected argument 'ipam_pools' to be a list")
+        pulumi.set(__self__, "ipam_pools", ipam_pools)
         if load_balancer_type and not isinstance(load_balancer_type, str):
             raise TypeError("Expected argument 'load_balancer_type' to be a str")
         pulumi.set(__self__, "load_balancer_type", load_balancer_type)
@@ -239,6 +242,11 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "ip_address_type")
 
     @property
+    @pulumi.getter(name="ipamPools")
+    def ipam_pools(self) -> Sequence['outputs.GetLoadBalancerIpamPoolResult']:
+        return pulumi.get(self, "ipam_pools")
+
+    @property
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> str:
         return pulumi.get(self, "load_balancer_type")
@@ -317,6 +325,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             idle_timeout=self.idle_timeout,
             internal=self.internal,
             ip_address_type=self.ip_address_type,
+            ipam_pools=self.ipam_pools,
             load_balancer_type=self.load_balancer_type,
             name=self.name,
             preserve_host_header=self.preserve_host_header,
@@ -396,6 +405,7 @@ def get_load_balancer(arn: Optional[str] = None,
         idle_timeout=pulumi.get(__ret__, 'idle_timeout'),
         internal=pulumi.get(__ret__, 'internal'),
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
+        ipam_pools=pulumi.get(__ret__, 'ipam_pools'),
         load_balancer_type=pulumi.get(__ret__, 'load_balancer_type'),
         name=pulumi.get(__ret__, 'name'),
         preserve_host_header=pulumi.get(__ret__, 'preserve_host_header'),
@@ -472,6 +482,7 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
         idle_timeout=pulumi.get(__response__, 'idle_timeout'),
         internal=pulumi.get(__response__, 'internal'),
         ip_address_type=pulumi.get(__response__, 'ip_address_type'),
+        ipam_pools=pulumi.get(__response__, 'ipam_pools'),
         load_balancer_type=pulumi.get(__response__, 'load_balancer_type'),
         name=pulumi.get(__response__, 'name'),
         preserve_host_header=pulumi.get(__response__, 'preserve_host_header'),

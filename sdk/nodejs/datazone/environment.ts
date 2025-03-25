@@ -99,6 +99,9 @@ export class Environment extends pulumi.CustomResource {
      * The user who created the environment.
      */
     public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    /**
+     * The description of the environment.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The ID of the domain where the environment exists.
@@ -223,6 +226,9 @@ export interface EnvironmentState {
      * The user who created the environment.
      */
     createdBy?: pulumi.Input<string>;
+    /**
+     * The description of the environment.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the domain where the environment exists.
@@ -278,6 +284,9 @@ export interface EnvironmentArgs {
      * The blueprint with which the environment is created.
      */
     blueprintIdentifier?: pulumi.Input<string>;
+    /**
+     * The description of the environment.
+     */
     description?: pulumi.Input<string>;
     /**
      * The ID of the domain where the environment exists.

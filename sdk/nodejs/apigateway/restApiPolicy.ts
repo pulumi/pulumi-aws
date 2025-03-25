@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *             identifiers: ["*"],
  *         }],
  *         actions: ["execute-api:Invoke"],
- *         resources: [testRestApi.executionArn],
+ *         resources: [pulumi.interpolate`${testRestApi.executionArn}/*`],
  *         conditions: [{
  *             test: "IpAddress",
  *             variable: "aws:SourceIp",

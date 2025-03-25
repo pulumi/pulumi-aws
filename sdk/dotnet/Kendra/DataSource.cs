@@ -524,6 +524,60 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// 
+    /// ### With `WEBCRAWLERV2` Template
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kendra.DataSource("example", new()
+    ///     {
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "example",
+    ///         Type = "TEMPLATE",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
+    ///         {
+    ///             TemplateConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationTemplateConfigurationArgs
+    ///             {
+    ///                 Template = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["connectionConfiguration"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["repositoryEndpointMetadata"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["seedUrlConnections"] = new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["seedUrl"] = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kendra_index",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     ["additionalProperties"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["inclusionURLIndexPatterns"] = new[]
+    ///                         {
+    ///                             "https:\\/\\/registry[.]terraform[.]io\\/providers\\/hashicorp\\/aws\\/latest\\/docs\\/resources\\/kendra_index",
+    ///                         },
+    ///                     },
+    ///                     ["version"] = "1.0.0",
+    ///                     ["syncMode"] = "FULL_CRAWL",
+    ///                     ["type"] = "WEBCRAWLERV2",
+    ///                 }),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Kendra Data Source using the unique identifiers of the data_source and index separated by a slash (`/`). For example:
@@ -548,7 +602,7 @@ namespace Pulumi.Aws.Kendra
         public Output<Outputs.DataSourceConfiguration?> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// The Unix timestamp of when the Data Source was created.
+        /// The Unix time stamp of when the Data Source was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -572,7 +626,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+        /// When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
         /// </summary>
         [Output("errorMessage")]
         public Output<string> ErrorMessage { get; private set; } = null!;
@@ -634,7 +688,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The Unix timestamp of when the Data Source was last updated.
+        /// The Unix time stamp of when the Data Source was last updated.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -774,7 +828,7 @@ namespace Pulumi.Aws.Kendra
         public Input<Inputs.DataSourceConfigurationGetArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// The Unix timestamp of when the Data Source was created.
+        /// The Unix time stamp of when the Data Source was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -798,7 +852,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+        /// When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
         /// </summary>
         [Input("errorMessage")]
         public Input<string>? ErrorMessage { get; set; }
@@ -873,7 +927,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The Unix timestamp of when the Data Source was last updated.
+        /// The Unix time stamp of when the Data Source was last updated.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }

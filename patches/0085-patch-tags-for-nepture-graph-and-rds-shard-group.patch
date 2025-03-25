@@ -5,7 +5,7 @@ Subject: [PATCH] patch tags for nepture graph and rds shard group
 
 
 diff --git a/internal/service/neptunegraph/graph.go b/internal/service/neptunegraph/graph.go
-index a66f163377..84233dfd81 100644
+index b68cc661f6..b2885f3616 100644
 --- a/internal/service/neptunegraph/graph.go
 +++ b/internal/service/neptunegraph/graph.go
 @@ -144,7 +144,7 @@ func (r *graphResource) Schema(ctx context.Context, request resource.SchemaReque
@@ -18,7 +18,7 @@ index a66f163377..84233dfd81 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/rds/shard_group.go b/internal/service/rds/shard_group.go
-index 04258bc7a7..9b2de8cb63 100644
+index ab15481439..5326cc21cd 100644
 --- a/internal/service/rds/shard_group.go
 +++ b/internal/service/rds/shard_group.go
 @@ -113,7 +113,7 @@ func (r *shardGroupResource) Schema(ctx context.Context, request resource.Schema

@@ -63,6 +63,7 @@ __all__ = [
     'GetClusterStorageConfigResult',
     'GetClusterStorageConfigBlockStorageResult',
     'GetClusterUpgradePolicyResult',
+    'GetClusterVersionsClusterVersionResult',
     'GetClusterVpcConfigResult',
     'GetClusterZonalShiftConfigResult',
     'GetNodeGroupLaunchTemplateResult',
@@ -1817,6 +1818,116 @@ class GetClusterUpgradePolicyResult(dict):
         Support type to use for the cluster.
         """
         return pulumi.get(self, "support_type")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionResult(dict):
+    def __init__(__self__, *,
+                 cluster_type: str,
+                 cluster_version: str,
+                 default_platform_version: str,
+                 default_version: bool,
+                 end_of_extended_support_date: str,
+                 end_of_standard_support_date: str,
+                 kubernetes_patch_version: str,
+                 release_date: str,
+                 version_status: str):
+        """
+        :param str cluster_type: Type of clusters to filter by.
+               Currently, the only valid value is `eks`.
+        :param str cluster_version: Kubernetes version supported by EKS.
+        :param str default_platform_version: Default eks platform version for the cluster version.
+        :param bool default_version: Default Kubernetes version for the cluster version.
+        :param str end_of_extended_support_date: End of extended support date for the cluster version.
+        :param str end_of_standard_support_date: End of standard support date for the cluster version.
+        :param str kubernetes_patch_version: Kubernetes patch version for the cluster version.
+        :param str release_date: Release date of the cluster version.
+        :param str version_status: Status of the EKS cluster versions to list.
+               Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
+        """
+        pulumi.set(__self__, "cluster_type", cluster_type)
+        pulumi.set(__self__, "cluster_version", cluster_version)
+        pulumi.set(__self__, "default_platform_version", default_platform_version)
+        pulumi.set(__self__, "default_version", default_version)
+        pulumi.set(__self__, "end_of_extended_support_date", end_of_extended_support_date)
+        pulumi.set(__self__, "end_of_standard_support_date", end_of_standard_support_date)
+        pulumi.set(__self__, "kubernetes_patch_version", kubernetes_patch_version)
+        pulumi.set(__self__, "release_date", release_date)
+        pulumi.set(__self__, "version_status", version_status)
+
+    @property
+    @pulumi.getter(name="clusterType")
+    def cluster_type(self) -> str:
+        """
+        Type of clusters to filter by.
+        Currently, the only valid value is `eks`.
+        """
+        return pulumi.get(self, "cluster_type")
+
+    @property
+    @pulumi.getter(name="clusterVersion")
+    def cluster_version(self) -> str:
+        """
+        Kubernetes version supported by EKS.
+        """
+        return pulumi.get(self, "cluster_version")
+
+    @property
+    @pulumi.getter(name="defaultPlatformVersion")
+    def default_platform_version(self) -> str:
+        """
+        Default eks platform version for the cluster version.
+        """
+        return pulumi.get(self, "default_platform_version")
+
+    @property
+    @pulumi.getter(name="defaultVersion")
+    def default_version(self) -> bool:
+        """
+        Default Kubernetes version for the cluster version.
+        """
+        return pulumi.get(self, "default_version")
+
+    @property
+    @pulumi.getter(name="endOfExtendedSupportDate")
+    def end_of_extended_support_date(self) -> str:
+        """
+        End of extended support date for the cluster version.
+        """
+        return pulumi.get(self, "end_of_extended_support_date")
+
+    @property
+    @pulumi.getter(name="endOfStandardSupportDate")
+    def end_of_standard_support_date(self) -> str:
+        """
+        End of standard support date for the cluster version.
+        """
+        return pulumi.get(self, "end_of_standard_support_date")
+
+    @property
+    @pulumi.getter(name="kubernetesPatchVersion")
+    def kubernetes_patch_version(self) -> str:
+        """
+        Kubernetes patch version for the cluster version.
+        """
+        return pulumi.get(self, "kubernetes_patch_version")
+
+    @property
+    @pulumi.getter(name="releaseDate")
+    def release_date(self) -> str:
+        """
+        Release date of the cluster version.
+        """
+        return pulumi.get(self, "release_date")
+
+    @property
+    @pulumi.getter(name="versionStatus")
+    def version_status(self) -> str:
+        """
+        Status of the EKS cluster versions to list.
+        Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
+        """
+        return pulumi.get(self, "version_status")
 
 
 @pulumi.output_type

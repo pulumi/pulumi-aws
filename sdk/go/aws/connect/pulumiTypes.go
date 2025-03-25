@@ -4436,6 +4436,8 @@ type UserIdentityInfo struct {
 	FirstName *string `pulumi:"firstName"`
 	// The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
 	LastName *string `pulumi:"lastName"`
+	// The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+	SecondaryEmail *string `pulumi:"secondaryEmail"`
 }
 
 // UserIdentityInfoInput is an input type that accepts UserIdentityInfoArgs and UserIdentityInfoOutput values.
@@ -4456,6 +4458,8 @@ type UserIdentityInfoArgs struct {
 	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
 	// The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
 	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	// The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+	SecondaryEmail pulumi.StringPtrInput `pulumi:"secondaryEmail"`
 }
 
 func (UserIdentityInfoArgs) ElementType() reflect.Type {
@@ -4550,6 +4554,11 @@ func (o UserIdentityInfoOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityInfo) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
+// The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+func (o UserIdentityInfoOutput) SecondaryEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityInfo) *string { return v.SecondaryEmail }).(pulumi.StringPtrOutput)
+}
+
 type UserIdentityInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (UserIdentityInfoPtrOutput) ElementType() reflect.Type {
@@ -4601,6 +4610,16 @@ func (o UserIdentityInfoPtrOutput) LastName() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+func (o UserIdentityInfoPtrOutput) SecondaryEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserIdentityInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryEmail
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8218,6 +8237,8 @@ type GetUserIdentityInfo struct {
 	FirstName string `pulumi:"firstName"`
 	// The last name.
 	LastName string `pulumi:"lastName"`
+	// The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+	SecondaryEmail string `pulumi:"secondaryEmail"`
 }
 
 // GetUserIdentityInfoInput is an input type that accepts GetUserIdentityInfoArgs and GetUserIdentityInfoOutput values.
@@ -8238,6 +8259,8 @@ type GetUserIdentityInfoArgs struct {
 	FirstName pulumi.StringInput `pulumi:"firstName"`
 	// The last name.
 	LastName pulumi.StringInput `pulumi:"lastName"`
+	// The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+	SecondaryEmail pulumi.StringInput `pulumi:"secondaryEmail"`
 }
 
 func (GetUserIdentityInfoArgs) ElementType() reflect.Type {
@@ -8304,6 +8327,11 @@ func (o GetUserIdentityInfoOutput) FirstName() pulumi.StringOutput {
 // The last name.
 func (o GetUserIdentityInfoOutput) LastName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserIdentityInfo) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+// The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+func (o GetUserIdentityInfoOutput) SecondaryEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserIdentityInfo) string { return v.SecondaryEmail }).(pulumi.StringOutput)
 }
 
 type GetUserIdentityInfoArrayOutput struct{ *pulumi.OutputState }

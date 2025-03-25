@@ -90,6 +90,7 @@ export interface GetLoadBalancerResult {
     readonly idleTimeout: number;
     readonly internal: boolean;
     readonly ipAddressType: string;
+    readonly ipamPools: outputs.alb.GetLoadBalancerIpamPool[];
     readonly loadBalancerType: string;
     readonly name: string;
     readonly preserveHostHeader: boolean;

@@ -57,8 +57,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
- * 
  * ## Import
  * 
  * Using `pulumi import`, import EBS Volumes using the `id`. For example:
@@ -71,32 +69,46 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ebs/volume:Volume")
 public class Volume extends com.pulumi.resources.CustomResource {
     /**
-     * The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
+     * Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
+     * @return Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The AZ where the EBS volume will exist.
+     * Availability zone where the EBS volume will exist.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return The AZ where the EBS volume will exist.
+     * @return Availability zone where the EBS volume will exist.
      * 
      */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
+    }
+    /**
+     * Timestamp when volume creation was initiated.
+     * 
+     */
+    @Export(name="createTime", refs={String.class}, tree="[0]")
+    private Output<String> createTime;
+
+    /**
+     * @return Timestamp when volume creation was initiated.
+     * 
+     */
+    public Output<String> createTime() {
+        return this.createTime;
     }
     /**
      * If true, the disk will be encrypted.
@@ -127,28 +139,28 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.finalSnapshot);
     }
     /**
-     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+     * Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      * 
      */
     @Export(name="iops", refs={Integer.class}, tree="[0]")
     private Output<Integer> iops;
 
     /**
-     * @return The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
+     * @return Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      * 
      */
     public Output<Integer> iops() {
         return this.iops;
     }
     /**
-     * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+     * ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
+     * @return ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
      * 
      */
     public Output<String> kmsKeyId() {
@@ -169,28 +181,28 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.multiAttachEnabled);
     }
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * Amazon Resource Name (ARN) of the Outpost.
      * 
      */
     @Export(name="outpostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outpostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Outpost.
+     * @return Amazon Resource Name (ARN) of the Outpost.
      * 
      */
     public Output<Optional<String>> outpostArn() {
         return Codegen.optional(this.outpostArn);
     }
     /**
-     * The size of the drive in GiBs.
+     * Size of the drive in GiBs.
      * 
      */
     @Export(name="size", refs={Integer.class}, tree="[0]")
     private Output<Integer> size;
 
     /**
-     * @return The size of the drive in GiBs.
+     * @return Size of the drive in GiBs.
      * 
      */
     public Output<Integer> size() {
@@ -243,32 +255,32 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-     * 
-     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+     * Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      * 
      */
     @Export(name="throughput", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughput;
 
     /**
-     * @return The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
-     * 
-     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+     * @return Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      * 
      */
     public Output<Integer> throughput() {
         return this.throughput;
     }
     /**
-     * The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * 
+     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * @return Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     * 
+     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
     public Output<String> type() {

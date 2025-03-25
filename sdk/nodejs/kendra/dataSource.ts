@@ -330,6 +330,39 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With `WEBCRAWLERV2` Template
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: exampleAwsKendraIndex.id,
+ *     name: "example",
+ *     type: "TEMPLATE",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     configuration: {
+ *         templateConfiguration: {
+ *             template: JSON.stringify({
+ *                 connectionConfiguration: {
+ *                     repositoryEndpointMetadata: {
+ *                         seedUrlConnections: [{
+ *                             seedUrl: "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kendra_index",
+ *                         }],
+ *                     },
+ *                 },
+ *                 additionalProperties: {
+ *                     inclusionURLIndexPatterns: ["https:\\/\\/registry[.]terraform[.]io\\/providers\\/hashicorp\\/aws\\/latest\\/docs\\/resources\\/kendra_index"],
+ *                 },
+ *                 version: "1.0.0",
+ *                 syncMode: "FULL_CRAWL",
+ *                 type: "WEBCRAWLERV2",
+ *             }),
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Kendra Data Source using the unique identifiers of the data_source and index separated by a slash (`/`). For example:
@@ -375,7 +408,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly configuration!: pulumi.Output<outputs.kendra.DataSourceConfiguration | undefined>;
     /**
-     * The Unix timestamp of when the Data Source was created.
+     * The Unix time stamp of when the Data Source was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
@@ -391,7 +424,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+     * When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
      */
     public /*out*/ readonly errorMessage!: pulumi.Output<string>;
     /**
@@ -435,7 +468,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * The Unix timestamp of when the Data Source was last updated.
+     * The Unix time stamp of when the Data Source was last updated.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
@@ -513,7 +546,7 @@ export interface DataSourceState {
      */
     configuration?: pulumi.Input<inputs.kendra.DataSourceConfiguration>;
     /**
-     * The Unix timestamp of when the Data Source was created.
+     * The Unix time stamp of when the Data Source was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
@@ -529,7 +562,7 @@ export interface DataSourceState {
      */
     description?: pulumi.Input<string>;
     /**
-     * When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
+     * When the Status field value is `FAILED`, contains a description of the error that caused the Data Source to fail.
      */
     errorMessage?: pulumi.Input<string>;
     /**
@@ -573,7 +606,7 @@ export interface DataSourceState {
      */
     type?: pulumi.Input<string>;
     /**
-     * The Unix timestamp of when the Data Source was last updated.
+     * The Unix time stamp of when the Data Source was last updated.
      */
     updatedAt?: pulumi.Input<string>;
 }

@@ -19,7 +19,7 @@ index 1105abeaec..365d8275f8 100644
  				Required: true,
  				Validators: []validator.String{
 diff --git a/internal/service/appfabric/ingestion_destination.go b/internal/service/appfabric/ingestion_destination.go
-index 8d52e9bf6e..97df3a2c79 100644
+index faebd921b1..990c090077 100644
 --- a/internal/service/appfabric/ingestion_destination.go
 +++ b/internal/service/appfabric/ingestion_destination.go
 @@ -81,7 +81,7 @@ func (r *ingestionDestinationResource) Schema(ctx context.Context, request resou
@@ -32,7 +32,7 @@ index 8d52e9bf6e..97df3a2c79 100644
  		Blocks: map[string]schema.Block{
  			"destination_configuration": schema.ListNestedBlock{
 diff --git a/internal/service/networkfirewall/tls_inspection_configuration.go b/internal/service/networkfirewall/tls_inspection_configuration.go
-index 0139e9aeae..2c94a643c2 100644
+index 5c0212e8d3..27105536c3 100644
 --- a/internal/service/networkfirewall/tls_inspection_configuration.go
 +++ b/internal/service/networkfirewall/tls_inspection_configuration.go
 @@ -114,7 +114,7 @@ func (r *tlsInspectionConfigurationResource) Schema(ctx context.Context, request
@@ -45,7 +45,7 @@ index 0139e9aeae..2c94a643c2 100644
  			"update_token": schema.StringAttribute{
  				Computed: true,
 diff --git a/internal/service/networkmonitor/monitor.go b/internal/service/networkmonitor/monitor.go
-index dcb38d12f9..fa0a8baa0c 100644
+index 929ff1c97d..49686c485f 100644
 --- a/internal/service/networkmonitor/monitor.go
 +++ b/internal/service/networkmonitor/monitor.go
 @@ -70,7 +70,7 @@ func (r *monitorResource) Schema(ctx context.Context, request resource.SchemaReq
@@ -58,7 +58,7 @@ index dcb38d12f9..fa0a8baa0c 100644
  	}
  }
 diff --git a/internal/service/networkmonitor/probe.go b/internal/service/networkmonitor/probe.go
-index 95348fd3d6..3d89474900 100644
+index f773ee50a0..48008bd8bf 100644
 --- a/internal/service/networkmonitor/probe.go
 +++ b/internal/service/networkmonitor/probe.go
 @@ -105,7 +105,7 @@ func (r *probeResource) Schema(ctx context.Context, request resource.SchemaReque

@@ -57,9 +57,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Job("example", JobArgs.builder()
  *             .name("example")
+ *             .glueVersion("5.0")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .command(JobCommandArgs.builder()
  *                 .scriptLocation(String.format("s3://%s/example.py", exampleAwsS3Bucket.bucket()))
+ *                 .pythonVersion("3")
  *                 .build())
  *             .build());
  * 

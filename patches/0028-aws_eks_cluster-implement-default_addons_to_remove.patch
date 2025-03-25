@@ -5,10 +5,10 @@ Subject: [PATCH] aws_eks_cluster: implement default_addons_to_remove
 
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index 421b97b5e0..6bb25dd424 100644
+index 37dfefef59..24568eb8c3 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
-@@ -182,6 +182,13 @@ func resourceCluster() *schema.Resource {
+@@ -183,6 +183,13 @@ func resourceCluster() *schema.Resource {
  				Type:     schema.TypeString,
  				Computed: true,
  			},
@@ -22,7 +22,7 @@ index 421b97b5e0..6bb25dd424 100644
  			"enabled_cluster_log_types": {
  				Type:     schema.TypeSet,
  				Optional: true,
-@@ -610,7 +617,11 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
+@@ -611,7 +618,11 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta any
  		return sdkdiag.AppendErrorf(diags, "waiting for EKS Cluster (%s) create: %s", d.Id(), err)
  	}
  
@@ -34,7 +34,7 @@ index 421b97b5e0..6bb25dd424 100644
 +	return resourceClusterRead(ctx, d, meta)
  }
  
- func resourceClusterRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ func resourceClusterRead(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
 diff --git a/internal/service/eks/cluster_addon_removal.go b/internal/service/eks/cluster_addon_removal.go
 new file mode 100644
 index 0000000000..681579735e

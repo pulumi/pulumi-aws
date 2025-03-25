@@ -160,6 +160,7 @@ import javax.annotation.Nullable;
  *                 .email("example}{@literal @}{@code example.com")
  *                 .firstName("example")
  *                 .lastName("example2")
+ *                 .secondaryEmail("secondary}{@literal @}{@code example.com")
  *                 .build())
  *             .phoneConfig(UserPhoneConfigArgs.builder()
  *                 .afterContactWorkTimeLimit(0)

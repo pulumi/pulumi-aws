@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *                     .identifiers("*")
  *                     .build())
  *                 .actions("execute-api:Invoke")
- *                 .resources(testRestApi.executionArn())
+ *                 .resources(testRestApi.executionArn().applyValue(executionArn -> String.format("%s/*", executionArn)))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("IpAddress")
  *                     .variable("aws:SourceIp")

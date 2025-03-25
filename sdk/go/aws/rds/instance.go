@@ -478,6 +478,8 @@ type Instance struct {
 	// Replicate database managed by the provider will promote the database to a fully
 	// standalone database.
 	CustomerOwnedIpEnabled pulumi.BoolPtrOutput `pulumi:"customerOwnedIpEnabled"`
+	// The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+	DatabaseInsightsMode pulumi.StringOutput `pulumi:"databaseInsightsMode"`
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName pulumi.StringOutput `pulumi:"dbName"`
 	// Name of DB subnet group.
@@ -761,6 +763,8 @@ type instanceState struct {
 	// Replicate database managed by the provider will promote the database to a fully
 	// standalone database.
 	CustomerOwnedIpEnabled *bool `pulumi:"customerOwnedIpEnabled"`
+	// The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+	DatabaseInsightsMode *string `pulumi:"databaseInsightsMode"`
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName *string `pulumi:"dbName"`
 	// Name of DB subnet group.
@@ -1005,6 +1009,8 @@ type InstanceState struct {
 	// Replicate database managed by the provider will promote the database to a fully
 	// standalone database.
 	CustomerOwnedIpEnabled pulumi.BoolPtrInput
+	// The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+	DatabaseInsightsMode pulumi.StringPtrInput
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName pulumi.StringPtrInput
 	// Name of DB subnet group.
@@ -1249,6 +1255,8 @@ type instanceArgs struct {
 	// Replicate database managed by the provider will promote the database to a fully
 	// standalone database.
 	CustomerOwnedIpEnabled *bool `pulumi:"customerOwnedIpEnabled"`
+	// The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+	DatabaseInsightsMode *string `pulumi:"databaseInsightsMode"`
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName *string `pulumi:"dbName"`
 	// Name of DB subnet group.
@@ -1469,6 +1477,8 @@ type InstanceArgs struct {
 	// Replicate database managed by the provider will promote the database to a fully
 	// standalone database.
 	CustomerOwnedIpEnabled pulumi.BoolPtrInput
+	// The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+	DatabaseInsightsMode pulumi.StringPtrInput
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName pulumi.StringPtrInput
 	// Name of DB subnet group.
@@ -1824,6 +1834,11 @@ func (o InstanceOutput) CustomIamInstanceProfile() pulumi.StringPtrOutput {
 // standalone database.
 func (o InstanceOutput) CustomerOwnedIpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.CustomerOwnedIpEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+func (o InstanceOutput) DatabaseInsightsMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.DatabaseInsightsMode }).(pulumi.StringOutput)
 }
 
 // The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.

@@ -25,6 +25,11 @@ public final class GetUserIdentityInfo {
      * 
      */
     private String lastName;
+    /**
+     * @return The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+     * 
+     */
+    private String secondaryEmail;
 
     private GetUserIdentityInfo() {}
     /**
@@ -48,6 +53,13 @@ public final class GetUserIdentityInfo {
     public String lastName() {
         return this.lastName;
     }
+    /**
+     * @return The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+     * 
+     */
+    public String secondaryEmail() {
+        return this.secondaryEmail;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,12 +73,14 @@ public final class GetUserIdentityInfo {
         private String email;
         private String firstName;
         private String lastName;
+        private String secondaryEmail;
         public Builder() {}
         public Builder(GetUserIdentityInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.email = defaults.email;
     	      this.firstName = defaults.firstName;
     	      this.lastName = defaults.lastName;
+    	      this.secondaryEmail = defaults.secondaryEmail;
         }
 
         @CustomType.Setter
@@ -93,11 +107,20 @@ public final class GetUserIdentityInfo {
             this.lastName = lastName;
             return this;
         }
+        @CustomType.Setter
+        public Builder secondaryEmail(String secondaryEmail) {
+            if (secondaryEmail == null) {
+              throw new MissingRequiredPropertyException("GetUserIdentityInfo", "secondaryEmail");
+            }
+            this.secondaryEmail = secondaryEmail;
+            return this;
+        }
         public GetUserIdentityInfo build() {
             final var _resultValue = new GetUserIdentityInfo();
             _resultValue.email = email;
             _resultValue.firstName = firstName;
             _resultValue.lastName = lastName;
+            _resultValue.secondaryEmail = secondaryEmail;
             return _resultValue;
         }
     }

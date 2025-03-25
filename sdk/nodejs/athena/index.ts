@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CapacityReservationArgs, CapacityReservationState } from "./capacityReservation";
+export type CapacityReservation = import("./capacityReservation").CapacityReservation;
+export const CapacityReservation: typeof import("./capacityReservation").CapacityReservation = null as any;
+utilities.lazyLoad(exports, ["CapacityReservation"], () => require("./capacityReservation"));
+
 export { DataCatalogArgs, DataCatalogState } from "./dataCatalog";
 export type DataCatalog = import("./dataCatalog").DataCatalog;
 export const DataCatalog: typeof import("./dataCatalog").DataCatalog = null as any;
@@ -40,6 +45,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:athena/capacityReservation:CapacityReservation":
+                return new CapacityReservation(name, <any>undefined, { urn })
             case "aws:athena/dataCatalog:DataCatalog":
                 return new DataCatalog(name, <any>undefined, { urn })
             case "aws:athena/database:Database":
@@ -55,6 +62,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "athena/capacityReservation", _module)
 pulumi.runtime.registerResourceModule("aws", "athena/dataCatalog", _module)
 pulumi.runtime.registerResourceModule("aws", "athena/database", _module)
 pulumi.runtime.registerResourceModule("aws", "athena/namedQuery", _module)

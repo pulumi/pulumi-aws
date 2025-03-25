@@ -38,7 +38,7 @@ class IndexArgs:
         :param pulumi.Input['IndexCapacityUnitsArgs'] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[str] description: The description of the Index.
         :param pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationUpdateArgs']]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
-        :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
+        :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         :param pulumi.Input[str] name: Specifies the name of the Index.
         :param pulumi.Input['IndexServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Index. If configured with a provider
@@ -121,7 +121,7 @@ class IndexArgs:
     @pulumi.getter
     def edition(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
+        The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         """
         return pulumi.get(self, "edition")
 
@@ -231,7 +231,7 @@ class _IndexState:
         :param pulumi.Input[str] created_at: The Unix datetime that the index was created.
         :param pulumi.Input[str] description: The description of the Index.
         :param pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationUpdateArgs']]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
-        :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
+        :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
         :param pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticArgs']]] index_statistics: A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         :param pulumi.Input[str] name: Specifies the name of the Index.
@@ -350,7 +350,7 @@ class _IndexState:
     @pulumi.getter
     def edition(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
+        The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         """
         return pulumi.get(self, "edition")
 
@@ -1104,7 +1104,7 @@ class Index(pulumi.CustomResource):
         :param pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[str] description: The description of the Index.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
-        :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
+        :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         :param pulumi.Input[str] name: Specifies the name of the Index.
         :param pulumi.Input[str] role_arn: An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         :param pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
@@ -1792,7 +1792,7 @@ class Index(pulumi.CustomResource):
         :param pulumi.Input[str] created_at: The Unix datetime that the index was created.
         :param pulumi.Input[str] description: The description of the Index.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
-        :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
+        :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IndexIndexStatisticArgs', 'IndexIndexStatisticArgsDict']]]] index_statistics: A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         :param pulumi.Input[str] name: Specifies the name of the Index.
@@ -1875,7 +1875,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter
     def edition(self) -> pulumi.Output[Optional[str]]:
         """
-        The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
+        The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         """
         return pulumi.get(self, "edition")
 

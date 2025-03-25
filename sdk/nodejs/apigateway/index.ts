@@ -55,6 +55,11 @@ export type DomainNameAccessAssociation = import("./domainNameAccessAssociation"
 export const DomainNameAccessAssociation: typeof import("./domainNameAccessAssociation").DomainNameAccessAssociation = null as any;
 utilities.lazyLoad(exports, ["DomainNameAccessAssociation"], () => require("./domainNameAccessAssociation"));
 
+export { GetApiKeysArgs, GetApiKeysResult, GetApiKeysOutputArgs } from "./getApiKeys";
+export const getApiKeys: typeof import("./getApiKeys").getApiKeys = null as any;
+export const getApiKeysOutput: typeof import("./getApiKeys").getApiKeysOutput = null as any;
+utilities.lazyLoad(exports, ["getApiKeys","getApiKeysOutput"], () => require("./getApiKeys"));
+
 export { GetAuthorizerArgs, GetAuthorizerResult, GetAuthorizerOutputArgs } from "./getAuthorizer";
 export const getAuthorizer: typeof import("./getAuthorizer").getAuthorizer = null as any;
 export const getAuthorizerOutput: typeof import("./getAuthorizer").getAuthorizerOutput = null as any;

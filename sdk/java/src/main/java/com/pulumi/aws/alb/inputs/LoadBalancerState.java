@@ -5,6 +5,7 @@ package com.pulumi.aws.alb.inputs;
 
 import com.pulumi.aws.alb.inputs.LoadBalancerAccessLogsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerConnectionLogsArgs;
+import com.pulumi.aws.alb.inputs.LoadBalancerIpamPoolsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerSubnetMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -338,6 +339,21 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+     * 
+     */
+    @Import(name="ipamPools")
+    private @Nullable Output<LoadBalancerIpamPoolsArgs> ipamPools;
+
+    /**
+     * @return . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+     * 
+     */
+    public Optional<Output<LoadBalancerIpamPoolsArgs>> ipamPools() {
+        return Optional.ofNullable(this.ipamPools);
+    }
+
+    /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      * 
      */
@@ -541,6 +557,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         this.idleTimeout = $.idleTimeout;
         this.internal = $.internal;
         this.ipAddressType = $.ipAddressType;
+        this.ipamPools = $.ipamPools;
         this.loadBalancerType = $.loadBalancerType;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
@@ -1012,6 +1029,27 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
+        }
+
+        /**
+         * @param ipamPools . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipamPools(@Nullable Output<LoadBalancerIpamPoolsArgs> ipamPools) {
+            $.ipamPools = ipamPools;
+            return this;
+        }
+
+        /**
+         * @param ipamPools . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipamPools(LoadBalancerIpamPoolsArgs ipamPools) {
+            return ipamPools(Output.of(ipamPools));
         }
 
         /**

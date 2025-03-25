@@ -4,6 +4,7 @@
 package com.pulumi.aws.kendra.inputs;
 
 import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationArgs;
+import com.pulumi.aws.kendra.inputs.DataSourceConfigurationTemplateConfigurationArgs;
 import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -19,14 +20,22 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
      * 
+     * @deprecated
+     * s3_configuration is deprecated. Use template_configuration instead.
+     * 
      */
+    @Deprecated /* s3_configuration is deprecated. Use template_configuration instead. */
     @Import(name="s3Configuration")
     private @Nullable Output<DataSourceConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
      * @return A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
      * 
+     * @deprecated
+     * s3_configuration is deprecated. Use template_configuration instead.
+     * 
      */
+    @Deprecated /* s3_configuration is deprecated. Use template_configuration instead. */
     public Optional<Output<DataSourceConfigurationS3ConfigurationArgs>> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }
@@ -35,13 +44,36 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
      * A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
      * 
      */
+    @Import(name="templateConfiguration")
+    private @Nullable Output<DataSourceConfigurationTemplateConfigurationArgs> templateConfiguration;
+
+    /**
+     * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * 
+     */
+    public Optional<Output<DataSourceConfigurationTemplateConfigurationArgs>> templateConfiguration() {
+        return Optional.ofNullable(this.templateConfiguration);
+    }
+
+    /**
+     * A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * 
+     * @deprecated
+     * web_crawler_configuration is deprecated. Use template_configuration instead.
+     * 
+     */
+    @Deprecated /* web_crawler_configuration is deprecated. Use template_configuration instead. */
     @Import(name="webCrawlerConfiguration")
     private @Nullable Output<DataSourceConfigurationWebCrawlerConfigurationArgs> webCrawlerConfiguration;
 
     /**
      * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
      * 
+     * @deprecated
+     * web_crawler_configuration is deprecated. Use template_configuration instead.
+     * 
      */
+    @Deprecated /* web_crawler_configuration is deprecated. Use template_configuration instead. */
     public Optional<Output<DataSourceConfigurationWebCrawlerConfigurationArgs>> webCrawlerConfiguration() {
         return Optional.ofNullable(this.webCrawlerConfiguration);
     }
@@ -50,6 +82,7 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
 
     private DataSourceConfigurationArgs(DataSourceConfigurationArgs $) {
         this.s3Configuration = $.s3Configuration;
+        this.templateConfiguration = $.templateConfiguration;
         this.webCrawlerConfiguration = $.webCrawlerConfiguration;
     }
 
@@ -76,7 +109,11 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * s3_configuration is deprecated. Use template_configuration instead.
+         * 
          */
+        @Deprecated /* s3_configuration is deprecated. Use template_configuration instead. */
         public Builder s3Configuration(@Nullable Output<DataSourceConfigurationS3ConfigurationArgs> s3Configuration) {
             $.s3Configuration = s3Configuration;
             return this;
@@ -87,9 +124,34 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * s3_configuration is deprecated. Use template_configuration instead.
+         * 
          */
+        @Deprecated /* s3_configuration is deprecated. Use template_configuration instead. */
         public Builder s3Configuration(DataSourceConfigurationS3ConfigurationArgs s3Configuration) {
             return s3Configuration(Output.of(s3Configuration));
+        }
+
+        /**
+         * @param templateConfiguration A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder templateConfiguration(@Nullable Output<DataSourceConfigurationTemplateConfigurationArgs> templateConfiguration) {
+            $.templateConfiguration = templateConfiguration;
+            return this;
+        }
+
+        /**
+         * @param templateConfiguration A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder templateConfiguration(DataSourceConfigurationTemplateConfigurationArgs templateConfiguration) {
+            return templateConfiguration(Output.of(templateConfiguration));
         }
 
         /**
@@ -97,7 +159,11 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * web_crawler_configuration is deprecated. Use template_configuration instead.
+         * 
          */
+        @Deprecated /* web_crawler_configuration is deprecated. Use template_configuration instead. */
         public Builder webCrawlerConfiguration(@Nullable Output<DataSourceConfigurationWebCrawlerConfigurationArgs> webCrawlerConfiguration) {
             $.webCrawlerConfiguration = webCrawlerConfiguration;
             return this;
@@ -108,7 +174,11 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * web_crawler_configuration is deprecated. Use template_configuration instead.
+         * 
          */
+        @Deprecated /* web_crawler_configuration is deprecated. Use template_configuration instead. */
         public Builder webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs webCrawlerConfiguration) {
             return webCrawlerConfiguration(Output.of(webCrawlerConfiguration));
         }

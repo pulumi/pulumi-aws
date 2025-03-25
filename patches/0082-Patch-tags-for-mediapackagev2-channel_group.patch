@@ -5,7 +5,7 @@ Subject: [PATCH] Patch tags for mediapackagev2 channel_group
 
 
 diff --git a/internal/service/mediapackagev2/channel_group.go b/internal/service/mediapackagev2/channel_group.go
-index b65b0e6c1a..bcc563574e 100644
+index c945c0140f..151fab8454 100644
 --- a/internal/service/mediapackagev2/channel_group.go
 +++ b/internal/service/mediapackagev2/channel_group.go
 @@ -66,7 +66,7 @@ func (r *resourceChannelGroup) Schema(ctx context.Context, request resource.Sche

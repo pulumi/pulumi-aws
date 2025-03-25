@@ -15,6 +15,7 @@ from .documentation_part import *
 from .documentation_version import *
 from .domain_name import *
 from .domain_name_access_association import *
+from .get_api_keys import *
 from .get_authorizer import *
 from .get_authorizers import *
 from .get_domain_name import *

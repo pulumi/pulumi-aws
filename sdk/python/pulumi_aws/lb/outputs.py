@@ -42,6 +42,7 @@ __all__ = [
     'ListenerRuleConditionSourceIp',
     'LoadBalancerAccessLogs',
     'LoadBalancerConnectionLogs',
+    'LoadBalancerIpamPools',
     'LoadBalancerSubnetMapping',
     'TargetGroupHealthCheck',
     'TargetGroupStickiness',
@@ -77,6 +78,7 @@ __all__ = [
     'GetListenerRuleConditionSourceIpResult',
     'GetLoadBalancerAccessLogsResult',
     'GetLoadBalancerConnectionLogResult',
+    'GetLoadBalancerIpamPoolResult',
     'GetLoadBalancerSubnetMappingResult',
     'GetTargetGroupHealthCheckResult',
     'GetTargetGroupStickinessResult',
@@ -1894,6 +1896,41 @@ class LoadBalancerConnectionLogs(dict):
 
 
 @pulumi.output_type
+class LoadBalancerIpamPools(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4IpamPoolId":
+            suggest = "ipv4_ipam_pool_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerIpamPools. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerIpamPools.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerIpamPools.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv4_ipam_pool_id: str):
+        """
+        :param str ipv4_ipam_pool_id: The ID of the IPv4 IPAM pool.
+        """
+        pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+
+    @property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> str:
+        """
+        The ID of the IPv4 IPAM pool.
+        """
+        return pulumi.get(self, "ipv4_ipam_pool_id")
+
+
+@pulumi.output_type
 class LoadBalancerSubnetMapping(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3646,6 +3683,18 @@ class GetLoadBalancerConnectionLogResult(dict):
     @pulumi.getter
     def prefix(self) -> str:
         return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class GetLoadBalancerIpamPoolResult(dict):
+    def __init__(__self__, *,
+                 ipv4_ipam_pool_id: str):
+        pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+
+    @property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> str:
+        return pulumi.get(self, "ipv4_ipam_pool_id")
 
 
 @pulumi.output_type

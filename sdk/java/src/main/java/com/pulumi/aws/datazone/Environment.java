@@ -160,9 +160,17 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<String> createdBy() {
         return this.createdBy;
     }
+    /**
+     * The description of the environment.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description of the environment.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }

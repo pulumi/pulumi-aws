@@ -777,9 +777,11 @@ class Job(pulumi.CustomResource):
 
         example = aws.glue.Job("example",
             name="example",
+            glue_version="5.0",
             role_arn=example_aws_iam_role["arn"],
             command={
                 "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
+                "python_version": "3",
             })
         ```
 
@@ -910,9 +912,11 @@ class Job(pulumi.CustomResource):
 
         example = aws.glue.Job("example",
             name="example",
+            glue_version="5.0",
             role_arn=example_aws_iam_role["arn"],
             command={
                 "script_location": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
+                "python_version": "3",
             })
         ```
 

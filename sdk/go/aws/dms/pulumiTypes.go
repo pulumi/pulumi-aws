@@ -2959,9 +2959,9 @@ type ReplicationConfigComputeConfig struct {
 	DnsNameServers *string `pulumi:"dnsNameServers"`
 	// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+	// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
 	MaxCapacityUnits *int `pulumi:"maxCapacityUnits"`
-	// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+	// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
 	MinCapacityUnits *int `pulumi:"minCapacityUnits"`
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz *bool `pulumi:"multiAz"`
@@ -2996,9 +2996,9 @@ type ReplicationConfigComputeConfigArgs struct {
 	DnsNameServers pulumi.StringPtrInput `pulumi:"dnsNameServers"`
 	// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+	// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
 	MaxCapacityUnits pulumi.IntPtrInput `pulumi:"maxCapacityUnits"`
-	// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+	// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
 	MinCapacityUnits pulumi.IntPtrInput `pulumi:"minCapacityUnits"`
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolPtrInput `pulumi:"multiAz"`
@@ -3107,12 +3107,12 @@ func (o ReplicationConfigComputeConfigOutput) KmsKeyId() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
 func (o ReplicationConfigComputeConfigOutput) MaxCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *int { return v.MaxCapacityUnits }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
 func (o ReplicationConfigComputeConfigOutput) MinCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *int { return v.MinCapacityUnits }).(pulumi.IntPtrOutput)
 }
@@ -3196,7 +3196,7 @@ func (o ReplicationConfigComputeConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
 func (o ReplicationConfigComputeConfigPtrOutput) MaxCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *int {
 		if v == nil {
@@ -3206,7 +3206,7 @@ func (o ReplicationConfigComputeConfigPtrOutput) MaxCapacityUnits() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
 func (o ReplicationConfigComputeConfigPtrOutput) MinCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *int {
 		if v == nil {

@@ -9,7 +9,7 @@ in state.
 Fix for https://github.com/pulumi/pulumi-aws/issues/2307.
 
 diff --git a/internal/service/sqs/queue_redrive_policy.go b/internal/service/sqs/queue_redrive_policy.go
-index 6fa2453433..906f4e3f52 100644
+index 38736d71b1..e8ccf54fe7 100644
 --- a/internal/service/sqs/queue_redrive_policy.go
 +++ b/internal/service/sqs/queue_redrive_policy.go
 @@ -32,9 +32,10 @@ func resourceQueueRedrivePolicy() *schema.Resource {
@@ -23,6 +23,6 @@ index 6fa2453433..906f4e3f52 100644
 +				Required:         true,
 +				ValidateFunc:     validation.StringIsJSON,
 +				DiffSuppressFunc: verify.SuppressEquivalentJSONDiffs,
- 				StateFunc: func(v interface{}) string {
+ 				StateFunc: func(v any) string {
  					json, _ := structure.NormalizeJsonString(v)
  					return json

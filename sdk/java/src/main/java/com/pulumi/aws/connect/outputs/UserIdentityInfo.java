@@ -26,6 +26,11 @@ public final class UserIdentityInfo {
      * 
      */
     private @Nullable String lastName;
+    /**
+     * @return The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+     * 
+     */
+    private @Nullable String secondaryEmail;
 
     private UserIdentityInfo() {}
     /**
@@ -49,6 +54,13 @@ public final class UserIdentityInfo {
     public Optional<String> lastName() {
         return Optional.ofNullable(this.lastName);
     }
+    /**
+     * @return The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+     * 
+     */
+    public Optional<String> secondaryEmail() {
+        return Optional.ofNullable(this.secondaryEmail);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -62,12 +74,14 @@ public final class UserIdentityInfo {
         private @Nullable String email;
         private @Nullable String firstName;
         private @Nullable String lastName;
+        private @Nullable String secondaryEmail;
         public Builder() {}
         public Builder(UserIdentityInfo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.email = defaults.email;
     	      this.firstName = defaults.firstName;
     	      this.lastName = defaults.lastName;
+    	      this.secondaryEmail = defaults.secondaryEmail;
         }
 
         @CustomType.Setter
@@ -88,11 +102,18 @@ public final class UserIdentityInfo {
             this.lastName = lastName;
             return this;
         }
+        @CustomType.Setter
+        public Builder secondaryEmail(@Nullable String secondaryEmail) {
+
+            this.secondaryEmail = secondaryEmail;
+            return this;
+        }
         public UserIdentityInfo build() {
             final var _resultValue = new UserIdentityInfo();
             _resultValue.email = email;
             _resultValue.firstName = firstName;
             _resultValue.lastName = lastName;
+            _resultValue.secondaryEmail = secondaryEmail;
             return _resultValue;
         }
     }

@@ -54,7 +54,7 @@ export interface GetVolumeArgs {
     filters?: inputs.ebs.GetVolumeFilter[];
     /**
      * If more than one result is returned, use the most
-     * recent Volume.
+     * recent volume.
      */
     mostRecent?: boolean;
     /**
@@ -72,9 +72,13 @@ export interface GetVolumeResult {
      */
     readonly arn: string;
     /**
-     * AZ where the EBS volume exists.
+     * Availability zone where the EBS volume exists.
      */
     readonly availabilityZone: string;
+    /**
+     * Timestamp when volume creation was initiated.
+     */
+    readonly createTime: string;
     /**
      * Whether the disk is encrypted.
      */
@@ -173,7 +177,7 @@ export interface GetVolumeOutputArgs {
     filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetVolumeFilterArgs>[]>;
     /**
      * If more than one result is returned, use the most
-     * recent Volume.
+     * recent volume.
      */
     mostRecent?: pulumi.Input<boolean>;
     /**

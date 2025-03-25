@@ -76,6 +76,7 @@ import * as utilities from "../utilities";
  *         email: "example@example.com",
  *         firstName: "example",
  *         lastName: "example2",
+ *         secondaryEmail: "secondary@example.com",
  *     },
  *     phoneConfig: {
  *         afterContactWorkTimeLimit: 0,

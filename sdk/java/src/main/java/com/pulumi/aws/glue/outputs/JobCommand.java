@@ -18,7 +18,7 @@ public final class JobCommand {
      */
     private @Nullable String name;
     /**
-     * @return The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
+     * @return The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glue_version` is set to 5.0.
      * 
      */
     private @Nullable String pythonVersion;
@@ -42,7 +42,7 @@ public final class JobCommand {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
+     * @return The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glue_version` is set to 5.0.
      * 
      */
     public Optional<String> pythonVersion() {

@@ -15,8 +15,14 @@ var _ = internal.GetEnvOrDefault
 
 type DataSourceConfiguration struct {
 	// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+	//
+	// Deprecated: s3_configuration is deprecated. Use templateConfiguration instead.
 	S3Configuration *DataSourceConfigurationS3Configuration `pulumi:"s3Configuration"`
 	// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+	TemplateConfiguration *DataSourceConfigurationTemplateConfiguration `pulumi:"templateConfiguration"`
+	// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+	//
+	// Deprecated: web_crawler_configuration is deprecated. Use templateConfiguration instead.
 	WebCrawlerConfiguration *DataSourceConfigurationWebCrawlerConfiguration `pulumi:"webCrawlerConfiguration"`
 }
 
@@ -33,8 +39,14 @@ type DataSourceConfigurationInput interface {
 
 type DataSourceConfigurationArgs struct {
 	// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+	//
+	// Deprecated: s3_configuration is deprecated. Use templateConfiguration instead.
 	S3Configuration DataSourceConfigurationS3ConfigurationPtrInput `pulumi:"s3Configuration"`
 	// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+	TemplateConfiguration DataSourceConfigurationTemplateConfigurationPtrInput `pulumi:"templateConfiguration"`
+	// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+	//
+	// Deprecated: web_crawler_configuration is deprecated. Use templateConfiguration instead.
 	WebCrawlerConfiguration DataSourceConfigurationWebCrawlerConfigurationPtrInput `pulumi:"webCrawlerConfiguration"`
 }
 
@@ -116,11 +128,22 @@ func (o DataSourceConfigurationOutput) ToDataSourceConfigurationPtrOutputWithCon
 }
 
 // A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+//
+// Deprecated: s3_configuration is deprecated. Use templateConfiguration instead.
 func (o DataSourceConfigurationOutput) S3Configuration() DataSourceConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceConfigurationS3Configuration { return v.S3Configuration }).(DataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
 // A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+func (o DataSourceConfigurationOutput) TemplateConfiguration() DataSourceConfigurationTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceConfigurationTemplateConfiguration {
+		return v.TemplateConfiguration
+	}).(DataSourceConfigurationTemplateConfigurationPtrOutput)
+}
+
+// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+//
+// Deprecated: web_crawler_configuration is deprecated. Use templateConfiguration instead.
 func (o DataSourceConfigurationOutput) WebCrawlerConfiguration() DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceConfigurationWebCrawlerConfiguration {
 		return v.WebCrawlerConfiguration
@@ -152,6 +175,8 @@ func (o DataSourceConfigurationPtrOutput) Elem() DataSourceConfigurationOutput {
 }
 
 // A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+//
+// Deprecated: s3_configuration is deprecated. Use templateConfiguration instead.
 func (o DataSourceConfigurationPtrOutput) S3Configuration() DataSourceConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceConfigurationS3Configuration {
 		if v == nil {
@@ -162,6 +187,18 @@ func (o DataSourceConfigurationPtrOutput) S3Configuration() DataSourceConfigurat
 }
 
 // A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+func (o DataSourceConfigurationPtrOutput) TemplateConfiguration() DataSourceConfigurationTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceConfigurationTemplateConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateConfiguration
+	}).(DataSourceConfigurationTemplateConfigurationPtrOutput)
+}
+
+// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+//
+// Deprecated: web_crawler_configuration is deprecated. Use templateConfiguration instead.
 func (o DataSourceConfigurationPtrOutput) WebCrawlerConfiguration() DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceConfigurationWebCrawlerConfiguration {
 		if v == nil {
@@ -680,6 +717,143 @@ func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrO
 			return nil
 		}
 		return v.S3Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceConfigurationTemplateConfiguration struct {
+	// JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
+	Template string `pulumi:"template"`
+}
+
+// DataSourceConfigurationTemplateConfigurationInput is an input type that accepts DataSourceConfigurationTemplateConfigurationArgs and DataSourceConfigurationTemplateConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationTemplateConfigurationInput` via:
+//
+//	DataSourceConfigurationTemplateConfigurationArgs{...}
+type DataSourceConfigurationTemplateConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationTemplateConfigurationOutput() DataSourceConfigurationTemplateConfigurationOutput
+	ToDataSourceConfigurationTemplateConfigurationOutputWithContext(context.Context) DataSourceConfigurationTemplateConfigurationOutput
+}
+
+type DataSourceConfigurationTemplateConfigurationArgs struct {
+	// JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
+	Template pulumi.StringInput `pulumi:"template"`
+}
+
+func (DataSourceConfigurationTemplateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationTemplateConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationTemplateConfigurationArgs) ToDataSourceConfigurationTemplateConfigurationOutput() DataSourceConfigurationTemplateConfigurationOutput {
+	return i.ToDataSourceConfigurationTemplateConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationTemplateConfigurationArgs) ToDataSourceConfigurationTemplateConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationTemplateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationTemplateConfigurationOutput)
+}
+
+func (i DataSourceConfigurationTemplateConfigurationArgs) ToDataSourceConfigurationTemplateConfigurationPtrOutput() DataSourceConfigurationTemplateConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationTemplateConfigurationArgs) ToDataSourceConfigurationTemplateConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationTemplateConfigurationOutput).ToDataSourceConfigurationTemplateConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationTemplateConfigurationPtrInput is an input type that accepts DataSourceConfigurationTemplateConfigurationArgs, DataSourceConfigurationTemplateConfigurationPtr and DataSourceConfigurationTemplateConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationTemplateConfigurationPtrInput` via:
+//
+//	        DataSourceConfigurationTemplateConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationTemplateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationTemplateConfigurationPtrOutput() DataSourceConfigurationTemplateConfigurationPtrOutput
+	ToDataSourceConfigurationTemplateConfigurationPtrOutputWithContext(context.Context) DataSourceConfigurationTemplateConfigurationPtrOutput
+}
+
+type dataSourceConfigurationTemplateConfigurationPtrType DataSourceConfigurationTemplateConfigurationArgs
+
+func DataSourceConfigurationTemplateConfigurationPtr(v *DataSourceConfigurationTemplateConfigurationArgs) DataSourceConfigurationTemplateConfigurationPtrInput {
+	return (*dataSourceConfigurationTemplateConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfigurationTemplateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationTemplateConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationTemplateConfigurationPtrType) ToDataSourceConfigurationTemplateConfigurationPtrOutput() DataSourceConfigurationTemplateConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationTemplateConfigurationPtrType) ToDataSourceConfigurationTemplateConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationTemplateConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationTemplateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationTemplateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationTemplateConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationTemplateConfigurationOutput) ToDataSourceConfigurationTemplateConfigurationOutput() DataSourceConfigurationTemplateConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationTemplateConfigurationOutput) ToDataSourceConfigurationTemplateConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationTemplateConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationTemplateConfigurationOutput) ToDataSourceConfigurationTemplateConfigurationPtrOutput() DataSourceConfigurationTemplateConfigurationPtrOutput {
+	return o.ToDataSourceConfigurationTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationTemplateConfigurationOutput) ToDataSourceConfigurationTemplateConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationTemplateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationTemplateConfiguration) *DataSourceConfigurationTemplateConfiguration {
+		return &v
+	}).(DataSourceConfigurationTemplateConfigurationPtrOutput)
+}
+
+// JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
+func (o DataSourceConfigurationTemplateConfigurationOutput) Template() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceConfigurationTemplateConfiguration) string { return v.Template }).(pulumi.StringOutput)
+}
+
+type DataSourceConfigurationTemplateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationTemplateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationTemplateConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationTemplateConfigurationPtrOutput) ToDataSourceConfigurationTemplateConfigurationPtrOutput() DataSourceConfigurationTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationTemplateConfigurationPtrOutput) ToDataSourceConfigurationTemplateConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationTemplateConfigurationPtrOutput) Elem() DataSourceConfigurationTemplateConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationTemplateConfiguration) DataSourceConfigurationTemplateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationTemplateConfiguration
+		return ret
+	}).(DataSourceConfigurationTemplateConfigurationOutput)
+}
+
+// JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
+func (o DataSourceConfigurationTemplateConfigurationPtrOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationTemplateConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Template
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9122,6 +9296,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationInput)(nil)).Elem(), DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationTemplateConfigurationInput)(nil)).Elem(), DataSourceConfigurationTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationTemplateConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs{})
@@ -9244,6 +9420,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationTemplateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput{})

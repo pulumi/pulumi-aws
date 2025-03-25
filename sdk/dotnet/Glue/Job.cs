@@ -29,10 +29,12 @@ namespace Pulumi.Aws.Glue
     ///     var example = new Aws.Glue.Job("example", new()
     ///     {
     ///         Name = "example",
+    ///         GlueVersion = "5.0",
     ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Command = new Aws.Glue.Inputs.JobCommandArgs
     ///         {
     ///             ScriptLocation = $"s3://{exampleAwsS3Bucket.Bucket}/example.py",
+    ///             PythonVersion = "3",
     ///         },
     ///     });
     /// 

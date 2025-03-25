@@ -67,6 +67,8 @@ __all__ = [
     'LoadBalancerAccessLogsArgsDict',
     'LoadBalancerConnectionLogsArgs',
     'LoadBalancerConnectionLogsArgsDict',
+    'LoadBalancerIpamPoolsArgs',
+    'LoadBalancerIpamPoolsArgsDict',
     'LoadBalancerSubnetMappingArgs',
     'LoadBalancerSubnetMappingArgsDict',
     'TargetGroupHealthCheckArgs',
@@ -2591,6 +2593,37 @@ class LoadBalancerConnectionLogsArgs:
     @prefix.setter
     def prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "prefix", value)
+
+
+if not MYPY:
+    class LoadBalancerIpamPoolsArgsDict(TypedDict):
+        ipv4_ipam_pool_id: pulumi.Input[str]
+        """
+        The ID of the IPv4 IPAM pool.
+        """
+elif False:
+    LoadBalancerIpamPoolsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerIpamPoolsArgs:
+    def __init__(__self__, *,
+                 ipv4_ipam_pool_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of the IPv4 IPAM pool.
+        """
+        pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+
+    @property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the IPv4 IPAM pool.
+        """
+        return pulumi.get(self, "ipv4_ipam_pool_id")
+
+    @ipv4_ipam_pool_id.setter
+    def ipv4_ipam_pool_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ipv4_ipam_pool_id", value)
 
 
 if not MYPY:

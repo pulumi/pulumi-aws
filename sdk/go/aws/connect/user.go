@@ -121,9 +121,10 @@ import (
 //					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //				},
 //				IdentityInfo: &connect.UserIdentityInfoArgs{
-//					Email:     pulumi.String("example@example.com"),
-//					FirstName: pulumi.String("example"),
-//					LastName:  pulumi.String("example2"),
+//					Email:          pulumi.String("example@example.com"),
+//					FirstName:      pulumi.String("example"),
+//					LastName:       pulumi.String("example2"),
+//					SecondaryEmail: pulumi.String("secondary@example.com"),
 //				},
 //				PhoneConfig: &connect.UserPhoneConfigArgs{
 //					AfterContactWorkTimeLimit: pulumi.Int(0),
