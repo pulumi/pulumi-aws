@@ -81,20 +81,21 @@ jobs:
       run: |-
         pip3 install virtualenv==20.0.23
         pip3 install pipenv
-    - name: Install dependencies
-      run: make install_${{ matrix.language}}_sdk
-    - id: generate_pulumi_token
-      name: Generate Pulumi Access Token
-      uses: pulumi/auth-actions@v1
+    - name: Generate Pulumi Access Token
+      id: generate_pulumi_token
+      uses: pulumi/auth-actions@1c89817aab0c66407723cdef72b05266e7376640 # v1.0.1
       with:
-        export-environment-variables: false
         organization: pulumi
         requested-token-type: urn:pulumi:token-type:access_token:organization
-    - env:
+        export-environment-variables: false
+    - name: Export AWS Credentials
+      uses: pulumi/esc-action@41fd832f44f4820124b5350b5f84a00f741f234e # v1.3.0
+      env:
         PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
-      uses: pulumi/esc-action@v1
       with:
         environment: logins/pulumi-ci
+    - name: Install dependencies
+      run: make install_${{ matrix.language}}_sdk
     - name: Run tests
       if: matrix.testTarget == 'local'
       run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 .

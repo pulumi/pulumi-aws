@@ -53,20 +53,7 @@ plugins:
 pulumiConvert: 1
 allowMissingDocs: false
 goBuildParallelism: 2
-actions:
-  preTest:
-    - name: Generate Pulumi Access Token
-      id: generate_pulumi_token
-      uses: pulumi/auth-actions@v1
-      with:
-        organization: pulumi
-        requested-token-type: urn:pulumi:token-type:access_token:organization
-        export-environment-variables: false
-    - uses: pulumi/esc-action@v1
-      env:
-        PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
-      with:
-        environment: logins/pulumi-ci
+aws: true
 
 releaseVerification:
   nodejs: examples/release-verification

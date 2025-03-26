@@ -78,16 +78,25 @@ jobs:
         uses: ./.github/actions/setup-tools
         with:
           tools: pulumicli, nodejs, python, dotnet, go, java
-      - id: generate_pulumi_token
-        name: Generate Pulumi Access Token
-        uses: pulumi/auth-actions@v1
+      - name: Generate Pulumi Access Token
+        id: generate_pulumi_token
+        uses: pulumi/auth-actions@1c89817aab0c66407723cdef72b05266e7376640 # v1.0.1
         with:
-          export-environment-variables: false
           organization: pulumi
           requested-token-type: urn:pulumi:token-type:access_token:organization
-      - env:
+          export-environment-variables: false
+      # workaround for https://github.com/pulumi/esc-action/issues/10
+      - name: Install esc on Windows
+        if: ${{ matrix.runner == 'windows-latest' }}
+        shell: pwsh
+        run: |
+          [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+          iex ((New-Object System.Net.WebClient).DownloadString('https://get.pulumi.com/esc/install.ps1'))
+          Copy-Item "$env:USERPROFILE\.pulumi\bin\esc.exe" "C:\Windows\System32\esc.exe"
+      - name: Export AWS Credentials
+        uses: pulumi/esc-action@41fd832f44f4820124b5350b5f84a00f741f234e # v1.3.0
+        env:
           PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
-        uses: pulumi/esc-action@v1
         with:
           environment: logins/pulumi-ci
       - name: Verify nodejs release

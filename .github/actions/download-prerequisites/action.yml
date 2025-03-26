@@ -5,7 +5,7 @@ runs:
   using: "composite"
   steps:
     - name: Download the prerequisites bin
-      uses: actions/download-artifact@cc203385981b70ca67e1cc392babf9cc229d5806 # v4.1.9
+      uses: actions/download-artifact@95815c38cf2ff2164869cbab79da8d1f422bc89e # v4.2.1
       with:
         name: prerequisites-bin
         path: bin
@@ -19,7 +19,7 @@ runs:
       run: rm bin/executables.txt
 
     - name: Download schema-embed.json
-      uses: actions/download-artifact@cc203385981b70ca67e1cc392babf9cc229d5806 # v4.1.9
+      uses: actions/download-artifact@95815c38cf2ff2164869cbab79da8d1f422bc89e # v4.2.1
       with:
         # Use a pattern to avoid failing if the artifact doesn't exist
         pattern: schema-embed.*
