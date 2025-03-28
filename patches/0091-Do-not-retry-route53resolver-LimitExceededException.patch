@@ -1,15 +1,15 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
-Date: Thu, 27 Mar 2025 15:34:04 -0400
+Date: Fri, 28 Mar 2025 10:11:28 -0400
 Subject: [PATCH] Do not retry route53resolver LimitExceededException
 
 
 diff --git a/internal/service/route53resolver/service_package_extra_options.go b/internal/service/route53resolver/service_package_extra_options.go
 new file mode 100644
-index 0000000000..658e591e18
+index 0000000000..e35a2237a4
 --- /dev/null
 +++ b/internal/service/route53resolver/service_package_extra_options.go
-@@ -0,0 +1,52 @@
+@@ -0,0 +1,49 @@
 +package route53resolver
 +
 +import (
@@ -29,26 +29,23 @@ index 0000000000..658e591e18
 +	ctx context.Context,
 +	config map[string]any,
 +) []func(*route53resolver.Options) {
-+	retryer := mustFindRetryer(config)
++	retryer := findRetryer(config)
 +	return []func(*route53resolver.Options){func(o *route53resolver.Options) {
 +		o.Retryer = conns.AddIsErrorRetryables(retryer, doNotRetryLimitExceededException())
 +	}}
 +
 +}
 +
-+func mustFindRetryer(config map[string]any) aws_sdkv2.RetryerV2 {
-+	var retryer *aws_sdkv2.RetryerV2
++func findRetryer(config map[string]any) aws_sdkv2.RetryerV2 {
++	var retryer aws_sdkv2.RetryerV2
 +	if cfg, ok := config["aws_sdkv2_config"]; ok {
 +		if cfgp, ok := cfg.(*aws_sdkv2.Config); ok {
 +			if r, ok := cfgp.Retryer().(aws_sdkv2.RetryerV2); ok {
-+				retryer = &r
++				retryer = r
 +			}
 +		}
 +	}
-+	if retryer == nil {
-+		panic("Expected config['aws_sdk2_config'] to carry a Config with a RetryerV2")
-+	}
-+	return *retryer
++	return retryer
 +}
 +
 +func doNotRetryLimitExceededException() retry_sdkv2.IsErrorRetryable {
