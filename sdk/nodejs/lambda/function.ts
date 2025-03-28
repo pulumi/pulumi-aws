@@ -256,7 +256,7 @@ export class Function extends pulumi.CustomResource {
     }
 
     /**
-     * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
+     * Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
      */
     public readonly architectures!: pulumi.Output<string[]>;
     /**
@@ -557,7 +557,7 @@ export class Function extends pulumi.CustomResource {
  */
 export interface FunctionState {
     /**
-     * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
+     * Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
      */
     architectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -747,7 +747,7 @@ export interface FunctionState {
  */
 export interface FunctionArgs {
     /**
-     * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
+     * Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
      */
     architectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
