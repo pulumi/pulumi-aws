@@ -1079,6 +1079,36 @@ func TestRegress4568(t *testing.T) {
 	})
 }
 
+func TestRegress5219(t *testing.T) {
+	skipIfShort(t)
+	dir := filepath.Join("test-programs", "regress-5219")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	providerName := "aws"
+	options := []opttest.Option{
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+	t1 := time.Now()
+	ef := &expectFailure{T: t}
+	upResult := test.Up(ef)
+	t.Logf("%#v", upResult.Summary.ResourceChanges)
+	t2 := time.Now()
+	assert.Truef(t, ef.failed, "Expected pulumi up to fail")
+	assert.Truef(t, t2.Sub(t1) < 10*time.Minute, "Expected pulumi up to fail within 10 minutes")
+}
+
+type expectFailure struct {
+	*testing.T
+	failed bool
+}
+
+func (ef *expectFailure) FailNow() {
+	ef.T.Log("Ignoring FailNow()")
+	ef.failed = true
+}
+
 // Tests that there are no diagnostics by default on simple programs.
 func TestNoExtranousLogOutput(t *testing.T) {
 	skipIfShort(t)
