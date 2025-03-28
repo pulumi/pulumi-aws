@@ -54,6 +54,8 @@ jobs:
             tests: TestAccDocDBCluster_basic
           - service: redshiftserverless
             tests: TestAccRedshiftServerlessNamespace_basic
+          - service: route53resolver
+            tests: TestAccRoute53Resolver
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
