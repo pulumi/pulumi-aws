@@ -1091,10 +1091,13 @@ func TestRegress5219(t *testing.T) {
 		opttest.YarnLink("@pulumi/aws"),
 	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
+	t1 := time.Now()
 	ef := &expectFailure{T: t}
 	upResult := test.Up(ef)
 	t.Logf("%#v", upResult.Summary.ResourceChanges)
+	t2 := time.Now()
 	assert.Truef(t, ef.failed, "Expected pulumi up to fail")
+	assert.Truef(t, t2.Sub(t1) < 10*time.Minute, "Expected pulumi up to fail within 10 minutes")
 }
 
 type expectFailure struct {
