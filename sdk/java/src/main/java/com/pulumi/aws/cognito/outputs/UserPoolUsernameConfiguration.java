@@ -4,9 +4,10 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolUsernameConfiguration {
@@ -14,15 +15,15 @@ public final class UserPoolUsernameConfiguration {
      * @return Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
      * 
      */
-    private Boolean caseSensitive;
+    private @Nullable Boolean caseSensitive;
 
     private UserPoolUsernameConfiguration() {}
     /**
      * @return Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
      * 
      */
-    public Boolean caseSensitive() {
-        return this.caseSensitive;
+    public Optional<Boolean> caseSensitive() {
+        return Optional.ofNullable(this.caseSensitive);
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class UserPoolUsernameConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean caseSensitive;
+        private @Nullable Boolean caseSensitive;
         public Builder() {}
         public Builder(UserPoolUsernameConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,10 +43,8 @@ public final class UserPoolUsernameConfiguration {
         }
 
         @CustomType.Setter
-        public Builder caseSensitive(Boolean caseSensitive) {
-            if (caseSensitive == null) {
-              throw new MissingRequiredPropertyException("UserPoolUsernameConfiguration", "caseSensitive");
-            }
+        public Builder caseSensitive(@Nullable Boolean caseSensitive) {
+
             this.caseSensitive = caseSensitive;
             return this;
         }

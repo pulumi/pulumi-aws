@@ -291,7 +291,7 @@ type EventSourceMapping struct {
 	DestinationConfig EventSourceMappingDestinationConfigPtrOutput `pulumi:"destinationConfig"`
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrOutput `pulumi:"documentDbEventSourceConfig"`
-	// Determines if the mapping will be enabled on creation. Defaults to `true`.
+	// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
 	EventSourceArn pulumi.StringPtrOutput `pulumi:"eventSourceArn"`
@@ -398,7 +398,7 @@ type eventSourceMappingState struct {
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
-	// Determines if the mapping will be enabled on creation. Defaults to `true`.
+	// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
 	EventSourceArn *string `pulumi:"eventSourceArn"`
@@ -473,7 +473,7 @@ type EventSourceMappingState struct {
 	DestinationConfig EventSourceMappingDestinationConfigPtrInput
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrInput
-	// Determines if the mapping will be enabled on creation. Defaults to `true`.
+	// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
 	EventSourceArn pulumi.StringPtrInput
@@ -550,7 +550,7 @@ type eventSourceMappingArgs struct {
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
-	// Determines if the mapping will be enabled on creation. Defaults to `true`.
+	// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
 	EventSourceArn *string `pulumi:"eventSourceArn"`
@@ -608,7 +608,7 @@ type EventSourceMappingArgs struct {
 	DestinationConfig EventSourceMappingDestinationConfigPtrInput
 	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
 	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrInput
-	// Determines if the mapping will be enabled on creation. Defaults to `true`.
+	// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
 	EventSourceArn pulumi.StringPtrInput
@@ -775,7 +775,7 @@ func (o EventSourceMappingOutput) DocumentDbEventSourceConfig() EventSourceMappi
 	}).(EventSourceMappingDocumentDbEventSourceConfigPtrOutput)
 }
 
-// Determines if the mapping will be enabled on creation. Defaults to `true`.
+// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
 func (o EventSourceMappingOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

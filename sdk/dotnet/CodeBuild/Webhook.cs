@@ -58,50 +58,6 @@ namespace Pulumi.Aws.CodeBuild
     /// });
     /// ```
     /// 
-    /// ### GitHub Enterprise
-    /// 
-    /// When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `github_repository_webhook` resource).
-    /// 
-    /// More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Github = Pulumi.Github;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeBuild.Webhook("example", new()
-    ///     {
-    ///         ProjectName = exampleAwsCodebuildProject.Name,
-    ///     });
-    /// 
-    ///     var exampleRepositoryWebhook = new Github.Index.RepositoryWebhook("example", new()
-    ///     {
-    ///         Active = true,
-    ///         Events = new[]
-    ///         {
-    ///             "push",
-    ///         },
-    ///         Name = "example",
-    ///         Repository = exampleGithubRepository.Name,
-    ///         Configuration = new[]
-    ///         {
-    ///             
-    ///             {
-    ///                 { "url", example.PayloadUrl },
-    ///                 { "secret", example.Secret },
-    ///                 { "contentType", "json" },
-    ///                 { "insecureSsl", false },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:

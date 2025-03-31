@@ -94,6 +94,41 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### With `cidr_endpoints_custom_subdomain`
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.verifiedaccess.Instance;
+ * import com.pulumi.aws.verifiedaccess.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Instance("example", InstanceArgs.builder()
+ *             .cidrEndpointsCustomSubdomain("test.example.com")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
@@ -105,6 +140,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:verifiedaccess/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
+    /**
+     * The custom subdomain for the CIDR endpoints.
+     * 
+     */
+    @Export(name="cidrEndpointsCustomSubdomain", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> cidrEndpointsCustomSubdomain;
+
+    /**
+     * @return The custom subdomain for the CIDR endpoints.
+     * 
+     */
+    public Output<Optional<String>> cidrEndpointsCustomSubdomain() {
+        return Codegen.optional(this.cidrEndpointsCustomSubdomain);
+    }
     /**
      * The time that the Verified Access Instance was created.
      * 
@@ -160,6 +209,12 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> lastUpdatedTime() {
         return this.lastUpdatedTime;
+    }
+    @Export(name="nameServers", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> nameServers;
+
+    public Output<List<String>> nameServers() {
+        return this.nameServers;
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

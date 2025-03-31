@@ -115,6 +115,42 @@ import (
 //
 // ```
 //
+// ### With Enhanced Task Mode
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
+//				DestinationLocationArn: pulumi.Any(destination.Arn),
+//				Name:                   pulumi.String("example"),
+//				SourceLocationArn:      pulumi.Any(source.Arn),
+//				TaskMode:               pulumi.String("ENHANCED"),
+//				Options: &datasync.TaskOptionsArgs{
+//					Gid:              pulumi.String("NONE"),
+//					PosixPermissions: pulumi.String("NONE"),
+//					Uid:              pulumi.String("NONE"),
+//					VerifyMode:       pulumi.String("ONLY_FILES_TRANSFERRED"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
@@ -149,6 +185,10 @@ type Task struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// One of the following task modes for your data transfer:
+	// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+	// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+	TaskMode pulumi.StringOutput `pulumi:"taskMode"`
 	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
 	TaskReportConfig TaskTaskReportConfigPtrOutput `pulumi:"taskReportConfig"`
 }
@@ -213,6 +253,10 @@ type taskState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// One of the following task modes for your data transfer:
+	// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+	// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+	TaskMode *string `pulumi:"taskMode"`
 	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
 	TaskReportConfig *TaskTaskReportConfig `pulumi:"taskReportConfig"`
 }
@@ -242,6 +286,10 @@ type TaskState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// One of the following task modes for your data transfer:
+	// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+	// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+	TaskMode pulumi.StringPtrInput
 	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
 	TaskReportConfig TaskTaskReportConfigPtrInput
 }
@@ -269,6 +317,10 @@ type taskArgs struct {
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// One of the following task modes for your data transfer:
+	// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+	// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+	TaskMode *string `pulumi:"taskMode"`
 	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
 	TaskReportConfig *TaskTaskReportConfig `pulumi:"taskReportConfig"`
 }
@@ -293,6 +345,10 @@ type TaskArgs struct {
 	SourceLocationArn pulumi.StringInput
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// One of the following task modes for your data transfer:
+	// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+	// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+	TaskMode pulumi.StringPtrInput
 	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
 	TaskReportConfig TaskTaskReportConfigPtrInput
 }
@@ -439,6 +495,13 @@ func (o TaskOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o TaskOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// One of the following task modes for your data transfer:
+// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+func (o TaskOutput) TaskMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.TaskMode }).(pulumi.StringOutput)
 }
 
 // Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.

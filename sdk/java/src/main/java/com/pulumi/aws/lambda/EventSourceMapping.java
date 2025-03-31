@@ -490,14 +490,14 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.documentDbEventSourceConfig);
     }
     /**
-     * Determines if the mapping will be enabled on creation. Defaults to `true`.
+     * Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Determines if the mapping will be enabled on creation. Defaults to `true`.
+     * @return Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

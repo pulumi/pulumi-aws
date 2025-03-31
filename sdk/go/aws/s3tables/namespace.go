@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = s3tables.NewNamespace(ctx, "example", &s3tables.NamespaceArgs{
-//				Namespace:      pulumi.String("example-namespace"),
+//				Namespace:      pulumi.String("example_namespace"),
 //				TableBucketArn: exampleTableBucket.Arn,
 //			})
 //			if err != nil {

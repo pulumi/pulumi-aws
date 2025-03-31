@@ -37,14 +37,14 @@ import (
 //				return err
 //			}
 //			exampleNamespace, err := s3tables.NewNamespace(ctx, "example", &s3tables.NamespaceArgs{
-//				Namespace:      pulumi.String("example-namespace"),
+//				Namespace:      pulumi.String("example_namespace"),
 //				TableBucketArn: exampleTableBucket.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3tables.NewTable(ctx, "example", &s3tables.TableArgs{
-//				Name:           pulumi.String("example-table"),
+//				Name:           pulumi.String("example_table"),
 //				Namespace:      exampleNamespace.Namespace,
 //				TableBucketArn: exampleNamespace.TableBucketArn,
 //				Format:         pulumi.String("ICEBERG"),

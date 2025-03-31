@@ -6,8 +6,10 @@ package com.pulumi.aws.verifiedaccess;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.verifiedaccess.EndpointArgs;
 import com.pulumi.aws.verifiedaccess.inputs.EndpointState;
+import com.pulumi.aws.verifiedaccess.outputs.EndpointCidrOptions;
 import com.pulumi.aws.verifiedaccess.outputs.EndpointLoadBalancerOptions;
 import com.pulumi.aws.verifiedaccess.outputs.EndpointNetworkInterfaceOptions;
+import com.pulumi.aws.verifiedaccess.outputs.EndpointRdsOptions;
 import com.pulumi.aws.verifiedaccess.outputs.EndpointSseSpecification;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -77,6 +79,11 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Cidr Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
@@ -89,18 +96,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:verifiedaccess/endpoint:Endpoint")
 public class Endpoint extends com.pulumi.resources.CustomResource {
     /**
-     * The DNS name for users to reach your application.
+     * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     @Export(name="applicationDomain", refs={String.class}, tree="[0]")
-    private Output<String> applicationDomain;
+    private Output</* @Nullable */ String> applicationDomain;
 
     /**
-     * @return The DNS name for users to reach your application.
+     * @return The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
-    public Output<String> applicationDomain() {
-        return this.applicationDomain;
+    public Output<Optional<String>> applicationDomain() {
+        return Codegen.optional(this.applicationDomain);
     }
     /**
      * The type of attachment. Currently, only `vpc` is supported.
@@ -115,6 +122,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<String> attachmentType() {
         return this.attachmentType;
+    }
+    /**
+     * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     * 
+     */
+    @Export(name="cidrOptions", refs={EndpointCidrOptions.class}, tree="[0]")
+    private Output</* @Nullable */ EndpointCidrOptions> cidrOptions;
+
+    /**
+     * @return The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     * 
+     */
+    public Output<Optional<EndpointCidrOptions>> cidrOptions() {
+        return Codegen.optional(this.cidrOptions);
     }
     /**
      * A description for the Verified Access endpoint.
@@ -145,18 +166,18 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.deviceValidationDomain;
     }
     /**
-     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     @Export(name="domainCertificateArn", refs={String.class}, tree="[0]")
-    private Output<String> domainCertificateArn;
+    private Output</* @Nullable */ String> domainCertificateArn;
 
     /**
-     * @return The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+     * @return The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
-    public Output<String> domainCertificateArn() {
-        return this.domainCertificateArn;
+    public Output<Optional<String>> domainCertificateArn() {
+        return Codegen.optional(this.domainCertificateArn);
     }
     /**
      * A DNS name that is generated for the endpoint.
@@ -177,14 +198,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="endpointDomainPrefix", refs={String.class}, tree="[0]")
-    private Output<String> endpointDomainPrefix;
+    private Output</* @Nullable */ String> endpointDomainPrefix;
 
     /**
      * @return A custom identifier that is prepended to the DNS name that is generated for the endpoint.
      * 
      */
-    public Output<String> endpointDomainPrefix() {
-        return this.endpointDomainPrefix;
+    public Output<Optional<String>> endpointDomainPrefix() {
+        return Codegen.optional(this.endpointDomainPrefix);
     }
     /**
      * The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
@@ -241,6 +262,12 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> policyDocument() {
         return Codegen.optional(this.policyDocument);
+    }
+    @Export(name="rdsOptions", refs={EndpointRdsOptions.class}, tree="[0]")
+    private Output</* @Nullable */ EndpointRdsOptions> rdsOptions;
+
+    public Output<Optional<EndpointRdsOptions>> rdsOptions() {
+        return Codegen.optional(this.rdsOptions);
     }
     /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.

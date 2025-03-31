@@ -63,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RestApi{}
 	case "aws:apigateway/restApiPolicy:RestApiPolicy":
 		r = &RestApiPolicy{}
+	case "aws:apigateway/restApiPut:RestApiPut":
+		r = &RestApiPut{}
 	case "aws:apigateway/stage:Stage":
 		r = &Stage{}
 	case "aws:apigateway/usagePlan:UsagePlan":
@@ -187,6 +189,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"apigateway/restApiPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"apigateway/restApiPut",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

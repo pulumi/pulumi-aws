@@ -120,14 +120,14 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Determines if the mapping will be enabled on creation. Defaults to `true`.
+     * Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Determines if the mapping will be enabled on creation. Defaults to `true`.
+     * @return Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -747,7 +747,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enabled Determines if the mapping will be enabled on creation. Defaults to `true`.
+         * @param enabled Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -758,7 +758,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enabled Determines if the mapping will be enabled on creation. Defaults to `true`.
+         * @param enabled Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
          * 
          * @return builder
          * 

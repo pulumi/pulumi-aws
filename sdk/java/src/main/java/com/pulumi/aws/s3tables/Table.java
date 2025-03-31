@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
- *             .namespace("example-namespace")
+ *             .namespace("example_namespace")
  *             .tableBucketArn(exampleTableBucket.arn())
  *             .build());
  * 
  *         var example = new Table("example", TableArgs.builder()
- *             .name("example-table")
+ *             .name("example_table")
  *             .namespace(exampleNamespace.namespace())
  *             .tableBucketArn(exampleNamespace.tableBucketArn())
  *             .format("ICEBERG")

@@ -652,14 +652,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="usernameConfiguration", refs={UserPoolUsernameConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ UserPoolUsernameConfiguration> usernameConfiguration;
+    private Output<UserPoolUsernameConfiguration> usernameConfiguration;
 
     /**
      * @return Configuration block for username configuration. Detailed below.
      * 
      */
-    public Output<Optional<UserPoolUsernameConfiguration>> usernameConfiguration() {
-        return Codegen.optional(this.usernameConfiguration);
+    public Output<UserPoolUsernameConfiguration> usernameConfiguration() {
+        return this.usernameConfiguration;
     }
     /**
      * Configuration block for verification message templates. Detailed below.

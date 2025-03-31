@@ -66,20 +66,22 @@ import (
 type Endpoint struct {
 	pulumi.CustomResourceState
 
-	// The DNS name for users to reach your application.
-	ApplicationDomain pulumi.StringOutput `pulumi:"applicationDomain"`
+	// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+	ApplicationDomain pulumi.StringPtrOutput `pulumi:"applicationDomain"`
 	// The type of attachment. Currently, only `vpc` is supported.
 	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
+	// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+	CidrOptions EndpointCidrOptionsPtrOutput `pulumi:"cidrOptions"`
 	// A description for the Verified Access endpoint.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Returned if endpoint has a device trust provider attached.
 	DeviceValidationDomain pulumi.StringOutput `pulumi:"deviceValidationDomain"`
-	// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
-	DomainCertificateArn pulumi.StringOutput `pulumi:"domainCertificateArn"`
+	// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+	DomainCertificateArn pulumi.StringPtrOutput `pulumi:"domainCertificateArn"`
 	// A DNS name that is generated for the endpoint.
 	EndpointDomain pulumi.StringOutput `pulumi:"endpointDomain"`
 	// A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-	EndpointDomainPrefix pulumi.StringOutput `pulumi:"endpointDomainPrefix"`
+	EndpointDomainPrefix pulumi.StringPtrOutput `pulumi:"endpointDomainPrefix"`
 	// The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
 	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
 	// The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
@@ -87,7 +89,8 @@ type Endpoint struct {
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions EndpointNetworkInterfaceOptionsPtrOutput `pulumi:"networkInterfaceOptions"`
 	// The policy document that is associated with this resource.
-	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
+	PolicyDocument pulumi.StringPtrOutput      `pulumi:"policyDocument"`
+	RdsOptions     EndpointRdsOptionsPtrOutput `pulumi:"rdsOptions"`
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
@@ -110,17 +113,8 @@ func NewEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationDomain == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationDomain'")
-	}
 	if args.AttachmentType == nil {
 		return nil, errors.New("invalid value for required argument 'AttachmentType'")
-	}
-	if args.DomainCertificateArn == nil {
-		return nil, errors.New("invalid value for required argument 'DomainCertificateArn'")
-	}
-	if args.EndpointDomainPrefix == nil {
-		return nil, errors.New("invalid value for required argument 'EndpointDomainPrefix'")
 	}
 	if args.EndpointType == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointType'")
@@ -151,15 +145,17 @@ func GetEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
-	// The DNS name for users to reach your application.
+	// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
 	ApplicationDomain *string `pulumi:"applicationDomain"`
 	// The type of attachment. Currently, only `vpc` is supported.
 	AttachmentType *string `pulumi:"attachmentType"`
+	// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+	CidrOptions *EndpointCidrOptions `pulumi:"cidrOptions"`
 	// A description for the Verified Access endpoint.
 	Description *string `pulumi:"description"`
 	// Returned if endpoint has a device trust provider attached.
 	DeviceValidationDomain *string `pulumi:"deviceValidationDomain"`
-	// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+	// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
 	DomainCertificateArn *string `pulumi:"domainCertificateArn"`
 	// A DNS name that is generated for the endpoint.
 	EndpointDomain *string `pulumi:"endpointDomain"`
@@ -172,7 +168,8 @@ type endpointState struct {
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions *EndpointNetworkInterfaceOptions `pulumi:"networkInterfaceOptions"`
 	// The policy document that is associated with this resource.
-	PolicyDocument *string `pulumi:"policyDocument"`
+	PolicyDocument *string             `pulumi:"policyDocument"`
+	RdsOptions     *EndpointRdsOptions `pulumi:"rdsOptions"`
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
@@ -189,15 +186,17 @@ type endpointState struct {
 }
 
 type EndpointState struct {
-	// The DNS name for users to reach your application.
+	// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
 	ApplicationDomain pulumi.StringPtrInput
 	// The type of attachment. Currently, only `vpc` is supported.
 	AttachmentType pulumi.StringPtrInput
+	// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+	CidrOptions EndpointCidrOptionsPtrInput
 	// A description for the Verified Access endpoint.
 	Description pulumi.StringPtrInput
 	// Returned if endpoint has a device trust provider attached.
 	DeviceValidationDomain pulumi.StringPtrInput
-	// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+	// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
 	DomainCertificateArn pulumi.StringPtrInput
 	// A DNS name that is generated for the endpoint.
 	EndpointDomain pulumi.StringPtrInput
@@ -211,6 +210,7 @@ type EndpointState struct {
 	NetworkInterfaceOptions EndpointNetworkInterfaceOptionsPtrInput
 	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
+	RdsOptions     EndpointRdsOptionsPtrInput
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The options in use for server side encryption.
@@ -231,16 +231,18 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
-	// The DNS name for users to reach your application.
-	ApplicationDomain string `pulumi:"applicationDomain"`
+	// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+	ApplicationDomain *string `pulumi:"applicationDomain"`
 	// The type of attachment. Currently, only `vpc` is supported.
 	AttachmentType string `pulumi:"attachmentType"`
+	// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+	CidrOptions *EndpointCidrOptions `pulumi:"cidrOptions"`
 	// A description for the Verified Access endpoint.
 	Description *string `pulumi:"description"`
-	// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
-	DomainCertificateArn string `pulumi:"domainCertificateArn"`
+	// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+	DomainCertificateArn *string `pulumi:"domainCertificateArn"`
 	// A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-	EndpointDomainPrefix string `pulumi:"endpointDomainPrefix"`
+	EndpointDomainPrefix *string `pulumi:"endpointDomainPrefix"`
 	// The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
 	EndpointType string `pulumi:"endpointType"`
 	// The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
@@ -248,7 +250,8 @@ type endpointArgs struct {
 	// The network interface details. This parameter is required if the endpoint type is `network-interface`.
 	NetworkInterfaceOptions *EndpointNetworkInterfaceOptions `pulumi:"networkInterfaceOptions"`
 	// The policy document that is associated with this resource.
-	PolicyDocument *string `pulumi:"policyDocument"`
+	PolicyDocument *string             `pulumi:"policyDocument"`
+	RdsOptions     *EndpointRdsOptions `pulumi:"rdsOptions"`
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The options in use for server side encryption.
@@ -263,16 +266,18 @@ type endpointArgs struct {
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
-	// The DNS name for users to reach your application.
-	ApplicationDomain pulumi.StringInput
+	// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+	ApplicationDomain pulumi.StringPtrInput
 	// The type of attachment. Currently, only `vpc` is supported.
 	AttachmentType pulumi.StringInput
+	// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+	CidrOptions EndpointCidrOptionsPtrInput
 	// A description for the Verified Access endpoint.
 	Description pulumi.StringPtrInput
-	// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
-	DomainCertificateArn pulumi.StringInput
+	// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+	DomainCertificateArn pulumi.StringPtrInput
 	// A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-	EndpointDomainPrefix pulumi.StringInput
+	EndpointDomainPrefix pulumi.StringPtrInput
 	// The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
 	EndpointType pulumi.StringInput
 	// The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
@@ -281,6 +286,7 @@ type EndpointArgs struct {
 	NetworkInterfaceOptions EndpointNetworkInterfaceOptionsPtrInput
 	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
+	RdsOptions     EndpointRdsOptionsPtrInput
 	// List of the the security groups IDs to associate with the Verified Access endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The options in use for server side encryption.
@@ -380,14 +386,19 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
-// The DNS name for users to reach your application.
-func (o EndpointOutput) ApplicationDomain() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ApplicationDomain }).(pulumi.StringOutput)
+// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+func (o EndpointOutput) ApplicationDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ApplicationDomain }).(pulumi.StringPtrOutput)
 }
 
 // The type of attachment. Currently, only `vpc` is supported.
 func (o EndpointOutput) AttachmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.AttachmentType }).(pulumi.StringOutput)
+}
+
+// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+func (o EndpointOutput) CidrOptions() EndpointCidrOptionsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointCidrOptionsPtrOutput { return v.CidrOptions }).(EndpointCidrOptionsPtrOutput)
 }
 
 // A description for the Verified Access endpoint.
@@ -400,9 +411,9 @@ func (o EndpointOutput) DeviceValidationDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.DeviceValidationDomain }).(pulumi.StringOutput)
 }
 
-// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
-func (o EndpointOutput) DomainCertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.DomainCertificateArn }).(pulumi.StringOutput)
+// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+func (o EndpointOutput) DomainCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.DomainCertificateArn }).(pulumi.StringPtrOutput)
 }
 
 // A DNS name that is generated for the endpoint.
@@ -411,8 +422,8 @@ func (o EndpointOutput) EndpointDomain() pulumi.StringOutput {
 }
 
 // A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-func (o EndpointOutput) EndpointDomainPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointDomainPrefix }).(pulumi.StringOutput)
+func (o EndpointOutput) EndpointDomainPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EndpointDomainPrefix }).(pulumi.StringPtrOutput)
 }
 
 // The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
@@ -433,6 +444,10 @@ func (o EndpointOutput) NetworkInterfaceOptions() EndpointNetworkInterfaceOption
 // The policy document that is associated with this resource.
 func (o EndpointOutput) PolicyDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.PolicyDocument }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointOutput) RdsOptions() EndpointRdsOptionsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointRdsOptionsPtrOutput { return v.RdsOptions }).(EndpointRdsOptionsPtrOutput)
 }
 
 // List of the the security groups IDs to associate with the Verified Access endpoint.

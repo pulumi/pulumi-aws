@@ -7,7 +7,9 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.verifiedaccess.TrustProviderArgs;
 import com.pulumi.aws.verifiedaccess.inputs.TrustProviderState;
 import com.pulumi.aws.verifiedaccess.outputs.TrustProviderDeviceOptions;
+import com.pulumi.aws.verifiedaccess.outputs.TrustProviderNativeApplicationOidcOptions;
 import com.pulumi.aws.verifiedaccess.outputs.TrustProviderOidcOptions;
+import com.pulumi.aws.verifiedaccess.outputs.TrustProviderSseSpecification;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -111,6 +113,20 @@ public class TrustProvider extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deviceTrustProviderType);
     }
     /**
+     * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     * 
+     */
+    @Export(name="nativeApplicationOidcOptions", refs={TrustProviderNativeApplicationOidcOptions.class}, tree="[0]")
+    private Output</* @Nullable */ TrustProviderNativeApplicationOidcOptions> nativeApplicationOidcOptions;
+
+    /**
+     * @return The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     * 
+     */
+    public Output<Optional<TrustProviderNativeApplicationOidcOptions>> nativeApplicationOidcOptions() {
+        return Codegen.optional(this.nativeApplicationOidcOptions);
+    }
+    /**
      * The OpenID Connect details for an oidc-type, user-identity based trust provider.
      * 
      */
@@ -137,6 +153,12 @@ public class TrustProvider extends com.pulumi.resources.CustomResource {
      */
     public Output<String> policyReferenceName() {
         return this.policyReferenceName;
+    }
+    @Export(name="sseSpecification", refs={TrustProviderSseSpecification.class}, tree="[0]")
+    private Output<TrustProviderSseSpecification> sseSpecification;
+
+    public Output<TrustProviderSseSpecification> sseSpecification() {
+        return this.sseSpecification;
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

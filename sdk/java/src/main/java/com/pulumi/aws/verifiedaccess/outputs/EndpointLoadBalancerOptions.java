@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.verifiedaccess.outputs;
 
+import com.pulumi.aws.verifiedaccess.outputs.EndpointLoadBalancerOptionsPortRange;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -15,6 +16,7 @@ import javax.annotation.Nullable;
 public final class EndpointLoadBalancerOptions {
     private @Nullable String loadBalancerArn;
     private @Nullable Integer port;
+    private @Nullable List<EndpointLoadBalancerOptionsPortRange> portRanges;
     private @Nullable String protocol;
     private @Nullable List<String> subnetIds;
 
@@ -24,6 +26,9 @@ public final class EndpointLoadBalancerOptions {
     }
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
+    }
+    public List<EndpointLoadBalancerOptionsPortRange> portRanges() {
+        return this.portRanges == null ? List.of() : this.portRanges;
     }
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
@@ -43,6 +48,7 @@ public final class EndpointLoadBalancerOptions {
     public static final class Builder {
         private @Nullable String loadBalancerArn;
         private @Nullable Integer port;
+        private @Nullable List<EndpointLoadBalancerOptionsPortRange> portRanges;
         private @Nullable String protocol;
         private @Nullable List<String> subnetIds;
         public Builder() {}
@@ -50,6 +56,7 @@ public final class EndpointLoadBalancerOptions {
     	      Objects.requireNonNull(defaults);
     	      this.loadBalancerArn = defaults.loadBalancerArn;
     	      this.port = defaults.port;
+    	      this.portRanges = defaults.portRanges;
     	      this.protocol = defaults.protocol;
     	      this.subnetIds = defaults.subnetIds;
         }
@@ -65,6 +72,15 @@ public final class EndpointLoadBalancerOptions {
 
             this.port = port;
             return this;
+        }
+        @CustomType.Setter
+        public Builder portRanges(@Nullable List<EndpointLoadBalancerOptionsPortRange> portRanges) {
+
+            this.portRanges = portRanges;
+            return this;
+        }
+        public Builder portRanges(EndpointLoadBalancerOptionsPortRange... portRanges) {
+            return portRanges(List.of(portRanges));
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
@@ -85,6 +101,7 @@ public final class EndpointLoadBalancerOptions {
             final var _resultValue = new EndpointLoadBalancerOptions();
             _resultValue.loadBalancerArn = loadBalancerArn;
             _resultValue.port = port;
+            _resultValue.portRanges = portRanges;
             _resultValue.protocol = protocol;
             _resultValue.subnetIds = subnetIds;
             return _resultValue;

@@ -15,6 +15,11 @@ public final class GetPullThroughCacheRuleResult {
      * 
      */
     private String credentialArn;
+    /**
+     * @return The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
+     * 
+     */
+    private String customRoleArn;
     private String ecrRepositoryPrefix;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -27,10 +32,15 @@ public final class GetPullThroughCacheRuleResult {
      */
     private String registryId;
     /**
-     * @return The registry URL of the upstream public registry to use as the source.
+     * @return The registry URL of the upstream registry to use as the source.
      * 
      */
     private String upstreamRegistryUrl;
+    /**
+     * @return The upstream repository prefix associated with the pull through cache rule.
+     * 
+     */
+    private String upstreamRepositoryPrefix;
 
     private GetPullThroughCacheRuleResult() {}
     /**
@@ -39,6 +49,13 @@ public final class GetPullThroughCacheRuleResult {
      */
     public String credentialArn() {
         return this.credentialArn;
+    }
+    /**
+     * @return The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
+     * 
+     */
+    public String customRoleArn() {
+        return this.customRoleArn;
     }
     public String ecrRepositoryPrefix() {
         return this.ecrRepositoryPrefix;
@@ -58,11 +75,18 @@ public final class GetPullThroughCacheRuleResult {
         return this.registryId;
     }
     /**
-     * @return The registry URL of the upstream public registry to use as the source.
+     * @return The registry URL of the upstream registry to use as the source.
      * 
      */
     public String upstreamRegistryUrl() {
         return this.upstreamRegistryUrl;
+    }
+    /**
+     * @return The upstream repository prefix associated with the pull through cache rule.
+     * 
+     */
+    public String upstreamRepositoryPrefix() {
+        return this.upstreamRepositoryPrefix;
     }
 
     public static Builder builder() {
@@ -75,18 +99,22 @@ public final class GetPullThroughCacheRuleResult {
     @CustomType.Builder
     public static final class Builder {
         private String credentialArn;
+        private String customRoleArn;
         private String ecrRepositoryPrefix;
         private String id;
         private String registryId;
         private String upstreamRegistryUrl;
+        private String upstreamRepositoryPrefix;
         public Builder() {}
         public Builder(GetPullThroughCacheRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.credentialArn = defaults.credentialArn;
+    	      this.customRoleArn = defaults.customRoleArn;
     	      this.ecrRepositoryPrefix = defaults.ecrRepositoryPrefix;
     	      this.id = defaults.id;
     	      this.registryId = defaults.registryId;
     	      this.upstreamRegistryUrl = defaults.upstreamRegistryUrl;
+    	      this.upstreamRepositoryPrefix = defaults.upstreamRepositoryPrefix;
         }
 
         @CustomType.Setter
@@ -95,6 +123,14 @@ public final class GetPullThroughCacheRuleResult {
               throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "credentialArn");
             }
             this.credentialArn = credentialArn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customRoleArn(String customRoleArn) {
+            if (customRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "customRoleArn");
+            }
+            this.customRoleArn = customRoleArn;
             return this;
         }
         @CustomType.Setter
@@ -129,13 +165,23 @@ public final class GetPullThroughCacheRuleResult {
             this.upstreamRegistryUrl = upstreamRegistryUrl;
             return this;
         }
+        @CustomType.Setter
+        public Builder upstreamRepositoryPrefix(String upstreamRepositoryPrefix) {
+            if (upstreamRepositoryPrefix == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "upstreamRepositoryPrefix");
+            }
+            this.upstreamRepositoryPrefix = upstreamRepositoryPrefix;
+            return this;
+        }
         public GetPullThroughCacheRuleResult build() {
             final var _resultValue = new GetPullThroughCacheRuleResult();
             _resultValue.credentialArn = credentialArn;
+            _resultValue.customRoleArn = customRoleArn;
             _resultValue.ecrRepositoryPrefix = ecrRepositoryPrefix;
             _resultValue.id = id;
             _resultValue.registryId = registryId;
             _resultValue.upstreamRegistryUrl = upstreamRegistryUrl;
+            _resultValue.upstreamRepositoryPrefix = upstreamRepositoryPrefix;
             return _resultValue;
         }
     }

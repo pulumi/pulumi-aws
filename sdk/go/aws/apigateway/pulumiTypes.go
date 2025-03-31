@@ -1401,6 +1401,143 @@ func (o RestApiEndpointConfigurationPtrOutput) VpcEndpointIds() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
+type RestApiPutTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// RestApiPutTimeoutsInput is an input type that accepts RestApiPutTimeoutsArgs and RestApiPutTimeoutsOutput values.
+// You can construct a concrete instance of `RestApiPutTimeoutsInput` via:
+//
+//	RestApiPutTimeoutsArgs{...}
+type RestApiPutTimeoutsInput interface {
+	pulumi.Input
+
+	ToRestApiPutTimeoutsOutput() RestApiPutTimeoutsOutput
+	ToRestApiPutTimeoutsOutputWithContext(context.Context) RestApiPutTimeoutsOutput
+}
+
+type RestApiPutTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (RestApiPutTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiPutTimeouts)(nil)).Elem()
+}
+
+func (i RestApiPutTimeoutsArgs) ToRestApiPutTimeoutsOutput() RestApiPutTimeoutsOutput {
+	return i.ToRestApiPutTimeoutsOutputWithContext(context.Background())
+}
+
+func (i RestApiPutTimeoutsArgs) ToRestApiPutTimeoutsOutputWithContext(ctx context.Context) RestApiPutTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiPutTimeoutsOutput)
+}
+
+func (i RestApiPutTimeoutsArgs) ToRestApiPutTimeoutsPtrOutput() RestApiPutTimeoutsPtrOutput {
+	return i.ToRestApiPutTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i RestApiPutTimeoutsArgs) ToRestApiPutTimeoutsPtrOutputWithContext(ctx context.Context) RestApiPutTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiPutTimeoutsOutput).ToRestApiPutTimeoutsPtrOutputWithContext(ctx)
+}
+
+// RestApiPutTimeoutsPtrInput is an input type that accepts RestApiPutTimeoutsArgs, RestApiPutTimeoutsPtr and RestApiPutTimeoutsPtrOutput values.
+// You can construct a concrete instance of `RestApiPutTimeoutsPtrInput` via:
+//
+//	        RestApiPutTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RestApiPutTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToRestApiPutTimeoutsPtrOutput() RestApiPutTimeoutsPtrOutput
+	ToRestApiPutTimeoutsPtrOutputWithContext(context.Context) RestApiPutTimeoutsPtrOutput
+}
+
+type restApiPutTimeoutsPtrType RestApiPutTimeoutsArgs
+
+func RestApiPutTimeoutsPtr(v *RestApiPutTimeoutsArgs) RestApiPutTimeoutsPtrInput {
+	return (*restApiPutTimeoutsPtrType)(v)
+}
+
+func (*restApiPutTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestApiPutTimeouts)(nil)).Elem()
+}
+
+func (i *restApiPutTimeoutsPtrType) ToRestApiPutTimeoutsPtrOutput() RestApiPutTimeoutsPtrOutput {
+	return i.ToRestApiPutTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *restApiPutTimeoutsPtrType) ToRestApiPutTimeoutsPtrOutputWithContext(ctx context.Context) RestApiPutTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiPutTimeoutsPtrOutput)
+}
+
+type RestApiPutTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (RestApiPutTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiPutTimeouts)(nil)).Elem()
+}
+
+func (o RestApiPutTimeoutsOutput) ToRestApiPutTimeoutsOutput() RestApiPutTimeoutsOutput {
+	return o
+}
+
+func (o RestApiPutTimeoutsOutput) ToRestApiPutTimeoutsOutputWithContext(ctx context.Context) RestApiPutTimeoutsOutput {
+	return o
+}
+
+func (o RestApiPutTimeoutsOutput) ToRestApiPutTimeoutsPtrOutput() RestApiPutTimeoutsPtrOutput {
+	return o.ToRestApiPutTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o RestApiPutTimeoutsOutput) ToRestApiPutTimeoutsPtrOutputWithContext(ctx context.Context) RestApiPutTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestApiPutTimeouts) *RestApiPutTimeouts {
+		return &v
+	}).(RestApiPutTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RestApiPutTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestApiPutTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type RestApiPutTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (RestApiPutTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestApiPutTimeouts)(nil)).Elem()
+}
+
+func (o RestApiPutTimeoutsPtrOutput) ToRestApiPutTimeoutsPtrOutput() RestApiPutTimeoutsPtrOutput {
+	return o
+}
+
+func (o RestApiPutTimeoutsPtrOutput) ToRestApiPutTimeoutsPtrOutputWithContext(ctx context.Context) RestApiPutTimeoutsPtrOutput {
+	return o
+}
+
+func (o RestApiPutTimeoutsPtrOutput) Elem() RestApiPutTimeoutsOutput {
+	return o.ApplyT(func(v *RestApiPutTimeouts) RestApiPutTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret RestApiPutTimeouts
+		return ret
+	}).(RestApiPutTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RestApiPutTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApiPutTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type StageAccessLogSettings struct {
 	// ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
 	DestinationArn string `pulumi:"destinationArn"`
@@ -2697,6 +2834,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodSettingsSettingsPtrInput)(nil)).Elem(), MethodSettingsSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestApiEndpointConfigurationInput)(nil)).Elem(), RestApiEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestApiEndpointConfigurationPtrInput)(nil)).Elem(), RestApiEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiPutTimeoutsInput)(nil)).Elem(), RestApiPutTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiPutTimeoutsPtrInput)(nil)).Elem(), RestApiPutTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsPtrInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageCanarySettingsInput)(nil)).Elem(), StageCanarySettingsArgs{})
@@ -2731,6 +2870,8 @@ func init() {
 	pulumi.RegisterOutputType(MethodSettingsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(RestApiEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(RestApiEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RestApiPutTimeoutsOutput{})
+	pulumi.RegisterOutputType(RestApiPutTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsPtrOutput{})
 	pulumi.RegisterOutputType(StageCanarySettingsOutput{})

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.bedrock.AgentAgentArgs;
 import com.pulumi.aws.bedrock.inputs.AgentAgentState;
 import com.pulumi.aws.bedrock.outputs.AgentAgentGuardrailConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentAgentMemoryConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentAgentPromptOverrideConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentAgentTimeouts;
 import com.pulumi.core.Output;
@@ -300,6 +301,20 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
      */
     public Output<String> instruction() {
         return this.instruction;
+    }
+    /**
+     * Configurations for the agent&#39;s ability to retain the conversational context.
+     * 
+     */
+    @Export(name="memoryConfigurations", refs={List.class,AgentAgentMemoryConfiguration.class}, tree="[0,1]")
+    private Output<List<AgentAgentMemoryConfiguration>> memoryConfigurations;
+
+    /**
+     * @return Configurations for the agent&#39;s ability to retain the conversational context.
+     * 
+     */
+    public Output<List<AgentAgentMemoryConfiguration>> memoryConfigurations() {
+        return this.memoryConfigurations;
     }
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.

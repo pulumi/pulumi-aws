@@ -163,6 +163,8 @@ type AgentAgent struct {
 	IdleSessionTtlInSeconds pulumi.IntOutput `pulumi:"idleSessionTtlInSeconds"`
 	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
 	Instruction pulumi.StringOutput `pulumi:"instruction"`
+	// Configurations for the agent's ability to retain the conversational context.
+	MemoryConfigurations AgentAgentMemoryConfigurationArrayOutput `pulumi:"memoryConfigurations"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
@@ -243,6 +245,8 @@ type agentAgentState struct {
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
 	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
 	Instruction *string `pulumi:"instruction"`
+	// Configurations for the agent's ability to retain the conversational context.
+	MemoryConfigurations []AgentAgentMemoryConfiguration `pulumi:"memoryConfigurations"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
@@ -285,6 +289,8 @@ type AgentAgentState struct {
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
 	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
 	Instruction pulumi.StringPtrInput
+	// Configurations for the agent's ability to retain the conversational context.
+	MemoryConfigurations AgentAgentMemoryConfigurationArrayInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
@@ -325,6 +331,8 @@ type agentAgentArgs struct {
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
 	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
 	Instruction *string `pulumi:"instruction"`
+	// Configurations for the agent's ability to retain the conversational context.
+	MemoryConfigurations []AgentAgentMemoryConfiguration `pulumi:"memoryConfigurations"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
@@ -358,6 +366,8 @@ type AgentAgentArgs struct {
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
 	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
 	Instruction pulumi.StringPtrInput
+	// Configurations for the agent's ability to retain the conversational context.
+	MemoryConfigurations AgentAgentMemoryConfigurationArrayInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
 	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
@@ -516,6 +526,11 @@ func (o AgentAgentOutput) IdleSessionTtlInSeconds() pulumi.IntOutput {
 // Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
 func (o AgentAgentOutput) Instruction() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.Instruction }).(pulumi.StringOutput)
+}
+
+// Configurations for the agent's ability to retain the conversational context.
+func (o AgentAgentOutput) MemoryConfigurations() AgentAgentMemoryConfigurationArrayOutput {
+	return o.ApplyT(func(v *AgentAgent) AgentAgentMemoryConfigurationArrayOutput { return v.MemoryConfigurations }).(AgentAgentMemoryConfigurationArrayOutput)
 }
 
 // Whether to prepare the agent after creation or modification. Defaults to `true`.
