@@ -121,6 +121,10 @@ namespace Pulumi.Aws.Ecr
         /// ARN of the Secret which will be used to authenticate against the registry.
         /// </summary>
         public readonly string CredentialArn;
+        /// <summary>
+        /// The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
+        /// </summary>
+        public readonly string CustomRoleArn;
         public readonly string EcrRepositoryPrefix;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -131,13 +135,19 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly string RegistryId;
         /// <summary>
-        /// The registry URL of the upstream public registry to use as the source.
+        /// The registry URL of the upstream registry to use as the source.
         /// </summary>
         public readonly string UpstreamRegistryUrl;
+        /// <summary>
+        /// The upstream repository prefix associated with the pull through cache rule.
+        /// </summary>
+        public readonly string UpstreamRepositoryPrefix;
 
         [OutputConstructor]
         private GetPullThroughCacheRuleResult(
             string credentialArn,
+
+            string customRoleArn,
 
             string ecrRepositoryPrefix,
 
@@ -145,13 +155,17 @@ namespace Pulumi.Aws.Ecr
 
             string registryId,
 
-            string upstreamRegistryUrl)
+            string upstreamRegistryUrl,
+
+            string upstreamRepositoryPrefix)
         {
             CredentialArn = credentialArn;
+            CustomRoleArn = customRoleArn;
             EcrRepositoryPrefix = ecrRepositoryPrefix;
             Id = id;
             RegistryId = registryId;
             UpstreamRegistryUrl = upstreamRegistryUrl;
+            UpstreamRepositoryPrefix = upstreamRepositoryPrefix;
         }
     }
 }

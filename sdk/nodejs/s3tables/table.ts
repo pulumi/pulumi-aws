@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * const exampleTableBucket = new aws.s3tables.TableBucket("example", {name: "example-bucket"});
  * const exampleNamespace = new aws.s3tables.Namespace("example", {
- *     namespace: "example-namespace",
+ *     namespace: "example_namespace",
  *     tableBucketArn: exampleTableBucket.arn,
  * });
  * const example = new aws.s3tables.Table("example", {
- *     name: "example-table",
+ *     name: "example_table",
  *     namespace: exampleNamespace.namespace,
  *     tableBucketArn: exampleNamespace.tableBucketArn,
  *     format: "ICEBERG",

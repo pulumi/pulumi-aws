@@ -59,6 +59,30 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Cidr Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.verifiedaccess.Endpoint("example", {
+ *     attachmentType: "vpc",
+ *     description: "example",
+ *     endpointType: "cidr",
+ *     cidrOptions: {
+ *         cidr: test[0].cidrBlock,
+ *         portRanges: [{
+ *             fromPort: 443,
+ *             toPort: 443,
+ *         }],
+ *         protocol: "tcp",
+ *         subnetIds: .map(subnet => (subnet.id)),
+ *     },
+ *     securityGroupIds: [testAwsSecurityGroup.id],
+ *     verifiedAccessGroupId: testAwsVerifiedaccessGroup.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
@@ -96,13 +120,17 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The DNS name for users to reach your application.
+     * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
-    public readonly applicationDomain!: pulumi.Output<string>;
+    public readonly applicationDomain!: pulumi.Output<string | undefined>;
     /**
      * The type of attachment. Currently, only `vpc` is supported.
      */
     public readonly attachmentType!: pulumi.Output<string>;
+    /**
+     * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     */
+    public readonly cidrOptions!: pulumi.Output<outputs.verifiedaccess.EndpointCidrOptions | undefined>;
     /**
      * A description for the Verified Access endpoint.
      */
@@ -112,9 +140,9 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly deviceValidationDomain!: pulumi.Output<string>;
     /**
-     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
-    public readonly domainCertificateArn!: pulumi.Output<string>;
+    public readonly domainCertificateArn!: pulumi.Output<string | undefined>;
     /**
      * A DNS name that is generated for the endpoint.
      */
@@ -122,7 +150,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
      */
-    public readonly endpointDomainPrefix!: pulumi.Output<string>;
+    public readonly endpointDomainPrefix!: pulumi.Output<string | undefined>;
     /**
      * The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
      */
@@ -139,6 +167,7 @@ export class Endpoint extends pulumi.CustomResource {
      * The policy document that is associated with this resource.
      */
     public readonly policyDocument!: pulumi.Output<string | undefined>;
+    public readonly rdsOptions!: pulumi.Output<outputs.verifiedaccess.EndpointRdsOptions | undefined>;
     /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */
@@ -178,6 +207,7 @@ export class Endpoint extends pulumi.CustomResource {
             const state = argsOrState as EndpointState | undefined;
             resourceInputs["applicationDomain"] = state ? state.applicationDomain : undefined;
             resourceInputs["attachmentType"] = state ? state.attachmentType : undefined;
+            resourceInputs["cidrOptions"] = state ? state.cidrOptions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["deviceValidationDomain"] = state ? state.deviceValidationDomain : undefined;
             resourceInputs["domainCertificateArn"] = state ? state.domainCertificateArn : undefined;
@@ -187,6 +217,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["loadBalancerOptions"] = state ? state.loadBalancerOptions : undefined;
             resourceInputs["networkInterfaceOptions"] = state ? state.networkInterfaceOptions : undefined;
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["rdsOptions"] = state ? state.rdsOptions : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["sseSpecification"] = state ? state.sseSpecification : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -195,17 +226,8 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["verifiedAccessInstanceId"] = state ? state.verifiedAccessInstanceId : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if ((!args || args.applicationDomain === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'applicationDomain'");
-            }
             if ((!args || args.attachmentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'attachmentType'");
-            }
-            if ((!args || args.domainCertificateArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'domainCertificateArn'");
-            }
-            if ((!args || args.endpointDomainPrefix === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'endpointDomainPrefix'");
             }
             if ((!args || args.endpointType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
@@ -215,6 +237,7 @@ export class Endpoint extends pulumi.CustomResource {
             }
             resourceInputs["applicationDomain"] = args ? args.applicationDomain : undefined;
             resourceInputs["attachmentType"] = args ? args.attachmentType : undefined;
+            resourceInputs["cidrOptions"] = args ? args.cidrOptions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["domainCertificateArn"] = args ? args.domainCertificateArn : undefined;
             resourceInputs["endpointDomainPrefix"] = args ? args.endpointDomainPrefix : undefined;
@@ -222,6 +245,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["loadBalancerOptions"] = args ? args.loadBalancerOptions : undefined;
             resourceInputs["networkInterfaceOptions"] = args ? args.networkInterfaceOptions : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["rdsOptions"] = args ? args.rdsOptions : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -241,13 +265,17 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointState {
     /**
-     * The DNS name for users to reach your application.
+     * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
     applicationDomain?: pulumi.Input<string>;
     /**
      * The type of attachment. Currently, only `vpc` is supported.
      */
     attachmentType?: pulumi.Input<string>;
+    /**
+     * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     */
+    cidrOptions?: pulumi.Input<inputs.verifiedaccess.EndpointCidrOptions>;
     /**
      * A description for the Verified Access endpoint.
      */
@@ -257,7 +285,7 @@ export interface EndpointState {
      */
     deviceValidationDomain?: pulumi.Input<string>;
     /**
-     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
     domainCertificateArn?: pulumi.Input<string>;
     /**
@@ -284,6 +312,7 @@ export interface EndpointState {
      * The policy document that is associated with this resource.
      */
     policyDocument?: pulumi.Input<string>;
+    rdsOptions?: pulumi.Input<inputs.verifiedaccess.EndpointRdsOptions>;
     /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */
@@ -314,25 +343,29 @@ export interface EndpointState {
  */
 export interface EndpointArgs {
     /**
-     * The DNS name for users to reach your application.
+     * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
-    applicationDomain: pulumi.Input<string>;
+    applicationDomain?: pulumi.Input<string>;
     /**
      * The type of attachment. Currently, only `vpc` is supported.
      */
     attachmentType: pulumi.Input<string>;
     /**
+     * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     */
+    cidrOptions?: pulumi.Input<inputs.verifiedaccess.EndpointCidrOptions>;
+    /**
      * A description for the Verified Access endpoint.
      */
     description?: pulumi.Input<string>;
     /**
-     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
-    domainCertificateArn: pulumi.Input<string>;
+    domainCertificateArn?: pulumi.Input<string>;
     /**
      * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
      */
-    endpointDomainPrefix: pulumi.Input<string>;
+    endpointDomainPrefix?: pulumi.Input<string>;
     /**
      * The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
      */
@@ -349,6 +382,7 @@ export interface EndpointArgs {
      * The policy document that is associated with this resource.
      */
     policyDocument?: pulumi.Input<string>;
+    rdsOptions?: pulumi.Input<inputs.verifiedaccess.EndpointRdsOptions>;
     /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */

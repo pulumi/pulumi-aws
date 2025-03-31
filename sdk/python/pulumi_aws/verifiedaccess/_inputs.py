@@ -15,10 +15,20 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'EndpointCidrOptionsArgs',
+    'EndpointCidrOptionsArgsDict',
+    'EndpointCidrOptionsPortRangeArgs',
+    'EndpointCidrOptionsPortRangeArgsDict',
     'EndpointLoadBalancerOptionsArgs',
     'EndpointLoadBalancerOptionsArgsDict',
+    'EndpointLoadBalancerOptionsPortRangeArgs',
+    'EndpointLoadBalancerOptionsPortRangeArgsDict',
     'EndpointNetworkInterfaceOptionsArgs',
     'EndpointNetworkInterfaceOptionsArgsDict',
+    'EndpointNetworkInterfaceOptionsPortRangeArgs',
+    'EndpointNetworkInterfaceOptionsPortRangeArgsDict',
+    'EndpointRdsOptionsArgs',
+    'EndpointRdsOptionsArgsDict',
     'EndpointSseSpecificationArgs',
     'EndpointSseSpecificationArgsDict',
     'GroupSseConfigurationArgs',
@@ -35,16 +45,115 @@ __all__ = [
     'InstanceVerifiedAccessTrustProviderArgsDict',
     'TrustProviderDeviceOptionsArgs',
     'TrustProviderDeviceOptionsArgsDict',
+    'TrustProviderNativeApplicationOidcOptionsArgs',
+    'TrustProviderNativeApplicationOidcOptionsArgsDict',
     'TrustProviderOidcOptionsArgs',
     'TrustProviderOidcOptionsArgsDict',
+    'TrustProviderSseSpecificationArgs',
+    'TrustProviderSseSpecificationArgsDict',
 ]
 
 MYPY = False
 
 if not MYPY:
+    class EndpointCidrOptionsArgsDict(TypedDict):
+        cidr: pulumi.Input[str]
+        port_ranges: pulumi.Input[Sequence[pulumi.Input['EndpointCidrOptionsPortRangeArgsDict']]]
+        protocol: NotRequired[pulumi.Input[str]]
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    EndpointCidrOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointCidrOptionsArgs:
+    def __init__(__self__, *,
+                 cidr: pulumi.Input[str],
+                 port_ranges: pulumi.Input[Sequence[pulumi.Input['EndpointCidrOptionsPortRangeArgs']]],
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "cidr", cidr)
+        pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cidr", value)
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> pulumi.Input[Sequence[pulumi.Input['EndpointCidrOptionsPortRangeArgs']]]:
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: pulumi.Input[Sequence[pulumi.Input['EndpointCidrOptionsPortRangeArgs']]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+
+if not MYPY:
+    class EndpointCidrOptionsPortRangeArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        to_port: pulumi.Input[int]
+elif False:
+    EndpointCidrOptionsPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointCidrOptionsPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: pulumi.Input[int],
+                 to_port: pulumi.Input[int]):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "to_port", value)
+
+
+if not MYPY:
     class EndpointLoadBalancerOptionsArgsDict(TypedDict):
         load_balancer_arn: NotRequired[pulumi.Input[str]]
         port: NotRequired[pulumi.Input[int]]
+        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgsDict']]]]
         protocol: NotRequired[pulumi.Input[str]]
         subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -55,12 +164,15 @@ class EndpointLoadBalancerOptionsArgs:
     def __init__(__self__, *,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgs']]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         if load_balancer_arn is not None:
             pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if subnet_ids is not None:
@@ -85,6 +197,15 @@ class EndpointLoadBalancerOptionsArgs:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgs']]]]:
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "protocol")
@@ -104,9 +225,44 @@ class EndpointLoadBalancerOptionsArgs:
 
 
 if not MYPY:
+    class EndpointLoadBalancerOptionsPortRangeArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        to_port: pulumi.Input[int]
+elif False:
+    EndpointLoadBalancerOptionsPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointLoadBalancerOptionsPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: pulumi.Input[int],
+                 to_port: pulumi.Input[int]):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "to_port", value)
+
+
+if not MYPY:
     class EndpointNetworkInterfaceOptionsArgsDict(TypedDict):
         network_interface_id: NotRequired[pulumi.Input[str]]
         port: NotRequired[pulumi.Input[int]]
+        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgsDict']]]]
         protocol: NotRequired[pulumi.Input[str]]
 elif False:
     EndpointNetworkInterfaceOptionsArgsDict: TypeAlias = Mapping[str, Any]
@@ -116,11 +272,14 @@ class EndpointNetworkInterfaceOptionsArgs:
     def __init__(__self__, *,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgs']]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
 
@@ -143,6 +302,15 @@ class EndpointNetworkInterfaceOptionsArgs:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgs']]]]:
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgs']]]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "protocol")
@@ -150,6 +318,141 @@ class EndpointNetworkInterfaceOptionsArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
+
+
+if not MYPY:
+    class EndpointNetworkInterfaceOptionsPortRangeArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        to_port: pulumi.Input[int]
+elif False:
+    EndpointNetworkInterfaceOptionsPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointNetworkInterfaceOptionsPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: pulumi.Input[int],
+                 to_port: pulumi.Input[int]):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "to_port", value)
+
+
+if not MYPY:
+    class EndpointRdsOptionsArgsDict(TypedDict):
+        port: NotRequired[pulumi.Input[int]]
+        protocol: NotRequired[pulumi.Input[str]]
+        rds_db_cluster_arn: NotRequired[pulumi.Input[str]]
+        rds_db_instance_arn: NotRequired[pulumi.Input[str]]
+        rds_db_proxy_arn: NotRequired[pulumi.Input[str]]
+        rds_endpoint: NotRequired[pulumi.Input[str]]
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    EndpointRdsOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointRdsOptionsArgs:
+    def __init__(__self__, *,
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 rds_db_cluster_arn: Optional[pulumi.Input[str]] = None,
+                 rds_db_instance_arn: Optional[pulumi.Input[str]] = None,
+                 rds_db_proxy_arn: Optional[pulumi.Input[str]] = None,
+                 rds_endpoint: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if rds_db_cluster_arn is not None:
+            pulumi.set(__self__, "rds_db_cluster_arn", rds_db_cluster_arn)
+        if rds_db_instance_arn is not None:
+            pulumi.set(__self__, "rds_db_instance_arn", rds_db_instance_arn)
+        if rds_db_proxy_arn is not None:
+            pulumi.set(__self__, "rds_db_proxy_arn", rds_db_proxy_arn)
+        if rds_endpoint is not None:
+            pulumi.set(__self__, "rds_endpoint", rds_endpoint)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="rdsDbClusterArn")
+    def rds_db_cluster_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "rds_db_cluster_arn")
+
+    @rds_db_cluster_arn.setter
+    def rds_db_cluster_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rds_db_cluster_arn", value)
+
+    @property
+    @pulumi.getter(name="rdsDbInstanceArn")
+    def rds_db_instance_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "rds_db_instance_arn")
+
+    @rds_db_instance_arn.setter
+    def rds_db_instance_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rds_db_instance_arn", value)
+
+    @property
+    @pulumi.getter(name="rdsDbProxyArn")
+    def rds_db_proxy_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "rds_db_proxy_arn")
+
+    @rds_db_proxy_arn.setter
+    def rds_db_proxy_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rds_db_proxy_arn", value)
+
+    @property
+    @pulumi.getter(name="rdsEndpoint")
+    def rds_endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "rds_endpoint")
+
+    @rds_endpoint.setter
+    def rds_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rds_endpoint", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
 
 
 if not MYPY:
@@ -681,6 +984,119 @@ class TrustProviderDeviceOptionsArgs:
 
 
 if not MYPY:
+    class TrustProviderNativeApplicationOidcOptionsArgsDict(TypedDict):
+        client_secret: pulumi.Input[str]
+        authorization_endpoint: NotRequired[pulumi.Input[str]]
+        client_id: NotRequired[pulumi.Input[str]]
+        issuer: NotRequired[pulumi.Input[str]]
+        public_signing_key_endpoint: NotRequired[pulumi.Input[str]]
+        scope: NotRequired[pulumi.Input[str]]
+        token_endpoint: NotRequired[pulumi.Input[str]]
+        user_info_endpoint: NotRequired[pulumi.Input[str]]
+elif False:
+    TrustProviderNativeApplicationOidcOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrustProviderNativeApplicationOidcOptionsArgs:
+    def __init__(__self__, *,
+                 client_secret: pulumi.Input[str],
+                 authorization_endpoint: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 public_signing_key_endpoint: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 token_endpoint: Optional[pulumi.Input[str]] = None,
+                 user_info_endpoint: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "client_secret", client_secret)
+        if authorization_endpoint is not None:
+            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if public_signing_key_endpoint is not None:
+            pulumi.set(__self__, "public_signing_key_endpoint", public_signing_key_endpoint)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+        if user_info_endpoint is not None:
+            pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "authorization_endpoint")
+
+    @authorization_endpoint.setter
+    def authorization_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_endpoint", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter(name="publicSigningKeyEndpoint")
+    def public_signing_key_endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "public_signing_key_endpoint")
+
+    @public_signing_key_endpoint.setter
+    def public_signing_key_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_signing_key_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_endpoint", value)
+
+    @property
+    @pulumi.getter(name="userInfoEndpoint")
+    def user_info_endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_info_endpoint")
+
+    @user_info_endpoint.setter
+    def user_info_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_info_endpoint", value)
+
+
+if not MYPY:
     class TrustProviderOidcOptionsArgsDict(TypedDict):
         client_secret: pulumi.Input[str]
         authorization_endpoint: NotRequired[pulumi.Input[str]]
@@ -778,5 +1194,41 @@ class TrustProviderOidcOptionsArgs:
     @user_info_endpoint.setter
     def user_info_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_info_endpoint", value)
+
+
+if not MYPY:
+    class TrustProviderSseSpecificationArgsDict(TypedDict):
+        customer_managed_key_enabled: NotRequired[pulumi.Input[bool]]
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+elif False:
+    TrustProviderSseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrustProviderSseSpecificationArgs:
+    def __init__(__self__, *,
+                 customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        if customer_managed_key_enabled is not None:
+            pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEnabled")
+    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "customer_managed_key_enabled")
+
+    @customer_managed_key_enabled.setter
+    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "customer_managed_key_enabled", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 

@@ -64,7 +64,11 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
      */
     public readonly credentialArn!: pulumi.Output<string | undefined>;
     /**
-     * The repository name prefix to use when caching images from the source registry.
+     * The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
+     */
+    public readonly customRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
      */
     public readonly ecrRepositoryPrefix!: pulumi.Output<string>;
     /**
@@ -72,9 +76,13 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
     /**
-     * The registry URL of the upstream public registry to use as the source.
+     * The registry URL of the upstream registry to use as the source.
      */
     public readonly upstreamRegistryUrl!: pulumi.Output<string>;
+    /**
+     * The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it's set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
+     */
+    public readonly upstreamRepositoryPrefix!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PullThroughCacheRule resource with the given unique name, arguments, and options.
@@ -90,9 +98,11 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PullThroughCacheRuleState | undefined;
             resourceInputs["credentialArn"] = state ? state.credentialArn : undefined;
+            resourceInputs["customRoleArn"] = state ? state.customRoleArn : undefined;
             resourceInputs["ecrRepositoryPrefix"] = state ? state.ecrRepositoryPrefix : undefined;
             resourceInputs["registryId"] = state ? state.registryId : undefined;
             resourceInputs["upstreamRegistryUrl"] = state ? state.upstreamRegistryUrl : undefined;
+            resourceInputs["upstreamRepositoryPrefix"] = state ? state.upstreamRepositoryPrefix : undefined;
         } else {
             const args = argsOrState as PullThroughCacheRuleArgs | undefined;
             if ((!args || args.ecrRepositoryPrefix === undefined) && !opts.urn) {
@@ -102,8 +112,10 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'upstreamRegistryUrl'");
             }
             resourceInputs["credentialArn"] = args ? args.credentialArn : undefined;
+            resourceInputs["customRoleArn"] = args ? args.customRoleArn : undefined;
             resourceInputs["ecrRepositoryPrefix"] = args ? args.ecrRepositoryPrefix : undefined;
             resourceInputs["upstreamRegistryUrl"] = args ? args.upstreamRegistryUrl : undefined;
+            resourceInputs["upstreamRepositoryPrefix"] = args ? args.upstreamRepositoryPrefix : undefined;
             resourceInputs["registryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -120,7 +132,11 @@ export interface PullThroughCacheRuleState {
      */
     credentialArn?: pulumi.Input<string>;
     /**
-     * The repository name prefix to use when caching images from the source registry.
+     * The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
+     */
+    customRoleArn?: pulumi.Input<string>;
+    /**
+     * The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
      */
     ecrRepositoryPrefix?: pulumi.Input<string>;
     /**
@@ -128,9 +144,13 @@ export interface PullThroughCacheRuleState {
      */
     registryId?: pulumi.Input<string>;
     /**
-     * The registry URL of the upstream public registry to use as the source.
+     * The registry URL of the upstream registry to use as the source.
      */
     upstreamRegistryUrl?: pulumi.Input<string>;
+    /**
+     * The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it's set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
+     */
+    upstreamRepositoryPrefix?: pulumi.Input<string>;
 }
 
 /**
@@ -142,11 +162,19 @@ export interface PullThroughCacheRuleArgs {
      */
     credentialArn?: pulumi.Input<string>;
     /**
-     * The repository name prefix to use when caching images from the source registry.
+     * The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
+     */
+    customRoleArn?: pulumi.Input<string>;
+    /**
+     * The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
      */
     ecrRepositoryPrefix: pulumi.Input<string>;
     /**
-     * The registry URL of the upstream public registry to use as the source.
+     * The registry URL of the upstream registry to use as the source.
      */
     upstreamRegistryUrl: pulumi.Input<string>;
+    /**
+     * The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it's set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
+     */
+    upstreamRepositoryPrefix?: pulumi.Input<string>;
 }

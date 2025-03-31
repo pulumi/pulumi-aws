@@ -203,6 +203,12 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Instruction { get; private set; } = null!;
 
         /// <summary>
+        /// Configurations for the agent's ability to retain the conversational context.
+        /// </summary>
+        [Output("memoryConfigurations")]
+        public Output<ImmutableArray<Outputs.AgentAgentMemoryConfiguration>> MemoryConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
         [Output("prepareAgent")]
@@ -343,6 +349,18 @@ namespace Pulumi.Aws.Bedrock
         [Input("instruction")]
         public Input<string>? Instruction { get; set; }
 
+        [Input("memoryConfigurations")]
+        private InputList<Inputs.AgentAgentMemoryConfigurationArgs>? _memoryConfigurations;
+
+        /// <summary>
+        /// Configurations for the agent's ability to retain the conversational context.
+        /// </summary>
+        public InputList<Inputs.AgentAgentMemoryConfigurationArgs> MemoryConfigurations
+        {
+            get => _memoryConfigurations ?? (_memoryConfigurations = new InputList<Inputs.AgentAgentMemoryConfigurationArgs>());
+            set => _memoryConfigurations = value;
+        }
+
         /// <summary>
         /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
@@ -469,6 +487,18 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("instruction")]
         public Input<string>? Instruction { get; set; }
+
+        [Input("memoryConfigurations")]
+        private InputList<Inputs.AgentAgentMemoryConfigurationGetArgs>? _memoryConfigurations;
+
+        /// <summary>
+        /// Configurations for the agent's ability to retain the conversational context.
+        /// </summary>
+        public InputList<Inputs.AgentAgentMemoryConfigurationGetArgs> MemoryConfigurations
+        {
+            get => _memoryConfigurations ?? (_memoryConfigurations = new InputList<Inputs.AgentAgentMemoryConfigurationGetArgs>());
+            set => _memoryConfigurations = value;
+        }
 
         /// <summary>
         /// Whether to prepare the agent after creation or modification. Defaults to `true`.

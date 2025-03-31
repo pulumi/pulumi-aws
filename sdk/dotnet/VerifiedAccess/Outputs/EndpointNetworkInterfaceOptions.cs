@@ -15,6 +15,7 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     {
         public readonly string? NetworkInterfaceId;
         public readonly int? Port;
+        public readonly ImmutableArray<Outputs.EndpointNetworkInterfaceOptionsPortRange> PortRanges;
         public readonly string? Protocol;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
 
             int? port,
 
+            ImmutableArray<Outputs.EndpointNetworkInterfaceOptionsPortRange> portRanges,
+
             string? protocol)
         {
             NetworkInterfaceId = networkInterfaceId;
             Port = port;
+            PortRanges = portRanges;
             Protocol = protocol;
         }
     }

@@ -241,17 +241,17 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CodePipelines using the name. For example:
+    /// Using `pulumi import`, import CodePipelines using the `name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+    /// $ pulumi import aws:codepipeline/pipeline:Pipeline example example-pipeline
     /// ```
     /// </summary>
     [AwsResourceType("aws:codepipeline/pipeline:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The codepipeline ARN.
+        /// Codepipeline ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -305,6 +305,12 @@ namespace Pulumi.Aws.CodePipeline
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+        /// </summary>
+        [Output("triggerAlls")]
+        public Output<ImmutableArray<Outputs.PipelineTriggerAll>> TriggerAlls { get; private set; } = null!;
 
         /// <summary>
         /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
@@ -459,7 +465,7 @@ namespace Pulumi.Aws.CodePipeline
     public sealed class PipelineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The codepipeline ARN.
+        /// Codepipeline ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -537,6 +543,18 @@ namespace Pulumi.Aws.CodePipeline
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
+        }
+
+        [Input("triggerAlls")]
+        private InputList<Inputs.PipelineTriggerAllGetArgs>? _triggerAlls;
+
+        /// <summary>
+        /// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+        /// </summary>
+        public InputList<Inputs.PipelineTriggerAllGetArgs> TriggerAlls
+        {
+            get => _triggerAlls ?? (_triggerAlls = new InputList<Inputs.PipelineTriggerAllGetArgs>());
+            set => _triggerAlls = value;
         }
 
         [Input("triggers")]

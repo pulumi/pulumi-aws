@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.EventSourceMappingDocumentDbEventSourceConfig?> DocumentDbEventSourceConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Determines if the mapping will be enabled on creation. Defaults to `true`.
+        /// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.EventSourceMappingDocumentDbEventSourceConfigArgs>? DocumentDbEventSourceConfig { get; set; }
 
         /// <summary>
-        /// Determines if the mapping will be enabled on creation. Defaults to `true`.
+        /// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -719,7 +719,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.EventSourceMappingDocumentDbEventSourceConfigGetArgs>? DocumentDbEventSourceConfig { get; set; }
 
         /// <summary>
-        /// Determines if the mapping will be enabled on creation. Defaults to `true`.
+        /// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

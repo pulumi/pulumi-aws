@@ -72,6 +72,10 @@ export class TrustProvider extends pulumi.CustomResource {
      */
     public readonly deviceTrustProviderType!: pulumi.Output<string | undefined>;
     /**
+     * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     */
+    public readonly nativeApplicationOidcOptions!: pulumi.Output<outputs.verifiedaccess.TrustProviderNativeApplicationOidcOptions | undefined>;
+    /**
      * The OpenID Connect details for an oidc-type, user-identity based trust provider.
      */
     public readonly oidcOptions!: pulumi.Output<outputs.verifiedaccess.TrustProviderOidcOptions | undefined>;
@@ -79,6 +83,7 @@ export class TrustProvider extends pulumi.CustomResource {
      * The identifier to be used when working with policy rules.
      */
     public readonly policyReferenceName!: pulumi.Output<string>;
+    public readonly sseSpecification!: pulumi.Output<outputs.verifiedaccess.TrustProviderSseSpecification>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -114,8 +119,10 @@ export class TrustProvider extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["deviceOptions"] = state ? state.deviceOptions : undefined;
             resourceInputs["deviceTrustProviderType"] = state ? state.deviceTrustProviderType : undefined;
+            resourceInputs["nativeApplicationOidcOptions"] = state ? state.nativeApplicationOidcOptions : undefined;
             resourceInputs["oidcOptions"] = state ? state.oidcOptions : undefined;
             resourceInputs["policyReferenceName"] = state ? state.policyReferenceName : undefined;
+            resourceInputs["sseSpecification"] = state ? state.sseSpecification : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["trustProviderType"] = state ? state.trustProviderType : undefined;
@@ -131,8 +138,10 @@ export class TrustProvider extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["deviceOptions"] = args ? args.deviceOptions : undefined;
             resourceInputs["deviceTrustProviderType"] = args ? args.deviceTrustProviderType : undefined;
+            resourceInputs["nativeApplicationOidcOptions"] = args ? args.nativeApplicationOidcOptions : undefined;
             resourceInputs["oidcOptions"] = args ? args.oidcOptions : undefined;
             resourceInputs["policyReferenceName"] = args ? args.policyReferenceName : undefined;
+            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trustProviderType"] = args ? args.trustProviderType : undefined;
             resourceInputs["userTrustProviderType"] = args ? args.userTrustProviderType : undefined;
@@ -160,6 +169,10 @@ export interface TrustProviderState {
      */
     deviceTrustProviderType?: pulumi.Input<string>;
     /**
+     * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     */
+    nativeApplicationOidcOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderNativeApplicationOidcOptions>;
+    /**
      * The OpenID Connect details for an oidc-type, user-identity based trust provider.
      */
     oidcOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderOidcOptions>;
@@ -167,6 +180,7 @@ export interface TrustProviderState {
      * The identifier to be used when working with policy rules.
      */
     policyReferenceName?: pulumi.Input<string>;
+    sseSpecification?: pulumi.Input<inputs.verifiedaccess.TrustProviderSseSpecification>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -204,6 +218,10 @@ export interface TrustProviderArgs {
      */
     deviceTrustProviderType?: pulumi.Input<string>;
     /**
+     * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     */
+    nativeApplicationOidcOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderNativeApplicationOidcOptions>;
+    /**
      * The OpenID Connect details for an oidc-type, user-identity based trust provider.
      */
     oidcOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderOidcOptions>;
@@ -211,6 +229,7 @@ export interface TrustProviderArgs {
      * The identifier to be used when working with policy rules.
      */
     policyReferenceName: pulumi.Input<string>;
+    sseSpecification?: pulumi.Input<inputs.verifiedaccess.TrustProviderSseSpecification>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

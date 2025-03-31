@@ -71,7 +71,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
     /**
      * Fully-qualified domain name.
      */
-    public readonly domainName!: pulumi.Output<string | undefined>;
+    public readonly domainName!: pulumi.Output<string>;
     /**
      * The type of the domain.
      */

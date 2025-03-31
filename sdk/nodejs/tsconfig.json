@@ -90,6 +90,7 @@
         "apigateway/response.ts",
         "apigateway/restApi.ts",
         "apigateway/restApiPolicy.ts",
+        "apigateway/restApiPut.ts",
         "apigateway/stage.ts",
         "apigateway/usagePlan.ts",
         "apigateway/usagePlanKey.ts",

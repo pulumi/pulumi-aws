@@ -31,7 +31,7 @@ namespace Pulumi.Aws.S3Tables
     /// 
     ///     var example = new Aws.S3Tables.Namespace("example", new()
     ///     {
-    ///         NameSpace = "example-namespace",
+    ///         NameSpace = "example_namespace",
     ///         TableBucketArn = exampleTableBucket.Arn,
     ///     });
     /// 

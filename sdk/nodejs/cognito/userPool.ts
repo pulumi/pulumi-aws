@@ -239,7 +239,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * Configuration block for username configuration. Detailed below.
      */
-    public readonly usernameConfiguration!: pulumi.Output<outputs.cognito.UserPoolUsernameConfiguration | undefined>;
+    public readonly usernameConfiguration!: pulumi.Output<outputs.cognito.UserPoolUsernameConfiguration>;
     /**
      * Configuration block for verification message templates. Detailed below.
      */

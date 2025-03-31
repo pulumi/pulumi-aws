@@ -24,6 +24,7 @@ __all__ = [
     'IntegrationTlsConfig',
     'MethodSettingsSettings',
     'RestApiEndpointConfiguration',
+    'RestApiPutTimeouts',
     'StageAccessLogSettings',
     'StageCanarySettings',
     'UsagePlanApiStage',
@@ -540,6 +541,25 @@ class RestApiEndpointConfiguration(dict):
         Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
         """
         return pulumi.get(self, "vpc_endpoint_ids")
+
+
+@pulumi.output_type
+class RestApiPutTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
 
 
 @pulumi.output_type

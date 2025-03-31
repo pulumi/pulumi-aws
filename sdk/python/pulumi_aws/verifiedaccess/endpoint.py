@@ -21,30 +21,33 @@ __all__ = ['EndpointArgs', 'Endpoint']
 @pulumi.input_type
 class EndpointArgs:
     def __init__(__self__, *,
-                 application_domain: pulumi.Input[str],
                  attachment_type: pulumi.Input[str],
-                 domain_certificate_arn: pulumi.Input[str],
-                 endpoint_domain_prefix: pulumi.Input[str],
                  endpoint_type: pulumi.Input[str],
                  verified_access_group_id: pulumi.Input[str],
+                 application_domain: Optional[pulumi.Input[str]] = None,
+                 cidr_options: Optional[pulumi.Input['EndpointCidrOptionsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 domain_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 endpoint_domain_prefix: Optional[pulumi.Input[str]] = None,
                  load_balancer_options: Optional[pulumi.Input['EndpointLoadBalancerOptionsArgs']] = None,
                  network_interface_options: Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArgs']] = None,
                  policy_document: Optional[pulumi.Input[str]] = None,
+                 rds_options: Optional[pulumi.Input['EndpointRdsOptionsArgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sse_specification: Optional[pulumi.Input['EndpointSseSpecificationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
-        :param pulumi.Input[str] application_domain: The DNS name for users to reach your application.
         :param pulumi.Input[str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
-        :param pulumi.Input[str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
-        :param pulumi.Input[str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         :param pulumi.Input[str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
         :param pulumi.Input[str] verified_access_group_id: The ID of the Verified Access group to associate the endpoint with.
                
                The following arguments are optional:
+        :param pulumi.Input[str] application_domain: The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+        :param pulumi.Input['EndpointCidrOptionsArgs'] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
         :param pulumi.Input[str] description: A description for the Verified Access endpoint.
+        :param pulumi.Input[str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+        :param pulumi.Input[str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         :param pulumi.Input['EndpointLoadBalancerOptionsArgs'] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
         :param pulumi.Input['EndpointNetworkInterfaceOptionsArgs'] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
         :param pulumi.Input[str] policy_document: The policy document that is associated with this resource.
@@ -52,38 +55,33 @@ class EndpointArgs:
         :param pulumi.Input['EndpointSseSpecificationArgs'] sse_specification: The options in use for server side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "application_domain", application_domain)
         pulumi.set(__self__, "attachment_type", attachment_type)
-        pulumi.set(__self__, "domain_certificate_arn", domain_certificate_arn)
-        pulumi.set(__self__, "endpoint_domain_prefix", endpoint_domain_prefix)
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         pulumi.set(__self__, "verified_access_group_id", verified_access_group_id)
+        if application_domain is not None:
+            pulumi.set(__self__, "application_domain", application_domain)
+        if cidr_options is not None:
+            pulumi.set(__self__, "cidr_options", cidr_options)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if domain_certificate_arn is not None:
+            pulumi.set(__self__, "domain_certificate_arn", domain_certificate_arn)
+        if endpoint_domain_prefix is not None:
+            pulumi.set(__self__, "endpoint_domain_prefix", endpoint_domain_prefix)
         if load_balancer_options is not None:
             pulumi.set(__self__, "load_balancer_options", load_balancer_options)
         if network_interface_options is not None:
             pulumi.set(__self__, "network_interface_options", network_interface_options)
         if policy_document is not None:
             pulumi.set(__self__, "policy_document", policy_document)
+        if rds_options is not None:
+            pulumi.set(__self__, "rds_options", rds_options)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if sse_specification is not None:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="applicationDomain")
-    def application_domain(self) -> pulumi.Input[str]:
-        """
-        The DNS name for users to reach your application.
-        """
-        return pulumi.get(self, "application_domain")
-
-    @application_domain.setter
-    def application_domain(self, value: pulumi.Input[str]):
-        pulumi.set(self, "application_domain", value)
 
     @property
     @pulumi.getter(name="attachmentType")
@@ -96,30 +94,6 @@ class EndpointArgs:
     @attachment_type.setter
     def attachment_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "attachment_type", value)
-
-    @property
-    @pulumi.getter(name="domainCertificateArn")
-    def domain_certificate_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
-        """
-        return pulumi.get(self, "domain_certificate_arn")
-
-    @domain_certificate_arn.setter
-    def domain_certificate_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "domain_certificate_arn", value)
-
-    @property
-    @pulumi.getter(name="endpointDomainPrefix")
-    def endpoint_domain_prefix(self) -> pulumi.Input[str]:
-        """
-        A custom identifier that is prepended to the DNS name that is generated for the endpoint.
-        """
-        return pulumi.get(self, "endpoint_domain_prefix")
-
-    @endpoint_domain_prefix.setter
-    def endpoint_domain_prefix(self, value: pulumi.Input[str]):
-        pulumi.set(self, "endpoint_domain_prefix", value)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -148,6 +122,30 @@ class EndpointArgs:
         pulumi.set(self, "verified_access_group_id", value)
 
     @property
+    @pulumi.getter(name="applicationDomain")
+    def application_domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+        """
+        return pulumi.get(self, "application_domain")
+
+    @application_domain.setter
+    def application_domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_domain", value)
+
+    @property
+    @pulumi.getter(name="cidrOptions")
+    def cidr_options(self) -> Optional[pulumi.Input['EndpointCidrOptionsArgs']]:
+        """
+        The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+        """
+        return pulumi.get(self, "cidr_options")
+
+    @cidr_options.setter
+    def cidr_options(self, value: Optional[pulumi.Input['EndpointCidrOptionsArgs']]):
+        pulumi.set(self, "cidr_options", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -158,6 +156,30 @@ class EndpointArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="domainCertificateArn")
+    def domain_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+        """
+        return pulumi.get(self, "domain_certificate_arn")
+
+    @domain_certificate_arn.setter
+    def domain_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="endpointDomainPrefix")
+    def endpoint_domain_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom identifier that is prepended to the DNS name that is generated for the endpoint.
+        """
+        return pulumi.get(self, "endpoint_domain_prefix")
+
+    @endpoint_domain_prefix.setter
+    def endpoint_domain_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_domain_prefix", value)
 
     @property
     @pulumi.getter(name="loadBalancerOptions")
@@ -194,6 +216,15 @@ class EndpointArgs:
     @policy_document.setter
     def policy_document(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_document", value)
+
+    @property
+    @pulumi.getter(name="rdsOptions")
+    def rds_options(self) -> Optional[pulumi.Input['EndpointRdsOptionsArgs']]:
+        return pulumi.get(self, "rds_options")
+
+    @rds_options.setter
+    def rds_options(self, value: Optional[pulumi.Input['EndpointRdsOptionsArgs']]):
+        pulumi.set(self, "rds_options", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -237,6 +268,7 @@ class _EndpointState:
     def __init__(__self__, *,
                  application_domain: Optional[pulumi.Input[str]] = None,
                  attachment_type: Optional[pulumi.Input[str]] = None,
+                 cidr_options: Optional[pulumi.Input['EndpointCidrOptionsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_validation_domain: Optional[pulumi.Input[str]] = None,
                  domain_certificate_arn: Optional[pulumi.Input[str]] = None,
@@ -246,6 +278,7 @@ class _EndpointState:
                  load_balancer_options: Optional[pulumi.Input['EndpointLoadBalancerOptionsArgs']] = None,
                  network_interface_options: Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArgs']] = None,
                  policy_document: Optional[pulumi.Input[str]] = None,
+                 rds_options: Optional[pulumi.Input['EndpointRdsOptionsArgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sse_specification: Optional[pulumi.Input['EndpointSseSpecificationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -254,11 +287,12 @@ class _EndpointState:
                  verified_access_instance_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Endpoint resources.
-        :param pulumi.Input[str] application_domain: The DNS name for users to reach your application.
+        :param pulumi.Input[str] application_domain: The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         :param pulumi.Input[str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
+        :param pulumi.Input['EndpointCidrOptionsArgs'] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
         :param pulumi.Input[str] description: A description for the Verified Access endpoint.
         :param pulumi.Input[str] device_validation_domain: Returned if endpoint has a device trust provider attached.
-        :param pulumi.Input[str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+        :param pulumi.Input[str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         :param pulumi.Input[str] endpoint_domain: A DNS name that is generated for the endpoint.
         :param pulumi.Input[str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         :param pulumi.Input[str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
@@ -276,6 +310,8 @@ class _EndpointState:
             pulumi.set(__self__, "application_domain", application_domain)
         if attachment_type is not None:
             pulumi.set(__self__, "attachment_type", attachment_type)
+        if cidr_options is not None:
+            pulumi.set(__self__, "cidr_options", cidr_options)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if device_validation_domain is not None:
@@ -294,6 +330,8 @@ class _EndpointState:
             pulumi.set(__self__, "network_interface_options", network_interface_options)
         if policy_document is not None:
             pulumi.set(__self__, "policy_document", policy_document)
+        if rds_options is not None:
+            pulumi.set(__self__, "rds_options", rds_options)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if sse_specification is not None:
@@ -314,7 +352,7 @@ class _EndpointState:
     @pulumi.getter(name="applicationDomain")
     def application_domain(self) -> Optional[pulumi.Input[str]]:
         """
-        The DNS name for users to reach your application.
+        The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         """
         return pulumi.get(self, "application_domain")
 
@@ -333,6 +371,18 @@ class _EndpointState:
     @attachment_type.setter
     def attachment_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "attachment_type", value)
+
+    @property
+    @pulumi.getter(name="cidrOptions")
+    def cidr_options(self) -> Optional[pulumi.Input['EndpointCidrOptionsArgs']]:
+        """
+        The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+        """
+        return pulumi.get(self, "cidr_options")
+
+    @cidr_options.setter
+    def cidr_options(self, value: Optional[pulumi.Input['EndpointCidrOptionsArgs']]):
+        pulumi.set(self, "cidr_options", value)
 
     @property
     @pulumi.getter
@@ -362,7 +412,7 @@ class _EndpointState:
     @pulumi.getter(name="domainCertificateArn")
     def domain_certificate_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+        The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         """
         return pulumi.get(self, "domain_certificate_arn")
 
@@ -443,6 +493,15 @@ class _EndpointState:
         pulumi.set(self, "policy_document", value)
 
     @property
+    @pulumi.getter(name="rdsOptions")
+    def rds_options(self) -> Optional[pulumi.Input['EndpointRdsOptionsArgs']]:
+        return pulumi.get(self, "rds_options")
+
+    @rds_options.setter
+    def rds_options(self, value: Optional[pulumi.Input['EndpointRdsOptionsArgs']]):
+        pulumi.set(self, "rds_options", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -519,6 +578,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_domain: Optional[pulumi.Input[str]] = None,
                  attachment_type: Optional[pulumi.Input[str]] = None,
+                 cidr_options: Optional[pulumi.Input[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_certificate_arn: Optional[pulumi.Input[str]] = None,
                  endpoint_domain_prefix: Optional[pulumi.Input[str]] = None,
@@ -526,6 +586,7 @@ class Endpoint(pulumi.CustomResource):
                  load_balancer_options: Optional[pulumi.Input[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']]] = None,
                  network_interface_options: Optional[pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']]] = None,
                  policy_document: Optional[pulumi.Input[str]] = None,
+                 rds_options: Optional[pulumi.Input[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -581,6 +642,29 @@ class Endpoint(pulumi.CustomResource):
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
 
+        ### Cidr Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.verifiedaccess.Endpoint("example",
+            attachment_type="vpc",
+            description="example",
+            endpoint_type="cidr",
+            cidr_options={
+                "cidr": test[0]["cidrBlock"],
+                "port_ranges": [{
+                    "from_port": 443,
+                    "to_port": 443,
+                }],
+                "protocol": "tcp",
+                "subnet_ids": [subnet["id"] for subnet in test],
+            },
+            security_group_ids=[test_aws_security_group["id"]],
+            verified_access_group_id=test_aws_verifiedaccess_group["id"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
@@ -591,10 +675,11 @@ class Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_domain: The DNS name for users to reach your application.
+        :param pulumi.Input[str] application_domain: The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         :param pulumi.Input[str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
+        :param pulumi.Input[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict']] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
         :param pulumi.Input[str] description: A description for the Verified Access endpoint.
-        :param pulumi.Input[str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+        :param pulumi.Input[str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         :param pulumi.Input[str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         :param pulumi.Input[str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
         :param pulumi.Input[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
@@ -663,6 +748,29 @@ class Endpoint(pulumi.CustomResource):
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
 
+        ### Cidr Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.verifiedaccess.Endpoint("example",
+            attachment_type="vpc",
+            description="example",
+            endpoint_type="cidr",
+            cidr_options={
+                "cidr": test[0]["cidrBlock"],
+                "port_ranges": [{
+                    "from_port": 443,
+                    "to_port": 443,
+                }],
+                "protocol": "tcp",
+                "subnet_ids": [subnet["id"] for subnet in test],
+            },
+            security_group_ids=[test_aws_security_group["id"]],
+            verified_access_group_id=test_aws_verifiedaccess_group["id"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
@@ -688,6 +796,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_domain: Optional[pulumi.Input[str]] = None,
                  attachment_type: Optional[pulumi.Input[str]] = None,
+                 cidr_options: Optional[pulumi.Input[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_certificate_arn: Optional[pulumi.Input[str]] = None,
                  endpoint_domain_prefix: Optional[pulumi.Input[str]] = None,
@@ -695,6 +804,7 @@ class Endpoint(pulumi.CustomResource):
                  load_balancer_options: Optional[pulumi.Input[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']]] = None,
                  network_interface_options: Optional[pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']]] = None,
                  policy_document: Optional[pulumi.Input[str]] = None,
+                 rds_options: Optional[pulumi.Input[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -708,18 +818,13 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointArgs.__new__(EndpointArgs)
 
-            if application_domain is None and not opts.urn:
-                raise TypeError("Missing required property 'application_domain'")
             __props__.__dict__["application_domain"] = application_domain
             if attachment_type is None and not opts.urn:
                 raise TypeError("Missing required property 'attachment_type'")
             __props__.__dict__["attachment_type"] = attachment_type
+            __props__.__dict__["cidr_options"] = cidr_options
             __props__.__dict__["description"] = description
-            if domain_certificate_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'domain_certificate_arn'")
             __props__.__dict__["domain_certificate_arn"] = domain_certificate_arn
-            if endpoint_domain_prefix is None and not opts.urn:
-                raise TypeError("Missing required property 'endpoint_domain_prefix'")
             __props__.__dict__["endpoint_domain_prefix"] = endpoint_domain_prefix
             if endpoint_type is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_type'")
@@ -727,6 +832,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["load_balancer_options"] = load_balancer_options
             __props__.__dict__["network_interface_options"] = network_interface_options
             __props__.__dict__["policy_document"] = policy_document
+            __props__.__dict__["rds_options"] = rds_options
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["tags"] = tags
@@ -749,6 +855,7 @@ class Endpoint(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             application_domain: Optional[pulumi.Input[str]] = None,
             attachment_type: Optional[pulumi.Input[str]] = None,
+            cidr_options: Optional[pulumi.Input[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             device_validation_domain: Optional[pulumi.Input[str]] = None,
             domain_certificate_arn: Optional[pulumi.Input[str]] = None,
@@ -758,6 +865,7 @@ class Endpoint(pulumi.CustomResource):
             load_balancer_options: Optional[pulumi.Input[Union['EndpointLoadBalancerOptionsArgs', 'EndpointLoadBalancerOptionsArgsDict']]] = None,
             network_interface_options: Optional[pulumi.Input[Union['EndpointNetworkInterfaceOptionsArgs', 'EndpointNetworkInterfaceOptionsArgsDict']]] = None,
             policy_document: Optional[pulumi.Input[str]] = None,
+            rds_options: Optional[pulumi.Input[Union['EndpointRdsOptionsArgs', 'EndpointRdsOptionsArgsDict']]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             sse_specification: Optional[pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -771,11 +879,12 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_domain: The DNS name for users to reach your application.
+        :param pulumi.Input[str] application_domain: The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         :param pulumi.Input[str] attachment_type: The type of attachment. Currently, only `vpc` is supported.
+        :param pulumi.Input[Union['EndpointCidrOptionsArgs', 'EndpointCidrOptionsArgsDict']] cidr_options: The CIDR block details. This parameter is required if the endpoint type is `cidr`.
         :param pulumi.Input[str] description: A description for the Verified Access endpoint.
         :param pulumi.Input[str] device_validation_domain: Returned if endpoint has a device trust provider attached.
-        :param pulumi.Input[str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+        :param pulumi.Input[str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         :param pulumi.Input[str] endpoint_domain: A DNS name that is generated for the endpoint.
         :param pulumi.Input[str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         :param pulumi.Input[str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
@@ -795,6 +904,7 @@ class Endpoint(pulumi.CustomResource):
 
         __props__.__dict__["application_domain"] = application_domain
         __props__.__dict__["attachment_type"] = attachment_type
+        __props__.__dict__["cidr_options"] = cidr_options
         __props__.__dict__["description"] = description
         __props__.__dict__["device_validation_domain"] = device_validation_domain
         __props__.__dict__["domain_certificate_arn"] = domain_certificate_arn
@@ -804,6 +914,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["load_balancer_options"] = load_balancer_options
         __props__.__dict__["network_interface_options"] = network_interface_options
         __props__.__dict__["policy_document"] = policy_document
+        __props__.__dict__["rds_options"] = rds_options
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["sse_specification"] = sse_specification
         __props__.__dict__["tags"] = tags
@@ -814,9 +925,9 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationDomain")
-    def application_domain(self) -> pulumi.Output[str]:
+    def application_domain(self) -> pulumi.Output[Optional[str]]:
         """
-        The DNS name for users to reach your application.
+        The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         """
         return pulumi.get(self, "application_domain")
 
@@ -827,6 +938,14 @@ class Endpoint(pulumi.CustomResource):
         The type of attachment. Currently, only `vpc` is supported.
         """
         return pulumi.get(self, "attachment_type")
+
+    @property
+    @pulumi.getter(name="cidrOptions")
+    def cidr_options(self) -> pulumi.Output[Optional['outputs.EndpointCidrOptions']]:
+        """
+        The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+        """
+        return pulumi.get(self, "cidr_options")
 
     @property
     @pulumi.getter
@@ -846,9 +965,9 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainCertificateArn")
-    def domain_certificate_arn(self) -> pulumi.Output[str]:
+    def domain_certificate_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+        The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         """
         return pulumi.get(self, "domain_certificate_arn")
 
@@ -862,7 +981,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointDomainPrefix")
-    def endpoint_domain_prefix(self) -> pulumi.Output[str]:
+    def endpoint_domain_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         """
@@ -899,6 +1018,11 @@ class Endpoint(pulumi.CustomResource):
         The policy document that is associated with this resource.
         """
         return pulumi.get(self, "policy_document")
+
+    @property
+    @pulumi.getter(name="rdsOptions")
+    def rds_options(self) -> pulumi.Output[Optional['outputs.EndpointRdsOptions']]:
+        return pulumi.get(self, "rds_options")
 
     @property
     @pulumi.getter(name="securityGroupIds")

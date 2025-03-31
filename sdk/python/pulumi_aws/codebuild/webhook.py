@@ -286,6 +286,31 @@ class Webhook(pulumi.CustomResource):
             }])
         ```
 
+        ### GitHub Enterprise
+
+        When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `github_repository_webhook` resource).
+
+        More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_github as github
+
+        example = aws.codebuild.Webhook("example", project_name=example_aws_codebuild_project["name"])
+        example_repository_webhook = github.index.RepositoryWebhook("example",
+            active=True,
+            events=[push],
+            name=example,
+            repository=example_github_repository.name,
+            configuration=[{
+                url: example.payload_url,
+                secret: example.secret,
+                contentType: json,
+                insecureSsl: False,
+            }])
+        ```
+
         ## Import
 
         Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:
@@ -339,6 +364,31 @@ class Webhook(pulumi.CustomResource):
                         "pattern": "master",
                     },
                 ],
+            }])
+        ```
+
+        ### GitHub Enterprise
+
+        When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `github_repository_webhook` resource).
+
+        More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_github as github
+
+        example = aws.codebuild.Webhook("example", project_name=example_aws_codebuild_project["name"])
+        example_repository_webhook = github.index.RepositoryWebhook("example",
+            active=True,
+            events=[push],
+            name=example,
+            repository=example_github_repository.name,
+            configuration=[{
+                url: example.payload_url,
+                secret: example.secret,
+                contentType: json,
+                insecureSsl: False,
             }])
         ```
 

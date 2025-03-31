@@ -150,6 +150,40 @@ import {Topic} from "./index";
  * });
  * ```
  *
+ * ## Example with Delivery Policy
+ *
+ * This example demonstrates how to define a `deliveryPolicy` for an HTTPS subscription. Unlike the `aws.sns.Topic` resource, the `deliveryPolicy` for `aws.sns.TopicSubscription` should not be wrapped in an `"http"` object.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleWithDeliveryPolicy = new aws.sns.TopicSubscription("example_with_delivery_policy", {
+ *     topic: "arn:aws:sns:us-west-2:123456789012:my-topic",
+ *     protocol: "https",
+ *     endpoint: "https://example.com/endpoint",
+ *     rawMessageDelivery: true,
+ *     deliveryPolicy: `{
+ *   "healthyRetryPolicy": {
+ *     "minDelayTarget": 20,
+ *     "maxDelayTarget": 20,
+ *     "numRetries": 3,
+ *     "numMaxDelayRetries": 0,
+ *     "numNoDelayRetries": 0,
+ *     "numMinDelayRetries": 0,
+ *     "backoffFunction": "linear"
+ *   },
+ *   "sicklyRetryPolicy": null,
+ *   "throttlePolicy": null,
+ *   "requestPolicy": {
+ *     "headerContentType": "text/plain; application/json"
+ *   },
+ *   "guaranteed": false
+ * }
+ * `,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:

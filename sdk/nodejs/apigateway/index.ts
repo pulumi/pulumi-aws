@@ -160,6 +160,11 @@ export type RestApiPolicy = import("./restApiPolicy").RestApiPolicy;
 export const RestApiPolicy: typeof import("./restApiPolicy").RestApiPolicy = null as any;
 utilities.lazyLoad(exports, ["RestApiPolicy"], () => require("./restApiPolicy"));
 
+export { RestApiPutArgs, RestApiPutState } from "./restApiPut";
+export type RestApiPut = import("./restApiPut").RestApiPut;
+export const RestApiPut: typeof import("./restApiPut").RestApiPut = null as any;
+utilities.lazyLoad(exports, ["RestApiPut"], () => require("./restApiPut"));
+
 export { StageArgs, StageState } from "./stage";
 export type Stage = import("./stage").Stage;
 export const Stage: typeof import("./stage").Stage = null as any;
@@ -227,6 +232,8 @@ const _module = {
                 return new RestApi(name, <any>undefined, { urn })
             case "aws:apigateway/restApiPolicy:RestApiPolicy":
                 return new RestApiPolicy(name, <any>undefined, { urn })
+            case "aws:apigateway/restApiPut:RestApiPut":
+                return new RestApiPut(name, <any>undefined, { urn })
             case "aws:apigateway/stage:Stage":
                 return new Stage(name, <any>undefined, { urn })
             case "aws:apigateway/usagePlan:UsagePlan":
@@ -261,6 +268,7 @@ pulumi.runtime.registerResourceModule("aws", "apigateway/resource", _module)
 pulumi.runtime.registerResourceModule("aws", "apigateway/response", _module)
 pulumi.runtime.registerResourceModule("aws", "apigateway/restApi", _module)
 pulumi.runtime.registerResourceModule("aws", "apigateway/restApiPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "apigateway/restApiPut", _module)
 pulumi.runtime.registerResourceModule("aws", "apigateway/stage", _module)
 pulumi.runtime.registerResourceModule("aws", "apigateway/usagePlan", _module)
 pulumi.runtime.registerResourceModule("aws", "apigateway/usagePlanKey", _module)

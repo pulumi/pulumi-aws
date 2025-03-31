@@ -183,11 +183,12 @@ class _PipelineState:
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trigger_alls: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerAllArgs']]]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]]] = None,
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering Pipeline resources.
-        :param pulumi.Input[str] arn: The codepipeline ARN.
+        :param pulumi.Input[str] arn: Codepipeline ARN.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
                
@@ -198,6 +199,7 @@ class _PipelineState:
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineTriggerAllArgs']]] trigger_alls: A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         """
@@ -222,6 +224,8 @@ class _PipelineState:
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if trigger_alls is not None:
+            pulumi.set(__self__, "trigger_alls", trigger_alls)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
         if variables is not None:
@@ -231,7 +235,7 @@ class _PipelineState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The codepipeline ARN.
+        Codepipeline ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -337,6 +341,18 @@ class _PipelineState:
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter(name="triggerAlls")
+    def trigger_alls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerAllArgs']]]]:
+        """
+        A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+        """
+        return pulumi.get(self, "trigger_alls")
+
+    @trigger_alls.setter
+    def trigger_alls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerAllArgs']]]]):
+        pulumi.set(self, "trigger_alls", value)
 
     @property
     @pulumi.getter
@@ -508,10 +524,10 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CodePipelines using the name. For example:
+        Using `pulumi import`, import CodePipelines using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+        $ pulumi import aws:codepipeline/pipeline:Pipeline example example-pipeline
         ```
 
         :param str resource_name: The name of the resource.
@@ -664,10 +680,10 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CodePipelines using the name. For example:
+        Using `pulumi import`, import CodePipelines using the `name`. For example:
 
         ```sh
-        $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+        $ pulumi import aws:codepipeline/pipeline:Pipeline example example-pipeline
         ```
 
         :param str resource_name: The name of the resource.
@@ -720,6 +736,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["variables"] = variables
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["trigger_alls"] = None
         super(Pipeline, __self__).__init__(
             'aws:codepipeline/pipeline:Pipeline',
             resource_name,
@@ -739,6 +756,7 @@ class Pipeline(pulumi.CustomResource):
             stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            trigger_alls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerAllArgs', 'PipelineTriggerAllArgsDict']]]]] = None,
             triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]]] = None,
             variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]]] = None) -> 'Pipeline':
         """
@@ -748,7 +766,7 @@ class Pipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The codepipeline ARN.
+        :param pulumi.Input[str] arn: Codepipeline ARN.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
                
@@ -759,6 +777,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerAllArgs', 'PipelineTriggerAllArgsDict']]]] trigger_alls: A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         """
@@ -775,6 +794,7 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["stages"] = stages
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["trigger_alls"] = trigger_alls
         __props__.__dict__["triggers"] = triggers
         __props__.__dict__["variables"] = variables
         return Pipeline(resource_name, opts=opts, __props__=__props__)
@@ -783,7 +803,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The codepipeline ARN.
+        Codepipeline ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -855,8 +875,16 @@ class Pipeline(pulumi.CustomResource):
         return pulumi.get(self, "tags_all")
 
     @property
+    @pulumi.getter(name="triggerAlls")
+    def trigger_alls(self) -> pulumi.Output[Sequence['outputs.PipelineTriggerAll']]:
+        """
+        A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+        """
+        return pulumi.get(self, "trigger_alls")
+
+    @property
     @pulumi.getter
-    def triggers(self) -> pulumi.Output[Sequence['outputs.PipelineTrigger']]:
+    def triggers(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineTrigger']]]:
         """
         A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         """

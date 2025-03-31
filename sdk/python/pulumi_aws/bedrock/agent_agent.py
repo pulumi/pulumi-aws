@@ -30,6 +30,7 @@ class AgentAgentArgs:
                  guardrail_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
+                 memory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
@@ -48,6 +49,7 @@ class AgentAgentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
@@ -68,6 +70,8 @@ class AgentAgentArgs:
             pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
         if instruction is not None:
             pulumi.set(__self__, "instruction", instruction)
+        if memory_configurations is not None:
+            pulumi.set(__self__, "memory_configurations", memory_configurations)
         if prepare_agent is not None:
             pulumi.set(__self__, "prepare_agent", prepare_agent)
         if prompt_override_configurations is not None:
@@ -190,6 +194,18 @@ class AgentAgentArgs:
         pulumi.set(self, "instruction", value)
 
     @property
+    @pulumi.getter(name="memoryConfigurations")
+    def memory_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]]]:
+        """
+        Configurations for the agent's ability to retain the conversational context.
+        """
+        return pulumi.get(self, "memory_configurations")
+
+    @memory_configurations.setter
+    def memory_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]]]):
+        pulumi.set(self, "memory_configurations", value)
+
+    @property
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -262,6 +278,7 @@ class _AgentAgentState:
                  guardrail_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
+                 memory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
@@ -284,6 +301,7 @@ class _AgentAgentState:
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
@@ -314,6 +332,8 @@ class _AgentAgentState:
             pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
         if instruction is not None:
             pulumi.set(__self__, "instruction", instruction)
+        if memory_configurations is not None:
+            pulumi.set(__self__, "memory_configurations", memory_configurations)
         if prepare_agent is not None:
             pulumi.set(__self__, "prepare_agent", prepare_agent)
         if prompt_override_configurations is not None:
@@ -477,6 +497,18 @@ class _AgentAgentState:
         pulumi.set(self, "instruction", value)
 
     @property
+    @pulumi.getter(name="memoryConfigurations")
+    def memory_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]]]:
+        """
+        Configurations for the agent's ability to retain the conversational context.
+        """
+        return pulumi.get(self, "memory_configurations")
+
+    @memory_configurations.setter
+    def memory_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]]]):
+        pulumi.set(self, "memory_configurations", value)
+
+    @property
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -561,6 +593,7 @@ class AgentAgent(pulumi.CustomResource):
                  guardrail_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
+                 memory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
@@ -638,6 +671,7 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
@@ -731,6 +765,7 @@ class AgentAgent(pulumi.CustomResource):
                  guardrail_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
+                 memory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
@@ -760,6 +795,7 @@ class AgentAgent(pulumi.CustomResource):
             __props__.__dict__["guardrail_configurations"] = guardrail_configurations
             __props__.__dict__["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
             __props__.__dict__["instruction"] = instruction
+            __props__.__dict__["memory_configurations"] = memory_configurations
             __props__.__dict__["prepare_agent"] = prepare_agent
             __props__.__dict__["prompt_override_configurations"] = prompt_override_configurations
             __props__.__dict__["skip_resource_in_use_check"] = skip_resource_in_use_check
@@ -791,6 +827,7 @@ class AgentAgent(pulumi.CustomResource):
             guardrail_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]]] = None,
             idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
             instruction: Optional[pulumi.Input[str]] = None,
+            memory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]]] = None,
             prepare_agent: Optional[pulumi.Input[bool]] = None,
             prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
             skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
@@ -818,6 +855,7 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
@@ -840,6 +878,7 @@ class AgentAgent(pulumi.CustomResource):
         __props__.__dict__["guardrail_configurations"] = guardrail_configurations
         __props__.__dict__["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
         __props__.__dict__["instruction"] = instruction
+        __props__.__dict__["memory_configurations"] = memory_configurations
         __props__.__dict__["prepare_agent"] = prepare_agent
         __props__.__dict__["prompt_override_configurations"] = prompt_override_configurations
         __props__.__dict__["skip_resource_in_use_check"] = skip_resource_in_use_check
@@ -945,6 +984,14 @@ class AgentAgent(pulumi.CustomResource):
         Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         """
         return pulumi.get(self, "instruction")
+
+    @property
+    @pulumi.getter(name="memoryConfigurations")
+    def memory_configurations(self) -> pulumi.Output[Sequence['outputs.AgentAgentMemoryConfiguration']]:
+        """
+        Configurations for the agent's ability to retain the conversational context.
+        """
+        return pulumi.get(self, "memory_configurations")
 
     @property
     @pulumi.getter(name="prepareAgent")

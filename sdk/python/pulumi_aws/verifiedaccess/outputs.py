@@ -16,8 +16,13 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'EndpointCidrOptions',
+    'EndpointCidrOptionsPortRange',
     'EndpointLoadBalancerOptions',
+    'EndpointLoadBalancerOptionsPortRange',
     'EndpointNetworkInterfaceOptions',
+    'EndpointNetworkInterfaceOptionsPortRange',
+    'EndpointRdsOptions',
     'EndpointSseSpecification',
     'GroupSseConfiguration',
     'InstanceLoggingConfigurationAccessLogs',
@@ -26,8 +31,102 @@ __all__ = [
     'InstanceLoggingConfigurationAccessLogsS3',
     'InstanceVerifiedAccessTrustProvider',
     'TrustProviderDeviceOptions',
+    'TrustProviderNativeApplicationOidcOptions',
     'TrustProviderOidcOptions',
+    'TrustProviderSseSpecification',
 ]
+
+@pulumi.output_type
+class EndpointCidrOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portRanges":
+            suggest = "port_ranges"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointCidrOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointCidrOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointCidrOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr: str,
+                 port_ranges: Sequence['outputs.EndpointCidrOptionsPortRange'],
+                 protocol: Optional[str] = None,
+                 subnet_ids: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "cidr", cidr)
+        pulumi.set(__self__, "port_ranges", port_ranges)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> str:
+        return pulumi.get(self, "cidr")
+
+    @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Sequence['outputs.EndpointCidrOptionsPortRange']:
+        return pulumi.get(self, "port_ranges")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
+class EndpointCidrOptionsPortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointCidrOptionsPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointCidrOptionsPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointCidrOptionsPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: int,
+                 to_port: int):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> int:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> int:
+        return pulumi.get(self, "to_port")
+
 
 @pulumi.output_type
 class EndpointLoadBalancerOptions(dict):
@@ -36,6 +135,8 @@ class EndpointLoadBalancerOptions(dict):
         suggest = None
         if key == "loadBalancerArn":
             suggest = "load_balancer_arn"
+        elif key == "portRanges":
+            suggest = "port_ranges"
         elif key == "subnetIds":
             suggest = "subnet_ids"
 
@@ -53,12 +154,15 @@ class EndpointLoadBalancerOptions(dict):
     def __init__(__self__, *,
                  load_balancer_arn: Optional[str] = None,
                  port: Optional[int] = None,
+                 port_ranges: Optional[Sequence['outputs.EndpointLoadBalancerOptionsPortRange']] = None,
                  protocol: Optional[str] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
         if load_balancer_arn is not None:
             pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if subnet_ids is not None:
@@ -75,6 +179,11 @@ class EndpointLoadBalancerOptions(dict):
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[Sequence['outputs.EndpointLoadBalancerOptionsPortRange']]:
+        return pulumi.get(self, "port_ranges")
+
+    @property
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
@@ -86,12 +195,52 @@ class EndpointLoadBalancerOptions(dict):
 
 
 @pulumi.output_type
+class EndpointLoadBalancerOptionsPortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointLoadBalancerOptionsPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointLoadBalancerOptionsPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointLoadBalancerOptionsPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: int,
+                 to_port: int):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> int:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> int:
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
 class EndpointNetworkInterfaceOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "networkInterfaceId":
             suggest = "network_interface_id"
+        elif key == "portRanges":
+            suggest = "port_ranges"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointNetworkInterfaceOptions. Access the value via the '{suggest}' property getter instead.")
@@ -107,11 +256,14 @@ class EndpointNetworkInterfaceOptions(dict):
     def __init__(__self__, *,
                  network_interface_id: Optional[str] = None,
                  port: Optional[int] = None,
+                 port_ranges: Optional[Sequence['outputs.EndpointNetworkInterfaceOptionsPortRange']] = None,
                  protocol: Optional[str] = None):
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
 
@@ -126,9 +278,138 @@ class EndpointNetworkInterfaceOptions(dict):
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[Sequence['outputs.EndpointNetworkInterfaceOptionsPortRange']]:
+        return pulumi.get(self, "port_ranges")
+
+    @property
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class EndpointNetworkInterfaceOptionsPortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointNetworkInterfaceOptionsPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointNetworkInterfaceOptionsPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointNetworkInterfaceOptionsPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: int,
+                 to_port: int):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> int:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> int:
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class EndpointRdsOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rdsDbClusterArn":
+            suggest = "rds_db_cluster_arn"
+        elif key == "rdsDbInstanceArn":
+            suggest = "rds_db_instance_arn"
+        elif key == "rdsDbProxyArn":
+            suggest = "rds_db_proxy_arn"
+        elif key == "rdsEndpoint":
+            suggest = "rds_endpoint"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointRdsOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointRdsOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointRdsOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None,
+                 rds_db_cluster_arn: Optional[str] = None,
+                 rds_db_instance_arn: Optional[str] = None,
+                 rds_db_proxy_arn: Optional[str] = None,
+                 rds_endpoint: Optional[str] = None,
+                 subnet_ids: Optional[Sequence[str]] = None):
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if rds_db_cluster_arn is not None:
+            pulumi.set(__self__, "rds_db_cluster_arn", rds_db_cluster_arn)
+        if rds_db_instance_arn is not None:
+            pulumi.set(__self__, "rds_db_instance_arn", rds_db_instance_arn)
+        if rds_db_proxy_arn is not None:
+            pulumi.set(__self__, "rds_db_proxy_arn", rds_db_proxy_arn)
+        if rds_endpoint is not None:
+            pulumi.set(__self__, "rds_endpoint", rds_endpoint)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="rdsDbClusterArn")
+    def rds_db_cluster_arn(self) -> Optional[str]:
+        return pulumi.get(self, "rds_db_cluster_arn")
+
+    @property
+    @pulumi.getter(name="rdsDbInstanceArn")
+    def rds_db_instance_arn(self) -> Optional[str]:
+        return pulumi.get(self, "rds_db_instance_arn")
+
+    @property
+    @pulumi.getter(name="rdsDbProxyArn")
+    def rds_db_proxy_arn(self) -> Optional[str]:
+        return pulumi.get(self, "rds_db_proxy_arn")
+
+    @property
+    @pulumi.getter(name="rdsEndpoint")
+    def rds_endpoint(self) -> Optional[str]:
+        return pulumi.get(self, "rds_endpoint")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "subnet_ids")
 
 
 @pulumi.output_type
@@ -599,6 +880,101 @@ class TrustProviderDeviceOptions(dict):
 
 
 @pulumi.output_type
+class TrustProviderNativeApplicationOidcOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "publicSigningKeyEndpoint":
+            suggest = "public_signing_key_endpoint"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+        elif key == "userInfoEndpoint":
+            suggest = "user_info_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustProviderNativeApplicationOidcOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustProviderNativeApplicationOidcOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustProviderNativeApplicationOidcOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_secret: str,
+                 authorization_endpoint: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 issuer: Optional[str] = None,
+                 public_signing_key_endpoint: Optional[str] = None,
+                 scope: Optional[str] = None,
+                 token_endpoint: Optional[str] = None,
+                 user_info_endpoint: Optional[str] = None):
+        pulumi.set(__self__, "client_secret", client_secret)
+        if authorization_endpoint is not None:
+            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if public_signing_key_endpoint is not None:
+            pulumi.set(__self__, "public_signing_key_endpoint", public_signing_key_endpoint)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+        if user_info_endpoint is not None:
+            pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> str:
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> Optional[str]:
+        return pulumi.get(self, "authorization_endpoint")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[str]:
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="publicSigningKeyEndpoint")
+    def public_signing_key_endpoint(self) -> Optional[str]:
+        return pulumi.get(self, "public_signing_key_endpoint")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[str]:
+        return pulumi.get(self, "token_endpoint")
+
+    @property
+    @pulumi.getter(name="userInfoEndpoint")
+    def user_info_endpoint(self) -> Optional[str]:
+        return pulumi.get(self, "user_info_endpoint")
+
+
+@pulumi.output_type
 class TrustProviderOidcOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -681,5 +1057,45 @@ class TrustProviderOidcOptions(dict):
     @pulumi.getter(name="userInfoEndpoint")
     def user_info_endpoint(self) -> Optional[str]:
         return pulumi.get(self, "user_info_endpoint")
+
+
+@pulumi.output_type
+class TrustProviderSseSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerManagedKeyEnabled":
+            suggest = "customer_managed_key_enabled"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustProviderSseSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustProviderSseSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustProviderSseSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_managed_key_enabled: Optional[bool] = None,
+                 kms_key_arn: Optional[str] = None):
+        if customer_managed_key_enabled is not None:
+            pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEnabled")
+    def customer_managed_key_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "customer_managed_key_enabled")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_arn")
 
 

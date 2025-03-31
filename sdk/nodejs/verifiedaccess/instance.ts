@@ -35,6 +35,15 @@ import * as utilities from "../utilities";
  * const example = new aws.verifiedaccess.Instance("example", {fipsEnabled: true});
  * ```
  *
+ * ### With `cidrEndpointsCustomSubdomain`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.verifiedaccess.Instance("example", {cidrEndpointsCustomSubdomain: "test.example.com"});
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
@@ -72,6 +81,10 @@ export class Instance extends pulumi.CustomResource {
     }
 
     /**
+     * The custom subdomain for the CIDR endpoints.
+     */
+    public readonly cidrEndpointsCustomSubdomain!: pulumi.Output<string | undefined>;
+    /**
      * The time that the Verified Access Instance was created.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
@@ -87,6 +100,7 @@ export class Instance extends pulumi.CustomResource {
      * The time that the Verified Access Instance was last updated.
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -113,20 +127,24 @@ export class Instance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceState | undefined;
+            resourceInputs["cidrEndpointsCustomSubdomain"] = state ? state.cidrEndpointsCustomSubdomain : undefined;
             resourceInputs["creationTime"] = state ? state.creationTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["fipsEnabled"] = state ? state.fipsEnabled : undefined;
             resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
+            resourceInputs["nameServers"] = state ? state.nameServers : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["verifiedAccessTrustProviders"] = state ? state.verifiedAccessTrustProviders : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
+            resourceInputs["cidrEndpointsCustomSubdomain"] = args ? args.cidrEndpointsCustomSubdomain : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["nameServers"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["verifiedAccessTrustProviders"] = undefined /*out*/;
         }
@@ -139,6 +157,10 @@ export class Instance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Instance resources.
  */
 export interface InstanceState {
+    /**
+     * The custom subdomain for the CIDR endpoints.
+     */
+    cidrEndpointsCustomSubdomain?: pulumi.Input<string>;
     /**
      * The time that the Verified Access Instance was created.
      */
@@ -155,6 +177,7 @@ export interface InstanceState {
      * The time that the Verified Access Instance was last updated.
      */
     lastUpdatedTime?: pulumi.Input<string>;
+    nameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -173,6 +196,10 @@ export interface InstanceState {
  * The set of arguments for constructing a Instance resource.
  */
 export interface InstanceArgs {
+    /**
+     * The custom subdomain for the CIDR endpoints.
+     */
+    cidrEndpointsCustomSubdomain?: pulumi.Input<string>;
     /**
      * A description for the AWS Verified Access Instance.
      */

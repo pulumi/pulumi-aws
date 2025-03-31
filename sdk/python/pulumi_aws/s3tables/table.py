@@ -413,10 +413,10 @@ class Table(pulumi.CustomResource):
 
         example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
         example_namespace = aws.s3tables.Namespace("example",
-            namespace="example-namespace",
+            namespace="example_namespace",
             table_bucket_arn=example_table_bucket.arn)
         example = aws.s3tables.Table("example",
-            name="example-table",
+            name="example_table",
             namespace=example_namespace.namespace,
             table_bucket_arn=example_namespace.table_bucket_arn,
             format="ICEBERG")
@@ -466,10 +466,10 @@ class Table(pulumi.CustomResource):
 
         example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
         example_namespace = aws.s3tables.Namespace("example",
-            namespace="example-namespace",
+            namespace="example_namespace",
             table_bucket_arn=example_table_bucket.arn)
         example = aws.s3tables.Table("example",
-            name="example-table",
+            name="example_table",
             namespace=example_namespace.namespace,
             table_bucket_arn=example_namespace.table_bucket_arn,
             format="ICEBERG")

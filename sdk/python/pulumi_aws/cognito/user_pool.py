@@ -1760,7 +1760,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usernameConfiguration")
-    def username_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolUsernameConfiguration']]:
+    def username_configuration(self) -> pulumi.Output['outputs.UserPoolUsernameConfiguration']:
         """
         Configuration block for username configuration. Detailed below.
         """
