@@ -18,10 +18,10 @@ index 7614e5e3f8..d3151199f4 100644
  		Blocks: map[string]schema.Block{
  			"export": schema.ListNestedBlock{
 diff --git a/internal/service/bedrockagent/agent.go b/internal/service/bedrockagent/agent.go
-index 9ba95b56bc..3cf0fb67ac 100644
+index 6c712905f0..0a6e4d03a6 100644
 --- a/internal/service/bedrockagent/agent.go
 +++ b/internal/service/bedrockagent/agent.go
-@@ -167,7 +167,7 @@ func (r *agentResource) Schema(ctx context.Context, request resource.SchemaReque
+@@ -155,7 +155,7 @@ func (r *agentResource) Schema(ctx context.Context, request resource.SchemaReque
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
