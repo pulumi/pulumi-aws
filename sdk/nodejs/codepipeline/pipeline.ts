@@ -148,10 +148,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import CodePipelines using the name. For example:
+ * Using `pulumi import`, import CodePipelines using the `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+ * $ pulumi import aws:codepipeline/pipeline:Pipeline example example-pipeline
  * ```
  */
 export class Pipeline extends pulumi.CustomResource {
@@ -183,7 +183,7 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     /**
-     * The codepipeline ARN.
+     * Codepipeline ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -223,9 +223,13 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
+     * A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+     */
+    public /*out*/ readonly triggerAlls!: pulumi.Output<outputs.codepipeline.PipelineTriggerAll[]>;
+    /**
      * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      */
-    public readonly triggers!: pulumi.Output<outputs.codepipeline.PipelineTrigger[]>;
+    public readonly triggers!: pulumi.Output<outputs.codepipeline.PipelineTrigger[] | undefined>;
     /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      */
@@ -253,6 +257,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["stages"] = state ? state.stages : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["triggerAlls"] = state ? state.triggerAlls : undefined;
             resourceInputs["triggers"] = state ? state.triggers : undefined;
             resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
@@ -277,6 +282,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["variables"] = args ? args.variables : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["triggerAlls"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);
@@ -288,7 +294,7 @@ export class Pipeline extends pulumi.CustomResource {
  */
 export interface PipelineState {
     /**
-     * The codepipeline ARN.
+     * Codepipeline ARN.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -327,6 +333,10 @@ export interface PipelineState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+     */
+    triggerAlls?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTriggerAll>[]>;
     /**
      * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      */

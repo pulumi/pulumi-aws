@@ -204,7 +204,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly documentDbEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDocumentDbEventSourceConfig | undefined>;
     /**
-     * Determines if the mapping will be enabled on creation. Defaults to `true`.
+     * Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -445,7 +445,7 @@ export interface EventSourceMappingState {
      */
     documentDbEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDocumentDbEventSourceConfig>;
     /**
-     * Determines if the mapping will be enabled on creation. Defaults to `true`.
+     * Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -589,7 +589,7 @@ export interface EventSourceMappingArgs {
      */
     documentDbEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDocumentDbEventSourceConfig>;
     /**
-     * Determines if the mapping will be enabled on creation. Defaults to `true`.
+     * Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

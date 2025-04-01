@@ -54,6 +54,24 @@ namespace Pulumi.Aws.VerifiedAccess
     /// });
     /// ```
     /// 
+    /// ### With `cidr_endpoints_custom_subdomain`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.VerifiedAccess.Instance("example", new()
+    ///     {
+    ///         CidrEndpointsCustomSubdomain = "test.example.com",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
@@ -65,6 +83,12 @@ namespace Pulumi.Aws.VerifiedAccess
     [AwsResourceType("aws:verifiedaccess/instance:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The custom subdomain for the CIDR endpoints.
+        /// </summary>
+        [Output("cidrEndpointsCustomSubdomain")]
+        public Output<string?> CidrEndpointsCustomSubdomain { get; private set; } = null!;
+
         /// <summary>
         /// The time that the Verified Access Instance was created.
         /// </summary>
@@ -88,6 +112,9 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
+
+        [Output("nameServers")]
+        public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -151,6 +178,12 @@ namespace Pulumi.Aws.VerifiedAccess
     public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The custom subdomain for the CIDR endpoints.
+        /// </summary>
+        [Input("cidrEndpointsCustomSubdomain")]
+        public Input<string>? CidrEndpointsCustomSubdomain { get; set; }
+
+        /// <summary>
         /// A description for the AWS Verified Access Instance.
         /// </summary>
         [Input("description")]
@@ -183,6 +216,12 @@ namespace Pulumi.Aws.VerifiedAccess
     public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The custom subdomain for the CIDR endpoints.
+        /// </summary>
+        [Input("cidrEndpointsCustomSubdomain")]
+        public Input<string>? CidrEndpointsCustomSubdomain { get; set; }
+
+        /// <summary>
         /// The time that the Verified Access Instance was created.
         /// </summary>
         [Input("creationTime")]
@@ -205,6 +244,14 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("lastUpdatedTime")]
         public Input<string>? LastUpdatedTime { get; set; }
+
+        [Input("nameServers")]
+        private InputList<string>? _nameServers;
+        public InputList<string> NameServers
+        {
+            get => _nameServers ?? (_nameServers = new InputList<string>());
+            set => _nameServers = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

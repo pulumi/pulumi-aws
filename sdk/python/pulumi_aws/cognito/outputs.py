@@ -2550,15 +2550,16 @@ class UserPoolUsernameConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 case_sensitive: bool):
+                 case_sensitive: Optional[bool] = None):
         """
         :param bool case_sensitive: Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
         """
-        pulumi.set(__self__, "case_sensitive", case_sensitive)
+        if case_sensitive is not None:
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
 
     @property
     @pulumi.getter(name="caseSensitive")
-    def case_sensitive(self) -> bool:
+    def case_sensitive(self) -> Optional[bool]:
         """
         Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
         """

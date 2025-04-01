@@ -57,14 +57,18 @@ type LookupPullThroughCacheRuleArgs struct {
 // A collection of values returned by getPullThroughCacheRule.
 type LookupPullThroughCacheRuleResult struct {
 	// ARN of the Secret which will be used to authenticate against the registry.
-	CredentialArn       string `pulumi:"credentialArn"`
+	CredentialArn string `pulumi:"credentialArn"`
+	// The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
+	CustomRoleArn       string `pulumi:"customRoleArn"`
 	EcrRepositoryPrefix string `pulumi:"ecrRepositoryPrefix"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The registry ID where the repository was created.
 	RegistryId string `pulumi:"registryId"`
-	// The registry URL of the upstream public registry to use as the source.
+	// The registry URL of the upstream registry to use as the source.
 	UpstreamRegistryUrl string `pulumi:"upstreamRegistryUrl"`
+	// The upstream repository prefix associated with the pull through cache rule.
+	UpstreamRepositoryPrefix string `pulumi:"upstreamRepositoryPrefix"`
 }
 
 func LookupPullThroughCacheRuleOutput(ctx *pulumi.Context, args LookupPullThroughCacheRuleOutputArgs, opts ...pulumi.InvokeOption) LookupPullThroughCacheRuleResultOutput {
@@ -106,6 +110,11 @@ func (o LookupPullThroughCacheRuleResultOutput) CredentialArn() pulumi.StringOut
 	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.CredentialArn }).(pulumi.StringOutput)
 }
 
+// The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
+func (o LookupPullThroughCacheRuleResultOutput) CustomRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.CustomRoleArn }).(pulumi.StringOutput)
+}
+
 func (o LookupPullThroughCacheRuleResultOutput) EcrRepositoryPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.EcrRepositoryPrefix }).(pulumi.StringOutput)
 }
@@ -120,9 +129,14 @@ func (o LookupPullThroughCacheRuleResultOutput) RegistryId() pulumi.StringOutput
 	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// The registry URL of the upstream public registry to use as the source.
+// The registry URL of the upstream registry to use as the source.
 func (o LookupPullThroughCacheRuleResultOutput) UpstreamRegistryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.UpstreamRegistryUrl }).(pulumi.StringOutput)
+}
+
+// The upstream repository prefix associated with the pull through cache rule.
+func (o LookupPullThroughCacheRuleResultOutput) UpstreamRepositoryPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPullThroughCacheRuleResult) string { return v.UpstreamRepositoryPrefix }).(pulumi.StringOutput)
 }
 
 func init() {

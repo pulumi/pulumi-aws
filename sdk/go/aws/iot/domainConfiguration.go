@@ -59,7 +59,7 @@ type DomainConfiguration struct {
 	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrOutput `pulumi:"authorizerConfig"`
 	// Fully-qualified domain name.
-	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The type of the domain.
 	DomainType pulumi.StringOutput `pulumi:"domainType"`
 	// The name of the domain configuration. This value must be unique to a region.
@@ -314,8 +314,8 @@ func (o DomainConfigurationOutput) AuthorizerConfig() DomainConfigurationAuthori
 }
 
 // Fully-qualified domain name.
-func (o DomainConfigurationOutput) DomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
+func (o DomainConfigurationOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
 // The type of the domain.

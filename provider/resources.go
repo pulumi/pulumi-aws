@@ -6113,6 +6113,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_media_packagev2_channel_group":              {"name"},
 		"aws_timestreamquery_scheduled_query":            {"arn"},
 		"aws_route53domains_domain":                      {"domainName"},
+		"aws_api_gateway_rest_api_put":                   {"restApiId"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {

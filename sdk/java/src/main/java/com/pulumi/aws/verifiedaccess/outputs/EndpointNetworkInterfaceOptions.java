@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.verifiedaccess.outputs;
 
+import com.pulumi.aws.verifiedaccess.outputs.EndpointNetworkInterfaceOptionsPortRange;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +16,7 @@ import javax.annotation.Nullable;
 public final class EndpointNetworkInterfaceOptions {
     private @Nullable String networkInterfaceId;
     private @Nullable Integer port;
+    private @Nullable List<EndpointNetworkInterfaceOptionsPortRange> portRanges;
     private @Nullable String protocol;
 
     private EndpointNetworkInterfaceOptions() {}
@@ -22,6 +25,9 @@ public final class EndpointNetworkInterfaceOptions {
     }
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
+    }
+    public List<EndpointNetworkInterfaceOptionsPortRange> portRanges() {
+        return this.portRanges == null ? List.of() : this.portRanges;
     }
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
@@ -38,12 +44,14 @@ public final class EndpointNetworkInterfaceOptions {
     public static final class Builder {
         private @Nullable String networkInterfaceId;
         private @Nullable Integer port;
+        private @Nullable List<EndpointNetworkInterfaceOptionsPortRange> portRanges;
         private @Nullable String protocol;
         public Builder() {}
         public Builder(EndpointNetworkInterfaceOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.networkInterfaceId = defaults.networkInterfaceId;
     	      this.port = defaults.port;
+    	      this.portRanges = defaults.portRanges;
     	      this.protocol = defaults.protocol;
         }
 
@@ -60,6 +68,15 @@ public final class EndpointNetworkInterfaceOptions {
             return this;
         }
         @CustomType.Setter
+        public Builder portRanges(@Nullable List<EndpointNetworkInterfaceOptionsPortRange> portRanges) {
+
+            this.portRanges = portRanges;
+            return this;
+        }
+        public Builder portRanges(EndpointNetworkInterfaceOptionsPortRange... portRanges) {
+            return portRanges(List.of(portRanges));
+        }
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
 
             this.protocol = protocol;
@@ -69,6 +86,7 @@ public final class EndpointNetworkInterfaceOptions {
             final var _resultValue = new EndpointNetworkInterfaceOptions();
             _resultValue.networkInterfaceId = networkInterfaceId;
             _resultValue.port = port;
+            _resultValue.portRanges = portRanges;
             _resultValue.protocol = protocol;
             return _resultValue;
         }

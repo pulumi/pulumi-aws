@@ -18,6 +18,14 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        [Input("portRanges")]
+        private InputList<Inputs.EndpointLoadBalancerOptionsPortRangeGetArgs>? _portRanges;
+        public InputList<Inputs.EndpointLoadBalancerOptionsPortRangeGetArgs> PortRanges
+        {
+            get => _portRanges ?? (_portRanges = new InputList<Inputs.EndpointLoadBalancerOptionsPortRangeGetArgs>());
+            set => _portRanges = value;
+        }
+
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 

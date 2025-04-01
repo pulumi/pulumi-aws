@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Iot
         /// Fully-qualified domain name.
         /// </summary>
         [Output("domainName")]
-        public Output<string?> DomainName { get; private set; } = null!;
+        public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
         /// The type of the domain.

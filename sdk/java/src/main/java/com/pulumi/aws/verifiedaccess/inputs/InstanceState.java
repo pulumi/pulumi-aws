@@ -20,6 +20,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     public static final InstanceState Empty = new InstanceState();
 
     /**
+     * The custom subdomain for the CIDR endpoints.
+     * 
+     */
+    @Import(name="cidrEndpointsCustomSubdomain")
+    private @Nullable Output<String> cidrEndpointsCustomSubdomain;
+
+    /**
+     * @return The custom subdomain for the CIDR endpoints.
+     * 
+     */
+    public Optional<Output<String>> cidrEndpointsCustomSubdomain() {
+        return Optional.ofNullable(this.cidrEndpointsCustomSubdomain);
+    }
+
+    /**
      * The time that the Verified Access Instance was created.
      * 
      */
@@ -79,6 +94,13 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.lastUpdatedTime);
     }
 
+    @Import(name="nameServers")
+    private @Nullable Output<List<String>> nameServers;
+
+    public Optional<Output<List<String>>> nameServers() {
+        return Optional.ofNullable(this.nameServers);
+    }
+
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
@@ -131,10 +153,12 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     private InstanceState() {}
 
     private InstanceState(InstanceState $) {
+        this.cidrEndpointsCustomSubdomain = $.cidrEndpointsCustomSubdomain;
         this.creationTime = $.creationTime;
         this.description = $.description;
         this.fipsEnabled = $.fipsEnabled;
         this.lastUpdatedTime = $.lastUpdatedTime;
+        this.nameServers = $.nameServers;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.verifiedAccessTrustProviders = $.verifiedAccessTrustProviders;
@@ -156,6 +180,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(InstanceState defaults) {
             $ = new InstanceState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cidrEndpointsCustomSubdomain The custom subdomain for the CIDR endpoints.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrEndpointsCustomSubdomain(@Nullable Output<String> cidrEndpointsCustomSubdomain) {
+            $.cidrEndpointsCustomSubdomain = cidrEndpointsCustomSubdomain;
+            return this;
+        }
+
+        /**
+         * @param cidrEndpointsCustomSubdomain The custom subdomain for the CIDR endpoints.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrEndpointsCustomSubdomain(String cidrEndpointsCustomSubdomain) {
+            return cidrEndpointsCustomSubdomain(Output.of(cidrEndpointsCustomSubdomain));
         }
 
         /**
@@ -240,6 +285,19 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder lastUpdatedTime(String lastUpdatedTime) {
             return lastUpdatedTime(Output.of(lastUpdatedTime));
+        }
+
+        public Builder nameServers(@Nullable Output<List<String>> nameServers) {
+            $.nameServers = nameServers;
+            return this;
+        }
+
+        public Builder nameServers(List<String> nameServers) {
+            return nameServers(Output.of(nameServers));
+        }
+
+        public Builder nameServers(String... nameServers) {
+            return nameServers(List.of(nameServers));
         }
 
         /**

@@ -83,14 +83,28 @@ public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.credentialArn);
     }
     /**
-     * The repository name prefix to use when caching images from the source registry.
+     * The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
+     * 
+     */
+    @Export(name="customRoleArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> customRoleArn;
+
+    /**
+     * @return The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
+     * 
+     */
+    public Output<Optional<String>> customRoleArn() {
+        return Codegen.optional(this.customRoleArn);
+    }
+    /**
+     * The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don&#39;t have an associated pull through cache rule.
      * 
      */
     @Export(name="ecrRepositoryPrefix", refs={String.class}, tree="[0]")
     private Output<String> ecrRepositoryPrefix;
 
     /**
-     * @return The repository name prefix to use when caching images from the source registry.
+     * @return The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don&#39;t have an associated pull through cache rule.
      * 
      */
     public Output<String> ecrRepositoryPrefix() {
@@ -111,18 +125,32 @@ public class PullThroughCacheRule extends com.pulumi.resources.CustomResource {
         return this.registryId;
     }
     /**
-     * The registry URL of the upstream public registry to use as the source.
+     * The registry URL of the upstream registry to use as the source.
      * 
      */
     @Export(name="upstreamRegistryUrl", refs={String.class}, tree="[0]")
     private Output<String> upstreamRegistryUrl;
 
     /**
-     * @return The registry URL of the upstream public registry to use as the source.
+     * @return The registry URL of the upstream registry to use as the source.
      * 
      */
     public Output<String> upstreamRegistryUrl() {
         return this.upstreamRegistryUrl;
+    }
+    /**
+     * The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it&#39;s set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
+     * 
+     */
+    @Export(name="upstreamRepositoryPrefix", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> upstreamRepositoryPrefix;
+
+    /**
+     * @return The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it&#39;s set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
+     * 
+     */
+    public Output<Optional<String>> upstreamRepositoryPrefix() {
+        return Codegen.optional(this.upstreamRepositoryPrefix);
     }
 
     /**

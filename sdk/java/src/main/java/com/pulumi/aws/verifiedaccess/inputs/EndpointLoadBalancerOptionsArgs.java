@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.verifiedaccess.inputs;
 
+import com.pulumi.aws.verifiedaccess.inputs.EndpointLoadBalancerOptionsPortRangeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -31,6 +32,13 @@ public final class EndpointLoadBalancerOptionsArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.port);
     }
 
+    @Import(name="portRanges")
+    private @Nullable Output<List<EndpointLoadBalancerOptionsPortRangeArgs>> portRanges;
+
+    public Optional<Output<List<EndpointLoadBalancerOptionsPortRangeArgs>>> portRanges() {
+        return Optional.ofNullable(this.portRanges);
+    }
+
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
@@ -50,6 +58,7 @@ public final class EndpointLoadBalancerOptionsArgs extends com.pulumi.resources.
     private EndpointLoadBalancerOptionsArgs(EndpointLoadBalancerOptionsArgs $) {
         this.loadBalancerArn = $.loadBalancerArn;
         this.port = $.port;
+        this.portRanges = $.portRanges;
         this.protocol = $.protocol;
         this.subnetIds = $.subnetIds;
     }
@@ -88,6 +97,19 @@ public final class EndpointLoadBalancerOptionsArgs extends com.pulumi.resources.
 
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        public Builder portRanges(@Nullable Output<List<EndpointLoadBalancerOptionsPortRangeArgs>> portRanges) {
+            $.portRanges = portRanges;
+            return this;
+        }
+
+        public Builder portRanges(List<EndpointLoadBalancerOptionsPortRangeArgs> portRanges) {
+            return portRanges(Output.of(portRanges));
+        }
+
+        public Builder portRanges(EndpointLoadBalancerOptionsPortRangeArgs... portRanges) {
+            return portRanges(List.of(portRanges));
         }
 
         public Builder protocol(@Nullable Output<String> protocol) {

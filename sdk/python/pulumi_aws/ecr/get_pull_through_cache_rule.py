@@ -26,10 +26,13 @@ class GetPullThroughCacheRuleResult:
     """
     A collection of values returned by getPullThroughCacheRule.
     """
-    def __init__(__self__, credential_arn=None, ecr_repository_prefix=None, id=None, registry_id=None, upstream_registry_url=None):
+    def __init__(__self__, credential_arn=None, custom_role_arn=None, ecr_repository_prefix=None, id=None, registry_id=None, upstream_registry_url=None, upstream_repository_prefix=None):
         if credential_arn and not isinstance(credential_arn, str):
             raise TypeError("Expected argument 'credential_arn' to be a str")
         pulumi.set(__self__, "credential_arn", credential_arn)
+        if custom_role_arn and not isinstance(custom_role_arn, str):
+            raise TypeError("Expected argument 'custom_role_arn' to be a str")
+        pulumi.set(__self__, "custom_role_arn", custom_role_arn)
         if ecr_repository_prefix and not isinstance(ecr_repository_prefix, str):
             raise TypeError("Expected argument 'ecr_repository_prefix' to be a str")
         pulumi.set(__self__, "ecr_repository_prefix", ecr_repository_prefix)
@@ -42,6 +45,9 @@ class GetPullThroughCacheRuleResult:
         if upstream_registry_url and not isinstance(upstream_registry_url, str):
             raise TypeError("Expected argument 'upstream_registry_url' to be a str")
         pulumi.set(__self__, "upstream_registry_url", upstream_registry_url)
+        if upstream_repository_prefix and not isinstance(upstream_repository_prefix, str):
+            raise TypeError("Expected argument 'upstream_repository_prefix' to be a str")
+        pulumi.set(__self__, "upstream_repository_prefix", upstream_repository_prefix)
 
     @property
     @pulumi.getter(name="credentialArn")
@@ -50,6 +56,14 @@ class GetPullThroughCacheRuleResult:
         ARN of the Secret which will be used to authenticate against the registry.
         """
         return pulumi.get(self, "credential_arn")
+
+    @property
+    @pulumi.getter(name="customRoleArn")
+    def custom_role_arn(self) -> str:
+        """
+        The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
+        """
+        return pulumi.get(self, "custom_role_arn")
 
     @property
     @pulumi.getter(name="ecrRepositoryPrefix")
@@ -76,9 +90,17 @@ class GetPullThroughCacheRuleResult:
     @pulumi.getter(name="upstreamRegistryUrl")
     def upstream_registry_url(self) -> str:
         """
-        The registry URL of the upstream public registry to use as the source.
+        The registry URL of the upstream registry to use as the source.
         """
         return pulumi.get(self, "upstream_registry_url")
+
+    @property
+    @pulumi.getter(name="upstreamRepositoryPrefix")
+    def upstream_repository_prefix(self) -> str:
+        """
+        The upstream repository prefix associated with the pull through cache rule.
+        """
+        return pulumi.get(self, "upstream_repository_prefix")
 
 
 class AwaitableGetPullThroughCacheRuleResult(GetPullThroughCacheRuleResult):
@@ -88,10 +110,12 @@ class AwaitableGetPullThroughCacheRuleResult(GetPullThroughCacheRuleResult):
             yield self
         return GetPullThroughCacheRuleResult(
             credential_arn=self.credential_arn,
+            custom_role_arn=self.custom_role_arn,
             ecr_repository_prefix=self.ecr_repository_prefix,
             id=self.id,
             registry_id=self.registry_id,
-            upstream_registry_url=self.upstream_registry_url)
+            upstream_registry_url=self.upstream_registry_url,
+            upstream_repository_prefix=self.upstream_repository_prefix)
 
 
 def get_pull_through_cache_rule(ecr_repository_prefix: Optional[str] = None,
@@ -118,10 +142,12 @@ def get_pull_through_cache_rule(ecr_repository_prefix: Optional[str] = None,
 
     return AwaitableGetPullThroughCacheRuleResult(
         credential_arn=pulumi.get(__ret__, 'credential_arn'),
+        custom_role_arn=pulumi.get(__ret__, 'custom_role_arn'),
         ecr_repository_prefix=pulumi.get(__ret__, 'ecr_repository_prefix'),
         id=pulumi.get(__ret__, 'id'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
-        upstream_registry_url=pulumi.get(__ret__, 'upstream_registry_url'))
+        upstream_registry_url=pulumi.get(__ret__, 'upstream_registry_url'),
+        upstream_repository_prefix=pulumi.get(__ret__, 'upstream_repository_prefix'))
 def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPullThroughCacheRuleResult]:
     """
@@ -145,7 +171,9 @@ def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.In
     __ret__ = pulumi.runtime.invoke_output('aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule', __args__, opts=opts, typ=GetPullThroughCacheRuleResult)
     return __ret__.apply(lambda __response__: GetPullThroughCacheRuleResult(
         credential_arn=pulumi.get(__response__, 'credential_arn'),
+        custom_role_arn=pulumi.get(__response__, 'custom_role_arn'),
         ecr_repository_prefix=pulumi.get(__response__, 'ecr_repository_prefix'),
         id=pulumi.get(__response__, 'id'),
         registry_id=pulumi.get(__response__, 'registry_id'),
-        upstream_registry_url=pulumi.get(__response__, 'upstream_registry_url')))
+        upstream_registry_url=pulumi.get(__response__, 'upstream_registry_url'),
+        upstream_repository_prefix=pulumi.get(__response__, 'upstream_repository_prefix')))

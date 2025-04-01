@@ -43,6 +43,10 @@ export interface GetPullThroughCacheRuleResult {
      * ARN of the Secret which will be used to authenticate against the registry.
      */
     readonly credentialArn: string;
+    /**
+     * The ARN of the IAM role associated with the pull through cache rule. Used if the upstream registry is a cross-account ECR private registry.
+     */
+    readonly customRoleArn: string;
     readonly ecrRepositoryPrefix: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -53,9 +57,13 @@ export interface GetPullThroughCacheRuleResult {
      */
     readonly registryId: string;
     /**
-     * The registry URL of the upstream public registry to use as the source.
+     * The registry URL of the upstream registry to use as the source.
      */
     readonly upstreamRegistryUrl: string;
+    /**
+     * The upstream repository prefix associated with the pull through cache rule.
+     */
+    readonly upstreamRepositoryPrefix: string;
 }
 /**
  * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.

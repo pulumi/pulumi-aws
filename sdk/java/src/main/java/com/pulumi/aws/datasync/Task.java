@@ -152,6 +152,51 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### With Enhanced Task Mode
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.datasync.Task;
+ * import com.pulumi.aws.datasync.TaskArgs;
+ * import com.pulumi.aws.datasync.inputs.TaskOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Task("example", TaskArgs.builder()
+ *             .destinationLocationArn(destination.arn())
+ *             .name("example")
+ *             .sourceLocationArn(source.arn())
+ *             .taskMode("ENHANCED")
+ *             .options(TaskOptionsArgs.builder()
+ *                 .gid("NONE")
+ *                 .posixPermissions("NONE")
+ *                 .uid("NONE")
+ *                 .verifyMode("ONLY_FILES_TRANSFERRED")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
@@ -320,6 +365,24 @@ public class Task extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * One of the following task modes for your data transfer:
+     * * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+     * * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+     * 
+     */
+    @Export(name="taskMode", refs={String.class}, tree="[0]")
+    private Output<String> taskMode;
+
+    /**
+     * @return One of the following task modes for your data transfer:
+     * * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+     * * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+     * 
+     */
+    public Output<String> taskMode() {
+        return this.taskMode;
     }
     /**
      * Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.

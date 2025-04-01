@@ -103,14 +103,14 @@ public class DomainConfiguration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> domainName;
+    private Output<String> domainName;
 
     /**
      * @return Fully-qualified domain name.
      * 
      */
-    public Output<Optional<String>> domainName() {
-        return Codegen.optional(this.domainName);
+    public Output<String> domainName() {
+        return this.domainName;
     }
     /**
      * The type of the domain.

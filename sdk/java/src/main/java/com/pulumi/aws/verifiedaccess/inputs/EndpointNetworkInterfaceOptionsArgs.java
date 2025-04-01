@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.verifiedaccess.inputs;
 
+import com.pulumi.aws.verifiedaccess.inputs.EndpointNetworkInterfaceOptionsPortRangeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,6 +32,13 @@ public final class EndpointNetworkInterfaceOptionsArgs extends com.pulumi.resour
         return Optional.ofNullable(this.port);
     }
 
+    @Import(name="portRanges")
+    private @Nullable Output<List<EndpointNetworkInterfaceOptionsPortRangeArgs>> portRanges;
+
+    public Optional<Output<List<EndpointNetworkInterfaceOptionsPortRangeArgs>>> portRanges() {
+        return Optional.ofNullable(this.portRanges);
+    }
+
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
@@ -42,6 +51,7 @@ public final class EndpointNetworkInterfaceOptionsArgs extends com.pulumi.resour
     private EndpointNetworkInterfaceOptionsArgs(EndpointNetworkInterfaceOptionsArgs $) {
         this.networkInterfaceId = $.networkInterfaceId;
         this.port = $.port;
+        this.portRanges = $.portRanges;
         this.protocol = $.protocol;
     }
 
@@ -79,6 +89,19 @@ public final class EndpointNetworkInterfaceOptionsArgs extends com.pulumi.resour
 
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        public Builder portRanges(@Nullable Output<List<EndpointNetworkInterfaceOptionsPortRangeArgs>> portRanges) {
+            $.portRanges = portRanges;
+            return this;
+        }
+
+        public Builder portRanges(List<EndpointNetworkInterfaceOptionsPortRangeArgs> portRanges) {
+            return portRanges(Output.of(portRanges));
+        }
+
+        public Builder portRanges(EndpointNetworkInterfaceOptionsPortRangeArgs... portRanges) {
+            return portRanges(List.of(portRanges));
         }
 
         public Builder protocol(@Nullable Output<String> protocol) {

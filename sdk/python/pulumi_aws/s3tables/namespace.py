@@ -171,7 +171,7 @@ class Namespace(pulumi.CustomResource):
 
         example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
         example = aws.s3tables.Namespace("example",
-            namespace="example-namespace",
+            namespace="example_namespace",
             table_bucket_arn=example_table_bucket.arn)
         ```
 
@@ -209,7 +209,7 @@ class Namespace(pulumi.CustomResource):
 
         example_table_bucket = aws.s3tables.TableBucket("example", name="example-bucket")
         example = aws.s3tables.Namespace("example",
-            namespace="example-namespace",
+            namespace="example_namespace",
             table_bucket_arn=example_table_bucket.arn)
         ```
 

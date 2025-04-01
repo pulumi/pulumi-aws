@@ -62,6 +62,12 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string?> DeviceTrustProviderType { get; private set; } = null!;
 
         /// <summary>
+        /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+        /// </summary>
+        [Output("nativeApplicationOidcOptions")]
+        public Output<Outputs.TrustProviderNativeApplicationOidcOptions?> NativeApplicationOidcOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
         /// </summary>
         [Output("oidcOptions")]
@@ -72,6 +78,9 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Output("policyReferenceName")]
         public Output<string> PolicyReferenceName { get; private set; } = null!;
+
+        [Output("sseSpecification")]
+        public Output<Outputs.TrustProviderSseSpecification> SseSpecification { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -161,6 +170,12 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? DeviceTrustProviderType { get; set; }
 
         /// <summary>
+        /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+        /// </summary>
+        [Input("nativeApplicationOidcOptions")]
+        public Input<Inputs.TrustProviderNativeApplicationOidcOptionsArgs>? NativeApplicationOidcOptions { get; set; }
+
+        /// <summary>
         /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
         /// </summary>
         [Input("oidcOptions")]
@@ -171,6 +186,9 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("policyReferenceName", required: true)]
         public Input<string> PolicyReferenceName { get; set; } = null!;
+
+        [Input("sseSpecification")]
+        public Input<Inputs.TrustProviderSseSpecificationArgs>? SseSpecification { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -225,6 +243,12 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? DeviceTrustProviderType { get; set; }
 
         /// <summary>
+        /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+        /// </summary>
+        [Input("nativeApplicationOidcOptions")]
+        public Input<Inputs.TrustProviderNativeApplicationOidcOptionsGetArgs>? NativeApplicationOidcOptions { get; set; }
+
+        /// <summary>
         /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
         /// </summary>
         [Input("oidcOptions")]
@@ -235,6 +259,9 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("policyReferenceName")]
         public Input<string>? PolicyReferenceName { get; set; }
+
+        [Input("sseSpecification")]
+        public Input<Inputs.TrustProviderSseSpecificationGetArgs>? SseSpecification { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

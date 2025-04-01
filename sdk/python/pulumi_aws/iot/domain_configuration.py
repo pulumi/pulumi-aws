@@ -578,7 +578,7 @@ class DomainConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Output[Optional[str]]:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         Fully-qualified domain name.
         """

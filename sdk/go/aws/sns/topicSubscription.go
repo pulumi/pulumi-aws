@@ -266,6 +266,57 @@ import (
 // }
 // ```
 //
+// ## Example with Delivery Policy
+//
+// This example demonstrates how to define a `deliveryPolicy` for an HTTPS subscription. Unlike the `sns.Topic` resource, the `deliveryPolicy` for `sns.TopicSubscription` should not be wrapped in an `"http"` object.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sns.NewTopicSubscription(ctx, "example_with_delivery_policy", &sns.TopicSubscriptionArgs{
+//				Topic:              pulumi.Any("arn:aws:sns:us-west-2:123456789012:my-topic"),
+//				Protocol:           pulumi.String("https"),
+//				Endpoint:           pulumi.String("https://example.com/endpoint"),
+//				RawMessageDelivery: pulumi.Bool(true),
+//				DeliveryPolicy: pulumi.String(`{
+//	  "healthyRetryPolicy": {
+//	    "minDelayTarget": 20,
+//	    "maxDelayTarget": 20,
+//	    "numRetries": 3,
+//	    "numMaxDelayRetries": 0,
+//	    "numNoDelayRetries": 0,
+//	    "numMinDelayRetries": 0,
+//	    "backoffFunction": "linear"
+//	  },
+//	  "sicklyRetryPolicy": null,
+//	  "throttlePolicy": null,
+//	  "requestPolicy": {
+//	    "headerContentType": "text/plain; application/json"
+//	  },
+//	  "guaranteed": false
+//	}
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:

@@ -57,18 +57,18 @@ example, to update to v5.60.0 (actual update in #4309):
 
 ```bash
 git branch upstream-v5.60.0 && git checkout upstream-v5.60.0
-./upstream.sh checkout
-./upstream.sh rebase -o v5.60.0
+./scripts/upstream.sh checkout
+./scripts/upstream.sh rebase -o v5.60.0
 # in ./rebase finish the Git rebase and resolve conflicts
 ./scripts/patch_computed_only.sh
 # if patch_computed_only edited anything in ./upstream, commit it
 (cd ./upstream && go build ./...) # verify everything builds
 # add commits as needed to make it build
-./upstream.sh format_patches
+./scripts/upstream.sh format_patches
 git add ./patches && git commit -m "Update patches for v5.60.0"
 (cd upstream && git reset --hard v5.60.0)
 git add ./upstream && git commit -m "Move upstream to v5.60.0"
-./upstream.sh init -f # verify patches apply cleanly with no changes
+./scripts/upstream.sh init -f # verify patches apply cleanly with no changes
 ./scripts/tidy-all.sh
 git add . && git commit -m "./scripts/tidy-all.sh"
 make tfgen # iterate on editing resources.go configurations as needed

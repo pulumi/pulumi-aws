@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Cognito.Inputs
         /// <summary>
         /// Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
         /// </summary>
-        [Input("caseSensitive", required: true)]
-        public Input<bool> CaseSensitive { get; set; } = null!;
+        [Input("caseSensitive")]
+        public Input<bool>? CaseSensitive { get; set; }
 
         public UserPoolUsernameConfigurationArgs()
         {

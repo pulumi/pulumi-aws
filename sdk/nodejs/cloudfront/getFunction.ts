@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * const functionName = config.require("functionName");
  * const existing = aws.cloudfront.getFunction({
  *     name: functionName,
+ *     stage: "LIVE",
  * });
  * ```
  */
@@ -98,6 +99,7 @@ export interface GetFunctionResult {
  * const functionName = config.require("functionName");
  * const existing = aws.cloudfront.getFunction({
  *     name: functionName,
+ *     stage: "LIVE",
  * });
  * ```
  */

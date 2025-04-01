@@ -310,7 +310,7 @@ namespace Pulumi.Aws.Cognito
         /// Configuration block for username configuration. Detailed below.
         /// </summary>
         [Output("usernameConfiguration")]
-        public Output<Outputs.UserPoolUsernameConfiguration?> UsernameConfiguration { get; private set; } = null!;
+        public Output<Outputs.UserPoolUsernameConfiguration> UsernameConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for verification message templates. Detailed below.

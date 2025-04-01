@@ -5,9 +5,10 @@ package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class UserPoolUsernameConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,15 +19,15 @@ public final class UserPoolUsernameConfigurationArgs extends com.pulumi.resource
      * Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
      * 
      */
-    @Import(name="caseSensitive", required=true)
-    private Output<Boolean> caseSensitive;
+    @Import(name="caseSensitive")
+    private @Nullable Output<Boolean> caseSensitive;
 
     /**
      * @return Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
      * 
      */
-    public Output<Boolean> caseSensitive() {
-        return this.caseSensitive;
+    public Optional<Output<Boolean>> caseSensitive() {
+        return Optional.ofNullable(this.caseSensitive);
     }
 
     private UserPoolUsernameConfigurationArgs() {}
@@ -59,7 +60,7 @@ public final class UserPoolUsernameConfigurationArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder caseSensitive(Output<Boolean> caseSensitive) {
+        public Builder caseSensitive(@Nullable Output<Boolean> caseSensitive) {
             $.caseSensitive = caseSensitive;
             return this;
         }
@@ -75,9 +76,6 @@ public final class UserPoolUsernameConfigurationArgs extends com.pulumi.resource
         }
 
         public UserPoolUsernameConfigurationArgs build() {
-            if ($.caseSensitive == null) {
-                throw new MissingRequiredPropertyException("UserPoolUsernameConfigurationArgs", "caseSensitive");
-            }
             return $;
         }
     }

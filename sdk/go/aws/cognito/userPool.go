@@ -195,7 +195,7 @@ type UserPool struct {
 	// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
 	UsernameAttributes pulumi.StringArrayOutput `pulumi:"usernameAttributes"`
 	// Configuration block for username configuration. Detailed below.
-	UsernameConfiguration UserPoolUsernameConfigurationPtrOutput `pulumi:"usernameConfiguration"`
+	UsernameConfiguration UserPoolUsernameConfigurationOutput `pulumi:"usernameConfiguration"`
 	// Configuration block for verification message templates. Detailed below.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplateOutput `pulumi:"verificationMessageTemplate"`
 	// Configuration block for web authn configuration. Detailed below.
@@ -775,8 +775,8 @@ func (o UserPoolOutput) UsernameAttributes() pulumi.StringArrayOutput {
 }
 
 // Configuration block for username configuration. Detailed below.
-func (o UserPoolOutput) UsernameConfiguration() UserPoolUsernameConfigurationPtrOutput {
-	return o.ApplyT(func(v *UserPool) UserPoolUsernameConfigurationPtrOutput { return v.UsernameConfiguration }).(UserPoolUsernameConfigurationPtrOutput)
+func (o UserPoolOutput) UsernameConfiguration() UserPoolUsernameConfigurationOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolUsernameConfigurationOutput { return v.UsernameConfiguration }).(UserPoolUsernameConfigurationOutput)
 }
 
 // Configuration block for verification message templates. Detailed below.

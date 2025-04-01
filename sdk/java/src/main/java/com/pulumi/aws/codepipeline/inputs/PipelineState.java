@@ -5,6 +5,7 @@ package com.pulumi.aws.codepipeline.inputs;
 
 import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
 import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
+import com.pulumi.aws.codepipeline.inputs.PipelineTriggerAllArgs;
 import com.pulumi.aws.codepipeline.inputs.PipelineTriggerArgs;
 import com.pulumi.aws.codepipeline.inputs.PipelineVariableArgs;
 import com.pulumi.core.Output;
@@ -22,14 +23,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     public static final PipelineState Empty = new PipelineState();
 
     /**
-     * The codepipeline ARN.
+     * Codepipeline ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The codepipeline ARN.
+     * @return Codepipeline ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -169,6 +170,21 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+     * 
+     */
+    @Import(name="triggerAlls")
+    private @Nullable Output<List<PipelineTriggerAllArgs>> triggerAlls;
+
+    /**
+     * @return A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+     * 
+     */
+    public Optional<Output<List<PipelineTriggerAllArgs>>> triggerAlls() {
+        return Optional.ofNullable(this.triggerAlls);
+    }
+
+    /**
      * A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
      * 
      */
@@ -210,6 +226,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         this.stages = $.stages;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.triggerAlls = $.triggerAlls;
         this.triggers = $.triggers;
         this.variables = $.variables;
     }
@@ -233,7 +250,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The codepipeline ARN.
+         * @param arn Codepipeline ARN.
          * 
          * @return builder
          * 
@@ -244,7 +261,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The codepipeline ARN.
+         * @param arn Codepipeline ARN.
          * 
          * @return builder
          * 
@@ -451,6 +468,37 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param triggerAlls A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggerAlls(@Nullable Output<List<PipelineTriggerAllArgs>> triggerAlls) {
+            $.triggerAlls = triggerAlls;
+            return this;
+        }
+
+        /**
+         * @param triggerAlls A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggerAlls(List<PipelineTriggerAllArgs> triggerAlls) {
+            return triggerAlls(Output.of(triggerAlls));
+        }
+
+        /**
+         * @param triggerAlls A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggerAlls(PipelineTriggerAllArgs... triggerAlls) {
+            return triggerAlls(List.of(triggerAlls));
         }
 
         /**

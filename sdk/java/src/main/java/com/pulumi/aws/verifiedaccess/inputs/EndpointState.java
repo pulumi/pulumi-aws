@@ -3,8 +3,10 @@
 
 package com.pulumi.aws.verifiedaccess.inputs;
 
+import com.pulumi.aws.verifiedaccess.inputs.EndpointCidrOptionsArgs;
 import com.pulumi.aws.verifiedaccess.inputs.EndpointLoadBalancerOptionsArgs;
 import com.pulumi.aws.verifiedaccess.inputs.EndpointNetworkInterfaceOptionsArgs;
+import com.pulumi.aws.verifiedaccess.inputs.EndpointRdsOptionsArgs;
 import com.pulumi.aws.verifiedaccess.inputs.EndpointSseSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -21,14 +23,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     public static final EndpointState Empty = new EndpointState();
 
     /**
-     * The DNS name for users to reach your application.
+     * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     @Import(name="applicationDomain")
     private @Nullable Output<String> applicationDomain;
 
     /**
-     * @return The DNS name for users to reach your application.
+     * @return The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     public Optional<Output<String>> applicationDomain() {
@@ -48,6 +50,21 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> attachmentType() {
         return Optional.ofNullable(this.attachmentType);
+    }
+
+    /**
+     * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     * 
+     */
+    @Import(name="cidrOptions")
+    private @Nullable Output<EndpointCidrOptionsArgs> cidrOptions;
+
+    /**
+     * @return The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     * 
+     */
+    public Optional<Output<EndpointCidrOptionsArgs>> cidrOptions() {
+        return Optional.ofNullable(this.cidrOptions);
     }
 
     /**
@@ -81,14 +98,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     @Import(name="domainCertificateArn")
     private @Nullable Output<String> domainCertificateArn;
 
     /**
-     * @return The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+     * @return The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     public Optional<Output<String>> domainCertificateArn() {
@@ -183,6 +200,13 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> policyDocument() {
         return Optional.ofNullable(this.policyDocument);
+    }
+
+    @Import(name="rdsOptions")
+    private @Nullable Output<EndpointRdsOptionsArgs> rdsOptions;
+
+    public Optional<Output<EndpointRdsOptionsArgs>> rdsOptions() {
+        return Optional.ofNullable(this.rdsOptions);
     }
 
     /**
@@ -280,6 +304,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     private EndpointState(EndpointState $) {
         this.applicationDomain = $.applicationDomain;
         this.attachmentType = $.attachmentType;
+        this.cidrOptions = $.cidrOptions;
         this.description = $.description;
         this.deviceValidationDomain = $.deviceValidationDomain;
         this.domainCertificateArn = $.domainCertificateArn;
@@ -289,6 +314,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         this.loadBalancerOptions = $.loadBalancerOptions;
         this.networkInterfaceOptions = $.networkInterfaceOptions;
         this.policyDocument = $.policyDocument;
+        this.rdsOptions = $.rdsOptions;
         this.securityGroupIds = $.securityGroupIds;
         this.sseSpecification = $.sseSpecification;
         this.tags = $.tags;
@@ -316,7 +342,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationDomain The DNS name for users to reach your application.
+         * @param applicationDomain The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
          * 
          * @return builder
          * 
@@ -327,7 +353,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationDomain The DNS name for users to reach your application.
+         * @param applicationDomain The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
          * 
          * @return builder
          * 
@@ -355,6 +381,27 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder attachmentType(String attachmentType) {
             return attachmentType(Output.of(attachmentType));
+        }
+
+        /**
+         * @param cidrOptions The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrOptions(@Nullable Output<EndpointCidrOptionsArgs> cidrOptions) {
+            $.cidrOptions = cidrOptions;
+            return this;
+        }
+
+        /**
+         * @param cidrOptions The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrOptions(EndpointCidrOptionsArgs cidrOptions) {
+            return cidrOptions(Output.of(cidrOptions));
         }
 
         /**
@@ -400,7 +447,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainCertificateArn The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+         * @param domainCertificateArn The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
          * 
          * @return builder
          * 
@@ -411,7 +458,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainCertificateArn The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+         * @param domainCertificateArn The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
          * 
          * @return builder
          * 
@@ -544,6 +591,15 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder policyDocument(String policyDocument) {
             return policyDocument(Output.of(policyDocument));
+        }
+
+        public Builder rdsOptions(@Nullable Output<EndpointRdsOptionsArgs> rdsOptions) {
+            $.rdsOptions = rdsOptions;
+            return this;
+        }
+
+        public Builder rdsOptions(EndpointRdsOptionsArgs rdsOptions) {
+            return rdsOptions(Output.of(rdsOptions));
         }
 
         /**

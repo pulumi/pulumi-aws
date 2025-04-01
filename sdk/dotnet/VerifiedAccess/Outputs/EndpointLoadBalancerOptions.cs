@@ -15,6 +15,7 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     {
         public readonly string? LoadBalancerArn;
         public readonly int? Port;
+        public readonly ImmutableArray<Outputs.EndpointLoadBalancerOptionsPortRange> PortRanges;
         public readonly string? Protocol;
         public readonly ImmutableArray<string> SubnetIds;
 
@@ -24,12 +25,15 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
 
             int? port,
 
+            ImmutableArray<Outputs.EndpointLoadBalancerOptionsPortRange> portRanges,
+
             string? protocol,
 
             ImmutableArray<string> subnetIds)
         {
             LoadBalancerArn = loadBalancerArn;
             Port = port;
+            PortRanges = portRanges;
             Protocol = protocol;
             SubnetIds = subnetIds;
         }

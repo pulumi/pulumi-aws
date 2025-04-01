@@ -54,8 +54,9 @@ jobs:
             tests: TestAccDocDBCluster_basic
           - service: redshiftserverless
             tests: TestAccRedshiftServerlessNamespace_basic
-          - service: route53resolver
-            tests: TestAccRoute53Resolver
+          # TODO[pulumi/pulumi-aws#5388] route53resolver tests flaky
+          # - service: route53resolver
+          #   tests: TestAccRoute53Resolver
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4

@@ -38,6 +38,15 @@ __all__ = [
     'PipelineStageOnSuccessConditionRule',
     'PipelineStageOnSuccessConditionRuleRuleTypeId',
     'PipelineTrigger',
+    'PipelineTriggerAll',
+    'PipelineTriggerAllGitConfiguration',
+    'PipelineTriggerAllGitConfigurationPullRequest',
+    'PipelineTriggerAllGitConfigurationPullRequestBranch',
+    'PipelineTriggerAllGitConfigurationPullRequestFilePath',
+    'PipelineTriggerAllGitConfigurationPush',
+    'PipelineTriggerAllGitConfigurationPushBranch',
+    'PipelineTriggerAllGitConfigurationPushFilePath',
+    'PipelineTriggerAllGitConfigurationPushTag',
     'PipelineTriggerGitConfiguration',
     'PipelineTriggerGitConfigurationPullRequest',
     'PipelineTriggerGitConfigurationPullRequestBranches',
@@ -1482,6 +1491,393 @@ class PipelineTrigger(dict):
 
 
 @pulumi.output_type
+class PipelineTriggerAll(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gitConfigurations":
+            suggest = "git_configurations"
+        elif key == "providerType":
+            suggest = "provider_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineTriggerAll. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineTriggerAll.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineTriggerAll.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 git_configurations: Optional[Sequence['outputs.PipelineTriggerAllGitConfiguration']] = None,
+                 provider_type: Optional[str] = None):
+        """
+        :param Sequence['PipelineTriggerAllGitConfigurationArgs'] git_configurations: Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
+        :param str provider_type: The source provider for the event. Possible value is `CodeStarSourceConnection`.
+        """
+        if git_configurations is not None:
+            pulumi.set(__self__, "git_configurations", git_configurations)
+        if provider_type is not None:
+            pulumi.set(__self__, "provider_type", provider_type)
+
+    @property
+    @pulumi.getter(name="gitConfigurations")
+    def git_configurations(self) -> Optional[Sequence['outputs.PipelineTriggerAllGitConfiguration']]:
+        """
+        Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
+        """
+        return pulumi.get(self, "git_configurations")
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> Optional[str]:
+        """
+        The source provider for the event. Possible value is `CodeStarSourceConnection`.
+        """
+        return pulumi.get(self, "provider_type")
+
+
+@pulumi.output_type
+class PipelineTriggerAllGitConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pullRequests":
+            suggest = "pull_requests"
+        elif key == "sourceActionName":
+            suggest = "source_action_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineTriggerAllGitConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineTriggerAllGitConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineTriggerAllGitConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pull_requests: Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPullRequest']] = None,
+                 pushes: Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPush']] = None,
+                 source_action_name: Optional[str] = None):
+        """
+        :param Sequence['PipelineTriggerAllGitConfigurationPullRequestArgs'] pull_requests: The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
+        :param Sequence['PipelineTriggerAllGitConfigurationPushArgs'] pushes: The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
+        :param str source_action_name: The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
+        """
+        if pull_requests is not None:
+            pulumi.set(__self__, "pull_requests", pull_requests)
+        if pushes is not None:
+            pulumi.set(__self__, "pushes", pushes)
+        if source_action_name is not None:
+            pulumi.set(__self__, "source_action_name", source_action_name)
+
+    @property
+    @pulumi.getter(name="pullRequests")
+    def pull_requests(self) -> Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPullRequest']]:
+        """
+        The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
+        """
+        return pulumi.get(self, "pull_requests")
+
+    @property
+    @pulumi.getter
+    def pushes(self) -> Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPush']]:
+        """
+        The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
+        """
+        return pulumi.get(self, "pushes")
+
+    @property
+    @pulumi.getter(name="sourceActionName")
+    def source_action_name(self) -> Optional[str]:
+        """
+        The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
+        """
+        return pulumi.get(self, "source_action_name")
+
+
+@pulumi.output_type
+class PipelineTriggerAllGitConfigurationPullRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filePaths":
+            suggest = "file_paths"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineTriggerAllGitConfigurationPullRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineTriggerAllGitConfigurationPullRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineTriggerAllGitConfigurationPullRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branches: Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPullRequestBranch']] = None,
+                 events: Optional[Sequence[str]] = None,
+                 file_paths: Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPullRequestFilePath']] = None):
+        """
+        :param Sequence['PipelineTriggerAllGitConfigurationPullRequestBranchArgs'] branches: The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
+        :param Sequence[str] events: A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
+        :param Sequence['PipelineTriggerAllGitConfigurationPullRequestFilePathArgs'] file_paths: The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
+        """
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+        if file_paths is not None:
+            pulumi.set(__self__, "file_paths", file_paths)
+
+    @property
+    @pulumi.getter
+    def branches(self) -> Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPullRequestBranch']]:
+        """
+        The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
+        """
+        return pulumi.get(self, "branches")
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[Sequence[str]]:
+        """
+        A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter(name="filePaths")
+    def file_paths(self) -> Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPullRequestFilePath']]:
+        """
+        The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
+        """
+        return pulumi.get(self, "file_paths")
+
+
+@pulumi.output_type
+class PipelineTriggerAllGitConfigurationPullRequestBranch(dict):
+    def __init__(__self__, *,
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+        :param Sequence[str] includes: A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+        """
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence[str]]:
+        """
+        A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+        """
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[str]]:
+        """
+        A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+        """
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
+class PipelineTriggerAllGitConfigurationPullRequestFilePath(dict):
+    def __init__(__self__, *,
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+        :param Sequence[str] includes: A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+        """
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence[str]]:
+        """
+        A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+        """
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[str]]:
+        """
+        A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+        """
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
+class PipelineTriggerAllGitConfigurationPush(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filePaths":
+            suggest = "file_paths"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineTriggerAllGitConfigurationPush. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineTriggerAllGitConfigurationPush.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineTriggerAllGitConfigurationPush.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 branches: Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPushBranch']] = None,
+                 file_paths: Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPushFilePath']] = None,
+                 tags: Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPushTag']] = None):
+        """
+        :param Sequence['PipelineTriggerAllGitConfigurationPushBranchArgs'] branches: The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
+        :param Sequence['PipelineTriggerAllGitConfigurationPushFilePathArgs'] file_paths: The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
+        :param Sequence['PipelineTriggerAllGitConfigurationPushTagArgs'] tags: The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
+        """
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if file_paths is not None:
+            pulumi.set(__self__, "file_paths", file_paths)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def branches(self) -> Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPushBranch']]:
+        """
+        The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
+        """
+        return pulumi.get(self, "branches")
+
+    @property
+    @pulumi.getter(name="filePaths")
+    def file_paths(self) -> Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPushFilePath']]:
+        """
+        The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
+        """
+        return pulumi.get(self, "file_paths")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.PipelineTriggerAllGitConfigurationPushTag']]:
+        """
+        The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class PipelineTriggerAllGitConfigurationPushBranch(dict):
+    def __init__(__self__, *,
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+        :param Sequence[str] includes: A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+        """
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence[str]]:
+        """
+        A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
+        """
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[str]]:
+        """
+        A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+        """
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
+class PipelineTriggerAllGitConfigurationPushFilePath(dict):
+    def __init__(__self__, *,
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+        :param Sequence[str] includes: A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+        """
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence[str]]:
+        """
+        A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
+        """
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[str]]:
+        """
+        A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
+        """
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
+class PipelineTriggerAllGitConfigurationPushTag(dict):
+    def __init__(__self__, *,
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
+        :param Sequence[str] includes: A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
+        """
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence[str]]:
+        """
+        A list of patterns of Git tags that, when pushed, are to be excluded from starting the pipeline.
+        """
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[str]]:
+        """
+        A list of patterns of Git tags that, when pushed, are to be included as criteria that starts the pipeline.
+        """
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
 class PipelineTriggerGitConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1844,8 +2240,6 @@ class PipelineVariable(dict):
         :param str name: The name of a pipeline-level variable.
         :param str default_value: The default value of a pipeline-level variable.
         :param str description: The description of a pipeline-level variable.
-               
-               > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         """
         pulumi.set(__self__, "name", name)
         if default_value is not None:
@@ -1874,8 +2268,6 @@ class PipelineVariable(dict):
     def description(self) -> Optional[str]:
         """
         The description of a pipeline-level variable.
-
-        > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         """
         return pulumi.get(self, "description")
 

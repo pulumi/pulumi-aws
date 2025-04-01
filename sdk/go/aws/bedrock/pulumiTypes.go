@@ -2049,6 +2049,112 @@ func (o AgentAgentKnowledgeBaseAssociationTimeoutsPtrOutput) Update() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type AgentAgentMemoryConfiguration struct {
+	// The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+	EnabledMemoryTypes []string `pulumi:"enabledMemoryTypes"`
+	// The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+	StorageDays int `pulumi:"storageDays"`
+}
+
+// AgentAgentMemoryConfigurationInput is an input type that accepts AgentAgentMemoryConfigurationArgs and AgentAgentMemoryConfigurationOutput values.
+// You can construct a concrete instance of `AgentAgentMemoryConfigurationInput` via:
+//
+//	AgentAgentMemoryConfigurationArgs{...}
+type AgentAgentMemoryConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentAgentMemoryConfigurationOutput() AgentAgentMemoryConfigurationOutput
+	ToAgentAgentMemoryConfigurationOutputWithContext(context.Context) AgentAgentMemoryConfigurationOutput
+}
+
+type AgentAgentMemoryConfigurationArgs struct {
+	// The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+	EnabledMemoryTypes pulumi.StringArrayInput `pulumi:"enabledMemoryTypes"`
+	// The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+	StorageDays pulumi.IntInput `pulumi:"storageDays"`
+}
+
+func (AgentAgentMemoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentMemoryConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentMemoryConfigurationArgs) ToAgentAgentMemoryConfigurationOutput() AgentAgentMemoryConfigurationOutput {
+	return i.ToAgentAgentMemoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentAgentMemoryConfigurationArgs) ToAgentAgentMemoryConfigurationOutputWithContext(ctx context.Context) AgentAgentMemoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentMemoryConfigurationOutput)
+}
+
+// AgentAgentMemoryConfigurationArrayInput is an input type that accepts AgentAgentMemoryConfigurationArray and AgentAgentMemoryConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentAgentMemoryConfigurationArrayInput` via:
+//
+//	AgentAgentMemoryConfigurationArray{ AgentAgentMemoryConfigurationArgs{...} }
+type AgentAgentMemoryConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentAgentMemoryConfigurationArrayOutput() AgentAgentMemoryConfigurationArrayOutput
+	ToAgentAgentMemoryConfigurationArrayOutputWithContext(context.Context) AgentAgentMemoryConfigurationArrayOutput
+}
+
+type AgentAgentMemoryConfigurationArray []AgentAgentMemoryConfigurationInput
+
+func (AgentAgentMemoryConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentMemoryConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentMemoryConfigurationArray) ToAgentAgentMemoryConfigurationArrayOutput() AgentAgentMemoryConfigurationArrayOutput {
+	return i.ToAgentAgentMemoryConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentAgentMemoryConfigurationArray) ToAgentAgentMemoryConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentMemoryConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentMemoryConfigurationArrayOutput)
+}
+
+type AgentAgentMemoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentMemoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentMemoryConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentMemoryConfigurationOutput) ToAgentAgentMemoryConfigurationOutput() AgentAgentMemoryConfigurationOutput {
+	return o
+}
+
+func (o AgentAgentMemoryConfigurationOutput) ToAgentAgentMemoryConfigurationOutputWithContext(ctx context.Context) AgentAgentMemoryConfigurationOutput {
+	return o
+}
+
+// The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+func (o AgentAgentMemoryConfigurationOutput) EnabledMemoryTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentAgentMemoryConfiguration) []string { return v.EnabledMemoryTypes }).(pulumi.StringArrayOutput)
+}
+
+// The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+func (o AgentAgentMemoryConfigurationOutput) StorageDays() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentAgentMemoryConfiguration) int { return v.StorageDays }).(pulumi.IntOutput)
+}
+
+type AgentAgentMemoryConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentMemoryConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentMemoryConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentMemoryConfigurationArrayOutput) ToAgentAgentMemoryConfigurationArrayOutput() AgentAgentMemoryConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentMemoryConfigurationArrayOutput) ToAgentAgentMemoryConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentMemoryConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentMemoryConfigurationArrayOutput) Index(i pulumi.IntInput) AgentAgentMemoryConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentAgentMemoryConfiguration {
+		return vs[0].([]AgentAgentMemoryConfiguration)[vs[1].(int)]
+	}).(AgentAgentMemoryConfigurationOutput)
+}
+
 type AgentAgentPromptOverrideConfiguration struct {
 	// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
 	OverrideLambda string `pulumi:"overrideLambda"`
@@ -16894,6 +17000,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentGuardrailConfigurationArrayInput)(nil)).Elem(), AgentAgentGuardrailConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentKnowledgeBaseAssociationTimeoutsInput)(nil)).Elem(), AgentAgentKnowledgeBaseAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentKnowledgeBaseAssociationTimeoutsPtrInput)(nil)).Elem(), AgentAgentKnowledgeBaseAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentMemoryConfigurationInput)(nil)).Elem(), AgentAgentMemoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentMemoryConfigurationArrayInput)(nil)).Elem(), AgentAgentMemoryConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationArrayInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationPromptConfigurationInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationPromptConfigurationArgs{})
@@ -17126,6 +17234,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentAgentGuardrailConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentKnowledgeBaseAssociationTimeoutsOutput{})
 	pulumi.RegisterOutputType(AgentAgentKnowledgeBaseAssociationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentAgentMemoryConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentAgentMemoryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationPromptConfigurationOutput{})

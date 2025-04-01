@@ -177,7 +177,8 @@ def get_function(name: Optional[str] = None,
 
     config = pulumi.Config()
     function_name = config.require("functionName")
-    existing = aws.cloudfront.get_function(name=function_name)
+    existing = aws.cloudfront.get_function(name=function_name,
+        stage="LIVE")
     ```
 
 
@@ -216,7 +217,8 @@ def get_function_output(name: Optional[pulumi.Input[str]] = None,
 
     config = pulumi.Config()
     function_name = config.require("functionName")
-    existing = aws.cloudfront.get_function(name=function_name)
+    existing = aws.cloudfront.get_function(name=function_name,
+        stage="LIVE")
     ```
 
 

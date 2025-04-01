@@ -30,6 +30,7 @@ __all__ = [
     'AgentAgentCollaboratorTimeouts',
     'AgentAgentGuardrailConfiguration',
     'AgentAgentKnowledgeBaseAssociationTimeouts',
+    'AgentAgentMemoryConfiguration',
     'AgentAgentPromptOverrideConfiguration',
     'AgentAgentPromptOverrideConfigurationPromptConfiguration',
     'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration',
@@ -727,6 +728,54 @@ class AgentAgentKnowledgeBaseAssociationTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class AgentAgentMemoryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledMemoryTypes":
+            suggest = "enabled_memory_types"
+        elif key == "storageDays":
+            suggest = "storage_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentAgentMemoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentAgentMemoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentAgentMemoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled_memory_types: Sequence[str],
+                 storage_days: int):
+        """
+        :param Sequence[str] enabled_memory_types: The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+        :param int storage_days: The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+        """
+        pulumi.set(__self__, "enabled_memory_types", enabled_memory_types)
+        pulumi.set(__self__, "storage_days", storage_days)
+
+    @property
+    @pulumi.getter(name="enabledMemoryTypes")
+    def enabled_memory_types(self) -> Sequence[str]:
+        """
+        The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
+        """
+        return pulumi.get(self, "enabled_memory_types")
+
+    @property
+    @pulumi.getter(name="storageDays")
+    def storage_days(self) -> int:
+        """
+        The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
+        """
+        return pulumi.get(self, "storage_days")
 
 
 @pulumi.output_type

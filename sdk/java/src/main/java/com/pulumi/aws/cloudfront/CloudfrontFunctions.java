@@ -879,6 +879,7 @@ public final class CloudfrontFunctions {
      *         final var functionName = config.get("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
+     *             .stage("LIVE")
      *             .build());
      * 
      *     }
@@ -923,6 +924,7 @@ public final class CloudfrontFunctions {
      *         final var functionName = config.get("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
+     *             .stage("LIVE")
      *             .build());
      * 
      *     }
@@ -967,6 +969,7 @@ public final class CloudfrontFunctions {
      *         final var functionName = config.get("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
+     *             .stage("LIVE")
      *             .build());
      * 
      *     }
@@ -1011,6 +1014,7 @@ public final class CloudfrontFunctions {
      *         final var functionName = config.get("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
+     *             .stage("LIVE")
      *             .build());
      * 
      *     }
@@ -1055,6 +1059,7 @@ public final class CloudfrontFunctions {
      *         final var functionName = config.get("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
+     *             .stage("LIVE")
      *             .build());
      * 
      *     }

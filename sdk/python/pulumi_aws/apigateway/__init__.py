@@ -36,6 +36,7 @@ from .resource import *
 from .response import *
 from .rest_api import *
 from .rest_api_policy import *
+from .rest_api_put import *
 from .stage import *
 from .usage_plan import *
 from .usage_plan_key import *

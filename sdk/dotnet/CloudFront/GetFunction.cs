@@ -29,6 +29,7 @@ namespace Pulumi.Aws.CloudFront
         ///     var existing = Aws.CloudFront.GetFunction.Invoke(new()
         ///     {
         ///         Name = functionName,
+        ///         Stage = "LIVE",
         ///     });
         /// 
         /// });
@@ -55,6 +56,7 @@ namespace Pulumi.Aws.CloudFront
         ///     var existing = Aws.CloudFront.GetFunction.Invoke(new()
         ///     {
         ///         Name = functionName,
+        ///         Stage = "LIVE",
         ///     });
         /// 
         /// });
@@ -81,6 +83,7 @@ namespace Pulumi.Aws.CloudFront
         ///     var existing = Aws.CloudFront.GetFunction.Invoke(new()
         ///     {
         ///         Name = functionName,
+        ///         Stage = "LIVE",
         ///     });
         /// 
         /// });

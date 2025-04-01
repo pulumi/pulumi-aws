@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Namespace("example", NamespaceArgs.builder()
- *             .namespace("example-namespace")
+ *             .namespace("example_namespace")
  *             .tableBucketArn(exampleTableBucket.arn())
  *             .build());
  * 

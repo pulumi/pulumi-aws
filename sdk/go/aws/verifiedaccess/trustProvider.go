@@ -58,10 +58,13 @@ type TrustProvider struct {
 	DeviceOptions TrustProviderDeviceOptionsPtrOutput `pulumi:"deviceOptions"`
 	// The type of device-based trust provider.
 	DeviceTrustProviderType pulumi.StringPtrOutput `pulumi:"deviceTrustProviderType"`
+	// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+	NativeApplicationOidcOptions TrustProviderNativeApplicationOidcOptionsPtrOutput `pulumi:"nativeApplicationOidcOptions"`
 	// The OpenID Connect details for an oidc-type, user-identity based trust provider.
 	OidcOptions TrustProviderOidcOptionsPtrOutput `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
-	PolicyReferenceName pulumi.StringOutput `pulumi:"policyReferenceName"`
+	PolicyReferenceName pulumi.StringOutput                 `pulumi:"policyReferenceName"`
+	SseSpecification    TrustProviderSseSpecificationOutput `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -116,10 +119,13 @@ type trustProviderState struct {
 	DeviceOptions *TrustProviderDeviceOptions `pulumi:"deviceOptions"`
 	// The type of device-based trust provider.
 	DeviceTrustProviderType *string `pulumi:"deviceTrustProviderType"`
+	// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+	NativeApplicationOidcOptions *TrustProviderNativeApplicationOidcOptions `pulumi:"nativeApplicationOidcOptions"`
 	// The OpenID Connect details for an oidc-type, user-identity based trust provider.
 	OidcOptions *TrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
-	PolicyReferenceName *string `pulumi:"policyReferenceName"`
+	PolicyReferenceName *string                        `pulumi:"policyReferenceName"`
+	SseSpecification    *TrustProviderSseSpecification `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -139,10 +145,13 @@ type TrustProviderState struct {
 	DeviceOptions TrustProviderDeviceOptionsPtrInput
 	// The type of device-based trust provider.
 	DeviceTrustProviderType pulumi.StringPtrInput
+	// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+	NativeApplicationOidcOptions TrustProviderNativeApplicationOidcOptionsPtrInput
 	// The OpenID Connect details for an oidc-type, user-identity based trust provider.
 	OidcOptions TrustProviderOidcOptionsPtrInput
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringPtrInput
+	SseSpecification    TrustProviderSseSpecificationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Deprecated: Please use `tags` instead.
@@ -166,10 +175,13 @@ type trustProviderArgs struct {
 	DeviceOptions *TrustProviderDeviceOptions `pulumi:"deviceOptions"`
 	// The type of device-based trust provider.
 	DeviceTrustProviderType *string `pulumi:"deviceTrustProviderType"`
+	// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+	NativeApplicationOidcOptions *TrustProviderNativeApplicationOidcOptions `pulumi:"nativeApplicationOidcOptions"`
 	// The OpenID Connect details for an oidc-type, user-identity based trust provider.
 	OidcOptions *TrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
-	PolicyReferenceName string `pulumi:"policyReferenceName"`
+	PolicyReferenceName string                         `pulumi:"policyReferenceName"`
+	SseSpecification    *TrustProviderSseSpecification `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of trust provider can be either user or device-based.
@@ -188,10 +200,13 @@ type TrustProviderArgs struct {
 	DeviceOptions TrustProviderDeviceOptionsPtrInput
 	// The type of device-based trust provider.
 	DeviceTrustProviderType pulumi.StringPtrInput
+	// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+	NativeApplicationOidcOptions TrustProviderNativeApplicationOidcOptionsPtrInput
 	// The OpenID Connect details for an oidc-type, user-identity based trust provider.
 	OidcOptions TrustProviderOidcOptionsPtrInput
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringInput
+	SseSpecification    TrustProviderSseSpecificationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of trust provider can be either user or device-based.
@@ -304,6 +319,13 @@ func (o TrustProviderOutput) DeviceTrustProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProvider) pulumi.StringPtrOutput { return v.DeviceTrustProviderType }).(pulumi.StringPtrOutput)
 }
 
+// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+func (o TrustProviderOutput) NativeApplicationOidcOptions() TrustProviderNativeApplicationOidcOptionsPtrOutput {
+	return o.ApplyT(func(v *TrustProvider) TrustProviderNativeApplicationOidcOptionsPtrOutput {
+		return v.NativeApplicationOidcOptions
+	}).(TrustProviderNativeApplicationOidcOptionsPtrOutput)
+}
+
 // The OpenID Connect details for an oidc-type, user-identity based trust provider.
 func (o TrustProviderOutput) OidcOptions() TrustProviderOidcOptionsPtrOutput {
 	return o.ApplyT(func(v *TrustProvider) TrustProviderOidcOptionsPtrOutput { return v.OidcOptions }).(TrustProviderOidcOptionsPtrOutput)
@@ -312,6 +334,10 @@ func (o TrustProviderOutput) OidcOptions() TrustProviderOidcOptionsPtrOutput {
 // The identifier to be used when working with policy rules.
 func (o TrustProviderOutput) PolicyReferenceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustProvider) pulumi.StringOutput { return v.PolicyReferenceName }).(pulumi.StringOutput)
+}
+
+func (o TrustProviderOutput) SseSpecification() TrustProviderSseSpecificationOutput {
+	return o.ApplyT(func(v *TrustProvider) TrustProviderSseSpecificationOutput { return v.SseSpecification }).(TrustProviderSseSpecificationOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

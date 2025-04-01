@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const exampleTableBucket = new aws.s3tables.TableBucket("example", {name: "example-bucket"});
  * const example = new aws.s3tables.Namespace("example", {
- *     namespace: "example-namespace",
+ *     namespace: "example_namespace",
  *     tableBucketArn: exampleTableBucket.arn,
  * });
  * ```

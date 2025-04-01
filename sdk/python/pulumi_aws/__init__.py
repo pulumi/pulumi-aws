@@ -1078,6 +1078,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "apigateway/restApiPut",
+  "fqn": "pulumi_aws.apigateway",
+  "classes": {
+   "aws:apigateway/restApiPut:RestApiPut": "RestApiPut"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "apigateway/stage",
   "fqn": "pulumi_aws.apigateway",
   "classes": {

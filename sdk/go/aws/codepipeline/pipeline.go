@@ -230,15 +230,15 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CodePipelines using the name. For example:
+// Using `pulumi import`, import CodePipelines using the `name`. For example:
 //
 // ```sh
-// $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+// $ pulumi import aws:codepipeline/pipeline:Pipeline example example-pipeline
 // ```
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	// The codepipeline ARN.
+	// Codepipeline ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayOutput `pulumi:"artifactStores"`
@@ -260,6 +260,8 @@ type Pipeline struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+	TriggerAlls PipelineTriggerAllArrayOutput `pulumi:"triggerAlls"`
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers PipelineTriggerArrayOutput `pulumi:"triggers"`
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
@@ -305,7 +307,7 @@ func GetPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipeline resources.
 type pipelineState struct {
-	// The codepipeline ARN.
+	// Codepipeline ARN.
 	Arn *string `pulumi:"arn"`
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`
@@ -327,6 +329,8 @@ type pipelineState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+	TriggerAlls []PipelineTriggerAll `pulumi:"triggerAlls"`
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers []PipelineTrigger `pulumi:"triggers"`
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
@@ -334,7 +338,7 @@ type pipelineState struct {
 }
 
 type PipelineState struct {
-	// The codepipeline ARN.
+	// Codepipeline ARN.
 	Arn pulumi.StringPtrInput
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayInput
@@ -356,6 +360,8 @@ type PipelineState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+	TriggerAlls PipelineTriggerAllArrayInput
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers PipelineTriggerArrayInput
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
@@ -500,7 +506,7 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
-// The codepipeline ARN.
+// Codepipeline ARN.
 func (o PipelineOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -547,6 +553,11 @@ func (o PipelineOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o PipelineOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+func (o PipelineOutput) TriggerAlls() PipelineTriggerAllArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineTriggerAllArrayOutput { return v.TriggerAlls }).(PipelineTriggerAllArrayOutput)
 }
 
 // A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.

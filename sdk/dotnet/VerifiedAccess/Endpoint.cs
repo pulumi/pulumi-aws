@@ -86,6 +86,48 @@ namespace Pulumi.Aws.VerifiedAccess
     /// });
     /// ```
     /// 
+    /// ### Cidr Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.VerifiedAccess.Endpoint("example", new()
+    ///     {
+    ///         AttachmentType = "vpc",
+    ///         Description = "example",
+    ///         EndpointType = "cidr",
+    ///         CidrOptions = new Aws.VerifiedAccess.Inputs.EndpointCidrOptionsArgs
+    ///         {
+    ///             Cidr = test[0].CidrBlock,
+    ///             PortRanges = new[]
+    ///             {
+    ///                 new Aws.VerifiedAccess.Inputs.EndpointCidrOptionsPortRangeArgs
+    ///                 {
+    ///                     FromPort = 443,
+    ///                     ToPort = 443,
+    ///                 },
+    ///             },
+    ///             Protocol = "tcp",
+    ///             SubnetIds = .Select(subnet =&gt; 
+    ///             {
+    ///                 return subnet.Id;
+    ///             }).ToList(),
+    ///         },
+    ///         SecurityGroupIds = new[]
+    ///         {
+    ///             testAwsSecurityGroup.Id,
+    ///         },
+    ///         VerifiedAccessGroupId = testAwsVerifiedaccessGroup.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
@@ -98,16 +140,22 @@ namespace Pulumi.Aws.VerifiedAccess
     public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The DNS name for users to reach your application.
+        /// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         /// </summary>
         [Output("applicationDomain")]
-        public Output<string> ApplicationDomain { get; private set; } = null!;
+        public Output<string?> ApplicationDomain { get; private set; } = null!;
 
         /// <summary>
         /// The type of attachment. Currently, only `vpc` is supported.
         /// </summary>
         [Output("attachmentType")]
         public Output<string> AttachmentType { get; private set; } = null!;
+
+        /// <summary>
+        /// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+        /// </summary>
+        [Output("cidrOptions")]
+        public Output<Outputs.EndpointCidrOptions?> CidrOptions { get; private set; } = null!;
 
         /// <summary>
         /// A description for the Verified Access endpoint.
@@ -122,10 +170,10 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string> DeviceValidationDomain { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+        /// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         /// </summary>
         [Output("domainCertificateArn")]
-        public Output<string> DomainCertificateArn { get; private set; } = null!;
+        public Output<string?> DomainCertificateArn { get; private set; } = null!;
 
         /// <summary>
         /// A DNS name that is generated for the endpoint.
@@ -137,7 +185,7 @@ namespace Pulumi.Aws.VerifiedAccess
         /// A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         /// </summary>
         [Output("endpointDomainPrefix")]
-        public Output<string> EndpointDomainPrefix { get; private set; } = null!;
+        public Output<string?> EndpointDomainPrefix { get; private set; } = null!;
 
         /// <summary>
         /// The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
@@ -162,6 +210,9 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Output("policyDocument")]
         public Output<string?> PolicyDocument { get; private set; } = null!;
+
+        [Output("rdsOptions")]
+        public Output<Outputs.EndpointRdsOptions?> RdsOptions { get; private set; } = null!;
 
         /// <summary>
         /// List of the the security groups IDs to associate with the Verified Access endpoint.
@@ -242,10 +293,10 @@ namespace Pulumi.Aws.VerifiedAccess
     public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DNS name for users to reach your application.
+        /// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         /// </summary>
-        [Input("applicationDomain", required: true)]
-        public Input<string> ApplicationDomain { get; set; } = null!;
+        [Input("applicationDomain")]
+        public Input<string>? ApplicationDomain { get; set; }
 
         /// <summary>
         /// The type of attachment. Currently, only `vpc` is supported.
@@ -254,22 +305,28 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string> AttachmentType { get; set; } = null!;
 
         /// <summary>
+        /// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+        /// </summary>
+        [Input("cidrOptions")]
+        public Input<Inputs.EndpointCidrOptionsArgs>? CidrOptions { get; set; }
+
+        /// <summary>
         /// A description for the Verified Access endpoint.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+        /// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         /// </summary>
-        [Input("domainCertificateArn", required: true)]
-        public Input<string> DomainCertificateArn { get; set; } = null!;
+        [Input("domainCertificateArn")]
+        public Input<string>? DomainCertificateArn { get; set; }
 
         /// <summary>
         /// A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         /// </summary>
-        [Input("endpointDomainPrefix", required: true)]
-        public Input<string> EndpointDomainPrefix { get; set; } = null!;
+        [Input("endpointDomainPrefix")]
+        public Input<string>? EndpointDomainPrefix { get; set; }
 
         /// <summary>
         /// The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
@@ -294,6 +351,9 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
+
+        [Input("rdsOptions")]
+        public Input<Inputs.EndpointRdsOptionsArgs>? RdsOptions { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -342,7 +402,7 @@ namespace Pulumi.Aws.VerifiedAccess
     public sealed class EndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DNS name for users to reach your application.
+        /// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         /// </summary>
         [Input("applicationDomain")]
         public Input<string>? ApplicationDomain { get; set; }
@@ -352,6 +412,12 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("attachmentType")]
         public Input<string>? AttachmentType { get; set; }
+
+        /// <summary>
+        /// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+        /// </summary>
+        [Input("cidrOptions")]
+        public Input<Inputs.EndpointCidrOptionsGetArgs>? CidrOptions { get; set; }
 
         /// <summary>
         /// A description for the Verified Access endpoint.
@@ -366,7 +432,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? DeviceValidationDomain { get; set; }
 
         /// <summary>
-        /// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
+        /// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         /// </summary>
         [Input("domainCertificateArn")]
         public Input<string>? DomainCertificateArn { get; set; }
@@ -406,6 +472,9 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
+
+        [Input("rdsOptions")]
+        public Input<Inputs.EndpointRdsOptionsGetArgs>? RdsOptions { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

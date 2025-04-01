@@ -195,6 +195,25 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * One of the following task modes for your data transfer:
+     * * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+     * * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+     * 
+     */
+    @Import(name="taskMode")
+    private @Nullable Output<String> taskMode;
+
+    /**
+     * @return One of the following task modes for your data transfer:
+     * * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+     * * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+     * 
+     */
+    public Optional<Output<String>> taskMode() {
+        return Optional.ofNullable(this.taskMode);
+    }
+
+    /**
      * Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
      * 
      */
@@ -223,6 +242,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         this.sourceLocationArn = $.sourceLocationArn;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.taskMode = $.taskMode;
         this.taskReportConfig = $.taskReportConfig;
     }
 
@@ -481,6 +501,31 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param taskMode One of the following task modes for your data transfer:
+         * * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+         * * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taskMode(@Nullable Output<String> taskMode) {
+            $.taskMode = taskMode;
+            return this;
+        }
+
+        /**
+         * @param taskMode One of the following task modes for your data transfer:
+         * * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+         * * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taskMode(String taskMode) {
+            return taskMode(Output.of(taskMode));
         }
 
         /**

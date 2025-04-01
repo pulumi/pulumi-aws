@@ -90,6 +90,34 @@ namespace Pulumi.Aws.DataSync
     /// });
     /// ```
     /// 
+    /// ### With Enhanced Task Mode
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DataSync.Task("example", new()
+    ///     {
+    ///         DestinationLocationArn = destination.Arn,
+    ///         Name = "example",
+    ///         SourceLocationArn = source.Arn,
+    ///         TaskMode = "ENHANCED",
+    ///         Options = new Aws.DataSync.Inputs.TaskOptionsArgs
+    ///         {
+    ///             Gid = "NONE",
+    ///             PosixPermissions = "NONE",
+    ///             Uid = "NONE",
+    ///             VerifyMode = "ONLY_FILES_TRANSFERRED",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
@@ -166,6 +194,14 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// One of the following task modes for your data transfer:
+        /// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+        /// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+        /// </summary>
+        [Output("taskMode")]
+        public Output<string> TaskMode { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
@@ -280,6 +316,14 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
+        /// One of the following task modes for your data transfer:
+        /// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+        /// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+        /// </summary>
+        [Input("taskMode")]
+        public Input<string>? TaskMode { get; set; }
+
+        /// <summary>
         /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         /// </summary>
         [Input("taskReportConfig")]
@@ -371,6 +415,14 @@ namespace Pulumi.Aws.DataSync
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// One of the following task modes for your data transfer:
+        /// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+        /// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+        /// </summary>
+        [Input("taskMode")]
+        public Input<string>? TaskMode { get; set; }
 
         /// <summary>
         /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.

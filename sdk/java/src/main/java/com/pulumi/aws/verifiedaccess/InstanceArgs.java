@@ -18,6 +18,21 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     public static final InstanceArgs Empty = new InstanceArgs();
 
     /**
+     * The custom subdomain for the CIDR endpoints.
+     * 
+     */
+    @Import(name="cidrEndpointsCustomSubdomain")
+    private @Nullable Output<String> cidrEndpointsCustomSubdomain;
+
+    /**
+     * @return The custom subdomain for the CIDR endpoints.
+     * 
+     */
+    public Optional<Output<String>> cidrEndpointsCustomSubdomain() {
+        return Optional.ofNullable(this.cidrEndpointsCustomSubdomain);
+    }
+
+    /**
      * A description for the AWS Verified Access Instance.
      * 
      */
@@ -65,6 +80,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     private InstanceArgs() {}
 
     private InstanceArgs(InstanceArgs $) {
+        this.cidrEndpointsCustomSubdomain = $.cidrEndpointsCustomSubdomain;
         this.description = $.description;
         this.fipsEnabled = $.fipsEnabled;
         this.tags = $.tags;
@@ -86,6 +102,27 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(InstanceArgs defaults) {
             $ = new InstanceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cidrEndpointsCustomSubdomain The custom subdomain for the CIDR endpoints.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrEndpointsCustomSubdomain(@Nullable Output<String> cidrEndpointsCustomSubdomain) {
+            $.cidrEndpointsCustomSubdomain = cidrEndpointsCustomSubdomain;
+            return this;
+        }
+
+        /**
+         * @param cidrEndpointsCustomSubdomain The custom subdomain for the CIDR endpoints.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrEndpointsCustomSubdomain(String cidrEndpointsCustomSubdomain) {
+            return cidrEndpointsCustomSubdomain(Output.of(cidrEndpointsCustomSubdomain));
         }
 
         /**

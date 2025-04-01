@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentAgentGuardrailConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentAgentMemoryConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentAgentPromptOverrideConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentAgentTimeoutsArgs;
 import com.pulumi.core.Output;
@@ -207,6 +208,21 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configurations for the agent&#39;s ability to retain the conversational context.
+     * 
+     */
+    @Import(name="memoryConfigurations")
+    private @Nullable Output<List<AgentAgentMemoryConfigurationArgs>> memoryConfigurations;
+
+    /**
+     * @return Configurations for the agent&#39;s ability to retain the conversational context.
+     * 
+     */
+    public Optional<Output<List<AgentAgentMemoryConfigurationArgs>>> memoryConfigurations() {
+        return Optional.ofNullable(this.memoryConfigurations);
+    }
+
+    /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
@@ -311,6 +327,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         this.guardrailConfigurations = $.guardrailConfigurations;
         this.idleSessionTtlInSeconds = $.idleSessionTtlInSeconds;
         this.instruction = $.instruction;
+        this.memoryConfigurations = $.memoryConfigurations;
         this.prepareAgent = $.prepareAgent;
         this.promptOverrideConfigurations = $.promptOverrideConfigurations;
         this.skipResourceInUseCheck = $.skipResourceInUseCheck;
@@ -601,6 +618,37 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instruction(String instruction) {
             return instruction(Output.of(instruction));
+        }
+
+        /**
+         * @param memoryConfigurations Configurations for the agent&#39;s ability to retain the conversational context.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder memoryConfigurations(@Nullable Output<List<AgentAgentMemoryConfigurationArgs>> memoryConfigurations) {
+            $.memoryConfigurations = memoryConfigurations;
+            return this;
+        }
+
+        /**
+         * @param memoryConfigurations Configurations for the agent&#39;s ability to retain the conversational context.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder memoryConfigurations(List<AgentAgentMemoryConfigurationArgs> memoryConfigurations) {
+            return memoryConfigurations(Output.of(memoryConfigurations));
+        }
+
+        /**
+         * @param memoryConfigurations Configurations for the agent&#39;s ability to retain the conversational context.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder memoryConfigurations(AgentAgentMemoryConfigurationArgs... memoryConfigurations) {
+            return memoryConfigurations(List.of(memoryConfigurations));
         }
 
         /**

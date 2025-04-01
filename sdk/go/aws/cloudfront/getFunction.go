@@ -31,7 +31,8 @@ import (
 //			cfg := config.New(ctx, "")
 //			functionName := cfg.Require("functionName")
 //			_, err := cloudfront.LookupFunction(ctx, &cloudfront.LookupFunctionArgs{
-//				Name: functionName,
+//				Name:  functionName,
+//				Stage: "LIVE",
 //			}, nil)
 //			if err != nil {
 //				return err

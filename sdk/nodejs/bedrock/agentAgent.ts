@@ -151,6 +151,10 @@ export class AgentAgent extends pulumi.CustomResource {
      */
     public readonly instruction!: pulumi.Output<string>;
     /**
+     * Configurations for the agent's ability to retain the conversational context.
+     */
+    public readonly memoryConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentMemoryConfiguration[]>;
+    /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
     public readonly prepareAgent!: pulumi.Output<boolean>;
@@ -199,6 +203,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["guardrailConfigurations"] = state ? state.guardrailConfigurations : undefined;
             resourceInputs["idleSessionTtlInSeconds"] = state ? state.idleSessionTtlInSeconds : undefined;
             resourceInputs["instruction"] = state ? state.instruction : undefined;
+            resourceInputs["memoryConfigurations"] = state ? state.memoryConfigurations : undefined;
             resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
             resourceInputs["promptOverrideConfigurations"] = state ? state.promptOverrideConfigurations : undefined;
             resourceInputs["skipResourceInUseCheck"] = state ? state.skipResourceInUseCheck : undefined;
@@ -225,6 +230,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["guardrailConfigurations"] = args ? args.guardrailConfigurations : undefined;
             resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
             resourceInputs["instruction"] = args ? args.instruction : undefined;
+            resourceInputs["memoryConfigurations"] = args ? args.memoryConfigurations : undefined;
             resourceInputs["prepareAgent"] = args ? args.prepareAgent : undefined;
             resourceInputs["promptOverrideConfigurations"] = args ? args.promptOverrideConfigurations : undefined;
             resourceInputs["skipResourceInUseCheck"] = args ? args.skipResourceInUseCheck : undefined;
@@ -295,6 +301,10 @@ export interface AgentAgentState {
      */
     instruction?: pulumi.Input<string>;
     /**
+     * Configurations for the agent's ability to retain the conversational context.
+     */
+    memoryConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentMemoryConfiguration>[]>;
+    /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
     prepareAgent?: pulumi.Input<boolean>;
@@ -361,6 +371,10 @@ export interface AgentAgentArgs {
      * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
      */
     instruction?: pulumi.Input<string>;
+    /**
+     * Configurations for the agent's ability to retain the conversational context.
+     */
+    memoryConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentMemoryConfiguration>[]>;
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */

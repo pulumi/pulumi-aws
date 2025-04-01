@@ -9,6 +9,7 @@ import com.pulumi.aws.codepipeline.inputs.PipelineState;
 import com.pulumi.aws.codepipeline.outputs.PipelineArtifactStore;
 import com.pulumi.aws.codepipeline.outputs.PipelineStage;
 import com.pulumi.aws.codepipeline.outputs.PipelineTrigger;
+import com.pulumi.aws.codepipeline.outputs.PipelineTriggerAll;
 import com.pulumi.aws.codepipeline.outputs.PipelineVariable;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -205,24 +206,24 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import CodePipelines using the name. For example:
+ * Using `pulumi import`, import CodePipelines using the `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+ * $ pulumi import aws:codepipeline/pipeline:Pipeline example example-pipeline
  * ```
  * 
  */
 @ResourceType(type="aws:codepipeline/pipeline:Pipeline")
 public class Pipeline extends com.pulumi.resources.CustomResource {
     /**
-     * The codepipeline ARN.
+     * Codepipeline ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The codepipeline ARN.
+     * @return Codepipeline ARN.
      * 
      */
     public Output<String> arn() {
@@ -349,18 +350,32 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
+     * A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+     * 
+     */
+    @Export(name="triggerAlls", refs={List.class,PipelineTriggerAll.class}, tree="[0,1]")
+    private Output<List<PipelineTriggerAll>> triggerAlls;
+
+    /**
+     * @return A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
+     * 
+     */
+    public Output<List<PipelineTriggerAll>> triggerAlls() {
+        return this.triggerAlls;
+    }
+    /**
      * A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
      * 
      */
     @Export(name="triggers", refs={List.class,PipelineTrigger.class}, tree="[0,1]")
-    private Output<List<PipelineTrigger>> triggers;
+    private Output</* @Nullable */ List<PipelineTrigger>> triggers;
 
     /**
      * @return A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
      * 
      */
-    public Output<List<PipelineTrigger>> triggers() {
-        return this.triggers;
+    public Output<Optional<List<PipelineTrigger>>> triggers() {
+        return Codegen.optional(this.triggers);
     }
     /**
      * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.

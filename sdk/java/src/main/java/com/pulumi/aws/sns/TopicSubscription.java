@@ -238,6 +238,65 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## Example with Delivery Policy
+ * 
+ * This example demonstrates how to define a `delivery_policy` for an HTTPS subscription. Unlike the `aws.sns.Topic` resource, the `delivery_policy` for `aws.sns.TopicSubscription` should not be wrapped in an `&#34;http&#34;` object.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sns.TopicSubscription;
+ * import com.pulumi.aws.sns.TopicSubscriptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleWithDeliveryPolicy = new TopicSubscription("exampleWithDeliveryPolicy", TopicSubscriptionArgs.builder()
+ *             .topic("arn:aws:sns:us-west-2:123456789012:my-topic")
+ *             .protocol("https")
+ *             .endpoint("https://example.com/endpoint")
+ *             .rawMessageDelivery(true)
+ *             .deliveryPolicy("""
+ * {
+ *   "healthyRetryPolicy": {
+ *     "minDelayTarget": 20,
+ *     "maxDelayTarget": 20,
+ *     "numRetries": 3,
+ *     "numMaxDelayRetries": 0,
+ *     "numNoDelayRetries": 0,
+ *     "numMinDelayRetries": 0,
+ *     "backoffFunction": "linear"
+ *   },
+ *   "sicklyRetryPolicy": null,
+ *   "throttlePolicy": null,
+ *   "requestPolicy": {
+ *     "headerContentType": "text/plain; application/json"
+ *   },
+ *   "guaranteed": false
+ * }
+ *             """)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:

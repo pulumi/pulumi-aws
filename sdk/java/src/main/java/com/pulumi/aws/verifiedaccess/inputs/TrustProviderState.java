@@ -4,7 +4,9 @@
 package com.pulumi.aws.verifiedaccess.inputs;
 
 import com.pulumi.aws.verifiedaccess.inputs.TrustProviderDeviceOptionsArgs;
+import com.pulumi.aws.verifiedaccess.inputs.TrustProviderNativeApplicationOidcOptionsArgs;
 import com.pulumi.aws.verifiedaccess.inputs.TrustProviderOidcOptionsArgs;
+import com.pulumi.aws.verifiedaccess.inputs.TrustProviderSseSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -64,6 +66,21 @@ public final class TrustProviderState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     * 
+     */
+    @Import(name="nativeApplicationOidcOptions")
+    private @Nullable Output<TrustProviderNativeApplicationOidcOptionsArgs> nativeApplicationOidcOptions;
+
+    /**
+     * @return The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     * 
+     */
+    public Optional<Output<TrustProviderNativeApplicationOidcOptionsArgs>> nativeApplicationOidcOptions() {
+        return Optional.ofNullable(this.nativeApplicationOidcOptions);
+    }
+
+    /**
      * The OpenID Connect details for an oidc-type, user-identity based trust provider.
      * 
      */
@@ -91,6 +108,13 @@ public final class TrustProviderState extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<String>> policyReferenceName() {
         return Optional.ofNullable(this.policyReferenceName);
+    }
+
+    @Import(name="sseSpecification")
+    private @Nullable Output<TrustProviderSseSpecificationArgs> sseSpecification;
+
+    public Optional<Output<TrustProviderSseSpecificationArgs>> sseSpecification() {
+        return Optional.ofNullable(this.sseSpecification);
     }
 
     /**
@@ -167,8 +191,10 @@ public final class TrustProviderState extends com.pulumi.resources.ResourceArgs 
         this.description = $.description;
         this.deviceOptions = $.deviceOptions;
         this.deviceTrustProviderType = $.deviceTrustProviderType;
+        this.nativeApplicationOidcOptions = $.nativeApplicationOidcOptions;
         this.oidcOptions = $.oidcOptions;
         this.policyReferenceName = $.policyReferenceName;
+        this.sseSpecification = $.sseSpecification;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.trustProviderType = $.trustProviderType;
@@ -257,6 +283,27 @@ public final class TrustProviderState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param nativeApplicationOidcOptions The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nativeApplicationOidcOptions(@Nullable Output<TrustProviderNativeApplicationOidcOptionsArgs> nativeApplicationOidcOptions) {
+            $.nativeApplicationOidcOptions = nativeApplicationOidcOptions;
+            return this;
+        }
+
+        /**
+         * @param nativeApplicationOidcOptions The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nativeApplicationOidcOptions(TrustProviderNativeApplicationOidcOptionsArgs nativeApplicationOidcOptions) {
+            return nativeApplicationOidcOptions(Output.of(nativeApplicationOidcOptions));
+        }
+
+        /**
          * @param oidcOptions The OpenID Connect details for an oidc-type, user-identity based trust provider.
          * 
          * @return builder
@@ -296,6 +343,15 @@ public final class TrustProviderState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder policyReferenceName(String policyReferenceName) {
             return policyReferenceName(Output.of(policyReferenceName));
+        }
+
+        public Builder sseSpecification(@Nullable Output<TrustProviderSseSpecificationArgs> sseSpecification) {
+            $.sseSpecification = sseSpecification;
+            return this;
+        }
+
+        public Builder sseSpecification(TrustProviderSseSpecificationArgs sseSpecification) {
+            return sseSpecification(Output.of(sseSpecification));
         }
 
         /**
