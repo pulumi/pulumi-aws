@@ -81,7 +81,7 @@ jobs:
         continue-on-error: true
         uses: pulumi/pulumi-upgrade-provider-action@ff5cb5907aecba099e61146c4d4d074c7fd6ca99 # v0.0.15
         with:
-          kind: all
+          kind: provider
           email: bot@pulumi.com
           username: pulumi-bot
           automerge: false
