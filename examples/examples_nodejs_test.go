@@ -611,6 +611,13 @@ func TestRegress2555(t *testing.T) {
 			// permissions properties.
 			SkipRefresh: true,
 
+			// Sometimes pulumi destroy fails with this:
+			//
+			//     InvalidDocument: No matching value was found for Name.
+			//
+			// It happens if the document was created but creation has not yet propagated through AWS.
+			RetryFailedSteps: true,
+
 			EditDirs: []integration.EditDir{{
 				Dir:      filepath.Join("regress-2555", "step1"),
 				Additive: true,
