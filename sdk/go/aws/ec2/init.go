@@ -177,6 +177,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcEndpointRouteTableAssociation{}
 	case "aws:ec2/vpcEndpointService:VpcEndpointService":
 		r = &VpcEndpointService{}
+	case "aws:ec2/vpcEndpointServiceAllowedPrincipal:VpcEndpointServiceAllowedPrincipal":
+		r = &VpcEndpointServiceAllowedPrincipal{}
 	case "aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple":
 		r = &VpcEndpointServiceAllowedPrinciple{}
 	case "aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation":
@@ -620,6 +622,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/vpcEndpointService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcEndpointServiceAllowedPrincipal",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

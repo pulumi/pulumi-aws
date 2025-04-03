@@ -730,6 +730,11 @@ export type VpcEndpointService = import("./vpcEndpointService").VpcEndpointServi
 export const VpcEndpointService: typeof import("./vpcEndpointService").VpcEndpointService = null as any;
 utilities.lazyLoad(exports, ["VpcEndpointService"], () => require("./vpcEndpointService"));
 
+export { VpcEndpointServiceAllowedPrincipalArgs, VpcEndpointServiceAllowedPrincipalState } from "./vpcEndpointServiceAllowedPrincipal";
+export type VpcEndpointServiceAllowedPrincipal = import("./vpcEndpointServiceAllowedPrincipal").VpcEndpointServiceAllowedPrincipal;
+export const VpcEndpointServiceAllowedPrincipal: typeof import("./vpcEndpointServiceAllowedPrincipal").VpcEndpointServiceAllowedPrincipal = null as any;
+utilities.lazyLoad(exports, ["VpcEndpointServiceAllowedPrincipal"], () => require("./vpcEndpointServiceAllowedPrincipal"));
+
 export { VpcEndpointServiceAllowedPrincipleArgs, VpcEndpointServiceAllowedPrincipleState } from "./vpcEndpointServiceAllowedPrinciple";
 export type VpcEndpointServiceAllowedPrinciple = import("./vpcEndpointServiceAllowedPrinciple").VpcEndpointServiceAllowedPrinciple;
 export const VpcEndpointServiceAllowedPrinciple: typeof import("./vpcEndpointServiceAllowedPrinciple").VpcEndpointServiceAllowedPrinciple = null as any;
@@ -999,6 +1004,8 @@ const _module = {
                 return new VpcEndpointRouteTableAssociation(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpointService:VpcEndpointService":
                 return new VpcEndpointService(name, <any>undefined, { urn })
+            case "aws:ec2/vpcEndpointServiceAllowedPrincipal:VpcEndpointServiceAllowedPrincipal":
+                return new VpcEndpointServiceAllowedPrincipal(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple":
                 return new VpcEndpointServiceAllowedPrinciple(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation":
@@ -1124,6 +1131,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointConnectionNotificat
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointRouteTableAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointService", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointServiceAllowedPrincipal", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointServiceAllowedPrinciple", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointSubnetAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpam", _module)

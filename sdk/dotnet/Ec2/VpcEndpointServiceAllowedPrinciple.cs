@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var allowMeToFoo = new Aws.Ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo", new()
+    ///     var allowMeToFoo = new Aws.Ec2.VpcEndpointServiceAllowedPrincipal("allow_me_to_foo", new()
     ///     {
     ///         VpcEndpointServiceId = foo.Id,
     ///         PrincipalArn = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
@@ -41,6 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// </summary>
+    [Obsolete(@"aws.ec2/vpcendpointserviceallowedprinciple.VpcEndpointServiceAllowedPrinciple has been deprecated in favor of aws.ec2/vpcendpointserviceallowedprincipal.VpcEndpointServiceAllowedPrincipal")]
     [AwsResourceType("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")]
     public partial class VpcEndpointServiceAllowedPrinciple : global::Pulumi.CustomResource
     {
@@ -79,6 +80,10 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple" },
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

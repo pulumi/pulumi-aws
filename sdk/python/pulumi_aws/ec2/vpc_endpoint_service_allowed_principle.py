@@ -94,7 +94,12 @@ class _VpcEndpointServiceAllowedPrincipleState:
         pulumi.set(self, "vpc_endpoint_service_id", value)
 
 
+warnings.warn("""aws.ec2/vpcendpointserviceallowedprinciple.VpcEndpointServiceAllowedPrinciple has been deprecated in favor of aws.ec2/vpcendpointserviceallowedprincipal.VpcEndpointServiceAllowedPrincipal""", DeprecationWarning)
+
+
 class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
+    warnings.warn("""aws.ec2/vpcendpointserviceallowedprinciple.VpcEndpointServiceAllowedPrinciple has been deprecated in favor of aws.ec2/vpcendpointserviceallowedprincipal.VpcEndpointServiceAllowedPrincipal""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -120,7 +125,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo",
+        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrincipal("allow_me_to_foo",
             vpc_endpoint_service_id=foo["id"],
             principal_arn=current.arn)
         ```
@@ -154,7 +159,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo",
+        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrincipal("allow_me_to_foo",
             vpc_endpoint_service_id=foo["id"],
             principal_arn=current.arn)
         ```
@@ -177,6 +182,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
                  principal_arn: Optional[pulumi.Input[str]] = None,
                  vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""VpcEndpointServiceAllowedPrinciple is deprecated: aws.ec2/vpcendpointserviceallowedprinciple.VpcEndpointServiceAllowedPrinciple has been deprecated in favor of aws.ec2/vpcendpointserviceallowedprincipal.VpcEndpointServiceAllowedPrincipal""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -191,6 +197,8 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
             if vpc_endpoint_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_endpoint_service_id'")
             __props__.__dict__["vpc_endpoint_service_id"] = vpc_endpoint_service_id
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VpcEndpointServiceAllowedPrinciple, __self__).__init__(
             'aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple',
             resource_name,

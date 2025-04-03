@@ -4934,6 +4934,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/vpcEndpointServiceAllowedPrincipal",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcEndpointServiceAllowedPrincipal:VpcEndpointServiceAllowedPrincipal": "VpcEndpointServiceAllowedPrincipal"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/vpcEndpointServiceAllowedPrinciple",
   "fqn": "pulumi_aws.ec2",
   "classes": {

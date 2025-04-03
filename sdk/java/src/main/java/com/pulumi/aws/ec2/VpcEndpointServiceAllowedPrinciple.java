@@ -6,11 +6,13 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2.VpcEndpointServiceAllowedPrincipleArgs;
 import com.pulumi.aws.ec2.inputs.VpcEndpointServiceAllowedPrincipleState;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import javax.annotation.Nullable;
 
 /**
@@ -36,8 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.ec2.VpcEndpointServiceAllowedPrinciple;
- * import com.pulumi.aws.ec2.VpcEndpointServiceAllowedPrincipleArgs;
+ * import com.pulumi.aws.ec2.VpcEndpointServiceAllowedPrincipal;
+ * import com.pulumi.aws.ec2.VpcEndpointServiceAllowedPrincipalArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,7 +55,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var allowMeToFoo = new VpcEndpointServiceAllowedPrinciple("allowMeToFoo", VpcEndpointServiceAllowedPrincipleArgs.builder()
+ *         var allowMeToFoo = new VpcEndpointServiceAllowedPrincipal("allowMeToFoo", VpcEndpointServiceAllowedPrincipalArgs.builder()
  *             .vpcEndpointServiceId(foo.id())
  *             .principalArn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
  *             .build());
@@ -64,7 +66,11 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * @deprecated
+ * aws.ec2/vpcendpointserviceallowedprinciple.VpcEndpointServiceAllowedPrinciple has been deprecated in favor of aws.ec2/vpcendpointserviceallowedprincipal.VpcEndpointServiceAllowedPrincipal
+ * 
  */
+@Deprecated /* aws.ec2/vpcendpointserviceallowedprinciple.VpcEndpointServiceAllowedPrinciple has been deprecated in favor of aws.ec2/vpcendpointserviceallowedprincipal.VpcEndpointServiceAllowedPrincipal */
 @ResourceType(type="aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")
 public class VpcEndpointServiceAllowedPrinciple extends com.pulumi.resources.CustomResource {
     /**
@@ -135,6 +141,9 @@ public class VpcEndpointServiceAllowedPrinciple extends com.pulumi.resources.Cus
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }
