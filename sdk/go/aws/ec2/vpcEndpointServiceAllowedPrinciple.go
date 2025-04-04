@@ -41,7 +41,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpcEndpointServiceAllowedPrinciple(ctx, "allow_me_to_foo", &ec2.VpcEndpointServiceAllowedPrincipleArgs{
+//			_, err = ec2.NewVpcEndpointServiceAllowedPrincipal(ctx, "allow_me_to_foo", &ec2.VpcEndpointServiceAllowedPrincipalArgs{
 //				VpcEndpointServiceId: pulumi.Any(foo.Id),
 //				PrincipalArn:         pulumi.String(current.Arn),
 //			})
@@ -53,6 +53,8 @@ import (
 //	}
 //
 // ```
+//
+// Deprecated: aws.ec2/vpcendpointserviceallowedprinciple.VpcEndpointServiceAllowedPrinciple has been deprecated in favor of aws.ec2/vpcendpointserviceallowedprincipal.VpcEndpointServiceAllowedPrincipal
 type VpcEndpointServiceAllowedPrinciple struct {
 	pulumi.CustomResourceState
 
@@ -75,6 +77,12 @@ func NewVpcEndpointServiceAllowedPrinciple(ctx *pulumi.Context,
 	if args.VpcEndpointServiceId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcEndpointServiceId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpointServiceAllowedPrinciple
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple", name, args, &resource, opts...)

@@ -856,6 +856,7 @@
         "ec2/vpcEndpointPolicy.ts",
         "ec2/vpcEndpointRouteTableAssociation.ts",
         "ec2/vpcEndpointService.ts",
+        "ec2/vpcEndpointServiceAllowedPrincipal.ts",
         "ec2/vpcEndpointServiceAllowedPrinciple.ts",
         "ec2/vpcEndpointSubnetAssociation.ts",
         "ec2/vpcIpam.ts",

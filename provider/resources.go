@@ -5652,6 +5652,16 @@ compatibility shim in favor of the new "name" field.`)
 		prov.Resources[k] = v
 	}
 
+	// Correct a typo: Principle -> Principal.
+	prov.RenameResourceWithAlias(
+		"aws_vpc_endpoint_service_allowed_principal",              /*resourceName*/
+		awsResource(ec2Mod, "VpcEndpointServiceAllowedPrinciple"), /*legacyTok*/
+		awsResource(ec2Mod, "VpcEndpointServiceAllowedPrincipal"), /*newTok*/
+		ec2Mod, /*legacyModule*/
+		ec2Mod, /*newModule*/
+		prov.Resources[string(awsResource(ec2Mod, "VpcEndpointServiceAllowedPrinciple"))],
+	)
+
 	prov.MustComputeTokens(tks.MappedModules("aws_", "", moduleMap,
 		func(mod, name string) (string, error) {
 			return awsResource(mod, name).String(), nil

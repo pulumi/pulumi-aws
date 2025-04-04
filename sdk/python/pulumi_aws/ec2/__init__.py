@@ -150,6 +150,7 @@ from .vpc_endpoint_connection_notification import *
 from .vpc_endpoint_policy import *
 from .vpc_endpoint_route_table_association import *
 from .vpc_endpoint_service import *
+from .vpc_endpoint_service_allowed_principal import *
 from .vpc_endpoint_service_allowed_principle import *
 from .vpc_endpoint_subnet_association import *
 from .vpc_ipam import *

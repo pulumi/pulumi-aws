@@ -22,11 +22,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getCallerIdentity({});
- * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo", {
+ * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrincipal("allow_me_to_foo", {
  *     vpcEndpointServiceId: foo.id,
  *     principalArn: current.then(current => current.arn),
  * });
  * ```
+ *
+ * @deprecated aws.ec2/vpcendpointserviceallowedprinciple.VpcEndpointServiceAllowedPrinciple has been deprecated in favor of aws.ec2/vpcendpointserviceallowedprincipal.VpcEndpointServiceAllowedPrincipal
  */
 export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
     /**
@@ -39,6 +41,7 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpcEndpointServiceAllowedPrincipleState, opts?: pulumi.CustomResourceOptions): VpcEndpointServiceAllowedPrinciple {
+        pulumi.log.warn("VpcEndpointServiceAllowedPrinciple is deprecated: aws.ec2/vpcendpointserviceallowedprinciple.VpcEndpointServiceAllowedPrinciple has been deprecated in favor of aws.ec2/vpcendpointserviceallowedprincipal.VpcEndpointServiceAllowedPrincipal")
         return new VpcEndpointServiceAllowedPrinciple(name, <any>state, { ...opts, id: id });
     }
 
@@ -72,8 +75,11 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.ec2/vpcendpointserviceallowedprinciple.VpcEndpointServiceAllowedPrinciple has been deprecated in favor of aws.ec2/vpcendpointserviceallowedprincipal.VpcEndpointServiceAllowedPrincipal */
     constructor(name: string, args: VpcEndpointServiceAllowedPrincipleArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.ec2/vpcendpointserviceallowedprinciple.VpcEndpointServiceAllowedPrinciple has been deprecated in favor of aws.ec2/vpcendpointserviceallowedprincipal.VpcEndpointServiceAllowedPrincipal */
     constructor(name: string, argsOrState?: VpcEndpointServiceAllowedPrincipleArgs | VpcEndpointServiceAllowedPrincipleState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VpcEndpointServiceAllowedPrinciple is deprecated: aws.ec2/vpcendpointserviceallowedprinciple.VpcEndpointServiceAllowedPrinciple has been deprecated in favor of aws.ec2/vpcendpointserviceallowedprincipal.VpcEndpointServiceAllowedPrincipal")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
@@ -92,6 +98,8 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
             resourceInputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VpcEndpointServiceAllowedPrinciple.__pulumiType, name, resourceInputs, opts);
     }
 }
