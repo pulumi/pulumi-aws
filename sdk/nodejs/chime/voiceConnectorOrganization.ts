@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     name: "test",
  *     requireEncryption: true,
  * });
- * const defaultVoiceConnectorOrganization = new aws.chime.VoiceConnectorOrganization("default", {
+ * const defaultVoiceConnectorOrigination = new aws.chime.VoiceConnectorOrigination("default", {
  *     disabled: false,
  *     voiceConnectorId: _default.id,
  *     routes: [
@@ -49,6 +49,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
  * ```
+ *
+ * @deprecated aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination
  */
 export class VoiceConnectorOrganization extends pulumi.CustomResource {
     /**
@@ -61,6 +63,7 @@ export class VoiceConnectorOrganization extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VoiceConnectorOrganizationState, opts?: pulumi.CustomResourceOptions): VoiceConnectorOrganization {
+        pulumi.log.warn("VoiceConnectorOrganization is deprecated: aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination")
         return new VoiceConnectorOrganization(name, <any>state, { ...opts, id: id });
     }
 
@@ -98,8 +101,11 @@ export class VoiceConnectorOrganization extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination */
     constructor(name: string, args: VoiceConnectorOrganizationArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination */
     constructor(name: string, argsOrState?: VoiceConnectorOrganizationArgs | VoiceConnectorOrganizationState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VoiceConnectorOrganization is deprecated: aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

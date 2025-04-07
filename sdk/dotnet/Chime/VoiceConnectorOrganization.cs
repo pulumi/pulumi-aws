@@ -28,13 +28,13 @@ namespace Pulumi.Aws.Chime
     ///         RequireEncryption = true,
     ///     });
     /// 
-    ///     var defaultVoiceConnectorOrganization = new Aws.Chime.VoiceConnectorOrganization("default", new()
+    ///     var defaultVoiceConnectorOrigination = new Aws.Chime.VoiceConnectorOrigination("default", new()
     ///     {
     ///         Disabled = false,
     ///         VoiceConnectorId = @default.Id,
     ///         Routes = new[]
     ///         {
-    ///             new Aws.Chime.Inputs.VoiceConnectorOrganizationRouteArgs
+    ///             new Aws.Chime.Inputs.VoiceConnectorOriginationRouteArgs
     ///             {
     ///                 Host = "127.0.0.1",
     ///                 Port = 8081,
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Chime
     ///                 Priority = 1,
     ///                 Weight = 1,
     ///             },
-    ///             new Aws.Chime.Inputs.VoiceConnectorOrganizationRouteArgs
+    ///             new Aws.Chime.Inputs.VoiceConnectorOriginationRouteArgs
     ///             {
     ///                 Host = "127.0.0.2",
     ///                 Port = 8082,
@@ -64,6 +64,7 @@ namespace Pulumi.Aws.Chime
     /// $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
     /// ```
     /// </summary>
+    [Obsolete(@"aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination")]
     [AwsResourceType("aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization")]
     public partial class VoiceConnectorOrganization : global::Pulumi.CustomResource
     {

@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     policyDocument: ad_log_policy.apply(ad_log_policy => ad_log_policy.json),
  *     policyName: "ad-log-policy",
  * });
- * const exampleLogService = new aws.directoryservice.LogService("example", {
+ * const exampleLogSubscription = new aws.directoryservice.LogSubscription("example", {
  *     directoryId: exampleAwsDirectoryServiceDirectory.id,
  *     logGroupName: example.name,
  * });
@@ -48,6 +48,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
  * ```
+ *
+ * @deprecated aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription
  */
 export class LogService extends pulumi.CustomResource {
     /**
@@ -60,6 +62,7 @@ export class LogService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LogServiceState, opts?: pulumi.CustomResourceOptions): LogService {
+        pulumi.log.warn("LogService is deprecated: aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription")
         return new LogService(name, <any>state, { ...opts, id: id });
     }
 
@@ -93,8 +96,11 @@ export class LogService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription */
     constructor(name: string, args: LogServiceArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription */
     constructor(name: string, argsOrState?: LogServiceArgs | LogServiceState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("LogService is deprecated: aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

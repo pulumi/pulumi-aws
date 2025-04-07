@@ -125,7 +125,12 @@ class _ConditionalForwaderState:
         pulumi.set(self, "remote_domain_name", value)
 
 
+warnings.warn("""aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder""", DeprecationWarning)
+
+
 class ConditionalForwader(pulumi.CustomResource):
+    warnings.warn("""aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -143,7 +148,7 @@ class ConditionalForwader(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.directoryservice.ConditionalForwader("example",
+        example = aws.directoryservice.ConditionalForwarder("example",
             directory_id=ad["id"],
             remote_domain_name="example.com",
             dns_ips=[
@@ -181,7 +186,7 @@ class ConditionalForwader(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.directoryservice.ConditionalForwader("example",
+        example = aws.directoryservice.ConditionalForwarder("example",
             directory_id=ad["id"],
             remote_domain_name="example.com",
             dns_ips=[
@@ -217,6 +222,7 @@ class ConditionalForwader(pulumi.CustomResource):
                  dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  remote_domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ConditionalForwader is deprecated: aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DirectoryService.ConditionalForwader("example", new()
+    ///     var example = new Aws.DirectoryService.ConditionalForwarder("example", new()
     ///     {
     ///         DirectoryId = ad.Id,
     ///         RemoteDomainName = "example.com",
@@ -44,6 +44,7 @@ namespace Pulumi.Aws.DirectoryService
     /// $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
     /// ```
     /// </summary>
+    [Obsolete(@"aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder")]
     [AwsResourceType("aws:directoryservice/conditionalForwader:ConditionalForwader")]
     public partial class ConditionalForwader : global::Pulumi.CustomResource
     {

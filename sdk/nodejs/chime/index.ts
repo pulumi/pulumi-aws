@@ -45,6 +45,11 @@ export type VoiceConnectorOrganization = import("./voiceConnectorOrganization").
 export const VoiceConnectorOrganization: typeof import("./voiceConnectorOrganization").VoiceConnectorOrganization = null as any;
 utilities.lazyLoad(exports, ["VoiceConnectorOrganization"], () => require("./voiceConnectorOrganization"));
 
+export { VoiceConnectorOriginationArgs, VoiceConnectorOriginationState } from "./voiceConnectorOrigination";
+export type VoiceConnectorOrigination = import("./voiceConnectorOrigination").VoiceConnectorOrigination;
+export const VoiceConnectorOrigination: typeof import("./voiceConnectorOrigination").VoiceConnectorOrigination = null as any;
+utilities.lazyLoad(exports, ["VoiceConnectorOrigination"], () => require("./voiceConnectorOrigination"));
+
 export { VoiceConnectorStreamingArgs, VoiceConnectorStreamingState } from "./voiceConnectorStreaming";
 export type VoiceConnectorStreaming = import("./voiceConnectorStreaming").VoiceConnectorStreaming;
 export const VoiceConnectorStreaming: typeof import("./voiceConnectorStreaming").VoiceConnectorStreaming = null as any;
@@ -81,6 +86,8 @@ const _module = {
                 return new VoiceConnectorLogging(name, <any>undefined, { urn })
             case "aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization":
                 return new VoiceConnectorOrganization(name, <any>undefined, { urn })
+            case "aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination":
+                return new VoiceConnectorOrigination(name, <any>undefined, { urn })
             case "aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming":
                 return new VoiceConnectorStreaming(name, <any>undefined, { urn })
             case "aws:chime/voiceConnectorTermination:VoiceConnectorTermination":
@@ -100,6 +107,7 @@ pulumi.runtime.registerResourceModule("aws", "chime/voiceConnector", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorLogging", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorOrganization", _module)
+pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorOrigination", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorStreaming", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorTermination", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorTerminationCredentials", _module)

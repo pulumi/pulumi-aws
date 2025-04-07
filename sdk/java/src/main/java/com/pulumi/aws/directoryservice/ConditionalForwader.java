@@ -27,8 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.directoryservice.ConditionalForwader;
- * import com.pulumi.aws.directoryservice.ConditionalForwaderArgs;
+ * import com.pulumi.aws.directoryservice.ConditionalForwarder;
+ * import com.pulumi.aws.directoryservice.ConditionalForwarderArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConditionalForwader("example", ConditionalForwaderArgs.builder()
+ *         var example = new ConditionalForwarder("example", ConditionalForwarderArgs.builder()
  *             .directoryId(ad.id())
  *             .remoteDomainName("example.com")
  *             .dnsIps(            
@@ -64,7 +64,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
  * ```
  * 
+ * @deprecated
+ * aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder
+ * 
  */
+@Deprecated /* aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder */
 @ResourceType(type="aws:directoryservice/conditionalForwader:ConditionalForwader")
 public class ConditionalForwader extends com.pulumi.resources.CustomResource {
     /**

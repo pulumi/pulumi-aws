@@ -128,7 +128,12 @@ class _VoiceConnectorOrganizationState:
         pulumi.set(self, "voice_connector_id", value)
 
 
+warnings.warn("""aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination""", DeprecationWarning)
+
+
 class VoiceConnectorOrganization(pulumi.CustomResource):
+    warnings.warn("""aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -149,7 +154,7 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
         default = aws.chime.VoiceConnector("default",
             name="test",
             require_encryption=True)
-        default_voice_connector_organization = aws.chime.VoiceConnectorOrganization("default",
+        default_voice_connector_origination = aws.chime.VoiceConnectorOrigination("default",
             disabled=False,
             voice_connector_id=default.id,
             routes=[
@@ -202,7 +207,7 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
         default = aws.chime.VoiceConnector("default",
             name="test",
             require_encryption=True)
-        default_voice_connector_organization = aws.chime.VoiceConnectorOrganization("default",
+        default_voice_connector_origination = aws.chime.VoiceConnectorOrigination("default",
             disabled=False,
             voice_connector_id=default.id,
             routes=[
@@ -250,6 +255,7 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorOrganizationRouteArgs', 'VoiceConnectorOrganizationRouteArgsDict']]]]] = None,
                  voice_connector_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""VoiceConnectorOrganization is deprecated: aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

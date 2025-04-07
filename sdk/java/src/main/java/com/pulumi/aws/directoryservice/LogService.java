@@ -32,8 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
  * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
- * import com.pulumi.aws.directoryservice.LogService;
- * import com.pulumi.aws.directoryservice.LogServiceArgs;
+ * import com.pulumi.aws.directoryservice.LogSubscription;
+ * import com.pulumi.aws.directoryservice.LogSubscriptionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .policyName("ad-log-policy")
  *             .build());
  * 
- *         var exampleLogService = new LogService("exampleLogService", LogServiceArgs.builder()
+ *         var exampleLogSubscription = new LogSubscription("exampleLogSubscription", LogSubscriptionArgs.builder()
  *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .logGroupName(example.name())
  *             .build());
@@ -90,7 +90,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
  * ```
  * 
+ * @deprecated
+ * aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription
+ * 
  */
+@Deprecated /* aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription */
 @ResourceType(type="aws:directoryservice/logService:LogService")
 public class LogService extends com.pulumi.resources.CustomResource {
     /**

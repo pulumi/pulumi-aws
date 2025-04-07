@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directoryservice.NewConditionalForwader(ctx, "example", &directoryservice.ConditionalForwaderArgs{
+//			_, err := directoryservice.NewConditionalForwarder(ctx, "example", &directoryservice.ConditionalForwarderArgs{
 //				DirectoryId:      pulumi.Any(ad.Id),
 //				RemoteDomainName: pulumi.String("example.com"),
 //				DnsIps: pulumi.StringArray{
@@ -52,6 +52,8 @@ import (
 // ```sh
 // $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
 // ```
+//
+// Deprecated: aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder
 type ConditionalForwader struct {
 	pulumi.CustomResourceState
 

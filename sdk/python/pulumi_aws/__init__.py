@@ -2278,6 +2278,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "chime/voiceConnectorOrigination",
+  "fqn": "pulumi_aws.chime",
+  "classes": {
+   "aws:chime/voiceConnectorOrigination:VoiceConnectorOrigination": "VoiceConnectorOrigination"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "chime/voiceConnectorStreaming",
   "fqn": "pulumi_aws.chime",
   "classes": {
@@ -3974,6 +3982,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "directoryservice/conditionalForwarder",
+  "fqn": "pulumi_aws.directoryservice",
+  "classes": {
+   "aws:directoryservice/conditionalForwarder:ConditionalForwarder": "ConditionalForwarder"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "directoryservice/directory",
   "fqn": "pulumi_aws.directoryservice",
   "classes": {
@@ -3986,6 +4002,14 @@ _utilities.register(
   "fqn": "pulumi_aws.directoryservice",
   "classes": {
    "aws:directoryservice/logService:LogService": "LogService"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "directoryservice/logSubscription",
+  "fqn": "pulumi_aws.directoryservice",
+  "classes": {
+   "aws:directoryservice/logSubscription:LogSubscription": "LogSubscription"
   }
  },
  {

@@ -94,7 +94,12 @@ class _LogServiceState:
         pulumi.set(self, "log_group_name", value)
 
 
+warnings.warn("""aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription""", DeprecationWarning)
+
+
 class LogService(pulumi.CustomResource):
+    warnings.warn("""aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -129,7 +134,7 @@ class LogService(pulumi.CustomResource):
         ad_log_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("ad-log-policy",
             policy_document=ad_log_policy.json,
             policy_name="ad-log-policy")
-        example_log_service = aws.directoryservice.LogService("example",
+        example_log_subscription = aws.directoryservice.LogSubscription("example",
             directory_id=example_aws_directory_service_directory["id"],
             log_group_name=example.name)
         ```
@@ -180,7 +185,7 @@ class LogService(pulumi.CustomResource):
         ad_log_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("ad-log-policy",
             policy_document=ad_log_policy.json,
             policy_name="ad-log-policy")
-        example_log_service = aws.directoryservice.LogService("example",
+        example_log_subscription = aws.directoryservice.LogSubscription("example",
             directory_id=example_aws_directory_service_directory["id"],
             log_group_name=example.name)
         ```
@@ -211,6 +216,7 @@ class LogService(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""LogService is deprecated: aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
