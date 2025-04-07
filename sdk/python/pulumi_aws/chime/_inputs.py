@@ -27,6 +27,8 @@ __all__ = [
     'VoiceConnectorGroupConnectorArgsDict',
     'VoiceConnectorOrganizationRouteArgs',
     'VoiceConnectorOrganizationRouteArgsDict',
+    'VoiceConnectorOriginationRouteArgs',
+    'VoiceConnectorOriginationRouteArgsDict',
     'VoiceConnectorStreamingMediaInsightsConfigurationArgs',
     'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict',
     'VoiceConnectorTerminationCredentialsCredentialArgs',
@@ -281,6 +283,114 @@ elif False:
 
 @pulumi.input_type
 class VoiceConnectorOrganizationRouteArgs:
+    def __init__(__self__, *,
+                 host: pulumi.Input[str],
+                 priority: pulumi.Input[int],
+                 protocol: pulumi.Input[str],
+                 weight: pulumi.Input[int],
+                 port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] host: The FQDN or IP address to contact for origination traffic.
+        :param pulumi.Input[int] priority: The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
+        :param pulumi.Input[str] protocol: The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+        :param pulumi.Input[int] weight: The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
+        :param pulumi.Input[int] port: The designated origination route port. Defaults to `5060`.
+        """
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "weight", weight)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        """
+        The FQDN or IP address to contact for origination traffic.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[int]:
+        """
+        The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[int]):
+        pulumi.set(self, "weight", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The designated origination route port. Defaults to `5060`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+
+if not MYPY:
+    class VoiceConnectorOriginationRouteArgsDict(TypedDict):
+        host: pulumi.Input[str]
+        """
+        The FQDN or IP address to contact for origination traffic.
+        """
+        priority: pulumi.Input[int]
+        """
+        The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
+        """
+        protocol: pulumi.Input[str]
+        """
+        The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+        """
+        weight: pulumi.Input[int]
+        """
+        The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The designated origination route port. Defaults to `5060`.
+        """
+elif False:
+    VoiceConnectorOriginationRouteArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VoiceConnectorOriginationRouteArgs:
     def __init__(__self__, *,
                  host: pulumi.Input[str],
                  priority: pulumi.Input[int],

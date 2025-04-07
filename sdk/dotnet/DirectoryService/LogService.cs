@@ -65,7 +65,7 @@ namespace Pulumi.Aws.DirectoryService
     ///         PolicyName = "ad-log-policy",
     ///     });
     /// 
-    ///     var exampleLogService = new Aws.DirectoryService.LogService("example", new()
+    ///     var exampleLogSubscription = new Aws.DirectoryService.LogSubscription("example", new()
     ///     {
     ///         DirectoryId = exampleAwsDirectoryServiceDirectory.Id,
     ///         LogGroupName = example.Name,
@@ -82,6 +82,7 @@ namespace Pulumi.Aws.DirectoryService
     /// $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
     /// ```
     /// </summary>
+    [Obsolete(@"aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription")]
     [AwsResourceType("aws:directoryservice/logService:LogService")]
     public partial class LogService : global::Pulumi.CustomResource
     {

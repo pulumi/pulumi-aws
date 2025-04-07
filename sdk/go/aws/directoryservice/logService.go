@@ -72,7 +72,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = directoryservice.NewLogService(ctx, "example", &directoryservice.LogServiceArgs{
+//			_, err = directoryservice.NewLogSubscription(ctx, "example", &directoryservice.LogSubscriptionArgs{
 //				DirectoryId:  pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
 //				LogGroupName: example.Name,
 //			})
@@ -92,6 +92,8 @@ import (
 // ```sh
 // $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
 // ```
+//
+// Deprecated: aws.directoryservice/logservice.LogService has been deprecated in favor of aws.directoryservice/logsubscription.LogSubscription
 type LogService struct {
 	pulumi.CustomResourceState
 

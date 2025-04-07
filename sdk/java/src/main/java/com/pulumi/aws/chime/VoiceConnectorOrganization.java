@@ -32,9 +32,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.chime.VoiceConnector;
  * import com.pulumi.aws.chime.VoiceConnectorArgs;
- * import com.pulumi.aws.chime.VoiceConnectorOrganization;
- * import com.pulumi.aws.chime.VoiceConnectorOrganizationArgs;
- * import com.pulumi.aws.chime.inputs.VoiceConnectorOrganizationRouteArgs;
+ * import com.pulumi.aws.chime.VoiceConnectorOrigination;
+ * import com.pulumi.aws.chime.VoiceConnectorOriginationArgs;
+ * import com.pulumi.aws.chime.inputs.VoiceConnectorOriginationRouteArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,18 +53,18 @@ import javax.annotation.Nullable;
  *             .requireEncryption(true)
  *             .build());
  * 
- *         var defaultVoiceConnectorOrganization = new VoiceConnectorOrganization("defaultVoiceConnectorOrganization", VoiceConnectorOrganizationArgs.builder()
+ *         var defaultVoiceConnectorOrigination = new VoiceConnectorOrigination("defaultVoiceConnectorOrigination", VoiceConnectorOriginationArgs.builder()
  *             .disabled(false)
  *             .voiceConnectorId(default_.id())
  *             .routes(            
- *                 VoiceConnectorOrganizationRouteArgs.builder()
+ *                 VoiceConnectorOriginationRouteArgs.builder()
  *                     .host("127.0.0.1")
  *                     .port(8081)
  *                     .protocol("TCP")
  *                     .priority(1)
  *                     .weight(1)
  *                     .build(),
- *                 VoiceConnectorOrganizationRouteArgs.builder()
+ *                 VoiceConnectorOriginationRouteArgs.builder()
  *                     .host("127.0.0.2")
  *                     .port(8082)
  *                     .protocol("TCP")
@@ -87,7 +87,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
  * ```
  * 
+ * @deprecated
+ * aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination
+ * 
  */
+@Deprecated /* aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination */
 @ResourceType(type="aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization")
 public class VoiceConnectorOrganization extends com.pulumi.resources.CustomResource {
     /**

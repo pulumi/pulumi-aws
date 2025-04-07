@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.directoryservice.ConditionalForwader("example", {
+ * const example = new aws.directoryservice.ConditionalForwarder("example", {
  *     directoryId: ad.id,
  *     remoteDomainName: "example.com",
  *     dnsIps: [
@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
  * ```
+ *
+ * @deprecated aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder
  */
 export class ConditionalForwader extends pulumi.CustomResource {
     /**
@@ -42,6 +44,7 @@ export class ConditionalForwader extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConditionalForwaderState, opts?: pulumi.CustomResourceOptions): ConditionalForwader {
+        pulumi.log.warn("ConditionalForwader is deprecated: aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder")
         return new ConditionalForwader(name, <any>state, { ...opts, id: id });
     }
 
@@ -79,8 +82,11 @@ export class ConditionalForwader extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder */
     constructor(name: string, args: ConditionalForwaderArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder */
     constructor(name: string, argsOrState?: ConditionalForwaderArgs | ConditionalForwaderState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ConditionalForwader is deprecated: aws.directoryservice/conditionalforwader.ConditionalForwader has been deprecated in favor of aws.directoryservice/conditionalforwarder.ConditionalForwarder")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

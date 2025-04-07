@@ -786,6 +786,139 @@ func (o VoiceConnectorOrganizationRouteArrayOutput) Index(i pulumi.IntInput) Voi
 	}).(VoiceConnectorOrganizationRouteOutput)
 }
 
+type VoiceConnectorOriginationRoute struct {
+	// The FQDN or IP address to contact for origination traffic.
+	Host string `pulumi:"host"`
+	// The designated origination route port. Defaults to `5060`.
+	Port *int `pulumi:"port"`
+	// The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
+	Priority int `pulumi:"priority"`
+	// The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+	Protocol string `pulumi:"protocol"`
+	// The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
+	Weight int `pulumi:"weight"`
+}
+
+// VoiceConnectorOriginationRouteInput is an input type that accepts VoiceConnectorOriginationRouteArgs and VoiceConnectorOriginationRouteOutput values.
+// You can construct a concrete instance of `VoiceConnectorOriginationRouteInput` via:
+//
+//	VoiceConnectorOriginationRouteArgs{...}
+type VoiceConnectorOriginationRouteInput interface {
+	pulumi.Input
+
+	ToVoiceConnectorOriginationRouteOutput() VoiceConnectorOriginationRouteOutput
+	ToVoiceConnectorOriginationRouteOutputWithContext(context.Context) VoiceConnectorOriginationRouteOutput
+}
+
+type VoiceConnectorOriginationRouteArgs struct {
+	// The FQDN or IP address to contact for origination traffic.
+	Host pulumi.StringInput `pulumi:"host"`
+	// The designated origination route port. Defaults to `5060`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (VoiceConnectorOriginationRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VoiceConnectorOriginationRoute)(nil)).Elem()
+}
+
+func (i VoiceConnectorOriginationRouteArgs) ToVoiceConnectorOriginationRouteOutput() VoiceConnectorOriginationRouteOutput {
+	return i.ToVoiceConnectorOriginationRouteOutputWithContext(context.Background())
+}
+
+func (i VoiceConnectorOriginationRouteArgs) ToVoiceConnectorOriginationRouteOutputWithContext(ctx context.Context) VoiceConnectorOriginationRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorOriginationRouteOutput)
+}
+
+// VoiceConnectorOriginationRouteArrayInput is an input type that accepts VoiceConnectorOriginationRouteArray and VoiceConnectorOriginationRouteArrayOutput values.
+// You can construct a concrete instance of `VoiceConnectorOriginationRouteArrayInput` via:
+//
+//	VoiceConnectorOriginationRouteArray{ VoiceConnectorOriginationRouteArgs{...} }
+type VoiceConnectorOriginationRouteArrayInput interface {
+	pulumi.Input
+
+	ToVoiceConnectorOriginationRouteArrayOutput() VoiceConnectorOriginationRouteArrayOutput
+	ToVoiceConnectorOriginationRouteArrayOutputWithContext(context.Context) VoiceConnectorOriginationRouteArrayOutput
+}
+
+type VoiceConnectorOriginationRouteArray []VoiceConnectorOriginationRouteInput
+
+func (VoiceConnectorOriginationRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VoiceConnectorOriginationRoute)(nil)).Elem()
+}
+
+func (i VoiceConnectorOriginationRouteArray) ToVoiceConnectorOriginationRouteArrayOutput() VoiceConnectorOriginationRouteArrayOutput {
+	return i.ToVoiceConnectorOriginationRouteArrayOutputWithContext(context.Background())
+}
+
+func (i VoiceConnectorOriginationRouteArray) ToVoiceConnectorOriginationRouteArrayOutputWithContext(ctx context.Context) VoiceConnectorOriginationRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorOriginationRouteArrayOutput)
+}
+
+type VoiceConnectorOriginationRouteOutput struct{ *pulumi.OutputState }
+
+func (VoiceConnectorOriginationRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VoiceConnectorOriginationRoute)(nil)).Elem()
+}
+
+func (o VoiceConnectorOriginationRouteOutput) ToVoiceConnectorOriginationRouteOutput() VoiceConnectorOriginationRouteOutput {
+	return o
+}
+
+func (o VoiceConnectorOriginationRouteOutput) ToVoiceConnectorOriginationRouteOutputWithContext(ctx context.Context) VoiceConnectorOriginationRouteOutput {
+	return o
+}
+
+// The FQDN or IP address to contact for origination traffic.
+func (o VoiceConnectorOriginationRouteOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v VoiceConnectorOriginationRoute) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// The designated origination route port. Defaults to `5060`.
+func (o VoiceConnectorOriginationRouteOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VoiceConnectorOriginationRoute) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
+func (o VoiceConnectorOriginationRouteOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v VoiceConnectorOriginationRoute) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+func (o VoiceConnectorOriginationRouteOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v VoiceConnectorOriginationRoute) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
+func (o VoiceConnectorOriginationRouteOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v VoiceConnectorOriginationRoute) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type VoiceConnectorOriginationRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (VoiceConnectorOriginationRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VoiceConnectorOriginationRoute)(nil)).Elem()
+}
+
+func (o VoiceConnectorOriginationRouteArrayOutput) ToVoiceConnectorOriginationRouteArrayOutput() VoiceConnectorOriginationRouteArrayOutput {
+	return o
+}
+
+func (o VoiceConnectorOriginationRouteArrayOutput) ToVoiceConnectorOriginationRouteArrayOutputWithContext(ctx context.Context) VoiceConnectorOriginationRouteArrayOutput {
+	return o
+}
+
+func (o VoiceConnectorOriginationRouteArrayOutput) Index(i pulumi.IntInput) VoiceConnectorOriginationRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VoiceConnectorOriginationRoute {
+		return vs[0].([]VoiceConnectorOriginationRoute)[vs[1].(int)]
+	}).(VoiceConnectorOriginationRouteOutput)
+}
+
 type VoiceConnectorStreamingMediaInsightsConfiguration struct {
 	// The media insights configuration that will be invoked by the Voice Connector.
 	ConfigurationArn *string `pulumi:"configurationArn"`
@@ -1061,6 +1194,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupConnectorArrayInput)(nil)).Elem(), VoiceConnectorGroupConnectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationRouteInput)(nil)).Elem(), VoiceConnectorOrganizationRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationRouteArrayInput)(nil)).Elem(), VoiceConnectorOrganizationRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOriginationRouteInput)(nil)).Elem(), VoiceConnectorOriginationRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOriginationRouteArrayInput)(nil)).Elem(), VoiceConnectorOriginationRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingMediaInsightsConfigurationInput)(nil)).Elem(), VoiceConnectorStreamingMediaInsightsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingMediaInsightsConfigurationPtrInput)(nil)).Elem(), VoiceConnectorStreamingMediaInsightsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredentialInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsCredentialArgs{})
@@ -1077,6 +1212,8 @@ func init() {
 	pulumi.RegisterOutputType(VoiceConnectorGroupConnectorArrayOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorOrganizationRouteOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorOrganizationRouteArrayOutput{})
+	pulumi.RegisterOutputType(VoiceConnectorOriginationRouteOutput{})
+	pulumi.RegisterOutputType(VoiceConnectorOriginationRouteArrayOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorStreamingMediaInsightsConfigurationOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorTerminationCredentialsCredentialOutput{})

@@ -35,18 +35,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chime.NewVoiceConnectorOrganization(ctx, "default", &chime.VoiceConnectorOrganizationArgs{
+//			_, err = chime.NewVoiceConnectorOrigination(ctx, "default", &chime.VoiceConnectorOriginationArgs{
 //				Disabled:         pulumi.Bool(false),
 //				VoiceConnectorId: _default.ID(),
-//				Routes: chime.VoiceConnectorOrganizationRouteArray{
-//					&chime.VoiceConnectorOrganizationRouteArgs{
+//				Routes: chime.VoiceConnectorOriginationRouteArray{
+//					&chime.VoiceConnectorOriginationRouteArgs{
 //						Host:     pulumi.String("127.0.0.1"),
 //						Port:     pulumi.Int(8081),
 //						Protocol: pulumi.String("TCP"),
 //						Priority: pulumi.Int(1),
 //						Weight:   pulumi.Int(1),
 //					},
-//					&chime.VoiceConnectorOrganizationRouteArgs{
+//					&chime.VoiceConnectorOriginationRouteArgs{
 //						Host:     pulumi.String("127.0.0.2"),
 //						Port:     pulumi.Int(8082),
 //						Protocol: pulumi.String("TCP"),
@@ -71,6 +71,8 @@ import (
 // ```sh
 // $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
 // ```
+//
+// Deprecated: aws.chime/voiceconnectororganization.VoiceConnectorOrganization has been deprecated in favor of aws.chime/voiceconnectororigination.VoiceConnectorOrigination
 type VoiceConnectorOrganization struct {
 	pulumi.CustomResourceState
 
