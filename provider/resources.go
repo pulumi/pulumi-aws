@@ -1385,7 +1385,7 @@ compatibility shim in favor of the new "name" field.`)
 			// Chime
 			"aws_chime_voice_connector":                         {Tok: awsResource(chimeMod, "VoiceConnector")},
 			"aws_chime_voice_connector_group":                   {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
-			"aws_chime_voice_connector_origination":             {Tok: awsResource(chimeMod, "VoiceConnectorOrganization")},
+			"aws_chime_voice_connector_origination":             {Tok: awsResource(chimeMod, "VoiceConnectorOrigination")},
 			"aws_chime_voice_connector_termination":             {Tok: awsResource(chimeMod, "VoiceConnectorTermination")},
 			"aws_chime_voice_connector_logging":                 {Tok: awsResource(chimeMod, "VoiceConnectorLogging")},
 			"aws_chime_voice_connector_streaming":               {Tok: awsResource(chimeMod, "VoiceConnectorStreaming")},
@@ -1724,14 +1724,14 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_devicefarm_test_grid_project": {Tok: awsResource(devicefarmMod, "TestGridProject")},
 
 			// DirectoryService
-			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwader")},
+			"aws_directory_service_conditional_forwarder": {Tok: awsResource(directoryserviceMod, "ConditionalForwarder")},
 			"aws_directory_service_directory": {
 				Tok: awsResource(directoryserviceMod, "Directory"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": {Name: "name"},
 				},
 			},
-			"aws_directory_service_log_subscription":          {Tok: awsResource(directoryserviceMod, "LogService")},
+			"aws_directory_service_log_subscription":          {Tok: awsResource(directoryserviceMod, "LogSubscription")},
 			"aws_directory_service_shared_directory":          {Tok: awsResource(directoryserviceMod, "SharedDirectory")},
 			"aws_directory_service_shared_directory_accepter": {Tok: awsResource(directoryserviceMod, "SharedDirectoryAccepter")},
 			"aws_directory_service_radius_settings":           {Tok: awsResource(directoryserviceMod, "RadiusSettings")},
