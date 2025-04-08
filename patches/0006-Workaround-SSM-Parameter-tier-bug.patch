@@ -7,10 +7,10 @@ Subject: [PATCH] Workaround SSM Parameter tier bug
 - Disable diff suppression & counteractions
 
 diff --git a/internal/service/ssm/parameter.go b/internal/service/ssm/parameter.go
-index 25aa7d0a4b..faf1bcbaf4 100644
+index 333983f243..12d6d5fb46 100644
 --- a/internal/service/ssm/parameter.go
 +++ b/internal/service/ssm/parameter.go
-@@ -102,15 +102,17 @@ func resourceParameter() *schema.Resource {
+@@ -101,15 +101,17 @@ func resourceParameter() *schema.Resource {
  			names.AttrTags:    tftags.TagsSchema(),
  			names.AttrTagsAll: tftags.TagsSchemaComputed(),
  			"tier": {
@@ -35,7 +35,7 @@ index 25aa7d0a4b..faf1bcbaf4 100644
  				},
  			},
  			names.AttrType: {
-@@ -364,6 +366,14 @@ func resourceParameterUpdate(ctx context.Context, d *schema.ResourceData, meta a
+@@ -363,6 +365,14 @@ func resourceParameterUpdate(ctx context.Context, d *schema.ResourceData, meta a
  			Value:          aws.String(value),
  		}
  

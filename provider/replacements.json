@@ -1953,6 +1953,10 @@
     {
       "old": "~> Terraform cannot distinguish a difference between configurations that use `rule.filter {}` and configurations that neither use `rule.filter` nor `rule.prefix`, so a rule cannot be updated from applying to all objects in the bucket via `rule.filter {}` to applying to a subset of objects based on the key prefix `\"\"` and vice versa.\n",
       "new": "~> The provider cannot distinguish a difference between configurations that use `rule.filter {}` and configurations that neither use `rule.filter` nor `rule.prefix`, so a rule cannot be updated from applying to all objects in the bucket via `rule.filter {}` to applying to a subset of objects based on the key prefix `\"\"` and vice versa.\n"
+    },
+    {
+      "old": "Since `prefix` is deprecated by Amazon S3 and will be removed in the next major version of the Terraform AWS Provider, we recommend users specify `filter`.\n",
+      "new": "Since `prefix` is deprecated by Amazon S3 and will be removed in the next major version of the TODO AWS Provider, we recommend users specify `filter`.\n"
     }
   ],
   "s3_bucket_logging.html.markdown": [
@@ -2273,6 +2277,18 @@
     {
       "old": "* `policy` - (Optional) JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.\n",
       "new": "* `policy` - (Optional) JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.\n"
+    },
+    {
+      "old": "* `policy` - (Optional) JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Terraform will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws_sqs_queue_policy` resource instead.\n",
+      "new": "* `policy` - (Optional) JSON policy for the SQS queue. For more information about building AWS IAM policy documents with TODO, see the AWS IAM Policy Document Guide. TODO will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws_sqs_queue_policy` resource instead.\n"
+    },
+    {
+      "old": "* `redrive_allow_policy` - (Optional) JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). Terraform will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws_sqs_queue_redrive_allow_policy` resource instead.\n",
+      "new": "* `redrive_allow_policy` - (Optional) JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). TODO will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws_sqs_queue_redrive_allow_policy` resource instead.\n"
+    },
+    {
+      "old": "* `redrive_policy` - (Optional) JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). Terraform will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws_sqs_queue_redrive_policy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`\"5\"`).\n",
+      "new": "* `redrive_policy` - (Optional) JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). TODO will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws_sqs_queue_redrive_policy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`\"5\"`).\n"
     }
   ],
   "ssm_document.html.markdown": [
@@ -2309,6 +2325,14 @@
     {
       "old": "-> **Note:** Write-Only argument `value_wo` is available to use in place of `value`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
       "new": ""
+    },
+    {
+      "old": "~> **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of Terraform.\n",
+      "new": "~> **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of TODO.\n"
+    },
+    {
+      "old": "* `overwrite` - (Optional) Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by Terraform. Lifecycle rules should be used to manage non-standard update behavior.\n",
+      "new": "* `overwrite` - (Optional) Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by TODO. Lifecycle rules should be used to manage non-standard update behavior.\n"
     }
   ],
   "ssmcontacts_contact.html.markdown": [
