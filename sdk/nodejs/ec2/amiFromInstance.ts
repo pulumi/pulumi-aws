@@ -67,7 +67,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Machine architecture for created instances. Defaults to "x8664".
+     * Machine architecture for created instances. Defaults to `x8664`.
      */
     public /*out*/ readonly architecture!: pulumi.Output<string>;
     /**
@@ -117,6 +117,10 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * kernel in created instances.
      */
     public /*out*/ readonly kernelId!: pulumi.Output<string>;
+    /**
+     * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+     */
+    public /*out*/ readonly lastLaunchedTime!: pulumi.Output<string>;
     public /*out*/ readonly manageEbsSnapshots!: pulumi.Output<boolean>;
     /**
      * Region-unique name for the AMI.
@@ -203,6 +207,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             resourceInputs["imageType"] = state ? state.imageType : undefined;
             resourceInputs["imdsSupport"] = state ? state.imdsSupport : undefined;
             resourceInputs["kernelId"] = state ? state.kernelId : undefined;
+            resourceInputs["lastLaunchedTime"] = state ? state.lastLaunchedTime : undefined;
             resourceInputs["manageEbsSnapshots"] = state ? state.manageEbsSnapshots : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
@@ -244,6 +249,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             resourceInputs["imageType"] = undefined /*out*/;
             resourceInputs["imdsSupport"] = undefined /*out*/;
             resourceInputs["kernelId"] = undefined /*out*/;
+            resourceInputs["lastLaunchedTime"] = undefined /*out*/;
             resourceInputs["manageEbsSnapshots"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["platform"] = undefined /*out*/;
@@ -269,7 +275,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
  */
 export interface AmiFromInstanceState {
     /**
-     * Machine architecture for created instances. Defaults to "x8664".
+     * Machine architecture for created instances. Defaults to `x8664`.
      */
     architecture?: pulumi.Input<string>;
     /**
@@ -319,6 +325,10 @@ export interface AmiFromInstanceState {
      * kernel in created instances.
      */
     kernelId?: pulumi.Input<string>;
+    /**
+     * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+     */
+    lastLaunchedTime?: pulumi.Input<string>;
     manageEbsSnapshots?: pulumi.Input<boolean>;
     /**
      * Region-unique name for the AMI.

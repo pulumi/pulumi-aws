@@ -55,7 +55,7 @@ type TableBucket struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date and time when the bucket was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// A single table bucket maintenance configuration block.
+	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableBucketMaintenanceConfigurationOutput `pulumi:"maintenanceConfiguration"`
 	// Name of the table bucket.
@@ -103,7 +103,7 @@ type tableBucketState struct {
 	Arn *string `pulumi:"arn"`
 	// Date and time when the bucket was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// A single table bucket maintenance configuration block.
+	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableBucketMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
 	// Name of the table bucket.
@@ -122,7 +122,7 @@ type TableBucketState struct {
 	Arn pulumi.StringPtrInput
 	// Date and time when the bucket was created.
 	CreatedAt pulumi.StringPtrInput
-	// A single table bucket maintenance configuration block.
+	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableBucketMaintenanceConfigurationPtrInput
 	// Name of the table bucket.
@@ -141,7 +141,7 @@ func (TableBucketState) ElementType() reflect.Type {
 }
 
 type tableBucketArgs struct {
-	// A single table bucket maintenance configuration block.
+	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableBucketMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
 	// Name of the table bucket.
@@ -155,7 +155,7 @@ type tableBucketArgs struct {
 
 // The set of arguments for constructing a TableBucket resource.
 type TableBucketArgs struct {
-	// A single table bucket maintenance configuration block.
+	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableBucketMaintenanceConfigurationPtrInput
 	// Name of the table bucket.
@@ -264,7 +264,7 @@ func (o TableBucketOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucket) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// A single table bucket maintenance configuration block.
+// A single table bucket maintenance configuration object.
 // See `maintenanceConfiguration` below.
 func (o TableBucketOutput) MaintenanceConfiguration() TableBucketMaintenanceConfigurationOutput {
 	return o.ApplyT(func(v *TableBucket) TableBucketMaintenanceConfigurationOutput { return v.MaintenanceConfiguration }).(TableBucketMaintenanceConfigurationOutput)

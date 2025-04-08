@@ -230,6 +230,7 @@ class _AmiCopyState:
                  imds_support: Optional[pulumi.Input[str]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 last_launched_time: Optional[pulumi.Input[str]] = None,
                  manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
@@ -250,7 +251,7 @@ class _AmiCopyState:
                  virtualization_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AmiCopy resources.
-        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
+        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to `x86_64`.
         :param pulumi.Input[str] arn: ARN of the AMI.
         :param pulumi.Input[str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -269,6 +270,7 @@ class _AmiCopyState:
         :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
         :param pulumi.Input[str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+        :param pulumi.Input[str] last_launched_time: Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
         :param pulumi.Input[str] name: Region-unique name for the AMI.
         :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
@@ -320,6 +322,8 @@ class _AmiCopyState:
             pulumi.set(__self__, "kernel_id", kernel_id)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if last_launched_time is not None:
+            pulumi.set(__self__, "last_launched_time", last_launched_time)
         if manage_ebs_snapshots is not None:
             pulumi.set(__self__, "manage_ebs_snapshots", manage_ebs_snapshots)
         if name is not None:
@@ -364,7 +368,7 @@ class _AmiCopyState:
     @pulumi.getter
     def architecture(self) -> Optional[pulumi.Input[str]]:
         """
-        Machine architecture for created instances. Defaults to "x86_64".
+        Machine architecture for created instances. Defaults to `x86_64`.
         """
         return pulumi.get(self, "architecture")
 
@@ -559,6 +563,18 @@ class _AmiCopyState:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="lastLaunchedTime")
+    def last_launched_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+        """
+        return pulumi.get(self, "last_launched_time")
+
+    @last_launched_time.setter
+    def last_launched_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_launched_time", value)
 
     @property
     @pulumi.getter(name="manageEbsSnapshots")
@@ -918,6 +934,7 @@ class AmiCopy(pulumi.CustomResource):
             __props__.__dict__["image_type"] = None
             __props__.__dict__["imds_support"] = None
             __props__.__dict__["kernel_id"] = None
+            __props__.__dict__["last_launched_time"] = None
             __props__.__dict__["manage_ebs_snapshots"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["platform"] = None
@@ -959,6 +976,7 @@ class AmiCopy(pulumi.CustomResource):
             imds_support: Optional[pulumi.Input[str]] = None,
             kernel_id: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
+            last_launched_time: Optional[pulumi.Input[str]] = None,
             manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
@@ -984,7 +1002,7 @@ class AmiCopy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
+        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to `x86_64`.
         :param pulumi.Input[str] arn: ARN of the AMI.
         :param pulumi.Input[str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -1003,6 +1021,7 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
         :param pulumi.Input[str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
+        :param pulumi.Input[str] last_launched_time: Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
         :param pulumi.Input[str] name: Region-unique name for the AMI.
         :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
@@ -1041,6 +1060,7 @@ class AmiCopy(pulumi.CustomResource):
         __props__.__dict__["imds_support"] = imds_support
         __props__.__dict__["kernel_id"] = kernel_id
         __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["last_launched_time"] = last_launched_time
         __props__.__dict__["manage_ebs_snapshots"] = manage_ebs_snapshots
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_id"] = owner_id
@@ -1065,7 +1085,7 @@ class AmiCopy(pulumi.CustomResource):
     @pulumi.getter
     def architecture(self) -> pulumi.Output[str]:
         """
-        Machine architecture for created instances. Defaults to "x86_64".
+        Machine architecture for created instances. Defaults to `x86_64`.
         """
         return pulumi.get(self, "architecture")
 
@@ -1192,6 +1212,14 @@ class AmiCopy(pulumi.CustomResource):
         Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         """
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="lastLaunchedTime")
+    def last_launched_time(self) -> pulumi.Output[str]:
+        """
+        Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+        """
+        return pulumi.get(self, "last_launched_time")
 
     @property
     @pulumi.getter(name="manageEbsSnapshots")

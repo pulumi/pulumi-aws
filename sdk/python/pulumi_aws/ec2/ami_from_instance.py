@@ -180,6 +180,7 @@ class _AmiFromInstanceState:
                  image_type: Optional[pulumi.Input[str]] = None,
                  imds_support: Optional[pulumi.Input[str]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
+                 last_launched_time: Optional[pulumi.Input[str]] = None,
                  manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
@@ -200,7 +201,7 @@ class _AmiFromInstanceState:
                  virtualization_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AmiFromInstance resources.
-        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
+        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to `x86_64`.
         :param pulumi.Input[str] arn: ARN of the AMI.
         :param pulumi.Input[str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -215,6 +216,7 @@ class _AmiFromInstanceState:
         :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
+        :param pulumi.Input[str] last_launched_time: Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
         :param pulumi.Input[str] name: Region-unique name for the AMI.
         :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
@@ -261,6 +263,8 @@ class _AmiFromInstanceState:
             pulumi.set(__self__, "imds_support", imds_support)
         if kernel_id is not None:
             pulumi.set(__self__, "kernel_id", kernel_id)
+        if last_launched_time is not None:
+            pulumi.set(__self__, "last_launched_time", last_launched_time)
         if manage_ebs_snapshots is not None:
             pulumi.set(__self__, "manage_ebs_snapshots", manage_ebs_snapshots)
         if name is not None:
@@ -305,7 +309,7 @@ class _AmiFromInstanceState:
     @pulumi.getter
     def architecture(self) -> Optional[pulumi.Input[str]]:
         """
-        Machine architecture for created instances. Defaults to "x86_64".
+        Machine architecture for created instances. Defaults to `x86_64`.
         """
         return pulumi.get(self, "architecture")
 
@@ -463,6 +467,18 @@ class _AmiFromInstanceState:
     @kernel_id.setter
     def kernel_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kernel_id", value)
+
+    @property
+    @pulumi.getter(name="lastLaunchedTime")
+    def last_launched_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+        """
+        return pulumi.get(self, "last_launched_time")
+
+    @last_launched_time.setter
+    def last_launched_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_launched_time", value)
 
     @property
     @pulumi.getter(name="manageEbsSnapshots")
@@ -813,6 +829,7 @@ class AmiFromInstance(pulumi.CustomResource):
             __props__.__dict__["image_type"] = None
             __props__.__dict__["imds_support"] = None
             __props__.__dict__["kernel_id"] = None
+            __props__.__dict__["last_launched_time"] = None
             __props__.__dict__["manage_ebs_snapshots"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["platform"] = None
@@ -851,6 +868,7 @@ class AmiFromInstance(pulumi.CustomResource):
             image_type: Optional[pulumi.Input[str]] = None,
             imds_support: Optional[pulumi.Input[str]] = None,
             kernel_id: Optional[pulumi.Input[str]] = None,
+            last_launched_time: Optional[pulumi.Input[str]] = None,
             manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
@@ -876,7 +894,7 @@ class AmiFromInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
+        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to `x86_64`.
         :param pulumi.Input[str] arn: ARN of the AMI.
         :param pulumi.Input[str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -891,6 +909,7 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
+        :param pulumi.Input[str] last_launched_time: Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
         :param pulumi.Input[str] name: Region-unique name for the AMI.
         :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
@@ -927,6 +946,7 @@ class AmiFromInstance(pulumi.CustomResource):
         __props__.__dict__["image_type"] = image_type
         __props__.__dict__["imds_support"] = imds_support
         __props__.__dict__["kernel_id"] = kernel_id
+        __props__.__dict__["last_launched_time"] = last_launched_time
         __props__.__dict__["manage_ebs_snapshots"] = manage_ebs_snapshots
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_id"] = owner_id
@@ -951,7 +971,7 @@ class AmiFromInstance(pulumi.CustomResource):
     @pulumi.getter
     def architecture(self) -> pulumi.Output[str]:
         """
-        Machine architecture for created instances. Defaults to "x86_64".
+        Machine architecture for created instances. Defaults to `x86_64`.
         """
         return pulumi.get(self, "architecture")
 
@@ -1053,6 +1073,14 @@ class AmiFromInstance(pulumi.CustomResource):
         kernel in created instances.
         """
         return pulumi.get(self, "kernel_id")
+
+    @property
+    @pulumi.getter(name="lastLaunchedTime")
+    def last_launched_time(self) -> pulumi.Output[str]:
+        """
+        Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+        """
+        return pulumi.get(self, "last_launched_time")
 
     @property
     @pulumi.getter(name="manageEbsSnapshots")

@@ -140,14 +140,14 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
      * 
      */
     @Import(name="scheduleOffset")
     private @Nullable Output<Integer> scheduleOffset;
 
     /**
-     * @return The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+     * @return The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
      * 
      */
     public Optional<Output<Integer>> scheduleOffset() {
@@ -403,7 +403,7 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param scheduleOffset The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+         * @param scheduleOffset The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param scheduleOffset The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+         * @param scheduleOffset The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
          * 
          * @return builder
          * 

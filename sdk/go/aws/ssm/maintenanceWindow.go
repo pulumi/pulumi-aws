@@ -69,7 +69,7 @@ type MaintenanceWindow struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule pulumi.StringOutput `pulumi:"schedule"`
-	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
 	ScheduleOffset pulumi.IntPtrOutput `pulumi:"scheduleOffset"`
 	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
 	ScheduleTimezone pulumi.StringPtrOutput `pulumi:"scheduleTimezone"`
@@ -138,7 +138,7 @@ type maintenanceWindowState struct {
 	Name *string `pulumi:"name"`
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule *string `pulumi:"schedule"`
-	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
 	ScheduleOffset *int `pulumi:"scheduleOffset"`
 	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
 	ScheduleTimezone *string `pulumi:"scheduleTimezone"`
@@ -169,7 +169,7 @@ type MaintenanceWindowState struct {
 	Name pulumi.StringPtrInput
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule pulumi.StringPtrInput
-	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
 	ScheduleOffset pulumi.IntPtrInput
 	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
 	ScheduleTimezone pulumi.StringPtrInput
@@ -204,7 +204,7 @@ type maintenanceWindowArgs struct {
 	Name *string `pulumi:"name"`
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule string `pulumi:"schedule"`
-	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
 	ScheduleOffset *int `pulumi:"scheduleOffset"`
 	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
 	ScheduleTimezone *string `pulumi:"scheduleTimezone"`
@@ -232,7 +232,7 @@ type MaintenanceWindowArgs struct {
 	Name pulumi.StringPtrInput
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule pulumi.StringInput
-	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
 	ScheduleOffset pulumi.IntPtrInput
 	// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
 	ScheduleTimezone pulumi.StringPtrInput
@@ -369,7 +369,7 @@ func (o MaintenanceWindowOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Schedule }).(pulumi.StringOutput)
 }
 
-// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
 func (o MaintenanceWindowOutput) ScheduleOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.IntPtrOutput { return v.ScheduleOffset }).(pulumi.IntPtrOutput)
 }

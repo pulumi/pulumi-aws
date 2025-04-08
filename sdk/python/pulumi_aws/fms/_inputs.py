@@ -1015,7 +1015,7 @@ if not MYPY:
         """
         resource_set_status: NotRequired[pulumi.Input[str]]
         """
-        Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+        Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
         """
         resource_type_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -1040,7 +1040,7 @@ class ResourceSetResourceSetArgs:
         :param pulumi.Input[str] description: Description of the resource set.
         :param pulumi.Input[str] id: Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
         :param pulumi.Input[str] last_update_time: Last time that the reosurce set was changed.
-        :param pulumi.Input[str] resource_set_status: Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+        :param pulumi.Input[str] resource_set_status: Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
         """
         pulumi.set(__self__, "name", name)
@@ -1109,7 +1109,7 @@ class ResourceSetResourceSetArgs:
     @pulumi.getter(name="resourceSetStatus")
     def resource_set_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+        Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
         """
         return pulumi.get(self, "resource_set_status")
 

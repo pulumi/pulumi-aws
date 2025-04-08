@@ -59,7 +59,7 @@ import (
 type AmiFromInstance struct {
 	pulumi.CustomResourceState
 
-	// Machine architecture for created instances. Defaults to "x8664".
+	// Machine architecture for created instances. Defaults to `x8664`.
 	Architecture pulumi.StringOutput `pulumi:"architecture"`
 	// ARN of the AMI.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -87,7 +87,9 @@ type AmiFromInstance struct {
 	ImdsSupport pulumi.StringOutput `pulumi:"imdsSupport"`
 	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId           pulumi.StringOutput `pulumi:"kernelId"`
+	KernelId pulumi.StringOutput `pulumi:"kernelId"`
+	// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+	LastLaunchedTime   pulumi.StringOutput `pulumi:"lastLaunchedTime"`
 	ManageEbsSnapshots pulumi.BoolOutput   `pulumi:"manageEbsSnapshots"`
 	// Region-unique name for the AMI.
 	Name            pulumi.StringOutput `pulumi:"name"`
@@ -159,7 +161,7 @@ func GetAmiFromInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AmiFromInstance resources.
 type amiFromInstanceState struct {
-	// Machine architecture for created instances. Defaults to "x8664".
+	// Machine architecture for created instances. Defaults to `x8664`.
 	Architecture *string `pulumi:"architecture"`
 	// ARN of the AMI.
 	Arn *string `pulumi:"arn"`
@@ -187,7 +189,9 @@ type amiFromInstanceState struct {
 	ImdsSupport *string `pulumi:"imdsSupport"`
 	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId           *string `pulumi:"kernelId"`
+	KernelId *string `pulumi:"kernelId"`
+	// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+	LastLaunchedTime   *string `pulumi:"lastLaunchedTime"`
 	ManageEbsSnapshots *bool   `pulumi:"manageEbsSnapshots"`
 	// Region-unique name for the AMI.
 	Name            *string `pulumi:"name"`
@@ -227,7 +231,7 @@ type amiFromInstanceState struct {
 }
 
 type AmiFromInstanceState struct {
-	// Machine architecture for created instances. Defaults to "x8664".
+	// Machine architecture for created instances. Defaults to `x8664`.
 	Architecture pulumi.StringPtrInput
 	// ARN of the AMI.
 	Arn pulumi.StringPtrInput
@@ -255,7 +259,9 @@ type AmiFromInstanceState struct {
 	ImdsSupport pulumi.StringPtrInput
 	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
-	KernelId           pulumi.StringPtrInput
+	KernelId pulumi.StringPtrInput
+	// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+	LastLaunchedTime   pulumi.StringPtrInput
 	ManageEbsSnapshots pulumi.BoolPtrInput
 	// Region-unique name for the AMI.
 	Name            pulumi.StringPtrInput
@@ -434,7 +440,7 @@ func (o AmiFromInstanceOutput) ToAmiFromInstanceOutputWithContext(ctx context.Co
 	return o
 }
 
-// Machine architecture for created instances. Defaults to "x8664".
+// Machine architecture for created instances. Defaults to `x8664`.
 func (o AmiFromInstanceOutput) Architecture() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Architecture }).(pulumi.StringOutput)
 }
@@ -505,6 +511,11 @@ func (o AmiFromInstanceOutput) ImdsSupport() pulumi.StringOutput {
 // kernel in created instances.
 func (o AmiFromInstanceOutput) KernelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.KernelId }).(pulumi.StringOutput)
+}
+
+// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+func (o AmiFromInstanceOutput) LastLaunchedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.LastLaunchedTime }).(pulumi.StringOutput)
 }
 
 func (o AmiFromInstanceOutput) ManageEbsSnapshots() pulumi.BoolOutput {

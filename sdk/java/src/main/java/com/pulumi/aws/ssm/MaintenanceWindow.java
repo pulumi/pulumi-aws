@@ -182,14 +182,14 @@ public class MaintenanceWindow extends com.pulumi.resources.CustomResource {
         return this.schedule;
     }
     /**
-     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
      * 
      */
     @Export(name="scheduleOffset", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> scheduleOffset;
 
     /**
-     * @return The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+     * @return The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
      * 
      */
     public Output<Optional<Integer>> scheduleOffset() {

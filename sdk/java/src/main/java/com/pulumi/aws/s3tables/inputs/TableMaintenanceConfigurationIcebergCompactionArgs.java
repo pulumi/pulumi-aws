@@ -16,7 +16,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
     public static final TableMaintenanceConfigurationIcebergCompactionArgs Empty = new TableMaintenanceConfigurationIcebergCompactionArgs();
 
     /**
-     * Settings for compaction.
+     * Settings object for compaction.
      * See `iceberg_compaction.settings` below.
      * 
      */
@@ -24,7 +24,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
     private Output<TableMaintenanceConfigurationIcebergCompactionSettingsArgs> settings;
 
     /**
-     * @return Settings for compaction.
+     * @return Settings object for compaction.
      * See `iceberg_compaction.settings` below.
      * 
      */
@@ -75,7 +75,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
         }
 
         /**
-         * @param settings Settings for compaction.
+         * @param settings Settings object for compaction.
          * See `iceberg_compaction.settings` below.
          * 
          * @return builder
@@ -87,7 +87,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
         }
 
         /**
-         * @param settings Settings for compaction.
+         * @param settings Settings object for compaction.
          * See `iceberg_compaction.settings` below.
          * 
          * @return builder

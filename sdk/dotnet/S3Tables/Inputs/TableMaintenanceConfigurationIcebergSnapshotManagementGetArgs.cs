@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
     public sealed class TableMaintenanceConfigurationIcebergSnapshotManagementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings for snapshot management.
+        /// Settings object for snapshot management.
         /// See `iceberg_snapshot_management.settings` below.
         /// </summary>
         [Input("settings", required: true)]

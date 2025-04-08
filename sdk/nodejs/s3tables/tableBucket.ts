@@ -66,7 +66,7 @@ export class TableBucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * A single table bucket maintenance configuration block.
+     * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
     public readonly maintenanceConfiguration!: pulumi.Output<outputs.s3tables.TableBucketMaintenanceConfiguration>;
@@ -128,7 +128,7 @@ export interface TableBucketState {
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * A single table bucket maintenance configuration block.
+     * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMaintenanceConfiguration>;
@@ -152,7 +152,7 @@ export interface TableBucketState {
  */
 export interface TableBucketArgs {
     /**
-     * A single table bucket maintenance configuration block.
+     * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMaintenanceConfiguration>;

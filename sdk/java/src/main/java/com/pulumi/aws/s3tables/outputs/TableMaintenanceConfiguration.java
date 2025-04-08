@@ -12,13 +12,13 @@ import java.util.Objects;
 @CustomType
 public final class TableMaintenanceConfiguration {
     /**
-     * @return A single Iceberg compaction settings block.
+     * @return A single Iceberg compaction settings object.
      * See `iceberg_compaction` below.
      * 
      */
     private TableMaintenanceConfigurationIcebergCompaction icebergCompaction;
     /**
-     * @return A single Iceberg snapshot management settings block.
+     * @return A single Iceberg snapshot management settings object.
      * See `iceberg_snapshot_management` below.
      * 
      */
@@ -26,7 +26,7 @@ public final class TableMaintenanceConfiguration {
 
     private TableMaintenanceConfiguration() {}
     /**
-     * @return A single Iceberg compaction settings block.
+     * @return A single Iceberg compaction settings object.
      * See `iceberg_compaction` below.
      * 
      */
@@ -34,7 +34,7 @@ public final class TableMaintenanceConfiguration {
         return this.icebergCompaction;
     }
     /**
-     * @return A single Iceberg snapshot management settings block.
+     * @return A single Iceberg snapshot management settings object.
      * See `iceberg_snapshot_management` below.
      * 
      */

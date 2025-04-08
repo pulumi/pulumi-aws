@@ -54,14 +54,20 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
     }
 
     /**
-     * Configuration block used to identify objects that a Lifecycle Rule applies to. See below. If not specified, the `rule` will default to using `prefix`.
+     * Configuration block used to identify objects that a Lifecycle Rule applies to.
+     * See below.
+     * If not specified, the `rule` will default to using `prefix`.
+     * One of `filter` or `prefix` should be specified.
      * 
      */
     @Import(name="filter")
     private @Nullable Output<BucketLifecycleConfigurationV2RuleFilterArgs> filter;
 
     /**
-     * @return Configuration block used to identify objects that a Lifecycle Rule applies to. See below. If not specified, the `rule` will default to using `prefix`.
+     * @return Configuration block used to identify objects that a Lifecycle Rule applies to.
+     * See below.
+     * If not specified, the `rule` will default to using `prefix`.
+     * One of `filter` or `prefix` should be specified.
      * 
      */
     public Optional<Output<BucketLifecycleConfigurationV2RuleFilterArgs>> filter() {
@@ -114,24 +120,32 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
     }
 
     /**
-     * **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+     * **DEPRECATED** Use `filter` instead.
+     * This has been deprecated by Amazon S3.
+     * Prefix identifying one or more objects to which the rule applies.
+     * Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+     * One of `prefix` or `filter` should be specified.
      * 
      * @deprecated
-     * Use filter instead
+     * Specify a prefix using &#39;filter&#39; instead
      * 
      */
-    @Deprecated /* Use filter instead */
+    @Deprecated /* Specify a prefix using 'filter' instead */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+     * @return **DEPRECATED** Use `filter` instead.
+     * This has been deprecated by Amazon S3.
+     * Prefix identifying one or more objects to which the rule applies.
+     * Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+     * One of `prefix` or `filter` should be specified.
      * 
      * @deprecated
-     * Use filter instead
+     * Specify a prefix using &#39;filter&#39; instead
      * 
      */
-    @Deprecated /* Use filter instead */
+    @Deprecated /* Specify a prefix using 'filter' instead */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -241,7 +255,10 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param filter Configuration block used to identify objects that a Lifecycle Rule applies to. See below. If not specified, the `rule` will default to using `prefix`.
+         * @param filter Configuration block used to identify objects that a Lifecycle Rule applies to.
+         * See below.
+         * If not specified, the `rule` will default to using `prefix`.
+         * One of `filter` or `prefix` should be specified.
          * 
          * @return builder
          * 
@@ -252,7 +269,10 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param filter Configuration block used to identify objects that a Lifecycle Rule applies to. See below. If not specified, the `rule` will default to using `prefix`.
+         * @param filter Configuration block used to identify objects that a Lifecycle Rule applies to.
+         * See below.
+         * If not specified, the `rule` will default to using `prefix`.
+         * One of `filter` or `prefix` should be specified.
          * 
          * @return builder
          * 
@@ -335,30 +355,38 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param prefix **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+         * @param prefix **DEPRECATED** Use `filter` instead.
+         * This has been deprecated by Amazon S3.
+         * Prefix identifying one or more objects to which the rule applies.
+         * Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+         * One of `prefix` or `filter` should be specified.
          * 
          * @return builder
          * 
          * @deprecated
-         * Use filter instead
+         * Specify a prefix using &#39;filter&#39; instead
          * 
          */
-        @Deprecated /* Use filter instead */
+        @Deprecated /* Specify a prefix using 'filter' instead */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
         /**
-         * @param prefix **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+         * @param prefix **DEPRECATED** Use `filter` instead.
+         * This has been deprecated by Amazon S3.
+         * Prefix identifying one or more objects to which the rule applies.
+         * Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+         * One of `prefix` or `filter` should be specified.
          * 
          * @return builder
          * 
          * @deprecated
-         * Use filter instead
+         * Specify a prefix using &#39;filter&#39; instead
          * 
          */
-        @Deprecated /* Use filter instead */
+        @Deprecated /* Specify a prefix using 'filter' instead */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

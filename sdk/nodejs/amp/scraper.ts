@@ -62,6 +62,10 @@ export class Scraper extends pulumi.CustomResource {
      */
     public /*out*/ readonly roleArn!: pulumi.Output<string>;
     /**
+     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+     */
+    public readonly roleConfiguration!: pulumi.Output<outputs.amp.ScraperRoleConfiguration | undefined>;
+    /**
      * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      */
     public readonly scrapeConfiguration!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class Scraper extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["destination"] = state ? state.destination : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["roleConfiguration"] = state ? state.roleConfiguration : undefined;
             resourceInputs["scrapeConfiguration"] = state ? state.scrapeConfiguration : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -107,6 +112,7 @@ export class Scraper extends pulumi.CustomResource {
             }
             resourceInputs["alias"] = args ? args.alias : undefined;
             resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["roleConfiguration"] = args ? args.roleConfiguration : undefined;
             resourceInputs["scrapeConfiguration"] = args ? args.scrapeConfiguration : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -141,6 +147,10 @@ export interface ScraperState {
      */
     roleArn?: pulumi.Input<string>;
     /**
+     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+     */
+    roleConfiguration?: pulumi.Input<inputs.amp.ScraperRoleConfiguration>;
+    /**
      * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      */
     scrapeConfiguration?: pulumi.Input<string>;
@@ -170,6 +180,10 @@ export interface ScraperArgs {
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      */
     destination?: pulumi.Input<inputs.amp.ScraperDestination>;
+    /**
+     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+     */
+    roleConfiguration?: pulumi.Input<inputs.amp.ScraperRoleConfiguration>;
     /**
      * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      */

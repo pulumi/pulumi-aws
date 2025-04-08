@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an SSM Parameter resource.
  *
- * > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
+ * > **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of IAC.
  *
  * ## Example Usage
  *
@@ -121,9 +121,7 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
-     *
-     * @deprecated overwrite is deprecated. This argument will be removed in a future major version.
+     * Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
      */
     public readonly overwrite!: pulumi.Output<boolean | undefined>;
     /**
@@ -242,9 +240,7 @@ export interface ParameterState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
-     *
-     * @deprecated overwrite is deprecated. This argument will be removed in a future major version.
+     * Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
      */
     overwrite?: pulumi.Input<boolean>;
     /**
@@ -310,9 +306,7 @@ export interface ParameterArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
-     *
-     * @deprecated overwrite is deprecated. This argument will be removed in a future major version.
+     * Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
      */
     overwrite?: pulumi.Input<boolean>;
     /**

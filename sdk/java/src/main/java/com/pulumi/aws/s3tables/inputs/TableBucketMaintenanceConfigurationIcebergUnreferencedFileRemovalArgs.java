@@ -16,7 +16,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
     public static final TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs Empty = new TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs();
 
     /**
-     * Settings for unreferenced file removal.
+     * Settings object for unreferenced file removal.
      * See `iceberg_unreferenced_file_removal.settings` below.
      * 
      */
@@ -24,7 +24,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
     private Output<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs> settings;
 
     /**
-     * @return Settings for unreferenced file removal.
+     * @return Settings object for unreferenced file removal.
      * See `iceberg_unreferenced_file_removal.settings` below.
      * 
      */
@@ -75,7 +75,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
         }
 
         /**
-         * @param settings Settings for unreferenced file removal.
+         * @param settings Settings object for unreferenced file removal.
          * See `iceberg_unreferenced_file_removal.settings` below.
          * 
          * @return builder
@@ -87,7 +87,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
         }
 
         /**
-         * @param settings Settings for unreferenced file removal.
+         * @param settings Settings object for unreferenced file removal.
          * See `iceberg_unreferenced_file_removal.settings` below.
          * 
          * @return builder

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.amp.ScraperArgs;
 import com.pulumi.aws.amp.inputs.ScraperState;
 import com.pulumi.aws.amp.outputs.ScraperDestination;
+import com.pulumi.aws.amp.outputs.ScraperRoleConfiguration;
 import com.pulumi.aws.amp.outputs.ScraperSource;
 import com.pulumi.aws.amp.outputs.ScraperTimeouts;
 import com.pulumi.core.Output;
@@ -86,6 +87,20 @@ public class Scraper extends com.pulumi.resources.CustomResource {
      */
     public Output<String> roleArn() {
         return this.roleArn;
+    }
+    /**
+     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+     * 
+     */
+    @Export(name="roleConfiguration", refs={ScraperRoleConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ ScraperRoleConfiguration> roleConfiguration;
+
+    /**
+     * @return Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+     * 
+     */
+    public Output<Optional<ScraperRoleConfiguration>> roleConfiguration() {
+        return Codegen.optional(this.roleConfiguration);
     }
     /**
      * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).

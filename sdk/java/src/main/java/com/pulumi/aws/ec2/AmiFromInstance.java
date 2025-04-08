@@ -78,14 +78,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/amiFromInstance:AmiFromInstance")
 public class AmiFromInstance extends com.pulumi.resources.CustomResource {
     /**
-     * Machine architecture for created instances. Defaults to &#34;x86_64&#34;.
+     * Machine architecture for created instances. Defaults to `x86_64`.
      * 
      */
     @Export(name="architecture", refs={String.class}, tree="[0]")
     private Output<String> architecture;
 
     /**
-     * @return Machine architecture for created instances. Defaults to &#34;x86_64&#34;.
+     * @return Machine architecture for created instances. Defaults to `x86_64`.
      * 
      */
     public Output<String> architecture() {
@@ -256,6 +256,20 @@ public class AmiFromInstance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> kernelId() {
         return this.kernelId;
+    }
+    /**
+     * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+     * 
+     */
+    @Export(name="lastLaunchedTime", refs={String.class}, tree="[0]")
+    private Output<String> lastLaunchedTime;
+
+    /**
+     * @return Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+     * 
+     */
+    public Output<String> lastLaunchedTime() {
+        return this.lastLaunchedTime;
     }
     @Export(name="manageEbsSnapshots", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> manageEbsSnapshots;

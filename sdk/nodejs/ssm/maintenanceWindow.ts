@@ -90,7 +90,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      */
     public readonly schedule!: pulumi.Output<string>;
     /**
-     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
      */
     public readonly scheduleOffset!: pulumi.Output<number | undefined>;
     /**
@@ -205,7 +205,7 @@ export interface MaintenanceWindowState {
      */
     schedule?: pulumi.Input<string>;
     /**
-     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
      */
     scheduleOffset?: pulumi.Input<number>;
     /**
@@ -265,7 +265,7 @@ export interface MaintenanceWindowArgs {
      */
     schedule: pulumi.Input<string>;
     /**
-     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+     * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
      */
     scheduleOffset?: pulumi.Input<number>;
     /**

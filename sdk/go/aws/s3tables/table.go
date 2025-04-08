@@ -77,7 +77,7 @@ type Table struct {
 	// Format of the table.
 	// Must be `ICEBERG`.
 	Format pulumi.StringOutput `pulumi:"format"`
-	// A single table bucket maintenance configuration block.
+	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationOutput `pulumi:"maintenanceConfiguration"`
 	// Location of table metadata.
@@ -158,7 +158,7 @@ type tableState struct {
 	// Format of the table.
 	// Must be `ICEBERG`.
 	Format *string `pulumi:"format"`
-	// A single table bucket maintenance configuration block.
+	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
 	// Location of table metadata.
@@ -201,7 +201,7 @@ type TableState struct {
 	// Format of the table.
 	// Must be `ICEBERG`.
 	Format pulumi.StringPtrInput
-	// A single table bucket maintenance configuration block.
+	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationPtrInput
 	// Location of table metadata.
@@ -242,7 +242,7 @@ type tableArgs struct {
 	// Format of the table.
 	// Must be `ICEBERG`.
 	Format string `pulumi:"format"`
-	// A single table bucket maintenance configuration block.
+	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
 	// Name of the table.
@@ -265,7 +265,7 @@ type TableArgs struct {
 	// Format of the table.
 	// Must be `ICEBERG`.
 	Format pulumi.StringInput
-	// A single table bucket maintenance configuration block.
+	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationPtrInput
 	// Name of the table.
@@ -391,7 +391,7 @@ func (o TableOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
 }
 
-// A single table bucket maintenance configuration block.
+// A single table bucket maintenance configuration object.
 // See `maintenanceConfiguration` below.
 func (o TableOutput) MaintenanceConfiguration() TableMaintenanceConfigurationOutput {
 	return o.ApplyT(func(v *Table) TableMaintenanceConfigurationOutput { return v.MaintenanceConfiguration }).(TableMaintenanceConfigurationOutput)

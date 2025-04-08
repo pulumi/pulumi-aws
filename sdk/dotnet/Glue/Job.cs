@@ -270,6 +270,12 @@ namespace Pulumi.Aws.Glue
         public Output<string?> SecurityConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+        /// </summary>
+        [Output("sourceControlDetails")]
+        public Output<Outputs.JobSourceControlDetails?> SourceControlDetails { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -466,6 +472,12 @@ namespace Pulumi.Aws.Glue
         [Input("securityConfiguration")]
         public Input<string>? SecurityConfiguration { get; set; }
 
+        /// <summary>
+        /// The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+        /// </summary>
+        [Input("sourceControlDetails")]
+        public Input<Inputs.JobSourceControlDetailsArgs>? SourceControlDetails { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -630,6 +642,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("securityConfiguration")]
         public Input<string>? SecurityConfiguration { get; set; }
+
+        /// <summary>
+        /// The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+        /// </summary>
+        [Input("sourceControlDetails")]
+        public Input<Inputs.JobSourceControlDetailsGetArgs>? SourceControlDetails { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

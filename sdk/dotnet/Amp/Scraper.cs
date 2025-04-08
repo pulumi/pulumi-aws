@@ -47,6 +47,12 @@ namespace Pulumi.Aws.Amp
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        /// </summary>
+        [Output("roleConfiguration")]
+        public Output<Outputs.ScraperRoleConfiguration?> RoleConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         /// </summary>
         [Output("scrapeConfiguration")]
@@ -128,6 +134,12 @@ namespace Pulumi.Aws.Amp
         public Input<Inputs.ScraperDestinationArgs>? Destination { get; set; }
 
         /// <summary>
+        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        /// </summary>
+        [Input("roleConfiguration")]
+        public Input<Inputs.ScraperRoleConfigurationArgs>? RoleConfiguration { get; set; }
+
+        /// <summary>
         /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         /// </summary>
         [Input("scrapeConfiguration", required: true)]
@@ -183,6 +195,12 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
+
+        /// <summary>
+        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        /// </summary>
+        [Input("roleConfiguration")]
+        public Input<Inputs.ScraperRoleConfigurationGetArgs>? RoleConfiguration { get; set; }
 
         /// <summary>
         /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).

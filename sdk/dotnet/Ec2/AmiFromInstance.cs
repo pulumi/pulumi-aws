@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ec2
     public partial class AmiFromInstance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Machine architecture for created instances. Defaults to "x86_64".
+        /// Machine architecture for created instances. Defaults to `x86_64`.
         /// </summary>
         [Output("architecture")]
         public Output<string> Architecture { get; private set; } = null!;
@@ -128,6 +128,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("kernelId")]
         public Output<string> KernelId { get; private set; } = null!;
+
+        /// <summary>
+        /// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+        /// </summary>
+        [Output("lastLaunchedTime")]
+        public Output<string> LastLaunchedTime { get; private set; } = null!;
 
         [Output("manageEbsSnapshots")]
         public Output<bool> ManageEbsSnapshots { get; private set; } = null!;
@@ -346,7 +352,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class AmiFromInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Machine architecture for created instances. Defaults to "x86_64".
+        /// Machine architecture for created instances. Defaults to `x86_64`.
         /// </summary>
         [Input("architecture")]
         public Input<string>? Architecture { get; set; }
@@ -435,6 +441,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("kernelId")]
         public Input<string>? KernelId { get; set; }
+
+        /// <summary>
+        /// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+        /// </summary>
+        [Input("lastLaunchedTime")]
+        public Input<string>? LastLaunchedTime { get; set; }
 
         [Input("manageEbsSnapshots")]
         public Input<bool>? ManageEbsSnapshots { get; set; }

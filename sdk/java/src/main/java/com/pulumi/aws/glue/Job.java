@@ -9,6 +9,7 @@ import com.pulumi.aws.glue.inputs.JobState;
 import com.pulumi.aws.glue.outputs.JobCommand;
 import com.pulumi.aws.glue.outputs.JobExecutionProperty;
 import com.pulumi.aws.glue.outputs.JobNotificationProperty;
+import com.pulumi.aws.glue.outputs.JobSourceControlDetails;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -507,6 +508,20 @@ public class Job extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> securityConfiguration() {
         return Codegen.optional(this.securityConfiguration);
+    }
+    /**
+     * The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+     * 
+     */
+    @Export(name="sourceControlDetails", refs={JobSourceControlDetails.class}, tree="[0]")
+    private Output</* @Nullable */ JobSourceControlDetails> sourceControlDetails;
+
+    /**
+     * @return The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+     * 
+     */
+    public Output<Optional<JobSourceControlDetails>> sourceControlDetails() {
+        return Codegen.optional(this.sourceControlDetails);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

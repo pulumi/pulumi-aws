@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an SSM Parameter resource.
  * 
- * &gt; **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that&#39;s not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
+ * &gt; **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of IAC.
  * 
  * ## Example Usage
  * 
@@ -226,18 +226,14 @@ public class Parameter extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
-     * 
-     * @deprecated
-     * overwrite is deprecated. This argument will be removed in a future major version.
+     * Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
      * 
      */
-    @Deprecated /* overwrite is deprecated. This argument will be removed in a future major version. */
     @Export(name="overwrite", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overwrite;
 
     /**
-     * @return Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     * @return Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
      * 
      */
     public Output<Optional<Boolean>> overwrite() {

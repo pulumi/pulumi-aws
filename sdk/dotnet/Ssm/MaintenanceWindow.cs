@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+        /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
         /// </summary>
         [Output("scheduleOffset")]
         public Output<int?> ScheduleOffset { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string> Schedule { get; set; } = null!;
 
         /// <summary>
-        /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+        /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
         /// </summary>
         [Input("scheduleOffset")]
         public Input<int>? ScheduleOffset { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Schedule { get; set; }
 
         /// <summary>
-        /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+        /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
         /// </summary>
         [Input("scheduleOffset")]
         public Input<int>? ScheduleOffset { get; set; }

@@ -7119,6 +7119,276 @@ func (o JobNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+type JobSourceControlDetails struct {
+	// The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+	AuthStrategy *string `pulumi:"authStrategy"`
+	// The value of an authorization token.
+	AuthToken *string `pulumi:"authToken"`
+	// A branch in the remote repository.
+	Branch *string `pulumi:"branch"`
+	// A folder in the remote repository.
+	Folder *string `pulumi:"folder"`
+	// The last commit ID for a commit in the remote repository.
+	LastCommitId *string `pulumi:"lastCommitId"`
+	// The owner of the remote repository that contains the job artifacts.
+	Owner *string `pulumi:"owner"`
+	// The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+	Provider *string `pulumi:"provider"`
+	// The name of the remote repository that contains the job artifacts.
+	Repository *string `pulumi:"repository"`
+}
+
+// JobSourceControlDetailsInput is an input type that accepts JobSourceControlDetailsArgs and JobSourceControlDetailsOutput values.
+// You can construct a concrete instance of `JobSourceControlDetailsInput` via:
+//
+//	JobSourceControlDetailsArgs{...}
+type JobSourceControlDetailsInput interface {
+	pulumi.Input
+
+	ToJobSourceControlDetailsOutput() JobSourceControlDetailsOutput
+	ToJobSourceControlDetailsOutputWithContext(context.Context) JobSourceControlDetailsOutput
+}
+
+type JobSourceControlDetailsArgs struct {
+	// The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+	AuthStrategy pulumi.StringPtrInput `pulumi:"authStrategy"`
+	// The value of an authorization token.
+	AuthToken pulumi.StringPtrInput `pulumi:"authToken"`
+	// A branch in the remote repository.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// A folder in the remote repository.
+	Folder pulumi.StringPtrInput `pulumi:"folder"`
+	// The last commit ID for a commit in the remote repository.
+	LastCommitId pulumi.StringPtrInput `pulumi:"lastCommitId"`
+	// The owner of the remote repository that contains the job artifacts.
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+	Provider pulumi.StringPtrInput `pulumi:"provider"`
+	// The name of the remote repository that contains the job artifacts.
+	Repository pulumi.StringPtrInput `pulumi:"repository"`
+}
+
+func (JobSourceControlDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSourceControlDetails)(nil)).Elem()
+}
+
+func (i JobSourceControlDetailsArgs) ToJobSourceControlDetailsOutput() JobSourceControlDetailsOutput {
+	return i.ToJobSourceControlDetailsOutputWithContext(context.Background())
+}
+
+func (i JobSourceControlDetailsArgs) ToJobSourceControlDetailsOutputWithContext(ctx context.Context) JobSourceControlDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSourceControlDetailsOutput)
+}
+
+func (i JobSourceControlDetailsArgs) ToJobSourceControlDetailsPtrOutput() JobSourceControlDetailsPtrOutput {
+	return i.ToJobSourceControlDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i JobSourceControlDetailsArgs) ToJobSourceControlDetailsPtrOutputWithContext(ctx context.Context) JobSourceControlDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSourceControlDetailsOutput).ToJobSourceControlDetailsPtrOutputWithContext(ctx)
+}
+
+// JobSourceControlDetailsPtrInput is an input type that accepts JobSourceControlDetailsArgs, JobSourceControlDetailsPtr and JobSourceControlDetailsPtrOutput values.
+// You can construct a concrete instance of `JobSourceControlDetailsPtrInput` via:
+//
+//	        JobSourceControlDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobSourceControlDetailsPtrInput interface {
+	pulumi.Input
+
+	ToJobSourceControlDetailsPtrOutput() JobSourceControlDetailsPtrOutput
+	ToJobSourceControlDetailsPtrOutputWithContext(context.Context) JobSourceControlDetailsPtrOutput
+}
+
+type jobSourceControlDetailsPtrType JobSourceControlDetailsArgs
+
+func JobSourceControlDetailsPtr(v *JobSourceControlDetailsArgs) JobSourceControlDetailsPtrInput {
+	return (*jobSourceControlDetailsPtrType)(v)
+}
+
+func (*jobSourceControlDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobSourceControlDetails)(nil)).Elem()
+}
+
+func (i *jobSourceControlDetailsPtrType) ToJobSourceControlDetailsPtrOutput() JobSourceControlDetailsPtrOutput {
+	return i.ToJobSourceControlDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *jobSourceControlDetailsPtrType) ToJobSourceControlDetailsPtrOutputWithContext(ctx context.Context) JobSourceControlDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSourceControlDetailsPtrOutput)
+}
+
+type JobSourceControlDetailsOutput struct{ *pulumi.OutputState }
+
+func (JobSourceControlDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSourceControlDetails)(nil)).Elem()
+}
+
+func (o JobSourceControlDetailsOutput) ToJobSourceControlDetailsOutput() JobSourceControlDetailsOutput {
+	return o
+}
+
+func (o JobSourceControlDetailsOutput) ToJobSourceControlDetailsOutputWithContext(ctx context.Context) JobSourceControlDetailsOutput {
+	return o
+}
+
+func (o JobSourceControlDetailsOutput) ToJobSourceControlDetailsPtrOutput() JobSourceControlDetailsPtrOutput {
+	return o.ToJobSourceControlDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o JobSourceControlDetailsOutput) ToJobSourceControlDetailsPtrOutputWithContext(ctx context.Context) JobSourceControlDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobSourceControlDetails) *JobSourceControlDetails {
+		return &v
+	}).(JobSourceControlDetailsPtrOutput)
+}
+
+// The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+func (o JobSourceControlDetailsOutput) AuthStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.AuthStrategy }).(pulumi.StringPtrOutput)
+}
+
+// The value of an authorization token.
+func (o JobSourceControlDetailsOutput) AuthToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.AuthToken }).(pulumi.StringPtrOutput)
+}
+
+// A branch in the remote repository.
+func (o JobSourceControlDetailsOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// A folder in the remote repository.
+func (o JobSourceControlDetailsOutput) Folder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.Folder }).(pulumi.StringPtrOutput)
+}
+
+// The last commit ID for a commit in the remote repository.
+func (o JobSourceControlDetailsOutput) LastCommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.LastCommitId }).(pulumi.StringPtrOutput)
+}
+
+// The owner of the remote repository that contains the job artifacts.
+func (o JobSourceControlDetailsOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+// The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+func (o JobSourceControlDetailsOutput) Provider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.Provider }).(pulumi.StringPtrOutput)
+}
+
+// The name of the remote repository that contains the job artifacts.
+func (o JobSourceControlDetailsOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.Repository }).(pulumi.StringPtrOutput)
+}
+
+type JobSourceControlDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (JobSourceControlDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobSourceControlDetails)(nil)).Elem()
+}
+
+func (o JobSourceControlDetailsPtrOutput) ToJobSourceControlDetailsPtrOutput() JobSourceControlDetailsPtrOutput {
+	return o
+}
+
+func (o JobSourceControlDetailsPtrOutput) ToJobSourceControlDetailsPtrOutputWithContext(ctx context.Context) JobSourceControlDetailsPtrOutput {
+	return o
+}
+
+func (o JobSourceControlDetailsPtrOutput) Elem() JobSourceControlDetailsOutput {
+	return o.ApplyT(func(v *JobSourceControlDetails) JobSourceControlDetails {
+		if v != nil {
+			return *v
+		}
+		var ret JobSourceControlDetails
+		return ret
+	}).(JobSourceControlDetailsOutput)
+}
+
+// The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+func (o JobSourceControlDetailsPtrOutput) AuthStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSourceControlDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of an authorization token.
+func (o JobSourceControlDetailsPtrOutput) AuthToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSourceControlDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// A branch in the remote repository.
+func (o JobSourceControlDetailsPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSourceControlDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// A folder in the remote repository.
+func (o JobSourceControlDetailsPtrOutput) Folder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSourceControlDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Folder
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last commit ID for a commit in the remote repository.
+func (o JobSourceControlDetailsPtrOutput) LastCommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSourceControlDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastCommitId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The owner of the remote repository that contains the job artifacts.
+func (o JobSourceControlDetailsPtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSourceControlDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+// The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+func (o JobSourceControlDetailsPtrOutput) Provider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSourceControlDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Provider
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the remote repository that contains the job artifacts.
+func (o JobSourceControlDetailsPtrOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSourceControlDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Repository
+	}).(pulumi.StringPtrOutput)
+}
+
 type MLTransformInputRecordTable struct {
 	// A unique identifier for the AWS Glue Data Catalog.
 	CatalogId *string `pulumi:"catalogId"`
@@ -12389,6 +12659,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionPropertyPtrInput)(nil)).Elem(), JobExecutionPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobNotificationPropertyInput)(nil)).Elem(), JobNotificationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobNotificationPropertyPtrInput)(nil)).Elem(), JobNotificationPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobSourceControlDetailsInput)(nil)).Elem(), JobSourceControlDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobSourceControlDetailsPtrInput)(nil)).Elem(), JobSourceControlDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformInputRecordTableInput)(nil)).Elem(), MLTransformInputRecordTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformInputRecordTableArrayInput)(nil)).Elem(), MLTransformInputRecordTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformParametersInput)(nil)).Elem(), MLTransformParametersArgs{})
@@ -12553,6 +12825,8 @@ func init() {
 	pulumi.RegisterOutputType(JobExecutionPropertyPtrOutput{})
 	pulumi.RegisterOutputType(JobNotificationPropertyOutput{})
 	pulumi.RegisterOutputType(JobNotificationPropertyPtrOutput{})
+	pulumi.RegisterOutputType(JobSourceControlDetailsOutput{})
+	pulumi.RegisterOutputType(JobSourceControlDetailsPtrOutput{})
 	pulumi.RegisterOutputType(MLTransformInputRecordTableOutput{})
 	pulumi.RegisterOutputType(MLTransformInputRecordTableArrayOutput{})
 	pulumi.RegisterOutputType(MLTransformParametersOutput{})

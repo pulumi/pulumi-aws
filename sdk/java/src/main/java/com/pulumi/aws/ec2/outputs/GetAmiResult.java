@@ -104,6 +104,11 @@ public final class GetAmiResult {
      * 
      */
     private String kernelId;
+    /**
+     * @return Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+     * 
+     */
+    private String lastLaunchedTime;
     private @Nullable Boolean mostRecent;
     /**
      * @return Name of the AMI that was provided during image creation.
@@ -331,6 +336,13 @@ public final class GetAmiResult {
     public String kernelId() {
         return this.kernelId;
     }
+    /**
+     * @return Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+     * 
+     */
+    public String lastLaunchedTime() {
+        return this.lastLaunchedTime;
+    }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
@@ -503,6 +515,7 @@ public final class GetAmiResult {
         private String imdsSupport;
         private @Nullable Boolean includeDeprecated;
         private String kernelId;
+        private String lastLaunchedTime;
         private @Nullable Boolean mostRecent;
         private String name;
         private @Nullable String nameRegex;
@@ -546,6 +559,7 @@ public final class GetAmiResult {
     	      this.imdsSupport = defaults.imdsSupport;
     	      this.includeDeprecated = defaults.includeDeprecated;
     	      this.kernelId = defaults.kernelId;
+    	      this.lastLaunchedTime = defaults.lastLaunchedTime;
     	      this.mostRecent = defaults.mostRecent;
     	      this.name = defaults.name;
     	      this.nameRegex = defaults.nameRegex;
@@ -722,6 +736,14 @@ public final class GetAmiResult {
               throw new MissingRequiredPropertyException("GetAmiResult", "kernelId");
             }
             this.kernelId = kernelId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder lastLaunchedTime(String lastLaunchedTime) {
+            if (lastLaunchedTime == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "lastLaunchedTime");
+            }
+            this.lastLaunchedTime = lastLaunchedTime;
             return this;
         }
         @CustomType.Setter
@@ -911,6 +933,7 @@ public final class GetAmiResult {
             _resultValue.imdsSupport = imdsSupport;
             _resultValue.includeDeprecated = includeDeprecated;
             _resultValue.kernelId = kernelId;
+            _resultValue.lastLaunchedTime = lastLaunchedTime;
             _resultValue.mostRecent = mostRecent;
             _resultValue.name = name;
             _resultValue.nameRegex = nameRegex;

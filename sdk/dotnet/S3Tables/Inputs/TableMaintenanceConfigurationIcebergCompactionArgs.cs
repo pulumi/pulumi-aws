@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
     public sealed class TableMaintenanceConfigurationIcebergCompactionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings for compaction.
+        /// Settings object for compaction.
         /// See `iceberg_compaction.settings` below.
         /// </summary>
         [Input("settings", required: true)]

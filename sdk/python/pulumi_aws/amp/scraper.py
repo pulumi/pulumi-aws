@@ -24,6 +24,7 @@ class ScraperArgs:
                  scrape_configuration: pulumi.Input[str],
                  alias: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input['ScraperDestinationArgs']] = None,
+                 role_configuration: Optional[pulumi.Input['ScraperRoleConfigurationArgs']] = None,
                  source: Optional[pulumi.Input['ScraperSourceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['ScraperTimeoutsArgs']] = None):
@@ -32,6 +33,7 @@ class ScraperArgs:
         :param pulumi.Input[str] scrape_configuration: The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         :param pulumi.Input[str] alias: a name to associate with the managed scraper. This is for your use, and does not need to be unique.
         :param pulumi.Input['ScraperDestinationArgs'] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
+        :param pulumi.Input['ScraperRoleConfigurationArgs'] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
         :param pulumi.Input['ScraperSourceArgs'] source: Configuration block to specify where the managed scraper will collect metrics from. See `source`.
                
                The following arguments are optional:
@@ -41,6 +43,8 @@ class ScraperArgs:
             pulumi.set(__self__, "alias", alias)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
+        if role_configuration is not None:
+            pulumi.set(__self__, "role_configuration", role_configuration)
         if source is not None:
             pulumi.set(__self__, "source", source)
         if tags is not None:
@@ -85,6 +89,18 @@ class ScraperArgs:
         pulumi.set(self, "destination", value)
 
     @property
+    @pulumi.getter(name="roleConfiguration")
+    def role_configuration(self) -> Optional[pulumi.Input['ScraperRoleConfigurationArgs']]:
+        """
+        Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        """
+        return pulumi.get(self, "role_configuration")
+
+    @role_configuration.setter
+    def role_configuration(self, value: Optional[pulumi.Input['ScraperRoleConfigurationArgs']]):
+        pulumi.set(self, "role_configuration", value)
+
+    @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['ScraperSourceArgs']]:
         """
@@ -124,6 +140,7 @@ class _ScraperState:
                  arn: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input['ScraperDestinationArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 role_configuration: Optional[pulumi.Input['ScraperRoleConfigurationArgs']] = None,
                  scrape_configuration: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input['ScraperSourceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -135,6 +152,7 @@ class _ScraperState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the new scraper.
         :param pulumi.Input['ScraperDestinationArgs'] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+        :param pulumi.Input['ScraperRoleConfigurationArgs'] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
         :param pulumi.Input[str] scrape_configuration: The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         :param pulumi.Input['ScraperSourceArgs'] source: Configuration block to specify where the managed scraper will collect metrics from. See `source`.
                
@@ -148,6 +166,8 @@ class _ScraperState:
             pulumi.set(__self__, "destination", destination)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
+        if role_configuration is not None:
+            pulumi.set(__self__, "role_configuration", role_configuration)
         if scrape_configuration is not None:
             pulumi.set(__self__, "scrape_configuration", scrape_configuration)
         if source is not None:
@@ -211,6 +231,18 @@ class _ScraperState:
         pulumi.set(self, "role_arn", value)
 
     @property
+    @pulumi.getter(name="roleConfiguration")
+    def role_configuration(self) -> Optional[pulumi.Input['ScraperRoleConfigurationArgs']]:
+        """
+        Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        """
+        return pulumi.get(self, "role_configuration")
+
+    @role_configuration.setter
+    def role_configuration(self, value: Optional[pulumi.Input['ScraperRoleConfigurationArgs']]):
+        pulumi.set(self, "role_configuration", value)
+
+    @property
     @pulumi.getter(name="scrapeConfiguration")
     def scrape_configuration(self) -> Optional[pulumi.Input[str]]:
         """
@@ -272,6 +304,7 @@ class Scraper(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
+                 role_configuration: Optional[pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
                  scrape_configuration: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -291,6 +324,7 @@ class Scraper(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: a name to associate with the managed scraper. This is for your use, and does not need to be unique.
         :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
+        :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
         :param pulumi.Input[str] scrape_configuration: The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']] source: Configuration block to specify where the managed scraper will collect metrics from. See `source`.
                
@@ -329,6 +363,7 @@ class Scraper(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
+                 role_configuration: Optional[pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
                  scrape_configuration: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -344,6 +379,7 @@ class Scraper(pulumi.CustomResource):
 
             __props__.__dict__["alias"] = alias
             __props__.__dict__["destination"] = destination
+            __props__.__dict__["role_configuration"] = role_configuration
             if scrape_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'scrape_configuration'")
             __props__.__dict__["scrape_configuration"] = scrape_configuration
@@ -367,6 +403,7 @@ class Scraper(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             destination: Optional[pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
+            role_configuration: Optional[pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
             scrape_configuration: Optional[pulumi.Input[str]] = None,
             source: Optional[pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -383,6 +420,7 @@ class Scraper(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the new scraper.
         :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+        :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']] role_configuration: Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
         :param pulumi.Input[str] scrape_configuration: The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']] source: Configuration block to specify where the managed scraper will collect metrics from. See `source`.
                
@@ -396,6 +434,7 @@ class Scraper(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["destination"] = destination
         __props__.__dict__["role_arn"] = role_arn
+        __props__.__dict__["role_configuration"] = role_configuration
         __props__.__dict__["scrape_configuration"] = scrape_configuration
         __props__.__dict__["source"] = source
         __props__.__dict__["tags"] = tags
@@ -434,6 +473,14 @@ class Scraper(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="roleConfiguration")
+    def role_configuration(self) -> pulumi.Output[Optional['outputs.ScraperRoleConfiguration']]:
+        """
+        Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        """
+        return pulumi.get(self, "role_configuration")
 
     @property
     @pulumi.getter(name="scrapeConfiguration")

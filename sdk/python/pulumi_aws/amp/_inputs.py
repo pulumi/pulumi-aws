@@ -19,6 +19,8 @@ __all__ = [
     'ScraperDestinationArgsDict',
     'ScraperDestinationAmpArgs',
     'ScraperDestinationAmpArgsDict',
+    'ScraperRoleConfigurationArgs',
+    'ScraperRoleConfigurationArgsDict',
     'ScraperSourceArgs',
     'ScraperSourceArgsDict',
     'ScraperSourceEksArgs',
@@ -92,6 +94,58 @@ class ScraperDestinationAmpArgs:
     @workspace_arn.setter
     def workspace_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_arn", value)
+
+
+if not MYPY:
+    class ScraperRoleConfigurationArgsDict(TypedDict):
+        source_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+        """
+        target_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+        """
+elif False:
+    ScraperRoleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScraperRoleConfigurationArgs:
+    def __init__(__self__, *,
+                 source_role_arn: Optional[pulumi.Input[str]] = None,
+                 target_role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] source_role_arn: The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+        :param pulumi.Input[str] target_role_arn: The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+        """
+        if source_role_arn is not None:
+            pulumi.set(__self__, "source_role_arn", source_role_arn)
+        if target_role_arn is not None:
+            pulumi.set(__self__, "target_role_arn", target_role_arn)
+
+    @property
+    @pulumi.getter(name="sourceRoleArn")
+    def source_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+        """
+        return pulumi.get(self, "source_role_arn")
+
+    @source_role_arn.setter
+    def source_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_role_arn", value)
+
+    @property
+    @pulumi.getter(name="targetRoleArn")
+    def target_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+        """
+        return pulumi.get(self, "target_role_arn")
+
+    @target_role_arn.setter
+    def target_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_role_arn", value)
 
 
 if not MYPY:

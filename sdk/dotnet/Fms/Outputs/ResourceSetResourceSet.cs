@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Fms.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+        /// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
         /// </summary>
         public readonly string? ResourceSetStatus;
         /// <summary>

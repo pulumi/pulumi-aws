@@ -831,7 +831,7 @@ class ResourceSetResourceSet(dict):
         :param str description: Description of the resource set.
         :param str id: Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
         :param str last_update_time: Last time that the reosurce set was changed.
-        :param str resource_set_status: Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+        :param str resource_set_status: Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
         :param Sequence[str] resource_type_lists: Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
         """
         pulumi.set(__self__, "name", name)
@@ -884,7 +884,7 @@ class ResourceSetResourceSet(dict):
     @pulumi.getter(name="resourceSetStatus")
     def resource_set_status(self) -> Optional[str]:
         """
-        Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+        Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
         """
         return pulumi.get(self, "resource_set_status")
 

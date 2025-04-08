@@ -5,10 +5,10 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
-index f9fd2f689e..01ac2dd965 100644
+index 063f30cd17..73fba162eb 100644
 --- a/internal/service/amp/scraper.go
 +++ b/internal/service/amp/scraper.go
-@@ -80,7 +80,7 @@ func (r *scraperResource) Schema(ctx context.Context, req resource.SchemaRequest
+@@ -82,7 +82,7 @@ func (r *scraperResource) Schema(ctx context.Context, request resource.SchemaReq
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -83,7 +83,7 @@ index 6360711508..75e0a82ccb 100644
  		Blocks: map[string]schema.Block{
  			names.AttrActions: schema.SetNestedBlock{
 diff --git a/internal/service/securitylake/data_lake.go b/internal/service/securitylake/data_lake.go
-index cffe692c0a..47bbf10176 100644
+index c639d89b86..c4acedf082 100644
 --- a/internal/service/securitylake/data_lake.go
 +++ b/internal/service/securitylake/data_lake.go
 @@ -71,7 +71,7 @@ func (r *dataLakeResource) Schema(ctx context.Context, request resource.SchemaRe
@@ -109,7 +109,7 @@ index 8c90e48854..ff5c702ea9 100644
  				Required: true,
  			},
 diff --git a/internal/service/ssoadmin/application.go b/internal/service/ssoadmin/application.go
-index 8a653058fa..f1d7f5fe86 100644
+index c339159fbe..797b807ed3 100644
 --- a/internal/service/ssoadmin/application.go
 +++ b/internal/service/ssoadmin/application.go
 @@ -92,7 +92,7 @@ func (r *resourceApplication) Schema(ctx context.Context, req resource.SchemaReq
@@ -122,7 +122,7 @@ index 8a653058fa..f1d7f5fe86 100644
  		Blocks: map[string]schema.Block{
  			"portal_options": schema.ListNestedBlock{
 diff --git a/internal/service/ssoadmin/trusted_token_issuer.go b/internal/service/ssoadmin/trusted_token_issuer.go
-index e541464d9e..9ac60ba481 100644
+index 28ce5529de..c462b619c6 100644
 --- a/internal/service/ssoadmin/trusted_token_issuer.go
 +++ b/internal/service/ssoadmin/trusted_token_issuer.go
 @@ -82,7 +82,7 @@ func (r *resourceTrustedTokenIssuer) Schema(ctx context.Context, req resource.Sc

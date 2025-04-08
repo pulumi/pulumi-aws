@@ -85,7 +85,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly format!: pulumi.Output<string>;
     /**
-     * A single table bucket maintenance configuration block.
+     * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
     public readonly maintenanceConfiguration!: pulumi.Output<outputs.s3tables.TableMaintenanceConfiguration>;
@@ -220,7 +220,7 @@ export interface TableState {
      */
     format?: pulumi.Input<string>;
     /**
-     * A single table bucket maintenance configuration block.
+     * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration>;
@@ -284,7 +284,7 @@ export interface TableArgs {
      */
     format: pulumi.Input<string>;
     /**
-     * A single table bucket maintenance configuration block.
+     * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration>;

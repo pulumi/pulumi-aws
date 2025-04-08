@@ -34,7 +34,7 @@ public final class ResourceSetResourceSet {
      */
     private String name;
     /**
-     * @return Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can&#39;t edit or delete the resource set.)
+     * @return Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
      * 
      */
     private @Nullable String resourceSetStatus;
@@ -75,7 +75,7 @@ public final class ResourceSetResourceSet {
         return this.name;
     }
     /**
-     * @return Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can&#39;t edit or delete the resource set.)
+     * @return Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
      * 
      */
     public Optional<String> resourceSetStatus() {

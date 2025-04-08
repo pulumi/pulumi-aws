@@ -1041,10 +1041,17 @@ class BucketLifecycleConfigurationV2Rule(dict):
         :param str status: Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
         :param 'BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs' abort_incomplete_multipart_upload: Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
         :param 'BucketLifecycleConfigurationV2RuleExpirationArgs' expiration: Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
-        :param 'BucketLifecycleConfigurationV2RuleFilterArgs' filter: Configuration block used to identify objects that a Lifecycle Rule applies to. See below. If not specified, the `rule` will default to using `prefix`.
+        :param 'BucketLifecycleConfigurationV2RuleFilterArgs' filter: Configuration block used to identify objects that a Lifecycle Rule applies to.
+               See below.
+               If not specified, the `rule` will default to using `prefix`.
+               One of `filter` or `prefix` should be specified.
         :param 'BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs' noncurrent_version_expiration: Configuration block that specifies when noncurrent object versions expire. See below.
         :param Sequence['BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs'] noncurrent_version_transitions: Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
-        :param str prefix: **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
+        :param str prefix: **DEPRECATED** Use `filter` instead.
+               This has been deprecated by Amazon S3.
+               Prefix identifying one or more objects to which the rule applies.
+               Defaults to an empty string (`""`) if `filter` is not specified.
+               One of `prefix` or `filter` should be specified.
         :param Sequence['BucketLifecycleConfigurationV2RuleTransitionArgs'] transitions: Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
         """
         pulumi.set(__self__, "id", id)
@@ -1100,7 +1107,10 @@ class BucketLifecycleConfigurationV2Rule(dict):
     @pulumi.getter
     def filter(self) -> Optional['outputs.BucketLifecycleConfigurationV2RuleFilter']:
         """
-        Configuration block used to identify objects that a Lifecycle Rule applies to. See below. If not specified, the `rule` will default to using `prefix`.
+        Configuration block used to identify objects that a Lifecycle Rule applies to.
+        See below.
+        If not specified, the `rule` will default to using `prefix`.
+        One of `filter` or `prefix` should be specified.
         """
         return pulumi.get(self, "filter")
 
@@ -1122,10 +1132,14 @@ class BucketLifecycleConfigurationV2Rule(dict):
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""Use filter instead""")
+    @_utilities.deprecated("""Specify a prefix using 'filter' instead""")
     def prefix(self) -> Optional[str]:
         """
-        **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
+        **DEPRECATED** Use `filter` instead.
+        This has been deprecated by Amazon S3.
+        Prefix identifying one or more objects to which the rule applies.
+        Defaults to an empty string (`""`) if `filter` is not specified.
+        One of `prefix` or `filter` should be specified.
         """
         return pulumi.get(self, "prefix")
 

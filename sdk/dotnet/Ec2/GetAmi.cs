@@ -460,6 +460,10 @@ namespace Pulumi.Aws.Ec2
         /// for machine images.
         /// </summary>
         public readonly string KernelId;
+        /// <summary>
+        /// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+        /// </summary>
+        public readonly string LastLaunchedTime;
         public readonly bool? MostRecent;
         /// <summary>
         /// Name of the AMI that was provided during image creation.
@@ -584,6 +588,8 @@ namespace Pulumi.Aws.Ec2
 
             string kernelId,
 
+            string lastLaunchedTime,
+
             bool? mostRecent,
 
             string name,
@@ -645,6 +651,7 @@ namespace Pulumi.Aws.Ec2
             ImdsSupport = imdsSupport;
             IncludeDeprecated = includeDeprecated;
             KernelId = kernelId;
+            LastLaunchedTime = lastLaunchedTime;
             MostRecent = mostRecent;
             Name = name;
             NameRegex = nameRegex;

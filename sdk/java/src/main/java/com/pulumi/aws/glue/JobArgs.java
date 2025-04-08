@@ -6,6 +6,7 @@ package com.pulumi.aws.glue;
 import com.pulumi.aws.glue.inputs.JobCommandArgs;
 import com.pulumi.aws.glue.inputs.JobExecutionPropertyArgs;
 import com.pulumi.aws.glue.inputs.JobNotificationPropertyArgs;
+import com.pulumi.aws.glue.inputs.JobSourceControlDetailsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -280,6 +281,21 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+     * 
+     */
+    @Import(name="sourceControlDetails")
+    private @Nullable Output<JobSourceControlDetailsArgs> sourceControlDetails;
+
+    /**
+     * @return The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+     * 
+     */
+    public Optional<Output<JobSourceControlDetailsArgs>> sourceControlDetails() {
+        return Optional.ofNullable(this.sourceControlDetails);
+    }
+
+    /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -358,6 +374,7 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         this.numberOfWorkers = $.numberOfWorkers;
         this.roleArn = $.roleArn;
         this.securityConfiguration = $.securityConfiguration;
+        this.sourceControlDetails = $.sourceControlDetails;
         this.tags = $.tags;
         this.timeout = $.timeout;
         this.workerType = $.workerType;
@@ -746,6 +763,27 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder securityConfiguration(String securityConfiguration) {
             return securityConfiguration(Output.of(securityConfiguration));
+        }
+
+        /**
+         * @param sourceControlDetails The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceControlDetails(@Nullable Output<JobSourceControlDetailsArgs> sourceControlDetails) {
+            $.sourceControlDetails = sourceControlDetails;
+            return this;
+        }
+
+        /**
+         * @param sourceControlDetails The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceControlDetails(JobSourceControlDetailsArgs sourceControlDetails) {
+            return sourceControlDetails(Output.of(sourceControlDetails));
         }
 
         /**

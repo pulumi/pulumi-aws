@@ -2093,7 +2093,7 @@ type ResourceSetResourceSet struct {
 	LastUpdateTime *string `pulumi:"lastUpdateTime"`
 	// Descriptive name of the resource set. You can't change the name of a resource set after you create it.
 	Name string `pulumi:"name"`
-	// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+	// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
 	ResourceSetStatus *string `pulumi:"resourceSetStatus"`
 	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
@@ -2120,7 +2120,7 @@ type ResourceSetResourceSetArgs struct {
 	LastUpdateTime pulumi.StringPtrInput `pulumi:"lastUpdateTime"`
 	// Descriptive name of the resource set. You can't change the name of a resource set after you create it.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+	// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
 	ResourceSetStatus pulumi.StringPtrInput `pulumi:"resourceSetStatus"`
 	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 	ResourceTypeLists pulumi.StringArrayInput `pulumi:"resourceTypeLists"`
@@ -2198,7 +2198,7 @@ func (o ResourceSetResourceSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSetResourceSet) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
 func (o ResourceSetResourceSetOutput) ResourceSetStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceSet) *string { return v.ResourceSetStatus }).(pulumi.StringPtrOutput)
 }

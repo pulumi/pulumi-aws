@@ -79,7 +79,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A single table bucket maintenance configuration block.
+     * A single table bucket maintenance configuration object.
      * See `maintenance_configuration` below.
      * 
      */
@@ -87,7 +87,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<TableMaintenanceConfigurationArgs> maintenanceConfiguration;
 
     /**
-     * @return A single table bucket maintenance configuration block.
+     * @return A single table bucket maintenance configuration object.
      * See `maintenance_configuration` below.
      * 
      */
@@ -386,7 +386,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenanceConfiguration A single table bucket maintenance configuration block.
+         * @param maintenanceConfiguration A single table bucket maintenance configuration object.
          * See `maintenance_configuration` below.
          * 
          * @return builder
@@ -398,7 +398,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenanceConfiguration A single table bucket maintenance configuration block.
+         * @param maintenanceConfiguration A single table bucket maintenance configuration object.
          * See `maintenance_configuration` below.
          * 
          * @return builder

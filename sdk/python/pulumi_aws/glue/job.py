@@ -38,6 +38,7 @@ class JobArgs:
                  notification_property: Optional[pulumi.Input['JobNotificationPropertyArgs']] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
+                 source_control_details: Optional[pulumi.Input['JobSourceControlDetailsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  worker_type: Optional[pulumi.Input[str]] = None):
@@ -60,6 +61,7 @@ class JobArgs:
         :param pulumi.Input['JobNotificationPropertyArgs'] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
+        :param pulumi.Input['JobSourceControlDetailsArgs'] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
@@ -103,6 +105,8 @@ class JobArgs:
             pulumi.set(__self__, "number_of_workers", number_of_workers)
         if security_configuration is not None:
             pulumi.set(__self__, "security_configuration", security_configuration)
+        if source_control_details is not None:
+            pulumi.set(__self__, "source_control_details", source_control_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeout is not None:
@@ -315,6 +319,18 @@ class JobArgs:
         pulumi.set(self, "security_configuration", value)
 
     @property
+    @pulumi.getter(name="sourceControlDetails")
+    def source_control_details(self) -> Optional[pulumi.Input['JobSourceControlDetailsArgs']]:
+        """
+        The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+        """
+        return pulumi.get(self, "source_control_details")
+
+    @source_control_details.setter
+    def source_control_details(self, value: Optional[pulumi.Input['JobSourceControlDetailsArgs']]):
+        pulumi.set(self, "source_control_details", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -379,6 +395,7 @@ class _JobState:
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
+                 source_control_details: Optional[pulumi.Input['JobSourceControlDetailsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
@@ -403,6 +420,7 @@ class _JobState:
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
+        :param pulumi.Input['JobSourceControlDetailsArgs'] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
@@ -451,6 +469,8 @@ class _JobState:
             pulumi.set(__self__, "role_arn", role_arn)
         if security_configuration is not None:
             pulumi.set(__self__, "security_configuration", security_configuration)
+        if source_control_details is not None:
+            pulumi.set(__self__, "source_control_details", source_control_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -680,6 +700,18 @@ class _JobState:
         pulumi.set(self, "security_configuration", value)
 
     @property
+    @pulumi.getter(name="sourceControlDetails")
+    def source_control_details(self) -> Optional[pulumi.Input['JobSourceControlDetailsArgs']]:
+        """
+        The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+        """
+        return pulumi.get(self, "source_control_details")
+
+    @source_control_details.setter
+    def source_control_details(self, value: Optional[pulumi.Input['JobSourceControlDetailsArgs']]):
+        pulumi.set(self, "source_control_details", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -758,6 +790,7 @@ class Job(pulumi.CustomResource):
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
+                 source_control_details: Optional[pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  worker_type: Optional[pulumi.Input[str]] = None,
@@ -880,6 +913,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
+        :param pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
@@ -1028,6 +1062,7 @@ class Job(pulumi.CustomResource):
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
+                 source_control_details: Optional[pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  worker_type: Optional[pulumi.Input[str]] = None,
@@ -1061,6 +1096,7 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["security_configuration"] = security_configuration
+            __props__.__dict__["source_control_details"] = source_control_details
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["worker_type"] = worker_type
@@ -1094,6 +1130,7 @@ class Job(pulumi.CustomResource):
             number_of_workers: Optional[pulumi.Input[int]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             security_configuration: Optional[pulumi.Input[str]] = None,
+            source_control_details: Optional[pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timeout: Optional[pulumi.Input[int]] = None,
@@ -1123,6 +1160,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
+        :param pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
@@ -1157,6 +1195,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["number_of_workers"] = number_of_workers
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["security_configuration"] = security_configuration
+        __props__.__dict__["source_control_details"] = source_control_details
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeout"] = timeout
@@ -1306,6 +1345,14 @@ class Job(pulumi.CustomResource):
         The name of the Security Configuration to be associated with the job.
         """
         return pulumi.get(self, "security_configuration")
+
+    @property
+    @pulumi.getter(name="sourceControlDetails")
+    def source_control_details(self) -> pulumi.Output[Optional['outputs.JobSourceControlDetails']]:
+        """
+        The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+        """
+        return pulumi.get(self, "source_control_details")
 
     @property
     @pulumi.getter
