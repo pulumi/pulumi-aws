@@ -1429,6 +1429,12 @@
       "new": "* `triggers` - (Optional) Map of arbitrary keys and values that, when changed, will trigger a redeployment."
     }
   ],
+  "lb_target_group_attachment.html.markdown": [
+    {
+      "old": "### Registering Multiple Targets\n\n```terraform\nresource \"aws_instance\" \"example\" {\n  count = 3\n  # ... other configuration ...\n}\n\nresource \"aws_lb_target_group\" \"example\" {\n  # ... other configuration ...\n}\n\nresource \"aws_lb_target_group_attachment\" \"example\" {\n  # covert a list of instance objects to a map with instance ID as the key, and an instance\n  # object as the value.\n  for_each = {\n    for k, v in aws_instance.example :\n    k => v\n  }\n\n  target_group_arn = aws_lb_target_group.example.arn\n  target_id        = each.value.id\n  port             = 80\n}\n```",
+      "new": ""
+    }
+  ],
   "licensemanager_license_configuration.html.markdown": [
     {
       "old": "~> **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `terraform taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.",
