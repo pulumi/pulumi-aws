@@ -39,7 +39,7 @@ if not MYPY:
     class TableBucketMaintenanceConfigurationArgsDict(TypedDict):
         iceberg_unreferenced_file_removal: pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgsDict']
         """
-        A single Iceberg unreferenced file removal settings block.
+        A single Iceberg unreferenced file removal settings object.
         See `iceberg_unreferenced_file_removal` below.
         """
 elif False:
@@ -50,7 +50,7 @@ class TableBucketMaintenanceConfigurationArgs:
     def __init__(__self__, *,
                  iceberg_unreferenced_file_removal: pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs']):
         """
-        :param pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs'] iceberg_unreferenced_file_removal: A single Iceberg unreferenced file removal settings block.
+        :param pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs'] iceberg_unreferenced_file_removal: A single Iceberg unreferenced file removal settings object.
                See `iceberg_unreferenced_file_removal` below.
         """
         pulumi.set(__self__, "iceberg_unreferenced_file_removal", iceberg_unreferenced_file_removal)
@@ -59,7 +59,7 @@ class TableBucketMaintenanceConfigurationArgs:
     @pulumi.getter(name="icebergUnreferencedFileRemoval")
     def iceberg_unreferenced_file_removal(self) -> pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs']:
         """
-        A single Iceberg unreferenced file removal settings block.
+        A single Iceberg unreferenced file removal settings object.
         See `iceberg_unreferenced_file_removal` below.
         """
         return pulumi.get(self, "iceberg_unreferenced_file_removal")
@@ -73,7 +73,7 @@ if not MYPY:
     class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgsDict(TypedDict):
         settings: pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgsDict']
         """
-        Settings for unreferenced file removal.
+        Settings object for unreferenced file removal.
         See `iceberg_unreferenced_file_removal.settings` below.
         """
         status: pulumi.Input[str]
@@ -90,7 +90,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs:
                  settings: pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs'],
                  status: pulumi.Input[str]):
         """
-        :param pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs'] settings: Settings for unreferenced file removal.
+        :param pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs'] settings: Settings object for unreferenced file removal.
                See `iceberg_unreferenced_file_removal.settings` below.
         :param pulumi.Input[str] status: Whether the configuration is enabled.
                Valid values are `enabled` and `disabled`.
@@ -102,7 +102,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs']:
         """
-        Settings for unreferenced file removal.
+        Settings object for unreferenced file removal.
         See `iceberg_unreferenced_file_removal.settings` below.
         """
         return pulumi.get(self, "settings")
@@ -185,12 +185,12 @@ if not MYPY:
     class TableMaintenanceConfigurationArgsDict(TypedDict):
         iceberg_compaction: pulumi.Input['TableMaintenanceConfigurationIcebergCompactionArgsDict']
         """
-        A single Iceberg compaction settings block.
+        A single Iceberg compaction settings object.
         See `iceberg_compaction` below.
         """
         iceberg_snapshot_management: pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementArgsDict']
         """
-        A single Iceberg snapshot management settings block.
+        A single Iceberg snapshot management settings object.
         See `iceberg_snapshot_management` below.
         """
 elif False:
@@ -202,9 +202,9 @@ class TableMaintenanceConfigurationArgs:
                  iceberg_compaction: pulumi.Input['TableMaintenanceConfigurationIcebergCompactionArgs'],
                  iceberg_snapshot_management: pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementArgs']):
         """
-        :param pulumi.Input['TableMaintenanceConfigurationIcebergCompactionArgs'] iceberg_compaction: A single Iceberg compaction settings block.
+        :param pulumi.Input['TableMaintenanceConfigurationIcebergCompactionArgs'] iceberg_compaction: A single Iceberg compaction settings object.
                See `iceberg_compaction` below.
-        :param pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementArgs'] iceberg_snapshot_management: A single Iceberg snapshot management settings block.
+        :param pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementArgs'] iceberg_snapshot_management: A single Iceberg snapshot management settings object.
                See `iceberg_snapshot_management` below.
         """
         pulumi.set(__self__, "iceberg_compaction", iceberg_compaction)
@@ -214,7 +214,7 @@ class TableMaintenanceConfigurationArgs:
     @pulumi.getter(name="icebergCompaction")
     def iceberg_compaction(self) -> pulumi.Input['TableMaintenanceConfigurationIcebergCompactionArgs']:
         """
-        A single Iceberg compaction settings block.
+        A single Iceberg compaction settings object.
         See `iceberg_compaction` below.
         """
         return pulumi.get(self, "iceberg_compaction")
@@ -227,7 +227,7 @@ class TableMaintenanceConfigurationArgs:
     @pulumi.getter(name="icebergSnapshotManagement")
     def iceberg_snapshot_management(self) -> pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementArgs']:
         """
-        A single Iceberg snapshot management settings block.
+        A single Iceberg snapshot management settings object.
         See `iceberg_snapshot_management` below.
         """
         return pulumi.get(self, "iceberg_snapshot_management")
@@ -241,7 +241,7 @@ if not MYPY:
     class TableMaintenanceConfigurationIcebergCompactionArgsDict(TypedDict):
         settings: pulumi.Input['TableMaintenanceConfigurationIcebergCompactionSettingsArgsDict']
         """
-        Settings for compaction.
+        Settings object for compaction.
         See `iceberg_compaction.settings` below.
         """
         status: pulumi.Input[str]
@@ -258,7 +258,7 @@ class TableMaintenanceConfigurationIcebergCompactionArgs:
                  settings: pulumi.Input['TableMaintenanceConfigurationIcebergCompactionSettingsArgs'],
                  status: pulumi.Input[str]):
         """
-        :param pulumi.Input['TableMaintenanceConfigurationIcebergCompactionSettingsArgs'] settings: Settings for compaction.
+        :param pulumi.Input['TableMaintenanceConfigurationIcebergCompactionSettingsArgs'] settings: Settings object for compaction.
                See `iceberg_compaction.settings` below.
         :param pulumi.Input[str] status: Whether the configuration is enabled.
                Valid values are `enabled` and `disabled`.
@@ -270,7 +270,7 @@ class TableMaintenanceConfigurationIcebergCompactionArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input['TableMaintenanceConfigurationIcebergCompactionSettingsArgs']:
         """
-        Settings for compaction.
+        Settings object for compaction.
         See `iceberg_compaction.settings` below.
         """
         return pulumi.get(self, "settings")
@@ -331,7 +331,7 @@ if not MYPY:
     class TableMaintenanceConfigurationIcebergSnapshotManagementArgsDict(TypedDict):
         settings: pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgsDict']
         """
-        Settings for snapshot management.
+        Settings object for snapshot management.
         See `iceberg_snapshot_management.settings` below.
         """
         status: pulumi.Input[str]
@@ -348,7 +348,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementArgs:
                  settings: pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs'],
                  status: pulumi.Input[str]):
         """
-        :param pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs'] settings: Settings for snapshot management.
+        :param pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs'] settings: Settings object for snapshot management.
                See `iceberg_snapshot_management.settings` below.
         :param pulumi.Input[str] status: Whether the configuration is enabled.
                Valid values are `enabled` and `disabled`.
@@ -360,7 +360,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs']:
         """
-        Settings for snapshot management.
+        Settings object for snapshot management.
         See `iceberg_snapshot_management.settings` below.
         """
         return pulumi.get(self, "settings")

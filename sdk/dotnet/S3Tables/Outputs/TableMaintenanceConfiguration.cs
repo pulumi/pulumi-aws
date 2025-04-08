@@ -14,12 +14,12 @@ namespace Pulumi.Aws.S3Tables.Outputs
     public sealed class TableMaintenanceConfiguration
     {
         /// <summary>
-        /// A single Iceberg compaction settings block.
+        /// A single Iceberg compaction settings object.
         /// See `iceberg_compaction` below.
         /// </summary>
         public readonly Outputs.TableMaintenanceConfigurationIcebergCompaction IcebergCompaction;
         /// <summary>
-        /// A single Iceberg snapshot management settings block.
+        /// A single Iceberg snapshot management settings object.
         /// See `iceberg_snapshot_management` below.
         /// </summary>
         public readonly Outputs.TableMaintenanceConfigurationIcebergSnapshotManagement IcebergSnapshotManagement;

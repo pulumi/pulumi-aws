@@ -140,7 +140,7 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.format;
     }
     /**
-     * A single table bucket maintenance configuration block.
+     * A single table bucket maintenance configuration object.
      * See `maintenance_configuration` below.
      * 
      */
@@ -148,7 +148,7 @@ public class Table extends com.pulumi.resources.CustomResource {
     private Output<TableMaintenanceConfiguration> maintenanceConfiguration;
 
     /**
-     * @return A single table bucket maintenance configuration block.
+     * @return A single table bucket maintenance configuration object.
      * See `maintenance_configuration` below.
      * 
      */

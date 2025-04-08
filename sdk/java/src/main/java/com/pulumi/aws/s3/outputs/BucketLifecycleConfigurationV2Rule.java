@@ -30,7 +30,10 @@ public final class BucketLifecycleConfigurationV2Rule {
      */
     private @Nullable BucketLifecycleConfigurationV2RuleExpiration expiration;
     /**
-     * @return Configuration block used to identify objects that a Lifecycle Rule applies to. See below. If not specified, the `rule` will default to using `prefix`.
+     * @return Configuration block used to identify objects that a Lifecycle Rule applies to.
+     * See below.
+     * If not specified, the `rule` will default to using `prefix`.
+     * One of `filter` or `prefix` should be specified.
      * 
      */
     private @Nullable BucketLifecycleConfigurationV2RuleFilter filter;
@@ -50,13 +53,17 @@ public final class BucketLifecycleConfigurationV2Rule {
      */
     private @Nullable List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition> noncurrentVersionTransitions;
     /**
-     * @return **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+     * @return **DEPRECATED** Use `filter` instead.
+     * This has been deprecated by Amazon S3.
+     * Prefix identifying one or more objects to which the rule applies.
+     * Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+     * One of `prefix` or `filter` should be specified.
      * 
      * @deprecated
-     * Use filter instead
+     * Specify a prefix using &#39;filter&#39; instead
      * 
      */
-    @Deprecated /* Use filter instead */
+    @Deprecated /* Specify a prefix using 'filter' instead */
     private @Nullable String prefix;
     /**
      * @return Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
@@ -85,7 +92,10 @@ public final class BucketLifecycleConfigurationV2Rule {
         return Optional.ofNullable(this.expiration);
     }
     /**
-     * @return Configuration block used to identify objects that a Lifecycle Rule applies to. See below. If not specified, the `rule` will default to using `prefix`.
+     * @return Configuration block used to identify objects that a Lifecycle Rule applies to.
+     * See below.
+     * If not specified, the `rule` will default to using `prefix`.
+     * One of `filter` or `prefix` should be specified.
      * 
      */
     public Optional<BucketLifecycleConfigurationV2RuleFilter> filter() {
@@ -113,13 +123,17 @@ public final class BucketLifecycleConfigurationV2Rule {
         return this.noncurrentVersionTransitions == null ? List.of() : this.noncurrentVersionTransitions;
     }
     /**
-     * @return **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+     * @return **DEPRECATED** Use `filter` instead.
+     * This has been deprecated by Amazon S3.
+     * Prefix identifying one or more objects to which the rule applies.
+     * Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
+     * One of `prefix` or `filter` should be specified.
      * 
      * @deprecated
-     * Use filter instead
+     * Specify a prefix using &#39;filter&#39; instead
      * 
      */
-    @Deprecated /* Use filter instead */
+    @Deprecated /* Specify a prefix using 'filter' instead */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

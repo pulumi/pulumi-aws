@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class TableMaintenanceConfigurationIcebergSnapshotManagement {
     /**
-     * @return Settings for snapshot management.
+     * @return Settings object for snapshot management.
      * See `iceberg_snapshot_management.settings` below.
      * 
      */
@@ -26,7 +26,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagement {
 
     private TableMaintenanceConfigurationIcebergSnapshotManagement() {}
     /**
-     * @return Settings for snapshot management.
+     * @return Settings object for snapshot management.
      * See `iceberg_snapshot_management.settings` below.
      * 
      */

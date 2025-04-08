@@ -56,7 +56,7 @@ namespace Pulumi.Aws.S3Tables
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// A single table bucket maintenance configuration block.
+        /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
         [Output("maintenanceConfiguration")]
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.S3Tables
     public sealed class TableBucketArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A single table bucket maintenance configuration block.
+        /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
         [Input("maintenanceConfiguration")]
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.S3Tables
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// A single table bucket maintenance configuration block.
+        /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
         [Input("maintenanceConfiguration")]

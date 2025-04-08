@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// !&gt; AWS will hang indefinitely, leading to a `timeout while waiting` error, when creating or updating an `aws.sqs.Queue` with an associated `aws.sqs.QueuePolicy` if `Version = "2012-10-17"` is not explicitly set in the policy.
     /// 
-    /// !&gt; AWS will hang indefinitely and trigger a `timeout while waiting` error when creating or updating an `aws.sqs.Queue` if `kms_data_key_reuse_period_seconds` is set to a non-default value, `sqs_managed_sse_enabled` is `false` (explicitly or by default), and `kms_master_key_id` is not set.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -255,9 +253,6 @@ namespace Pulumi.Aws.Sqs
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -267,15 +262,9 @@ namespace Pulumi.Aws.Sqs
         [Output("receiveWaitTimeSeconds")]
         public Output<int?> ReceiveWaitTimeSeconds { get; private set; } = null!;
 
-        /// <summary>
-        /// JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
-        /// </summary>
         [Output("redriveAllowPolicy")]
         public Output<string> RedriveAllowPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-        /// </summary>
         [Output("redrivePolicy")]
         public Output<string> RedrivePolicy { get; private set; } = null!;
 
@@ -421,9 +410,6 @@ namespace Pulumi.Aws.Sqs
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
@@ -433,15 +419,9 @@ namespace Pulumi.Aws.Sqs
         [Input("receiveWaitTimeSeconds")]
         public Input<int>? ReceiveWaitTimeSeconds { get; set; }
 
-        /// <summary>
-        /// JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
-        /// </summary>
         [Input("redriveAllowPolicy")]
         public Input<string>? RedriveAllowPolicy { get; set; }
 
-        /// <summary>
-        /// JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-        /// </summary>
         [Input("redrivePolicy")]
         public Input<string>? RedrivePolicy { get; set; }
 
@@ -549,9 +529,6 @@ namespace Pulumi.Aws.Sqs
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
@@ -561,15 +538,9 @@ namespace Pulumi.Aws.Sqs
         [Input("receiveWaitTimeSeconds")]
         public Input<int>? ReceiveWaitTimeSeconds { get; set; }
 
-        /// <summary>
-        /// JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
-        /// </summary>
         [Input("redriveAllowPolicy")]
         public Input<string>? RedriveAllowPolicy { get; set; }
 
-        /// <summary>
-        /// JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-        /// </summary>
         [Input("redrivePolicy")]
         public Input<string>? RedrivePolicy { get; set; }
 

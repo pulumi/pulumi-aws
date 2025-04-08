@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class TableMaintenanceConfigurationIcebergCompaction {
     /**
-     * @return Settings for compaction.
+     * @return Settings object for compaction.
      * See `iceberg_compaction.settings` below.
      * 
      */
@@ -26,7 +26,7 @@ public final class TableMaintenanceConfigurationIcebergCompaction {
 
     private TableMaintenanceConfigurationIcebergCompaction() {}
     /**
-     * @return Settings for compaction.
+     * @return Settings object for compaction.
      * See `iceberg_compaction.settings` below.
      * 
      */

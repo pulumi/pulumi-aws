@@ -181,6 +181,10 @@ export interface GetAmiResult {
      * for machine images.
      */
     readonly kernelId: string;
+    /**
+     * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+     */
+    readonly lastLaunchedTime: string;
     readonly mostRecent?: boolean;
     /**
      * Name of the AMI that was provided during image creation.

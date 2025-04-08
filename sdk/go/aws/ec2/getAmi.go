@@ -150,8 +150,10 @@ type LookupAmiResult struct {
 	IncludeDeprecated *bool  `pulumi:"includeDeprecated"`
 	// Kernel associated with the image, if any. Only applicable
 	// for machine images.
-	KernelId   string `pulumi:"kernelId"`
-	MostRecent *bool  `pulumi:"mostRecent"`
+	KernelId string `pulumi:"kernelId"`
+	// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+	LastLaunchedTime string `pulumi:"lastLaunchedTime"`
+	MostRecent       *bool  `pulumi:"mostRecent"`
 	// Name of the AMI that was provided during image creation.
 	Name      string  `pulumi:"name"`
 	NameRegex *string `pulumi:"nameRegex"`
@@ -356,6 +358,11 @@ func (o LookupAmiResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {
 // for machine images.
 func (o LookupAmiResultOutput) KernelId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.KernelId }).(pulumi.StringOutput)
+}
+
+// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+func (o LookupAmiResultOutput) LastLaunchedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAmiResult) string { return v.LastLaunchedTime }).(pulumi.StringOutput)
 }
 
 func (o LookupAmiResultOutput) MostRecent() pulumi.BoolPtrOutput {

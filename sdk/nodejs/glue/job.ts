@@ -212,6 +212,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
     /**
+     * The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+     */
+    public readonly sourceControlDetails!: pulumi.Output<outputs.glue.JobSourceControlDetails | undefined>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -268,6 +272,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
+            resourceInputs["sourceControlDetails"] = state ? state.sourceControlDetails : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeout"] = state ? state.timeout : undefined;
@@ -297,6 +302,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
+            resourceInputs["sourceControlDetails"] = args ? args.sourceControlDetails : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["workerType"] = args ? args.workerType : undefined;
@@ -384,6 +390,10 @@ export interface JobState {
      * The name of the Security Configuration to be associated with the job.
      */
     securityConfiguration?: pulumi.Input<string>;
+    /**
+     * The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+     */
+    sourceControlDetails?: pulumi.Input<inputs.glue.JobSourceControlDetails>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -483,6 +493,10 @@ export interface JobArgs {
      * The name of the Security Configuration to be associated with the job.
      */
     securityConfiguration?: pulumi.Input<string>;
+    /**
+     * The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+     */
+    sourceControlDetails?: pulumi.Input<inputs.glue.JobSourceControlDetails>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

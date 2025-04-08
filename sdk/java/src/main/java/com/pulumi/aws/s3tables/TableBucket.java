@@ -94,7 +94,7 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
-     * A single table bucket maintenance configuration block.
+     * A single table bucket maintenance configuration object.
      * See `maintenance_configuration` below.
      * 
      */
@@ -102,7 +102,7 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
     private Output<TableBucketMaintenanceConfiguration> maintenanceConfiguration;
 
     /**
-     * @return A single table bucket maintenance configuration block.
+     * @return A single table bucket maintenance configuration object.
      * See `maintenance_configuration` below.
      * 
      */

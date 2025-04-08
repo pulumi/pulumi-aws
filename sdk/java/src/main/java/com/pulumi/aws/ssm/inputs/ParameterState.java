@@ -125,25 +125,9 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
-     * 
-     * @deprecated
-     * overwrite is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* overwrite is deprecated. This argument will be removed in a future major version. */
     @Import(name="overwrite")
     private @Nullable Output<Boolean> overwrite;
 
-    /**
-     * @return Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
-     * 
-     * @deprecated
-     * overwrite is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* overwrite is deprecated. This argument will be removed in a future major version. */
     public Optional<Output<Boolean>> overwrite() {
         return Optional.ofNullable(this.overwrite);
     }
@@ -434,31 +418,11 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
-        /**
-         * @param overwrite Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * overwrite is deprecated. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* overwrite is deprecated. This argument will be removed in a future major version. */
         public Builder overwrite(@Nullable Output<Boolean> overwrite) {
             $.overwrite = overwrite;
             return this;
         }
 
-        /**
-         * @param overwrite Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * overwrite is deprecated. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* overwrite is deprecated. This argument will be removed in a future major version. */
         public Builder overwrite(Boolean overwrite) {
             return overwrite(Output.of(overwrite));
         }

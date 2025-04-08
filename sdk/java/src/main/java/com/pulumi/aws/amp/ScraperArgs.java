@@ -4,6 +4,7 @@
 package com.pulumi.aws.amp;
 
 import com.pulumi.aws.amp.inputs.ScraperDestinationArgs;
+import com.pulumi.aws.amp.inputs.ScraperRoleConfigurationArgs;
 import com.pulumi.aws.amp.inputs.ScraperSourceArgs;
 import com.pulumi.aws.amp.inputs.ScraperTimeoutsArgs;
 import com.pulumi.core.Output;
@@ -48,6 +49,21 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ScraperDestinationArgs>> destination() {
         return Optional.ofNullable(this.destination);
+    }
+
+    /**
+     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+     * 
+     */
+    @Import(name="roleConfiguration")
+    private @Nullable Output<ScraperRoleConfigurationArgs> roleConfiguration;
+
+    /**
+     * @return Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+     * 
+     */
+    public Optional<Output<ScraperRoleConfigurationArgs>> roleConfiguration() {
+        return Optional.ofNullable(this.roleConfiguration);
     }
 
     /**
@@ -103,6 +119,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
     private ScraperArgs(ScraperArgs $) {
         this.alias = $.alias;
         this.destination = $.destination;
+        this.roleConfiguration = $.roleConfiguration;
         this.scrapeConfiguration = $.scrapeConfiguration;
         this.source = $.source;
         this.tags = $.tags;
@@ -167,6 +184,27 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder destination(ScraperDestinationArgs destination) {
             return destination(Output.of(destination));
+        }
+
+        /**
+         * @param roleConfiguration Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleConfiguration(@Nullable Output<ScraperRoleConfigurationArgs> roleConfiguration) {
+            $.roleConfiguration = roleConfiguration;
+            return this;
+        }
+
+        /**
+         * @param roleConfiguration Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleConfiguration(ScraperRoleConfigurationArgs roleConfiguration) {
+            return roleConfiguration(Output.of(roleConfiguration));
         }
 
         /**

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
     public sealed class TableBucketMaintenanceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A single Iceberg unreferenced file removal settings block.
+        /// A single Iceberg unreferenced file removal settings object.
         /// See `iceberg_unreferenced_file_removal` below.
         /// </summary>
         [Input("icebergUnreferencedFileRemoval", required: true)]

@@ -36,7 +36,7 @@ class TableArgs:
         :param pulumi.Input[str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
                
                The following argument is optional:
-        :param pulumi.Input['TableMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration block.
+        :param pulumi.Input['TableMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[str] name: Name of the table.
                Must be between 1 and 255 characters in length.
@@ -96,7 +96,7 @@ class TableArgs:
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> Optional[pulumi.Input['TableMaintenanceConfigurationArgs']]:
         """
-        A single table bucket maintenance configuration block.
+        A single table bucket maintenance configuration object.
         See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
@@ -146,7 +146,7 @@ class _TableState:
         :param pulumi.Input[str] created_by: Account ID of the account that created the namespace.
         :param pulumi.Input[str] format: Format of the table.
                Must be `ICEBERG`.
-        :param pulumi.Input['TableMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration block.
+        :param pulumi.Input['TableMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[str] metadata_location: Location of table metadata.
         :param pulumi.Input[str] modified_at: Date and time when the namespace was last modified.
@@ -251,7 +251,7 @@ class _TableState:
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> Optional[pulumi.Input['TableMaintenanceConfigurationArgs']]:
         """
-        A single table bucket maintenance configuration block.
+        A single table bucket maintenance configuration object.
         See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
@@ -434,7 +434,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] format: Format of the table.
                Must be `ICEBERG`.
-        :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration block.
+        :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[str] name: Name of the table.
                Must be between 1 and 255 characters in length.
@@ -570,7 +570,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] created_by: Account ID of the account that created the namespace.
         :param pulumi.Input[str] format: Format of the table.
                Must be `ICEBERG`.
-        :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration block.
+        :param pulumi.Input[Union['TableMaintenanceConfigurationArgs', 'TableMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[str] metadata_location: Location of table metadata.
         :param pulumi.Input[str] modified_at: Date and time when the namespace was last modified.
@@ -649,7 +649,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> pulumi.Output['outputs.TableMaintenanceConfiguration']:
         """
-        A single table bucket maintenance configuration block.
+        A single table bucket maintenance configuration object.
         See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")

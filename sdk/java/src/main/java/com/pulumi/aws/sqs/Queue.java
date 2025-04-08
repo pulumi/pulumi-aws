@@ -22,8 +22,6 @@ import javax.annotation.Nullable;
  * 
  * !&gt; AWS will hang indefinitely, leading to a `timeout while waiting` error, when creating or updating an `aws.sqs.Queue` with an associated `aws.sqs.QueuePolicy` if `Version = &#34;2012-10-17&#34;` is not explicitly set in the policy.
  * 
- * !&gt; AWS will hang indefinitely and trigger a `timeout while waiting` error when creating or updating an `aws.sqs.Queue` if `kms_data_key_reuse_period_seconds` is set to a non-default value, `sqs_managed_sse_enabled` is `false` (explicitly or by default), and `kms_master_key_id` is not set.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -455,17 +453,9 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
@@ -483,31 +473,15 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> receiveWaitTimeSeconds() {
         return Codegen.optional(this.receiveWaitTimeSeconds);
     }
-    /**
-     * JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
-     * 
-     */
     @Export(name="redriveAllowPolicy", refs={String.class}, tree="[0]")
     private Output<String> redriveAllowPolicy;
 
-    /**
-     * @return JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
-     * 
-     */
     public Output<String> redriveAllowPolicy() {
         return this.redriveAllowPolicy;
     }
-    /**
-     * JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`&#34;5&#34;`).
-     * 
-     */
     @Export(name="redrivePolicy", refs={String.class}, tree="[0]")
     private Output<String> redrivePolicy;
 
-    /**
-     * @return JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`&#34;5&#34;`).
-     * 
-     */
     public Output<String> redrivePolicy() {
         return this.redrivePolicy;
     }

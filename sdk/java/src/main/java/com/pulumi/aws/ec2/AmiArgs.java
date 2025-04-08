@@ -21,14 +21,14 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
     public static final AmiArgs Empty = new AmiArgs();
 
     /**
-     * Machine architecture for created instances. Defaults to &#34;x86_64&#34;.
+     * Machine architecture for created instances. Defaults to `x86_64`.
      * 
      */
     @Import(name="architecture")
     private @Nullable Output<String> architecture;
 
     /**
-     * @return Machine architecture for created instances. Defaults to &#34;x86_64&#34;.
+     * @return Machine architecture for created instances. Defaults to `x86_64`.
      * 
      */
     public Optional<Output<String>> architecture() {
@@ -308,7 +308,7 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param architecture Machine architecture for created instances. Defaults to &#34;x86_64&#34;.
+         * @param architecture Machine architecture for created instances. Defaults to `x86_64`.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param architecture Machine architecture for created instances. Defaults to &#34;x86_64&#34;.
+         * @param architecture Machine architecture for created instances. Defaults to `x86_64`.
          * 
          * @return builder
          * 

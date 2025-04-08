@@ -242,6 +242,8 @@ type Job struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
+	// The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+	SourceControlDetails JobSourceControlDetailsPtrOutput `pulumi:"sourceControlDetails"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -333,6 +335,8 @@ type jobState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
+	// The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+	SourceControlDetails *JobSourceControlDetails `pulumi:"sourceControlDetails"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -389,6 +393,8 @@ type JobState struct {
 	RoleArn pulumi.StringPtrInput
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrInput
+	// The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+	SourceControlDetails JobSourceControlDetailsPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -447,6 +453,8 @@ type jobArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
+	// The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+	SourceControlDetails *JobSourceControlDetails `pulumi:"sourceControlDetails"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
@@ -498,6 +506,8 @@ type JobArgs struct {
 	RoleArn pulumi.StringInput
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrInput
+	// The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+	SourceControlDetails JobSourceControlDetailsPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
@@ -688,6 +698,11 @@ func (o JobOutput) RoleArn() pulumi.StringOutput {
 // The name of the Security Configuration to be associated with the job.
 func (o JobOutput) SecurityConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.SecurityConfiguration }).(pulumi.StringPtrOutput)
+}
+
+// The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+func (o JobOutput) SourceControlDetails() JobSourceControlDetailsPtrOutput {
+	return o.ApplyT(func(v *Job) JobSourceControlDetailsPtrOutput { return v.SourceControlDetails }).(JobSourceControlDetailsPtrOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

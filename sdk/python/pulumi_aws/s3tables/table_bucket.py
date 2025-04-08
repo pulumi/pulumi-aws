@@ -25,7 +25,7 @@ class TableBucketArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TableBucket resource.
-        :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration block.
+        :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[str] name: Name of the table bucket.
                Must be between 3 and 63 characters in length.
@@ -43,7 +43,7 @@ class TableBucketArgs:
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> Optional[pulumi.Input['TableBucketMaintenanceConfigurationArgs']]:
         """
-        A single table bucket maintenance configuration block.
+        A single table bucket maintenance configuration object.
         See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
@@ -82,7 +82,7 @@ class _TableBucketState:
         Input properties used for looking up and filtering TableBucket resources.
         :param pulumi.Input[str] arn: ARN of the table bucket.
         :param pulumi.Input[str] created_at: Date and time when the bucket was created.
-        :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration block.
+        :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[str] name: Name of the table bucket.
                Must be between 3 and 63 characters in length.
@@ -131,7 +131,7 @@ class _TableBucketState:
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> Optional[pulumi.Input['TableBucketMaintenanceConfigurationArgs']]:
         """
-        A single table bucket maintenance configuration block.
+        A single table bucket maintenance configuration object.
         See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
@@ -202,7 +202,7 @@ class TableBucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration block.
+        :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[str] name: Name of the table bucket.
                Must be between 3 and 63 characters in length.
@@ -294,7 +294,7 @@ class TableBucket(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the table bucket.
         :param pulumi.Input[str] created_at: Date and time when the bucket was created.
-        :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration block.
+        :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
                See `maintenance_configuration` below.
         :param pulumi.Input[str] name: Name of the table bucket.
                Must be between 3 and 63 characters in length.
@@ -335,7 +335,7 @@ class TableBucket(pulumi.CustomResource):
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> pulumi.Output['outputs.TableBucketMaintenanceConfiguration']:
         """
-        A single table bucket maintenance configuration block.
+        A single table bucket maintenance configuration object.
         See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")

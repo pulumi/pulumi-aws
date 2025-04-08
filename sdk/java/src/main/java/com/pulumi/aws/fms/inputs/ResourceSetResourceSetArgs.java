@@ -78,14 +78,14 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can&#39;t edit or delete the resource set.)
+     * Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
      * 
      */
     @Import(name="resourceSetStatus")
     private @Nullable Output<String> resourceSetStatus;
 
     /**
-     * @return Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can&#39;t edit or delete the resource set.)
+     * @return Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
      * 
      */
     public Optional<Output<String>> resourceSetStatus() {
@@ -229,7 +229,7 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceSetStatus Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can&#39;t edit or delete the resource set.)
+         * @param resourceSetStatus Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceSetStatus Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can&#39;t edit or delete the resource set.)
+         * @param resourceSetStatus Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
          * 
          * @return builder
          * 

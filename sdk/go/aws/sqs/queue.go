@@ -15,8 +15,6 @@ import (
 //
 // !> AWS will hang indefinitely, leading to a `timeout while waiting` error, when creating or updating an `sqs.Queue` with an associated `sqs.QueuePolicy` if `Version = "2012-10-17"` is not explicitly set in the policy.
 //
-// !> AWS will hang indefinitely and trigger a `timeout while waiting` error when creating or updating an `sqs.Queue` if `kmsDataKeyReusePeriodSeconds` is set to a non-default value, `sqsManagedSseEnabled` is `false` (explicitly or by default), and `kmsMasterKeyId` is not set.
-//
 // ## Example Usage
 //
 // ```go
@@ -269,14 +267,11 @@ type Queue struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy     pulumi.StringOutput `pulumi:"policy"`
 	// Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
 	ReceiveWaitTimeSeconds pulumi.IntPtrOutput `pulumi:"receiveWaitTimeSeconds"`
-	// JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
-	RedriveAllowPolicy pulumi.StringOutput `pulumi:"redriveAllowPolicy"`
-	// JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-	RedrivePolicy pulumi.StringOutput `pulumi:"redrivePolicy"`
+	RedriveAllowPolicy     pulumi.StringOutput `pulumi:"redriveAllowPolicy"`
+	RedrivePolicy          pulumi.StringOutput `pulumi:"redrivePolicy"`
 	// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
 	SqsManagedSseEnabled pulumi.BoolOutput `pulumi:"sqsManagedSseEnabled"`
 	// Map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -345,14 +340,11 @@ type queueState struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
-	Policy *string `pulumi:"policy"`
+	Policy     *string `pulumi:"policy"`
 	// Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
-	ReceiveWaitTimeSeconds *int `pulumi:"receiveWaitTimeSeconds"`
-	// JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
-	RedriveAllowPolicy *string `pulumi:"redriveAllowPolicy"`
-	// JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-	RedrivePolicy *string `pulumi:"redrivePolicy"`
+	ReceiveWaitTimeSeconds *int    `pulumi:"receiveWaitTimeSeconds"`
+	RedriveAllowPolicy     *string `pulumi:"redriveAllowPolicy"`
+	RedrivePolicy          *string `pulumi:"redrivePolicy"`
 	// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
 	SqsManagedSseEnabled *bool `pulumi:"sqsManagedSseEnabled"`
 	// Map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -392,14 +384,11 @@ type QueueState struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
-	Policy pulumi.StringPtrInput
+	Policy     pulumi.StringPtrInput
 	// Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
 	ReceiveWaitTimeSeconds pulumi.IntPtrInput
-	// JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
-	RedriveAllowPolicy pulumi.StringPtrInput
-	// JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-	RedrivePolicy pulumi.StringPtrInput
+	RedriveAllowPolicy     pulumi.StringPtrInput
+	RedrivePolicy          pulumi.StringPtrInput
 	// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
 	SqsManagedSseEnabled pulumi.BoolPtrInput
 	// Map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -441,14 +430,11 @@ type queueArgs struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
-	Policy *string `pulumi:"policy"`
+	Policy     *string `pulumi:"policy"`
 	// Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
-	ReceiveWaitTimeSeconds *int `pulumi:"receiveWaitTimeSeconds"`
-	// JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
-	RedriveAllowPolicy *string `pulumi:"redriveAllowPolicy"`
-	// JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-	RedrivePolicy *string `pulumi:"redrivePolicy"`
+	ReceiveWaitTimeSeconds *int    `pulumi:"receiveWaitTimeSeconds"`
+	RedriveAllowPolicy     *string `pulumi:"redriveAllowPolicy"`
+	RedrivePolicy          *string `pulumi:"redrivePolicy"`
 	// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
 	SqsManagedSseEnabled *bool `pulumi:"sqsManagedSseEnabled"`
 	// Map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -481,14 +467,11 @@ type QueueArgs struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
-	Policy pulumi.StringPtrInput
+	Policy     pulumi.StringPtrInput
 	// Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
 	ReceiveWaitTimeSeconds pulumi.IntPtrInput
-	// JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
-	RedriveAllowPolicy pulumi.StringPtrInput
-	// JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-	RedrivePolicy pulumi.StringPtrInput
+	RedriveAllowPolicy     pulumi.StringPtrInput
+	RedrivePolicy          pulumi.StringPtrInput
 	// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
 	SqsManagedSseEnabled pulumi.BoolPtrInput
 	// Map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -644,7 +627,6 @@ func (o QueueOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
 func (o QueueOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
@@ -654,12 +636,10 @@ func (o QueueOutput) ReceiveWaitTimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.ReceiveWaitTimeSeconds }).(pulumi.IntPtrOutput)
 }
 
-// JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
 func (o QueueOutput) RedriveAllowPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.RedriveAllowPolicy }).(pulumi.StringOutput)
 }
 
-// JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
 func (o QueueOutput) RedrivePolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.RedrivePolicy }).(pulumi.StringOutput)
 }

@@ -61,6 +61,7 @@ __all__ = [
     'JobCommand',
     'JobExecutionProperty',
     'JobNotificationProperty',
+    'JobSourceControlDetails',
     'MLTransformInputRecordTable',
     'MLTransformParameters',
     'MLTransformParametersFindMatchesParameters',
@@ -2839,6 +2840,130 @@ class JobNotificationProperty(dict):
         After a job run starts, the number of minutes to wait before sending a job run delay notification.
         """
         return pulumi.get(self, "notify_delay_after")
+
+
+@pulumi.output_type
+class JobSourceControlDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authStrategy":
+            suggest = "auth_strategy"
+        elif key == "authToken":
+            suggest = "auth_token"
+        elif key == "lastCommitId":
+            suggest = "last_commit_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobSourceControlDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobSourceControlDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobSourceControlDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_strategy: Optional[str] = None,
+                 auth_token: Optional[str] = None,
+                 branch: Optional[str] = None,
+                 folder: Optional[str] = None,
+                 last_commit_id: Optional[str] = None,
+                 owner: Optional[str] = None,
+                 provider: Optional[str] = None,
+                 repository: Optional[str] = None):
+        """
+        :param str auth_strategy: The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+        :param str auth_token: The value of an authorization token.
+        :param str branch: A branch in the remote repository.
+        :param str folder: A folder in the remote repository.
+        :param str last_commit_id: The last commit ID for a commit in the remote repository.
+        :param str owner: The owner of the remote repository that contains the job artifacts.
+        :param str provider: The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+        :param str repository: The name of the remote repository that contains the job artifacts.
+        """
+        if auth_strategy is not None:
+            pulumi.set(__self__, "auth_strategy", auth_strategy)
+        if auth_token is not None:
+            pulumi.set(__self__, "auth_token", auth_token)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if last_commit_id is not None:
+            pulumi.set(__self__, "last_commit_id", last_commit_id)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+
+    @property
+    @pulumi.getter(name="authStrategy")
+    def auth_strategy(self) -> Optional[str]:
+        """
+        The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+        """
+        return pulumi.get(self, "auth_strategy")
+
+    @property
+    @pulumi.getter(name="authToken")
+    def auth_token(self) -> Optional[str]:
+        """
+        The value of an authorization token.
+        """
+        return pulumi.get(self, "auth_token")
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        """
+        A branch in the remote repository.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional[str]:
+        """
+        A folder in the remote repository.
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter(name="lastCommitId")
+    def last_commit_id(self) -> Optional[str]:
+        """
+        The last commit ID for a commit in the remote repository.
+        """
+        return pulumi.get(self, "last_commit_id")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        """
+        The owner of the remote repository that contains the job artifacts.
+        """
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def provider(self) -> Optional[str]:
+        """
+        The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+        """
+        return pulumi.get(self, "provider")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[str]:
+        """
+        The name of the remote repository that contains the job artifacts.
+        """
+        return pulumi.get(self, "repository")
 
 
 @pulumi.output_type

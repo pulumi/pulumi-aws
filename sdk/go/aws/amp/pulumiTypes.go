@@ -287,6 +287,162 @@ func (o ScraperDestinationAmpPtrOutput) WorkspaceArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ScraperRoleConfiguration struct {
+	// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+	SourceRoleArn *string `pulumi:"sourceRoleArn"`
+	// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+	TargetRoleArn *string `pulumi:"targetRoleArn"`
+}
+
+// ScraperRoleConfigurationInput is an input type that accepts ScraperRoleConfigurationArgs and ScraperRoleConfigurationOutput values.
+// You can construct a concrete instance of `ScraperRoleConfigurationInput` via:
+//
+//	ScraperRoleConfigurationArgs{...}
+type ScraperRoleConfigurationInput interface {
+	pulumi.Input
+
+	ToScraperRoleConfigurationOutput() ScraperRoleConfigurationOutput
+	ToScraperRoleConfigurationOutputWithContext(context.Context) ScraperRoleConfigurationOutput
+}
+
+type ScraperRoleConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+	SourceRoleArn pulumi.StringPtrInput `pulumi:"sourceRoleArn"`
+	// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+	TargetRoleArn pulumi.StringPtrInput `pulumi:"targetRoleArn"`
+}
+
+func (ScraperRoleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperRoleConfiguration)(nil)).Elem()
+}
+
+func (i ScraperRoleConfigurationArgs) ToScraperRoleConfigurationOutput() ScraperRoleConfigurationOutput {
+	return i.ToScraperRoleConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScraperRoleConfigurationArgs) ToScraperRoleConfigurationOutputWithContext(ctx context.Context) ScraperRoleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperRoleConfigurationOutput)
+}
+
+func (i ScraperRoleConfigurationArgs) ToScraperRoleConfigurationPtrOutput() ScraperRoleConfigurationPtrOutput {
+	return i.ToScraperRoleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperRoleConfigurationArgs) ToScraperRoleConfigurationPtrOutputWithContext(ctx context.Context) ScraperRoleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperRoleConfigurationOutput).ToScraperRoleConfigurationPtrOutputWithContext(ctx)
+}
+
+// ScraperRoleConfigurationPtrInput is an input type that accepts ScraperRoleConfigurationArgs, ScraperRoleConfigurationPtr and ScraperRoleConfigurationPtrOutput values.
+// You can construct a concrete instance of `ScraperRoleConfigurationPtrInput` via:
+//
+//	        ScraperRoleConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperRoleConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToScraperRoleConfigurationPtrOutput() ScraperRoleConfigurationPtrOutput
+	ToScraperRoleConfigurationPtrOutputWithContext(context.Context) ScraperRoleConfigurationPtrOutput
+}
+
+type scraperRoleConfigurationPtrType ScraperRoleConfigurationArgs
+
+func ScraperRoleConfigurationPtr(v *ScraperRoleConfigurationArgs) ScraperRoleConfigurationPtrInput {
+	return (*scraperRoleConfigurationPtrType)(v)
+}
+
+func (*scraperRoleConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperRoleConfiguration)(nil)).Elem()
+}
+
+func (i *scraperRoleConfigurationPtrType) ToScraperRoleConfigurationPtrOutput() ScraperRoleConfigurationPtrOutput {
+	return i.ToScraperRoleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperRoleConfigurationPtrType) ToScraperRoleConfigurationPtrOutputWithContext(ctx context.Context) ScraperRoleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperRoleConfigurationPtrOutput)
+}
+
+type ScraperRoleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScraperRoleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperRoleConfiguration)(nil)).Elem()
+}
+
+func (o ScraperRoleConfigurationOutput) ToScraperRoleConfigurationOutput() ScraperRoleConfigurationOutput {
+	return o
+}
+
+func (o ScraperRoleConfigurationOutput) ToScraperRoleConfigurationOutputWithContext(ctx context.Context) ScraperRoleConfigurationOutput {
+	return o
+}
+
+func (o ScraperRoleConfigurationOutput) ToScraperRoleConfigurationPtrOutput() ScraperRoleConfigurationPtrOutput {
+	return o.ToScraperRoleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperRoleConfigurationOutput) ToScraperRoleConfigurationPtrOutputWithContext(ctx context.Context) ScraperRoleConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperRoleConfiguration) *ScraperRoleConfiguration {
+		return &v
+	}).(ScraperRoleConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+func (o ScraperRoleConfigurationOutput) SourceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScraperRoleConfiguration) *string { return v.SourceRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+func (o ScraperRoleConfigurationOutput) TargetRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScraperRoleConfiguration) *string { return v.TargetRoleArn }).(pulumi.StringPtrOutput)
+}
+
+type ScraperRoleConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperRoleConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperRoleConfiguration)(nil)).Elem()
+}
+
+func (o ScraperRoleConfigurationPtrOutput) ToScraperRoleConfigurationPtrOutput() ScraperRoleConfigurationPtrOutput {
+	return o
+}
+
+func (o ScraperRoleConfigurationPtrOutput) ToScraperRoleConfigurationPtrOutputWithContext(ctx context.Context) ScraperRoleConfigurationPtrOutput {
+	return o
+}
+
+func (o ScraperRoleConfigurationPtrOutput) Elem() ScraperRoleConfigurationOutput {
+	return o.ApplyT(func(v *ScraperRoleConfiguration) ScraperRoleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperRoleConfiguration
+		return ret
+	}).(ScraperRoleConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+func (o ScraperRoleConfigurationPtrOutput) SourceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperRoleConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+func (o ScraperRoleConfigurationPtrOutput) TargetRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperRoleConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ScraperSource struct {
 	// Configuration block for an EKS cluster source. See `eks`.
 	Eks *ScraperSourceEks `pulumi:"eks"`
@@ -893,6 +1049,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationPtrInput)(nil)).Elem(), ScraperDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpInput)(nil)).Elem(), ScraperDestinationAmpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpPtrInput)(nil)).Elem(), ScraperDestinationAmpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperRoleConfigurationInput)(nil)).Elem(), ScraperRoleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperRoleConfigurationPtrInput)(nil)).Elem(), ScraperRoleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceInput)(nil)).Elem(), ScraperSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourcePtrInput)(nil)).Elem(), ScraperSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceEksInput)(nil)).Elem(), ScraperSourceEksArgs{})
@@ -905,6 +1063,8 @@ func init() {
 	pulumi.RegisterOutputType(ScraperDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpPtrOutput{})
+	pulumi.RegisterOutputType(ScraperRoleConfigurationOutput{})
+	pulumi.RegisterOutputType(ScraperRoleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperSourceOutput{})
 	pulumi.RegisterOutputType(ScraperSourcePtrOutput{})
 	pulumi.RegisterOutputType(ScraperSourceEksOutput{})

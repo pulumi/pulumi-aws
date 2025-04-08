@@ -16,7 +16,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
     public static final TableMaintenanceConfigurationIcebergSnapshotManagementArgs Empty = new TableMaintenanceConfigurationIcebergSnapshotManagementArgs();
 
     /**
-     * Settings for snapshot management.
+     * Settings object for snapshot management.
      * See `iceberg_snapshot_management.settings` below.
      * 
      */
@@ -24,7 +24,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
     private Output<TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs> settings;
 
     /**
-     * @return Settings for snapshot management.
+     * @return Settings object for snapshot management.
      * See `iceberg_snapshot_management.settings` below.
      * 
      */
@@ -75,7 +75,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
         }
 
         /**
-         * @param settings Settings for snapshot management.
+         * @param settings Settings object for snapshot management.
          * See `iceberg_snapshot_management.settings` below.
          * 
          * @return builder
@@ -87,7 +87,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
         }
 
         /**
-         * @param settings Settings for snapshot management.
+         * @param settings Settings object for snapshot management.
          * See `iceberg_snapshot_management.settings` below.
          * 
          * @return builder

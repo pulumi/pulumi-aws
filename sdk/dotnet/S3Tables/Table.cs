@@ -83,7 +83,7 @@ namespace Pulumi.Aws.S3Tables
         public Output<string> Format { get; private set; } = null!;
 
         /// <summary>
-        /// A single table bucket maintenance configuration block.
+        /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
         [Output("maintenanceConfiguration")]
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.S3Tables
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
-        /// A single table bucket maintenance configuration block.
+        /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
         [Input("maintenanceConfiguration")]
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.S3Tables
         public Input<string>? Format { get; set; }
 
         /// <summary>
-        /// A single table bucket maintenance configuration block.
+        /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
         [Input("maintenanceConfiguration")]

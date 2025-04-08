@@ -18,6 +18,7 @@ from . import outputs
 __all__ = [
     'ScraperDestination',
     'ScraperDestinationAmp',
+    'ScraperRoleConfiguration',
     'ScraperSource',
     'ScraperSourceEks',
     'ScraperTimeouts',
@@ -76,6 +77,56 @@ class ScraperDestinationAmp(dict):
         The Amazon Resource Name (ARN) of the prometheus workspace.
         """
         return pulumi.get(self, "workspace_arn")
+
+
+@pulumi.output_type
+class ScraperRoleConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceRoleArn":
+            suggest = "source_role_arn"
+        elif key == "targetRoleArn":
+            suggest = "target_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScraperRoleConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScraperRoleConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScraperRoleConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_role_arn: Optional[str] = None,
+                 target_role_arn: Optional[str] = None):
+        """
+        :param str source_role_arn: The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+        :param str target_role_arn: The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+        """
+        if source_role_arn is not None:
+            pulumi.set(__self__, "source_role_arn", source_role_arn)
+        if target_role_arn is not None:
+            pulumi.set(__self__, "target_role_arn", target_role_arn)
+
+    @property
+    @pulumi.getter(name="sourceRoleArn")
+    def source_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+        """
+        return pulumi.get(self, "source_role_arn")
+
+    @property
+    @pulumi.getter(name="targetRoleArn")
+    def target_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+        """
+        return pulumi.get(self, "target_role_arn")
 
 
 @pulumi.output_type

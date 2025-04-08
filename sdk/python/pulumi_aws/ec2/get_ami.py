@@ -28,7 +28,7 @@ class GetAmiResult:
     """
     A collection of values returned by getAmi.
     """
-    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, imds_support=None, include_deprecated=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, uefi_data=None, usage_operation=None, virtualization_type=None):
+    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, imds_support=None, include_deprecated=None, kernel_id=None, last_launched_time=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, uefi_data=None, usage_operation=None, virtualization_type=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -86,6 +86,9 @@ class GetAmiResult:
         if kernel_id and not isinstance(kernel_id, str):
             raise TypeError("Expected argument 'kernel_id' to be a str")
         pulumi.set(__self__, "kernel_id", kernel_id)
+        if last_launched_time and not isinstance(last_launched_time, str):
+            raise TypeError("Expected argument 'last_launched_time' to be a str")
+        pulumi.set(__self__, "last_launched_time", last_launched_time)
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         pulumi.set(__self__, "most_recent", most_recent)
@@ -297,6 +300,14 @@ class GetAmiResult:
         return pulumi.get(self, "kernel_id")
 
     @property
+    @pulumi.getter(name="lastLaunchedTime")
+    def last_launched_time(self) -> str:
+        """
+        Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+        """
+        return pulumi.get(self, "last_launched_time")
+
+    @property
     @pulumi.getter(name="mostRecent")
     def most_recent(self) -> Optional[bool]:
         return pulumi.get(self, "most_recent")
@@ -489,6 +500,7 @@ class AwaitableGetAmiResult(GetAmiResult):
             imds_support=self.imds_support,
             include_deprecated=self.include_deprecated,
             kernel_id=self.kernel_id,
+            last_launched_time=self.last_launched_time,
             most_recent=self.most_recent,
             name=self.name,
             name_regex=self.name_regex,
@@ -608,6 +620,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
         imds_support=pulumi.get(__ret__, 'imds_support'),
         include_deprecated=pulumi.get(__ret__, 'include_deprecated'),
         kernel_id=pulumi.get(__ret__, 'kernel_id'),
+        last_launched_time=pulumi.get(__ret__, 'last_launched_time'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
         name=pulumi.get(__ret__, 'name'),
         name_regex=pulumi.get(__ret__, 'name_regex'),
@@ -724,6 +737,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
         imds_support=pulumi.get(__response__, 'imds_support'),
         include_deprecated=pulumi.get(__response__, 'include_deprecated'),
         kernel_id=pulumi.get(__response__, 'kernel_id'),
+        last_launched_time=pulumi.get(__response__, 'last_launched_time'),
         most_recent=pulumi.get(__response__, 'most_recent'),
         name=pulumi.get(__response__, 'name'),
         name_regex=pulumi.get(__response__, 'name_regex'),
