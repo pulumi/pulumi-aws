@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// <summary>
     /// Manages an EC2 Transit Gateway Prefix List Reference.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Attachment Routing
     /// 
     /// ```csharp

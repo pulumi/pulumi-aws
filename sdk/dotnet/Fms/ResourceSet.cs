@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Fms
     /// <summary>
     /// Resource for managing an AWS FMS (Firewall Manager) Resource Set.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

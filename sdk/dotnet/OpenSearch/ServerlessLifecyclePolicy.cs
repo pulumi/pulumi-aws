@@ -12,8 +12,6 @@ namespace Pulumi.Aws.OpenSearch
     /// <summary>
     /// Resource for managing an AWS OpenSearch Serverless Lifecycle Policy. See AWS documentation for [lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html).
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

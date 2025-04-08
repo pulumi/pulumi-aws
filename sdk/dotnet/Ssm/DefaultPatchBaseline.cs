@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Resource for registering an AWS Systems Manager Default Patch Baseline.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

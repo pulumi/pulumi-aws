@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Associates an SSM Document to an instance or EC2 tag.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Create an association for a specific instance
     /// 
     /// ```csharp

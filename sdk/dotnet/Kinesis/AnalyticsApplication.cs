@@ -17,8 +17,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// &gt; **Note:** To manage Amazon Kinesis Data Analytics for Apache Flink applications, use the `aws.kinesisanalyticsv2.Application` resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Kinesis Stream Input
     /// 
     /// ```csharp

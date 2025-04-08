@@ -17,8 +17,6 @@ namespace Pulumi.Aws.AutoScalingPlans
     /// An `aws.iam.ServiceLinkedRole` resource can be used to manually manage this role.
     /// See the [AWS documentation](https://docs.aws.amazon.com/autoscaling/plans/userguide/aws-auto-scaling-service-linked-roles.html#create-service-linked-role-manual) for more details.
     /// 
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For example:

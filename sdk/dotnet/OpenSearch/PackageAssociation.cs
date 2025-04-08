@@ -12,8 +12,6 @@ namespace Pulumi.Aws.OpenSearch
     /// <summary>
     /// Manages an AWS Opensearch Package Association.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

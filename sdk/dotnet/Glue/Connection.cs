@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Provides a Glue Connection resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Non-VPC Connection
     /// 
     /// ```csharp

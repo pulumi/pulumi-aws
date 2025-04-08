@@ -12,8 +12,6 @@ namespace Pulumi.Aws.SecurityHub
     /// <summary>
     /// Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### All Regions Usage
     /// 
     /// The following example will enable the aggregator for every region.

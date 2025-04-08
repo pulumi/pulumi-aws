@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Alias Name
     /// 
     /// ```csharp

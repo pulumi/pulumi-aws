@@ -17,8 +17,6 @@ namespace Pulumi.Aws.IdentityStore
     /// so your identity source does not automatically update with the changes that you make to
     /// users using this resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

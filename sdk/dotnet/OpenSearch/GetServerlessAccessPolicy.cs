@@ -14,8 +14,6 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless Access Policy.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -41,8 +39,6 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless Access Policy.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -67,8 +63,6 @@ namespace Pulumi.Aws.OpenSearch
 
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless Access Policy.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Rekognition
     /// 
     /// &gt; Stream Processors configured for Face Recognition cannot have _any_ properties updated after the fact, and it will result in an AWS API error.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Label Detection
     /// 
     /// ```csharp

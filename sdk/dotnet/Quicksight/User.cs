@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Quicksight
     /// <summary>
     /// Resource for managing QuickSight User
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Create User With IAM Identity Type Using an IAM Role
     /// 
     /// ```csharp

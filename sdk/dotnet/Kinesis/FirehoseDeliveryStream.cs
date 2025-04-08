@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Extended S3 Destination
     /// 
     /// ```csharp

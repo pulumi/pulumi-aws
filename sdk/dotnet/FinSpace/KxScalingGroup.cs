@@ -12,8 +12,6 @@ namespace Pulumi.Aws.FinSpace
     /// <summary>
     /// Resource for managing an AWS FinSpace Kx Scaling Group.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

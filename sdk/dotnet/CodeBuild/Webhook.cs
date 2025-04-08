@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CodeBuild
     /// <summary>
     /// Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Bitbucket and GitHub
     /// 
     /// When working with [Bitbucket](https://bitbucket.org) and [GitHub](https://github.com) source CodeBuild webhooks, the CodeBuild service will automatically create (on `aws.codebuild.Webhook` resource creation) and delete (on `aws.codebuild.Webhook` resource deletion) the Bitbucket/GitHub repository webhook using its granted OAuth permissions. This behavior cannot be controlled by this provider.
@@ -57,6 +55,13 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// });
     /// ```
+    /// 
+    /// ### GitHub Enterprise
+    /// 
+    /// When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `github_repository_webhook` resource).
+    /// 
+    /// More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
+    /// 
     /// 
     /// ## Import
     /// 

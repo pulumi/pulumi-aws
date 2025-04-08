@@ -14,8 +14,6 @@ namespace Pulumi.Aws.LB
         /// <summary>
         /// Provides information about an AWS Elastic Load Balancing Listener Rule.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Match by Rule ARN
         /// 
         /// ```csharp
@@ -64,8 +62,6 @@ namespace Pulumi.Aws.LB
         /// <summary>
         /// Provides information about an AWS Elastic Load Balancing Listener Rule.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Match by Rule ARN
         /// 
         /// ```csharp
@@ -113,8 +109,6 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// Provides information about an AWS Elastic Load Balancing Listener Rule.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Match by Rule ARN
         /// 

@@ -15,8 +15,6 @@ namespace Pulumi.Aws.LB
         /// Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
         /// resources.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -45,8 +43,6 @@ namespace Pulumi.Aws.LB
         /// Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
         /// resources.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -74,8 +70,6 @@ namespace Pulumi.Aws.LB
         /// <summary>
         /// Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
         /// resources.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

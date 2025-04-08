@@ -13,8 +13,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// Resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration.
     /// Consult the [Call analytics developer guide](https://docs.aws.amazon.com/chime-sdk/latest/dg/call-analytics.html) for more detailed information about usage.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

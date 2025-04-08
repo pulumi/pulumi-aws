@@ -14,8 +14,6 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Multiple AWS Buckets in Different Regions
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.OpenSearch
     /// <summary>
     /// Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Grant all collection and index permissions
     /// 
     /// ```csharp

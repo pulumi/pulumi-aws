@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Resource for managing an AWS CloudWatch Logs Delivery Source.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Transcribe
     /// <summary>
     /// Resource for managing an AWS Transcribe VocabularyFilter.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

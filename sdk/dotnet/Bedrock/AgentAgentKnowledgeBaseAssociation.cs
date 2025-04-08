@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Bedrock
     /// <summary>
     /// Resource for managing an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

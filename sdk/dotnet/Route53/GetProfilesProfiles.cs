@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// Data source for managing an AWS Route 53 Profiles.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -37,8 +35,6 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// Data source for managing an AWS Route 53 Profiles.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -59,8 +55,6 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Data source for managing an AWS Route 53 Profiles.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

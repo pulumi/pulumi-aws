@@ -14,8 +14,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
     /// 
     /// ```csharp

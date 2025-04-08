@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Cognito
     /// To manage a User Pool Client created by another service, such as when [configuring an OpenSearch Domain to use Cognito authentication](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html),
     /// use the `aws.cognito.ManagedUserPoolClient` resource instead.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Create a basic user pool client
     /// 
     /// ```csharp

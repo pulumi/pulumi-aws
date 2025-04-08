@@ -12,8 +12,6 @@ namespace Pulumi.Aws.SsmContacts
     /// <summary>
     /// Resource for managing an AWS SSM Contacts Contact Channel.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

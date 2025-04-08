@@ -12,8 +12,6 @@ namespace Pulumi.Aws.ResourceGroups
     /// <summary>
     /// Resource for managing an AWS Resource Groups Resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

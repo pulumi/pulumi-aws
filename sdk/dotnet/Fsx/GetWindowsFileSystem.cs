@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx Windows File System.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Root volume Example
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx Windows File System.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Root volume Example
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Retrieve information on FSx Windows File System.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Root volume Example
         /// 

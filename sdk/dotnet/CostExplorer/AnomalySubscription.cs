@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CostExplorer
     /// <summary>
     /// Provides a CE Anomaly Subscription.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Example
     /// 
     /// ```csharp
@@ -66,8 +64,6 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// });
     /// ```
-    /// 
-    /// ### Threshold Expression Example
     /// 
     /// ### Using a Percentage Threshold
     /// 

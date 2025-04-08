@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Drs
     /// 
     /// &gt; **NOTE:** Your configuration must use the PIT policy shown in the basic configuration due to AWS rules. The only value that you can change is the `retention_duration` of `rule_id` 3.
     /// 
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DRS Replication Configuration Template using the `id`. For example:

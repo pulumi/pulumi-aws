@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Shield
     /// 
     /// Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Create an association between a protected EIP and a Route53 Health Check
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Resource for managing an AWS SSM Quick Setup Configuration Manager.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Patch Policy Configuration Type
     /// 
     /// ```csharp

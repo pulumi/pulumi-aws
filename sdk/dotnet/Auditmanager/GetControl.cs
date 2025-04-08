@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Auditmanager
         /// <summary>
         /// Data source for managing an AWS Audit Manager Control.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -96,8 +94,6 @@ namespace Pulumi.Aws.Auditmanager
         /// <summary>
         /// Data source for managing an AWS Audit Manager Control.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -177,8 +173,6 @@ namespace Pulumi.Aws.Auditmanager
 
         /// <summary>
         /// Data source for managing an AWS Audit Manager Control.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

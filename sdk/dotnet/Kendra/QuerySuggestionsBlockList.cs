@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Kendra
     /// <summary>
     /// Use the `aws_kendra_index_block_list` resource to manage an AWS Kendra block list used for query suggestions for an index.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

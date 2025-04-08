@@ -12,8 +12,6 @@ namespace Pulumi.Aws.SecurityHub
     /// <summary>
     /// Provides a Security Hub custom insight resource. See the [Managing custom insights section](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-insights.html) of the AWS User Guide for more information.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Filter by AWS account ID
     /// 
     /// ```csharp

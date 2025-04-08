@@ -12,8 +12,6 @@ namespace Pulumi.Aws.AppMesh
     /// <summary>
     /// Provides an AWS App Mesh route resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### HTTP Routing
     /// 
     /// ```csharp

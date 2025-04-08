@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Generate Python Script
         /// 
         /// ```csharp
@@ -288,8 +286,6 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Generate Python Script
         /// 
         /// ```csharp
@@ -561,8 +557,6 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Generate Python Script
         /// 

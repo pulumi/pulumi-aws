@@ -12,8 +12,6 @@ namespace Pulumi.Aws.VerifiedAccess
     /// <summary>
     /// Resource for managing a Verified Access Group.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

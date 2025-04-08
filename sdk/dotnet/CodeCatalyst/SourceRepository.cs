@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CodeCatalyst
     /// <summary>
     /// Resource for managing an AWS CodeCatalyst Source Repository.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

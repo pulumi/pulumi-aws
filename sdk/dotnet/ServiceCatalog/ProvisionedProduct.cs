@@ -20,8 +20,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// &gt; **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

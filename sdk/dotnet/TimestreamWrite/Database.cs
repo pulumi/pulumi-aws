@@ -12,8 +12,6 @@ namespace Pulumi.Aws.TimestreamWrite
     /// <summary>
     /// Provides a Timestream database resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic usage
     /// 
     /// ```csharp

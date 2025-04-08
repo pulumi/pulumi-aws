@@ -16,8 +16,6 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// !&gt; **WARN:** When importing Open API Specifications with the `body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `put_rest_api_mode` attribute and set it to `merge`.
     /// 
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:

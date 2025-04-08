@@ -16,8 +16,6 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// &gt; **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
     /// 
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront Functions using the `name`. For example:

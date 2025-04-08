@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Data source for listing RDS Database Instances.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -71,8 +69,6 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Data source for listing RDS Database Instances.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -127,8 +123,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Data source for listing RDS Database Instances.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

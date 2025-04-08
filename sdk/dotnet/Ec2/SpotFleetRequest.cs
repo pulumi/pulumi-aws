@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
     /// We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Using launch specifications
     /// 
     /// ```csharp

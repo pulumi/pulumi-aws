@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Inspector2
     /// <summary>
     /// Resource for managing an Amazon Inspector Delegated Admin Account.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

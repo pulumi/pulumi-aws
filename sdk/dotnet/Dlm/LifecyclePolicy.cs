@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Dlm
     /// <summary>
     /// Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

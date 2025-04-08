@@ -17,8 +17,6 @@ namespace Pulumi.Aws.LightSail
     /// &gt; **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services,
     /// see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

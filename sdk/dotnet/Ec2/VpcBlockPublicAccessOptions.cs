@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Resource for managing an AWS VPC Block Public Access Options.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

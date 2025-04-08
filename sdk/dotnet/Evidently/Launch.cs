@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Evidently
     /// <summary>
     /// Provides a CloudWatch Evidently Launch resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

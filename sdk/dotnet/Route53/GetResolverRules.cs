@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Retrieving the default resolver rule
         /// 
         /// ```csharp
@@ -81,8 +79,6 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Retrieving the default resolver rule
         /// 
         /// ```csharp
@@ -147,8 +143,6 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Retrieving the default resolver rule
         /// 

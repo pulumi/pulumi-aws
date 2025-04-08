@@ -12,8 +12,6 @@ namespace Pulumi.Aws.OpenSearch
     /// <summary>
     /// Manages SAML authentication options for an AWS OpenSearch Domain.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

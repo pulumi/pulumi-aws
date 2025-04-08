@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ecr
     /// <summary>
     /// Provides a resource to manage AWS ECR Basic Scan Type
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Configuring Basic Scanning
     /// 
     /// ```csharp

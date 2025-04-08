@@ -14,8 +14,6 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// Data source for managing AWS Redshift Data Shares.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -37,8 +35,6 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// Data source for managing AWS Redshift Data Shares.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -59,8 +55,6 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Data source for managing AWS Redshift Data Shares.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

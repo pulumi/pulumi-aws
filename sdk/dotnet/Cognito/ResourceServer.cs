@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides a Cognito Resource Server.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Create a basic resource server
     /// 
     /// ```csharp

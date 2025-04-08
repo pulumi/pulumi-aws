@@ -12,8 +12,6 @@ namespace Pulumi.Aws.AppRunner
     /// <summary>
     /// Manages an App Runner Service.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Service with a Code Repository Source
     /// 
     /// ```csharp

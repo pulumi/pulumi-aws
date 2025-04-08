@@ -17,8 +17,6 @@ namespace Pulumi.Aws.S3
     /// Guide](https://www.pulumi.com/registry/packages/aws/how-to-guides/bucketv2-migration/) for instructions on migrating
     /// existing Bucket resources to BucketV2.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Private Bucket w/ Tags
     /// 
     /// ```csharp

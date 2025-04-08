@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Batch
     /// <summary>
     /// Provides a Batch Job Definition resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Job definition of type container
     /// 
     /// ```csharp

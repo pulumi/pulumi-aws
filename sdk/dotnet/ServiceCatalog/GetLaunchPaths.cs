@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

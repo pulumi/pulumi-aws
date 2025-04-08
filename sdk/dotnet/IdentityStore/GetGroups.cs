@@ -14,8 +14,6 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// Data source for managing an AWS SSO Identity Store Groups.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -42,8 +40,6 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// Data source for managing an AWS SSO Identity Store Groups.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -69,8 +65,6 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// Data source for managing an AWS SSO Identity Store Groups.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

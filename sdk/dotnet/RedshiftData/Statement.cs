@@ -12,8 +12,6 @@ namespace Pulumi.Aws.RedshiftData
     /// <summary>
     /// Executes a Redshift Data Statement.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### cluster_identifier
     /// 
     /// ```csharp

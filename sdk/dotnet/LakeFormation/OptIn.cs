@@ -12,8 +12,6 @@ namespace Pulumi.Aws.LakeFormation
     /// <summary>
     /// Resource for managing an AWS Lake Formation Opt In.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

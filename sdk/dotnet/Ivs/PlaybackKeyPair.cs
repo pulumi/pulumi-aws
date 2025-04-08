@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ivs
     /// <summary>
     /// Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

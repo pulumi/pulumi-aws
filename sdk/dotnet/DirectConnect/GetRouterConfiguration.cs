@@ -14,8 +14,6 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -41,8 +39,6 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -67,8 +63,6 @@ namespace Pulumi.Aws.DirectConnect
 
         /// <summary>
         /// Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

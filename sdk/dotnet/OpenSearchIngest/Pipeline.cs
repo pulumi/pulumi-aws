@@ -12,8 +12,6 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// <summary>
     /// Resource for managing an AWS OpenSearch Ingestion Pipeline.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

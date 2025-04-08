@@ -14,8 +14,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// &gt; **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `aws.ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Attaching a customer-managed policy
     /// 
     /// ```csharp

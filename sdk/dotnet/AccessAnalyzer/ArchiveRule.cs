@@ -12,8 +12,6 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// <summary>
     /// Resource for managing an AWS AccessAnalyzer Archive Rule.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -15,8 +15,6 @@ namespace Pulumi.Aws.CloudFront
     /// For information about CloudFront VPC origins, see
     /// [Amazon CloudFront Developer Guide - Restrict access with VPC origins][1].
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Application Load Balancer
     /// 
     /// The following example below creates a CloudFront VPC origin for a Application Load Balancer.

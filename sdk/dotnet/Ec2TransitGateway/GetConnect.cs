@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway Connect.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By Filter
         /// 
         /// ```csharp
@@ -68,8 +66,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway Connect.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By Filter
         /// 
         /// ```csharp
@@ -121,8 +117,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Get information on an EC2 Transit Gateway Connect.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### By Filter
         /// 

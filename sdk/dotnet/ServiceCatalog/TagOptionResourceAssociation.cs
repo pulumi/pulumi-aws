@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// &gt; **Tip:** A "resource" is either a Service Catalog portfolio or product.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -13,8 +13,6 @@ namespace Pulumi.Aws.Connect
     /// Provides an Amazon Connect Queue resource. For more information see
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

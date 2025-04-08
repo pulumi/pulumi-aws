@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Information about an RDS engine version.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -76,8 +74,6 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Information about an RDS engine version.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -137,8 +133,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Information about an RDS engine version.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

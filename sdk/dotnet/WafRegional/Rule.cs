@@ -53,8 +53,6 @@ namespace Pulumi.Aws.WafRegional
     /// });
     /// ```
     /// 
-    /// ## Nested Fields
-    /// 
     /// ### `predicate`
     /// 
     /// See the [WAF Documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_Predicate.html) for more information.

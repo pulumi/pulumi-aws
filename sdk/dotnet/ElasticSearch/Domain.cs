@@ -12,8 +12,6 @@ namespace Pulumi.Aws.ElasticSearch
     /// <summary>
     /// Manages an AWS Elasticsearch Domain.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

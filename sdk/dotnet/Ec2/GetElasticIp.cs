@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.Eip` provides details about a specific Elastic IP.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Search By Allocation ID (VPC only)
         /// 
         /// ```csharp
@@ -107,8 +105,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.Eip` provides details about a specific Elastic IP.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Search By Allocation ID (VPC only)
         /// 
         /// ```csharp
@@ -199,8 +195,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// `aws.ec2.Eip` provides details about a specific Elastic IP.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Search By Allocation ID (VPC only)
         /// 

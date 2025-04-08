@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Oam
         /// <summary>
         /// Data source for managing an AWS CloudWatch Observability Access Manager Links.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -37,8 +35,6 @@ namespace Pulumi.Aws.Oam
         /// <summary>
         /// Data source for managing an AWS CloudWatch Observability Access Manager Links.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -59,8 +55,6 @@ namespace Pulumi.Aws.Oam
 
         /// <summary>
         /// Data source for managing an AWS CloudWatch Observability Access Manager Links.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

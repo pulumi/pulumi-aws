@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Acmpca
     /// <summary>
     /// Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Self-Signed Root Certificate Authority Certificate
     /// 
     /// ```csharp

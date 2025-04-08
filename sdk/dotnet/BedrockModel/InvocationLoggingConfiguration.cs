@@ -14,8 +14,6 @@ namespace Pulumi.Aws.BedrockModel
     /// 
     /// &gt; Model invocation logging is configured per AWS region. To avoid overwriting settings, this resource should not be defined in multiple configurations.
     /// 
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:

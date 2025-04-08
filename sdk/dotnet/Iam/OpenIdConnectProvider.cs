@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM OpenID Connect provider.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

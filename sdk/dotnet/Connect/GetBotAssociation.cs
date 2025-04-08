@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By name
         /// 
         /// ```csharp
@@ -44,8 +42,6 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By name
         /// 
         /// ```csharp
@@ -73,8 +69,6 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### By name
         /// 

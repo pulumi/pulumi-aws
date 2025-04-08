@@ -12,8 +12,6 @@ namespace Pulumi.Aws.VpcLattice
     /// <summary>
     /// Resource for managing an AWS VPC Lattice Resource Policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

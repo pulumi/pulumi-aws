@@ -12,8 +12,6 @@ namespace Pulumi.Aws.EmrContainers
     /// <summary>
     /// Manages an EMR Containers (EMR on EKS) Virtual Cluster.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Manages a Glue Trigger resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Conditional Trigger
     /// 
     /// ```csharp

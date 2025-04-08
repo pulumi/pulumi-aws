@@ -12,8 +12,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// <summary>
     /// Manages an Image Builder Component.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### URI Document
     /// 
     /// ```csharp

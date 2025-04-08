@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Bedrock
     /// <summary>
     /// Resource for managing an AWS Bedrock Guardrail Version.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

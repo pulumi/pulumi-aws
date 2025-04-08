@@ -12,8 +12,6 @@ namespace Pulumi.Aws.VpcLattice
     /// <summary>
     /// Provides the ability to register a target with an AWS VPC Lattice Target Group.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

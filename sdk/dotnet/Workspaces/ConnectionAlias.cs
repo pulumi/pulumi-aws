@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Workspaces
     /// <summary>
     /// Resource for managing an AWS WorkSpaces Connection Alias.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

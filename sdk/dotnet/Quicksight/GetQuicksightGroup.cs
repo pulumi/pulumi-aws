@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Quicksight
         /// QuickSight group. By using this data source, you can reference QuickSight group
         /// properties without having to hard code ARNs or unique IDs as input.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -44,8 +42,6 @@ namespace Pulumi.Aws.Quicksight
         /// QuickSight group. By using this data source, you can reference QuickSight group
         /// properties without having to hard code ARNs or unique IDs as input.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -71,8 +67,6 @@ namespace Pulumi.Aws.Quicksight
         /// This data source can be used to fetch information about a specific
         /// QuickSight group. By using this data source, you can reference QuickSight group
         /// properties without having to hard code ARNs or unique IDs as input.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

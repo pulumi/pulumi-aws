@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -37,8 +35,6 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -59,8 +55,6 @@ namespace Pulumi.Aws.Ecr
 
         /// <summary>
         /// Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

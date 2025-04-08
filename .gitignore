@@ -31,6 +31,12 @@ sdk/java/gradle
 sdk/java/gradlew
 sdk/java/gradlew.bat
 
+sdk/java_policy/build
+sdk/java_policy/.gradle
+sdk/java_policy/gradle
+sdk/java_policy/gradlew
+sdk/java_policy/gradlew.bat
+
 !upstream-tools/yarn.lock
 
 __pycache__

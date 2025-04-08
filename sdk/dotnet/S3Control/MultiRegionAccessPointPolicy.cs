@@ -12,8 +12,6 @@ namespace Pulumi.Aws.S3Control
     /// <summary>
     /// Provides a resource to manage an S3 Multi-Region Access Point access control policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:

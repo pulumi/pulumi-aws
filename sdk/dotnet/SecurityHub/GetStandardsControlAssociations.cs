@@ -14,8 +14,6 @@ namespace Pulumi.Aws.SecurityHub
         /// <summary>
         /// Data source for managing an AWS Security Hub Standards Control Associations.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -42,8 +40,6 @@ namespace Pulumi.Aws.SecurityHub
         /// <summary>
         /// Data source for managing an AWS Security Hub Standards Control Associations.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -69,8 +65,6 @@ namespace Pulumi.Aws.SecurityHub
 
         /// <summary>
         /// Data source for managing an AWS Security Hub Standards Control Associations.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

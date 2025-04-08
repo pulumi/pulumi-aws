@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Kendra
     /// <summary>
     /// Provides an Amazon Kendra Index resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp
@@ -109,8 +107,6 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
-    /// 
-    /// ### With Document Metadata Configuration Updates
     /// 
     /// ### Specifying the predefined elements
     /// 

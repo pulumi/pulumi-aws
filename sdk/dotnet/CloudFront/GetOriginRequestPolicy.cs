@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CloudFront
     public static class GetOriginRequestPolicy
     {
         /// <summary>
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -56,8 +54,6 @@ namespace Pulumi.Aws.CloudFront
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginRequestPolicyResult>("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -100,8 +96,6 @@ namespace Pulumi.Aws.CloudFront
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginRequestPolicyResult>("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// This resource must be created in the Organization's Administrator Account.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

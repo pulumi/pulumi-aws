@@ -31,8 +31,6 @@ namespace Pulumi.Aws.Ec2
     /// `propagating_vgws`. Omit this argument when defining route propagation using
     /// the separate resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic example
     /// 
     /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Retrieve Current Secret Version
         /// 
         /// By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
@@ -61,8 +59,6 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Retrieve Current Secret Version
         /// 
         /// By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
@@ -107,8 +103,6 @@ namespace Pulumi.Aws.SecretsManager
 
         /// <summary>
         /// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Retrieve Current Secret Version
         /// 

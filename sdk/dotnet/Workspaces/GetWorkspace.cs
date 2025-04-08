@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Filter By Workspace ID
         /// 
         /// ```csharp
@@ -59,8 +57,6 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Filter By Workspace ID
         /// 
         /// ```csharp
@@ -103,8 +99,6 @@ namespace Pulumi.Aws.Workspaces
 
         /// <summary>
         /// Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Filter By Workspace ID
         /// 

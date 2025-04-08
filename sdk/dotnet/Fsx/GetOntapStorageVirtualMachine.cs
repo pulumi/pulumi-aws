@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -68,8 +66,6 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -121,8 +117,6 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

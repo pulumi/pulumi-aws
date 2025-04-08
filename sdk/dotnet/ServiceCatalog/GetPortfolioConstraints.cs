@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Provides information on Service Catalog Portfolio Constraints.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Provides information on Service Catalog Portfolio Constraints.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Provides information on Service Catalog Portfolio Constraints.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By Transit Gateway Identifier
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By Transit Gateway Identifier
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### By Transit Gateway Identifier
         /// 

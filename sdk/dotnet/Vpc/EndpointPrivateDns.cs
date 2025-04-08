@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Vpc
     /// &gt; When using this resource, the `private_dns_enabled` argument should be omitted on the parent `aws.ec2.VpcEndpoint` resource.
     /// Setting the value both places can lead to unintended behavior and persistent differences.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

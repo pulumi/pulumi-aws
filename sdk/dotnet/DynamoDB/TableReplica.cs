@@ -16,8 +16,6 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// &gt; **Note:** Do not use the `replica` configuration block of aws.dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Example
     /// 
     /// ```csharp

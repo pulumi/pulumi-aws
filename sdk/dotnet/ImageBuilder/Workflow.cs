@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// &gt; Image Builder manages the workflows for the distribution stage. Therefore, using the DISTRIBUTION workflow type results in an error.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

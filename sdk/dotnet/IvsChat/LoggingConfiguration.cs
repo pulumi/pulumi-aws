@@ -12,8 +12,6 @@ namespace Pulumi.Aws.IvsChat
     /// <summary>
     /// Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage - Logging to CloudWatch
     /// 
     /// ```csharp

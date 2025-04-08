@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Retrieve information about an EC2 DHCP Options configuration.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Lookup by DHCP Options ID
         /// 
         /// ```csharp
@@ -76,8 +74,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Retrieve information about an EC2 DHCP Options configuration.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Lookup by DHCP Options ID
         /// 
         /// ```csharp
@@ -137,8 +133,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Retrieve information about an EC2 DHCP Options configuration.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Lookup by DHCP Options ID
         /// 

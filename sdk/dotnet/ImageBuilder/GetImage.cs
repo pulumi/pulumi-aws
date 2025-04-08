@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Provides details about an Image Builder Image.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Latest
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Provides details about an Image Builder Image.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Latest
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Provides details about an Image Builder Image.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Latest
         /// 

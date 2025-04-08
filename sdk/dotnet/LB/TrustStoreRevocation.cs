@@ -12,8 +12,6 @@ namespace Pulumi.Aws.LB
     /// <summary>
     /// Provides a ELBv2 Trust Store Revocation for use with Application Load Balancer Listener resources.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Trust Store With Revocations
     /// 
     /// ```csharp

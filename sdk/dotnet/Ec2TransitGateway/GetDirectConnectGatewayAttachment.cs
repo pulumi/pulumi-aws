@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By Transit Gateway and Direct Connect Gateway Identifiers
         /// 
         /// ```csharp
@@ -41,8 +39,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By Transit Gateway and Direct Connect Gateway Identifiers
         /// 
         /// ```csharp
@@ -67,8 +63,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### By Transit Gateway and Direct Connect Gateway Identifiers
         /// 

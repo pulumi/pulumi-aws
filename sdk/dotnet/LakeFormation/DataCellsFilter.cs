@@ -12,8 +12,6 @@ namespace Pulumi.Aws.LakeFormation
     /// <summary>
     /// Resource for managing an AWS Lake Formation Data Cells Filter.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Resource for managing an AWS Backup Restore Testing Selection.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

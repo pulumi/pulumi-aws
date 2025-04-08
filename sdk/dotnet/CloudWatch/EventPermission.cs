@@ -16,8 +16,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// &gt; **Note:** The EventBridge bus policy resource  (`aws.cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`aws.cloudwatch.EventPermission`) and will overwrite permissions.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Account Access
     /// 
     /// ```csharp

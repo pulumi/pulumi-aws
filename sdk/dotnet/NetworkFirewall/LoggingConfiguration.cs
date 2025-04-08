@@ -12,8 +12,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// <summary>
     /// Provides an AWS Network Firewall Logging Configuration Resource
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Logging to S3
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Resource for managing an AWS CloudWatch Logs Index Policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

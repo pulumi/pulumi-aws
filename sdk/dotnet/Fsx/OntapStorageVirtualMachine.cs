@@ -13,8 +13,6 @@ namespace Pulumi.Aws.Fsx
     /// Manages a FSx Storage Virtual Machine.
     /// See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html) for more information.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

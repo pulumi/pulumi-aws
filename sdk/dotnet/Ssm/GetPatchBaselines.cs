@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -73,8 +71,6 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -131,8 +127,6 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

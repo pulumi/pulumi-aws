@@ -14,8 +14,6 @@ namespace Pulumi.Aws
         /// <summary>
         /// Use this data source to compose and decompose AWS service DNS names.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Get Service DNS Name
         /// 
         /// ```csharp
@@ -79,8 +77,6 @@ namespace Pulumi.Aws
         /// <summary>
         /// Use this data source to compose and decompose AWS service DNS names.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Get Service DNS Name
         /// 
         /// ```csharp
@@ -143,8 +139,6 @@ namespace Pulumi.Aws
 
         /// <summary>
         /// Use this data source to compose and decompose AWS service DNS names.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Get Service DNS Name
         /// 

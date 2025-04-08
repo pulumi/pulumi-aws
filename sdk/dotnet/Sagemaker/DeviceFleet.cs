@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker AI Device Fleet resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic usage
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Xray
     /// <summary>
     /// Resource for managing an AWS X-Ray Resource Policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

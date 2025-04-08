@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Provides a Route53 record resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Simple routing policy
     /// 
     /// ```csharp

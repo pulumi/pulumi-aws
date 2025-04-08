@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES configuration set resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Example
     /// 
     /// ```csharp

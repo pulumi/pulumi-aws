@@ -17,8 +17,6 @@ namespace Pulumi.Aws.DirectConnect
     /// &gt; **Note:** All arguments including `ckn` and `cak` will be stored in the raw state as plain-text.
     /// **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `aws.directconnect.MacsecKeyAssociation` resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Create MACSec key with CKN and CAK
     /// 
     /// ```csharp

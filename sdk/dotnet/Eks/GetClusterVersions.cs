@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Data source for managing AWS EKS (Elastic Kubernetes) Cluster Versions.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -73,8 +71,6 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Data source for managing AWS EKS (Elastic Kubernetes) Cluster Versions.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -131,8 +127,6 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Data source for managing AWS EKS (Elastic Kubernetes) Cluster Versions.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

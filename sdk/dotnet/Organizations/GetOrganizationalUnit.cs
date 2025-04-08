@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Data source for getting an AWS Organizations Organizational Unit.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -43,8 +41,6 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Data source for getting an AWS Organizations Organizational Unit.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -71,8 +67,6 @@ namespace Pulumi.Aws.Organizations
 
         /// <summary>
         /// Data source for getting an AWS Organizations Organizational Unit.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

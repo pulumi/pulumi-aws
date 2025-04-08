@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// Data source for managing an AWS ECS (Elastic Container) Clusters.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -37,8 +35,6 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// Data source for managing an AWS ECS (Elastic Container) Clusters.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -59,8 +55,6 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// Data source for managing an AWS ECS (Elastic Container) Clusters.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

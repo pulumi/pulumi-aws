@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Use this data source to get the ARNs and Names of IAM Users.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### All users in an account
         /// 
         /// ```csharp
@@ -75,8 +73,6 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Use this data source to get the ARNs and Names of IAM Users.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### All users in an account
         /// 
         /// ```csharp
@@ -135,8 +131,6 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Use this data source to get the ARNs and Names of IAM Users.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### All users in an account
         /// 

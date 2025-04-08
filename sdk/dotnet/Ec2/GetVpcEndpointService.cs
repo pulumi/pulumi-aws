@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Ec2
         /// The VPC Endpoint Service data source details about a specific service that
         /// can be specified when creating a VPC endpoint within the region configured in the provider.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### AWS Service
         /// 
         /// ```csharp
@@ -103,8 +101,6 @@ namespace Pulumi.Aws.Ec2
         /// The VPC Endpoint Service data source details about a specific service that
         /// can be specified when creating a VPC endpoint within the region configured in the provider.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### AWS Service
         /// 
         /// ```csharp
@@ -190,8 +186,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The VPC Endpoint Service data source details about a specific service that
         /// can be specified when creating a VPC endpoint within the region configured in the provider.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### AWS Service
         /// 

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides a Cognito User Pool resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic configuration
     /// 
     /// ```csharp

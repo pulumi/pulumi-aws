@@ -13,8 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
     /// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
     /// 
-    /// ## Example Usage
-    /// 
     /// ### CloudWatch Logging
     /// 
     /// ```csharp

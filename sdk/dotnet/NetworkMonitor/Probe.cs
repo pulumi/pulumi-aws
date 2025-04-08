@@ -12,8 +12,6 @@ namespace Pulumi.Aws.NetworkMonitor
     /// <summary>
     /// Resource for managing an AWS Network Monitor Probe.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

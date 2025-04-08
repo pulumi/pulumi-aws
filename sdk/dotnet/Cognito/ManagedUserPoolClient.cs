@@ -18,8 +18,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// Use the `aws.cognito.UserPoolClient` resource to manage Cognito User Pool Clients for normal use cases.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Using Name Pattern
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides an Amazon S3 Express directory bucket resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Availability Zone
     /// 
     /// ```csharp

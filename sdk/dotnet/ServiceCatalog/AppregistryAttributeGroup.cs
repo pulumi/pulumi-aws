@@ -12,8 +12,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// <summary>
     /// Resource for managing an AWS Service Catalog AppRegistry Attribute Group.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

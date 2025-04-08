@@ -16,8 +16,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// Creation of 3rd party SAML or OAuth 2.0 applications require setup to be done through the associated app service or AWS console.
     /// See this issue for additional context.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

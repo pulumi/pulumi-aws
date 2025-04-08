@@ -16,8 +16,6 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// &gt; **Tip:** For an organization event data store you must create this resource in the management account.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.

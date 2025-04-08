@@ -14,8 +14,6 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// &gt; **NOTE:** Deleting a replication set also deletes all Incident Manager related data including response plans, incident records, contacts and escalation plans.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// Create a replication set.

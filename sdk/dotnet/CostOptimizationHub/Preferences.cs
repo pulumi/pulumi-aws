@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CostOptimizationHub
     /// <summary>
     /// Resource for managing AWS Cost Optimization Hub Preferences.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

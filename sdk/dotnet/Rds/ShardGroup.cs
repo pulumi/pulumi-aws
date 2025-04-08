@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// Resource for managing an Amazon Aurora Limitless Database DB shard group
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

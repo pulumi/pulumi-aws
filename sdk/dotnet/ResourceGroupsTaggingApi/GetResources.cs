@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// <summary>
         /// Provides details about resource tagging.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Get All Resource Tag Mappings
         /// 
         /// ```csharp
@@ -87,8 +85,6 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// <summary>
         /// Provides details about resource tagging.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Get All Resource Tag Mappings
         /// 
         /// ```csharp
@@ -159,8 +155,6 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
 
         /// <summary>
         /// Provides details about resource tagging.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Get All Resource Tag Mappings
         /// 

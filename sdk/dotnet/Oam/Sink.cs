@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Oam
     /// <summary>
     /// Resource for managing an AWS CloudWatch Observability Access Manager Sink.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

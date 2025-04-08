@@ -363,1293 +363,1293 @@ namespace Pulumi.Aws
         public static class Types
         {
 
-             public class AssumeRole
-             {
-            /// <summary>
-            /// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-            /// </summary>
+            public class AssumeRole
+            {
+                /// <summary>
+                /// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+                /// </summary>
                 public string? Duration { get; set; } = null!;
-            /// <summary>
-            /// A unique identifier that might be required when you assume a role in another account.
-            /// </summary>
+                /// <summary>
+                /// A unique identifier that might be required when you assume a role in another account.
+                /// </summary>
                 public string? ExternalId { get; set; } = null!;
-            /// <summary>
-            /// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-            /// </summary>
+                /// <summary>
+                /// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+                /// </summary>
                 public string? Policy { get; set; } = null!;
-            /// <summary>
-            /// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-            /// </summary>
+                /// <summary>
+                /// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+                /// </summary>
                 public ImmutableArray<string> PolicyArns { get; set; }
-            /// <summary>
-            /// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-            /// </summary>
+                /// <summary>
+                /// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+                /// </summary>
                 public string? RoleArn { get; set; } = null!;
-            /// <summary>
-            /// An identifier for the assumed role session.
-            /// </summary>
+                /// <summary>
+                /// An identifier for the assumed role session.
+                /// </summary>
                 public string? SessionName { get; set; } = null!;
-            /// <summary>
-            /// Source identity specified by the principal assuming the role.
-            /// </summary>
+                /// <summary>
+                /// Source identity specified by the principal assuming the role.
+                /// </summary>
                 public string? SourceIdentity { get; set; } = null!;
-            /// <summary>
-            /// Assume role session tags.
-            /// </summary>
+                /// <summary>
+                /// Assume role session tags.
+                /// </summary>
                 public ImmutableDictionary<string, string>? Tags { get; set; } = null!;
-            /// <summary>
-            /// Assume role session tag keys to pass to any subsequent sessions.
-            /// </summary>
+                /// <summary>
+                /// Assume role session tag keys to pass to any subsequent sessions.
+                /// </summary>
                 public ImmutableArray<string> TransitiveTagKeys { get; set; }
             }
 
-             public class AssumeRoleWithWebIdentity
-             {
-            /// <summary>
-            /// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-            /// </summary>
+            public class AssumeRoleWithWebIdentity
+            {
+                /// <summary>
+                /// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+                /// </summary>
                 public string? Duration { get; set; } = null!;
-            /// <summary>
-            /// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-            /// </summary>
+                /// <summary>
+                /// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+                /// </summary>
                 public string? Policy { get; set; } = null!;
-            /// <summary>
-            /// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-            /// </summary>
+                /// <summary>
+                /// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+                /// </summary>
                 public ImmutableArray<string> PolicyArns { get; set; }
-            /// <summary>
-            /// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-            /// </summary>
+                /// <summary>
+                /// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+                /// </summary>
                 public string? RoleArn { get; set; } = null!;
-            /// <summary>
-            /// An identifier for the assumed role session.
-            /// </summary>
+                /// <summary>
+                /// An identifier for the assumed role session.
+                /// </summary>
                 public string? SessionName { get; set; } = null!;
                 public string? WebIdentityToken { get; set; } = null!;
                 public string? WebIdentityTokenFile { get; set; } = null!;
             }
 
-             public class DefaultTags
-             {
-            /// <summary>
-            /// Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_&lt;tag_name&gt;`.
-            /// </summary>
+            public class DefaultTags
+            {
+                /// <summary>
+                /// Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_&lt;tag_name&gt;`.
+                /// </summary>
                 public ImmutableDictionary<string, string>? Tags { get; set; } = null!;
             }
 
-             public class Endpoints
-             {
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+            public class Endpoints
+            {
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Accessanalyzer { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Account { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Acm { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Acmpca { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Amg { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Amp { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Amplify { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Apigateway { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Apigatewayv2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Appautoscaling { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Appconfig { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Appfabric { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Appflow { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Appintegrations { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Appintegrationsservice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Applicationautoscaling { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Applicationinsights { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Applicationsignals { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Appmesh { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Appregistry { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Apprunner { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Appstream { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Appsync { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Athena { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Auditmanager { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Autoscaling { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Autoscalingplans { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Backup { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Batch { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Bcmdataexports { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Beanstalk { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Bedrock { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Bedrockagent { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Billing { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Budgets { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ce { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Chatbot { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Chime { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Chimesdkmediapipelines { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Chimesdkvoice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cleanrooms { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloud9 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudcontrol { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudcontrolapi { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudformation { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudfront { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudfrontkeyvaluestore { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudhsm { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudhsmv2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudsearch { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudtrail { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudwatch { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudwatchevents { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudwatchevidently { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudwatchlog { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudwatchlogs { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudwatchobservabilityaccessmanager { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cloudwatchrum { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Codeartifact { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Codebuild { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Codecatalyst { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Codecommit { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Codeconnections { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Codedeploy { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Codeguruprofiler { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Codegurureviewer { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Codepipeline { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Codestarconnections { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Codestarnotifications { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cognitoidentity { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cognitoidentityprovider { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cognitoidp { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Comprehend { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Computeoptimizer { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Config { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Configservice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Connect { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Connectcases { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Controltower { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Costandusagereportservice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Costexplorer { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Costoptimizationhub { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Cur { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Customerprofiles { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Databasemigration { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Databasemigrationservice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Databrew { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Dataexchange { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Datapipeline { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Datasync { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Datazone { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Dax { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Deploy { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Detective { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Devicefarm { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Devopsguru { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Directconnect { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Directoryservice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Dlm { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Dms { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Docdb { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Docdbelastic { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Drs { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ds { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Dsql { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Dynamodb { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ec2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ecr { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ecrpublic { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ecs { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Efs { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Eks { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Elasticache { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Elasticbeanstalk { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Elasticloadbalancing { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Elasticloadbalancingv2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Elasticsearch { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Elasticsearchservice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Elastictranscoder { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Elb { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Elbv2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Emr { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Emrcontainers { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Emrserverless { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Es { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Eventbridge { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Events { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Evidently { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Finspace { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Firehose { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Fis { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Fms { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Fsx { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Gamelift { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Glacier { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Globalaccelerator { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Glue { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Gluedatabrew { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Grafana { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Greengrass { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Groundstation { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Guardduty { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Healthlake { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Iam { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Identitystore { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Imagebuilder { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Inspector { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Inspector2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Inspectorv2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Internetmonitor { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Invoicing { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Iot { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Iotanalytics { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Iotevents { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ivs { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ivschat { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Kafka { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Kafkaconnect { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Kendra { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Keyspaces { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Kinesis { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Kinesisanalytics { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Kinesisanalyticsv2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Kinesisvideo { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Kms { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Lakeformation { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Lambda { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Launchwizard { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Lex { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Lexmodelbuilding { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Lexmodelbuildingservice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Lexmodels { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Lexmodelsv2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Lexv2models { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Licensemanager { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Lightsail { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Location { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Locationservice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Logs { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Lookoutmetrics { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? M2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Macie2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Managedgrafana { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Mediaconnect { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Mediaconvert { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Medialive { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Mediapackage { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Mediapackagev2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Mediapackagevod { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Mediastore { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Memorydb { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Mgn { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Mq { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Msk { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Mwaa { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Neptune { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Neptunegraph { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Networkfirewall { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Networkmanager { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Networkmonitor { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Oam { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Opensearch { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Opensearchingestion { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Opensearchserverless { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Opensearchservice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Opsworks { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Organizations { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Osis { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Outposts { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Paymentcryptography { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Pcaconnectorad { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Pcs { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Pinpoint { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Pinpointsmsvoicev2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Pipes { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Polly { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Pricing { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Prometheus { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Prometheusservice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Qbusiness { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Qldb { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Quicksight { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ram { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Rbin { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Rds { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Recyclebin { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Redshift { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Redshiftdata { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Redshiftdataapiservice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Redshiftserverless { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Rekognition { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Resiliencehub { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Resourceexplorer2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Resourcegroups { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Resourcegroupstagging { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Resourcegroupstaggingapi { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Rolesanywhere { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Route53 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Route53domains { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Route53profiles { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Route53recoverycontrolconfig { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Route53recoveryreadiness { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Route53resolver { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Rum { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? S3 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? S3api { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? S3control { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? S3outposts { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? S3tables { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Sagemaker { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Scheduler { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Schemas { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Sdb { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Secretsmanager { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Securityhub { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Securitylake { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Serverlessapplicationrepository { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Serverlessapprepo { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Serverlessrepo { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Servicecatalog { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Servicecatalogappregistry { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Servicediscovery { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Servicequotas { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ses { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Sesv2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Sfn { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Shield { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Signer { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Simpledb { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Sns { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Sqs { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ssm { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ssmcontacts { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ssmincidents { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ssmquicksetup { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ssmsap { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Sso { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Ssoadmin { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Stepfunctions { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Storagegateway { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Sts { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Swf { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Synthetics { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Taxsettings { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Timestreaminfluxdb { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Timestreamquery { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Timestreamwrite { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Transcribe { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Transcribeservice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Transfer { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Verifiedpermissions { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Vpclattice { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Waf { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Wafregional { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Wafv2 { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Wellarchitected { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Worklink { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Workspaces { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Workspacesweb { get; set; } = null!;
-            /// <summary>
-            /// Use this to override the default service endpoint URL
-            /// </summary>
+                /// <summary>
+                /// Use this to override the default service endpoint URL
+                /// </summary>
                 public string? Xray { get; set; } = null!;
             }
 
-             public class IgnoreTags
-             {
-            /// <summary>
-            /// Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
-            /// </summary>
+            public class IgnoreTags
+            {
+                /// <summary>
+                /// Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
+                /// </summary>
                 public ImmutableArray<string> KeyPrefixes { get; set; }
-            /// <summary>
-            /// Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
-            /// </summary>
+                /// <summary>
+                /// Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
+                /// </summary>
                 public ImmutableArray<string> Keys { get; set; }
             }
         }

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.AppConfig
     /// <summary>
     /// Provides an AppConfig Hosted Configuration Version resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Freeform
     /// 
     /// ```csharp

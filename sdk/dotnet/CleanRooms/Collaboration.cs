@@ -13,8 +13,6 @@ namespace Pulumi.Aws.CleanRooms
     /// Provides a AWS Clean Rooms collaboration.  All members included in the definition will be invited to
     /// join the collaboration and can create memberships.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Collaboration with tags
     /// 
     /// ```csharp

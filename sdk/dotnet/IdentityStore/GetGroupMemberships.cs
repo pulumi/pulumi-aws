@@ -14,8 +14,6 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// Use this data source to get a list of members in an Identity Store Group.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -56,8 +54,6 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// Use this data source to get a list of members in an Identity Store Group.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -97,8 +93,6 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// Use this data source to get a list of members in an Identity Store Group.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

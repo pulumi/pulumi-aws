@@ -12,8 +12,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// <summary>
     /// Provides an AWS Network Firewall Rule Group Resource
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Stateful Inspection for denying access to a domain
     /// 
     /// ```csharp

@@ -20,8 +20,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// &gt; **NOTE:** You can't share a shared resource, including portfolios that contain a shared product.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -20,8 +20,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// &gt; To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Example
     /// 
     /// ```csharp

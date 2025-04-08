@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// &gt; An AWS Service Catalog AppRegistry Application is displayed in the AWS Console under "MyApplications".
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

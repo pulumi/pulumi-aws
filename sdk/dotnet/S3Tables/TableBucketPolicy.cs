@@ -12,8 +12,6 @@ namespace Pulumi.Aws.S3Tables
     /// <summary>
     /// Resource for managing an Amazon S3 Tables Table Bucket Policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

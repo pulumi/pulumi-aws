@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Data source for getting information about AWS EC2 Public IPv4 Pools.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -66,8 +64,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Data source for getting information about AWS EC2 Public IPv4 Pools.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -117,8 +113,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Data source for getting information about AWS EC2 Public IPv4 Pools.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

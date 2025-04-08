@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// More information about Neptune Global Clusters can be found in the [Neptune User Guide](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-global-database.html).
     /// 
-    /// ## Example Usage
-    /// 
     /// ### New Neptune Global Cluster
     /// 
     /// ```csharp

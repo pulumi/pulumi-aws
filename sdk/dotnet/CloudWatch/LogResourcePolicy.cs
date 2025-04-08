@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a resource to manage a CloudWatch log resource policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Elasticsearch Log Publishing
     /// 
     /// ```csharp

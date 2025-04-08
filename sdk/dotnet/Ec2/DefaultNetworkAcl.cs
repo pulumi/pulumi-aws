@@ -20,8 +20,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// For more information about Network ACLs, see the AWS Documentation on [Network ACLs][aws-network-acls].
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Example
     /// 
     /// The following config gives the Default Network ACL the same rules that AWS includes but pulls the resource under management by this provider. This means that any ACL rules added or changed will be detected as drift.

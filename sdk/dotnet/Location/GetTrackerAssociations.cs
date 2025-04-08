@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// Retrieve information about Location Service Tracker Associations.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// Retrieve information about Location Service Tracker Associations.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// Retrieve information about Location Service Tracker Associations.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

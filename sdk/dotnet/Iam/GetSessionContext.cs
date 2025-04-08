@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Example
         /// 
         /// ```csharp
@@ -66,8 +64,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Example
         /// 
         /// ```csharp
@@ -115,8 +111,6 @@ namespace Pulumi.Aws.Iam
         /// This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
         /// 
         /// For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Example
         /// 

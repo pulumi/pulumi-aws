@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Shield
     /// This resource grouping improves the accuracy of detection and reduces false positives. For more information see
     /// [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html)
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Create protection group for all resources
     /// 
     /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// &gt; **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `aws.cfg.Recorder` resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Using Template Body
     /// 
     /// ```csharp

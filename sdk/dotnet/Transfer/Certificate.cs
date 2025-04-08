@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Transfer
     /// <summary>
     /// Provides a AWS Transfer AS2 Certificate resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:

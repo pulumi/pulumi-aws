@@ -12,8 +12,6 @@ namespace Pulumi.Aws.LB
     /// <summary>
     /// Provides a ELBv2 Trust Store for use with Application Load Balancer Listener resources.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Trust Store Load Balancer Listener
     /// 
     /// ```csharp

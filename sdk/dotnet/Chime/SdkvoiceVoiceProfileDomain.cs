@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Chime
     /// <summary>
     /// Resource for managing an AWS Chime SDK Voice Profile Domain.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

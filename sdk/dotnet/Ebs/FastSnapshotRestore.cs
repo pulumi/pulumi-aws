@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ebs
     /// <summary>
     /// Resource for managing an EBS (Elastic Block Storage) Fast Snapshot Restore.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

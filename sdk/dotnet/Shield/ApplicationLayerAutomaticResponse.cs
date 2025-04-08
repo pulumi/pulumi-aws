@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Shield
     /// <summary>
     /// Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

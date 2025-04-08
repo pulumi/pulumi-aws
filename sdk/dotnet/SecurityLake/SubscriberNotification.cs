@@ -12,8 +12,6 @@ namespace Pulumi.Aws.SecurityLake
     /// <summary>
     /// Resource for managing an AWS Security Lake Subscriber Notification.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### SQS Notification
     /// 
     /// ```csharp

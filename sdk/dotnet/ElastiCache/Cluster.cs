@@ -30,8 +30,6 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// &gt; **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Memcached Cluster
     /// 
     /// ```csharp

@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Connect
     /// 
     /// &gt; **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

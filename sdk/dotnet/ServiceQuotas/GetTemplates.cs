@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ServiceQuotas
         /// <summary>
         /// Data source for managing an AWS Service Quotas Templates.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.ServiceQuotas
         /// <summary>
         /// Data source for managing an AWS Service Quotas Templates.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.ServiceQuotas
 
         /// <summary>
         /// Data source for managing an AWS Service Quotas Templates.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

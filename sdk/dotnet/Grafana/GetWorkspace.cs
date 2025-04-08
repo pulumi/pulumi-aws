@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Grafana
         /// <summary>
         /// Provides an Amazon Managed Grafana workspace data source.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic configuration
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.Grafana
         /// <summary>
         /// Provides an Amazon Managed Grafana workspace data source.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic configuration
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.Grafana
 
         /// <summary>
         /// Provides an Amazon Managed Grafana workspace data source.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic configuration
         /// 

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker AI Space resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic usage
     /// 
     /// ```csharp

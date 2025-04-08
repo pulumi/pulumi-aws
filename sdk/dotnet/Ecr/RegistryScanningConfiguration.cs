@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ecr
     /// <summary>
     /// Provides an Elastic Container Registry Scanning Configuration. Can't be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic example
     /// 
     /// ```csharp

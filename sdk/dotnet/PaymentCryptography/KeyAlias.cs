@@ -12,8 +12,6 @@ namespace Pulumi.Aws.PaymentCryptography
     /// <summary>
     /// Resource for managing an AWS Payment Cryptography Control Plane Key Alias.
     /// 
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Payment Cryptography Control Plane Key Alias using the `alias/4681482429376900170`. For example:

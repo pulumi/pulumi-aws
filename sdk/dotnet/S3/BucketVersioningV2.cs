@@ -20,8 +20,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### With Versioning Enabled
     /// 
     /// ```csharp

@@ -19,8 +19,6 @@ namespace Pulumi.Aws.Ec2
     /// a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
     /// and will overwrite the association.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Network Load Balancers
     /// 
     /// ```csharp

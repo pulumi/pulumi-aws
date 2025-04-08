@@ -12,8 +12,6 @@ namespace Pulumi.Aws.SesV2
     /// <summary>
     /// Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### CloudWatch Destination
     /// 
     /// ```csharp

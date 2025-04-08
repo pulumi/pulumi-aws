@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Transfer
     /// <summary>
     /// Provides a AWS Transfer Workflow resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic single step example
     /// 
     /// ```csharp

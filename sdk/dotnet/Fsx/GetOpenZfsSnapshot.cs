@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Root volume Example
         /// 
         /// ```csharp
@@ -51,8 +49,6 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Root volume Example
         /// 
         /// ```csharp
@@ -87,8 +83,6 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Root volume Example
         /// 

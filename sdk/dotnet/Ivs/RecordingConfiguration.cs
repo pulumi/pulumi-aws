@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ivs
     /// <summary>
     /// Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides an S3 object resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Uploading a file to a bucket
     /// 
     /// ```csharp

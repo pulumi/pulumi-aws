@@ -12,10 +12,6 @@ namespace Pulumi.Aws.OpenSearch
     /// <summary>
     /// Resource for managing an AWS OpenSearch Serverless Security Policy. See AWS documentation for [encryption policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies) and [network policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ### Encryption Security Policy
-    /// 
     /// ### Applies to a single collection
     /// 
     /// ```csharp
@@ -124,8 +120,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
-    /// 
-    /// ### Network Security Policy
     /// 
     /// ### Allow public access to the collection endpoint and the Dashboards endpoint
     /// 

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Polly
         /// <summary>
         /// Data source for managing an AWS Polly Voices.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -55,8 +53,6 @@ namespace Pulumi.Aws.Polly
         /// <summary>
         /// Data source for managing an AWS Polly Voices.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -95,8 +91,6 @@ namespace Pulumi.Aws.Polly
 
         /// <summary>
         /// Data source for managing an AWS Polly Voices.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

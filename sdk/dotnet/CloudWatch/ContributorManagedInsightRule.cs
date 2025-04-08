@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Resource for managing an AWS CloudWatch Contributor Managed Insight Rule.
     /// 
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `resource_arn`. For example:

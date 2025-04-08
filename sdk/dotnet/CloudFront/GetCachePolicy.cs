@@ -14,8 +14,6 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Use this data source to retrieve information about a CloudFront cache policy.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +63,6 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Use this data source to retrieve information about a CloudFront cache policy.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -115,8 +111,6 @@ namespace Pulumi.Aws.CloudFront
 
         /// <summary>
         /// Use this data source to retrieve information about a CloudFront cache policy.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

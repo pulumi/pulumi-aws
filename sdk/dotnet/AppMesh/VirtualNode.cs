@@ -23,8 +23,6 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// The state associated with existing resources will automatically be migrated.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

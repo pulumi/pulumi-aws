@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on EC2 Transit Gateway VPC Attachments.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By Filter
         /// 
         /// ```csharp
@@ -52,8 +50,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on EC2 Transit Gateway VPC Attachments.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By Filter
         /// 
         /// ```csharp
@@ -89,8 +85,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Get information on EC2 Transit Gateway VPC Attachments.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### By Filter
         /// 

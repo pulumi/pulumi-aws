@@ -12,8 +12,6 @@ namespace Pulumi.Aws.VerifiedAccess
     /// <summary>
     /// Resource for managing a Verified Access Logging Configuration.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### With CloudWatch Logging
     /// 
     /// ```csharp

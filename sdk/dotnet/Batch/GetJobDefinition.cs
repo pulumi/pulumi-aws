@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// Data source for managing an AWS Batch Job Definition.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Lookup via Arn
         /// 
         /// ```csharp
@@ -59,8 +57,6 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// Data source for managing an AWS Batch Job Definition.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Lookup via Arn
         /// 
         /// ```csharp
@@ -103,8 +99,6 @@ namespace Pulumi.Aws.Batch
 
         /// <summary>
         /// Data source for managing an AWS Batch Job Definition.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Lookup via Arn
         /// 

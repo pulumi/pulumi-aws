@@ -14,8 +14,6 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// Retrieve information about a firewall.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Find firewall policy by ARN
         /// 
         /// ```csharp
@@ -77,8 +75,6 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// Retrieve information about a firewall.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Find firewall policy by ARN
         /// 
         /// ```csharp
@@ -139,8 +135,6 @@ namespace Pulumi.Aws.NetworkFirewall
 
         /// <summary>
         /// Retrieve information about a firewall.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Find firewall policy by ARN
         /// 

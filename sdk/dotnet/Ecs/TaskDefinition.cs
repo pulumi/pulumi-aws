@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ecs
     /// <summary>
     /// Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Example
     /// 
     /// ```csharp

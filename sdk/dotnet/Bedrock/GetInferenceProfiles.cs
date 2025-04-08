@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Bedrock
         /// <summary>
         /// Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -37,8 +35,6 @@ namespace Pulumi.Aws.Bedrock
         /// <summary>
         /// Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -59,8 +55,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

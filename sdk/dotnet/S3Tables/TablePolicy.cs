@@ -12,8 +12,6 @@ namespace Pulumi.Aws.S3Tables
     /// <summary>
     /// Resource for managing an Amazon S3 Tables Table Policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 Tables Table Policy using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:

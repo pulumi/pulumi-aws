@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Eks
     /// <summary>
     /// Manages an EKS Cluster.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### EKS Cluster
     /// 
     /// ```csharp

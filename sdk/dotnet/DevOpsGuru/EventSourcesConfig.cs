@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DevOpsGuru
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

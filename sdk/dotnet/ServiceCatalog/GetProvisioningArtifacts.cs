@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Lists the provisioning artifacts for the specified product.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Lists the provisioning artifacts for the specified product.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Lists the provisioning artifacts for the specified product.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

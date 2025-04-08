@@ -21,8 +21,6 @@ namespace Pulumi.Aws.Ec2
     /// management of the VPC Peering Connection and allows options to be set correctly in cross-region and
     /// cross-account scenarios.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

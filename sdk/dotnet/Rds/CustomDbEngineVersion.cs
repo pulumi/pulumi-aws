@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// Provides an custom engine version (CEV) resource for Amazon RDS Custom. For additional information, see [Working with CEVs for RDS Custom for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html) and [Working with CEVs for RDS Custom for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev-sqlserver.html) in the the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
     /// 
-    /// ## Example Usage
-    /// 
     /// ### RDS Custom for Oracle Usage
     /// 
     /// ```csharp

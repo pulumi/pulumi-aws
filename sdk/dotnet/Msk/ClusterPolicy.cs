@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Msk
     /// <summary>
     /// Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

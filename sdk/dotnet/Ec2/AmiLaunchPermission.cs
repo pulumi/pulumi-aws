@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Adds a launch permission to an Amazon Machine Image (AMI).
     /// 
-    /// ## Example Usage
-    /// 
     /// ### AWS Account ID
     /// 
     /// ```csharp

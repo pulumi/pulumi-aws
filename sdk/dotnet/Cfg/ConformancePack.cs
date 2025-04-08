@@ -19,8 +19,6 @@ namespace Pulumi.Aws.Cfg
     /// successfully create or update. See also the
     /// `aws.cfg.Recorder` resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Template Body
     /// 
     /// ```csharp

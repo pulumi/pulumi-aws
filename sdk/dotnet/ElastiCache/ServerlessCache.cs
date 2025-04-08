@@ -12,8 +12,6 @@ namespace Pulumi.Aws.ElastiCache
     /// <summary>
     /// Provides an ElastiCache Serverless Cache resource which manages memcached, redis or valkey.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Memcached Serverless
     /// 
     /// ```csharp

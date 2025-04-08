@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Lambda
     /// <summary>
     /// Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Ssm
     /// &gt; **NOTE on updating SSM documents:** Only documents with a schema version of 2.0
     /// or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older schema version you must recreate the resource. Not all document types support a schema version of 2.0 or greater. Refer to [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) for information about which schema versions are supported for the respective `document_type`.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Create an ssm document in JSON format
     /// 
     /// ```csharp

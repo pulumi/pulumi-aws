@@ -12,8 +12,6 @@ namespace Pulumi.Aws.SecurityHub
     /// <summary>
     /// Resource for managing an AWS Security Hub Automation Rule.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

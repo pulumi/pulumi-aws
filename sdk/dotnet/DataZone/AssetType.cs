@@ -12,8 +12,6 @@ namespace Pulumi.Aws.DataZone
     /// <summary>
     /// Resource for managing an AWS DataZone Asset Type.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

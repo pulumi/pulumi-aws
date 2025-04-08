@@ -16,8 +16,6 @@ namespace Pulumi.Aws.SsmIncidents
         /// 
         /// Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -41,8 +39,6 @@ namespace Pulumi.Aws.SsmIncidents
         /// 
         /// Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.SsmIncidents
         /// &gt; **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.
         /// 
         /// Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

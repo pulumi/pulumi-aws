@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// &gt; **NOTE:** Either the `active_directory_id` argument or `self_managed_active_directory` configuration block must be specified.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Using AWS Directory Service
     /// 
     /// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).

@@ -17,8 +17,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// &gt; Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignment_required = true`).
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

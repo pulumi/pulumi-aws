@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Resource for managing an AWS Route 53 Profiles Association.
     /// 
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route 53 Profiles Association using the `example_id_arg`. For example:

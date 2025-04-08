@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Transfer
     /// <summary>
     /// Provides a AWS Transfer AS2 Agreement resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

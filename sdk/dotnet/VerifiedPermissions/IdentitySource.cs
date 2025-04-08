@@ -12,8 +12,6 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// <summary>
     /// Resource for managing an AWS Verified Permissions Identity Source.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Cognito User Pool Configuration Usage
     /// 
     /// ```csharp

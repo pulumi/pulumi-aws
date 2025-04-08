@@ -12,8 +12,6 @@ namespace Pulumi.Aws.DevOpsGuru
     /// <summary>
     /// Resource for managing an AWS DevOps Guru Notification Channel.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

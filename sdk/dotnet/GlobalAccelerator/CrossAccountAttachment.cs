@@ -12,8 +12,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// <summary>
     /// Resource for managing an AWS Global Accelerator Cross Account Attachment.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

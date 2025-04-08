@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Rbin
     /// <summary>
     /// Resource for managing an AWS RBin Rule.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

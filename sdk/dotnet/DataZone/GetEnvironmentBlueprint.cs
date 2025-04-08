@@ -14,8 +14,6 @@ namespace Pulumi.Aws.DataZone
         /// <summary>
         /// Data source for managing an AWS DataZone Environment Blueprint.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -48,8 +46,6 @@ namespace Pulumi.Aws.DataZone
         /// <summary>
         /// Data source for managing an AWS DataZone Environment Blueprint.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -81,8 +77,6 @@ namespace Pulumi.Aws.DataZone
 
         /// <summary>
         /// Data source for managing an AWS DataZone Environment Blueprint.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Synthetics
     /// <summary>
     /// Provides a Synthetics Group Association resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

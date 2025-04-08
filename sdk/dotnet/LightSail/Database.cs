@@ -16,8 +16,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones"](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic mysql blueprint
     /// 
     /// ```csharp

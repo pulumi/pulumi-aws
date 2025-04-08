@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Sfn
         /// <summary>
         /// Data source for managing an AWS SFN (Step Functions) State Machine Alias.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -41,8 +39,6 @@ namespace Pulumi.Aws.Sfn
         /// <summary>
         /// Data source for managing an AWS SFN (Step Functions) State Machine Alias.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -67,8 +63,6 @@ namespace Pulumi.Aws.Sfn
 
         /// <summary>
         /// Data source for managing an AWS SFN (Step Functions) State Machine Alias.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

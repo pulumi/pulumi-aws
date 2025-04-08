@@ -14,8 +14,6 @@ namespace Pulumi.Aws.DevOpsGuru
     /// 
     /// &gt; Only one type of resource collection (All Account Resources, CloudFormation, or Tags) can be enabled in an account at a time. To avoid persistent differences, this resource should be defined only once.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### All Account Resources
     /// 
     /// ```csharp

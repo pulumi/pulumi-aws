@@ -14,8 +14,6 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// Data source for retrieving a value from an AWS DynamoDB table.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -49,8 +47,6 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// Data source for retrieving a value from an AWS DynamoDB table.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -83,8 +79,6 @@ namespace Pulumi.Aws.DynamoDB
 
         /// <summary>
         /// Data source for retrieving a value from an AWS DynamoDB table.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.AppMesh
     /// <summary>
     /// Provides an AWS App Mesh virtual gateway resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

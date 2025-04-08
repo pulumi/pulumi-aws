@@ -12,8 +12,6 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     /// <summary>
     /// Resource for managing an Amazon Timestream for InfluxDB database instance.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

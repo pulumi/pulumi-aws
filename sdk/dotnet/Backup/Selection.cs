@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Manages selection conditions for AWS Backup plan resources.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### IAM Role
     /// 
     /// &gt; For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).

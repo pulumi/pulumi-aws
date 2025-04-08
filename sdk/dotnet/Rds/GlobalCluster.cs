@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
     /// 
-    /// ## Example Usage
-    /// 
     /// ### New MySQL Global Cluster
     /// 
     /// ```csharp

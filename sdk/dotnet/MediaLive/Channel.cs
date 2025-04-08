@@ -12,8 +12,6 @@ namespace Pulumi.Aws.MediaLive
     /// <summary>
     /// Resource for managing an AWS MediaLive Channel.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

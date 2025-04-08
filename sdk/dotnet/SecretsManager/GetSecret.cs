@@ -14,8 +14,6 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### ARN
         /// 
         /// ```csharp
@@ -58,8 +56,6 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### ARN
         /// 
         /// ```csharp
@@ -101,8 +97,6 @@ namespace Pulumi.Aws.SecretsManager
 
         /// <summary>
         /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### ARN
         /// 

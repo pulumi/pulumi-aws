@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// &gt; Destruction of this resource is a no-op and **will not** modify the instance state
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// <summary>
     /// Provides an AWS Network Firewall Resource Policy Resource for a rule group or firewall policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### For a Firewall Policy resource
     /// 
     /// ```csharp

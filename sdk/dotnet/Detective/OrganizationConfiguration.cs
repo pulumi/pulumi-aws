@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Detective
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_detective_organization_admin_account` using the behavior graph ARN. For example:

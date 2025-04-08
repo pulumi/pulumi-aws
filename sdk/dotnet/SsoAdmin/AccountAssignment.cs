@@ -12,8 +12,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// <summary>
     /// Provides a Single Sign-On (SSO) Account Assignment resource
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

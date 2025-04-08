@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Outposts
         /// <summary>
         /// Information about hardware assets in an Outpost.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic
         /// 
         /// ```csharp
@@ -84,8 +82,6 @@ namespace Pulumi.Aws.Outposts
         /// <summary>
         /// Information about hardware assets in an Outpost.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic
         /// 
         /// ```csharp
@@ -153,8 +149,6 @@ namespace Pulumi.Aws.Outposts
 
         /// <summary>
         /// Information about hardware assets in an Outpost.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic
         /// 

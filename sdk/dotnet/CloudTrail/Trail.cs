@@ -16,8 +16,6 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// &gt; **Tip:** For an organization trail, this resource must be in the master account of the organization.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// Enable CloudTrail to capture all compatible management events in region.

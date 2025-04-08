@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Accept cross-account request
     /// 
     /// ```csharp

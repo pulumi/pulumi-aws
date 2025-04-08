@@ -16,8 +16,6 @@ namespace Pulumi.Aws.DirectConnect
     /// in the AWS account that owns the VGW or transit gateway and then accept the proposal in the AWS account that owns the Direct Connect Gateway
     /// by creating an `aws.directconnect.GatewayAssociation` resource with the `proposal_id` and `associated_gateway_owner_account_id` attributes set.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### VPN Gateway Association
     /// 
     /// ```csharp

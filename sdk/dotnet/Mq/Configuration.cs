@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Mq
     /// 
     /// For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
     /// 
-    /// ## Example Usage
-    /// 
     /// ### ActiveMQ
     /// 
     /// ```csharp

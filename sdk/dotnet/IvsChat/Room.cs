@@ -12,8 +12,6 @@ namespace Pulumi.Aws.IvsChat
     /// <summary>
     /// Resource for managing an AWS IVS (Interactive Video) Chat Room.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.AppConfig
         /// <summary>
         /// Provides access to an AppConfig Configuration Profile.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -41,8 +39,6 @@ namespace Pulumi.Aws.AppConfig
         /// <summary>
         /// Provides access to an AppConfig Configuration Profile.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -67,8 +63,6 @@ namespace Pulumi.Aws.AppConfig
 
         /// <summary>
         /// Provides access to an AppConfig Configuration Profile.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

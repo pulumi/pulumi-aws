@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a CloudWatch Metric Stream resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Filters
     /// 
     /// ```csharp

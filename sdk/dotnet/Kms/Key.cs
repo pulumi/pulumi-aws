@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Kms
     /// or with the parameter `policy` in this resource.
     /// Configuring with both will cause inconsistencies and may overwrite configuration.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Symmetric Encryption KMS Key
     /// 
     /// ```csharp

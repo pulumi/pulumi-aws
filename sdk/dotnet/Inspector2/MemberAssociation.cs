@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Inspector2
     /// <summary>
     /// Resource for associating accounts to existing Inspector instances.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// Retrieve information about an AWS WorkSpaces bundle.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By ID
         /// 
         /// ```csharp
@@ -59,8 +57,6 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// Retrieve information about an AWS WorkSpaces bundle.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By ID
         /// 
         /// ```csharp
@@ -103,8 +99,6 @@ namespace Pulumi.Aws.Workspaces
 
         /// <summary>
         /// Retrieve information about an AWS WorkSpaces bundle.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### By ID
         /// 

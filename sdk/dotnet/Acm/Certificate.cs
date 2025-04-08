@@ -48,8 +48,6 @@ namespace Pulumi.Aws.Acm
     /// By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration.
     /// To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Custom Domain Validation Options
     /// 
     /// ```csharp

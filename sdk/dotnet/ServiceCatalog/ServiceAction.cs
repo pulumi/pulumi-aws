@@ -12,8 +12,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// <summary>
     /// Manages a Service Catalog self-service action.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

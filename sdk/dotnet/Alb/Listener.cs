@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Alb
     /// 
     /// &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Forward Action
     /// 
     /// ```csharp

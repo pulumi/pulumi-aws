@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Data source for managing an AWS RDS (Relational Database) Clusters.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -50,8 +48,6 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Data source for managing an AWS RDS (Relational Database) Clusters.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -85,8 +81,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Data source for managing an AWS RDS (Relational Database) Clusters.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

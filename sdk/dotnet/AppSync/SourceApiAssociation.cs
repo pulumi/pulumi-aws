@@ -12,8 +12,6 @@ namespace Pulumi.Aws.AppSync
     /// <summary>
     /// Resource for managing an AWS AppSync Source Api Association.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

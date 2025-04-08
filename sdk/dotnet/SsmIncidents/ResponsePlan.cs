@@ -12,8 +12,6 @@ namespace Pulumi.Aws.SsmIncidents
     /// <summary>
     /// Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

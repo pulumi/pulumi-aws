@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glacier
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
     /// ### Testing Glacier Vault Lock Policy
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Kendra
     /// <summary>
     /// Resource for managing an AWS Kendra Data Source.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp
@@ -39,8 +37,6 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
-    /// 
-    /// ### S3 Connector
     /// 
     /// ### With Schedule
     /// 
@@ -146,8 +142,6 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
-    /// 
-    /// ### Web Crawler Connector
     /// 
     /// ### With Seed URLs
     /// 

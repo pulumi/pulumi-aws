@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES event destination
     /// 
-    /// ## Example Usage
-    /// 
     /// ### CloudWatch Destination
     /// 
     /// ```csharp

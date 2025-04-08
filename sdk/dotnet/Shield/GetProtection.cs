@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Shield
         /// <summary>
         /// Data source for managing an AWS Shield Protection.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -58,8 +56,6 @@ namespace Pulumi.Aws.Shield
         /// <summary>
         /// Data source for managing an AWS Shield Protection.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -101,8 +97,6 @@ namespace Pulumi.Aws.Shield
 
         /// <summary>
         /// Data source for managing an AWS Shield Protection.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

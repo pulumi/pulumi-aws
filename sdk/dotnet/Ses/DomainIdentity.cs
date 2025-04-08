@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES domain identity resource
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

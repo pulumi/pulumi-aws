@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Resource for managing an AWS Backup Logically Air Gapped Vault.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

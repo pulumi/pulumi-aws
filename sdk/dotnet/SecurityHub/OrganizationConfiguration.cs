@@ -20,8 +20,6 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// &gt; **NOTE:** Deleting this resource resets security hub to a local organization configuration with auto enable false.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Local Configuration
     /// 
     /// ```csharp

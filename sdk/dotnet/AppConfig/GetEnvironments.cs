@@ -15,8 +15,6 @@ namespace Pulumi.Aws.AppConfig
         /// Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
         /// resource.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -42,8 +40,6 @@ namespace Pulumi.Aws.AppConfig
         /// Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
         /// resource.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -68,8 +64,6 @@ namespace Pulumi.Aws.AppConfig
         /// <summary>
         /// Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
         /// resource.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

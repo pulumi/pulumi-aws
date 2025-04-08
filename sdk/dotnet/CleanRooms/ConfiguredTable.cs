@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CleanRooms
     /// <summary>
     /// Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Configured table with tags
     /// 
     /// ```csharp

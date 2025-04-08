@@ -14,8 +14,6 @@ namespace Pulumi.Aws.SsmContacts
         /// <summary>
         /// Data source for managing a Plan of an AWS SSM Contact.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.SsmContacts
         /// <summary>
         /// Data source for managing a Plan of an AWS SSM Contact.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.SsmContacts
 
         /// <summary>
         /// Data source for managing a Plan of an AWS SSM Contact.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

@@ -47,8 +47,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// Enable low-downtime updates by setting `blue_green_update.enabled` to `true`.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

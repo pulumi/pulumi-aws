@@ -12,8 +12,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// <summary>
     /// Resource for managing an AWS SSO Admin Application Access Scope.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

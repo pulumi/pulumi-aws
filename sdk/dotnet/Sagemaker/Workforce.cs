@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker AI Workforce resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Cognito Usage
     /// 
     /// ```csharp

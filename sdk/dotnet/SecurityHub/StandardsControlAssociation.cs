@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecurityHub
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
     /// ### Basic usage
     /// 
     /// ```csharp

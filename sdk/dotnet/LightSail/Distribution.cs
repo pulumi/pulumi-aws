@@ -12,8 +12,6 @@ namespace Pulumi.Aws.LightSail
     /// <summary>
     /// Resource for managing an AWS Lightsail Distribution.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// Below is a basic example with a bucket as an origin.

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.WafRegional
     /// <summary>
     /// Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Regular Rule
     /// 
     /// ```csharp

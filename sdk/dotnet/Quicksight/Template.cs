@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Quicksight
     /// <summary>
     /// Resource for managing a QuickSight Template.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### From Source Template
     /// 
     /// ```csharp

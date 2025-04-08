@@ -12,8 +12,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// <summary>
     /// Manages a Service Catalog Tag Option.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

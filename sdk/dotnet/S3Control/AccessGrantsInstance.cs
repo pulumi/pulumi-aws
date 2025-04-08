@@ -13,8 +13,6 @@ namespace Pulumi.Aws.S3Control
     /// Provides a resource to manage an S3 Access Grants instance, which serves as a logical grouping for access grants.
     /// You can have one S3 Access Grants instance per Region in your account.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Example
         /// 
         /// ```csharp
@@ -182,8 +180,6 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Example
         /// 
         /// ```csharp
@@ -349,8 +345,6 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Example
         /// 

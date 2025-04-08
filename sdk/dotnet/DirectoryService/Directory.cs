@@ -12,8 +12,6 @@ namespace Pulumi.Aws.DirectoryService
     /// <summary>
     /// Provides a Simple or Managed Microsoft directory in AWS Directory Service.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### SimpleAD
     /// 
     /// ```csharp

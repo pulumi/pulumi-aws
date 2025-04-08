@@ -12,8 +12,6 @@ namespace Pulumi.Aws.DirectConnect
     /// <summary>
     /// Provides a Connection of Direct Connect.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Create a connection
     /// 
     /// ```csharp

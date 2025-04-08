@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Resource for managing an AWS Glue Catalog Table Optimizer.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Compaction Optimizer
     /// 
     /// ```csharp

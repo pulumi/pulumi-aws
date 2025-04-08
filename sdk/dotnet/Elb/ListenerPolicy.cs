@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Elb
     /// <summary>
     /// Attaches a load balancer policy to an ELB Listener.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Custom Policy
     /// 
     /// ```csharp

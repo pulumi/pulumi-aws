@@ -14,8 +14,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// Data source returning the ARN of all AWS SSO Admin Permission Sets.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -42,8 +40,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// Data source returning the ARN of all AWS SSO Admin Permission Sets.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -69,8 +65,6 @@ namespace Pulumi.Aws.SsoAdmin
 
         /// <summary>
         /// Data source returning the ARN of all AWS SSO Admin Permission Sets.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

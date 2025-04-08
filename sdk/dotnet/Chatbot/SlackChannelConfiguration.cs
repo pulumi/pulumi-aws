@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Chatbot
     /// <summary>
     /// Resource for managing an AWS Chatbot Slack Channel Configuration.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

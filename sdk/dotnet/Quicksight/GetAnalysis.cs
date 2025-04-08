@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// Data source for managing an AWS QuickSight Analysis.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -41,8 +39,6 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// Data source for managing an AWS QuickSight Analysis.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -66,8 +62,6 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Data source for managing an AWS QuickSight Analysis.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

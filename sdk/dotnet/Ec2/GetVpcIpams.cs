@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Data source for managing VPC IPAMs.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -99,8 +97,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Data source for managing VPC IPAMs.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -183,8 +179,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Data source for managing VPC IPAMs.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

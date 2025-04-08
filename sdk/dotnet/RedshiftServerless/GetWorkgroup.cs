@@ -14,8 +14,6 @@ namespace Pulumi.Aws.RedshiftServerless
         /// <summary>
         /// Data source for managing an AWS Redshift Serverless Workgroup.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.RedshiftServerless
         /// <summary>
         /// Data source for managing an AWS Redshift Serverless Workgroup.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// Data source for managing an AWS Redshift Serverless Workgroup.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

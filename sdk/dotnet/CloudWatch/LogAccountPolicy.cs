@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a CloudWatch Log Account Policy resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Account Data Protection Policy
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// <summary>
     /// Manages a Service Catalog Product Portfolio Association.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

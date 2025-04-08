@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Get information about the organization that the user's account belongs to
         /// 
-        /// ## Example Usage
-        /// 
         /// ### List all account IDs for the organization
         /// 
         /// ```csharp
@@ -110,8 +108,6 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Get information about the organization that the user's account belongs to
         /// 
-        /// ## Example Usage
-        /// 
         /// ### List all account IDs for the organization
         /// 
         /// ```csharp
@@ -205,8 +201,6 @@ namespace Pulumi.Aws.Organizations
 
         /// <summary>
         /// Get information about the organization that the user's account belongs to
-        /// 
-        /// ## Example Usage
         /// 
         /// ### List all account IDs for the organization
         /// 

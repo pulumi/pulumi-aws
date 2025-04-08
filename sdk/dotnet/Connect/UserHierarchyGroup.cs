@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Connect
     /// 
     /// &gt; **NOTE:** The User Hierarchy Structure must be created before creating a User Hierarchy Group.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

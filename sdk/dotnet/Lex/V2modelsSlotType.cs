@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Lex
     /// <summary>
     /// Resource for managing an AWS Lex V2 Models Slot Type.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

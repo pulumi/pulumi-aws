@@ -12,8 +12,6 @@ namespace Pulumi.Aws.ComputeOptimizer
     /// <summary>
     /// Manages AWS Compute Optimizer recommendation preferences.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Lookback Period Preference
     /// 
     /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// Data source for managing an AWS SSO Admin Application.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// Data source for managing an AWS SSO Admin Application.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.SsoAdmin
 
         /// <summary>
         /// Data source for managing an AWS SSO Admin Application.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

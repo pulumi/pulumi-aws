@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic example using AMI lookup
     /// 
     /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### All origin access identities in the account
         /// 
         /// ```csharp
@@ -61,8 +59,6 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### All origin access identities in the account
         /// 
         /// ```csharp
@@ -107,8 +103,6 @@ namespace Pulumi.Aws.CloudFront
 
         /// <summary>
         /// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### All origin access identities in the account
         /// 

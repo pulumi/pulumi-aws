@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a resource to create a VPC NAT Gateway.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Public NAT
     /// 
     /// ```csharp

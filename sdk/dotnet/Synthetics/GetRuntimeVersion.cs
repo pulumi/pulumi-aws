@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Synthetics
         /// <summary>
         /// Data source for managing an AWS CloudWatch Synthetics Runtime Version.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Latest Runtime Version
         /// 
         /// ```csharp
@@ -60,8 +58,6 @@ namespace Pulumi.Aws.Synthetics
         /// <summary>
         /// Data source for managing an AWS CloudWatch Synthetics Runtime Version.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Latest Runtime Version
         /// 
         /// ```csharp
@@ -105,8 +101,6 @@ namespace Pulumi.Aws.Synthetics
 
         /// <summary>
         /// Data source for managing an AWS CloudWatch Synthetics Runtime Version.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Latest Runtime Version
         /// 

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Auditmanager
     /// <summary>
     /// Resource for managing an AWS Audit Manager Control.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

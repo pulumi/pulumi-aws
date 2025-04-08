@@ -12,8 +12,6 @@ namespace Pulumi.Aws.StorageGateway
     /// <summary>
     /// Manages an AWS Storage Gateway SMB File Share.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Active Directory Authentication
     /// 
     /// &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_active_directory_settings` in the `aws.storagegateway.Gateway` resource.

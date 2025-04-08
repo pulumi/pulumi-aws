@@ -12,8 +12,6 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// <summary>
     /// Resource for managing an AWS Verified Permissions Policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.EmrContainers
     /// <summary>
     /// Manages an EMR Containers (EMR on EKS) Job Template.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

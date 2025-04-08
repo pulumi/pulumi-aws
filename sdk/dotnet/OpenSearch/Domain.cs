@@ -29,8 +29,6 @@ namespace Pulumi.Aws.OpenSearch
     /// * Both OpenSearch and Elasticsearch use assume role policies that refer to the `Principal` `Service` as `es.amazonaws.com`.
     /// * IAM policy actions, such as those you will find in `access_policies`, are prefaced with `es:` for both.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

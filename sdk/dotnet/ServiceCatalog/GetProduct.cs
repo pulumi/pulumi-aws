@@ -16,8 +16,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// &gt; **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -44,8 +42,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// &gt; **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -71,8 +67,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Use this data source to retrieve information about a Service Catalog product.
         /// 
         /// &gt; **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

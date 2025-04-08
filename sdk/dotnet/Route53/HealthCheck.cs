@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Provides a Route53 health check.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Connectivity and HTTP Status Code Check
     /// 
     /// ```csharp

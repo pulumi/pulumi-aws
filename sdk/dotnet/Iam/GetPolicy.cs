@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Iam
         /// This data source can be used to fetch information about a specific
         /// IAM policy.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By ARN
         /// 
         /// ```csharp
@@ -60,8 +58,6 @@ namespace Pulumi.Aws.Iam
         /// This data source can be used to fetch information about a specific
         /// IAM policy.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By ARN
         /// 
         /// ```csharp
@@ -104,8 +100,6 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// This data source can be used to fetch information about a specific
         /// IAM policy.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### By ARN
         /// 

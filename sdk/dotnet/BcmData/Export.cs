@@ -12,8 +12,6 @@ namespace Pulumi.Aws.BcmData
     /// <summary>
     /// Resource for managing an AWS BCM Data Exports Export.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

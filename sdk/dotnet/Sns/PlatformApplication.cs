@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Sns
     /// <summary>
     /// Provides an SNS platform application resource
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Apple Push Notification Service (APNS) using certificate-based authentication
     /// 
     /// ```csharp

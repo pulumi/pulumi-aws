@@ -12,8 +12,6 @@ namespace Pulumi.Aws.DocDB
     /// <summary>
     /// Manages an AWS DocDB (DocumentDB) Elastic Cluster.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

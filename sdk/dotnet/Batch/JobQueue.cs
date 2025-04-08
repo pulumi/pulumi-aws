@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Batch
     /// <summary>
     /// Provides a Batch Job Queue resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Job Queue
     /// 
     /// ```csharp

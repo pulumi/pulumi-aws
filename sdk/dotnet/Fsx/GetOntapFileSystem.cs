@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx ONTAP File System.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx ONTAP File System.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Retrieve information on FSx ONTAP File System.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

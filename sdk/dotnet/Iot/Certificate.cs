@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Iot
     /// <summary>
     /// Creates and manages an AWS IoT certificate.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### With CSR
     /// 
     /// ```csharp

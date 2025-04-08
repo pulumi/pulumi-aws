@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// Data source for managing AWS EMR Supported Instance Types.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -73,8 +71,6 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// Data source for managing AWS EMR Supported Instance Types.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -131,8 +127,6 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// Data source for managing AWS EMR Supported Instance Types.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

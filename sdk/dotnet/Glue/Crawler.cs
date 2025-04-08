@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
     /// 
-    /// ## Example Usage
-    /// 
     /// ### DynamoDB Target Example
     /// 
     /// ```csharp

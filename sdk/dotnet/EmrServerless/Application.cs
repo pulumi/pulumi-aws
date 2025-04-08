@@ -12,8 +12,6 @@ namespace Pulumi.Aws.EmrServerless
     /// <summary>
     /// Manages an EMR Serverless Application.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// Resource for managing an AWS Redshift Data Share Consumer Association.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

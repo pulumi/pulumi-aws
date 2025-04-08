@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Kendra
     /// <summary>
     /// Resource for managing an AWS Kendra Experience.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

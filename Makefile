@@ -98,17 +98,24 @@ GEN_ENVS := PULUMI_HOME=$(GEN_PULUMI_HOME) PULUMI_CONVERT_EXAMPLES_CACHE_DIR=$(G
 
 generate_dotnet: .make/generate_dotnet
 build_dotnet: .make/build_dotnet
+build_dotnet_policy: .make/build_dotnet_policy
 .make/generate_dotnet: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 .make/generate_dotnet: .make/install_plugins bin/$(CODEGEN)
 	$(GEN_ENVS) $(WORKING_DIR)/bin/$(CODEGEN) dotnet --out sdk/dotnet/
 	cd sdk/dotnet/ && \
 		printf "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
 		echo "$(PROVIDER_VERSION)" >version.txt
+	cd sdk/dotnet_policy/ && \
+		printf "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
+		echo "$(PROVIDER_VERSION)" >version.txt
 	@touch $@
 .make/build_dotnet: .make/generate_dotnet
 	cd sdk/dotnet/ && dotnet build
 	@touch $@
-.PHONY: generate_dotnet build_dotnet
+.make/build_dotnet_policy: .make/generate_dotnet
+	cd sdk/dotnet_policy/ && dotnet build
+	@touch $@
+.PHONY: generate_dotnet build_dotnet build_dotnet_policy
 
 generate_go: .make/generate_go
 build_go: .make/build_go
@@ -132,6 +139,9 @@ build_java: .make/build_java
 .make/build_java: PACKAGE_VERSION := $(PROVIDER_VERSION)
 .make/build_java: .make/generate_java
 	cd sdk/java/ && \
+		gradle --console=plain build && \
+		gradle --console=plain javadoc
+	cd sdk/java_policy/ && \
 		gradle --console=plain build && \
 		gradle --console=plain javadoc
 	@touch $@
@@ -181,9 +191,10 @@ clean:
 .PHONY: clean
 
 install_dotnet_sdk: .make/install_dotnet_sdk
-.make/install_dotnet_sdk: .make/build_dotnet
+.make/install_dotnet_sdk: .make/build_dotnet .make/build_dotnet_policy
 	mkdir -p nuget
 	find sdk/dotnet/bin -name '*.nupkg' -print -exec cp -p "{}" ${WORKING_DIR}/nuget \;
+	find sdk/dotnet_policy/bin -name '*.nupkg' -print -exec cp -p "{}" ${WORKING_DIR}/nuget \;
 	if ! dotnet nuget list source | grep "${WORKING_DIR}/nuget"; then \
 		dotnet nuget add source "${WORKING_DIR}/nuget" --name "${WORKING_DIR}/nuget" \
 	; fi

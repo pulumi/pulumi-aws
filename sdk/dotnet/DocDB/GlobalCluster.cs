@@ -14,8 +14,6 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// More information about DocumentDB Global Clusters can be found in the [DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/global-clusters.html).
     /// 
-    /// ## Example Usage
-    /// 
     /// ### New DocumentDB Global Cluster
     /// 
     /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.Cognito
 
         /// <summary>
         /// Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// Use this data source to get the details of resource records in a Route 53 hosted zone.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// Return all records in the zone.
@@ -75,8 +73,6 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// Use this data source to get the details of resource records in a Route 53 hosted zone.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// Return all records in the zone.
@@ -135,8 +131,6 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Use this data source to get the details of resource records in a Route 53 hosted zone.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

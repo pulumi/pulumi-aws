@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Comprehend
     /// <summary>
     /// Resource for managing an AWS Comprehend Document Classifier.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ses
     /// 
     /// &gt; **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the aws.ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Domain Identity MAIL FROM
     /// 
     /// ```csharp

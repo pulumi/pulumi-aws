@@ -12,8 +12,6 @@ namespace Pulumi.Aws.DynamoDB
     /// <summary>
     /// Resource for managing an AWS DynamoDB Resource Policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

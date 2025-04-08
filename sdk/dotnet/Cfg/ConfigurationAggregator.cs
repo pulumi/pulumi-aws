@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Cfg
     /// <summary>
     /// Manages an AWS Config Configuration Aggregator
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Account Based Aggregation
     /// 
     /// ```csharp

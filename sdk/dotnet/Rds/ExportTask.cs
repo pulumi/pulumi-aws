@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// Resource for managing an AWS RDS (Relational Database) Export Task.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

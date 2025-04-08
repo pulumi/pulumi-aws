@@ -14,8 +14,6 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// Use this data source to get a list of users in an Identity Store instance.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -42,8 +40,6 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// Use this data source to get a list of users in an Identity Store instance.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -69,8 +65,6 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// Use this data source to get a list of users in an Identity Store instance.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

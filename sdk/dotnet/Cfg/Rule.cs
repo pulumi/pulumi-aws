@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// &gt; **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### AWS Managed Rules
     /// 
     /// AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).

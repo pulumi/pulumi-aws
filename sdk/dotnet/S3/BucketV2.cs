@@ -16,8 +16,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; Object Lock can be enabled by using the `object_lock_enable` attribute or by using the `aws.s3.BucketObjectLockConfigurationV2` resource. Please note, that by using the resource, Object Lock can be enabled/disabled without destroying and recreating the bucket.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Private Bucket With Tags
     /// 
     /// ```csharp

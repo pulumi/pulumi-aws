@@ -12,8 +12,6 @@ namespace Pulumi.Aws.NeptuneGraph
     /// <summary>
     /// The AWS::NeptuneGraph::Graph resource creates an Amazon Analytics Graph.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Neptune Graph (with Vector Search configuration)
     /// 
     /// Creates a Neptune Graph with 16GB provisioned memory, vector search capability with 128 dimensions, and a single replica for high availability.

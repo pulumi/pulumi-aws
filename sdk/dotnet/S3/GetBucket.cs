@@ -17,8 +17,6 @@ namespace Pulumi.Aws.S3
         /// This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
         /// Distribution.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Route53 Record
         /// 
         /// ```csharp
@@ -96,8 +94,6 @@ namespace Pulumi.Aws.S3
         /// This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
         /// Distribution.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Route53 Record
         /// 
         /// ```csharp
@@ -174,8 +170,6 @@ namespace Pulumi.Aws.S3
         /// 
         /// This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
         /// Distribution.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Route53 Record
         /// 

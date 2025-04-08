@@ -12,8 +12,6 @@ namespace Pulumi.Aws.AppMesh
     /// <summary>
     /// Provides an AWS App Mesh virtual service resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Virtual Node Provider
     /// 
     /// ```csharp

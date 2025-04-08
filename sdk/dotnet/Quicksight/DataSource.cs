@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Quicksight
     /// <summary>
     /// Resource for managing QuickSight Data Source
     /// 
-    /// ## Example Usage
-    /// 
     /// ### S3 Data Source
     /// 
     /// ```csharp

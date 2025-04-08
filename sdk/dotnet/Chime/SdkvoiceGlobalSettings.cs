@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Chime
     /// <summary>
     /// Resource for managing Amazon Chime SDK Voice Global Settings.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

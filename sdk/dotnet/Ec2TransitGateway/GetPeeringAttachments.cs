@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on EC2 Transit Gateway Peering Attachments.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### All Resources
         /// 
         /// ```csharp
@@ -67,8 +65,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on EC2 Transit Gateway Peering Attachments.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### All Resources
         /// 
         /// ```csharp
@@ -119,8 +115,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Get information on EC2 Transit Gateway Peering Attachments.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### All Resources
         /// 

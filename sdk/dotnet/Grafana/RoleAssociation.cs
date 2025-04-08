@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Grafana
     /// <summary>
     /// Provides an Amazon Managed Grafana workspace role association resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic configuration
     /// 
     /// ```csharp

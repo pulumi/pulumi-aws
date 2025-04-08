@@ -12,8 +12,6 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// Resource for managing an AWS Redshift Data Share Authorization.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// Data source for managing an AWS API Gateway V2 VPC Link.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// Data source for managing an AWS API Gateway V2 VPC Link.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// Data source for managing an AWS API Gateway V2 VPC Link.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

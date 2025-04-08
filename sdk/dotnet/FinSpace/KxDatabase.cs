@@ -12,8 +12,6 @@ namespace Pulumi.Aws.FinSpace
     /// <summary>
     /// Resource for managing an AWS FinSpace Kx Database.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

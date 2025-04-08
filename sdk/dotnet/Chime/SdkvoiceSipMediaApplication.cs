@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Chime
     /// <summary>
     /// A ChimeSDKVoice SIP Media Application is a managed object that passes values from a SIP rule to a target AWS Lambda function.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

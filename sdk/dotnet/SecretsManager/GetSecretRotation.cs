@@ -14,8 +14,6 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Retrieve Secret Rotation Configuration
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Retrieve Secret Rotation Configuration
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.SecretsManager
 
         /// <summary>
         /// Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Retrieve Secret Rotation Configuration
         /// 

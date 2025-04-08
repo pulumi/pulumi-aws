@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Resource for managing an AWS Route 53 Profile.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Empty Profile
     /// 
     /// ```csharp

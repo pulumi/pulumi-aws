@@ -14,8 +14,6 @@ namespace Pulumi.Aws.MediaLive
         /// <summary>
         /// Data source for managing an AWS Elemental MediaLive Input.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.MediaLive
         /// <summary>
         /// Data source for managing an AWS Elemental MediaLive Input.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// Data source for managing an AWS Elemental MediaLive Input.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

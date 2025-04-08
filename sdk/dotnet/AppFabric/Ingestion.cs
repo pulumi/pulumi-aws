@@ -12,8 +12,6 @@ namespace Pulumi.Aws.AppFabric
     /// <summary>
     /// Resource for managing an AWS AppFabric Ingestion.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CodeGuruProfiler
     /// <summary>
     /// Resource for managing an AWS CodeGuru Profiler Profiling Group.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

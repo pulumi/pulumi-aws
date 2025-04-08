@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Sfn
     /// <summary>
     /// Provides a Step Function Activity resource
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

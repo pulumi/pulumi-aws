@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **Note:** Do not use `network_interface` to associate the EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Single EIP associated with an instance
     /// 
     /// ```csharp

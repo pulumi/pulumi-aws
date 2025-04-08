@@ -14,8 +14,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// <summary>
         /// Data source for managing an AWS Bedrock Foundation Model.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -42,8 +40,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// <summary>
         /// Data source for managing an AWS Bedrock Foundation Model.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -69,8 +65,6 @@ namespace Pulumi.Aws.BedrockFoundation
 
         /// <summary>
         /// Data source for managing an AWS Bedrock Foundation Model.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

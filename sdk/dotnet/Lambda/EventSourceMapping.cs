@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Lambda
     /// For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
     /// For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### DynamoDB
     /// 
     /// ```csharp

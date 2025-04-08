@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Chatbot
         /// <summary>
         /// Data source for managing an AWS Chatbot Slack Workspace.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -40,8 +38,6 @@ namespace Pulumi.Aws.Chatbot
         /// <summary>
         /// Data source for managing an AWS Chatbot Slack Workspace.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -65,8 +61,6 @@ namespace Pulumi.Aws.Chatbot
 
         /// <summary>
         /// Data source for managing an AWS Chatbot Slack Workspace.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Basic Usage
         /// 

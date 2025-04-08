@@ -12,8 +12,6 @@ namespace Pulumi.Aws.TimestreamQuery
     /// <summary>
     /// Resource for managing an AWS Timestream Query Scheduled Query.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// Before creating a scheduled query, you must have a source database and table with ingested data. Below is a multi-step example, providing an opportunity for data ingestion.

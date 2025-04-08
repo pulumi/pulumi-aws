@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DynamoDB
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

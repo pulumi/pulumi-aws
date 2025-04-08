@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ssm
     public static class GetContactsRotation
     {
         /// <summary>
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -36,8 +34,6 @@ namespace Pulumi.Aws.Ssm
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactsRotationResult>("aws:ssm/getContactsRotation:getContactsRotation", args ?? new GetContactsRotationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp
@@ -60,8 +56,6 @@ namespace Pulumi.Aws.Ssm
             => global::Pulumi.Deployment.Instance.Invoke<GetContactsRotationResult>("aws:ssm/getContactsRotation:getContactsRotation", args ?? new GetContactsRotationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// ## Example Usage
-        /// 
         /// ### Basic Usage
         /// 
         /// ```csharp

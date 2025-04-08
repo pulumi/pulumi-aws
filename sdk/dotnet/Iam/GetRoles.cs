@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Use this data source to get the ARNs and Names of IAM Roles.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### All roles in an account
         /// 
         /// ```csharp
@@ -114,8 +112,6 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Use this data source to get the ARNs and Names of IAM Roles.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### All roles in an account
         /// 
         /// ```csharp
@@ -213,8 +209,6 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Use this data source to get the ARNs and Names of IAM Roles.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### All roles in an account
         /// 

@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Schemas
     /// <summary>
     /// Resource for managing an AWS EventBridge Schemas Registry Policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// &gt; **NOTE:** This resource can only be used by the management account in the organization. In other words, a delegated administrator is not authorized to use the resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

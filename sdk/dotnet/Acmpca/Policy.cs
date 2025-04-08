@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Acmpca
     /// <summary>
     /// Attaches a resource based policy to a private CA.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

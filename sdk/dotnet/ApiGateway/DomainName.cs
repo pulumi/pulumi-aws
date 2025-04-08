@@ -37,8 +37,6 @@ namespace Pulumi.Aws.ApiGateway
     /// from the validation resource where it will be available after the resource creation:
     /// `regional_certificate_arn = aws_acm_certificate_validation.cert.certificate_arn`.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Edge Optimized (ACM Certificate)
     /// 
     /// ```csharp

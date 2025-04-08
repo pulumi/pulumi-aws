@@ -12,8 +12,6 @@ namespace Pulumi.Aws.LakeFormation
     /// <summary>
     /// Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Database Example
     /// 
     /// ```csharp

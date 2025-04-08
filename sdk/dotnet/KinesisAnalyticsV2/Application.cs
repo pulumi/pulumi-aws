@@ -15,8 +15,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// &gt; **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `aws.kinesis.AnalyticsApplication` resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Apache Flink Application
     /// 
     /// ```csharp

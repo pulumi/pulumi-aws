@@ -12,8 +12,6 @@ namespace Pulumi.Aws.NetworkManager
     /// <summary>
     /// Provides a core network resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

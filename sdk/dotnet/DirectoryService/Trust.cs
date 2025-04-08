@@ -18,8 +18,6 @@ namespace Pulumi.Aws.DirectoryService
     /// If a Trust has only been created on one side, it will be in the state `VerifyFailed`.
     /// Once the second Trust is created, the first will update to the correct state.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Two-Way Trust
     /// 
     /// ```csharp

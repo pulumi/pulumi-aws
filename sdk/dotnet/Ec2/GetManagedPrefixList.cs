@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Ec2
         /// `aws.ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
         /// customer-managed prefix list in the current region.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Find the regional DynamoDB prefix list
         /// 
         /// ```csharp
@@ -72,8 +70,6 @@ namespace Pulumi.Aws.Ec2
         /// `aws.ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
         /// customer-managed prefix list in the current region.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### Find the regional DynamoDB prefix list
         /// 
         /// ```csharp
@@ -128,8 +124,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
         /// customer-managed prefix list in the current region.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### Find the regional DynamoDB prefix list
         /// 

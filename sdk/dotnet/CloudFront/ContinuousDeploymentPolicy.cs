@@ -12,8 +12,6 @@ namespace Pulumi.Aws.CloudFront
     /// <summary>
     /// Resource for managing an AWS CloudFront Continuous Deployment Policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

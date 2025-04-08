@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// &gt; **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of IAC.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic example
     /// 
     /// ```csharp

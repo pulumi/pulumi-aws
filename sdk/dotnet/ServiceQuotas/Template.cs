@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ServiceQuotas
     /// 
     /// &gt; Only the management account of an organization can alter Service Quota templates, and this must be done from the `us-east-1` region.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

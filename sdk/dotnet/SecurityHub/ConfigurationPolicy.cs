@@ -14,8 +14,6 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// &gt; **NOTE:** This resource requires `aws.securityhub.OrganizationConfiguration` to be configured of type `CENTRAL`. More information about Security Hub central configuration and configuration policies can be found in the [How Security Hub configuration policies work](https://docs.aws.amazon.com/securityhub/latest/userguide/configuration-policies-overview.html) documentation.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Default standards enabled
     /// 
     /// ```csharp

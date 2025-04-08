@@ -12,8 +12,6 @@ namespace Pulumi.Aws.NetworkManager
     /// <summary>
     /// Resource for managing an AWS Network Manager SiteToSiteAttachment.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

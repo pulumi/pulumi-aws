@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Ssm
     /// both marked as optional fields, but the Patch Baseline requires that at least one
     /// of them is specified.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// Using `approved_patches` only.

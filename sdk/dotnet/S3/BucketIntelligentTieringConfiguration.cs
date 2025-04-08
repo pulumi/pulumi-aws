@@ -14,8 +14,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Add intelligent tiering configuration for entire S3 bucket
     /// 
     /// ```csharp

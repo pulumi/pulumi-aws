@@ -13,8 +13,6 @@ namespace Pulumi.Aws.Shield
     /// Resource for managing an AWS Shield DRT Access Log Bucket Association.
     /// Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

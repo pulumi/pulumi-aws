@@ -14,8 +14,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

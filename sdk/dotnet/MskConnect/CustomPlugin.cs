@@ -12,8 +12,6 @@ namespace Pulumi.Aws.MskConnect
     /// <summary>
     /// Provides an Amazon MSK Connect Custom Plugin Resource.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic configuration
     /// 
     /// ```csharp

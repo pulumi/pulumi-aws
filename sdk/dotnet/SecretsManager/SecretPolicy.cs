@@ -12,8 +12,6 @@ namespace Pulumi.Aws.SecretsManager
     /// <summary>
     /// Provides a resource to manage AWS Secrets Manager secret policy.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

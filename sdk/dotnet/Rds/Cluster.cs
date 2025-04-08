@@ -25,8 +25,6 @@ namespace Pulumi.Aws.Rds
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
     /// **NOTE on RDS Clusters and RDS Cluster Role Associations:** Pulumi provides both a standalone RDS Cluster Role Association - (an association between an RDS Cluster and a single IAM Role) and an RDS Cluster resource with `iam_roles` attributes. Use one resource or the other to associate IAM Roles and RDS Clusters. Not doing so will cause a conflict of associations and will result in the association being overwritten.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Aurora MySQL 2.x (MySQL 5.7)
     /// 
     /// ```csharp

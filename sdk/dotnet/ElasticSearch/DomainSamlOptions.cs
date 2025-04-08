@@ -12,8 +12,6 @@ namespace Pulumi.Aws.ElasticSearch
     /// <summary>
     /// Manages SAML authentication options for an AWS Elasticsearch Domain.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

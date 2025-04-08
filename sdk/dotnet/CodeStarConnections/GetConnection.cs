@@ -14,8 +14,6 @@ namespace Pulumi.Aws.CodeStarConnections
         /// <summary>
         /// Provides details about CodeStar Connection.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By ARN
         /// 
         /// ```csharp
@@ -58,8 +56,6 @@ namespace Pulumi.Aws.CodeStarConnections
         /// <summary>
         /// Provides details about CodeStar Connection.
         /// 
-        /// ## Example Usage
-        /// 
         /// ### By ARN
         /// 
         /// ```csharp
@@ -101,8 +97,6 @@ namespace Pulumi.Aws.CodeStarConnections
 
         /// <summary>
         /// Provides details about CodeStar Connection.
-        /// 
-        /// ## Example Usage
         /// 
         /// ### By ARN
         /// 

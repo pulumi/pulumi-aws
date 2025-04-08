@@ -13,8 +13,6 @@ namespace Pulumi.Aws.Shield
     /// Resource for managing a AWS Shield Proactive Engagement.
     /// Proactive engagement authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

@@ -18,8 +18,6 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// &gt; Destruction of this resource will not stop the verification process, only remove the resource from state.
     /// 
-    /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp
