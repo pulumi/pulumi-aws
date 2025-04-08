@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .region("us-east-1")
  *             .quotaCode("L-2ACBD22F")
  *             .serviceCode("lambda")
- *             .value("80")
+ *             .value(80.0)
  *             .build());
  * 
  *     }

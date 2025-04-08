@@ -700,12 +700,12 @@ public final class WafregionalFunctions {
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byName.id())
      *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byMetricName.id())
      *                     .type("GROUP")
      *                     .build())
      *             .build());
@@ -763,12 +763,12 @@ public final class WafregionalFunctions {
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byName.id())
      *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byMetricName.id())
      *                     .type("GROUP")
      *                     .build())
      *             .build());
@@ -826,12 +826,12 @@ public final class WafregionalFunctions {
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byName.id())
      *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byMetricName.id())
      *                     .type("GROUP")
      *                     .build())
      *             .build());
@@ -889,12 +889,12 @@ public final class WafregionalFunctions {
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byName.id())
      *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byMetricName.id())
      *                     .type("GROUP")
      *                     .build())
      *             .build());
@@ -952,12 +952,12 @@ public final class WafregionalFunctions {
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byName.id())
      *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byMetricName.id())
      *                     .type("GROUP")
      *                     .build())
      *             .build());
@@ -1015,12 +1015,12 @@ public final class WafregionalFunctions {
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byName.id())
      *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byMetricName.id())
      *                     .type("GROUP")
      *                     .build())
      *             .build());
@@ -1078,12 +1078,12 @@ public final class WafregionalFunctions {
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byName.id())
      *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .ruleId(byMetricName.id())
      *                     .type("GROUP")
      *                     .build())
      *             .build());

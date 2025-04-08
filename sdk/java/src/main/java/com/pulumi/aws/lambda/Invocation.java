@@ -36,6 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lambda.Invocation;
  * import com.pulumi.aws.lambda.InvocationArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Sha1Args;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;

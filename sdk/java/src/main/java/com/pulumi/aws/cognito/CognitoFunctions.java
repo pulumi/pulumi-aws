@@ -1599,8 +1599,8 @@ public final class CognitoFunctions {
      *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()
      *             .name("cognito")
      *             .type("COGNITO_USER_POOLS")
-     *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
-     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -> getUserPoolsResult.arns()))
+     *             .restApi(selected.id())
+     *             .providerArns(selectedGetUserPools.arns())
      *             .build());
      * 
      *     }
@@ -1656,8 +1656,8 @@ public final class CognitoFunctions {
      *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()
      *             .name("cognito")
      *             .type("COGNITO_USER_POOLS")
-     *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
-     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -> getUserPoolsResult.arns()))
+     *             .restApi(selected.id())
+     *             .providerArns(selectedGetUserPools.arns())
      *             .build());
      * 
      *     }
@@ -1713,8 +1713,8 @@ public final class CognitoFunctions {
      *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()
      *             .name("cognito")
      *             .type("COGNITO_USER_POOLS")
-     *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
-     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -> getUserPoolsResult.arns()))
+     *             .restApi(selected.id())
+     *             .providerArns(selectedGetUserPools.arns())
      *             .build());
      * 
      *     }
@@ -1770,8 +1770,8 @@ public final class CognitoFunctions {
      *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()
      *             .name("cognito")
      *             .type("COGNITO_USER_POOLS")
-     *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
-     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -> getUserPoolsResult.arns()))
+     *             .restApi(selected.id())
+     *             .providerArns(selectedGetUserPools.arns())
      *             .build());
      * 
      *     }
@@ -1827,8 +1827,8 @@ public final class CognitoFunctions {
      *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()
      *             .name("cognito")
      *             .type("COGNITO_USER_POOLS")
-     *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
-     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -> getUserPoolsResult.arns()))
+     *             .restApi(selected.id())
+     *             .providerArns(selectedGetUserPools.arns())
      *             .build());
      * 
      *     }

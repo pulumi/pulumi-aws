@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *         var test = new Group("test", GroupArgs.builder()
  *             .tags(GroupTagArgs.builder()
  *                 .key("AmazonECSManaged")
- *                 .value(true)
+ *                 .value("true")
  *                 .propagateAtLaunch(true)
  *                 .build())
  *             .build());

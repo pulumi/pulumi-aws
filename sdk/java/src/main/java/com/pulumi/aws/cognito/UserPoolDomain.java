@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *         var auth_cognito_A = new Record("auth-cognito-A", RecordArgs.builder()
  *             .name(main.domain())
  *             .type("A")
- *             .zoneId(example.applyValue(getZoneResult -> getZoneResult.zoneId()))
+ *             .zoneId(example.zoneId())
  *             .aliases(RecordAliasArgs.builder()
  *                 .evaluateTargetHealth(false)
  *                 .name(main.cloudfrontDistribution())

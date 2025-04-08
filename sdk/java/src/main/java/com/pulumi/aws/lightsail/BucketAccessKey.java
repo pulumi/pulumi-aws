@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lightsail.Bucket;
  * import com.pulumi.aws.lightsail.BucketArgs;
  * import com.pulumi.aws.lightsailBucketAccessKeyAccessKey;
- * import com.pulumi.aws.LightsailBucketAccessKeyAccessKeyArgs;
+ * import com.pulumi.aws.lightsailBucketAccessKeyAccessKeyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

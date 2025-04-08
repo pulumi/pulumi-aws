@@ -477,9 +477,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var extraTags = config.get("extraTags").orElse(        
- *             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
- *             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+ *         final var extraTags = config.get("extraTags").orElse(List.of(        
+ *             Map.ofEntries(
+ *                 Map.entry("key", "Foo"),
+ *                 Map.entry("propagateAtLaunch", true),
+ *                 Map.entry("value", "Bar")
+ *             ),
+ *             Map.ofEntries(
+ *                 Map.entry("key", "Baz"),
+ *                 Map.entry("propagateAtLaunch", true),
+ *                 Map.entry("value", "Bam")
+ *             )));
  *         var test = new Group("test", GroupArgs.builder()
  *             .tags(            
  *                 GroupTagArgs.builder()
@@ -550,7 +558,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLaunchTemplate = new LaunchTemplate("exampleLaunchTemplate", LaunchTemplateArgs.builder()
- *             .imageId(example.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .imageId(example.id())
  *             .instanceType("t3.nano")
  *             .build());
  * 

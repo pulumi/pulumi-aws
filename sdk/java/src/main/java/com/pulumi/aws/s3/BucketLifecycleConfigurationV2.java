@@ -114,7 +114,8 @@ import javax.annotation.Nullable;
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id("rule-1")
- *                 .filter()
+ *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
+ *                     .build())
  *                 .status("Enabled")
  *                 .build())
  *             .build());

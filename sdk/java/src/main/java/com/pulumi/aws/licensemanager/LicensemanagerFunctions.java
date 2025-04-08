@@ -53,12 +53,13 @@ public final class LicensemanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
      *                 .name("GranteePrincipalARN")
-     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+     *                 .values(String.format("arn:aws:iam::%s:root", current.accountId()))
      *                 .build())
      *             .build());
      * 
@@ -104,12 +105,13 @@ public final class LicensemanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
      *                 .name("GranteePrincipalARN")
-     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+     *                 .values(String.format("arn:aws:iam::%s:root", current.accountId()))
      *                 .build())
      *             .build());
      * 
@@ -155,12 +157,13 @@ public final class LicensemanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
      *                 .name("GranteePrincipalARN")
-     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+     *                 .values(String.format("arn:aws:iam::%s:root", current.accountId()))
      *                 .build())
      *             .build());
      * 
@@ -206,12 +209,13 @@ public final class LicensemanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
      *                 .name("GranteePrincipalARN")
-     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+     *                 .values(String.format("arn:aws:iam::%s:root", current.accountId()))
      *                 .build())
      *             .build());
      * 
@@ -257,12 +261,13 @@ public final class LicensemanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
      *                 .name("GranteePrincipalARN")
-     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+     *                 .values(String.format("arn:aws:iam::%s:root", current.accountId()))
      *                 .build())
      *             .build());
      * 
@@ -308,12 +313,13 @@ public final class LicensemanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
      *                 .name("GranteePrincipalARN")
-     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+     *                 .values(String.format("arn:aws:iam::%s:root", current.accountId()))
      *                 .build())
      *             .build());
      * 
@@ -359,12 +365,13 @@ public final class LicensemanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
      *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
      *                 .name("GranteePrincipalARN")
-     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+     *                 .values(String.format("arn:aws:iam::%s:root", current.accountId()))
      *                 .build())
      *             .build());
      * 

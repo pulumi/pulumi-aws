@@ -38,6 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.ec2.Subnet;
  * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.CidrsubnetArgs;
  * import com.pulumi.aws.directoryservice.Directory;
  * import com.pulumi.aws.directoryservice.DirectoryArgs;
  * import com.pulumi.aws.directoryservice.inputs.DirectoryVpcSettingsArgs;
@@ -58,7 +60,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = AwsFunctions.getRegion();
+ *         final var example = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
  *             .state("available")
@@ -76,8 +79,12 @@ import javax.annotation.Nullable;
  *         for (var i = 0; i < 2; i++) {
  *             new Subnet("exampleSubnet-" + i, SubnetArgs.builder()
  *                 .vpcId(exampleVpc.id())
- *                 .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names())[range.value()])
- *                 .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+ *                 .availabilityZone(available.names()[range.value()])
+ *                 .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                     .input(_cidrBlock)
+ *                     .newbits(8)
+ *                     .netnum(range.value())
+ *                     .build())).applyValue(_invoke -> _invoke.result()))
  *                 .tags(Map.of("Name", "Primary"))
  *                 .build());
  * 
@@ -110,7 +117,11 @@ import javax.annotation.Nullable;
  *             new Subnet("example-secondarySubnet-" + i, SubnetArgs.builder()
  *                 .vpcId(example_secondary.id())
  *                 .availabilityZone(available_secondary.names()[range.value()])
- *                 .cidrBlock(example_secondary.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+ *                 .cidrBlock(example_secondary.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                     .input(_cidrBlock)
+ *                     .newbits(8)
+ *                     .netnum(range.value())
+ *                     .build())).applyValue(_invoke -> _invoke.result()))
  *                 .tags(Map.of("Name", "Secondary"))
  *                 .build());
  * 
@@ -118,7 +129,7 @@ import javax.annotation.Nullable;
  * }
  *         var exampleServiceRegion = new ServiceRegion("exampleServiceRegion", ServiceRegionArgs.builder()
  *             .directoryId(exampleDirectory.id())
- *             .regionName(example.applyValue(getRegionResult -> getRegionResult.name()))
+ *             .regionName(example.name())
  *             .vpcSettings(ServiceRegionVpcSettingsArgs.builder()
  *                 .vpcId(example_secondary.id())
  *                 .subnetIds(example_secondarySubnet.stream().map(element -> element.id()).collect(toList()))

@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
  *                 .type("SingleWeight")
  *                 .singleWeightConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs.builder()
- *                     .weight("0.01")
+ *                     .weight(0.01)
  *                     .build())
  *                 .build())
  *             .build());
@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
  *                 .type("SingleWeight")
  *                 .singleWeightConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs.builder()
- *                     .weight("0.01")
+ *                     .weight(0.01)
  *                     .sessionStickinessConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs.builder()
  *                         .idleTtl(300)
  *                         .maximumTtl(600)

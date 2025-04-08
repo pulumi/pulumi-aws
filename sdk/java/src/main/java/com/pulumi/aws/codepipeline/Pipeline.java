@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  *         var codepipelineRole = new Role("codepipelineRole", RoleArgs.builder()
  *             .name("test-role")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         final var s3kmskey = KmsFunctions.getAlias(GetAliasArgs.builder()
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *                 .location(codepipelineBucket.bucket())
  *                 .type("S3")
  *                 .encryptionKey(PipelineArtifactStoreEncryptionKeyArgs.builder()
- *                     .id(s3kmskey.applyValue(getAliasResult -> getAliasResult.arn()))
+ *                     .id(s3kmskey.arn())
  *                     .type("KMS")
  *                     .build())
  *                 .build())
@@ -176,7 +176,7 @@ import javax.annotation.Nullable;
  *                         "s3:PutObject")
  *                     .resources(                    
  *                         codepipelineBucket.arn(),
- *                         codepipelineBucket.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                         codepipelineBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect("Allow")
@@ -195,7 +195,7 @@ import javax.annotation.Nullable;
  *         var codepipelinePolicyRolePolicy = new RolePolicy("codepipelinePolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("codepipeline_policy")
  *             .role(codepipelineRole.id())
- *             .policy(codepipelinePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(codepipelinePolicy -> codepipelinePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(codepipelinePolicy.applyValue(_codepipelinePolicy -> _codepipelinePolicy.json()))
  *             .build());
  * 
  *     }

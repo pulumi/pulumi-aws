@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *                     .identifiers("*")
  *                     .build())
  *                 .actions("execute-api:Invoke")
- *                 .resources(testRestApi.executionArn().applyValue(executionArn -> String.format("%s/*", executionArn)))
+ *                 .resources(testRestApi.executionArn().applyValue(_executionArn -> String.format("%s/*", _executionArn)))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("IpAddress")
  *                     .variable("aws:SourceIp")
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  *         var testRestApiPolicy = new RestApiPolicy("testRestApiPolicy", RestApiPolicyArgs.builder()
  *             .restApiId(testRestApi.id())
- *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(_test -> _test.json()))
  *             .build());
  * 
  *     }

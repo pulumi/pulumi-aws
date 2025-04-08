@@ -35,6 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.opsworks.inputs.ApplicationEnvironmentArgs;
  * import com.pulumi.aws.opsworks.inputs.ApplicationAppSourceArgs;
  * import com.pulumi.aws.opsworks.inputs.ApplicationSslConfigurationArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -77,7 +79,7 @@ import javax.annotation.Nullable;
  *                     .build()).result())
  *                 .build())
  *             .documentRoot("public")
- *             .autoBundleOnDeploy(true)
+ *             .autoBundleOnDeploy("true")
  *             .railsEnv("staging")
  *             .build());
  * 

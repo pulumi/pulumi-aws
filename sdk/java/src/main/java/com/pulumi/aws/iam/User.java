@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *         var lbRoUserPolicy = new UserPolicy("lbRoUserPolicy", UserPolicyArgs.builder()
  *             .name("test")
  *             .user(lb.name())
- *             .policy(lbRo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(lbRo.json())
  *             .build());
  * 
  *     }

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new MacsecKeyAssociation("test", MacsecKeyAssociationArgs.builder()
- *             .connectionId(example.applyValue(getConnectionResult -> getConnectionResult.id()))
+ *             .connectionId(example.id())
  *             .ckn("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
  *             .cak("abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789")
  *             .build());
@@ -105,8 +105,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new MacsecKeyAssociation("test", MacsecKeyAssociationArgs.builder()
- *             .connectionId(example.applyValue(getConnectionResult -> getConnectionResult.id()))
- *             .secretArn(exampleGetSecret.applyValue(getSecretResult -> getSecretResult.arn()))
+ *             .connectionId(example.id())
+ *             .secretArn(exampleGetSecret.arn())
  *             .build());
  * 
  *     }

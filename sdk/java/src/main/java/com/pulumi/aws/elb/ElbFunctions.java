@@ -53,7 +53,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
+     *         final var main = ElbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -61,7 +62,7 @@ public final class ElbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -108,7 +109,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
+     *         final var main = ElbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -116,7 +118,7 @@ public final class ElbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -163,7 +165,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
+     *         final var main = ElbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -171,7 +174,7 @@ public final class ElbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -218,7 +221,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
+     *         final var main = ElbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -226,7 +230,7 @@ public final class ElbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -273,7 +277,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
+     *         final var main = ElbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -281,7 +286,7 @@ public final class ElbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -328,7 +333,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
+     *         final var main = ElbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -336,7 +342,7 @@ public final class ElbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -383,7 +389,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
+     *         final var main = ElbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -391,7 +398,7 @@ public final class ElbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsElb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -699,7 +706,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
+     *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
@@ -710,21 +718,21 @@ public final class ElbFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = elbLogs.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
-     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                     .identifiers(main.arn())
      *                     .build())
      *                 .actions("s3:PutObject")
-     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
+     *                 .resources(String.format("%s/AWSLogs/*", _arn))
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(_allowElbLogging -> _allowElbLogging.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
@@ -795,7 +803,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
+     *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
@@ -806,21 +815,21 @@ public final class ElbFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = elbLogs.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
-     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                     .identifiers(main.arn())
      *                     .build())
      *                 .actions("s3:PutObject")
-     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
+     *                 .resources(String.format("%s/AWSLogs/*", _arn))
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(_allowElbLogging -> _allowElbLogging.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
@@ -891,7 +900,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
+     *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
@@ -902,21 +912,21 @@ public final class ElbFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = elbLogs.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
-     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                     .identifiers(main.arn())
      *                     .build())
      *                 .actions("s3:PutObject")
-     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
+     *                 .resources(String.format("%s/AWSLogs/*", _arn))
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(_allowElbLogging -> _allowElbLogging.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
@@ -987,7 +997,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
+     *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
@@ -998,21 +1009,21 @@ public final class ElbFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = elbLogs.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
-     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                     .identifiers(main.arn())
      *                     .build())
      *                 .actions("s3:PutObject")
-     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
+     *                 .resources(String.format("%s/AWSLogs/*", _arn))
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(_allowElbLogging -> _allowElbLogging.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
@@ -1083,7 +1094,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
+     *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
@@ -1094,21 +1106,21 @@ public final class ElbFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = elbLogs.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
-     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                     .identifiers(main.arn())
      *                     .build())
      *                 .actions("s3:PutObject")
-     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
+     *                 .resources(String.format("%s/AWSLogs/*", _arn))
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(_allowElbLogging -> _allowElbLogging.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
@@ -1179,7 +1191,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
+     *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
@@ -1190,21 +1203,21 @@ public final class ElbFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = elbLogs.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
-     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                     .identifiers(main.arn())
      *                     .build())
      *                 .actions("s3:PutObject")
-     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
+     *                 .resources(String.format("%s/AWSLogs/*", _arn))
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(_allowElbLogging -> _allowElbLogging.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
@@ -1275,7 +1288,8 @@ public final class ElbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
+     *         final var main = ElbFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
@@ -1286,21 +1300,21 @@ public final class ElbFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowElbLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var allowElbLogging = elbLogs.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
-     *                     .identifiers(main.applyValue(getServiceAccountResult -> getServiceAccountResult.arn()))
+     *                     .identifiers(main.arn())
      *                     .build())
      *                 .actions("s3:PutObject")
-     *                 .resources(elbLogs.arn().applyValue(arn -> String.format("%s/AWSLogs/*", arn)))
+     *                 .resources(String.format("%s/AWSLogs/*", _arn))
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
-     *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowElbLogging.applyValue(_allowElbLogging -> _allowElbLogging.json()))
      *             .build());
      * 
      *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()

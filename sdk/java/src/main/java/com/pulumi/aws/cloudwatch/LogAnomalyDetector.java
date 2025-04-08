@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .logGroupArnLists(test[0].arn())
  *             .anomalyVisibilityTime(7)
  *             .evaluationFrequency("TEN_MIN")
- *             .enabled("false")
+ *             .enabled(false)
  *             .build());
  * 
  *     }

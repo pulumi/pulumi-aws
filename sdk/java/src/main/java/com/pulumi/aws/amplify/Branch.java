@@ -79,6 +79,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.amplify.AppArgs;
  * import com.pulumi.aws.amplify.Branch;
  * import com.pulumi.aws.amplify.BranchArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Base64encodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -166,8 +168,8 @@ import javax.annotation.Nullable;
  * 
  *         // EventBridge Rule for Amplify notifications
  *         var amplifyAppMasterEventRule = new EventRule("amplifyAppMasterEventRule", EventRuleArgs.builder()
- *             .name(master.branchName().applyValue(branchName -> String.format("amplify-%s-%s-branch-notification", app.id(),branchName)))
- *             .description(master.branchName().applyValue(branchName -> String.format("AWS Amplify build notifications for :  App: %s Branch: %s", app.id(),branchName)))
+ *             .name(master.branchName().applyValue(_branchName -> String.format("amplify-%s-%s-branch-notification", app.id(),_branchName)))
+ *             .description(master.branchName().applyValue(_branchName -> String.format("AWS Amplify build notifications for :  App: %s Branch: %s", app.id(),_branchName)))
  *             .eventPattern(Output.tuple(example.id(), master.branchName()).applyValue(values -> }{{@code
  *                 var id = values.t1;
  *                 var branchName = values.t2;
@@ -190,7 +192,7 @@ import javax.annotation.Nullable;
  * 
  *         // SNS Topic for Amplify notifications
  *         var amplifyAppMasterTopic = new Topic("amplifyAppMasterTopic", TopicArgs.builder()
- *             .name(master.branchName().applyValue(branchName -> String.format("amplify-%s_%s", app.id(),branchName)))
+ *             .name(master.branchName().applyValue(_branchName -> String.format("amplify-%s_%s", app.id(),_branchName)))
  *             .build());
  * 
  *         var amplifyAppMasterEventTarget = new EventTarget("amplifyAppMasterEventTarget", EventTargetArgs.builder()
@@ -209,22 +211,26 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var amplifyAppMaster = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(master.arn().applyValue(arn -> String.format("Allow_Publish_Events %s", arn)))
- *                 .effect("Allow")
- *                 .actions("SNS:Publish")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("events.amazonaws.com")
+ *         final var amplifyAppMaster = Output.tuple(master.arn(), amplifyAppMasterTopic.arn()).applyValue(values -> }{{@code
+ *             var masterArn = values.t1;
+ *             var amplifyAppMasterTopicArn = values.t2;
+ *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *                 .statements(GetPolicyDocumentStatementArgs.builder()
+ *                     .sid(String.format("Allow_Publish_Events %s", masterArn))
+ *                     .effect("Allow")
+ *                     .actions("SNS:Publish")
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type("Service")
+ *                         .identifiers("events.amazonaws.com")
+ *                         .build())
+ *                     .resources(amplifyAppMasterTopicArn)
  *                     .build())
- *                 .resources(amplifyAppMasterTopic.arn())
- *                 .build())
- *             .build());
+ *                 .build());
+ *         }}{@code );
  * 
  *         var amplifyAppMasterTopicPolicy = new TopicPolicy("amplifyAppMasterTopicPolicy", TopicPolicyArgs.builder()
  *             .arn(amplifyAppMasterTopic.arn())
- *             .policy(amplifyAppMaster.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(amplifyAppMaster -> amplifyAppMaster.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(amplifyAppMaster.applyValue(_amplifyAppMaster -> _amplifyAppMaster.json()))
  *             .build());
  * 
  *         var this_ = new TopicSubscription("this", TopicSubscriptionArgs.builder()

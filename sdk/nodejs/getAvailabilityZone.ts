@@ -31,14 +31,14 @@ import * as utilities from "./utilities";
  * import * as std from "@pulumi/std";
  *
  * const config = new pulumi.Config();
- * const regionNumber = config.getObject("regionNumber") || {
+ * const regionNumber = config.getObject<any>("regionNumber") || {
  *     "ap-northeast-1": 5,
  *     "eu-central-1": 4,
  *     "us-east-1": 1,
  *     "us-west-1": 2,
  *     "us-west-2": 3,
  * };
- * const azNumber = config.getObject("azNumber") || {
+ * const azNumber = config.getObject<any>("azNumber") || {
  *     a: 1,
  *     b: 2,
  *     c: 3,
@@ -178,14 +178,14 @@ export interface GetAvailabilityZoneResult {
  * import * as std from "@pulumi/std";
  *
  * const config = new pulumi.Config();
- * const regionNumber = config.getObject("regionNumber") || {
+ * const regionNumber = config.getObject<any>("regionNumber") || {
  *     "ap-northeast-1": 5,
  *     "eu-central-1": 4,
  *     "us-east-1": 1,
  *     "us-west-1": 2,
  *     "us-west-2": 3,
  * };
- * const azNumber = config.getObject("azNumber") || {
+ * const azNumber = config.getObject<any>("azNumber") || {
  *     a: 1,
  *     b: 2,
  *     c: 3,

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const awsEc2LocalGatewayRouteTable = config.requireObject("awsEc2LocalGatewayRouteTable");
+ * const awsEc2LocalGatewayRouteTable = config.requireObject<any>("awsEc2LocalGatewayRouteTable");
  * const selected = aws.ec2.getLocalGatewayRouteTable({
  *     localGatewayRouteTableId: awsEc2LocalGatewayRouteTable,
  * });
@@ -102,7 +102,7 @@ export interface GetLocalGatewayRouteTableResult {
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const awsEc2LocalGatewayRouteTable = config.requireObject("awsEc2LocalGatewayRouteTable");
+ * const awsEc2LocalGatewayRouteTable = config.requireObject<any>("awsEc2LocalGatewayRouteTable");
  * const selected = aws.ec2.getLocalGatewayRouteTable({
  *     localGatewayRouteTableId: awsEc2LocalGatewayRouteTable,
  * });

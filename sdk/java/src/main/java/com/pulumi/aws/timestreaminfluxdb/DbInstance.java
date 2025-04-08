@@ -181,13 +181,13 @@ import javax.annotation.Nullable;
  *                     .type("Service")
  *                     .identifiers("timestream-influxdb.amazonaws.com")
  *                     .build())
- *                 .resources(exampleBucketV2.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                 .resources(exampleBucketV2.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .build())
  *             .build());
  * 
  *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(exampleBucketV2.id())
- *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *         var exampleDbInstance = new DbInstance("exampleDbInstance", DbInstanceArgs.builder()

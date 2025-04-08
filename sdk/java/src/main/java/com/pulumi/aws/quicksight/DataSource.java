@@ -116,21 +116,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var currentGetPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var example = new BucketV2("example");
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()
  *             .bucket(example.bucket())
  *             .key("manifest.json")
- *             .content(example.id().applyValue(id -> serializeJson(
+ *             .content(example.id().applyValue(_id -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("fileLocations", jsonArray(jsonObject(
- *                         jsonProperty("URIPrefixes", jsonArray(String.format("https://%s.s3-%s.%s", id,currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.dnsSuffix()))))
+ *                         jsonProperty("URIPrefixes", jsonArray(String.format("https://%s.s3-%s.%s", _id,currentGetRegion.name(),currentGetPartition.dnsSuffix())))
  *                     ))),
  *                     jsonProperty("globalUploadSettings", jsonObject(
  *                         jsonProperty("format", "CSV"),
@@ -154,7 +157,7 @@ import javax.annotation.Nullable;
  *                         )),
  *                         jsonProperty("Condition", jsonObject(
  *                             jsonProperty("StringEquals", jsonObject(
- *                                 jsonProperty("aws:SourceAccount", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                                 jsonProperty("aws:SourceAccount", current.accountId())
  *                             ))
  *                         ))
  *                     )))

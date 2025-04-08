@@ -73,11 +73,14 @@ import javax.annotation.Nullable;
  *             .forceDestroy(true)
  *             .build());
  * 
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var currentGetPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetRegion = AwsFunctions.getRegion();
+ *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
@@ -93,7 +96,7 @@ import javax.annotation.Nullable;
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
  *                         .variable("aws:SourceArn")
- *                         .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                         .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
  *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
@@ -104,7 +107,7 @@ import javax.annotation.Nullable;
  *                         .identifiers("cloudtrail.amazonaws.com")
  *                         .build())
  *                     .actions("s3:PutObject")
- *                     .resources(exampleBucketV2.arn().applyValue(arn -> String.format("%s/prefix/AWSLogs/%s/*", arn,current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))))
+ *                     .resources(exampleBucketV2.arn().applyValue(_arn -> String.format("%s/prefix/AWSLogs/%s/*", _arn,current.accountId())))
  *                     .conditions(                    
  *                         GetPolicyDocumentStatementConditionArgs.builder()
  *                             .test("StringEquals")
@@ -114,14 +117,14 @@ import javax.annotation.Nullable;
  *                         GetPolicyDocumentStatementConditionArgs.builder()
  *                             .test("StringEquals")
  *                             .variable("aws:SourceArn")
- *                             .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
  *                             .build())
  *                     .build())
  *             .build());
  * 
  *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(exampleBucketV2.id())
- *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *         var exampleTrail = new Trail("exampleTrail", TrailArgs.builder()
@@ -486,7 +489,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTrail = new Trail("exampleTrail", TrailArgs.builder()
- *             .cloudWatchLogsGroupArn(example.arn().applyValue(arn -> String.format("%s:*", arn)))
+ *             .cloudWatchLogsGroupArn(example.arn().applyValue(_arn -> String.format("%s:*", _arn)))
  *             .build());
  * 
  *     }

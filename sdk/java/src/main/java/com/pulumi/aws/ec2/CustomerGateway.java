@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new CustomerGateway("main", CustomerGatewayArgs.builder()
- *             .bgpAsn(65000)
+ *             .bgpAsn("65000")
  *             .ipAddress("172.83.124.10")
  *             .type("ipsec.1")
  *             .tags(Map.of("Name", "main-customer-gateway"))

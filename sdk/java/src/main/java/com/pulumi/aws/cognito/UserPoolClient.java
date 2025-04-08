@@ -172,7 +172,7 @@ import javax.annotation.Nullable;
  * 
  *         var testRole = new Role("testRole", RoleArgs.builder()
  *             .name("role")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var testUserPoolClient = new UserPoolClient("testUserPoolClient", UserPoolClientArgs.builder()
@@ -186,7 +186,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -194,14 +195,14 @@ import javax.annotation.Nullable;
  *                 .actions(                
  *                     "mobiletargeting:UpdateEndpoint",
  *                     "mobiletargeting:PutEvents")
- *                 .resources(testApp.applicationId().applyValue(applicationId -> String.format("arn:aws:mobiletargeting:*:%s:apps/%s*", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),applicationId)))
+ *                 .resources(testApp.applicationId().applyValue(_applicationId -> String.format("arn:aws:mobiletargeting:*:%s:apps/%s*", current.accountId(),_applicationId)))
  *                 .build())
  *             .build());
  * 
  *         var testRolePolicy = new RolePolicy("testRolePolicy", RolePolicyArgs.builder()
  *             .name("role_policy")
  *             .role(testRole.id())
- *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(_test -> _test.json()))
  *             .build());
  * 
  *     }

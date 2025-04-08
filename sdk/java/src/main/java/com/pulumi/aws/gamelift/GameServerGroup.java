@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *             .autoScalingPolicy(GameServerGroupAutoScalingPolicyArgs.builder()
  *                 .estimatedInstanceWarmup(60)
  *                 .targetTrackingConfiguration(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs.builder()
- *                     .targetValue(75)
+ *                     .targetValue(75.0)
  *                     .build())
  *                 .build())
  *             .balancingStrategy("SPOT_ONLY")
@@ -177,7 +177,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getPartition();
+ *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -193,12 +194,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Role("example", RoleArgs.builder()
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .name("gamelift-game-server-group-example")
  *             .build());
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
- *             .policyArn(String.format("arn:%s:iam::aws:policy/GameLiftGameServerGroupPolicy", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
+ *             .policyArn(String.format("arn:%s:iam::aws:policy/GameLiftGameServerGroupPolicy", current.partition()))
  *             .role(example.name())
  *             .build());
  * 

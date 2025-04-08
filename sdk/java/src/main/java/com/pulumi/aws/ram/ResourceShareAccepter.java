@@ -58,10 +58,11 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Name", "tf-test-resource-share"))
  *             .build());
  * 
- *         final var receiver = AwsFunctions.getCallerIdentity();
+ *         final var receiver = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var senderInvite = new PrincipalAssociation("senderInvite", PrincipalAssociationArgs.builder()
- *             .principal(receiver.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *             .principal(receiver.accountId())
  *             .resourceShareArn(senderShare.arn())
  *             .build());
  * 

@@ -43,7 +43,7 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -84,7 +84,7 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -125,7 +125,7 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -166,7 +166,7 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -207,7 +207,7 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -248,7 +248,7 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -289,7 +289,7 @@ public final class EcrpublicFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
+     *         final var token = EcrpublicFunctions.getAuthorizationToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 ArchiveRuleFilterArgs.builder()
  *                     .criteria("error")
- *                     .exists(true)
+ *                     .exists("true")
  *                     .build(),
  *                 ArchiveRuleFilterArgs.builder()
  *                     .criteria("isPublic")

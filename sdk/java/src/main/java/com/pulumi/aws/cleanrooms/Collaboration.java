@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *                 .preserveNulls(false)
  *                 .build())
  *             .members(CollaborationMemberArgs.builder()
- *                 .accountId(123456789012)
+ *                 .accountId("123456789012")
  *                 .displayName("Other member")
  *                 .memberAbilities()
  *                 .build())

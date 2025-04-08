@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var cloudwatchRole = new Role("cloudwatchRole", RoleArgs.builder()
  *             .name("api_gateway_cloudwatch_global")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var demo = new Account("demo", AccountArgs.builder()
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *         var cloudwatchRolePolicy = new RolePolicy("cloudwatchRolePolicy", RolePolicyArgs.builder()
  *             .name("default")
  *             .role(cloudwatchRole.id())
- *             .policy(cloudwatch.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(cloudwatch.json())
  *             .build());
  * 
  *     }

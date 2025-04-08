@@ -148,13 +148,13 @@ import javax.annotation.Nullable;
  *                         "s3:GetObject",
  *                         "s3:PutObject",
  *                         "s3:DeleteObject")
- *                     .resources(exampleBucketV2.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                     .resources(exampleBucketV2.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                     .build())
  *             .build());
  * 
  *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
  *             .name("example")
- *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()

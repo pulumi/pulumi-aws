@@ -265,7 +265,7 @@ import {Metric} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const extraTags = config.getObject("extraTags") || [
+ * const extraTags = config.getObject<any>("extraTags") || [
  *     {
  *         key: "Foo",
  *         propagateAtLaunch: true,

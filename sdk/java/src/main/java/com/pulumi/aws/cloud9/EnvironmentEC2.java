@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         ctx.export("cloud9Url", example.id().applyValue(id -> String.format("https://%s.console.aws.amazon.com/cloud9/ide/%s", region,id)));
+ *         ctx.export("cloud9Url", example.id().applyValue(_id -> String.format("https://%s.console.aws.amazon.com/cloud9/ide/%s", region,_id)));
  *     }
  * }
  * }
@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var cloud9Eip = new Eip("cloud9Eip", EipArgs.builder()
- *             .instance(cloud9Instance.applyValue(getInstanceResult -> getInstanceResult).applyValue(cloud9Instance -> cloud9Instance.applyValue(getInstanceResult -> getInstanceResult.id())))
+ *             .instance(cloud9Instance.applyValue(_cloud9Instance -> _cloud9Instance.id()))
  *             .domain("vpc")
  *             .build());
  * 

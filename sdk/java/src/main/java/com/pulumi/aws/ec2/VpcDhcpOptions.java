@@ -88,10 +88,10 @@ import javax.annotation.Nullable;
  *             .domainNameServers(            
  *                 "127.0.0.1",
  *                 "10.0.0.2")
- *             .ipv6AddressPreferredLeaseTime(1440)
+ *             .ipv6AddressPreferredLeaseTime("1440")
  *             .ntpServers("127.0.0.1")
  *             .netbiosNameServers("127.0.0.1")
- *             .netbiosNodeType(2)
+ *             .netbiosNodeType("2")
  *             .tags(Map.of("Name", "foo-name"))
  *             .build());
  * 

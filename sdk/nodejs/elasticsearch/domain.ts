@@ -103,7 +103,7 @@ import {PolicyDocument} from "../iam";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const vpc = config.requireObject("vpc");
+ * const vpc = config.requireObject<any>("vpc");
  * const domain = config.get("domain") || "tf-test";
  * const selected = aws.ec2.getVpc({
  *     tags: {

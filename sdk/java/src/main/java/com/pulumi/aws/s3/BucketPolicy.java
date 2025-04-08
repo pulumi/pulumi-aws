@@ -64,13 +64,13 @@ import javax.annotation.Nullable;
  *                     "s3:ListBucket")
  *                 .resources(                
  *                     example.arn(),
- *                     example.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                     example.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .build())
  *             .build());
  * 
  *         var allowAccessFromAnotherAccountBucketPolicy = new BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(example.id())
- *             .policy(allowAccessFromAnotherAccount.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAccessFromAnotherAccount -> allowAccessFromAnotherAccount.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(allowAccessFromAnotherAccount.applyValue(_allowAccessFromAnotherAccount -> _allowAccessFromAnotherAccount.json()))
  *             .build());
  * 
  *     }

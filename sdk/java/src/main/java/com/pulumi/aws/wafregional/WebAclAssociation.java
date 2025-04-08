@@ -101,18 +101,19 @@ import javax.annotation.Nullable;
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         final var available = AwsFunctions.getAvailabilityZones();
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .build());
  * 
  *         var fooSubnet = new Subnet("fooSubnet", SubnetArgs.builder()
  *             .vpcId(fooVpc.id())
  *             .cidrBlock("10.1.1.0/24")
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+ *             .availabilityZone(available.names()[0])
  *             .build());
  * 
  *         var bar = new Subnet("bar", SubnetArgs.builder()
  *             .vpcId(fooVpc.id())
  *             .cidrBlock("10.1.2.0/24")
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
+ *             .availabilityZone(available.names()[1])
  *             .build());
  * 
  *         var fooLoadBalancer = new LoadBalancer("fooLoadBalancer", LoadBalancerArgs.builder()

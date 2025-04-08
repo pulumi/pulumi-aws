@@ -288,6 +288,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import java.util.List;
@@ -304,8 +306,21 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *             Map.entry("ap-northeast-1", 5),
+     *             Map.entry("eu-central-1", 4),
+     *             Map.entry("us-east-1", 1),
+     *             Map.entry("us-west-1", 2),
+     *             Map.entry("us-west-2", 3)
+     *         ));
+     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *             Map.entry("a", 1),
+     *             Map.entry("b", 2),
+     *             Map.entry("c", 3),
+     *             Map.entry("d", 4),
+     *             Map.entry("e", 5),
+     *             Map.entry("f", 6)
+     *         ));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
@@ -317,14 +332,18 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.region()])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(_cidrBlock)
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .build())).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -367,6 +386,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import java.util.List;
@@ -383,8 +404,21 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *             Map.entry("ap-northeast-1", 5),
+     *             Map.entry("eu-central-1", 4),
+     *             Map.entry("us-east-1", 1),
+     *             Map.entry("us-west-1", 2),
+     *             Map.entry("us-west-2", 3)
+     *         ));
+     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *             Map.entry("a", 1),
+     *             Map.entry("b", 2),
+     *             Map.entry("c", 3),
+     *             Map.entry("d", 4),
+     *             Map.entry("e", 5),
+     *             Map.entry("f", 6)
+     *         ));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
@@ -396,14 +430,18 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.region()])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(_cidrBlock)
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .build())).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -446,6 +484,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import java.util.List;
@@ -462,8 +502,21 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *             Map.entry("ap-northeast-1", 5),
+     *             Map.entry("eu-central-1", 4),
+     *             Map.entry("us-east-1", 1),
+     *             Map.entry("us-west-1", 2),
+     *             Map.entry("us-west-2", 3)
+     *         ));
+     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *             Map.entry("a", 1),
+     *             Map.entry("b", 2),
+     *             Map.entry("c", 3),
+     *             Map.entry("d", 4),
+     *             Map.entry("e", 5),
+     *             Map.entry("f", 6)
+     *         ));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
@@ -475,14 +528,18 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.region()])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(_cidrBlock)
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .build())).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -525,6 +582,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import java.util.List;
@@ -541,8 +600,21 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *             Map.entry("ap-northeast-1", 5),
+     *             Map.entry("eu-central-1", 4),
+     *             Map.entry("us-east-1", 1),
+     *             Map.entry("us-west-1", 2),
+     *             Map.entry("us-west-2", 3)
+     *         ));
+     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *             Map.entry("a", 1),
+     *             Map.entry("b", 2),
+     *             Map.entry("c", 3),
+     *             Map.entry("d", 4),
+     *             Map.entry("e", 5),
+     *             Map.entry("f", 6)
+     *         ));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
@@ -554,14 +626,18 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.region()])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(_cidrBlock)
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .build())).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -604,6 +680,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import java.util.List;
@@ -620,8 +698,21 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *             Map.entry("ap-northeast-1", 5),
+     *             Map.entry("eu-central-1", 4),
+     *             Map.entry("us-east-1", 1),
+     *             Map.entry("us-west-1", 2),
+     *             Map.entry("us-west-2", 3)
+     *         ));
+     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *             Map.entry("a", 1),
+     *             Map.entry("b", 2),
+     *             Map.entry("c", 3),
+     *             Map.entry("d", 4),
+     *             Map.entry("e", 5),
+     *             Map.entry("f", 6)
+     *         ));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
@@ -633,14 +724,18 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.region()])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(_cidrBlock)
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .build())).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -683,6 +778,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import java.util.List;
@@ -699,8 +796,21 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *             Map.entry("ap-northeast-1", 5),
+     *             Map.entry("eu-central-1", 4),
+     *             Map.entry("us-east-1", 1),
+     *             Map.entry("us-west-1", 2),
+     *             Map.entry("us-west-2", 3)
+     *         ));
+     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *             Map.entry("a", 1),
+     *             Map.entry("b", 2),
+     *             Map.entry("c", 3),
+     *             Map.entry("d", 4),
+     *             Map.entry("e", 5),
+     *             Map.entry("f", 6)
+     *         ));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
@@ -712,14 +822,18 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.region()])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(_cidrBlock)
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .build())).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -762,6 +876,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import java.util.List;
@@ -778,8 +894,21 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         final var regionNumber = config.get("regionNumber").orElse(Map.ofEntries(
+     *             Map.entry("ap-northeast-1", 5),
+     *             Map.entry("eu-central-1", 4),
+     *             Map.entry("us-east-1", 1),
+     *             Map.entry("us-west-1", 2),
+     *             Map.entry("us-west-2", 3)
+     *         ));
+     *         final var azNumber = config.get("azNumber").orElse(Map.ofEntries(
+     *             Map.entry("a", 1),
+     *             Map.entry("b", 2),
+     *             Map.entry("c", 3),
+     *             Map.entry("d", 4),
+     *             Map.entry("e", 5),
+     *             Map.entry("f", 6)
+     *         ));
      *         // Retrieve the AZ where we want to create network resources
      *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
@@ -791,14 +920,18 @@ public final class AwsFunctions {
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
+     *                 .netnum(regionNumber[example.region()])
      *                 .build()).result())
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(_cidrBlock)
+     *                 .newbits(4)
+     *                 .netnum(azNumber[example.nameSuffix()])
+     *                 .build())).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -857,11 +990,11 @@ public final class AwsFunctions {
      * 
      *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet("primary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.names()[0])
      *             .build());
      * 
      *         var secondary = new Subnet("secondary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.names()[1])
      *             .build());
      * 
      *     }
@@ -1001,11 +1134,11 @@ public final class AwsFunctions {
      * 
      *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet("primary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.names()[0])
      *             .build());
      * 
      *         var secondary = new Subnet("secondary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.names()[1])
      *             .build());
      * 
      *     }
@@ -1145,11 +1278,11 @@ public final class AwsFunctions {
      * 
      *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet("primary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.names()[0])
      *             .build());
      * 
      *         var secondary = new Subnet("secondary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.names()[1])
      *             .build());
      * 
      *     }
@@ -1289,11 +1422,11 @@ public final class AwsFunctions {
      * 
      *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet("primary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.names()[0])
      *             .build());
      * 
      *         var secondary = new Subnet("secondary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.names()[1])
      *             .build());
      * 
      *     }
@@ -1433,11 +1566,11 @@ public final class AwsFunctions {
      * 
      *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet("primary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.names()[0])
      *             .build());
      * 
      *         var secondary = new Subnet("secondary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.names()[1])
      *             .build());
      * 
      *     }
@@ -1577,11 +1710,11 @@ public final class AwsFunctions {
      * 
      *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet("primary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.names()[0])
      *             .build());
      * 
      *         var secondary = new Subnet("secondary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.names()[1])
      *             .build());
      * 
      *     }
@@ -1721,11 +1854,11 @@ public final class AwsFunctions {
      * 
      *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet("primary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.names()[0])
      *             .build());
      * 
      *         var secondary = new Subnet("secondary", SubnetArgs.builder()
-     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.names()[1])
      *             .build());
      * 
      *     }
@@ -1855,7 +1988,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = AwsFunctions.getBillingServiceAccount();
+     *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
@@ -1866,33 +2000,37 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
+     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
+     *             var billingLogsArn = values.t1;
+     *             var billingLogsArn1 = values.t2;
+     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *                 .statements(                
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions(                        
+     *                             "s3:GetBucketAcl",
+     *                             "s3:GetBucketPolicy")
+     *                         .resources(billingLogsArn)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions("s3:PutObject")
+     *                         .resources(String.format("%s/*", billingLogsArn1))
      *                         .build())
-     *                     .actions(                    
-     *                         "s3:GetBucketAcl",
-     *                         "s3:GetBucketPolicy")
-     *                     .resources(billingLogs.arn())
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
-     *                         .build())
-     *                     .actions("s3:PutObject")
-     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
-     *                     .build())
-     *             .build());
+     *                 .build());
+     *         });
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -1941,7 +2079,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = AwsFunctions.getBillingServiceAccount();
+     *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
@@ -1952,33 +2091,37 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
+     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
+     *             var billingLogsArn = values.t1;
+     *             var billingLogsArn1 = values.t2;
+     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *                 .statements(                
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions(                        
+     *                             "s3:GetBucketAcl",
+     *                             "s3:GetBucketPolicy")
+     *                         .resources(billingLogsArn)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions("s3:PutObject")
+     *                         .resources(String.format("%s/*", billingLogsArn1))
      *                         .build())
-     *                     .actions(                    
-     *                         "s3:GetBucketAcl",
-     *                         "s3:GetBucketPolicy")
-     *                     .resources(billingLogs.arn())
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
-     *                         .build())
-     *                     .actions("s3:PutObject")
-     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
-     *                     .build())
-     *             .build());
+     *                 .build());
+     *         });
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -2027,7 +2170,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = AwsFunctions.getBillingServiceAccount();
+     *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
@@ -2038,33 +2182,37 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
+     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
+     *             var billingLogsArn = values.t1;
+     *             var billingLogsArn1 = values.t2;
+     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *                 .statements(                
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions(                        
+     *                             "s3:GetBucketAcl",
+     *                             "s3:GetBucketPolicy")
+     *                         .resources(billingLogsArn)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions("s3:PutObject")
+     *                         .resources(String.format("%s/*", billingLogsArn1))
      *                         .build())
-     *                     .actions(                    
-     *                         "s3:GetBucketAcl",
-     *                         "s3:GetBucketPolicy")
-     *                     .resources(billingLogs.arn())
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
-     *                         .build())
-     *                     .actions("s3:PutObject")
-     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
-     *                     .build())
-     *             .build());
+     *                 .build());
+     *         });
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -2113,7 +2261,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = AwsFunctions.getBillingServiceAccount();
+     *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
@@ -2124,33 +2273,37 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
+     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
+     *             var billingLogsArn = values.t1;
+     *             var billingLogsArn1 = values.t2;
+     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *                 .statements(                
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions(                        
+     *                             "s3:GetBucketAcl",
+     *                             "s3:GetBucketPolicy")
+     *                         .resources(billingLogsArn)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions("s3:PutObject")
+     *                         .resources(String.format("%s/*", billingLogsArn1))
      *                         .build())
-     *                     .actions(                    
-     *                         "s3:GetBucketAcl",
-     *                         "s3:GetBucketPolicy")
-     *                     .resources(billingLogs.arn())
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
-     *                         .build())
-     *                     .actions("s3:PutObject")
-     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
-     *                     .build())
-     *             .build());
+     *                 .build());
+     *         });
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -2199,7 +2352,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = AwsFunctions.getBillingServiceAccount();
+     *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
@@ -2210,33 +2364,37 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
+     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
+     *             var billingLogsArn = values.t1;
+     *             var billingLogsArn1 = values.t2;
+     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *                 .statements(                
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions(                        
+     *                             "s3:GetBucketAcl",
+     *                             "s3:GetBucketPolicy")
+     *                         .resources(billingLogsArn)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions("s3:PutObject")
+     *                         .resources(String.format("%s/*", billingLogsArn1))
      *                         .build())
-     *                     .actions(                    
-     *                         "s3:GetBucketAcl",
-     *                         "s3:GetBucketPolicy")
-     *                     .resources(billingLogs.arn())
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
-     *                         .build())
-     *                     .actions("s3:PutObject")
-     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
-     *                     .build())
-     *             .build());
+     *                 .build());
+     *         });
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -2285,7 +2443,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = AwsFunctions.getBillingServiceAccount();
+     *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
@@ -2296,33 +2455,37 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
+     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
+     *             var billingLogsArn = values.t1;
+     *             var billingLogsArn1 = values.t2;
+     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *                 .statements(                
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions(                        
+     *                             "s3:GetBucketAcl",
+     *                             "s3:GetBucketPolicy")
+     *                         .resources(billingLogsArn)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions("s3:PutObject")
+     *                         .resources(String.format("%s/*", billingLogsArn1))
      *                         .build())
-     *                     .actions(                    
-     *                         "s3:GetBucketAcl",
-     *                         "s3:GetBucketPolicy")
-     *                     .resources(billingLogs.arn())
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
-     *                         .build())
-     *                     .actions("s3:PutObject")
-     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
-     *                     .build())
-     *             .build());
+     *                 .build());
+     *         });
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -2371,7 +2534,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = AwsFunctions.getBillingServiceAccount();
+     *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
+     *             .build());
      * 
      *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
@@ -2382,33 +2546,37 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(            
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
+     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
+     *             var billingLogsArn = values.t1;
+     *             var billingLogsArn1 = values.t2;
+     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *                 .statements(                
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions(                        
+     *                             "s3:GetBucketAcl",
+     *                             "s3:GetBucketPolicy")
+     *                         .resources(billingLogsArn)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementArgs.builder()
+     *                         .effect("Allow")
+     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                             .type("AWS")
+     *                             .identifiers(main.arn())
+     *                             .build())
+     *                         .actions("s3:PutObject")
+     *                         .resources(String.format("%s/*", billingLogsArn1))
      *                         .build())
-     *                     .actions(                    
-     *                         "s3:GetBucketAcl",
-     *                         "s3:GetBucketPolicy")
-     *                     .resources(billingLogs.arn())
-     *                     .build(),
-     *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
-     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                         .type("AWS")
-     *                         .identifiers(main.applyValue(getBillingServiceAccountResult -> getBillingServiceAccountResult.arn()))
-     *                         .build())
-     *                     .actions("s3:PutObject")
-     *                     .resources(billingLogs.arn().applyValue(arn -> String.format("%s/*", arn)))
-     *                     .build())
-     *             .build());
+     *                 .build());
+     *         });
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -2450,11 +2618,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
-     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
-     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.accountId());
+     *         ctx.export("callerArn", current.arn());
+     *         ctx.export("callerUser", current.userId());
      *     }
      * }
      * }
@@ -2494,11 +2663,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
-     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
-     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.accountId());
+     *         ctx.export("callerArn", current.arn());
+     *         ctx.export("callerUser", current.userId());
      *     }
      * }
      * }
@@ -2538,11 +2708,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
-     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
-     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.accountId());
+     *         ctx.export("callerArn", current.arn());
+     *         ctx.export("callerUser", current.userId());
      *     }
      * }
      * }
@@ -2582,11 +2753,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
-     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
-     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.accountId());
+     *         ctx.export("callerArn", current.arn());
+     *         ctx.export("callerUser", current.userId());
      *     }
      * }
      * }
@@ -2626,11 +2798,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
-     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
-     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.accountId());
+     *         ctx.export("callerArn", current.arn());
+     *         ctx.export("callerUser", current.userId());
      *     }
      * }
      * }
@@ -2670,11 +2843,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
-     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
-     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.accountId());
+     *         ctx.export("callerArn", current.arn());
+     *         ctx.export("callerUser", current.userId());
      *     }
      * }
      * }
@@ -2714,11 +2888,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getCallerIdentity();
+     *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("accountId", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()));
-     *         ctx.export("callerArn", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()));
-     *         ctx.export("callerUser", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.userId()));
+     *         ctx.export("accountId", current.accountId());
+     *         ctx.export("callerArn", current.arn());
+     *         ctx.export("callerUser", current.userId());
      *     }
      * }
      * }
@@ -2761,7 +2936,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AwsFunctions.getDefaultTags();
+     *         final var example = AwsFunctions.getDefaultTags(GetDefaultTagsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2810,7 +2986,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AwsFunctions.getDefaultTags();
+     *         final var example = AwsFunctions.getDefaultTags(GetDefaultTagsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2859,7 +3036,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AwsFunctions.getDefaultTags();
+     *         final var example = AwsFunctions.getDefaultTags(GetDefaultTagsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2908,7 +3086,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AwsFunctions.getDefaultTags();
+     *         final var example = AwsFunctions.getDefaultTags(GetDefaultTagsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -2957,7 +3136,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AwsFunctions.getDefaultTags();
+     *         final var example = AwsFunctions.getDefaultTags(GetDefaultTagsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3006,7 +3186,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AwsFunctions.getDefaultTags();
+     *         final var example = AwsFunctions.getDefaultTags(GetDefaultTagsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3055,7 +3236,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AwsFunctions.getDefaultTags();
+     *         final var example = AwsFunctions.getDefaultTags(GetDefaultTagsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3113,15 +3295,15 @@ public final class AwsFunctions {
      *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
      *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .fromPort("443")
-     *                 .toPort("443")
+     *                 .fromPort(443)
+     *                 .toPort(443)
      *                 .protocol("tcp")
-     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.ipv6CidrBlocks()))
+     *                 .cidrBlocks(europeanEc2.cidrBlocks())
+     *                 .ipv6CidrBlocks(europeanEc2.ipv6CidrBlocks())
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry("CreateDate", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.createDate())),
-     *                 Map.entry("SyncToken", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.syncToken()))
+     *                 Map.entry("CreateDate", europeanEc2.createDate()),
+     *                 Map.entry("SyncToken", europeanEc2.syncToken())
      *             ))
      *             .build());
      * 
@@ -3176,15 +3358,15 @@ public final class AwsFunctions {
      *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
      *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .fromPort("443")
-     *                 .toPort("443")
+     *                 .fromPort(443)
+     *                 .toPort(443)
      *                 .protocol("tcp")
-     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.ipv6CidrBlocks()))
+     *                 .cidrBlocks(europeanEc2.cidrBlocks())
+     *                 .ipv6CidrBlocks(europeanEc2.ipv6CidrBlocks())
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry("CreateDate", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.createDate())),
-     *                 Map.entry("SyncToken", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.syncToken()))
+     *                 Map.entry("CreateDate", europeanEc2.createDate()),
+     *                 Map.entry("SyncToken", europeanEc2.syncToken())
      *             ))
      *             .build());
      * 
@@ -3239,15 +3421,15 @@ public final class AwsFunctions {
      *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
      *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .fromPort("443")
-     *                 .toPort("443")
+     *                 .fromPort(443)
+     *                 .toPort(443)
      *                 .protocol("tcp")
-     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.ipv6CidrBlocks()))
+     *                 .cidrBlocks(europeanEc2.cidrBlocks())
+     *                 .ipv6CidrBlocks(europeanEc2.ipv6CidrBlocks())
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry("CreateDate", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.createDate())),
-     *                 Map.entry("SyncToken", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.syncToken()))
+     *                 Map.entry("CreateDate", europeanEc2.createDate()),
+     *                 Map.entry("SyncToken", europeanEc2.syncToken())
      *             ))
      *             .build());
      * 
@@ -3302,15 +3484,15 @@ public final class AwsFunctions {
      *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
      *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .fromPort("443")
-     *                 .toPort("443")
+     *                 .fromPort(443)
+     *                 .toPort(443)
      *                 .protocol("tcp")
-     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.ipv6CidrBlocks()))
+     *                 .cidrBlocks(europeanEc2.cidrBlocks())
+     *                 .ipv6CidrBlocks(europeanEc2.ipv6CidrBlocks())
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry("CreateDate", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.createDate())),
-     *                 Map.entry("SyncToken", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.syncToken()))
+     *                 Map.entry("CreateDate", europeanEc2.createDate()),
+     *                 Map.entry("SyncToken", europeanEc2.syncToken())
      *             ))
      *             .build());
      * 
@@ -3365,15 +3547,15 @@ public final class AwsFunctions {
      *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
      *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .fromPort("443")
-     *                 .toPort("443")
+     *                 .fromPort(443)
+     *                 .toPort(443)
      *                 .protocol("tcp")
-     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.ipv6CidrBlocks()))
+     *                 .cidrBlocks(europeanEc2.cidrBlocks())
+     *                 .ipv6CidrBlocks(europeanEc2.ipv6CidrBlocks())
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry("CreateDate", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.createDate())),
-     *                 Map.entry("SyncToken", europeanEc2.applyValue(getIpRangesResult -> getIpRangesResult.syncToken()))
+     *                 Map.entry("CreateDate", europeanEc2.createDate()),
+     *                 Map.entry("SyncToken", europeanEc2.syncToken())
      *             ))
      *             .build());
      * 
@@ -3418,13 +3600,14 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getPartition();
+     *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+     *             .build());
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("1")
      *                 .actions("s3:ListBucket")
-     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.partition()))
      *                 .build())
      *             .build());
      * 
@@ -3469,13 +3652,14 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getPartition();
+     *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+     *             .build());
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("1")
      *                 .actions("s3:ListBucket")
-     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.partition()))
      *                 .build())
      *             .build());
      * 
@@ -3520,13 +3704,14 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getPartition();
+     *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+     *             .build());
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("1")
      *                 .actions("s3:ListBucket")
-     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.partition()))
      *                 .build())
      *             .build());
      * 
@@ -3571,13 +3756,14 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getPartition();
+     *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+     *             .build());
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("1")
      *                 .actions("s3:ListBucket")
-     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.partition()))
      *                 .build())
      *             .build());
      * 
@@ -3622,13 +3808,14 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getPartition();
+     *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+     *             .build());
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("1")
      *                 .actions("s3:ListBucket")
-     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.partition()))
      *                 .build())
      *             .build());
      * 
@@ -3673,13 +3860,14 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getPartition();
+     *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+     *             .build());
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("1")
      *                 .actions("s3:ListBucket")
-     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.partition()))
      *                 .build())
      *             .build());
      * 
@@ -3724,13 +3912,14 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getPartition();
+     *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+     *             .build());
      * 
      *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("1")
      *                 .actions("s3:ListBucket")
-     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
+     *                 .resources(String.format("arn:%s:s3:::my-bucket", current.partition()))
      *                 .build())
      *             .build());
      * 
@@ -3780,7 +3969,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3828,7 +4018,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3876,7 +4067,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3924,7 +4116,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3972,7 +4165,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4020,7 +4214,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4068,7 +4263,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4110,7 +4306,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegions();
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4226,7 +4423,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegions();
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4342,7 +4540,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegions();
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4458,7 +4657,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegions();
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4574,7 +4774,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegions();
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4690,7 +4891,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegions();
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4806,7 +5008,8 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegions();
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4923,10 +5126,11 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .region(current.name())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5041,10 +5245,11 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .region(current.name())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5159,10 +5364,11 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .region(current.name())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5277,10 +5483,11 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .region(current.name())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5395,10 +5602,11 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .region(current.name())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5513,10 +5721,11 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .region(current.name())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5631,10 +5840,11 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.applyValue(getRegionResult -> getRegionResult.name()))
+     *             .region(current.name())
      *             .serviceId("ec2")
      *             .build());
      * 

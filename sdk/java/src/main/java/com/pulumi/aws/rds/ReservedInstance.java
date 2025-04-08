@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new ReservedInstance("example", ReservedInstanceArgs.builder()
- *             .offeringId(test.applyValue(getReservedInstanceOfferingResult -> getReservedInstanceOfferingResult.offeringId()))
+ *             .offeringId(test.offeringId())
  *             .reservationId("optionalCustomReservationID")
  *             .instanceCount(3)
  *             .build());

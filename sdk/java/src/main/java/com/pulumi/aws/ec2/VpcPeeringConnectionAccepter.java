@@ -67,13 +67,14 @@ import javax.annotation.Nullable;
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         final var peer = AwsFunctions.getCallerIdentity();
+ *         final var peer = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         // Requester's side of the connection.
  *         var peerVpcPeeringConnection = new VpcPeeringConnection("peerVpcPeeringConnection", VpcPeeringConnectionArgs.builder()
  *             .vpcId(main.id())
  *             .peerVpcId(peerVpc.id())
- *             .peerOwnerId(peer.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *             .peerOwnerId(peer.accountId())
  *             .peerRegion("us-west-2")
  *             .autoAccept(false)
  *             .tags(Map.of("Side", "Requester"))

@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         final var example = SsoadminFunctions.getInstances();
+ *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
- *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+ *             .identityStoreId(example.identityStoreIds()[0])
  *             .displayName("John Doe")
  *             .userName("john.doe}{@literal @}{@code example.com")
  *             .name(UserNameArgs.builder()
@@ -60,13 +60,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
- *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+ *             .identityStoreId(example.identityStoreIds()[0])
  *             .displayName("MyGroup")
  *             .description("Some group name")
  *             .build());
  * 
  *         var exampleGroupMembership = new GroupMembership("exampleGroupMembership", GroupMembershipArgs.builder()
- *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+ *             .identityStoreId(example.identityStoreIds()[0])
  *             .groupId(exampleGroup.groupId())
  *             .memberId(exampleUser.userId())
  *             .build());

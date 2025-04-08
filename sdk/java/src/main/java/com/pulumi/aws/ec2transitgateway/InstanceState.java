@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Instance("test", InstanceArgs.builder()
- *             .ami(ubuntu.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .ami(ubuntu.id())
  *             .instanceType("t3.micro")
  *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());

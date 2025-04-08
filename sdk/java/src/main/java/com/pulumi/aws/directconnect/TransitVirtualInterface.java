@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Gateway("example", GatewayArgs.builder()
  *             .name("tf-dxg-example")
- *             .amazonSideAsn(64512)
+ *             .amazonSideAsn("64512")
  *             .build());
  * 
  *         var exampleTransitVirtualInterface = new TransitVirtualInterface("exampleTransitVirtualInterface", TransitVirtualInterfaceArgs.builder()

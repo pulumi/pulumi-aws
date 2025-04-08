@@ -47,9 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var currentGetPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
  *         var example = new ClusterPolicy("example", ClusterPolicyArgs.builder()
  *             .clusterArn(exampleAwsMskCluster.arn())
@@ -60,7 +62,7 @@ import javax.annotation.Nullable;
  *                         jsonProperty("Sid", "ExampleMskClusterPolicy"),
  *                         jsonProperty("Effect", "Allow"),
  *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.partition(),current.accountId()))
  *                         )),
  *                         jsonProperty("Action", jsonArray(
  *                             "kafka:Describe*", 

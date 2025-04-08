@@ -46,9 +46,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("example")
@@ -60,10 +62,10 @@ import javax.annotation.Nullable;
  *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
- *                     .identifiers(String.format("arn:aws:iam::%s:root", currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                     .identifiers(String.format("arn:aws:iam::%s:root", currentGetCallerIdentity.accountId()))
  *                     .build())
  *                 .actions("mediastore:*")
- *                 .resources(exampleContainer.name().applyValue(name -> String.format("arn:aws:mediastore:%s:%s:container/%s/*", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),name)))
+ *                 .resources(exampleContainer.name().applyValue(_name -> String.format("arn:aws:mediastore:%s:%s:container/%s/*", current.name(),currentGetCallerIdentity.accountId(),_name)))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("Bool")
  *                     .variable("aws:SecureTransport")
@@ -74,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleContainerPolicy = new ContainerPolicy("exampleContainerPolicy", ContainerPolicyArgs.builder()
  *             .containerName(exampleContainer.name())
- *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *     }

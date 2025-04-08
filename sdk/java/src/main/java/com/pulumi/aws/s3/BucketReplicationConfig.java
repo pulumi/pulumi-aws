@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  *         var replicationRole = new Role("replicationRole", RoleArgs.builder()
  *             .name("tf-iam-role-replication-12345")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var destination = new BucketV2("destination", BucketV2Args.builder()
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *                         "s3:GetObjectVersionForReplication",
  *                         "s3:GetObjectVersionAcl",
  *                         "s3:GetObjectVersionTagging")
- *                     .resources(source.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                     .resources(source.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect("Allow")
@@ -116,13 +116,13 @@ import javax.annotation.Nullable;
  *                         "s3:ReplicateObject",
  *                         "s3:ReplicateDelete",
  *                         "s3:ReplicateTags")
- *                     .resources(destination.arn().applyValue(arn -> String.format("%s/*", arn)))
+ *                     .resources(destination.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                     .build())
  *             .build());
  * 
  *         var replicationPolicy = new Policy("replicationPolicy", PolicyArgs.builder()
  *             .name("tf-iam-role-policy-replication-12345")
- *             .policy(replication.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(replication -> replication.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(replication.applyValue(_replication -> _replication.json()))
  *             .build());
  * 
  *         var replicationRolePolicyAttachment = new RolePolicyAttachment("replicationRolePolicyAttachment", RolePolicyAttachmentArgs.builder()

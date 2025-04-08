@@ -118,6 +118,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.ContactFlow;
  * import com.pulumi.aws.connect.ContactFlowArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64sha256Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

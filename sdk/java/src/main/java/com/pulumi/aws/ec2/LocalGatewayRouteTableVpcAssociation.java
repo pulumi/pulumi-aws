@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLocalGatewayRouteTableVpcAssociation = new LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation", LocalGatewayRouteTableVpcAssociationArgs.builder()
- *             .localGatewayRouteTableId(example.applyValue(getLocalGatewayRouteTableResult -> getLocalGatewayRouteTableResult.id()))
+ *             .localGatewayRouteTableId(example.id())
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 

@@ -47,11 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var test = new AuthorizeVpcEndpointAccess("test", AuthorizeVpcEndpointAccessArgs.builder()
  *             .domainName(testAwsOpensearchDomain.domainName())
- *             .account(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *             .account(current.accountId())
  *             .build());
  * 
  *     }

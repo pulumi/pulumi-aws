@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.PublicKey;
  * import com.pulumi.aws.cloudfront.PublicKeyArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import com.pulumi.aws.cloudfront.FieldLevelEncryptionProfile;
  * import com.pulumi.aws.cloudfront.FieldLevelEncryptionProfileArgs;
  * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs;

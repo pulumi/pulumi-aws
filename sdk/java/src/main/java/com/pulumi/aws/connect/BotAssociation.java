@@ -98,7 +98,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var example = new Intent("example", IntentArgs.builder()
  *             .createVersion(true)
@@ -135,7 +136,7 @@ import javax.annotation.Nullable;
  *         var exampleBotAssociation = new BotAssociation("exampleBotAssociation", BotAssociationArgs.builder()
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
- *                 .lexRegion(current.applyValue(getRegionResult -> getRegionResult.name()))
+ *                 .lexRegion(current.name())
  *                 .name(exampleBot.name())
  *                 .build())
  *             .build());

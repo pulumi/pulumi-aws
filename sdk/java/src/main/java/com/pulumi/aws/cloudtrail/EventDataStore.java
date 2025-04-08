@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *                         .build(),
  *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
  *                         .field("resources.ARN")
- *                         .equals(table.applyValue(getTableResult -> getTableResult.arn()))
+ *                         .equals(table.arn())
  *                         .build())
  *                 .build())
  *             .build());

@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetwork = new CoreNetwork("exampleCoreNetwork", CoreNetworkArgs.builder()
  *             .globalNetworkId(exampleGlobalNetwork.id())
- *             .basePolicyDocument(base.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult.json()))
+ *             .basePolicyDocument(base.json())
  *             .createBasePolicy(true)
  *             .build());
  * 
@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", CoreNetworkPolicyAttachmentArgs.builder()
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult).applyValue(example -> example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *     }
@@ -223,7 +223,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", CoreNetworkPolicyAttachmentArgs.builder()
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult).applyValue(example -> example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *     }
@@ -293,7 +293,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetwork = new CoreNetwork("exampleCoreNetwork", CoreNetworkArgs.builder()
  *             .globalNetworkId(exampleGlobalNetwork.id())
- *             .basePolicyDocument(base.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult.json()))
+ *             .basePolicyDocument(base.json())
  *             .createBasePolicy(true)
  *             .build());
  * 
@@ -346,7 +346,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", CoreNetworkPolicyAttachmentArgs.builder()
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult).applyValue(example -> example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *     }
@@ -444,7 +444,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", CoreNetworkPolicyAttachmentArgs.builder()
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult).applyValue(example -> example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *     }

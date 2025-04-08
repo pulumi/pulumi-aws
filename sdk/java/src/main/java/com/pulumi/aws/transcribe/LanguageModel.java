@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.transcribe.LanguageModel;
  * import com.pulumi.aws.transcribe.LanguageModelArgs;
  * import com.pulumi.aws.transcribe.inputs.LanguageModelInputDataConfigArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
  * import com.pulumi.asset.FileAsset;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("example")
- *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(example.json())
  *             .build());
  * 
  *         var testPolicy = new RolePolicy("testPolicy", RolePolicyArgs.builder()
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *             .baseModelName("NarrowBand")
  *             .inputDataConfig(LanguageModelInputDataConfigArgs.builder()
  *                 .dataAccessRoleArn(exampleRole.arn())
- *                 .s3Uri(exampleBucketV2.id().applyValue(id -> String.format("s3://%s/transcribe/", id)))
+ *                 .s3Uri(exampleBucketV2.id().applyValue(_id -> String.format("s3://%s/transcribe/", _id)))
  *                 .build())
  *             .languageCode("en-US")
  *             .tags(Map.of("ENVIRONMENT", "development"))

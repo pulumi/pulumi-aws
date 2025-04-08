@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.pinpoint.App;
  * import com.pulumi.aws.pinpoint.ApnsVoipChannel;
  * import com.pulumi.aws.pinpoint.ApnsVoipChannelArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

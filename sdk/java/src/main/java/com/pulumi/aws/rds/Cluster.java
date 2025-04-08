@@ -271,8 +271,8 @@ import javax.annotation.Nullable;
  *             .masterPassword("must_be_eight_characters")
  *             .storageEncrypted(true)
  *             .serverlessv2ScalingConfiguration(ClusterServerlessv2ScalingConfigurationArgs.builder()
- *                 .maxCapacity(1)
- *                 .minCapacity(0)
+ *                 .maxCapacity(1.0)
+ *                 .minCapacity(0.0)
  *                 .secondsUntilAutoPause(3600)
  *                 .build())
  *             .build());
@@ -419,7 +419,7 @@ import javax.annotation.Nullable;
  *             .engine("aurora")
  *             .engineVersion("5.6.mysql_aurora.1.22.4")
  *             .clusterIdentifier("example")
- *             .snapshotIdentifier(example.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
+ *             .snapshotIdentifier(example.id())
  *             .build());
  * 
  *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()

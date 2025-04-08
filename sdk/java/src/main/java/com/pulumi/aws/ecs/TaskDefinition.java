@@ -113,6 +113,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecs.TaskDefinition;
  * import com.pulumi.aws.ecs.TaskDefinitionArgs;
  * import com.pulumi.aws.ecs.inputs.TaskDefinitionProxyConfigurationArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -138,8 +140,8 @@ import javax.annotation.Nullable;
  *                     Map.entry("AppPorts", "8080"),
  *                     Map.entry("EgressIgnoredIPs", "169.254.170.2,169.254.169.254"),
  *                     Map.entry("IgnoredUID", "1337"),
- *                     Map.entry("ProxyEgressPort", 15001),
- *                     Map.entry("ProxyIngressPort", 15000)
+ *                     Map.entry("ProxyEgressPort", "15001"),
+ *                     Map.entry("ProxyIngressPort", "15000")
  *                 ))
  *                 .build())
  *             .build());
@@ -164,6 +166,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecs.TaskDefinitionArgs;
  * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
  * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeDockerVolumeConfigurationArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -218,6 +222,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
  * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeEfsVolumeConfigurationArgs;
  * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -274,6 +280,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
  * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs;
  * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -419,8 +427,8 @@ import javax.annotation.Nullable;
  *             .family("test")
  *             .requiresCompatibilities("FARGATE")
  *             .networkMode("awsvpc")
- *             .cpu(1024)
- *             .memory(2048)
+ *             .cpu("1024")
+ *             .memory("2048")
  *             .containerDefinitions("""
  * [
  *   {

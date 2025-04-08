@@ -52,18 +52,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var example = new VpcIpam("example", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
+ *                 .regionName(current.name())
  *                 .build())
  *             .build());
  * 
  *         var exampleVpcIpamPool = new VpcIpamPool("exampleVpcIpamPool", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
- *             .locale(current.applyValue(getRegionResult -> getRegionResult.name()))
+ *             .locale(current.name())
  *             .build());
  * 
  *     }
@@ -104,11 +105,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
  *         var example = new VpcIpam("example", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
+ *                 .regionName(current.name())
  *                 .build())
  *             .build());
  * 
@@ -125,7 +127,7 @@ import javax.annotation.Nullable;
  *         var child = new VpcIpamPool("child", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
- *             .locale(current.applyValue(getRegionResult -> getRegionResult.name()))
+ *             .locale(current.name())
  *             .sourceIpamPoolId(parent.id())
  *             .build());
  * 

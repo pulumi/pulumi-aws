@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var role = new Role("role", RoleArgs.builder()
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var email = new EmailChannel("email", EmailChannelArgs.builder()
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *         var rolePolicyRolePolicy = new RolePolicy("rolePolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("role_policy")
  *             .role(role.id())
- *             .policy(rolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(rolePolicy.json())
  *             .build());
  * 
  *     }}{@code

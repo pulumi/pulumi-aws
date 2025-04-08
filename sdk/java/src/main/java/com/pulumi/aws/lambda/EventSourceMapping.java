@@ -152,61 +152,6 @@ import javax.annotation.Nullable;
  * ### Self Managed Apache Kafka
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.EventSourceMapping;
- * import com.pulumi.aws.lambda.EventSourceMappingArgs;
- * import com.pulumi.aws.lambda.inputs.EventSourceMappingProvisionedPollerConfigArgs;
- * import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedEventSourceArgs;
- * import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.arn())
- *             .topics("Example")
- *             .startingPosition("TRIM_HORIZON")
- *             .provisionedPollerConfig(EventSourceMappingProvisionedPollerConfigArgs.builder()
- *                 .maximumPoller(80)
- *                 .minimumPoller(10)
- *                 .build())
- *             .selfManagedEventSource(EventSourceMappingSelfManagedEventSourceArgs.builder()
- *                 .endpoints(Map.of("KAFKA_BOOTSTRAP_SERVERS", "kafka1.example.com:9092,kafka2.example.com:9092"))
- *                 .build())
- *             .sourceAccessConfigurations(            
- *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type("VPC_SUBNET")
- *                     .uri("subnet:subnet-example1")
- *                     .build(),
- *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type("VPC_SUBNET")
- *                     .uri("subnet:subnet-example2")
- *                     .build(),
- *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type("VPC_SECURITY_GROUP")
- *                     .uri("security_group:sg-example")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### SQS

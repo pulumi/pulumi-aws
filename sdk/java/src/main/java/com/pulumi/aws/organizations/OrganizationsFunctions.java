@@ -580,9 +580,9 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
      * }
@@ -619,13 +619,13 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -634,19 +634,19 @@ public final class OrganizationsFunctions {
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
-     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
+     *                     .values(example.id())
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(snsTopic.arn())
+     *                 .resources(_arn)
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -688,9 +688,9 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
      * }
@@ -727,13 +727,13 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -742,19 +742,19 @@ public final class OrganizationsFunctions {
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
-     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
+     *                     .values(example.id())
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(snsTopic.arn())
+     *                 .resources(_arn)
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -796,9 +796,9 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
      * }
@@ -835,13 +835,13 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -850,19 +850,19 @@ public final class OrganizationsFunctions {
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
-     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
+     *                     .values(example.id())
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(snsTopic.arn())
+     *                 .resources(_arn)
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -904,9 +904,9 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
      * }
@@ -943,13 +943,13 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -958,19 +958,19 @@ public final class OrganizationsFunctions {
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
-     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
+     *                     .values(example.id())
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(snsTopic.arn())
+     *                 .resources(_arn)
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -1012,9 +1012,9 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
      * }
@@ -1051,13 +1051,13 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -1066,19 +1066,19 @@ public final class OrganizationsFunctions {
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
-     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
+     *                     .values(example.id())
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(snsTopic.arn())
+     *                 .resources(_arn)
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -1120,9 +1120,9 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
      * }
@@ -1159,13 +1159,13 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -1174,19 +1174,19 @@ public final class OrganizationsFunctions {
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
-     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
+     *                     .values(example.id())
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(snsTopic.arn())
+     *                 .resources(_arn)
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -1228,9 +1228,9 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
      * }
@@ -1267,13 +1267,13 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization();
+     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -1282,19 +1282,19 @@ public final class OrganizationsFunctions {
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                     .test("StringEquals")
      *                     .variable("aws:PrincipalOrgID")
-     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
+     *                     .values(example.id())
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(snsTopic.arn())
+     *                 .resources(_arn)
      *                 .build())
-     *             .build());
+     *             .build()));
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -1337,10 +1337,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .name("dev")
      *             .build());
      * 
@@ -1384,10 +1384,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .name("dev")
      *             .build());
      * 
@@ -1431,10 +1431,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .name("dev")
      *             .build());
      * 
@@ -1478,10 +1478,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .name("dev")
      *             .build());
      * 
@@ -1525,10 +1525,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .name("dev")
      *             .build());
      * 
@@ -1570,10 +1570,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -1614,10 +1614,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -1658,10 +1658,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -1702,10 +1702,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -1746,10 +1746,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -1790,10 +1790,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -1834,10 +1834,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -1878,10 +1878,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -1922,10 +1922,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -1966,10 +1966,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -2010,10 +2010,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -2054,10 +2054,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -2098,10 +2098,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -2142,10 +2142,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -2186,10 +2186,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -2230,10 +2230,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -2274,10 +2274,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -2318,10 +2318,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -2362,10 +2362,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }
@@ -2406,10 +2406,10 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization();
+     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.roots()[0].id())
      *             .build());
      * 
      *     }

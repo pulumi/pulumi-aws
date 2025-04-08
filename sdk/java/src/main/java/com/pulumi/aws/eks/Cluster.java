@@ -444,7 +444,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .outpostConfig(ClusterOutpostConfigArgs.builder()
  *                 .controlPlaneInstanceType("m5.large")
- *                 .outpostArns(example.applyValue(getOutpostResult -> getOutpostResult.arn()))
+ *                 .outpostArns(example.arn())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(clusterAmazonEKSLocalOutpostClusterPolicy)

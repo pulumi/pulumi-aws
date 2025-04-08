@@ -49,9 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var currentGetPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
  *         var example = new ServiceNetwork("example", ServiceNetworkArgs.builder()
  *             .name("example-vpclattice-service-network")
@@ -59,21 +61,21 @@ import javax.annotation.Nullable;
  * 
  *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()
  *             .resourceArn(example.arn())
- *             .policy(example.arn().applyValue(arn -> serializeJson(
+ *             .policy(example.arn().applyValue(_arn -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
  *                     jsonProperty("Statement", jsonArray(jsonObject(
  *                         jsonProperty("Sid", "test-pol-principals-6"),
  *                         jsonProperty("Effect", "Allow"),
  *                         jsonProperty("Principal", jsonObject(
- *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.partition(),current.accountId()))
  *                         )),
  *                         jsonProperty("Action", jsonArray(
  *                             "vpc-lattice:CreateServiceNetworkVpcAssociation", 
  *                             "vpc-lattice:CreateServiceNetworkServiceAssociation", 
  *                             "vpc-lattice:GetServiceNetwork"
  *                         )),
- *                         jsonProperty("Resource", arn)
+ *                         jsonProperty("Resource", _arn)
  *                     )))
  *                 ))))
  *             .build());

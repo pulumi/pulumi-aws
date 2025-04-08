@@ -117,21 +117,21 @@ import javax.annotation.Nullable;
  * 
  *         var myrole = new Role("myrole", RoleArgs.builder()
  *             .name("myrole")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
- *         final var mypolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var mypolicy = mytopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect("Allow")
  *                 .actions("sns:Publish")
- *                 .resources(mytopic.arn())
+ *                 .resources(_arn)
  *                 .build())
- *             .build());
+ *             .build()));
  * 
  *         var mypolicyRolePolicy = new RolePolicy("mypolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("mypolicy")
  *             .role(myrole.id())
- *             .policy(mypolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(mypolicy -> mypolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policy(mypolicy.applyValue(_mypolicy -> _mypolicy.json()))
  *             .build());
  * 
  *     }

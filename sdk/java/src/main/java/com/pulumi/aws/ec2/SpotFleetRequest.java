@@ -79,9 +79,9 @@ import javax.annotation.Nullable;
  *                     .iamInstanceProfileArn(example.arn())
  *                     .availabilityZone("us-west-1a")
  *                     .subnetId("subnet-1234")
- *                     .weightedCapacity(35)
+ *                     .weightedCapacity("35")
  *                     .rootBlockDevices(SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs.builder()
- *                         .volumeSize("300")
+ *                         .volumeSize(300)
  *                         .volumeType("gp2")
  *                         .build())
  *                     .tags(Map.of("Name", "spot-fleet-example"))
@@ -270,13 +270,13 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .overrides(                
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
- *                         .subnetId(example.applyValue(getSubnetsResult -> getSubnetsResult.ids()[0]))
+ *                         .subnetId(example.ids()[0])
  *                         .build(),
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
- *                         .subnetId(example.applyValue(getSubnetsResult -> getSubnetsResult.ids()[1]))
+ *                         .subnetId(example.ids()[1])
  *                         .build(),
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
- *                         .subnetId(example.applyValue(getSubnetsResult -> getSubnetsResult.ids()[2]))
+ *                         .subnetId(example.ids()[2])
  *                         .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()

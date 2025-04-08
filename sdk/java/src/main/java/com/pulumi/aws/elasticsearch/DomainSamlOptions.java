@@ -38,6 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticsearch.DomainSamlOptionsArgs;
  * import com.pulumi.aws.elasticsearch.inputs.DomainSamlOptionsSamlOptionsArgs;
  * import com.pulumi.aws.elasticsearch.inputs.DomainSamlOptionsSamlOptionsIdpArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

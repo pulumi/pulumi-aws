@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .name("my-model")
  *             .executionRoleArn(exampleRole.arn())
  *             .primaryContainer(ModelPrimaryContainerArgs.builder()
- *                 .image(test.applyValue(getPrebuiltEcrImageResult -> getPrebuiltEcrImageResult.registryPath()))
+ *                 .image(test.registryPath())
  *                 .build())
  *             .build());
  * 

@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .notifications(BudgetNotificationArgs.builder()
  *                 .comparisonOperator("GREATER_THAN")
- *                 .threshold(100)
+ *                 .threshold(100.0)
  *                 .thresholdType("PERCENTAGE")
  *                 .notificationType("FORECASTED")
  *                 .subscriberEmailAddresses("test}{@literal @}{@code example.com")

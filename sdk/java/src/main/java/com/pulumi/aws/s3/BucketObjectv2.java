@@ -37,6 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filemd5Args;
  * import com.pulumi.asset.FileAsset;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -248,8 +250,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
- * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileAsset;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -344,7 +346,8 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Env", "test"))
  *             .overrideProvider(BucketObjectv2OverrideProviderArgs.builder()
  *                 .defaultTags(BucketObjectv2OverrideProviderDefaultTagsArgs.builder()
- *                     .tags()
+ *                     .tags(Map.ofEntries(
+ *                     ))
  *                     .build())
  *                 .build())
  *             .build());

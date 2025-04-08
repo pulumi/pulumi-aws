@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.tls.privateKey;
- * import com.pulumi.tls.PrivateKeyArgs;
+ * import com.pulumi.tls.privateKeyArgs;
  * import com.pulumi.aws.transfer.Server;
  * import com.pulumi.aws.transfer.ServerArgs;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -38,6 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.transfer.UserArgs;
  * import com.pulumi.aws.transfer.SshKey;
  * import com.pulumi.aws.transfer.SshKeyArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.TrimspaceArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
  * import java.util.List;
@@ -76,7 +78,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("tf-test-transfer-user-iam-role")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
@@ -106,7 +108,7 @@ import javax.annotation.Nullable;
  *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
  *             .name("tf-test-transfer-user-iam-policy")
  *             .role(exampleRole.id())
- *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(example.json())
  *             .build());
  * 
  *     }

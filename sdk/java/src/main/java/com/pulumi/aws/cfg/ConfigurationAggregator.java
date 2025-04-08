@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  * 
  *         var organizationRole = new Role("organizationRole", RoleArgs.builder()
  *             .name("example")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var organizationRolePolicyAttachment = new RolePolicyAttachment("organizationRolePolicyAttachment", RolePolicyAttachmentArgs.builder()

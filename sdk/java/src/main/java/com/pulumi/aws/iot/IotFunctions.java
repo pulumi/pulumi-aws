@@ -23,47 +23,6 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.core_v1.Pod;
-     * import com.pulumi.kubernetes.core_v1.PodArgs;
-     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
-     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getEndpoint();
-     * 
-     *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(ObjectMetaArgs.builder()
-     *                 .name("my-device")
-     *                 .build())
-     *             .spec(PodSpecArgs.builder()
-     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -76,47 +35,6 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.core_v1.Pod;
-     * import com.pulumi.kubernetes.core_v1.PodArgs;
-     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
-     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getEndpoint();
-     * 
-     *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(ObjectMetaArgs.builder()
-     *                 .name("my-device")
-     *                 .build())
-     *             .spec(PodSpecArgs.builder()
-     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -129,47 +47,6 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.core_v1.Pod;
-     * import com.pulumi.kubernetes.core_v1.PodArgs;
-     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
-     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getEndpoint();
-     * 
-     *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(ObjectMetaArgs.builder()
-     *                 .name("my-device")
-     *                 .build())
-     *             .spec(PodSpecArgs.builder()
-     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -182,47 +59,6 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.core_v1.Pod;
-     * import com.pulumi.kubernetes.core_v1.PodArgs;
-     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
-     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getEndpoint();
-     * 
-     *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(ObjectMetaArgs.builder()
-     *                 .name("my-device")
-     *                 .build())
-     *             .spec(PodSpecArgs.builder()
-     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -235,47 +71,6 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.core_v1.Pod;
-     * import com.pulumi.kubernetes.core_v1.PodArgs;
-     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
-     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getEndpoint();
-     * 
-     *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(ObjectMetaArgs.builder()
-     *                 .name("my-device")
-     *                 .build())
-     *             .spec(PodSpecArgs.builder()
-     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -288,47 +83,6 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.core_v1.Pod;
-     * import com.pulumi.kubernetes.core_v1.PodArgs;
-     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
-     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getEndpoint();
-     * 
-     *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(ObjectMetaArgs.builder()
-     *                 .name("my-device")
-     *                 .build())
-     *             .spec(PodSpecArgs.builder()
-     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -341,47 +95,6 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.iot.IotFunctions;
-     * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.core_v1.Pod;
-     * import com.pulumi.kubernetes.core_v1.PodArgs;
-     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
-     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getEndpoint();
-     * 
-     *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(ObjectMetaArgs.builder()
-     *                 .name("my-device")
-     *                 .build())
-     *             .spec(PodSpecArgs.builder()
-     *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -403,9 +116,9 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.certRequestArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -419,7 +132,7 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode();
+     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -428,7 +141,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
      *             .build());
      * 
      *     }
@@ -456,9 +169,9 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.certRequestArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -472,7 +185,7 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode();
+     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -481,7 +194,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
      *             .build());
      * 
      *     }
@@ -509,9 +222,9 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.certRequestArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -525,7 +238,7 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode();
+     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -534,7 +247,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
      *             .build());
      * 
      *     }
@@ -562,9 +275,9 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.certRequestArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -578,7 +291,7 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode();
+     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -587,7 +300,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
      *             .build());
      * 
      *     }
@@ -615,9 +328,9 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.certRequestArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -631,7 +344,7 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode();
+     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -640,7 +353,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
      *             .build());
      * 
      *     }
@@ -668,9 +381,9 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.certRequestArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -684,7 +397,7 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode();
+     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -693,7 +406,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
      *             .build());
      * 
      *     }
@@ -721,9 +434,9 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.tls.privateKey;
-     * import com.pulumi.tls.PrivateKeyArgs;
+     * import com.pulumi.tls.privateKeyArgs;
      * import com.pulumi.tls.certRequest;
-     * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.certRequestArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -737,7 +450,7 @@ public final class IotFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IotFunctions.getRegistrationCode();
+     *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
@@ -746,7 +459,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .subject(List.of(Map.of("commonName", example.registrationCode())))
      *             .build());
      * 
      *     }

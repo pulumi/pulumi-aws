@@ -49,10 +49,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
      * 
      *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.applyValue(getModelsResult -> getModelsResult.modelSummaries()[0].modelId()))
+     *             .modelId(test.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -96,10 +97,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
      * 
      *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.applyValue(getModelsResult -> getModelsResult.modelSummaries()[0].modelId()))
+     *             .modelId(test.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -143,10 +145,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
      * 
      *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.applyValue(getModelsResult -> getModelsResult.modelSummaries()[0].modelId()))
+     *             .modelId(test.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -190,10 +193,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
      * 
      *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.applyValue(getModelsResult -> getModelsResult.modelSummaries()[0].modelId()))
+     *             .modelId(test.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -237,10 +241,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
      * 
      *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.applyValue(getModelsResult -> getModelsResult.modelSummaries()[0].modelId()))
+     *             .modelId(test.modelSummaries()[0].modelId())
      *             .build());
      * 
      *     }
@@ -283,7 +288,8 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -360,7 +366,8 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -437,7 +444,8 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -514,7 +522,8 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -591,7 +600,8 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -668,7 +678,8 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -745,7 +756,8 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }

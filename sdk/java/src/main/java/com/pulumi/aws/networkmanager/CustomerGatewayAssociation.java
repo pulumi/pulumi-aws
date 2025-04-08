@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()
- *             .bgpAsn(65000)
+ *             .bgpAsn("65000")
  *             .ipAddress("172.83.124.10")
  *             .type("ipsec.1")
  *             .build());

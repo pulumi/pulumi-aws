@@ -35,6 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elb.LoadBalancerPolicy;
  * import com.pulumi.aws.elb.LoadBalancerPolicyArgs;
  * import com.pulumi.aws.elb.inputs.LoadBalancerPolicyPolicyAttributeArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import com.pulumi.aws.elb.LoadBalancerBackendServerPolicy;
  * import com.pulumi.aws.elb.LoadBalancerBackendServerPolicyArgs;
  * import com.pulumi.aws.elb.ListenerPolicy;

@@ -149,8 +149,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var sns = config.get("sns").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
- *         final var sqs = config.get("sqs").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+ *         final var sns = config.get("sns").orElse(Map.ofEntries(
+ *             Map.entry("account-id", "111111111111"),
+ *             Map.entry("displayName", "example"),
+ *             Map.entry("name", "example-sns-topic"),
+ *             Map.entry("region", "us-west-1"),
+ *             Map.entry("role-name", "service/service")
+ *         ));
+ *         final var sqs = config.get("sqs").orElse(Map.ofEntries(
+ *             Map.entry("account-id", "222222222222"),
+ *             Map.entry("name", "example-sqs-queue"),
+ *             Map.entry("region", "us-east-1"),
+ *             Map.entry("role-name", "service/service")
+ *         ));
  *         final var sns-topic-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .policyId("__default_policy_ID")
  *             .statements(            

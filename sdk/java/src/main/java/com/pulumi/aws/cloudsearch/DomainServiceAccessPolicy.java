@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDomainServiceAccessPolicy = new DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", DomainServiceAccessPolicyArgs.builder()
  *             .domainName(exampleDomain.id())
- *             .accessPolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .accessPolicy(example.json())
  *             .build());
  * 
  *     }

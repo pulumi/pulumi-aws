@@ -50,15 +50,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var current = AwsFunctions.getRegion();
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
- *         final var currentGetPartition = AwsFunctions.getPartition();
+ *         final var currentGetPartition = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
  *         final var distributionId = config.get("distributionId");
  *         var example = new ApplicationLayerAutomaticResponse("example", ApplicationLayerAutomaticResponseArgs.builder()
- *             .resourceArn(String.format("arn:%s:cloudfront:%s:distribution/%s", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),distributionId))
+ *             .resourceArn(String.format("arn:%s:cloudfront:%s:distribution/%s", currentGetPartition.partition(),currentGetCallerIdentity.accountId(),distributionId))
  *             .action("COUNT")
  *             .build());
  * 

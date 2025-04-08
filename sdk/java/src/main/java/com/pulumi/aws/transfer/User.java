@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  *         var fooRole = new Role("fooRole", RoleArgs.builder()
  *             .name("tf-test-transfer-user-iam-role")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         final var foo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *         var fooRolePolicy = new RolePolicy("fooRolePolicy", RolePolicyArgs.builder()
  *             .name("tf-test-transfer-user-iam-policy")
  *             .role(fooRole.id())
- *             .policy(foo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(foo.json())
  *             .build());
  * 
  *         var fooUser = new User("fooUser", UserArgs.builder()

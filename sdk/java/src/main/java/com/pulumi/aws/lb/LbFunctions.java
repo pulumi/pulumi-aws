@@ -64,7 +64,8 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
+     *         final var main = LbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -72,7 +73,7 @@ public final class LbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -118,7 +119,8 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
+     *         final var main = LbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -126,7 +128,7 @@ public final class LbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -172,7 +174,8 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
+     *         final var main = LbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -180,7 +183,7 @@ public final class LbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -226,7 +229,8 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
+     *         final var main = LbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -234,7 +238,7 @@ public final class LbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -280,7 +284,8 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
+     *         final var main = LbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -288,7 +293,7 @@ public final class LbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -334,7 +339,8 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
+     *         final var main = LbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -342,7 +348,7 @@ public final class LbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -388,7 +394,8 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
+     *         final var main = LbFunctions.getHostedZoneId(GetHostedZoneIdArgs.builder()
+     *             .build());
      * 
      *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
@@ -396,7 +403,7 @@ public final class LbFunctions {
      *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(mainAwsLb.dnsName())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .zoneId(main.id())
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -771,7 +778,7 @@ public final class LbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 
@@ -830,7 +837,7 @@ public final class LbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 
@@ -889,7 +896,7 @@ public final class LbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 
@@ -948,7 +955,7 @@ public final class LbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 
@@ -1007,7 +1014,7 @@ public final class LbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 
@@ -1066,7 +1073,7 @@ public final class LbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 
@@ -1125,7 +1132,7 @@ public final class LbFunctions {
      *             .build());
      * 
      *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .loadBalancerArn(selected.arn())
      *             .port(443)
      *             .build());
      * 

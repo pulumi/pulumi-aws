@@ -63,7 +63,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
+     *         final var token = EcrFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -103,7 +104,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
+     *         final var token = EcrFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -143,7 +145,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
+     *         final var token = EcrFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -183,7 +186,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
+     *         final var token = EcrFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -223,7 +227,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
+     *         final var token = EcrFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -263,7 +268,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
+     *         final var token = EcrFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -303,7 +309,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
+     *         final var token = EcrFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -592,7 +599,7 @@ public final class EcrFunctions {
      * 
      *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -652,7 +659,7 @@ public final class EcrFunctions {
      * 
      *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -712,7 +719,7 @@ public final class EcrFunctions {
      * 
      *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -772,7 +779,7 @@ public final class EcrFunctions {
      * 
      *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -832,7 +839,7 @@ public final class EcrFunctions {
      * 
      *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -892,7 +899,7 @@ public final class EcrFunctions {
      * 
      *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -952,7 +959,7 @@ public final class EcrFunctions {
      * 
      *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
-     *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
+     *             .policy(example.json())
      *             .build());
      * 
      *     }
@@ -1204,7 +1211,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
+     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1245,7 +1252,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
+     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1286,7 +1293,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
+     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1327,7 +1334,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
+     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1368,7 +1375,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
+     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1409,7 +1416,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
+     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1450,7 +1457,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
+     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }

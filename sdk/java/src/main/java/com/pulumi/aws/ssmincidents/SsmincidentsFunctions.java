@@ -50,7 +50,8 @@ public final class SsmincidentsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
+     *         final var example = SsmincidentsFunctions.getReplicationSet(GetReplicationSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -94,7 +95,8 @@ public final class SsmincidentsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
+     *         final var example = SsmincidentsFunctions.getReplicationSet(GetReplicationSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -138,7 +140,8 @@ public final class SsmincidentsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
+     *         final var example = SsmincidentsFunctions.getReplicationSet(GetReplicationSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -182,7 +185,8 @@ public final class SsmincidentsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
+     *         final var example = SsmincidentsFunctions.getReplicationSet(GetReplicationSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -226,7 +230,8 @@ public final class SsmincidentsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
+     *         final var example = SsmincidentsFunctions.getReplicationSet(GetReplicationSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -270,7 +275,8 @@ public final class SsmincidentsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
+     *         final var example = SsmincidentsFunctions.getReplicationSet(GetReplicationSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -314,7 +320,8 @@ public final class SsmincidentsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
+     *         final var example = SsmincidentsFunctions.getReplicationSet(GetReplicationSetArgs.builder()
+     *             .build());
      * 
      *     }
      * }

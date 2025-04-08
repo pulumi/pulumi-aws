@@ -46,7 +46,8 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
+     *         final var example = GuarddutyFunctions.getDetector(GetDetectorArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -86,7 +87,8 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
+     *         final var example = GuarddutyFunctions.getDetector(GetDetectorArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -126,7 +128,8 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
+     *         final var example = GuarddutyFunctions.getDetector(GetDetectorArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -166,7 +169,8 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
+     *         final var example = GuarddutyFunctions.getDetector(GetDetectorArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -206,7 +210,8 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
+     *         final var example = GuarddutyFunctions.getDetector(GetDetectorArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -246,7 +251,8 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
+     *         final var example = GuarddutyFunctions.getDetector(GetDetectorArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -286,7 +292,8 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
+     *         final var example = GuarddutyFunctions.getDetector(GetDetectorArgs.builder()
+     *             .build());
      * 
      *     }
      * }

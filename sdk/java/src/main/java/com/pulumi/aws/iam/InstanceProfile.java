@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *         var role = new Role("role", RoleArgs.builder()
  *             .name("test_role")
  *             .path("/")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var testProfile = new InstanceProfile("testProfile", InstanceProfileArgs.builder()

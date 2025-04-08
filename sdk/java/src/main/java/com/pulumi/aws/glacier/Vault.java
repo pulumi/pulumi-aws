@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                     "ArchiveRetrievalCompleted",
  *                     "InventoryRetrievalCompleted")
  *                 .build())
- *             .accessPolicy(myArchive.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .accessPolicy(myArchive.json())
  *             .tags(Map.of("Test", "MyArchive"))
  *             .build());
  * 

@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         var testDomainPermissions = new DomainPermissions("testDomainPermissions", DomainPermissionsArgs.builder()
  *             .domain(exampleDomain.domain())
- *             .policyDocument(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .policyDocument(test.applyValue(_test -> _test.json()))
  *             .build());
  * 
  *     }

@@ -60,10 +60,10 @@ import javax.annotation.Nullable;
  *             .name("sample_preset")
  *             .audio(PresetAudioArgs.builder()
  *                 .audioPackingMode("SingleTrack")
- *                 .bitRate(96)
- *                 .channels(2)
+ *                 .bitRate("96")
+ *                 .channels("2")
  *                 .codec("AAC")
- *                 .sampleRate(44100)
+ *                 .sampleRate("44100")
  *                 .build())
  *             .audioCodecOptions(PresetAudioCodecOptionsArgs.builder()
  *                 .profile("AAC-LC")
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *                 .fixedGop("false")
  *                 .frameRate("auto")
  *                 .maxFrameRate("60")
- *                 .keyframesMaxDist(240)
+ *                 .keyframesMaxDist("240")
  *                 .maxHeight("auto")
  *                 .maxWidth("auto")
  *                 .paddingPolicy("Pad")
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .videoCodecOptions(Map.ofEntries(
  *                 Map.entry("Profile", "main"),
  *                 Map.entry("Level", "2.2"),
- *                 Map.entry("MaxReferenceFrames", 3),
+ *                 Map.entry("MaxReferenceFrames", "3"),
  *                 Map.entry("InterlacedMode", "Progressive"),
  *                 Map.entry("ColorSpaceConversionMode", "None")
  *             ))
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .thumbnails(PresetThumbnailsArgs.builder()
  *                 .format("png")
- *                 .interval(120)
+ *                 .interval("120")
  *                 .maxWidth("auto")
  *                 .maxHeight("auto")
  *                 .paddingPolicy("Pad")

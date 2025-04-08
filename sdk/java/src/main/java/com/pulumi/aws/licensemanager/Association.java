@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
- *             .ami(example.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .ami(example.id())
  *             .instanceType("t2.micro")
  *             .build());
  * 

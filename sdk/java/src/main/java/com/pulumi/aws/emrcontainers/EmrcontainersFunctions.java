@@ -47,8 +47,8 @@ public final class EmrcontainersFunctions {
      *             .virtualClusterId("example id")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.name()));
-     *         ctx.export("arn", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.arn()));
+     *         ctx.export("name", example.name());
+     *         ctx.export("arn", example.arn());
      *     }
      * }
      * }
@@ -91,8 +91,8 @@ public final class EmrcontainersFunctions {
      *             .virtualClusterId("example id")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.name()));
-     *         ctx.export("arn", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.arn()));
+     *         ctx.export("name", example.name());
+     *         ctx.export("arn", example.arn());
      *     }
      * }
      * }
@@ -135,8 +135,8 @@ public final class EmrcontainersFunctions {
      *             .virtualClusterId("example id")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.name()));
-     *         ctx.export("arn", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.arn()));
+     *         ctx.export("name", example.name());
+     *         ctx.export("arn", example.arn());
      *     }
      * }
      * }
@@ -179,8 +179,8 @@ public final class EmrcontainersFunctions {
      *             .virtualClusterId("example id")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.name()));
-     *         ctx.export("arn", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.arn()));
+     *         ctx.export("name", example.name());
+     *         ctx.export("arn", example.arn());
      *     }
      * }
      * }
@@ -223,8 +223,8 @@ public final class EmrcontainersFunctions {
      *             .virtualClusterId("example id")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.name()));
-     *         ctx.export("arn", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.arn()));
+     *         ctx.export("name", example.name());
+     *         ctx.export("arn", example.arn());
      *     }
      * }
      * }

@@ -481,7 +481,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
+     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -520,7 +520,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
+     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -559,7 +559,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
+     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -598,7 +598,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
+     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -637,7 +637,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
+     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -676,7 +676,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
+     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -715,7 +715,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
+     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -757,10 +757,10 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles();
+     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
-     *             .inferenceProfileId(test.applyValue(getInferenceProfilesResult -> getInferenceProfilesResult.inferenceProfileSummaries()[0].inferenceProfileId()))
+     *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
      *             .build());
      * 
      *     }
@@ -803,10 +803,10 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles();
+     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
-     *             .inferenceProfileId(test.applyValue(getInferenceProfilesResult -> getInferenceProfilesResult.inferenceProfileSummaries()[0].inferenceProfileId()))
+     *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
      *             .build());
      * 
      *     }
@@ -849,10 +849,10 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles();
+     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
-     *             .inferenceProfileId(test.applyValue(getInferenceProfilesResult -> getInferenceProfilesResult.inferenceProfileSummaries()[0].inferenceProfileId()))
+     *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
      *             .build());
      * 
      *     }
@@ -895,10 +895,10 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles();
+     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
-     *             .inferenceProfileId(test.applyValue(getInferenceProfilesResult -> getInferenceProfilesResult.inferenceProfileSummaries()[0].inferenceProfileId()))
+     *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
      *             .build());
      * 
      *     }
@@ -941,10 +941,10 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles();
+     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
-     *             .inferenceProfileId(test.applyValue(getInferenceProfilesResult -> getInferenceProfilesResult.inferenceProfileSummaries()[0].inferenceProfileId()))
+     *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
      *             .build());
      * 
      *     }
@@ -986,7 +986,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles();
+     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1027,7 +1027,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles();
+     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1068,7 +1068,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles();
+     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1109,7 +1109,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles();
+     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1150,7 +1150,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles();
+     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1191,7 +1191,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles();
+     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -1232,7 +1232,7 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles();
+     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }

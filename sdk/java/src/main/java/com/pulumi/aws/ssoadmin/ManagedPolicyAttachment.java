@@ -48,15 +48,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances();
+ *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()
  *             .name("Example")
- *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .instanceArn(example.arns()[0])
  *             .build());
  * 
  *         var exampleManagedPolicyAttachment = new ManagedPolicyAttachment("exampleManagedPolicyAttachment", ManagedPolicyAttachmentArgs.builder()
- *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .instanceArn(example.arns()[0])
  *             .managedPolicyArn("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup")
  *             .permissionSetArn(examplePermissionSet.arn())
  *             .build());
@@ -102,21 +102,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances();
+ *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()
  *             .name("Example")
- *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .instanceArn(example.arns()[0])
  *             .build());
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
- *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+ *             .identityStoreId(example.identityStoreIds()[0])
  *             .displayName("Admin")
  *             .description("Admin Group")
  *             .build());
  * 
  *         var exampleAccountAssignment = new AccountAssignment("exampleAccountAssignment", AccountAssignmentArgs.builder()
- *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .instanceArn(example.arns()[0])
  *             .permissionSetArn(examplePermissionSet.arn())
  *             .principalId(exampleGroup.groupId())
  *             .principalType("GROUP")
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedPolicyAttachment = new ManagedPolicyAttachment("exampleManagedPolicyAttachment", ManagedPolicyAttachmentArgs.builder()
- *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .instanceArn(example.arns()[0])
  *             .managedPolicyArn("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup")
  *             .permissionSetArn(examplePermissionSet.arn())
  *             .build(), CustomResourceOptions.builder()

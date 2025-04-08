@@ -250,7 +250,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var al201709 = new PatchBaseline("al201709", PatchBaselineArgs.builder()
- *             .approvalRules()
+ *             .approvalRules(PatchBaselineApprovalRuleArgs.builder()
+ *                 .build())
  *             .name("Amazon-Linux-2017.09")
  *             .description("My patch repository for Amazon Linux 2017.09")
  *             .operatingSystem("AMAZON_LINUX")

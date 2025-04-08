@@ -34,6 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filemd5Args;
  * import com.pulumi.aws.opensearch.Package;
  * import com.pulumi.aws.opensearch.PackageArgs;
  * import com.pulumi.aws.opensearch.inputs.PackagePackageSourceArgs;

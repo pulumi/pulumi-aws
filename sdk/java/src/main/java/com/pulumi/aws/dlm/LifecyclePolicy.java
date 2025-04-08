@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var dlmLifecycleRole = new Role("dlmLifecycleRole", RoleArgs.builder()
  *             .name("dlm-lifecycle-role")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         final var dlmLifecycle = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *         var dlmLifecycleRolePolicy = new RolePolicy("dlmLifecycleRolePolicy", RolePolicyArgs.builder()
  *             .name("dlm-lifecycle-policy")
  *             .role(dlmLifecycleRole.id())
- *             .policy(dlmLifecycle.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(dlmLifecycle.json())
  *             .build());
  * 
  *         var example = new LifecyclePolicy("example", LifecyclePolicyArgs.builder()
@@ -157,7 +157,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // ...other configuration...
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         final var key = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -165,7 +166,7 @@ import javax.annotation.Nullable;
  *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
- *                     .identifiers(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                     .identifiers(String.format("arn:aws:iam::%s:root", current.accountId()))
  *                     .build())
  *                 .actions("kms:*")
  *                 .resources("*")
@@ -174,7 +175,7 @@ import javax.annotation.Nullable;
  * 
  *         var dlmCrossRegionCopyCmk = new Key("dlmCrossRegionCopyCmk", KeyArgs.builder()
  *             .description("Example Alternate Region KMS Key")
- *             .policy(key.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .policy(key.json())
  *             .build());
  * 
  *         var example = new LifecyclePolicy("example", LifecyclePolicyArgs.builder()
@@ -251,7 +252,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
  *             .description("tf-acc-basic")
@@ -261,7 +263,8 @@ import javax.annotation.Nullable;
  *                 .action(LifecyclePolicyPolicyDetailsActionArgs.builder()
  *                     .name("tf-acc-basic")
  *                     .crossRegionCopies(LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs.builder()
- *                         .encryptionConfiguration()
+ *                         .encryptionConfiguration(LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs.builder()
+ *                             .build())
  *                         .retainRule(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs.builder()
  *                             .interval(15)
  *                             .intervalUnit("MONTHS")
@@ -274,7 +277,7 @@ import javax.annotation.Nullable;
  *                     .parameters(LifecyclePolicyPolicyDetailsEventSourceParametersArgs.builder()
  *                         .descriptionRegex("^.*Created for policy: policy-1234567890abcdef0.*$")
  *                         .eventType("shareSnapshot")
- *                         .snapshotOwners(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                         .snapshotOwners(current.accountId())
  *                         .build())
  *                     .build())
  *                 .build())
@@ -286,7 +289,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .role(exampleAwsIamRole.id())
- *             .policyArn(example.applyValue(getPolicyResult -> getPolicyResult.arn()))
+ *             .policyArn(example.arn())
  *             .build());
  * 
  *     }

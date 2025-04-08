@@ -1092,38 +1092,6 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get("coipPoolId");
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1142,38 +1110,6 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get("coipPoolId");
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1192,38 +1128,6 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get("coipPoolId");
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1242,38 +1146,6 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get("coipPoolId");
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1292,38 +1164,6 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get("coipPoolId");
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1342,38 +1182,6 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get("coipPoolId");
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1392,38 +1200,6 @@ public final class Ec2Functions {
      * The following example returns a specific coip pool ID
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get("coipPoolId");
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1520,13 +1296,13 @@ public final class Ec2Functions {
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
-     *             .amazonSideAsn(7224)
+     *             .amazonSideAsn("7224")
      *             .build());
      * 
      *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.id())
+     *             .type(foo.type())
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -1581,13 +1357,13 @@ public final class Ec2Functions {
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
-     *             .amazonSideAsn(7224)
+     *             .amazonSideAsn("7224")
      *             .build());
      * 
      *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.id())
+     *             .type(foo.type())
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -1642,13 +1418,13 @@ public final class Ec2Functions {
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
-     *             .amazonSideAsn(7224)
+     *             .amazonSideAsn("7224")
      *             .build());
      * 
      *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.id())
+     *             .type(foo.type())
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -1703,13 +1479,13 @@ public final class Ec2Functions {
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
-     *             .amazonSideAsn(7224)
+     *             .amazonSideAsn("7224")
      *             .build());
      * 
      *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.id())
+     *             .type(foo.type())
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -1764,13 +1540,13 @@ public final class Ec2Functions {
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
-     *             .amazonSideAsn(7224)
+     *             .amazonSideAsn("7224")
      *             .build());
      * 
      *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.id())
+     *             .type(foo.type())
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -1825,13 +1601,13 @@ public final class Ec2Functions {
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
-     *             .amazonSideAsn(7224)
+     *             .amazonSideAsn("7224")
      *             .build());
      * 
      *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.id())
+     *             .type(foo.type())
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -1886,13 +1662,13 @@ public final class Ec2Functions {
      * 
      *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
-     *             .amazonSideAsn(7224)
+     *             .amazonSideAsn("7224")
      *             .build());
      * 
      *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.id())
+     *             .type(foo.type())
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -2549,8 +2325,8 @@ public final class Ec2Functions {
      *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
-     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.allocationIds());
+     *         ctx.export("publicIps", example.publicIps());
      *     }
      * }
      * }
@@ -2595,8 +2371,8 @@ public final class Ec2Functions {
      *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
-     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.allocationIds());
+     *         ctx.export("publicIps", example.publicIps());
      *     }
      * }
      * }
@@ -2641,8 +2417,8 @@ public final class Ec2Functions {
      *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
-     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.allocationIds());
+     *         ctx.export("publicIps", example.publicIps());
      *     }
      * }
      * }
@@ -2687,8 +2463,8 @@ public final class Ec2Functions {
      *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
-     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.allocationIds());
+     *         ctx.export("publicIps", example.publicIps());
      *     }
      * }
      * }
@@ -2733,8 +2509,8 @@ public final class Ec2Functions {
      *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
-     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.allocationIds());
+     *         ctx.export("publicIps", example.publicIps());
      *     }
      * }
      * }
@@ -2779,8 +2555,8 @@ public final class Ec2Functions {
      *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
-     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.allocationIds());
+     *         ctx.export("publicIps", example.publicIps());
      *     }
      * }
      * }
@@ -2825,8 +2601,8 @@ public final class Ec2Functions {
      *             .tags(Map.of("Env", "dev"))
      *             .build());
      * 
-     *         ctx.export("allocationIds", example.applyValue(getEipsResult -> getEipsResult.allocationIds()));
-     *         ctx.export("publicIps", example.applyValue(getEipsResult -> getEipsResult.publicIps()));
+     *         ctx.export("allocationIds", example.allocationIds());
+     *         ctx.export("publicIps", example.publicIps());
      *     }
      * }
      * }
@@ -5657,9 +5433,9 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < test.ids().length(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
-     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
+     *                 .instance(test.ids()[range.value()])
      *                 .build());
      * 
      *         
@@ -5722,9 +5498,9 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < test.ids().length(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
-     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
+     *                 .instance(test.ids()[range.value()])
      *                 .build());
      * 
      *         
@@ -5787,9 +5563,9 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < test.ids().length(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
-     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
+     *                 .instance(test.ids()[range.value()])
      *                 .build());
      * 
      *         
@@ -5852,9 +5628,9 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < test.ids().length(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
-     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
+     *                 .instance(test.ids()[range.value()])
      *                 .build());
      * 
      *         
@@ -5917,9 +5693,9 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < test.ids().length(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
-     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
+     *                 .instance(test.ids()[range.value()])
      *                 .build());
      * 
      *         
@@ -5982,9 +5758,9 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < test.ids().length(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
-     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
+     *                 .instance(test.ids()[range.value()])
      *                 .build());
      * 
      *         
@@ -6047,9 +5823,9 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < test.ids().length(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
-     *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
+     *                 .instance(test.ids()[range.value()])
      *                 .build());
      * 
      *         
@@ -6434,7 +6210,7 @@ public final class Ec2Functions {
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
-     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(test.cidr())
      *             .build());
      * 
      *     }
@@ -6488,7 +6264,7 @@ public final class Ec2Functions {
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
-     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(test.cidr())
      *             .build());
      * 
      *     }
@@ -6542,7 +6318,7 @@ public final class Ec2Functions {
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
-     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(test.cidr())
      *             .build());
      * 
      *     }
@@ -6596,7 +6372,7 @@ public final class Ec2Functions {
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
-     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(test.cidr())
      *             .build());
      * 
      *     }
@@ -6650,7 +6426,7 @@ public final class Ec2Functions {
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
-     *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(test.cidr())
      *             .build());
      * 
      *     }
@@ -6702,9 +6478,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
-     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
-     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.fingerprint());
+     *         ctx.export("name", example.keyName());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -6754,9 +6530,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
-     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
-     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.fingerprint());
+     *         ctx.export("name", example.keyName());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -6806,9 +6582,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
-     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
-     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.fingerprint());
+     *         ctx.export("name", example.keyName());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -6858,9 +6634,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
-     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
-     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.fingerprint());
+     *         ctx.export("name", example.keyName());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -6910,9 +6686,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
-     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
-     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.fingerprint());
+     *         ctx.export("name", example.keyName());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -6962,9 +6738,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
-     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
-     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.fingerprint());
+     *         ctx.export("name", example.keyName());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -7014,9 +6790,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("fingerprint", example.applyValue(getKeyPairResult -> getKeyPairResult.fingerprint()));
-     *         ctx.export("name", example.applyValue(getKeyPairResult -> getKeyPairResult.keyName()));
-     *         ctx.export("id", example.applyValue(getKeyPairResult -> getKeyPairResult.id()));
+     *         ctx.export("fingerprint", example.fingerprint());
+     *         ctx.export("name", example.keyName());
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -8492,9 +8268,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
+     *         final var foo = Ec2Functions.getLocalGatewayRouteTables(GetLocalGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -8535,9 +8312,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
+     *         final var foo = Ec2Functions.getLocalGatewayRouteTables(GetLocalGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -8578,9 +8356,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
+     *         final var foo = Ec2Functions.getLocalGatewayRouteTables(GetLocalGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -8621,9 +8400,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
+     *         final var foo = Ec2Functions.getLocalGatewayRouteTables(GetLocalGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -8664,9 +8444,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
+     *         final var foo = Ec2Functions.getLocalGatewayRouteTables(GetLocalGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -8707,9 +8488,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
+     *         final var foo = Ec2Functions.getLocalGatewayRouteTables(GetLocalGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -8750,9 +8532,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getLocalGatewayRouteTables();
+     *         final var foo = Ec2Functions.getLocalGatewayRouteTables(GetLocalGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewayRouteTablesResult -> getLocalGatewayRouteTablesResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -9169,7 +8952,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups(GetLocalGatewayVirtualInterfaceGroupsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9209,7 +8993,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups(GetLocalGatewayVirtualInterfaceGroupsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9249,7 +9034,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups(GetLocalGatewayVirtualInterfaceGroupsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9289,7 +9075,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups(GetLocalGatewayVirtualInterfaceGroupsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9329,7 +9116,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups(GetLocalGatewayVirtualInterfaceGroupsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9369,7 +9157,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups(GetLocalGatewayVirtualInterfaceGroupsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9409,7 +9198,8 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups(GetLocalGatewayVirtualInterfaceGroupsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -9455,7 +9245,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -9500,7 +9290,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -9545,7 +9335,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -9590,7 +9380,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -9635,7 +9425,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -9680,7 +9470,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -9725,7 +9515,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getLocalGatewaysResult -> getLocalGatewaysResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -9769,10 +9559,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
      *             .build());
      * 
      *     }
@@ -9856,10 +9647,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
      *             .build());
      * 
      *     }
@@ -9943,10 +9735,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
      *             .build());
      * 
      *     }
@@ -10030,10 +9823,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
      *             .build());
      * 
      *     }
@@ -10117,10 +9911,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
      *             .build());
      * 
      *     }
@@ -10204,10 +9999,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
      *             .build());
      * 
      *     }
@@ -10291,10 +10087,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
+     *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+     *             .build());
      * 
      *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format("com.amazonaws.%s.dynamodb", current.applyValue(getRegionResult -> getRegionResult.name())))
+     *             .name(String.format("com.amazonaws.%s.dynamodb", current.name()))
      *             .build());
      * 
      *     }
@@ -11119,7 +10916,7 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -11239,7 +11036,7 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -11359,7 +11156,7 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -11479,7 +11276,7 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -11599,7 +11396,7 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -11719,7 +11516,7 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -11839,7 +11636,7 @@ public final class Ec2Functions {
      *             .vpcId(vpcId)
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkAclsResult -> getNetworkAclsResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -12837,9 +12634,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces();
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -12875,7 +12673,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.ids());
      *     }
      * }
      * }
@@ -12915,7 +12713,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -12954,9 +12752,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces();
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -12992,7 +12791,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.ids());
      *     }
      * }
      * }
@@ -13032,7 +12831,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -13071,9 +12870,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces();
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -13109,7 +12909,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.ids());
      *     }
      * }
      * }
@@ -13149,7 +12949,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -13188,9 +12988,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces();
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -13226,7 +13027,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.ids());
      *     }
      * }
      * }
@@ -13266,7 +13067,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -13305,9 +13106,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces();
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -13343,7 +13145,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.ids());
      *     }
      * }
      * }
@@ -13383,7 +13185,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -13422,9 +13224,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces();
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -13460,7 +13263,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.ids());
      *     }
      * }
      * }
@@ -13500,7 +13303,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -13539,9 +13342,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces();
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -13577,7 +13381,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Name", "test"))
      *             .build());
      * 
-     *         ctx.export("example1", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example1", example.ids());
      *     }
      * }
      * }
@@ -13617,7 +13421,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getNetworkInterfacesResult -> getNetworkInterfacesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -13689,7 +13493,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -13803,7 +13607,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -13917,7 +13721,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -14031,7 +13835,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -14145,7 +13949,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -14259,7 +14063,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -14373,7 +14177,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol("tcp")
      *             .ruleAction("allow")
-     *             .cidrBlock(privateS3.applyValue(getPrefixListResult -> getPrefixListResult).applyValue(privateS3 -> privateS3.applyValue(getPrefixListResult -> getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3.applyValue(_privateS3 -> _privateS3.cidrBlocks()[0]))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -14677,7 +14481,8 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Returns all public IPv4 pools.
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -14758,7 +14563,8 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Returns all public IPv4 pools.
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -14839,7 +14645,8 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Returns all public IPv4 pools.
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -14920,7 +14727,8 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Returns all public IPv4 pools.
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -15001,7 +14809,8 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Returns all public IPv4 pools.
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -15082,7 +14891,8 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Returns all public IPv4 pools.
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -15163,7 +14973,8 @@ public final class Ec2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         // Returns all public IPv4 pools.
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
+     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -15259,7 +15070,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -> getRouteResult.networkInterfaceId()))
+     *             .id(route.networkInterfaceId())
      *             .build());
      * 
      *     }
@@ -15318,7 +15129,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -> getRouteResult.networkInterfaceId()))
+     *             .id(route.networkInterfaceId())
      *             .build());
      * 
      *     }
@@ -15377,7 +15188,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -> getRouteResult.networkInterfaceId()))
+     *             .id(route.networkInterfaceId())
      *             .build());
      * 
      *     }
@@ -15436,7 +15247,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -> getRouteResult.networkInterfaceId()))
+     *             .id(route.networkInterfaceId())
      *             .build());
      * 
      *     }
@@ -15495,7 +15306,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -> getRouteResult.networkInterfaceId()))
+     *             .id(route.networkInterfaceId())
      *             .build());
      * 
      *     }
@@ -15549,7 +15360,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var route = new Route("route", RouteArgs.builder()
-     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .routeTableId(selected.id())
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
@@ -15605,7 +15416,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var route = new Route("route", RouteArgs.builder()
-     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .routeTableId(selected.id())
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
@@ -15661,7 +15472,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var route = new Route("route", RouteArgs.builder()
-     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .routeTableId(selected.id())
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
@@ -15717,7 +15528,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var route = new Route("route", RouteArgs.builder()
-     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .routeTableId(selected.id())
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
@@ -15773,7 +15584,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var route = new Route("route", RouteArgs.builder()
-     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .routeTableId(selected.id())
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
@@ -15829,7 +15640,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var route = new Route("route", RouteArgs.builder()
-     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .routeTableId(selected.id())
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
@@ -15885,7 +15696,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var route = new Route("route", RouteArgs.builder()
-     *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
+     *             .routeTableId(selected.id())
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
      *             .build());
@@ -15943,9 +15754,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < rts.ids().length(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
-     *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
+     *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
      *                 .build());
@@ -16005,9 +15816,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < rts.ids().length(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
-     *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
+     *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
      *                 .build());
@@ -16067,9 +15878,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < rts.ids().length(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
-     *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
+     *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
      *                 .build());
@@ -16129,9 +15940,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < rts.ids().length(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
-     *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
+     *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
      *                 .build());
@@ -16191,9 +16002,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < rts.ids().length(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
-     *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
+     *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
      *                 .build());
@@ -16253,9 +16064,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < rts.ids().length(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
-     *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
+     *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
      *                 .build());
@@ -16315,9 +16126,9 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
+     *         for (var i = 0; i < rts.ids().length(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
-     *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
+     *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
      *                 .build());
@@ -16378,7 +16189,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnet = new Subnet("subnet", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
@@ -16436,7 +16247,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnet = new Subnet("subnet", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
@@ -16494,7 +16305,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnet = new Subnet("subnet", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
@@ -16552,7 +16363,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnet = new Subnet("subnet", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
@@ -16610,7 +16421,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnet = new Subnet("subnet", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
@@ -16668,7 +16479,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnet = new Subnet("subnet", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
@@ -16726,7 +16537,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnet = new Subnet("subnet", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
      * 
@@ -17369,7 +17180,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
+     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17408,7 +17219,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
+     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17447,7 +17258,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
+     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17486,7 +17297,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
+     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17525,7 +17336,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
+     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17564,7 +17375,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
+     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17603,7 +17414,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
+     *         final var current = Ec2Functions.getSerialConsoleAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17644,7 +17455,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17685,7 +17496,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17726,7 +17537,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17767,7 +17578,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17808,7 +17619,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17849,7 +17660,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -17890,7 +17701,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -18273,9 +18084,9 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
@@ -18374,9 +18185,9 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
@@ -18475,9 +18286,9 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
@@ -18576,9 +18387,9 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
@@ -18677,9 +18488,9 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
@@ -18778,9 +18589,9 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
@@ -18879,9 +18690,9 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
+     *             .vpcId(selected.vpcId())
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.cidrBlock())
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol("tcp")
@@ -19017,9 +18828,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getTransitGatewayRouteTables();
+     *         final var example = Ec2Functions.getTransitGatewayRouteTables(GetTransitGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -19060,9 +18872,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getTransitGatewayRouteTables();
+     *         final var example = Ec2Functions.getTransitGatewayRouteTables(GetTransitGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -19103,9 +18916,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getTransitGatewayRouteTables();
+     *         final var example = Ec2Functions.getTransitGatewayRouteTables(GetTransitGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -19146,9 +18960,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getTransitGatewayRouteTables();
+     *         final var example = Ec2Functions.getTransitGatewayRouteTables(GetTransitGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -19189,9 +19004,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getTransitGatewayRouteTables();
+     *         final var example = Ec2Functions.getTransitGatewayRouteTables(GetTransitGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -19232,9 +19048,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getTransitGatewayRouteTables();
+     *         final var example = Ec2Functions.getTransitGatewayRouteTables(GetTransitGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -19275,9 +19092,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getTransitGatewayRouteTables();
+     *         final var example = Ec2Functions.getTransitGatewayRouteTables(GetTransitGatewayRouteTablesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getTransitGatewayRouteTablesResult -> getTransitGatewayRouteTablesResult.ids()));
+     *         ctx.export("example", example.ids());
      *     }
      * }
      * }
@@ -19313,6 +19131,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -19333,10 +19153,10 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .vpcId(selected.id())
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
+     *                 .input(selected.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -19377,6 +19197,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -19397,10 +19219,10 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .vpcId(selected.id())
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
+     *                 .input(selected.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -19441,6 +19263,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -19461,10 +19285,10 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .vpcId(selected.id())
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
+     *                 .input(selected.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -19505,6 +19329,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -19525,10 +19351,10 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .vpcId(selected.id())
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
+     *                 .input(selected.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -19569,6 +19395,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -19589,10 +19417,10 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .vpcId(selected.id())
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
+     *                 .input(selected.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -19633,6 +19461,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -19653,10 +19483,10 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .vpcId(selected.id())
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
+     *                 .input(selected.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -19697,6 +19527,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.CidrsubnetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -19717,10 +19549,10 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
+     *             .vpcId(selected.id())
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
+     *                 .input(selected.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(1)
      *                 .build()).result())
@@ -20383,7 +20215,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.id())
      *             .routeTableId(private_.id())
      *             .build());
      * 
@@ -20435,7 +20267,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.id())
      *             .routeTableId(private_.id())
      *             .build());
      * 
@@ -20487,7 +20319,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.id())
      *             .routeTableId(private_.id())
      *             .build());
      * 
@@ -20539,7 +20371,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.id())
      *             .routeTableId(private_.id())
      *             .build());
      * 
@@ -20591,7 +20423,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.id())
      *             .routeTableId(private_.id())
      *             .build());
      * 
@@ -20643,7 +20475,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.id())
      *             .routeTableId(private_.id())
      *             .build());
      * 
@@ -20695,7 +20527,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.id())
      *             .routeTableId(private_.id())
      *             .build());
      * 
@@ -20758,7 +20590,7 @@ public final class Ec2Functions {
      *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.serviceName())
      *             .build());
      * 
      *     }
@@ -20893,7 +20725,7 @@ public final class Ec2Functions {
      *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.serviceName())
      *             .build());
      * 
      *     }
@@ -21028,7 +20860,7 @@ public final class Ec2Functions {
      *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.serviceName())
      *             .build());
      * 
      *     }
@@ -21163,7 +20995,7 @@ public final class Ec2Functions {
      *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.serviceName())
      *             .build());
      * 
      *     }
@@ -21298,7 +21130,7 @@ public final class Ec2Functions {
      *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.serviceName())
      *             .build());
      * 
      *     }
@@ -21433,7 +21265,7 @@ public final class Ec2Functions {
      *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.serviceName())
      *             .build());
      * 
      *     }
@@ -21568,7 +21400,7 @@ public final class Ec2Functions {
      *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.serviceName())
      *             .build());
      * 
      *     }
@@ -21705,7 +21537,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -21774,7 +21606,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -21843,7 +21675,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -21912,7 +21744,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -21981,7 +21813,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -22050,7 +21882,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -22119,7 +21951,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -22183,7 +22015,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.id())
      *             .build());
      * 
      *     }
@@ -22251,7 +22083,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.id())
      *             .build());
      * 
      *     }
@@ -22319,7 +22151,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.id())
      *             .build());
      * 
      *     }
@@ -22387,7 +22219,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.id())
      *             .build());
      * 
      *     }
@@ -22455,7 +22287,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.id())
      *             .build());
      * 
      *     }
@@ -23154,7 +22986,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -23219,7 +23051,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -23284,7 +23116,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -23349,7 +23181,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -23414,7 +23246,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -23479,7 +23311,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -23544,7 +23376,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
-     *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipv4IpamPoolId(test.id())
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -23604,7 +23436,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.id())
      *             .build());
      * 
      *     }
@@ -23668,7 +23500,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.id())
      *             .build());
      * 
      *     }
@@ -23732,7 +23564,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.id())
      *             .build());
      * 
      *     }
@@ -23796,7 +23628,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.id())
      *             .build());
      * 
      *     }
@@ -23860,7 +23692,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         final var c = Ec2Functions.getVpcIpamPoolCidrs(GetVpcIpamPoolCidrsArgs.builder()
-     *             .ipamPoolId(p.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
+     *             .ipamPoolId(p.id())
      *             .build());
      * 
      *     }
@@ -25143,8 +24975,8 @@ public final class Ec2Functions {
      *         // Create a route
      *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.peerCidrBlock())
+     *             .vpcPeeringConnectionId(pc.id())
      *             .build());
      * 
      *     }
@@ -25204,8 +25036,8 @@ public final class Ec2Functions {
      *         // Create a route
      *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.peerCidrBlock())
+     *             .vpcPeeringConnectionId(pc.id())
      *             .build());
      * 
      *     }
@@ -25265,8 +25097,8 @@ public final class Ec2Functions {
      *         // Create a route
      *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.peerCidrBlock())
+     *             .vpcPeeringConnectionId(pc.id())
      *             .build());
      * 
      *     }
@@ -25326,8 +25158,8 @@ public final class Ec2Functions {
      *         // Create a route
      *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.peerCidrBlock())
+     *             .vpcPeeringConnectionId(pc.id())
      *             .build());
      * 
      *     }
@@ -25387,8 +25219,8 @@ public final class Ec2Functions {
      *         // Create a route
      *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.peerCidrBlock())
+     *             .vpcPeeringConnectionId(pc.id())
      *             .build());
      * 
      *     }
@@ -25448,8 +25280,8 @@ public final class Ec2Functions {
      *         // Create a route
      *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.peerCidrBlock())
+     *             .vpcPeeringConnectionId(pc.id())
      *             .build());
      * 
      *     }
@@ -25509,8 +25341,8 @@ public final class Ec2Functions {
      *         // Create a route
      *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.peerCidrBlock())
+     *             .vpcPeeringConnectionId(pc.id())
      *             .build());
      * 
      *     }
@@ -25671,7 +25503,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -25723,7 +25555,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -25775,7 +25607,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -25827,7 +25659,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -25879,7 +25711,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -25931,7 +25763,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -25983,7 +25815,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("service", "production"))
      *             .build());
      * 
-     *         ctx.export("foo", foo.applyValue(getVpcsResult -> getVpcsResult.ids()));
+     *         ctx.export("foo", foo.ids());
      *     }
      * }
      * }
@@ -26035,7 +25867,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.id());
      *     }
      * }
      * }
@@ -26082,7 +25914,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.id());
      *     }
      * }
      * }
@@ -26129,7 +25961,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.id());
      *     }
      * }
      * }
@@ -26176,7 +26008,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.id());
      *     }
      * }
      * }
@@ -26223,7 +26055,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.id());
      *     }
      * }
      * }
@@ -26270,7 +26102,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.id());
      *     }
      * }
      * }
@@ -26317,7 +26149,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("vpnGatewayId", selected.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
+     *         ctx.export("vpnGatewayId", selected.id());
      *     }
      * }
      * }

@@ -64,16 +64,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var current = AwsFunctions.getPartition();
+ *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
  *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .certificateSigningRequest(exampleCertificateAuthority.certificateSigningRequest())
  *             .signingAlgorithm("SHA512WITHRSA")
- *             .templateArn(String.format("arn:%s:acm-pca:::template/RootCACertificate/V1", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
+ *             .templateArn(String.format("arn:%s:acm-pca:::template/RootCACertificate/V1", current.partition()))
  *             .validity(CertificateValidityArgs.builder()
  *                 .type("YEARS")
- *                 .value(1)
+ *                 .value("1")
  *                 .build())
  *             .build());
  * 
@@ -138,16 +139,17 @@ import javax.annotation.Nullable;
  * 
  *         var root = new CertificateAuthority("root");
  * 
- *         final var current = AwsFunctions.getPartition();
+ *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
  * 
  *         var subordinateCertificate = new Certificate("subordinateCertificate", CertificateArgs.builder()
  *             .certificateAuthorityArn(root.arn())
  *             .certificateSigningRequest(subordinateCertificateAuthority.certificateSigningRequest())
  *             .signingAlgorithm("SHA512WITHRSA")
- *             .templateArn(String.format("arn:%s:acm-pca:::template/SubordinateCACertificate_PathLen0/V1", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
+ *             .templateArn(String.format("arn:%s:acm-pca:::template/SubordinateCACertificate_PathLen0/V1", current.partition()))
  *             .validity(CertificateValidityArgs.builder()
  *                 .type("YEARS")
- *                 .value(1)
+ *                 .value("1")
  *                 .build())
  *             .build());
  * 

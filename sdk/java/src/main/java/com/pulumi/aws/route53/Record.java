@@ -327,10 +327,10 @@ import javax.annotation.Nullable;
  *             .type("NS")
  *             .zoneId(example.zoneId())
  *             .records(            
- *                 example.nameServers().applyValue(nameServers -> nameServers[0]),
- *                 example.nameServers().applyValue(nameServers -> nameServers[1]),
- *                 example.nameServers().applyValue(nameServers -> nameServers[2]),
- *                 example.nameServers().applyValue(nameServers -> nameServers[3]))
+ *                 example.nameServers().applyValue(_nameServers -> _nameServers[0]),
+ *                 example.nameServers().applyValue(_nameServers -> _nameServers[1]),
+ *                 example.nameServers().applyValue(_nameServers -> _nameServers[2]),
+ *                 example.nameServers().applyValue(_nameServers -> _nameServers[3]))
  *             .build());
  * 
  *     }

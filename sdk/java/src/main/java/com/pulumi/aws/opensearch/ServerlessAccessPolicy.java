@@ -47,7 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new ServerlessAccessPolicy("example", ServerlessAccessPolicyArgs.builder()
  *             .name("example")
@@ -67,7 +68,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Permission", jsonArray("aoss:*"))
  *                         )
  *                     )),
- *                     jsonProperty("Principal", jsonArray(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn())))
+ *                     jsonProperty("Principal", jsonArray(current.arn()))
  *                 ))))
  *             .build());
  * 
@@ -105,7 +106,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
  * 
  *         var example = new ServerlessAccessPolicy("example", ServerlessAccessPolicyArgs.builder()
  *             .name("example")
@@ -128,7 +130,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("Permission", jsonArray("aoss:DescribeCollectionItems"))
  *                         )
  *                     )),
- *                     jsonProperty("Principal", jsonArray(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn())))
+ *                     jsonProperty("Principal", jsonArray(current.arn()))
  *                 ))))
  *             .build());
  * 

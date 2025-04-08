@@ -50,12 +50,14 @@ import javax.annotation.Nullable;
  *         var example = new ResolverFirewallDomainList("example", ResolverFirewallDomainListArgs.builder()
  *             .name("example")
  *             .domains("example.com")
- *             .tags()
+ *             .tags(Map.ofEntries(
+ *             ))
  *             .build());
  * 
  *         var exampleResolverFirewallRuleGroup = new ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", ResolverFirewallRuleGroupArgs.builder()
  *             .name("example")
- *             .tags()
+ *             .tags(Map.ofEntries(
+ *             ))
  *             .build());
  * 
  *         var exampleResolverFirewallRule = new ResolverFirewallRule("exampleResolverFirewallRule", ResolverFirewallRuleArgs.builder()
