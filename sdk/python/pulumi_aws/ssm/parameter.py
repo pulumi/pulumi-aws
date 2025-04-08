@@ -44,6 +44,7 @@ class ParameterArgs:
         :param pulumi.Input[str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         :param pulumi.Input[str] key_id: KMS key ID or ARN for encrypting a SecureString.
         :param pulumi.Input[str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
@@ -173,6 +174,9 @@ class ParameterArgs:
     @property
     @pulumi.getter
     def overwrite(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
+        """
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
@@ -242,6 +246,7 @@ class _ParameterState:
         :param pulumi.Input[str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         :param pulumi.Input[str] key_id: KMS key ID or ARN for encrypting a SecureString.
         :param pulumi.Input[str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
@@ -370,6 +375,9 @@ class _ParameterState:
     @property
     @pulumi.getter
     def overwrite(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
+        """
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
@@ -471,6 +479,10 @@ class Parameter(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an SSM Parameter resource.
+
+        > **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of IAC.
+
         ## Example Usage
 
         ### Basic example
@@ -529,6 +541,7 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         :param pulumi.Input[str] key_id: KMS key ID or ARN for encrypting a SecureString.
         :param pulumi.Input[str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[Union[str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
@@ -543,6 +556,10 @@ class Parameter(pulumi.CustomResource):
                  args: ParameterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an SSM Parameter resource.
+
+        > **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of IAC.
+
         ## Example Usage
 
         ### Basic example
@@ -684,6 +701,7 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         :param pulumi.Input[str] key_id: KMS key ID or ARN for encrypting a SecureString.
         :param pulumi.Input[str] name: Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+        :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
@@ -772,6 +790,9 @@ class Parameter(pulumi.CustomResource):
     @property
     @pulumi.getter
     def overwrite(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
+        """
         return pulumi.get(self, "overwrite")
 
     @property

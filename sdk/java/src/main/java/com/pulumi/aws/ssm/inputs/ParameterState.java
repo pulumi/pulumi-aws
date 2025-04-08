@@ -125,9 +125,17 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
+     * 
+     */
     @Import(name="overwrite")
     private @Nullable Output<Boolean> overwrite;
 
+    /**
+     * @return Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
+     * 
+     */
     public Optional<Output<Boolean>> overwrite() {
         return Optional.ofNullable(this.overwrite);
     }
@@ -418,11 +426,23 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param overwrite Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overwrite(@Nullable Output<Boolean> overwrite) {
             $.overwrite = overwrite;
             return this;
         }
 
+        /**
+         * @param overwrite Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overwrite(Boolean overwrite) {
             return overwrite(Output.of(overwrite));
         }

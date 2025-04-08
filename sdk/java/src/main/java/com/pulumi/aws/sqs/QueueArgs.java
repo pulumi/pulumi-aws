@@ -183,9 +183,17 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.namePrefix);
     }
 
+    /**
+     * JSON policy for the SQS queue. For more information about building AWS IAM policy documents see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.QueuePolicy` resource instead.
+     * 
+     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
+    /**
+     * @return JSON policy for the SQS queue. For more information about building AWS IAM policy documents see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.QueuePolicy` resource instead.
+     * 
+     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
@@ -205,16 +213,32 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.receiveWaitTimeSeconds);
     }
 
+    /**
+     * JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedriveAllowPolicy` resource instead.
+     * 
+     */
     @Import(name="redriveAllowPolicy")
     private @Nullable Output<String> redriveAllowPolicy;
 
+    /**
+     * @return JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedriveAllowPolicy` resource instead.
+     * 
+     */
     public Optional<Output<String>> redriveAllowPolicy() {
         return Optional.ofNullable(this.redriveAllowPolicy);
     }
 
+    /**
+     * JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`&#34;5&#34;`).
+     * 
+     */
     @Import(name="redrivePolicy")
     private @Nullable Output<String> redrivePolicy;
 
+    /**
+     * @return JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`&#34;5&#34;`).
+     * 
+     */
     public Optional<Output<String>> redrivePolicy() {
         return Optional.ofNullable(this.redrivePolicy);
     }
@@ -536,11 +560,23 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
             return namePrefix(Output.of(namePrefix));
         }
 
+        /**
+         * @param policy JSON policy for the SQS queue. For more information about building AWS IAM policy documents see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.QueuePolicy` resource instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy JSON policy for the SQS queue. For more information about building AWS IAM policy documents see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.QueuePolicy` resource instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
@@ -566,20 +602,44 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
             return receiveWaitTimeSeconds(Output.of(receiveWaitTimeSeconds));
         }
 
+        /**
+         * @param redriveAllowPolicy JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedriveAllowPolicy` resource instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder redriveAllowPolicy(@Nullable Output<String> redriveAllowPolicy) {
             $.redriveAllowPolicy = redriveAllowPolicy;
             return this;
         }
 
+        /**
+         * @param redriveAllowPolicy JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedriveAllowPolicy` resource instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder redriveAllowPolicy(String redriveAllowPolicy) {
             return redriveAllowPolicy(Output.of(redriveAllowPolicy));
         }
 
+        /**
+         * @param redrivePolicy JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`&#34;5&#34;`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder redrivePolicy(@Nullable Output<String> redrivePolicy) {
             $.redrivePolicy = redrivePolicy;
             return this;
         }
 
+        /**
+         * @param redrivePolicy JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`&#34;5&#34;`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder redrivePolicy(String redrivePolicy) {
             return redrivePolicy(Output.of(redrivePolicy));
         }

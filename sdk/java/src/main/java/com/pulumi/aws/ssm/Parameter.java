@@ -19,6 +19,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an SSM Parameter resource.
+ * 
+ * &gt; **Note:** The `overwrite` argument makes it possible to overwrite an existing SSM Parameter created outside of IAC.
+ * 
  * ## Example Usage
  * 
  * ### Basic example
@@ -221,9 +225,17 @@ public class Parameter extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
+     * 
+     */
     @Export(name="overwrite", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overwrite;
 
+    /**
+     * @return Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
+     * 
+     */
     public Output<Optional<Boolean>> overwrite() {
         return Codegen.optional(this.overwrite);
     }
