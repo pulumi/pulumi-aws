@@ -1688,7 +1688,9 @@ func TestMigrateRdsInstance(t *testing.T) {
 	    "response": {
 	      "stables": "*",
 	      "changes": "*",
-	      "hasDetailedDiff": true
+	      "hasDetailedDiff": true,
+		  "detailedDiff": "*",
+		  "diffs": "*"
 	    }
 	  }
 	]`
